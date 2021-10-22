@@ -163,6 +163,16 @@ namespace PatientInformationSystemNew.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap medical_staff_icon {
+            get {
+                object obj = ResourceManager.GetObject("medical_staff_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap no_profile_picture {
             get {
                 object obj = ResourceManager.GetObject("no_profile_picture", resourceCulture);

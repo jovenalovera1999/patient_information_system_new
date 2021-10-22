@@ -51,6 +51,10 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WinForms.12.0.2402.15\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\joven joshua alovera\Documents\dll folder\MySql.Data.DLL</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,11 +68,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\Connections.cs" />
+    <Compile Include="components\Values.cs" />
     <Compile Include="forms\frmAddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmAddPatient.Designer.cs">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmDoctorProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmDoctorProfile.Designer.cs">
+      <DependentUpon>frmDoctorProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmDoctorsPatientProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmDoctorsPatientProfile.Designer.cs">
+      <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmDoctorsPatientsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmDoctorsPatientsList.Designer.cs">
+      <DependentUpon>frmDoctorsPatientsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmListOfDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmListOfDoctors.Designer.cs">
+      <DependentUpon>frmListOfDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmListOfMedicalStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmListOfMedicalStaff.Designer.cs">
+      <DependentUpon>frmListOfMedicalStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmMedicalStaffProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmMedicalStaffProfile.Designer.cs">
+      <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmPatientPrescription.cs">
       <SubType>Form</SubType>
@@ -118,11 +160,11 @@
     <Compile Include="forms\frmPatient.Designer.cs">
       <DependentUpon>frmPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmProfile.cs">
+    <Compile Include="forms\frmMyProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmProfile.Designer.cs">
-      <DependentUpon>frmProfile.cs</DependentUpon>
+    <Compile Include="forms\frmMyProfile.Designer.cs">
+      <DependentUpon>frmMyProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmSchedule.cs">
       <SubType>Form</SubType>
@@ -136,10 +178,29 @@
     <Compile Include="forms\frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="functions\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmAddPatient.resx">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDoctorProfile.resx">
+      <DependentUpon>frmDoctorProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDoctorsPatientProfile.resx">
+      <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDoctorsPatientsList.resx">
+      <DependentUpon>frmDoctorsPatientsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmListOfDoctors.resx">
+      <DependentUpon>frmListOfDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmListOfMedicalStaff.resx">
+      <DependentUpon>frmListOfMedicalStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmMedicalStaffProfile.resx">
+      <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPatientPrescription.resx">
       <DependentUpon>frmPatientPrescription.cs</DependentUpon>
@@ -165,8 +226,8 @@
     <EmbeddedResource Include="forms\frmPatient.resx">
       <DependentUpon>frmPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmProfile.resx">
-      <DependentUpon>frmProfile.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmMyProfile.resx">
+      <DependentUpon>frmMyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmSchedule.resx">
       <DependentUpon>frmSchedule.cs</DependentUpon>
@@ -198,10 +259,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="components\" />
-    <Folder Include="functions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\login_icon.png" />
   </ItemGroup>
@@ -267,6 +325,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\generate_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medical_staff_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

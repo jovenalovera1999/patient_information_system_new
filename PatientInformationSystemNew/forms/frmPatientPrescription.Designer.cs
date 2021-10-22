@@ -51,6 +51,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView3)).BeginInit();
@@ -89,7 +90,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(454, 78);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(500, 78);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             this.guna2DataGridView1.RowHeadersVisible = false;
@@ -97,7 +98,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView1.RowTemplate.Height = 55;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(576, 858);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(530, 858);
             this.guna2DataGridView1.TabIndex = 109;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -126,7 +127,7 @@ namespace PatientInformationSystemNew.forms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(446, 22);
+            this.label6.Location = new System.Drawing.Point(492, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(320, 46);
             this.label6.TabIndex = 108;
@@ -173,7 +174,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView2.RowTemplate.Height = 55;
             this.guna2DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(410, 383);
+            this.guna2DataGridView2.Size = new System.Drawing.Size(455, 383);
             this.guna2DataGridView2.TabIndex = 111;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -249,7 +250,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView3.RowTemplate.Height = 55;
             this.guna2DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView3.Size = new System.Drawing.Size(410, 402);
+            this.guna2DataGridView3.Size = new System.Drawing.Size(455, 402);
             this.guna2DataGridView3.TabIndex = 113;
             this.guna2DataGridView3.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView3.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -290,11 +291,12 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox4.BorderRadius = 5;
             this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.White;
+            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
             this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox4.Enabled = false;
             this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
             this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -357,11 +359,11 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPrescription.DisabledState.Parent = this.btnPrescription;
-            this.btnPrescription.FillColor = System.Drawing.Color.Lime;
+            this.btnPrescription.FillColor = System.Drawing.Color.Blue;
             this.btnPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnPrescription.ForeColor = System.Drawing.Color.White;
             this.btnPrescription.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnPrescription.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnPrescription.HoverState.FillColor = System.Drawing.Color.Blue;
             this.btnPrescription.HoverState.Parent = this.btnPrescription;
             this.btnPrescription.Image = global::PatientInformationSystemNew.Properties.Resources.generate_icon;
             this.btnPrescription.ImageSize = new System.Drawing.Size(30, 30);
@@ -395,10 +397,10 @@ namespace PatientInformationSystemNew.forms
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
             this.guna2Button1.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(1683, 797);
+            this.guna2Button1.Location = new System.Drawing.Point(1678, 797);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(126, 62);
+            this.guna2Button1.Size = new System.Drawing.Size(131, 62);
             this.guna2Button1.TabIndex = 177;
             this.guna2Button1.Text = "Edit";
             // 
@@ -432,12 +434,44 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.TabIndex = 178;
             this.btnBack.Text = "Back";
             // 
+            // guna2Button5
+            // 
+            this.guna2Button5.Animated = true;
+            this.guna2Button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.guna2Button5.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button5.BorderRadius = 5;
+            this.guna2Button5.BorderThickness = 1;
+            this.guna2Button5.CheckedState.Parent = this.guna2Button5;
+            this.guna2Button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button5.CustomImages.Parent = this.guna2Button5;
+            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button5.DisabledState.Parent = this.guna2Button5;
+            this.guna2Button5.Enabled = false;
+            this.guna2Button5.FillColor = System.Drawing.Color.Lime;
+            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.guna2Button5.ForeColor = System.Drawing.Color.White;
+            this.guna2Button5.HoverState.BorderColor = System.Drawing.Color.White;
+            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.guna2Button5.HoverState.Parent = this.guna2Button5;
+            this.guna2Button5.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.guna2Button5.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button5.Location = new System.Drawing.Point(1678, 720);
+            this.guna2Button5.Name = "guna2Button5";
+            this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
+            this.guna2Button5.Size = new System.Drawing.Size(131, 62);
+            this.guna2Button5.TabIndex = 194;
+            this.guna2Button5.Text = "Save";
+            // 
             // frmPatientPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1830, 958);
+            this.Controls.Add(this.guna2Button5);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.btnPrescription);
@@ -480,5 +514,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnPrescription;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
+        private Guna.UI2.WinForms.Guna2Button guna2Button5;
     }
 }
