@@ -33,8 +33,8 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardHeader = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlDashboardLeftSide = new System.Windows.Forms.Panel();
-            this.pnlDashboardBody = new System.Windows.Forms.Panel();
             this.btnProfile = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnSignUp = new Guna.UI2.WinForms.Guna2Button();
@@ -42,10 +42,10 @@ namespace PatientInformationSystemNew.forms
             this.btnDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pnlDashboardBody = new System.Windows.Forms.Panel();
             this.pnlDashboardHeader.SuspendLayout();
-            this.pnlDashboardLeftSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.pnlDashboardLeftSide.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDashboardHeader
@@ -82,6 +82,20 @@ namespace PatientInformationSystemNew.forms
             this.label2.Text = "St. Louise de Marillac";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(130, 122);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 0;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // pnlDashboardLeftSide
             // 
             this.pnlDashboardLeftSide.Controls.Add(this.btnProfile);
@@ -96,15 +110,6 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardLeftSide.Name = "pnlDashboardLeftSide";
             this.pnlDashboardLeftSide.Size = new System.Drawing.Size(221, 958);
             this.pnlDashboardLeftSide.TabIndex = 1;
-            // 
-            // pnlDashboardBody
-            // 
-            this.pnlDashboardBody.BackColor = System.Drawing.Color.DodgerBlue;
-            this.pnlDashboardBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDashboardBody.Location = new System.Drawing.Point(221, 122);
-            this.pnlDashboardBody.Name = "pnlDashboardBody";
-            this.pnlDashboardBody.Size = new System.Drawing.Size(1699, 958);
-            this.pnlDashboardBody.TabIndex = 2;
             // 
             // btnProfile
             // 
@@ -135,6 +140,7 @@ namespace PatientInformationSystemNew.forms
             this.btnProfile.Size = new System.Drawing.Size(221, 54);
             this.btnProfile.TabIndex = 16;
             this.btnProfile.Text = "Profile";
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnLogout
             // 
@@ -319,19 +325,14 @@ namespace PatientInformationSystemNew.forms
             this.btnSchedule.Text = "Schedule";
             this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
-            // guna2CirclePictureBox1
+            // pnlDashboardBody
             // 
-            this.guna2CirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(130, 122);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.pnlDashboardBody.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnlDashboardBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDashboardBody.Location = new System.Drawing.Point(221, 122);
+            this.pnlDashboardBody.Name = "pnlDashboardBody";
+            this.pnlDashboardBody.Size = new System.Drawing.Size(1699, 958);
+            this.pnlDashboardBody.TabIndex = 2;
             // 
             // frmDashboard
             // 
@@ -349,8 +350,8 @@ namespace PatientInformationSystemNew.forms
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlDashboardHeader.ResumeLayout(false);
             this.pnlDashboardHeader.PerformLayout();
-            this.pnlDashboardLeftSide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.pnlDashboardLeftSide.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

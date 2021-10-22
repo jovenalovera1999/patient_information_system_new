@@ -104,7 +104,7 @@ namespace PatientInformationSystemNew.forms
             this.txtUsername.SelectedText = "";
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(405, 45);
-            this.txtUsername.TabIndex = 6;
+            this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
@@ -126,12 +126,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPassword.Location = new System.Drawing.Point(24, 433);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
             this.txtPassword.Size = new System.Drawing.Size(405, 45);
-            this.txtPassword.TabIndex = 8;
+            this.txtPassword.TabIndex = 1;
             // 
             // label4
             // 
@@ -193,7 +193,7 @@ namespace PatientInformationSystemNew.forms
             this.btnExit.Name = "btnExit";
             this.btnExit.ShadowDecoration.Parent = this.btnExit;
             this.btnExit.Size = new System.Drawing.Size(123, 54);
-            this.btnExit.TabIndex = 10;
+            this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
             // 
             // btnLogin
@@ -223,8 +223,9 @@ namespace PatientInformationSystemNew.forms
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.ShadowDecoration.Parent = this.btnLogin;
             this.btnLogin.Size = new System.Drawing.Size(123, 54);
-            this.btnLogin.TabIndex = 9;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // guna2CirclePictureBox1
             // 
@@ -260,6 +261,7 @@ namespace PatientInformationSystemNew.forms
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

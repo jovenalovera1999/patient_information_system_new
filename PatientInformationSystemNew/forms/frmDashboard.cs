@@ -46,5 +46,16 @@ namespace PatientInformationSystemNew.forms
             frmSignUp.Dock = DockStyle.Fill;
             frmSignUp.Show();
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            forms.frmMyProfile frmMyProfile = new forms.frmMyProfile();
+            frmMyProfile.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmMyProfile);
+            frmMyProfile.Dock = DockStyle.Fill;
+            frmMyProfile.Show();
+        }
     }
 }
