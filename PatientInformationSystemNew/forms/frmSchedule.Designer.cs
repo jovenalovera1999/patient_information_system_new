@@ -162,7 +162,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView1.RowTemplate.Height = 55;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1699, 655);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1830, 655);
             this.guna2DataGridView1.TabIndex = 25;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -252,7 +252,7 @@ namespace PatientInformationSystemNew.forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1699, 958);
+            this.ClientSize = new System.Drawing.Size(1830, 958);
             this.Controls.Add(this.btnCancelPatient);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.guna2DataGridView1);

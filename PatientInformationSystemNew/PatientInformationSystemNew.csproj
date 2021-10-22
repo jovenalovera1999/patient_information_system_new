@@ -36,6 +36,21 @@
     <Reference Include="Guna.UI2, Version=2.0.2.3, Culture=neutral, PublicKeyToken=e4b9cdd7b4cde4b4, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.2.3\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WinForms.12.0.2402.15\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +69,24 @@
     </Compile>
     <Compile Include="forms\frmAddPatient.Designer.cs">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPatientPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPatientPrescription.Designer.cs">
+      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPatientProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPatientProfile.Designer.cs">
+      <DependentUpon>frmPatientProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPaymentTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPaymentTransaction.Designer.cs">
+      <DependentUpon>frmPaymentTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmConsultation.cs">
       <SubType>Form</SubType>
@@ -107,6 +140,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmAddPatient.resx">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPatientPrescription.resx">
+      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPatientProfile.resx">
+      <DependentUpon>frmPatientProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPaymentTransaction.resx">
+      <DependentUpon>frmPaymentTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmConsultation.resx">
       <DependentUpon>frmConsultation.cs</DependentUpon>
@@ -210,6 +252,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transact_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment_history_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prescription_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\generate_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

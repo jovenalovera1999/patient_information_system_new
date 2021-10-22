@@ -65,8 +65,6 @@ namespace PatientInformationSystemNew.forms
             this.label14 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -74,8 +72,12 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.guna2TextBox13 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnPrescription = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2TextBox14 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox15 = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -113,14 +115,14 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(955, 245);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(1363, 245);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(446, 692);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(446, 610);
             this.guna2DataGridView1.TabIndex = 96;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -166,12 +168,12 @@ namespace PatientInformationSystemNew.forms
             this.btnRemove.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnRemove.HoverState.Parent = this.btnRemove;
             this.btnRemove.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnRemove.Location = new System.Drawing.Point(1140, 175);
+            this.btnRemove.Location = new System.Drawing.Point(1493, 175);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.ShadowDecoration.Parent = this.btnRemove;
-            this.btnRemove.Size = new System.Drawing.Size(123, 54);
+            this.btnRemove.Size = new System.Drawing.Size(150, 54);
             this.btnRemove.TabIndex = 95;
-            this.btnRemove.Text = "Remove";
+            this.btnRemove.Text = "Remove Prescription";
             // 
             // btnAdd
             // 
@@ -195,12 +197,12 @@ namespace PatientInformationSystemNew.forms
             this.btnAdd.HoverState.FillColor = System.Drawing.Color.Blue;
             this.btnAdd.HoverState.Parent = this.btnAdd;
             this.btnAdd.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAdd.Location = new System.Drawing.Point(1278, 175);
+            this.btnAdd.Location = new System.Drawing.Point(1659, 175);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
-            this.btnAdd.Size = new System.Drawing.Size(123, 54);
+            this.btnAdd.Size = new System.Drawing.Size(150, 54);
             this.btnAdd.TabIndex = 94;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add Prescription";
             // 
             // guna2TextBox11
             // 
@@ -219,7 +221,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox11.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox11.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox11.HoverState.Parent = this.guna2TextBox11;
-            this.guna2TextBox11.Location = new System.Drawing.Point(955, 116);
+            this.guna2TextBox11.Location = new System.Drawing.Point(1363, 116);
             this.guna2TextBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox11.Name = "guna2TextBox11";
             this.guna2TextBox11.PasswordChar = '\0';
@@ -234,7 +236,7 @@ namespace PatientInformationSystemNew.forms
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(950, 75);
+            this.label16.Location = new System.Drawing.Point(1358, 75);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(159, 28);
             this.label16.TabIndex = 92;
@@ -245,7 +247,7 @@ namespace PatientInformationSystemNew.forms
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(947, 19);
+            this.label17.Location = new System.Drawing.Point(1355, 19);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(184, 46);
             this.label17.TabIndex = 91;
@@ -284,14 +286,14 @@ namespace PatientInformationSystemNew.forms
             this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
             this.guna2DataGridView2.EnableHeadersVisualStyles = false;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.Location = new System.Drawing.Point(492, 699);
+            this.guna2DataGridView2.Location = new System.Drawing.Point(957, 244);
             this.guna2DataGridView2.Name = "guna2DataGridView2";
             this.guna2DataGridView2.ReadOnly = true;
             this.guna2DataGridView2.RowHeadersVisible = false;
             this.guna2DataGridView2.RowHeadersWidth = 51;
             this.guna2DataGridView2.RowTemplate.Height = 24;
             this.guna2DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(446, 238);
+            this.guna2DataGridView2.Size = new System.Drawing.Size(385, 611);
             this.guna2DataGridView2.TabIndex = 104;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -337,12 +339,12 @@ namespace PatientInformationSystemNew.forms
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.Red;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(677, 630);
+            this.guna2Button1.Location = new System.Drawing.Point(1056, 175);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(123, 54);
+            this.guna2Button1.Size = new System.Drawing.Size(135, 54);
             this.guna2Button1.TabIndex = 103;
-            this.guna2Button1.Text = "Remove";
+            this.guna2Button1.Text = "Remove Diagnosis";
             // 
             // guna2Button2
             // 
@@ -366,12 +368,12 @@ namespace PatientInformationSystemNew.forms
             this.guna2Button2.HoverState.FillColor = System.Drawing.Color.Blue;
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
             this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button2.Location = new System.Drawing.Point(815, 630);
+            this.guna2Button2.Location = new System.Drawing.Point(1207, 175);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(123, 54);
+            this.guna2Button2.Size = new System.Drawing.Size(135, 54);
             this.guna2Button2.TabIndex = 102;
-            this.guna2Button2.Text = "Add";
+            this.guna2Button2.Text = "Add Diagnosis";
             // 
             // guna2TextBox12
             // 
@@ -390,14 +392,14 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox12.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox12.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox12.HoverState.Parent = this.guna2TextBox12;
-            this.guna2TextBox12.Location = new System.Drawing.Point(492, 571);
+            this.guna2TextBox12.Location = new System.Drawing.Point(957, 116);
             this.guna2TextBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox12.Name = "guna2TextBox12";
             this.guna2TextBox12.PasswordChar = '\0';
             this.guna2TextBox12.PlaceholderText = "";
             this.guna2TextBox12.SelectedText = "";
             this.guna2TextBox12.ShadowDecoration.Parent = this.guna2TextBox12;
-            this.guna2TextBox12.Size = new System.Drawing.Size(446, 45);
+            this.guna2TextBox12.Size = new System.Drawing.Size(385, 45);
             this.guna2TextBox12.TabIndex = 101;
             // 
             // label18
@@ -405,7 +407,7 @@ namespace PatientInformationSystemNew.forms
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(487, 530);
+            this.label18.Location = new System.Drawing.Point(952, 75);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(151, 28);
             this.label18.TabIndex = 100;
@@ -416,7 +418,7 @@ namespace PatientInformationSystemNew.forms
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(484, 474);
+            this.label19.Location = new System.Drawing.Point(949, 19);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(171, 46);
             this.label19.TabIndex = 99;
@@ -440,7 +442,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox10.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox10.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox10.HoverState.Parent = this.guna2TextBox10;
-            this.guna2TextBox10.Location = new System.Drawing.Point(492, 415);
+            this.guna2TextBox10.Location = new System.Drawing.Point(492, 811);
             this.guna2TextBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox10.Name = "guna2TextBox10";
             this.guna2TextBox10.PasswordChar = '\0';
@@ -455,7 +457,7 @@ namespace PatientInformationSystemNew.forms
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(487, 374);
+            this.label11.Location = new System.Drawing.Point(487, 770);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(105, 28);
             this.label11.TabIndex = 130;
@@ -479,7 +481,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox9.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox9.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox9.HoverState.Parent = this.guna2TextBox9;
-            this.guna2TextBox9.Location = new System.Drawing.Point(492, 315);
+            this.guna2TextBox9.Location = new System.Drawing.Point(492, 711);
             this.guna2TextBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox9.Name = "guna2TextBox9";
             this.guna2TextBox9.PasswordChar = '\0';
@@ -494,7 +496,7 @@ namespace PatientInformationSystemNew.forms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(487, 274);
+            this.label5.Location = new System.Drawing.Point(487, 670);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 28);
             this.label5.TabIndex = 128;
@@ -518,7 +520,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(492, 216);
+            this.guna2TextBox2.Location = new System.Drawing.Point(492, 612);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
@@ -533,7 +535,7 @@ namespace PatientInformationSystemNew.forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(487, 175);
+            this.label2.Location = new System.Drawing.Point(487, 571);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 28);
             this.label2.TabIndex = 126;
@@ -557,7 +559,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox5.HoverState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Location = new System.Drawing.Point(492, 116);
+            this.guna2TextBox5.Location = new System.Drawing.Point(492, 512);
             this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox5.Name = "guna2TextBox5";
             this.guna2TextBox5.PasswordChar = '\0';
@@ -572,7 +574,7 @@ namespace PatientInformationSystemNew.forms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(487, 75);
+            this.label3.Location = new System.Drawing.Point(487, 471);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 28);
             this.label3.TabIndex = 124;
@@ -583,7 +585,7 @@ namespace PatientInformationSystemNew.forms
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(484, 19);
+            this.label4.Location = new System.Drawing.Point(484, 415);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 46);
             this.label4.TabIndex = 123;
@@ -607,7 +609,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox8.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox8.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox8.HoverState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Location = new System.Drawing.Point(29, 856);
+            this.guna2TextBox8.Location = new System.Drawing.Point(492, 314);
             this.guna2TextBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox8.Name = "guna2TextBox8";
             this.guna2TextBox8.PasswordChar = '\0';
@@ -622,7 +624,7 @@ namespace PatientInformationSystemNew.forms
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(24, 815);
+            this.label15.Location = new System.Drawing.Point(487, 273);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(63, 28);
             this.label15.TabIndex = 121;
@@ -646,7 +648,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox6.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox6.HoverState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Location = new System.Drawing.Point(29, 758);
+            this.guna2TextBox6.Location = new System.Drawing.Point(492, 216);
             this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox6.Name = "guna2TextBox6";
             this.guna2TextBox6.PasswordChar = '\0';
@@ -661,7 +663,7 @@ namespace PatientInformationSystemNew.forms
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(24, 717);
+            this.label12.Location = new System.Drawing.Point(487, 175);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 28);
             this.label12.TabIndex = 119;
@@ -685,7 +687,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox7.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox7.HoverState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Location = new System.Drawing.Point(29, 658);
+            this.guna2TextBox7.Location = new System.Drawing.Point(492, 116);
             this.guna2TextBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox7.Name = "guna2TextBox7";
             this.guna2TextBox7.PasswordChar = '\0';
@@ -700,7 +702,7 @@ namespace PatientInformationSystemNew.forms
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(24, 617);
+            this.label13.Location = new System.Drawing.Point(487, 75);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(181, 28);
             this.label13.TabIndex = 117;
@@ -711,7 +713,7 @@ namespace PatientInformationSystemNew.forms
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(21, 561);
+            this.label14.Location = new System.Drawing.Point(484, 19);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(329, 46);
             this.label14.TabIndex = 116;
@@ -735,7 +737,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(29, 512);
+            this.guna2TextBox1.Location = new System.Drawing.Point(29, 612);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
@@ -750,70 +752,18 @@ namespace PatientInformationSystemNew.forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 471);
+            this.label1.Location = new System.Drawing.Point(24, 571);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 28);
             this.label1.TabIndex = 114;
             this.label1.Text = "Address:";
-            // 
-            // guna2ComboBox2
-            // 
-            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderRadius = 5;
-            this.guna2ComboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.Enabled = false;
-            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.Blue;
-            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2ComboBox2.FocusedState.Parent = this.guna2ComboBox2;
-            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2ComboBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox2.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2ComboBox2.HoverState.Parent = this.guna2ComboBox2;
-            this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.guna2ComboBox2.ItemsAppearance.Parent = this.guna2ComboBox2;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(29, 414);
-            this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.ShadowDecoration.Parent = this.guna2ComboBox2;
-            this.guna2ComboBox2.Size = new System.Drawing.Size(130, 36);
-            this.guna2ComboBox2.TabIndex = 113;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 5;
-            this.guna2ComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.Enabled = false;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Blue;
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(29, 314);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(130, 36);
-            this.guna2ComboBox1.TabIndex = 112;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(24, 374);
+            this.label9.Location = new System.Drawing.Point(24, 474);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 28);
             this.label9.TabIndex = 111;
@@ -824,7 +774,7 @@ namespace PatientInformationSystemNew.forms
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(24, 274);
+            this.label10.Location = new System.Drawing.Point(24, 374);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 28);
             this.label10.TabIndex = 110;
@@ -919,6 +869,45 @@ namespace PatientInformationSystemNew.forms
             this.label6.TabIndex = 105;
             this.label6.Text = "Personal Information:";
             // 
+            // guna2TextBox13
+            // 
+            this.guna2TextBox13.Animated = true;
+            this.guna2TextBox13.BorderRadius = 5;
+            this.guna2TextBox13.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox13.DefaultText = "";
+            this.guna2TextBox13.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox13.DisabledState.FillColor = System.Drawing.Color.White;
+            this.guna2TextBox13.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox13.DisabledState.Parent = this.guna2TextBox13;
+            this.guna2TextBox13.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox13.Enabled = false;
+            this.guna2TextBox13.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.guna2TextBox13.FocusedState.Parent = this.guna2TextBox13;
+            this.guna2TextBox13.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.guna2TextBox13.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox13.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.guna2TextBox13.HoverState.Parent = this.guna2TextBox13;
+            this.guna2TextBox13.Location = new System.Drawing.Point(29, 314);
+            this.guna2TextBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox13.Name = "guna2TextBox13";
+            this.guna2TextBox13.PasswordChar = '\0';
+            this.guna2TextBox13.PlaceholderText = "";
+            this.guna2TextBox13.SelectedText = "";
+            this.guna2TextBox13.ShadowDecoration.Parent = this.guna2TextBox13;
+            this.guna2TextBox13.Size = new System.Drawing.Size(446, 45);
+            this.guna2TextBox13.TabIndex = 133;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(24, 273);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(107, 28);
+            this.label20.TabIndex = 132;
+            this.label20.Text = "Last Name:";
+            // 
             // btnBack
             // 
             this.btnBack.Animated = true;
@@ -942,7 +931,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.HoverState.Parent = this.btnBack;
             this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
             this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBack.Location = new System.Drawing.Point(1484, 875);
+            this.btnBack.Location = new System.Drawing.Point(1476, 875);
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(131, 62);
@@ -972,7 +961,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription.HoverState.Parent = this.btnPrescription;
             this.btnPrescription.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnPrescription.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPrescription.Location = new System.Drawing.Point(1630, 875);
+            this.btnPrescription.Location = new System.Drawing.Point(1622, 875);
             this.btnPrescription.Name = "btnPrescription";
             this.btnPrescription.ShadowDecoration.Parent = this.btnPrescription;
             this.btnPrescription.Size = new System.Drawing.Size(187, 62);
@@ -980,12 +969,72 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription.Text = "Prescription";
             this.btnPrescription.Click += new System.EventHandler(this.btnPrescription_Click);
             // 
+            // guna2TextBox14
+            // 
+            this.guna2TextBox14.Animated = true;
+            this.guna2TextBox14.BorderRadius = 5;
+            this.guna2TextBox14.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox14.DefaultText = "";
+            this.guna2TextBox14.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox14.DisabledState.FillColor = System.Drawing.Color.White;
+            this.guna2TextBox14.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox14.DisabledState.Parent = this.guna2TextBox14;
+            this.guna2TextBox14.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox14.Enabled = false;
+            this.guna2TextBox14.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.guna2TextBox14.FocusedState.Parent = this.guna2TextBox14;
+            this.guna2TextBox14.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.guna2TextBox14.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox14.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.guna2TextBox14.HoverState.Parent = this.guna2TextBox14;
+            this.guna2TextBox14.Location = new System.Drawing.Point(29, 415);
+            this.guna2TextBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox14.Name = "guna2TextBox14";
+            this.guna2TextBox14.PasswordChar = '\0';
+            this.guna2TextBox14.PlaceholderText = "";
+            this.guna2TextBox14.SelectedText = "";
+            this.guna2TextBox14.ShadowDecoration.Parent = this.guna2TextBox14;
+            this.guna2TextBox14.Size = new System.Drawing.Size(130, 45);
+            this.guna2TextBox14.TabIndex = 134;
+            // 
+            // guna2TextBox15
+            // 
+            this.guna2TextBox15.Animated = true;
+            this.guna2TextBox15.BorderRadius = 5;
+            this.guna2TextBox15.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox15.DefaultText = "";
+            this.guna2TextBox15.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2TextBox15.DisabledState.FillColor = System.Drawing.Color.White;
+            this.guna2TextBox15.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox15.DisabledState.Parent = this.guna2TextBox15;
+            this.guna2TextBox15.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox15.Enabled = false;
+            this.guna2TextBox15.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.guna2TextBox15.FocusedState.Parent = this.guna2TextBox15;
+            this.guna2TextBox15.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.guna2TextBox15.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox15.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.guna2TextBox15.HoverState.Parent = this.guna2TextBox15;
+            this.guna2TextBox15.Location = new System.Drawing.Point(29, 512);
+            this.guna2TextBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox15.Name = "guna2TextBox15";
+            this.guna2TextBox15.PasswordChar = '\0';
+            this.guna2TextBox15.PlaceholderText = "";
+            this.guna2TextBox15.SelectedText = "";
+            this.guna2TextBox15.ShadowDecoration.Parent = this.guna2TextBox15;
+            this.guna2TextBox15.Size = new System.Drawing.Size(130, 45);
+            this.guna2TextBox15.TabIndex = 135;
+            // 
             // frmConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1699, 958);
+            this.ClientSize = new System.Drawing.Size(1830, 958);
+            this.Controls.Add(this.guna2TextBox15);
+            this.Controls.Add(this.guna2TextBox14);
+            this.Controls.Add(this.guna2TextBox13);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.guna2TextBox10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.guna2TextBox9);
@@ -1004,8 +1053,6 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label14);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2ComboBox2);
-            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.guna2TextBox3);
@@ -1073,8 +1120,6 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
@@ -1082,5 +1127,9 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox13;
+        private System.Windows.Forms.Label label20;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox14;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox15;
     }
 }

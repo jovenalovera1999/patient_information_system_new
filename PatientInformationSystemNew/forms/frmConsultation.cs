@@ -26,7 +26,6 @@ namespace PatientInformationSystemNew.forms
             pnlDashboardBody.Controls.Add(frmConsultationPrescription);
             frmConsultationPrescription.Dock = DockStyle.Fill;
             frmConsultationPrescription.Show();
-            this.Close();
         }
     }
 }

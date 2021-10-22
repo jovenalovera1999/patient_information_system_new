@@ -16,5 +16,11 @@ namespace PatientInformationSystemNew.forms
         {
             InitializeComponent();
         }
+
+        private void frmConsultationPrescription_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

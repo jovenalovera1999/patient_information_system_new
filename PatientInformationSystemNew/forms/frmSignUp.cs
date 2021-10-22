@@ -16,5 +16,10 @@ namespace PatientInformationSystemNew.forms
         {
             InitializeComponent();
         }
+
+        private void frmSignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

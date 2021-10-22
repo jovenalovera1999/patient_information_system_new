@@ -24,12 +24,26 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
+            forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+            frmPatientProfile.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPatientProfile);
+            frmPatientProfile.Dock = DockStyle.Fill;
+            frmPatientProfile.Show();
+            this.Close();
         }
 
         private void btnPaymentTransaction_Click(object sender, EventArgs e)
         {
-
+            forms.frmPaymentTransaction frmPaymentTransaction = new forms.frmPaymentTransaction();
+            frmPaymentTransaction.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPaymentTransaction);
+            frmPaymentTransaction.Dock = DockStyle.Fill;
+            frmPaymentTransaction.Show();
+            this.Close();
         }
 
         private void btnAddPatient_Click(object sender, EventArgs e)
