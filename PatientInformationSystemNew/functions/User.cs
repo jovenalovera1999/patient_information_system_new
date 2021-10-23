@@ -40,7 +40,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@email, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@role, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@specialization, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@specialization, 'jovencutegwapo123')
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -71,7 +71,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error adding a user: " + ex.ToString());
+                Console.WriteLine("Error adding a user with profile picture: " + ex.ToString());
                 return false;
             }
         }
@@ -102,7 +102,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@email, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@role, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@specialization, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@specialization, 'jovencutegwapo123')
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -132,7 +132,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error adding a user: " + ex.ToString());
+                Console.WriteLine("Error adding a user without profile picture: " + ex.ToString());
                 return false;
             }
         }
@@ -155,6 +155,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
                                     age,
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
+                                    birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR),
@@ -185,6 +186,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
                             val.UserAge = dt.Rows[0].Field<int>("age");
                             val.UserAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
+                            val.UserBirthday = dt.Rows[0].Field<DateTime>("birthday");
                             val.UserCellphoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
                             val.UserTelephoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR)");
                             val.UserEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR)");
@@ -201,6 +203,78 @@ namespace PatientInformationSystemNew.functions
                 }
             }
             catch(Exception ex)
+            {
+                Console.WriteLine("Error authenticating user: " + ex.ToString());
+                return false;
+            }
+        }
+
+        // User authentication for fixed Administrator only
+        public bool userAuthenticationForAdministratorOnly(string username, string password)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(user_id, 'jovencutegwapo123') AS CHAR),
+                                    profile_picture,
+                                    CAST(AES_DECRYPT(username, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(password, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
+                                    age,
+                                    CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
+                                    birthday,
+                                    CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(role, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR)
+                                    FROM patient_information_db.users
+                                    WHERE CAST(AES_DECRYPT(username, 'jovencutegwapo123') AS CHAR) = @username AND 
+                                    CAST(AES_DECRYPT(password, 'jovencutegwapo123') AS CHAR) = @password;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count == 1)
+                        {
+                            val.UserID = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(user_id, 'jovencutegwapo123') AS CHAR)");
+                            val.UserProfilePicture = dt.Rows[0].Field<byte[]>("profile_picture");
+                            val.UserUsername = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(username, 'jovencutegwapo123') AS CHAR)");
+                            val.UserPassword = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(password, 'jovencutegwapo123') AS CHAR)");
+                            val.UserFirstName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR)");
+                            val.UserMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
+                            val.UserLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
+                            val.UserGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
+                            val.UserAge = dt.Rows[0].Field<int>("age");
+                            val.UserAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
+                            val.UserBirthday = DateTime.Now;
+                            val.UserCellphoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
+                            val.UserTelephoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR)");
+                            val.UserEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR)");
+                            val.UserRole = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(role, 'jovencutegwapo123') AS CHAR)");
+                            val.UserSpecialization = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR)");
+
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Error authenticating user: " + ex.ToString());
                 return false;

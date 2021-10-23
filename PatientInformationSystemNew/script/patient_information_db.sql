@@ -4,7 +4,7 @@ CREATE DATABASE patient_information_db;
 
 CREATE TABLE patient_information_db.users (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    user_id                             VARBINARY(16) NOT NULL,
+    user_id                             VARBINARY(55) NOT NULL,
     profile_picture                     BLOB DEFAULT NULL,
     username                            VARBINARY(55) NOT NULL,
     password                            VARBINARY(55) NOT NULL,
@@ -14,6 +14,7 @@ CREATE TABLE patient_information_db.users (
     gender                              VARBINARY(55) NOT NULL,
     age                                 INT(3) NOT NULL,
     address                             VARBINARY(55) NOT NULL,
+    birthday                            DATE,
     cellphone_number                    VARBINARY(55) DEFAULT NULL,
     telephone_number                    VARBINARY(55) DEFAULT NULL,
     email                               VARBINARY(55) DEFAULT NULL,
@@ -43,7 +44,7 @@ VALUES(
 
 CREATE TABLE patient_information_db.waiting_list (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(16) NOT NULL,
+    patient_id                          VARBINARY(55) NOT NULL,
     first_name                          VARBINARY(55) NOT NULL,
     middle_name                         VARBINARY(55) DEFAULT NULL,
     last_name                           VARBINARY(55) NOT NULL,
@@ -60,7 +61,7 @@ CREATE TABLE patient_information_db.waiting_list (
 
 CREATE TABLE patient_information_db.patients (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(16) NOT NULL,
+    patient_id                          VARBINARY(55) NOT NULL,
     first_name                          VARBINARY(55) NOT NULL,
     middle_name                         VARBINARY(55) DEFAULT NULL,
     last_name                           VARBINARY(55) NOT NULL,
@@ -88,7 +89,7 @@ CREATE TABLE patient_information_db.vital_signs (
 
 CREATE TABLE patient_information_db.diagnosis (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(16) NOT NULL,
+    patient_id                          VARBINARY(55) NOT NULL,
     diagnosis                           VARBINARY(55) DEFAULT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -96,7 +97,7 @@ CREATE TABLE patient_information_db.diagnosis (
 
 CREATE TABLE patient_information_db.symptoms (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(16) NOT NULL,
+    patient_id                          VARBINARY(55) NOT NULL,
     symptoms                            VARBINARY(55) DEFAULT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -104,17 +105,19 @@ CREATE TABLE patient_information_db.symptoms (
 
 CREATE TABLE patient_information_db.prescriptions (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(16) NOT NULL,
-    prescriptions                       VARBINARY(300) DEFAULT NULL,
+    patient_id                          VARBINARY(55) NOT NULL,
+    prescriptions                       VARBINARY(500) DEFAULT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
 
 CREATE TABLE patient_information_db.transactions (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(16) NOT NULL,
-    receipt_no                          VARBINARY(16) NOT NULL,
-    full_name                           VARBINARY(55) NOT NULL,
+    patient_id                          VARBINARY(55) NOT NULL,
+    receipt_no                          VARBINARY(55) NOT NULL,
+    first_name                          VARBINARY(55) NOT NULL,
+    middle_name                         VARBINARY(55) DEFAULT NULL,
+    last_name                           VARBINARY(55) NOT NULL,
     doctor                              VARBINARY(55) NOT NULL,
     total_medical_fee                   DOUBLE NOT NULL,
     discount                            VARBINARY(55) DEFAULT NULL,
@@ -127,10 +130,10 @@ CREATE TABLE patient_information_db.transactions (
 
 CREATE TABLE patient_information_db.inventory (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    supply_id                           VARBINARY(16) NOT NULL,
+    supply_id                           VARBINARY(55) NOT NULL,
     supply_name                         VARBINARY(55) NOT NULL,
     quantity                            INT(16) NOT NULL,
-    expiration_date                     DATE DEFAULT NULL,
+    expiration_date                     DATE,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );

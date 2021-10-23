@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
+using System.IO;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -27,10 +27,18 @@ namespace PatientInformationSystemNew.forms
             {
                 this.cmbAge.Items.Add(i);
             }
+
             if(val.UserRole != "Doctor")
             {
                 this.btnViewMyPatient.Visible = false;
             }
+
+            if(val.UserProfilePicture != null)
+            {
+                MemoryStream ms = new MemoryStream(val.UserProfilePicture);
+                this.picProfilePicture.Image = Image.FromStream(ms);
+            }
+
             this.txtMyID.Text = val.UserID;
             this.txtUsername.Text = val.UserUsername;
             this.txtPassword.Text = val.UserPassword;
@@ -40,6 +48,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbGender.Text = val.UserGender;
             this.cmbAge.Text = val.UserAge.ToString();
             this.txtAddress.Text = val.UserAddress;
+            this.dateBirthday.Value = val.UserBirthday;
             this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
             this.txtTelephoneNumber.Text = val.UserTelephoneNumber;
             this.txtEmail.Text = val.UserEmail;

@@ -57,5 +57,17 @@ namespace PatientInformationSystemNew.forms
             frmMyProfile.Dock = DockStyle.Fill;
             frmMyProfile.Show();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+                == DialogResult.Yes)
+            {
+                forms.frmLogin login = new forms.frmLogin();
+                login.Show();
+                this.pnlDashboardBody.Controls.Clear();
+                this.Close();
+            }
+        }
     }
 }

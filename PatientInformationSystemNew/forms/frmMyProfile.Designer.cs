@@ -63,12 +63,12 @@ namespace PatientInformationSystemNew.forms
             this.btnViewMyPatient = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRemovePhoto = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUploadPhoto = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.picProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dateBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.btnRemovePhoto = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUploadPhoto = new Guna.UI2.WinForms.Guna2Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLastName
@@ -719,6 +719,56 @@ namespace PatientInformationSystemNew.forms
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // picProfilePicture
+            // 
+            this.picProfilePicture.BackgroundImage = global::PatientInformationSystemNew.Properties.Resources.no_profile_picture;
+            this.picProfilePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picProfilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picProfilePicture.FillColor = System.Drawing.Color.Transparent;
+            this.picProfilePicture.ImageRotate = 0F;
+            this.picProfilePicture.Location = new System.Drawing.Point(21, 21);
+            this.picProfilePicture.Name = "picProfilePicture";
+            this.picProfilePicture.ShadowDecoration.Parent = this.picProfilePicture;
+            this.picProfilePicture.Size = new System.Drawing.Size(237, 226);
+            this.picProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picProfilePicture.TabIndex = 208;
+            this.picProfilePicture.TabStop = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(739, 670);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(89, 28);
+            this.label21.TabIndex = 217;
+            this.label21.Text = "Birthday:";
+            // 
+            // dateBirthday
+            // 
+            this.dateBirthday.Animated = true;
+            this.dateBirthday.BorderColor = System.Drawing.Color.Transparent;
+            this.dateBirthday.BorderRadius = 5;
+            this.dateBirthday.BorderThickness = 1;
+            this.dateBirthday.CheckedState.Parent = this.dateBirthday;
+            this.dateBirthday.Enabled = false;
+            this.dateBirthday.FillColor = System.Drawing.Color.Blue;
+            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateBirthday.ForeColor = System.Drawing.Color.White;
+            this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateBirthday.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateBirthday.HoverState.Parent = this.dateBirthday;
+            this.dateBirthday.Location = new System.Drawing.Point(744, 710);
+            this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateBirthday.Name = "dateBirthday";
+            this.dateBirthday.ShadowDecoration.Parent = this.dateBirthday;
+            this.dateBirthday.Size = new System.Drawing.Size(446, 45);
+            this.dateBirthday.TabIndex = 216;
+            this.dateBirthday.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
+            // 
             // btnRemovePhoto
             // 
             this.btnRemovePhoto.Animated = true;
@@ -742,11 +792,11 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.HoverState.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Image = global::PatientInformationSystemNew.Properties.Resources.delete_icon;
             this.btnRemovePhoto.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnRemovePhoto.Location = new System.Drawing.Point(146, 272);
+            this.btnRemovePhoto.Location = new System.Drawing.Point(146, 255);
             this.btnRemovePhoto.Name = "btnRemovePhoto";
             this.btnRemovePhoto.ShadowDecoration.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Size = new System.Drawing.Size(112, 105);
-            this.btnRemovePhoto.TabIndex = 17;
+            this.btnRemovePhoto.TabIndex = 219;
             this.btnRemovePhoto.Text = "Remove Photo";
             this.btnRemovePhoto.Visible = false;
             // 
@@ -773,61 +823,13 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.HoverState.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Image = global::PatientInformationSystemNew.Properties.Resources.upload_photo_icon;
             this.btnUploadPhoto.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUploadPhoto.Location = new System.Drawing.Point(21, 272);
+            this.btnUploadPhoto.Location = new System.Drawing.Point(21, 255);
             this.btnUploadPhoto.Name = "btnUploadPhoto";
             this.btnUploadPhoto.ShadowDecoration.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Size = new System.Drawing.Size(106, 105);
-            this.btnUploadPhoto.TabIndex = 16;
+            this.btnUploadPhoto.TabIndex = 218;
             this.btnUploadPhoto.Text = "Upload Photo";
             this.btnUploadPhoto.Visible = false;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackgroundImage = global::PatientInformationSystemNew.Properties.Resources.no_profile_picture;
-            this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.guna2PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 21);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(237, 226);
-            this.guna2PictureBox1.TabIndex = 208;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(739, 670);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(89, 28);
-            this.label21.TabIndex = 217;
-            this.label21.Text = "Birthday:";
-            // 
-            // dateBirthday
-            // 
-            this.dateBirthday.Animated = true;
-            this.dateBirthday.BorderColor = System.Drawing.Color.Transparent;
-            this.dateBirthday.BorderRadius = 5;
-            this.dateBirthday.BorderThickness = 1;
-            this.dateBirthday.CheckedState.Parent = this.dateBirthday;
-            this.dateBirthday.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dateBirthday.ForeColor = System.Drawing.Color.White;
-            this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateBirthday.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.HoverState.Parent = this.dateBirthday;
-            this.dateBirthday.Location = new System.Drawing.Point(744, 710);
-            this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateBirthday.Name = "dateBirthday";
-            this.dateBirthday.ShadowDecoration.Parent = this.dateBirthday;
-            this.dateBirthday.Size = new System.Drawing.Size(446, 45);
-            this.dateBirthday.TabIndex = 216;
-            this.dateBirthday.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
             // 
             // frmMyProfile
             // 
@@ -835,11 +837,11 @@ namespace PatientInformationSystemNew.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1830, 958);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.dateBirthday);
             this.Controls.Add(this.btnRemovePhoto);
             this.Controls.Add(this.btnUploadPhoto);
-            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.dateBirthday);
+            this.Controls.Add(this.picProfilePicture);
             this.Controls.Add(this.btnViewMyPatient);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnEdit);
@@ -880,7 +882,7 @@ namespace PatientInformationSystemNew.forms
             this.Text = "My Profile";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMyProfile_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -922,10 +924,10 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnViewMyPatient;
-        private Guna.UI2.WinForms.Guna2Button btnRemovePhoto;
-        private Guna.UI2.WinForms.Guna2Button btnUploadPhoto;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox picProfilePicture;
         private System.Windows.Forms.Label label21;
         private Guna.UI2.WinForms.Guna2DateTimePicker dateBirthday;
+        private Guna.UI2.WinForms.Guna2Button btnRemovePhoto;
+        private Guna.UI2.WinForms.Guna2Button btnUploadPhoto;
     }
 }

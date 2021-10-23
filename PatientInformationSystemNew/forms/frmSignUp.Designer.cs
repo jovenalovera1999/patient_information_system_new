@@ -60,8 +60,6 @@ namespace PatientInformationSystemNew.forms
             this.label17 = new System.Windows.Forms.Label();
             this.txtLastname = new Guna.UI2.WinForms.Guna2TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnRemovePhoto = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUploadPhoto = new Guna.UI2.WinForms.Guna2Button();
             this.picProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnCreate = new Guna.UI2.WinForms.Guna2Button();
             this.txtSpecialization = new Guna.UI2.WinForms.Guna2TextBox();
@@ -69,6 +67,8 @@ namespace PatientInformationSystemNew.forms
             this.label20 = new System.Windows.Forms.Label();
             this.dateBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
+            this.btnRemovePhoto = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUploadPhoto = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.picProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,7 +168,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPassword.Location = new System.Drawing.Point(281, 374);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
@@ -613,69 +613,6 @@ namespace PatientInformationSystemNew.forms
             this.label18.TabIndex = 43;
             this.label18.Text = "Last Name:";
             // 
-            // btnRemovePhoto
-            // 
-            this.btnRemovePhoto.Animated = true;
-            this.btnRemovePhoto.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRemovePhoto.BorderColor = System.Drawing.Color.Transparent;
-            this.btnRemovePhoto.BorderRadius = 5;
-            this.btnRemovePhoto.BorderThickness = 1;
-            this.btnRemovePhoto.CheckedState.Parent = this.btnRemovePhoto;
-            this.btnRemovePhoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRemovePhoto.CustomImages.Parent = this.btnRemovePhoto;
-            this.btnRemovePhoto.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemovePhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemovePhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRemovePhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRemovePhoto.DisabledState.Parent = this.btnRemovePhoto;
-            this.btnRemovePhoto.FillColor = System.Drawing.Color.Red;
-            this.btnRemovePhoto.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnRemovePhoto.ForeColor = System.Drawing.Color.White;
-            this.btnRemovePhoto.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnRemovePhoto.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnRemovePhoto.HoverState.Parent = this.btnRemovePhoto;
-            this.btnRemovePhoto.Image = global::PatientInformationSystemNew.Properties.Resources.delete_icon;
-            this.btnRemovePhoto.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnRemovePhoto.Location = new System.Drawing.Point(146, 274);
-            this.btnRemovePhoto.Name = "btnRemovePhoto";
-            this.btnRemovePhoto.ShadowDecoration.Parent = this.btnRemovePhoto;
-            this.btnRemovePhoto.Size = new System.Drawing.Size(106, 105);
-            this.btnRemovePhoto.TabIndex = 210;
-            this.btnRemovePhoto.Text = "Remove Photo";
-            this.btnRemovePhoto.Visible = false;
-            // 
-            // btnUploadPhoto
-            // 
-            this.btnUploadPhoto.Animated = true;
-            this.btnUploadPhoto.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnUploadPhoto.BorderColor = System.Drawing.Color.Transparent;
-            this.btnUploadPhoto.BorderRadius = 5;
-            this.btnUploadPhoto.BorderThickness = 1;
-            this.btnUploadPhoto.CheckedState.Parent = this.btnUploadPhoto;
-            this.btnUploadPhoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUploadPhoto.CustomImages.Parent = this.btnUploadPhoto;
-            this.btnUploadPhoto.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUploadPhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUploadPhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUploadPhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUploadPhoto.DisabledState.Parent = this.btnUploadPhoto;
-            this.btnUploadPhoto.FillColor = System.Drawing.Color.Lime;
-            this.btnUploadPhoto.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnUploadPhoto.ForeColor = System.Drawing.Color.White;
-            this.btnUploadPhoto.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnUploadPhoto.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnUploadPhoto.HoverState.Parent = this.btnUploadPhoto;
-            this.btnUploadPhoto.Image = global::PatientInformationSystemNew.Properties.Resources.upload_photo_icon;
-            this.btnUploadPhoto.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUploadPhoto.Location = new System.Drawing.Point(25, 274);
-            this.btnUploadPhoto.Name = "btnUploadPhoto";
-            this.btnUploadPhoto.ShadowDecoration.Parent = this.btnUploadPhoto;
-            this.btnUploadPhoto.Size = new System.Drawing.Size(106, 105);
-            this.btnUploadPhoto.TabIndex = 209;
-            this.btnUploadPhoto.Text = "Upload Photo";
-            this.btnUploadPhoto.Visible = false;
-            this.btnUploadPhoto.Click += new System.EventHandler(this.btnUploadPhoto_Click);
-            // 
             // picProfilePicture
             // 
             this.picProfilePicture.BackgroundImage = global::PatientInformationSystemNew.Properties.Resources.no_profile_picture;
@@ -687,6 +624,7 @@ namespace PatientInformationSystemNew.forms
             this.picProfilePicture.Name = "picProfilePicture";
             this.picProfilePicture.ShadowDecoration.Parent = this.picProfilePicture;
             this.picProfilePicture.Size = new System.Drawing.Size(237, 226);
+            this.picProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProfilePicture.TabIndex = 208;
             this.picProfilePicture.TabStop = false;
             // 
@@ -777,6 +715,7 @@ namespace PatientInformationSystemNew.forms
             this.dateBirthday.BorderRadius = 5;
             this.dateBirthday.BorderThickness = 1;
             this.dateBirthday.CheckedState.Parent = this.dateBirthday;
+            this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateBirthday.FillColor = System.Drawing.Color.Blue;
             this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.dateBirthday.ForeColor = System.Drawing.Color.White;
@@ -804,19 +743,80 @@ namespace PatientInformationSystemNew.forms
             this.label21.TabIndex = 215;
             this.label21.Text = "Birthday:";
             // 
+            // btnRemovePhoto
+            // 
+            this.btnRemovePhoto.Animated = true;
+            this.btnRemovePhoto.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRemovePhoto.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRemovePhoto.BorderRadius = 5;
+            this.btnRemovePhoto.BorderThickness = 1;
+            this.btnRemovePhoto.CheckedState.Parent = this.btnRemovePhoto;
+            this.btnRemovePhoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemovePhoto.CustomImages.Parent = this.btnRemovePhoto;
+            this.btnRemovePhoto.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemovePhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemovePhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemovePhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemovePhoto.DisabledState.Parent = this.btnRemovePhoto;
+            this.btnRemovePhoto.FillColor = System.Drawing.Color.Red;
+            this.btnRemovePhoto.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnRemovePhoto.ForeColor = System.Drawing.Color.White;
+            this.btnRemovePhoto.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnRemovePhoto.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnRemovePhoto.HoverState.Parent = this.btnRemovePhoto;
+            this.btnRemovePhoto.Image = global::PatientInformationSystemNew.Properties.Resources.delete_icon;
+            this.btnRemovePhoto.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnRemovePhoto.Location = new System.Drawing.Point(146, 257);
+            this.btnRemovePhoto.Name = "btnRemovePhoto";
+            this.btnRemovePhoto.ShadowDecoration.Parent = this.btnRemovePhoto;
+            this.btnRemovePhoto.Size = new System.Drawing.Size(112, 105);
+            this.btnRemovePhoto.TabIndex = 221;
+            this.btnRemovePhoto.Text = "Remove Photo";
+            // 
+            // btnUploadPhoto
+            // 
+            this.btnUploadPhoto.Animated = true;
+            this.btnUploadPhoto.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUploadPhoto.BorderColor = System.Drawing.Color.Transparent;
+            this.btnUploadPhoto.BorderRadius = 5;
+            this.btnUploadPhoto.BorderThickness = 1;
+            this.btnUploadPhoto.CheckedState.Parent = this.btnUploadPhoto;
+            this.btnUploadPhoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUploadPhoto.CustomImages.Parent = this.btnUploadPhoto;
+            this.btnUploadPhoto.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUploadPhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUploadPhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUploadPhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUploadPhoto.DisabledState.Parent = this.btnUploadPhoto;
+            this.btnUploadPhoto.FillColor = System.Drawing.Color.Lime;
+            this.btnUploadPhoto.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnUploadPhoto.ForeColor = System.Drawing.Color.White;
+            this.btnUploadPhoto.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnUploadPhoto.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnUploadPhoto.HoverState.Parent = this.btnUploadPhoto;
+            this.btnUploadPhoto.Image = global::PatientInformationSystemNew.Properties.Resources.upload_photo_icon;
+            this.btnUploadPhoto.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnUploadPhoto.Location = new System.Drawing.Point(21, 257);
+            this.btnUploadPhoto.Name = "btnUploadPhoto";
+            this.btnUploadPhoto.ShadowDecoration.Parent = this.btnUploadPhoto;
+            this.btnUploadPhoto.Size = new System.Drawing.Size(106, 105);
+            this.btnUploadPhoto.TabIndex = 220;
+            this.btnUploadPhoto.Text = "Upload Photo";
+            this.btnUploadPhoto.Click += new System.EventHandler(this.btnUploadPhoto_Click_1);
+            // 
             // frmSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1830, 958);
+            this.Controls.Add(this.btnRemovePhoto);
+            this.Controls.Add(this.btnUploadPhoto);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.dateBirthday);
             this.Controls.Add(this.txtSpecialization);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.btnRemovePhoto);
-            this.Controls.Add(this.btnUploadPhoto);
             this.Controls.Add(this.picProfilePicture);
             this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.label18);
@@ -896,13 +896,13 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnCreate;
         private Guna.UI2.WinForms.Guna2TextBox txtLastname;
         private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2Button btnRemovePhoto;
-        private Guna.UI2.WinForms.Guna2Button btnUploadPhoto;
         private Guna.UI2.WinForms.Guna2PictureBox picProfilePicture;
         private Guna.UI2.WinForms.Guna2TextBox txtSpecialization;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private Guna.UI2.WinForms.Guna2DateTimePicker dateBirthday;
         private System.Windows.Forms.Label label21;
+        private Guna.UI2.WinForms.Guna2Button btnRemovePhoto;
+        private Guna.UI2.WinForms.Guna2Button btnUploadPhoto;
     }
 }

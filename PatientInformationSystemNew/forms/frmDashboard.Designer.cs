@@ -171,6 +171,7 @@ namespace PatientInformationSystemNew.forms
             this.btnLogout.Size = new System.Drawing.Size(221, 54);
             this.btnLogout.TabIndex = 15;
             this.btnLogout.Text = "Logout";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnSignUp
             // 

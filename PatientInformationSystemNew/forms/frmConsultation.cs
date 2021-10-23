@@ -19,13 +19,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnPrescription_Click(object sender, EventArgs e)
         {
-            forms.frmConsultationPrescription frmConsultationPrescription = new forms.frmConsultationPrescription();
-            frmConsultationPrescription.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmConsultationPrescription);
-            frmConsultationPrescription.Dock = DockStyle.Fill;
-            frmConsultationPrescription.Show();
+            
         }
     }
 }

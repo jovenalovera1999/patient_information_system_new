@@ -16,5 +16,22 @@ namespace PatientInformationSystemNew.forms
         {
             InitializeComponent();
         }
+
+        void autoGenNum()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 11)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtPatientID.Text = generateID.ToString();
+        }
+
+        private void frmAddPatient_Load(object sender, EventArgs e)
+        {
+            autoGenNum();
+        }
     }
 }
