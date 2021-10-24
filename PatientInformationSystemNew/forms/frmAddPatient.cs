@@ -49,6 +49,8 @@ namespace PatientInformationSystemNew.forms
         {
             this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.btnRemoveSymptom.Enabled = true;
         }
 
         private void btnAddSymptom_Click(object sender, EventArgs e)

@@ -112,5 +112,64 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
+
+        public bool getPatientFromSchedule(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
+                                    age,
+                                    CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
+                                    birthday,
+                                    CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR),
+                                    height,
+                                    weight,
+                                    temperature,
+                                    pulse_rate,
+                                    blood_pressure,
+                                    CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)
+                                    FROM patient_information_db.schedule 
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;
+
+                                    SELECT 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) 
+                                    FROM patient_information_db.symptoms 
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error getting a patient: " + ex.ToString());
+                return false;
+            }
+        }
     }
 }

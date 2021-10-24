@@ -180,6 +180,7 @@
     </Compile>
     <Compile Include="functions\Duplicate.cs" />
     <Compile Include="functions\Patient.cs" />
+    <Compile Include="functions\Symptoms.cs" />
     <Compile Include="functions\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

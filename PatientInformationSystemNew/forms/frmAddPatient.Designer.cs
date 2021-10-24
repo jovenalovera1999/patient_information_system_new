@@ -607,7 +607,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridAddPatient.ColumnHeadersHeight = 50;
+            this.gridAddPatient.ColumnHeadersHeight = 55;
             this.gridAddPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAddPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSymptoms});
@@ -627,7 +627,8 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ReadOnly = true;
             this.gridAddPatient.RowHeadersVisible = false;
             this.gridAddPatient.RowHeadersWidth = 51;
-            this.gridAddPatient.RowTemplate.Height = 45;
+            this.gridAddPatient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridAddPatient.RowTemplate.Height = 50;
             this.gridAddPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAddPatient.Size = new System.Drawing.Size(446, 409);
             this.gridAddPatient.TabIndex = 19;
@@ -643,13 +644,13 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridAddPatient.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridAddPatient.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridAddPatient.ThemeStyle.HeaderStyle.Height = 50;
+            this.gridAddPatient.ThemeStyle.HeaderStyle.Height = 55;
             this.gridAddPatient.ThemeStyle.ReadOnly = true;
             this.gridAddPatient.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridAddPatient.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridAddPatient.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridAddPatient.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridAddPatient.ThemeStyle.RowsStyle.Height = 45;
+            this.gridAddPatient.ThemeStyle.RowsStyle.Height = 50;
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridAddPatient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridAddPatient_CellMouseClick);

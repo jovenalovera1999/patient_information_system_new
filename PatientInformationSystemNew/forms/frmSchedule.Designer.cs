@@ -32,9 +32,9 @@ namespace PatientInformationSystemNew.forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPatientID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPatientName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gridSchedule = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnCancelPatient = new Guna.UI2.WinForms.Guna2Button();
@@ -42,33 +42,33 @@ namespace PatientInformationSystemNew.forms
             ((System.ComponentModel.ISupportInitialize)(this.gridSchedule)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2TextBox4
+            // txtPatientID
             // 
-            this.guna2TextBox4.Animated = true;
-            this.guna2TextBox4.BorderRadius = 5;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.Enabled = false;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(26, 59);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox4.TabIndex = 22;
+            this.txtPatientID.Animated = true;
+            this.txtPatientID.BorderRadius = 5;
+            this.txtPatientID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPatientID.DefaultText = "";
+            this.txtPatientID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtPatientID.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtPatientID.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtPatientID.DisabledState.Parent = this.txtPatientID;
+            this.txtPatientID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPatientID.Enabled = false;
+            this.txtPatientID.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPatientID.FocusedState.Parent = this.txtPatientID;
+            this.txtPatientID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPatientID.ForeColor = System.Drawing.Color.Black;
+            this.txtPatientID.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPatientID.HoverState.Parent = this.txtPatientID;
+            this.txtPatientID.Location = new System.Drawing.Point(26, 59);
+            this.txtPatientID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPatientID.Name = "txtPatientID";
+            this.txtPatientID.PasswordChar = '\0';
+            this.txtPatientID.PlaceholderText = "";
+            this.txtPatientID.SelectedText = "";
+            this.txtPatientID.ShadowDecoration.Parent = this.txtPatientID;
+            this.txtPatientID.Size = new System.Drawing.Size(446, 45);
+            this.txtPatientID.TabIndex = 22;
             // 
             // label8
             // 
@@ -81,33 +81,33 @@ namespace PatientInformationSystemNew.forms
             this.label8.TabIndex = 21;
             this.label8.Text = "Patient ID:";
             // 
-            // guna2TextBox1
+            // txtPatientName
             // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Enabled = false;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(26, 158);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox1.TabIndex = 24;
+            this.txtPatientName.Animated = true;
+            this.txtPatientName.BorderRadius = 5;
+            this.txtPatientName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPatientName.DefaultText = "";
+            this.txtPatientName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtPatientName.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtPatientName.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtPatientName.DisabledState.Parent = this.txtPatientName;
+            this.txtPatientName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPatientName.Enabled = false;
+            this.txtPatientName.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPatientName.FocusedState.Parent = this.txtPatientName;
+            this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPatientName.ForeColor = System.Drawing.Color.Black;
+            this.txtPatientName.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPatientName.HoverState.Parent = this.txtPatientName;
+            this.txtPatientName.Location = new System.Drawing.Point(26, 158);
+            this.txtPatientName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPatientName.Name = "txtPatientName";
+            this.txtPatientName.PasswordChar = '\0';
+            this.txtPatientName.PlaceholderText = "";
+            this.txtPatientName.SelectedText = "";
+            this.txtPatientName.ShadowDecoration.Parent = this.txtPatientName;
+            this.txtPatientName.Size = new System.Drawing.Size(446, 45);
+            this.txtPatientName.TabIndex = 24;
             // 
             // label1
             // 
@@ -143,6 +143,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridSchedule.ColumnHeadersHeight = 55;
             this.gridSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -173,7 +174,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridSchedule.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
             this.gridSchedule.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridSchedule.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.gridSchedule.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSchedule.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSchedule.ThemeStyle.HeaderStyle.Height = 55;
@@ -185,6 +186,8 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.ThemeStyle.RowsStyle.Height = 50;
             this.gridSchedule.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridSchedule.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSchedule_CellMouseClick);
+            this.gridSchedule.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSchedule_CellMouseDoubleClick);
             // 
             // btnCancelPatient
             // 
@@ -201,6 +204,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancelPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCancelPatient.DisabledState.Parent = this.btnCancelPatient;
+            this.btnCancelPatient.Enabled = false;
             this.btnCancelPatient.FillColor = System.Drawing.Color.Red;
             this.btnCancelPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnCancelPatient.ForeColor = System.Drawing.Color.White;
@@ -231,6 +235,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSelect.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSelect.DisabledState.Parent = this.btnSelect;
+            this.btnSelect.Enabled = false;
             this.btnSelect.FillColor = System.Drawing.Color.Lime;
             this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnSelect.ForeColor = System.Drawing.Color.White;
@@ -256,9 +261,9 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.btnCancelPatient);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.gridSchedule);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.txtPatientName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2TextBox4);
+            this.Controls.Add(this.txtPatientID);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSchedule";
@@ -274,9 +279,9 @@ namespace PatientInformationSystemNew.forms
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox txtPatientID;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtPatientName;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DataGridView gridSchedule;
         private Guna.UI2.WinForms.Guna2Button btnSelect;

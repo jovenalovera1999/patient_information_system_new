@@ -110,5 +110,103 @@ namespace PatientInformationSystemNew.components
             get { return user_specialization; }
             set { user_specialization = value; }
         }
+
+        // Patient values
+        public static string patient_id;
+        public string PatientID
+        {
+            get { return patient_id; }
+            set { patient_id = value; }
+        }
+        public static string patient_first_name;
+        public string PatientFirstName
+        {
+            get { return patient_first_name; }
+            set { patient_first_name = value; }
+        }
+        public static string patient_middle_name;
+        public string PatientMiddleName
+        {
+            get { return patient_middle_name; }
+            set { patient_middle_name = value; }
+        }
+        public static string patient_last_name;
+        public string PatientLastName
+        {
+            get { return patient_last_name; }
+            set { patient_last_name = value; }
+        }
+        public static string patient_gender;
+        public string PatientGender
+        {
+            get { return patient_gender; }
+            set { patient_gender = value; }
+        }
+        public static int patient_age;
+        public int PatientAge
+        {
+            get { return patient_age; }
+            set { patient_age = value; }
+        }
+        public static string patient_address;
+        public string PatientAddress
+        {
+            get { return patient_address; }
+            set { patient_address = value; }
+        }
+        public static string patient_cellphone_number;
+        public string PatientCellphoneNumer
+        {
+            get { return patient_cellphone_number; }
+            set { patient_cellphone_number = value; }
+        }
+        public static string patient_telephone_number;
+        public string PatientTelephoneNumber
+        {
+            get { return patient_telephone_number; }
+            set { patient_telephone_number = value; }
+        }
+        public static string patient_email;
+        public string PatientEmail
+        {
+            get { return patient_email; }
+            set { patient_email = value; }
+        }
+        public static double patient_height;
+        public double PatientHeight
+        {
+            get { return patient_height; }
+            set { patient_height = value; }
+        }
+        public static double patient_weight;
+        public double PatientWeight
+        {
+            get { return patient_weight; }
+            set { patient_weight = value; }
+        }
+        public static double patient_temperature;
+        public double PatientTemperature
+        {
+            get { return patient_temperature; }
+            set { patient_temperature = value; }
+        }
+        public static double patient_pulse_rate;
+        public double PatientPulseRate
+        {
+            get { return patient_pulse_rate; }
+            set { patient_pulse_rate = value; }
+        }
+        public static double patient_blood_pressure;
+        public double PatientBloodPressure
+        {
+            get { return patient_blood_pressure; }
+            set { patient_blood_pressure = value; }
+        }
+        public static string patient_doctor;
+        public string PatientDoctor
+        {
+            get { return patient_doctor; }
+            set { patient_doctor = value; }
+        }
     }
 }
