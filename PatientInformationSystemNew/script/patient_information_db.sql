@@ -42,7 +42,7 @@ VALUES(
     AES_ENCRYPT('Administrator', 'jovencutegwapo123')
 );
 
-CREATE TABLE patient_information_db.waiting_list (
+CREATE TABLE patient_information_db.schedule (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(55) NOT NULL,
     first_name                          VARBINARY(55) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE patient_information_db.waiting_list (
     pulse_rate                          DOUBLE DEFAULT NULL,
     blood_pressure                      DOUBLE DEFAULT NULL,
     doctor                              VARBINARY(55) NOT NULL,
-    status                              VARBINARY(55) DEFAULT 'Waiting',
+    status                              VARCHAR(55) DEFAULT 'Waiting',
     PRIMARY KEY (id)
 );
 

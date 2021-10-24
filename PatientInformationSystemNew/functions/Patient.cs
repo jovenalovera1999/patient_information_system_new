@@ -14,6 +14,39 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
+        // Load patient in schedule
+        public void loadPatientInSchedule(DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) AS 'Patient ID',
+                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name', 
+                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
+                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
+                                    CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender',
+                                    birthday AS 'Birthday',
+                                    status AS 'Status'
+                                    FROM patient_information_db.schedule";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error loading patient in schedule: " + ex.ToString());
+            }
+        }
+
         // Add patient
         public bool addPatient(string patient_id, string first_name, string middle_name, string last_name, string gender, int age, string address, 
             DateTime birthday, string cellphone_number, string telephone_number, string email, double height, double weight, double temperature, 

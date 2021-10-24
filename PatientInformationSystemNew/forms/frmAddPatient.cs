@@ -38,12 +38,16 @@ namespace PatientInformationSystemNew.forms
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
             autoGenNum();
+            for(int i = 0; i < 120; i++)
+            {
+                this.cmbAge.Items.Add(i);
+            }
             this.btnRemoveSymptom.Enabled = false;
         }
 
         private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.Blue;
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.White;
         }
 

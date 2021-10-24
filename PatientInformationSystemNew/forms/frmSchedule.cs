@@ -17,16 +17,18 @@ namespace PatientInformationSystemNew.forms
             InitializeComponent();
         }
 
+        components.Connections con = new components.Connections();
+        components.Values val = new components.Values();
+        functions.Patient patient = new functions.Patient();
+
+        private void frmSchedule_Load(object sender, EventArgs e)
+        {
+            patient.loadPatientInSchedule(this.gridSchedule);
+        }
+
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            forms.frmConsultation frmConsultation = new forms.frmConsultation();
-            frmConsultation.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmConsultation);
-            frmConsultation.Dock = DockStyle.Fill;
-            frmConsultation.Show();
-            this.Close();
+            
         }
     }
 }
