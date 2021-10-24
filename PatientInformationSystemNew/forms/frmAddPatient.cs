@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -16,6 +17,10 @@ namespace PatientInformationSystemNew.forms
         {
             InitializeComponent();
         }
+
+        components.Connections con = new components.Connections();
+        components.Values val = new components.Values();
+        functions.Patient patient = new functions.Patient();
 
         void autoGenNum()
         {
@@ -27,11 +32,149 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
             this.txtPatientID.Text = generateID.ToString();
+            this.dateBirthday.Value = DateTime.Now;
         }
 
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
             autoGenNum();
+            this.btnRemoveSymptom.Enabled = false;
+        }
+
+        private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.Blue;
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+        }
+
+        private void btnAddSymptom_Click(object sender, EventArgs e)
+        {
+            int n = this.gridAddPatient.Rows.Add();
+            this.gridAddPatient.Rows[n].Cells[0].Value = this.txtSymptoms.Text;
+            this.txtSymptoms.ResetText();
+            this.txtSymptoms.Focus();
+        }
+
+        private void btnRemoveSymptom_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow row in this.gridAddPatient.SelectedRows)
+            {
+                this.gridAddPatient.Rows.Remove(row);
+            }
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+            this.txtSymptoms.ResetText();
+            this.txtSymptoms.Focus();
+            this.btnRemoveSymptom.Enabled = false;
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(this.txtFirstName.Text))
+            {
+                MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtFirstName.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtLastName.Text))
+            {
+                MessageBox.Show("Last Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtLastName.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.cmbGender.Text))
+            {
+                MessageBox.Show("Gender is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.cmbGender.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.cmbAge.Text))
+            {
+                MessageBox.Show("Age is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.cmbAge.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtAddress.Text))
+            {
+                MessageBox.Show("Address is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtAddress.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) && 
+                String.IsNullOrWhiteSpace(this.txtEmail.Text))
+            {
+                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtCellphoneNumber.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtWeight.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTemperature.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
+            {
+                MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtFirstName.Focus();
+            }
+            else if(patient.addPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, 
+                this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, double.Parse(this.txtHeight.Text), double.Parse(this.txtWeight.Text), 
+                double.Parse(this.txtTemperature.Text), double.Parse(this.txtPulseRate.Text), double.Parse(this.txtBloodPressure.Text), 
+                this.cmbDoctorName.Text))
+            {
+                for(int i = 0; i < this.gridAddPatient.Rows.Count; i++)
+                {
+                    try
+                    {
+                        using(MySqlConnection connection = new MySqlConnection(con.conString()))
+                        {
+                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms)
+                                            VALUES(
+                                            AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
+                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123')
+                                            );";
+
+                            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
+                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[0].Value);
+
+                                connection.Open();
+                                cmd.ExecuteReader();
+                            }
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Error adding patient symptoms: " + ex.ToString());
+                    }
+                }
+
+                MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.txtFirstName.ResetText();
+                this.txtMiddleName.ResetText();
+                this.txtLastName.ResetText();
+                this.cmbGender.Text = null;
+                this.cmbAge.Text = null;
+                this.txtAddress.ResetText();
+                this.dateBirthday.Value = DateTime.Now;
+                this.txtCellphoneNumber.ResetText();
+                this.txtTelephoneNumber.ResetText();
+                this.txtEmail.ResetText();
+                this.txtHeight.ResetText();
+                this.txtWeight.ResetText();
+                this.txtTemperature.ResetText();
+                this.txtPulseRate.ResetText();
+                this.txtBloodPressure.ResetText();
+                this.cmbDoctorName.Text = null;
+                autoGenNum();
+                this.txtFirstName.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

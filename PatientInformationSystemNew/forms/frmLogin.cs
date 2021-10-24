@@ -58,6 +58,9 @@ namespace PatientInformationSystemNew.forms
             else
             {
                 MessageBox.Show("Incorrect username or password! Please try again!", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtUsername.ResetText();
+                this.txtPassword.ResetText();
+                this.txtUsername.Focus();
             }
         }
 

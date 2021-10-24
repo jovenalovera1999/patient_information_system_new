@@ -51,9 +51,15 @@ CREATE TABLE patient_information_db.waiting_list (
     gender                              VARBINARY(55) NOT NULL,
     age                                 INT(3) NOT NULL,
     address                             VARBINARY(55) NOT NULL,
+    birthday                            DATE,
     cellphone_number                    VARBINARY(55) DEFAULT NULL,
     telephone_number                    VARBINARY(55) DEFAULT NULL,
     email                               VARBINARY(55) DEFAULT NULL,
+    height                              DOUBLE DEFAULT NULL,
+    weight                              DOUBLE NOT NULL,
+    temperature                         DOUBLE NOT NULL,
+    pulse_rate                          DOUBLE DEFAULT NULL,
+    blood_pressure                      DOUBLE DEFAULT NULL,
     doctor                              VARBINARY(55) NOT NULL,
     status                              VARBINARY(55) DEFAULT 'Waiting',
     PRIMARY KEY (id)
@@ -68,22 +74,18 @@ CREATE TABLE patient_information_db.patients (
     gender                              VARBINARY(55) NOT NULL,
     age                                 INT(3) NOT NULL,
     address                             VARBINARY(55) NOT NULL,
+    birthday                            DATE,
     cellphone_number                    VARBINARY(55) DEFAULT NULL,
     telephone_number                    VARBINARY(55) DEFAULT NULL,
     email                               VARBINARY(55) DEFAULT NULL,
-    doctor                              VARBINARY(55) NOT NULL,
-    payment_status                      VARBINARY(55) DEFAULT 'Unpaid',
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
-);
-
-CREATE TABLE patient_information_db.vital_signs (
-    id                                  INT(16) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(55) NOT NULL,
     height                              DOUBLE DEFAULT NULL,
     weight                              DOUBLE DEFAULT NULL,
     temperature                         DOUBLE DEFAULT NULL,
     pulse_rate                          DOUBLE DEFAULT NULL,
+    blood_pressure                      DOUBLE DEFAULT NULL,
+    doctor                              VARBINARY(55) NOT NULL,
+    payment_status                      VARBINARY(55) DEFAULT 'Unpaid',
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
 
