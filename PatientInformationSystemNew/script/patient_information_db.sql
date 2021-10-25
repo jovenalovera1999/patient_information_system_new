@@ -101,7 +101,23 @@ CREATE TABLE patient_information_db.symptoms (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(55) NOT NULL,
     symptoms                            VARBINARY(55) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE patient_information_db.symptoms_added (
+    id                                  INT(16) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARCHAR(55) NOT NULL,
+    symptoms                            VARCHAR(55) DEFAULT NULL,
+    date                                DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE patient_information_db.symptoms_removed (
+    id                                  INT(16) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARCHAR(55) NOT NULL,
+    symptoms                            VARCHAR(55) DEFAULT NULL,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 

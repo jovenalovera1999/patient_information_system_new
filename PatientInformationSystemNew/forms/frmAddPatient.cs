@@ -135,16 +135,18 @@ namespace PatientInformationSystemNew.forms
                     {
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms)
+                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms, date)
                                             VALUES(
                                             AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
-                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123')
+                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123'), 
+                                            @date
                                             );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
                                 cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
                                 cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[0].Value);
+                                cmd.Parameters.AddWithValue("@date", DateTime.Now);
 
                                 connection.Open();
                                 cmd.ExecuteReader();
