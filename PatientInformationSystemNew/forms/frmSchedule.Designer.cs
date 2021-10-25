@@ -219,6 +219,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPatient.Size = new System.Drawing.Size(196, 54);
             this.btnCancelPatient.TabIndex = 27;
             this.btnCancelPatient.Text = "Cancel Patient";
+            this.btnCancelPatient.Click += new System.EventHandler(this.btnCancelPatient_Click);
             // 
             // btnSelect
             // 

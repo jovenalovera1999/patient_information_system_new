@@ -154,6 +154,13 @@ namespace PatientInformationSystemNew.components
             get { return patient_address; }
             set { patient_address = value; }
         }
+
+        public static DateTime patient_birthday;
+        public DateTime PatientBirthday
+        {
+            get { return patient_birthday; }
+            set { patient_birthday = value; }
+        }
         public static string patient_cellphone_number;
         public string PatientCellphoneNumer
         {

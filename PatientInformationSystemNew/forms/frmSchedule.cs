@@ -34,11 +34,6 @@ namespace PatientInformationSystemNew.forms
             patient.loadPatientInSchedule(this.gridSchedule);
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
@@ -64,7 +59,29 @@ namespace PatientInformationSystemNew.forms
 
         private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            if(patient.getPatientFromSchedule(this.gridSchedule.SelectedCells[0].Value.ToString()))
+            {
+                forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.Show();
+                this.Close();
+                Application.OpenForms["frmDashboard"].Close();
+            }
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if(patient.getPatientFromSchedule(this.txtPatientID.Text))
+            {
+                forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.Show();
+                this.Close();
+                Application.OpenForms["frmDashboard"].Close();
+            }
+        }
+
+        private void btnCancelPatient_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

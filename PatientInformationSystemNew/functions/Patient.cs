@@ -140,10 +140,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM patient_information_db.schedule 
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;
 
-                                    SELECT 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR),
-                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) 
-                                    FROM patient_information_db.symptoms 
+                                    UPDATE patient_information_db.schedule SET status = 'Consulting' 
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -156,6 +153,24 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
+                            val.PatientID = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientFirstName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientAge = dt.Rows[0].Field<int>("age");
+                            val.PatientAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientBirthday = dt.Rows[0].Field<DateTime>("birthday");
+                            val.PatientCellphoneNumer = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientTelephoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientHeight = dt.Rows[0].Field<double>("height");
+                            val.PatientWeight = dt.Rows[0].Field<double>("weight");
+                            val.PatientTemperature = dt.Rows[0].Field<double>("temperature");
+                            val.PatientPulseRate = dt.Rows[0].Field<double>("pulse_rate");
+                            val.PatientBloodPressure = dt.Rows[0].Field<double>("blood_pressure");
+                            val.PatientDoctor = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)");
+
                             return true;
                         }
                         else
@@ -167,7 +182,35 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error getting a patient: " + ex.ToString());
+                Console.WriteLine("Error getting a patient from schedule: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool cancelPatientInSchedule(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"DELETE 
+                                    FROM patient_information_db.users 
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error deleting patient in schedule: " + ex.ToString());
                 return false;
             }
         }
