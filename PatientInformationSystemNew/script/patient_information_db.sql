@@ -84,7 +84,7 @@ CREATE TABLE patient_information_db.patients (
     pulse_rate                          DOUBLE DEFAULT NULL,
     blood_pressure                      DOUBLE DEFAULT NULL,
     doctor                              VARBINARY(55) NOT NULL,
-    payment_status                      VARBINARY(55) DEFAULT 'Unpaid',
+    payment_status                      VARCHAR(55) DEFAULT 'Unpaid',
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );

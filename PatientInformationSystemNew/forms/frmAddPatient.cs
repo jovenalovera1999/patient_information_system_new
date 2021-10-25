@@ -174,6 +174,7 @@ namespace PatientInformationSystemNew.forms
                 this.txtPulseRate.ResetText();
                 this.txtBloodPressure.ResetText();
                 this.cmbDoctorName.Text = null;
+                this.gridAddPatient.Rows.Clear();
                 autoGenNum();
                 this.txtFirstName.Focus();
             }
