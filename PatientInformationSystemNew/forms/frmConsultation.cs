@@ -68,9 +68,14 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.Focus();
         }
 
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        private void btnAddSymptoms_Click_1(object sender, EventArgs e)
         {
-            symptom.symptomsAdded();
+
+        }
+
+        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
@@ -81,7 +86,7 @@ namespace PatientInformationSystemNew.forms
         private void btnInputSymptoms_Click(object sender, EventArgs e)
         {
             this.txtSymptoms.Visible = true;
-            this.btnAddSymptoms.Visible = true;
+            this.btnUpdateSymptoms.Visible = true;
             this.btnRemoveSymptoms.Visible = true;
         }
 
