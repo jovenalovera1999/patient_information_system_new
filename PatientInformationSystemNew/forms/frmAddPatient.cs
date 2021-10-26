@@ -55,8 +55,16 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptom_Click(object sender, EventArgs e)
         {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+            while (generateID.Length < 11)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
             int n = this.gridAddPatient.Rows.Add();
-            this.gridAddPatient.Rows[n].Cells[0].Value = this.txtSymptoms.Text;
+            this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
+            this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
             this.txtSymptoms.ResetText();
             this.txtSymptoms.Focus();
         }
@@ -133,20 +141,21 @@ namespace PatientInformationSystemNew.forms
                 {
                     try
                     {
+
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms, date)
+                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms)
                                             VALUES(
                                             AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
-                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123'), 
-                                            @date
+                                            AES_ENCRYPT(@symptoms_id, 'jovencutegwapo123'),
+                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123')
                                             );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
                                 cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
-                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[0].Value);
-                                cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                                cmd.Parameters.AddWithValue("@symptoms_id", this.gridAddPatient.Rows[i].Cells[0].Value);
+                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[1].Value);
 
                                 connection.Open();
                                 cmd.ExecuteReader();

@@ -52,3 +52,4 @@ D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\De
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.csproj.CoreCompileInputs.cache
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.exe
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.pdb
+D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.csproj.AssemblyReference.cache

@@ -20,7 +20,9 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms'
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms'
                                     FROM patient_information_db.symptoms
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
 
@@ -42,20 +44,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool addPatientSymptoms(string patient_id, string symptoms, DateTime date)
+        public bool addPatientSymptom(string patient_id, string symptoms_id, string symptoms)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, sympmtoms, date)
-                                    VALUES(@patient_id, @symptoms, @date)";
+                    string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms)
+                                    VALUES(@patient_id, @symptoms_id, @symptoms)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
-                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         cmd.ExecuteReader();
@@ -67,6 +69,69 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error adding patient symptoms: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool updateSymptom(string patient_id, string symptoms_id, string symptoms)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.symptoms 
+                                    SET 
+                                    symptoms = AES_ENCRYPT(@symptoms, 'jovencutegwapo123') 
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(symptoms_id) AS CHAR)id = @symptoms_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@symptoms", symptoms);
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating symptom: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool deleteSymptom(string patient_id, string symptoms_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"DELETE FROM patient_information_db.symptoms 
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutewapo123') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error deleting patient symptom: " + ex.ToString());
                 return false;
             }
         }

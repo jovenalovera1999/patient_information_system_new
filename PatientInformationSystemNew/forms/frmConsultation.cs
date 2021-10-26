@@ -43,10 +43,31 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.Focus();
         }
 
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.btnRemoveDiagnosis.Enabled = true;
+
+            this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[0].Value.ToString();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.btnUpdateSymptoms.Enabled = true;
+            this.btnRemoveSymptoms.Enabled = true;
+
+            this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
+        }
+
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
             int n = this.gridDiagnosis.Rows.Add();
-            this.txtDiagnosis.Text = this.gridDiagnosis.Rows[n].Cells[0].Value.ToString();
+            this.gridDiagnosis.Rows[n].Cells[0].Value = this.txtDiagnosis.Text;
 
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -63,6 +84,7 @@ namespace PatientInformationSystemNew.forms
             }
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+            this.btnRemoveDiagnosis.Enabled = false;
 
             this.txtDiagnosis.ResetText();
             this.txtDiagnosis.Focus();
@@ -70,22 +92,64 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptoms_Click_1(object sender, EventArgs e)
         {
-
+            if(symptom.addPatientSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
+            {
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-            
+            if(symptom.updateSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
+            {
+                MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                this.btnUpdateSymptoms.Enabled = false;
+                this.btnRemoveSymptoms.Enabled = false;
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
+
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to update patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
+            if (symptom.updateSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
+            {
+                MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                this.btnUpdateSymptoms.Enabled = false;
+                this.btnRemoveSymptoms.Enabled = false;
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
 
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnInputSymptoms_Click(object sender, EventArgs e)
+        private void btnEditSymptoms_Click(object sender, EventArgs e)
         {
             this.txtSymptoms.Visible = true;
+            this.btnAddSymptoms.Visible = true;
             this.btnUpdateSymptoms.Visible = true;
             this.btnRemoveSymptoms.Visible = true;
         }

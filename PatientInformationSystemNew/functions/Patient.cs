@@ -87,7 +87,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@last_name", last_name);
                         cmd.Parameters.AddWithValue("@gender", gender);
                         cmd.Parameters.AddWithValue("@age", age);
-                        cmd.Parameters.AddWithValue("@address", age);
+                        cmd.Parameters.AddWithValue("@address", address);
                         cmd.Parameters.AddWithValue("@birthday", birthday);
                         cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
                         cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
