@@ -21,7 +21,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'Symptoms ID', 
                                     CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms'
                                     FROM patient_information_db.symptoms
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
@@ -51,12 +51,16 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms)
-                                    VALUES(@patient_id, @symptoms_id, @symptoms)";
+                                    VALUES(
+                                    AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@symptoms_id, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@symptoms, 'jovencutegwapo123')
+                                    )";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms);
+                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
 
                         connection.Open();
@@ -84,7 +88,7 @@ namespace PatientInformationSystemNew.functions
                                     symptoms = AES_ENCRYPT(@symptoms, 'jovencutegwapo123') 
                                     WHERE 
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
-                                    CAST(AES_DECRYPT(symptoms_id) AS CHAR)id = @symptoms_id;";
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -112,9 +116,9 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM patient_information_db.symptoms 
+                    string sql = @"DELETE FROM patient_information_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutewapo123') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
                                     CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))

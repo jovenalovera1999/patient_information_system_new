@@ -21,6 +21,7 @@ namespace PatientInformationSystemNew.forms
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         void autoGenNum()
         {
@@ -57,16 +58,25 @@ namespace PatientInformationSystemNew.forms
         {
             Random number = new Random();
             var generateID = new StringBuilder();
-            while (generateID.Length < 11)
+            while (generateID.Length < 5)
             {
                 generateID.Append(number.Next(10).ToString());
             }
 
             int n = this.gridAddPatient.Rows.Add();
-            this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
-            this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
-            this.txtSymptoms.ResetText();
-            this.txtSymptoms.Focus();
+            if (duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
+            {
+                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
+                this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
         }
 
         private void btnRemoveSymptom_Click(object sender, EventArgs e)

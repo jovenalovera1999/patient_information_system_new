@@ -86,6 +86,8 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.gridDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnSaveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.clmDiagnosisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDiagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridSymptoms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDiagnosis)).BeginInit();
@@ -112,7 +114,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridSymptoms.ColumnHeadersHeight = 50;
+            this.gridSymptoms.ColumnHeadersHeight = 55;
             this.gridSymptoms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -130,7 +132,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ReadOnly = true;
             this.gridSymptoms.RowHeadersVisible = false;
             this.gridSymptoms.RowHeadersWidth = 51;
-            this.gridSymptoms.RowTemplate.Height = 45;
+            this.gridSymptoms.RowTemplate.Height = 50;
             this.gridSymptoms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSymptoms.Size = new System.Drawing.Size(446, 729);
             this.gridSymptoms.TabIndex = 96;
@@ -146,13 +148,13 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptoms.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridSymptoms.ThemeStyle.HeaderStyle.Height = 50;
+            this.gridSymptoms.ThemeStyle.HeaderStyle.Height = 55;
             this.gridSymptoms.ThemeStyle.ReadOnly = true;
             this.gridSymptoms.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSymptoms.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptoms.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSymptoms.ThemeStyle.RowsStyle.Height = 45;
+            this.gridSymptoms.ThemeStyle.RowsStyle.Height = 50;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSymptoms_CellMouseClick);
@@ -807,6 +809,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPrescription.DisabledState.Parent = this.btnPrescription;
+            this.btnPrescription.Enabled = false;
             this.btnPrescription.FillColor = System.Drawing.Color.Lime;
             this.btnPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnPrescription.ForeColor = System.Drawing.Color.White;
@@ -1183,6 +1186,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ColumnHeadersHeight = 55;
             this.gridDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridDiagnosis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmDiagnosisID,
             this.clmDiagnosis});
             this.gridDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1228,6 +1232,44 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridDiagnosis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDiagnosis_CellMouseClick);
             // 
+            // btnSaveDiagnosis
+            // 
+            this.btnSaveDiagnosis.Animated = true;
+            this.btnSaveDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSaveDiagnosis.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSaveDiagnosis.BorderRadius = 5;
+            this.btnSaveDiagnosis.BorderThickness = 1;
+            this.btnSaveDiagnosis.CheckedState.Parent = this.btnSaveDiagnosis;
+            this.btnSaveDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveDiagnosis.CustomImages.Parent = this.btnSaveDiagnosis;
+            this.btnSaveDiagnosis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveDiagnosis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSaveDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSaveDiagnosis.DisabledState.Parent = this.btnSaveDiagnosis;
+            this.btnSaveDiagnosis.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSaveDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.btnSaveDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSaveDiagnosis.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveDiagnosis.HoverState.Parent = this.btnSaveDiagnosis;
+            this.btnSaveDiagnosis.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.btnSaveDiagnosis.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSaveDiagnosis.Location = new System.Drawing.Point(1208, 997);
+            this.btnSaveDiagnosis.Name = "btnSaveDiagnosis";
+            this.btnSaveDiagnosis.ShadowDecoration.Parent = this.btnSaveDiagnosis;
+            this.btnSaveDiagnosis.Size = new System.Drawing.Size(193, 62);
+            this.btnSaveDiagnosis.TabIndex = 147;
+            this.btnSaveDiagnosis.Text = "Save Diagnosis";
+            this.btnSaveDiagnosis.Click += new System.EventHandler(this.btnSaveDiagnosis_Click);
+            // 
+            // clmDiagnosisID
+            // 
+            this.clmDiagnosisID.HeaderText = "Diagnosis ID";
+            this.clmDiagnosisID.MinimumWidth = 6;
+            this.clmDiagnosisID.Name = "clmDiagnosisID";
+            this.clmDiagnosisID.ReadOnly = true;
+            // 
             // clmDiagnosis
             // 
             this.clmDiagnosis.HeaderText = "Diagnosis";
@@ -1241,6 +1283,7 @@ namespace PatientInformationSystemNew.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1942, 1080);
+            this.Controls.Add(this.btnSaveDiagnosis);
             this.Controls.Add(this.gridDiagnosis);
             this.Controls.Add(this.btnAddSymptoms);
             this.Controls.Add(this.btnEditSymptoms);
@@ -1357,9 +1400,9 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnUpdateSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnRemoveSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnAddSymptoms;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2DataGridView gridDiagnosis;
+        private Guna.UI2.WinForms.Guna2Button btnSaveDiagnosis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDiagnosisID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDiagnosis;
     }
 }

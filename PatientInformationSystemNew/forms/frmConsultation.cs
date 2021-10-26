@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -20,6 +21,7 @@ namespace PatientInformationSystemNew.forms
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
         functions.Symptoms symptom = new functions.Symptoms();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         private void frmConsultation_Load(object sender, EventArgs e)
         {
@@ -66,14 +68,22 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
             int n = this.gridDiagnosis.Rows.Add();
-            this.gridDiagnosis.Rows[n].Cells[0].Value = this.txtDiagnosis.Text;
+            this.gridDiagnosis.Rows[n].Cells[0].Value = generateID;
+            this.gridDiagnosis.Rows[n].Cells[1].Value = this.txtDiagnosis.Text;
+            this.txtDiagnosis.ResetText();
+            this.txtDiagnosis.Focus();
 
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-            this.txtDiagnosis.ResetText();
-            this.txtDiagnosis.Focus();
         }
 
         private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
@@ -92,7 +102,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptoms_Click_1(object sender, EventArgs e)
         {
-            if(symptom.addPatientSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
+            {
+                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                this.txtSymptoms.Focus();
+            }
+            else if(symptom.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text))
             {
                 symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -128,7 +152,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptom.updateSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
+            if (symptom.deleteSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString()))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -152,6 +176,48 @@ namespace PatientInformationSystemNew.forms
             this.btnAddSymptoms.Visible = true;
             this.btnUpdateSymptoms.Visible = true;
             this.btnRemoveSymptoms.Visible = true;
+        }
+
+        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < this.gridDiagnosis.Rows.Count; i++)
+            {
+                try
+                {
+                    Random number = new Random();
+                    var generateID = new StringBuilder();
+                    while(generateID.Length < 5)
+                    {
+                        generateID.Append(number.Next(10).ToString());
+                    }
+
+                    using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                    {
+                        string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis)
+                                        VALUES(
+                                        AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
+                                        AES_ENCRYPT(@diagnosis_id, 'jovencutegwapo123'), 
+                                        AES_ENCRYPT(@diagnosis, 'jovencutegwapo123')
+                                        );";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
+                            cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
+                            cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
+
+                            connection.Open();
+                            cmd.ExecuteReader();
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Error saving diagnosis: " + ex.ToString());
+                }
+            }
+            MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.btnPrescription.Enabled = true;
         }
 
         private void btnPrescription_Click(object sender, EventArgs e)
