@@ -84,7 +84,7 @@ CREATE TABLE patient_information_db.patients (
     pulse_rate                          DOUBLE DEFAULT NULL,
     blood_pressure                      DOUBLE DEFAULT NULL,
     doctor                              VARBINARY(55) NOT NULL,
-    payment_status                      VARBINARY(55) DEFAULT 'Unpaid',
+    payment_status                      VARCHAR(55) DEFAULT 'Unpaid',
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
@@ -101,7 +101,23 @@ CREATE TABLE patient_information_db.symptoms (
     id                                  INT(16) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(55) NOT NULL,
     symptoms                            VARBINARY(55) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE patient_information_db.symptoms_added (
+    id                                  INT(16) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARCHAR(55) NOT NULL,
+    symptoms                            VARCHAR(55) DEFAULT NULL,
+    date                                DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE patient_information_db.symptoms_removed (
+    id                                  INT(16) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARCHAR(55) NOT NULL,
+    symptoms                            VARCHAR(55) DEFAULT NULL,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 

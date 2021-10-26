@@ -65,6 +65,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbGender.Enabled = true;
             this.cmbAge.Enabled = true;
             this.txtAddress.Enabled = true;
+            this.dateBirthday.Enabled = true;
             this.txtCellphoneNumber.Enabled = true;
             this.txtTelephoneNumber.Enabled = true;
             this.txtEmail.Enabled = true;
