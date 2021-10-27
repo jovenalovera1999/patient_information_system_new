@@ -136,12 +136,6 @@
     <Compile Include="forms\frmConsultation.Designer.cs">
       <DependentUpon>frmConsultation.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmConsultationPrescription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmConsultationPrescription.Designer.cs">
-      <DependentUpon>frmConsultationPrescription.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +172,7 @@
     <Compile Include="forms\frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="functions\Diagnosis.cs" />
     <Compile Include="functions\Duplicate.cs" />
     <Compile Include="functions\Patient.cs" />
     <Compile Include="functions\Symptoms.cs" />
@@ -216,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmConsultation.resx">
       <DependentUpon>frmConsultation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmConsultationPrescription.resx">
-      <DependentUpon>frmConsultationPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>

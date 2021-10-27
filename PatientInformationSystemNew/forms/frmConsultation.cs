@@ -180,49 +180,60 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveDiagnosis_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < this.gridDiagnosis.Rows.Count; i++)
+            if(this.gridDiagnosis.Rows.Count == 0)
             {
-                try
+                MessageBox.Show("Input diagnosis first before clicking diagnosis save and proceed!", "Input First", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                this.txtDiagnosis.Focus();
+            }
+            else
+            {
+                for (int i = 0; i < this.gridDiagnosis.Rows.Count; i++)
                 {
-                    Random number = new Random();
-                    var generateID = new StringBuilder();
-                    while(generateID.Length < 5)
+                    try
                     {
-                        generateID.Append(number.Next(10).ToString());
-                    }
+                        Random number = new Random();
+                        var generateID = new StringBuilder();
+                        while (generateID.Length < 5)
+                        {
+                            generateID.Append(number.Next(10).ToString());
+                        }
 
-                    using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                    {
-                        string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis)
+                        using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                        {
+                            string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis)
                                         VALUES(
                                         AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
                                         AES_ENCRYPT(@diagnosis_id, 'jovencutegwapo123'), 
                                         AES_ENCRYPT(@diagnosis, 'jovencutegwapo123')
                                         );";
 
-                        using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
-                            cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
-                            cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
+                            using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
+                                cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
+                                cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
 
-                            connection.Open();
-                            cmd.ExecuteReader();
+                                connection.Open();
+                                cmd.ExecuteReader();
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error saving diagnosis: " + ex.ToString());
+                    }
                 }
-                catch(Exception ex)
-                {
-                    Console.WriteLine("Error saving diagnosis: " + ex.ToString());
-                }
+                MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.btnPrescription.Enabled = true;
             }
-            MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.btnPrescription.Enabled = true;
         }
 
         private void btnPrescription_Click(object sender, EventArgs e)
         {
-            
+            forms.frmConsultationPrescription frmConsultationPrescriptionNew = new forms.frmConsultationPrescription();
+            frmConsultationPrescriptionNew.Show();
+            this.Close();
         }
     }
 }

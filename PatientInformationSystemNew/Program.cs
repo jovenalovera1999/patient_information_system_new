@@ -16,7 +16,7 @@ namespace PatientInformationSystemNew
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new forms.frmLogin());
+            Application.Run(new forms.frmDoctorProfile());
         }
     }
 }

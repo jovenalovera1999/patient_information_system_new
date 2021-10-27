@@ -16,5 +16,8 @@ namespace PatientInformationSystemNew.forms
         {
             InitializeComponent();
         }
+
+        components.Connections con = new components.Connections();
+        components.Values val = new components.Values();
     }
 }
