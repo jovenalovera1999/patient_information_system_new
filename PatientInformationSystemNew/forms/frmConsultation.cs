@@ -203,11 +203,12 @@ namespace PatientInformationSystemNew.forms
 
                         using (MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis)
+                            string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
                                         VALUES(
                                         AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
                                         AES_ENCRYPT(@diagnosis_id, 'jovencutegwapo123'), 
-                                        AES_ENCRYPT(@diagnosis, 'jovencutegwapo123')
+                                        AES_ENCRYPT(@diagnosis, 'jovencutegwapo123'), 
+                                        @date
                                         );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -215,6 +216,7 @@ namespace PatientInformationSystemNew.forms
                                 cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
                                 cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
                                 cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
+                                cmd.Parameters.AddWithValue("@date", DateTime.Now);
 
                                 connection.Open();
                                 cmd.ExecuteReader();

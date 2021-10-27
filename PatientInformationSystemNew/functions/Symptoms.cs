@@ -21,10 +21,11 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'Symptoms ID', 
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms'
                                     FROM patient_information_db.symptoms
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -44,31 +45,51 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadAllSymptomsInFormCreatePrescription(string patient_id, DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT";
-                }
-            }
-            catch(Exception ex)
-            {
-
-            }
-        }
-
-        public void loadSymptomsInFormCreatePrescription(string patient_id, DateTime date, DataGridView grid)
+        public void loadSymptomsRecordsOfPatient(string patient_id, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'Symptoms ID', 
-                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms' 
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms', 
+                                    date AS 'Date' 
+                                    FROM patient_information_db.symptoms 
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error loading symptoms records of patient: " + ex.ToString());
+            }
+        }
+
+        public void loadSymptomsRecordsOfPatientByDate(string patient_id, DateTime date, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms', 
+                                    date AS 'Date'
+                                    FROM patient_information_db.symptoms
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
                                     date = @date;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -86,7 +107,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error loading symptoms history in form create prescription: " + ex.ToString());
+                Console.WriteLine("Error loading symptoms records of patient by date: " + ex.ToString());
             }
         }
 

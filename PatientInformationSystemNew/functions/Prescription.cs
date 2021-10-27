@@ -9,22 +9,22 @@ using System.Windows.Forms;
 
 namespace PatientInformationSystemNew.functions
 {
-    class Diagnosis
+    class Prescription
     {
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void loadDiagnosisRecordsOfPatient(string patient_id, DataGridView grid)
+        public void loadPrescriptionRecordsOfPatient(string patient_id, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(diagnosis_id, 'jovencutegwapo123') AS CHAR) AS 'ID',
-                                    CAST(AES_DECRYPT(diagnosis, 'jovencutegwapo123') AS CHAR) AS 'Diagnosis', 
-                                    date AS 'Date'
-                                    FROM patient_information_db.diagnosis 
+                                    CAST(AES_DECRYPT(prescription_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(prescriptions, 'jovencutegwapo123') AS CHAR) AS 'Prescriptions',
+                                    date AS 'Date' 
+                                    FROM patient_information_db.prescriptions
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -41,21 +41,21 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error loading diagnosis records of patient: " + ex.ToString());
+                Console.WriteLine("Error loading prescription records of patient: " + ex.ToString());
             }
         }
 
-        public void loadDiagnosisRecordsOfPatientByDate(string patient_id, DateTime date, DataGridView grid)
+        public void loadPrescriptionRecordsOfPatientByDate(string patient_id, DateTime date, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(diagnosis_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(diagnosis, 'jovencutegwapo123') AS CHAR) AS 'Diagnosis', 
-                                    date AS 'Date'
-                                    FROM patient_information_db.diagnosis
+                                    CAST(AES_DECRYPT(prescription_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(prescriptions, 'jovencutegwapo123') AS CHAR) AS 'Prescription', 
+                                    date AS 'Date' 
+                                    FROM patient_information_db.prescriptions 
                                     WHERE 
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
                                     date = @date;";
@@ -75,7 +75,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error loading diagnosis records of patient by date: " + ex.ToString());
+                Console.WriteLine("Error loading prescription records of patient by date: " + ex.ToString());
             }
         }
     }
