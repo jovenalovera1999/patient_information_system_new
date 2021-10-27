@@ -44,7 +44,22 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadSymptomsInConsultationPrescription(string patient_id, DateTime date, DataGridView grid)
+        public void loadAllSymptomsInFormCreatePrescription(string patient_id, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT";
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        public void loadSymptomsInFormCreatePrescription(string patient_id, DateTime date, DataGridView grid)
         {
             try
             {
@@ -71,21 +86,22 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error loading symptoms history in form consultation prescription: " + ex.ToString());
+                Console.WriteLine("Error loading symptoms history in form create prescription: " + ex.ToString());
             }
         }
 
-        public bool addPatientSymptom(string patient_id, string symptoms_id, string symptoms)
+        public bool addPatientSymptom(string patient_id, string symptoms_id, string symptoms, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms)
+                    string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms, date)
                                     VALUES(
                                     AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@symptoms_id, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@symptoms, 'jovencutegwapo123')
+                                    AES_ENCRYPT(@symptoms, 'jovencutegwapo123'), 
+                                    @date
                                     )";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -93,6 +109,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         cmd.ExecuteReader();

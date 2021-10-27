@@ -13,9 +13,39 @@ namespace PatientInformationSystemNew.functions
     {
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-        functions.Diagnosis diagnosis = new functions.Diagnosis();
 
-        public void loadDiagnosisInFormConsulationPrescription(string patient_id, DateTime date, DataGridView grid)
+        public void loadAllDiagnosisInFormCreatePrescription(string patient_id, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                            CAST(diagnosis_id, 'jovencutegwapo123') AS 'Diagnosis ID', 
+                            CAST(diagnosis, 'jovencutegwapo123') AS 'Diagnosis', 
+                            date AS 'Date'
+                            FROM patient_information_db.diagnosis 
+                            WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter("@patient_id", patient_id);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error loading all diagnosis in form create prescription: " + ex.ToString());
+            }
+        }
+
+        public void loadDiagnosisInFormCreatePrescription(string patient_id, DateTime date, DataGridView grid)
         {
             try
             {
@@ -45,7 +75,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error loading diagnosis history in form consultation prescription: " + ex.ToString());
+                Console.WriteLine("Error loading diagnosis history in form create prescription: " + ex.ToString());
             }
         }
     }

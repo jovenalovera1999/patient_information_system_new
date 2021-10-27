@@ -94,7 +94,7 @@ CREATE TABLE patient_information_db.diagnosis (
     patient_id                          VARBINARY(55) NOT NULL,
     diagnosis_id                        VARBINARY(55) NOT NULL,
     diagnosis                           VARBINARY(55) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE patient_information_db.symptoms (
     patient_id                          VARBINARY(55) NOT NULL,
     symptoms_id                         VARBINARY(55) NOT NULL,
     symptoms                            VARBINARY(55) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 
@@ -112,7 +112,7 @@ CREATE TABLE patient_information_db.prescriptions (
     patient_id                          VARBINARY(55) NOT NULL,
     prescription_id                     VARBINARY(55) NOT NULL,
     prescriptions                       VARBINARY(500) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 

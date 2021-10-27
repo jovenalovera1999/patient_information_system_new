@@ -63,6 +63,7 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);

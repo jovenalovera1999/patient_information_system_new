@@ -76,6 +76,12 @@
     <Compile Include="forms\frmAddPatient.Designer.cs">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmCreatePrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmCreatePrescription.Designer.cs">
+      <DependentUpon>frmCreatePrescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmDoctorProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmAddPatient.resx">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmCreatePrescription.resx">
+      <DependentUpon>frmCreatePrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDoctorProfile.resx">
       <DependentUpon>frmDoctorProfile.cs</DependentUpon>

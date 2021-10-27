@@ -84,6 +84,8 @@ namespace PatientInformationSystemNew.forms
 
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            this.btnSaveDiagnosis.Enabled = true;
         }
 
         private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
@@ -116,7 +118,7 @@ namespace PatientInformationSystemNew.forms
                     MessageBoxIcon.Error);
                 this.txtSymptoms.Focus();
             }
-            else if(symptom.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text))
+            else if(symptom.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text, DateTime.Now))
             {
                 symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -225,14 +227,15 @@ namespace PatientInformationSystemNew.forms
                     }
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.btnSaveDiagnosis.Enabled = false;
                 this.btnPrescription.Enabled = true;
             }
         }
 
         private void btnPrescription_Click(object sender, EventArgs e)
         {
-            forms.frmConsultationPrescription frmConsultationPrescriptionNew = new forms.frmConsultationPrescription();
-            frmConsultationPrescriptionNew.Show();
+            forms.frmCreatePrescription frmCreatePrescription = new forms.frmCreatePrescription();
+            frmCreatePrescription.Show();
             this.Close();
         }
     }
