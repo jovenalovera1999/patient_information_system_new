@@ -113,10 +113,42 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void loadPatientsInPatients(DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) AS 'Patient ID', 
+                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name',
+                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
+                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
+                                    CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender', 
+                                    birthday AS 'Birthday'
+                                    FROM patient_information_db.patients
+                                    ORDER BY first_name DESC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error loading patients in patients: " + ex.ToString());
+            }
+        }
+
         public bool savePrescriptionAndTransferPatientToPatients(string patient_id, string prescription_id, string prescriptions, DateTime date, 
-            string first_name, string middle_name, string last_name, string gender, int age, string address, string cellphone_number, 
-            string telephone_number, string email, double height, double weight, double temperature, double pulse_rate, double blood_pressure, 
-            string doctor)
+            string first_name, string middle_name, string last_name, string gender, int age, string address, DateTime birthday, 
+            string cellphone_number, string telephone_number, string email, double height, double weight, double temperature, double pulse_rate, 
+            double blood_pressure, string doctor)
         {
             try
             {
@@ -130,9 +162,9 @@ namespace PatientInformationSystemNew.functions
                                     @date
                                     );
 
-                                    INSERT INTO patient_information_db.patients(patient_id, first_name, middle_name, last_name, gender, int, 
-                                    address, cellphone_number, telephone_number, email, height, weight, temperature, pulse_rate, blood_pressure, 
-                                    doctor)
+                                    INSERT INTO patient_information_db.patients(patient_id, first_name, middle_name, last_name, gender, age, 
+                                    address, birthday, cellphone_number, telephone_number, email, height, weight, temperature, pulse_rate, 
+                                    blood_pressure, doctor)
                                     VALUES(
                                     AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@first_name, 'jovencutegwapo123'),
@@ -141,6 +173,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@gender, 'jovencutegwapo123'),
                                     @age,
                                     AES_ENCRYPT(@address, 'jovencutegwapo123'),
+                                    @birthday,
                                     AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@email, 'jovencutegwapo123'),
@@ -168,6 +201,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@gender", gender);
                         cmd.Parameters.AddWithValue("@age", age);
                         cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@birthday", birthday);
                         cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
                         cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
                         cmd.Parameters.AddWithValue("@email", email);
@@ -187,6 +221,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
+                Console.WriteLine("Error saving prescription and transferring patient to patient: " + ex.ToString());
                 return false;
             }
         }
@@ -261,6 +296,34 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error getting a patient from schedule: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool backPatientToScheduleFromConsultation(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.schedule 
+                                    SET status = 'Waiting'
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating patient status in schedule going back: " + ex.ToString());
                 return false;
             }
         }

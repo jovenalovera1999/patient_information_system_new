@@ -47,13 +47,13 @@ namespace PatientInformationSystemNew.forms
             string last_name = this.gridSchedule.SelectedCells[3].Value.ToString();
 
             this.txtPatientID.Text = this.gridSchedule.SelectedCells[0].Value.ToString();
-            if(String.IsNullOrWhiteSpace(this.gridSchedule.SelectedCells[2].Value.ToString()))
+            if(String.IsNullOrWhiteSpace(middle_name))
             {
-                this.txtPatientName.Text = first_name + " " + last_name;
+                this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);
             }
             else
             {
-                this.txtPatientName.Text = first_name + " " + middle_name[0] + ". " + last_name;
+                this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
         }
 

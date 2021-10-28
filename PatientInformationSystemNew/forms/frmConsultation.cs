@@ -22,6 +22,7 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Symptoms symptom = new functions.Symptoms();
         functions.Duplicate duplicate = new functions.Duplicate();
+        functions.Patient patient = new functions.Patient();
 
         private void frmConsultation_Load(object sender, EventArgs e)
         {
@@ -239,6 +240,27 @@ namespace PatientInformationSystemNew.forms
             forms.frmCreatePrescription frmCreatePrescription = new forms.frmCreatePrescription();
             frmCreatePrescription.Show();
             this.Close();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text))
+                {
+                    forms.frmDashboard frmDashboard = new forms.frmDashboard();
+                    frmDashboard.Show();
+                    forms.frmSchedule frmSchedule = new forms.frmSchedule();
+                    frmSchedule.TopLevel = false;
+                    forms.frmDashboard dashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                    Panel pnlDashboardBody = (Panel)dashboard.Controls["pnlDashboardBody"];
+                    pnlDashboardBody.Controls.Add(frmSchedule);
+                    frmSchedule.Dock = DockStyle.Fill;
+                    frmSchedule.Show();
+                    this.Close();
+                }
+            }
         }
     }
 }

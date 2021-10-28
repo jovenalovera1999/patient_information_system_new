@@ -181,6 +181,7 @@
     <Compile Include="functions\Diagnosis.cs" />
     <Compile Include="functions\Duplicate.cs" />
     <Compile Include="functions\Patient.cs" />
+    <Compile Include="functions\PaymentTransactions.cs" />
     <Compile Include="functions\Prescription.cs" />
     <Compile Include="functions\Symptoms.cs" />
     <Compile Include="functions\User.cs" />
@@ -251,6 +252,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="report\rprtPrescription.rdlc" />
+    <EmbeddedResource Include="report\rprtReceipt.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

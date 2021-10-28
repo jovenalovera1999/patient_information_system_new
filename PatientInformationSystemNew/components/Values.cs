@@ -111,6 +111,21 @@ namespace PatientInformationSystemNew.components
             set { user_specialization = value; }
         }
 
+        public string UserFullName
+        {
+            get
+            {
+                if(String.IsNullOrWhiteSpace(user_middle_name))
+                {
+                    return string.Format("{0} {1}", user_first_name, user_last_name);
+                }
+                else
+                {
+                    return string.Format("{0} {1}. {2}", user_first_name, user_middle_name[0], user_last_name);
+                }
+            }
+        }
+
         // Patient values
         public static string patient_id;
         public string PatientID

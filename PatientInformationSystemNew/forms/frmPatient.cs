@@ -17,9 +17,13 @@ namespace PatientInformationSystemNew.forms
             InitializeComponent();
         }
 
+        components.Connections con = new components.Connections();
+        components.Values val = new components.Values();
+        functions.Patient patient = new functions.Patient();
+
         private void frmPatient_Load(object sender, EventArgs e)
         {
-
+            patient.loadPatientsInPatients(this.gridPatients);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

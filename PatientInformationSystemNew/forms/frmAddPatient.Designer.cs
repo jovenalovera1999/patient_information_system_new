@@ -235,9 +235,9 @@ namespace PatientInformationSystemNew.forms
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(429, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(338, 46);
+            this.label6.Size = new System.Drawing.Size(331, 46);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Personal Information:";
+            this.label6.Text = "Personal Information";
             // 
             // txtAddress
             // 
@@ -398,9 +398,9 @@ namespace PatientInformationSystemNew.forms
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(892, 18);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(329, 46);
+            this.label14.Size = new System.Drawing.Size(322, 46);
             this.label14.TabIndex = 40;
-            this.label14.Text = "Contact Information:";
+            this.label14.Text = "Contact Information";
             // 
             // txtWeight
             // 
@@ -485,9 +485,9 @@ namespace PatientInformationSystemNew.forms
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(892, 372);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 46);
+            this.label4.Size = new System.Drawing.Size(174, 46);
             this.label4.TabIndex = 47;
-            this.label4.Text = "Vital Signs:";
+            this.label4.Text = "Vital Signs";
             // 
             // txtTemperature
             // 
@@ -583,9 +583,9 @@ namespace PatientInformationSystemNew.forms
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(1355, 18);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(251, 46);
+            this.label19.Size = new System.Drawing.Size(244, 46);
             this.label19.TabIndex = 64;
-            this.label19.Text = "Doctor\'s Name:";
+            this.label19.Text = "Doctor\'s Name";
             // 
             // gridAddPatient
             // 
@@ -776,9 +776,9 @@ namespace PatientInformationSystemNew.forms
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(1355, 216);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(184, 46);
+            this.label17.Size = new System.Drawing.Size(177, 46);
             this.label17.TabIndex = 97;
-            this.label17.Text = "Symptoms:";
+            this.label17.Text = "Symptoms";
             // 
             // txtLastName
             // 
@@ -975,9 +975,9 @@ namespace PatientInformationSystemNew.forms
             this.label23.ForeColor = System.Drawing.Color.White;
             this.label23.Location = new System.Drawing.Point(14, 18);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(164, 46);
+            this.label23.Size = new System.Drawing.Size(157, 46);
             this.label23.TabIndex = 117;
-            this.label23.Text = "PatientID:";
+            this.label23.Text = "PatientID";
             // 
             // txtBloodPressure
             // 

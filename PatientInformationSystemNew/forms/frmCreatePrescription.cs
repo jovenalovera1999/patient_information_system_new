@@ -55,12 +55,12 @@ namespace PatientInformationSystemNew.forms
             ReportParameterCollection parameters = new ReportParameterCollection();
             if(String.IsNullOrWhiteSpace(val.PatientMiddleName))
             {
-                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientLastName));
+                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}", val.PatientFirstName, val.PatientLastName)));
             }
             else
             {
-                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientMiddleName.Substring(0, 1) + ". " + 
-                    val.PatientLastName));
+                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}. {2}", val.PatientFirstName, val.PatientMiddleName[0],
+                    val.PatientLastName)));
             }
             parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
             parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
@@ -77,12 +77,12 @@ namespace PatientInformationSystemNew.forms
             ReportParameterCollection parameters = new ReportParameterCollection();
             if (String.IsNullOrWhiteSpace(val.PatientMiddleName))
             {
-                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientLastName));
+                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}", val.PatientFirstName, val.PatientLastName)));
             }
             else
             {
-                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientMiddleName.Substring(0, 1) + ". " + 
-                    val.PatientLastName));
+                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}. {2}", val.PatientFirstName, val.PatientMiddleName[0], 
+                    val.PatientLastName)));
             }
             parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
             parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
@@ -109,8 +109,8 @@ namespace PatientInformationSystemNew.forms
             }
             else if(patient.savePrescriptionAndTransferPatientToPatients(val.PatientID, generateID.ToString(), this.txtCreateNewPrescription.Text, 
                 DateTime.Now, val.PatientFirstName, val.PatientMiddleName, val.PatientLastName, val.PatientGender, val.PatientAge, val.PatientAddress, 
-                val.PatientCellphoneNumer, val.PatientTelephoneNumber, val.PatientEmail, val.PatientHeight, val.PatientWeight, val.PatientTemperature, 
-                val.PatientPulseRate, val.PatientBloodPressure, val.PatientDoctor))
+                val.PatientBirthday, val.PatientCellphoneNumer, val.PatientTelephoneNumber, val.PatientEmail, val.PatientHeight, 
+                val.PatientWeight, val.PatientTemperature, val.PatientPulseRate, val.PatientBloodPressure, val.PatientDoctor))
             {
                 MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -118,6 +118,20 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Failed to save prescription and transfer patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            forms.frmDashboard frmDashboard = new forms.frmDashboard();
+            frmDashboard.Show();
+            forms.frmSchedule frmSchedule = new forms.frmSchedule();
+            frmSchedule.TopLevel = false;
+            forms.frmDashboard dashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)dashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmSchedule);
+            frmSchedule.Dock = DockStyle.Fill;
+            frmSchedule.Show();
+            this.Close();
         }
     }
 }
