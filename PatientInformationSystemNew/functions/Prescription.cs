@@ -78,5 +78,40 @@ namespace PatientInformationSystemNew.functions
                 Console.WriteLine("Error loading prescription records of patient by date: " + ex.ToString());
             }
         }
+
+        public bool addPrescriptionFromConsultaion(string patient_id, string prescription_id, string prescriptions, DateTime date)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"INSERT INTO patient_information_db.prescriptions(patient_id, prescription_id, prescriptions, date)
+                                    VALUES(
+                                    AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@prescription_id, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@prescriptions, 'jovencutegwapo123'),
+                                    @date
+                                    );";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
+                        cmd.Parameters.AddWithValue("@date", date);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error adding a new prescription from consultation: " + ex.ToString());
+                return false;
+            }
+        }
     }
 }

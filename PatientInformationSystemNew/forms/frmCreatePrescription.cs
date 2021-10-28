@@ -39,6 +39,14 @@ namespace PatientInformationSystemNew.forms
             prescription.loadPrescriptionRecordsOfPatientByDate(val.PatientID, this.dateRecords.Value.Date, this.gridPrescriptions);
         }
 
+        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.gridPrescriptions.SelectedCells[1].Value = this.txtPrescriptionReview.Text;
+        }
+
         private void btnPrescription_Click(object sender, EventArgs e)
         {
 
