@@ -44,7 +44,7 @@ namespace PatientInformationSystemNew.forms
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gridSymptoms = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtPrescriptionReview = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrescriptionPreview = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCreateNewPrescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -241,33 +241,34 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // txtPrescriptionReview
+            // txtPrescriptionPreview
             // 
-            this.txtPrescriptionReview.Animated = true;
-            this.txtPrescriptionReview.BorderRadius = 5;
-            this.txtPrescriptionReview.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPrescriptionReview.DefaultText = "";
-            this.txtPrescriptionReview.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtPrescriptionReview.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtPrescriptionReview.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.txtPrescriptionReview.DisabledState.Parent = this.txtPrescriptionReview;
-            this.txtPrescriptionReview.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPrescriptionReview.Enabled = false;
-            this.txtPrescriptionReview.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtPrescriptionReview.FocusedState.Parent = this.txtPrescriptionReview;
-            this.txtPrescriptionReview.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtPrescriptionReview.ForeColor = System.Drawing.Color.Black;
-            this.txtPrescriptionReview.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtPrescriptionReview.HoverState.Parent = this.txtPrescriptionReview;
-            this.txtPrescriptionReview.Location = new System.Drawing.Point(1060, 635);
-            this.txtPrescriptionReview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtPrescriptionReview.Name = "txtPrescriptionReview";
-            this.txtPrescriptionReview.PasswordChar = '\0';
-            this.txtPrescriptionReview.PlaceholderText = "";
-            this.txtPrescriptionReview.SelectedText = "";
-            this.txtPrescriptionReview.ShadowDecoration.Parent = this.txtPrescriptionReview;
-            this.txtPrescriptionReview.Size = new System.Drawing.Size(538, 424);
-            this.txtPrescriptionReview.TabIndex = 153;
+            this.txtPrescriptionPreview.Animated = true;
+            this.txtPrescriptionPreview.BorderRadius = 5;
+            this.txtPrescriptionPreview.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrescriptionPreview.DefaultText = "";
+            this.txtPrescriptionPreview.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtPrescriptionPreview.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtPrescriptionPreview.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtPrescriptionPreview.DisabledState.Parent = this.txtPrescriptionPreview;
+            this.txtPrescriptionPreview.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrescriptionPreview.Enabled = false;
+            this.txtPrescriptionPreview.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPrescriptionPreview.FocusedState.Parent = this.txtPrescriptionPreview;
+            this.txtPrescriptionPreview.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPrescriptionPreview.ForeColor = System.Drawing.Color.Black;
+            this.txtPrescriptionPreview.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPrescriptionPreview.HoverState.Parent = this.txtPrescriptionPreview;
+            this.txtPrescriptionPreview.Location = new System.Drawing.Point(1060, 635);
+            this.txtPrescriptionPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrescriptionPreview.Multiline = true;
+            this.txtPrescriptionPreview.Name = "txtPrescriptionPreview";
+            this.txtPrescriptionPreview.PasswordChar = '\0';
+            this.txtPrescriptionPreview.PlaceholderText = "";
+            this.txtPrescriptionPreview.SelectedText = "";
+            this.txtPrescriptionPreview.ShadowDecoration.Parent = this.txtPrescriptionPreview;
+            this.txtPrescriptionPreview.Size = new System.Drawing.Size(475, 424);
+            this.txtPrescriptionPreview.TabIndex = 153;
             // 
             // txtCreateNewPrescription
             // 
@@ -288,12 +289,13 @@ namespace PatientInformationSystemNew.forms
             this.txtCreateNewPrescription.HoverState.Parent = this.txtCreateNewPrescription;
             this.txtCreateNewPrescription.Location = new System.Drawing.Point(1060, 114);
             this.txtCreateNewPrescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCreateNewPrescription.Multiline = true;
             this.txtCreateNewPrescription.Name = "txtCreateNewPrescription";
             this.txtCreateNewPrescription.PasswordChar = '\0';
             this.txtCreateNewPrescription.PlaceholderText = "";
             this.txtCreateNewPrescription.SelectedText = "";
             this.txtCreateNewPrescription.ShadowDecoration.Parent = this.txtCreateNewPrescription;
-            this.txtCreateNewPrescription.Size = new System.Drawing.Size(538, 414);
+            this.txtCreateNewPrescription.Size = new System.Drawing.Size(475, 414);
             this.txtCreateNewPrescription.TabIndex = 0;
             // 
             // label3
@@ -342,9 +344,10 @@ namespace PatientInformationSystemNew.forms
             // 
             // rprtPrescription
             // 
-            this.rprtPrescription.Location = new System.Drawing.Point(1617, 114);
+            this.rprtPrescription.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtPrescription.rdlc";
+            this.rprtPrescription.Location = new System.Drawing.Point(1552, 114);
             this.rprtPrescription.Name = "rprtPrescription";
-            this.rprtPrescription.Size = new System.Drawing.Size(415, 865);
+            this.rprtPrescription.Size = new System.Drawing.Size(482, 599);
             this.rprtPrescription.TabIndex = 159;
             this.rprtPrescription.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
@@ -461,7 +464,7 @@ namespace PatientInformationSystemNew.forms
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(1609, 19);
+            this.label9.Location = new System.Drawing.Point(1544, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(284, 46);
             this.label9.TabIndex = 166;
@@ -553,16 +556,17 @@ namespace PatientInformationSystemNew.forms
             this.btnGeneratePrintNewPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnGeneratePrintNewPrescription.ForeColor = System.Drawing.Color.White;
             this.btnGeneratePrintNewPrescription.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnGeneratePrintNewPrescription.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnGeneratePrintNewPrescription.HoverState.FillColor = System.Drawing.Color.Blue;
             this.btnGeneratePrintNewPrescription.HoverState.Parent = this.btnGeneratePrintNewPrescription;
             this.btnGeneratePrintNewPrescription.Image = global::PatientInformationSystemNew.Properties.Resources.generate_icon;
             this.btnGeneratePrintNewPrescription.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnGeneratePrintNewPrescription.Location = new System.Drawing.Point(1477, 19);
+            this.btnGeneratePrintNewPrescription.Location = new System.Drawing.Point(1390, 19);
             this.btnGeneratePrintNewPrescription.Name = "btnGeneratePrintNewPrescription";
             this.btnGeneratePrintNewPrescription.ShadowDecoration.Parent = this.btnGeneratePrintNewPrescription;
-            this.btnGeneratePrintNewPrescription.Size = new System.Drawing.Size(121, 83);
+            this.btnGeneratePrintNewPrescription.Size = new System.Drawing.Size(145, 83);
             this.btnGeneratePrintNewPrescription.TabIndex = 1;
-            this.btnGeneratePrintNewPrescription.Text = "Generate Print";
+            this.btnGeneratePrintNewPrescription.Text = "Generate";
+            this.btnGeneratePrintNewPrescription.Click += new System.EventHandler(this.btnGeneratePrintNewPrescription_Click);
             // 
             // btnGeneratePrintPrescriptionPreview
             // 
@@ -583,16 +587,17 @@ namespace PatientInformationSystemNew.forms
             this.btnGeneratePrintPrescriptionPreview.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnGeneratePrintPrescriptionPreview.ForeColor = System.Drawing.Color.White;
             this.btnGeneratePrintPrescriptionPreview.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnGeneratePrintPrescriptionPreview.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnGeneratePrintPrescriptionPreview.HoverState.FillColor = System.Drawing.Color.Blue;
             this.btnGeneratePrintPrescriptionPreview.HoverState.Parent = this.btnGeneratePrintPrescriptionPreview;
             this.btnGeneratePrintPrescriptionPreview.Image = global::PatientInformationSystemNew.Properties.Resources.generate_icon;
             this.btnGeneratePrintPrescriptionPreview.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnGeneratePrintPrescriptionPreview.Location = new System.Drawing.Point(1477, 540);
+            this.btnGeneratePrintPrescriptionPreview.Location = new System.Drawing.Point(1390, 540);
             this.btnGeneratePrintPrescriptionPreview.Name = "btnGeneratePrintPrescriptionPreview";
             this.btnGeneratePrintPrescriptionPreview.ShadowDecoration.Parent = this.btnGeneratePrintPrescriptionPreview;
-            this.btnGeneratePrintPrescriptionPreview.Size = new System.Drawing.Size(121, 83);
+            this.btnGeneratePrintPrescriptionPreview.Size = new System.Drawing.Size(145, 83);
             this.btnGeneratePrintPrescriptionPreview.TabIndex = 167;
-            this.btnGeneratePrintPrescriptionPreview.Text = "Generate Print";
+            this.btnGeneratePrintPrescriptionPreview.Text = "Generate";
+            this.btnGeneratePrintPrescriptionPreview.Click += new System.EventHandler(this.btnGeneratePrintPrescriptionPreview_Click);
             // 
             // frmCreatePrescription
             // 
@@ -615,7 +620,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCreateNewPrescription);
-            this.Controls.Add(this.txtPrescriptionReview);
+            this.Controls.Add(this.txtPrescriptionPreview);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gridSymptoms);
@@ -644,7 +649,7 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView gridSymptoms;
-        private Guna.UI2.WinForms.Guna2TextBox txtPrescriptionReview;
+        private Guna.UI2.WinForms.Guna2TextBox txtPrescriptionPreview;
         private Guna.UI2.WinForms.Guna2TextBox txtCreateNewPrescription;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

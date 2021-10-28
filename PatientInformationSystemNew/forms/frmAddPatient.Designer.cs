@@ -62,6 +62,8 @@ namespace PatientInformationSystemNew.forms
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gridAddPatient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clmSymptomsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSymptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveSymptom = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddSymptom = new Guna.UI2.WinForms.Guna2Button();
             this.txtSymptoms = new Guna.UI2.WinForms.Guna2TextBox();
@@ -78,8 +80,6 @@ namespace PatientInformationSystemNew.forms
             this.label23 = new System.Windows.Forms.Label();
             this.txtBloodPressure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.clmSymptomsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSymptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridAddPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -633,7 +633,7 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.RowTemplate.Height = 50;
             this.gridAddPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridAddPatient.Size = new System.Drawing.Size(446, 409);
-            this.gridAddPatient.TabIndex = 19;
+            this.gridAddPatient.TabIndex = 20;
             this.gridAddPatient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridAddPatient.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridAddPatient.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -656,6 +656,20 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridAddPatient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridAddPatient_CellMouseClick);
+            // 
+            // clmSymptomsID
+            // 
+            this.clmSymptomsID.HeaderText = "Symptoms ID";
+            this.clmSymptomsID.MinimumWidth = 6;
+            this.clmSymptomsID.Name = "clmSymptomsID";
+            this.clmSymptomsID.ReadOnly = true;
+            // 
+            // clmSymptoms
+            // 
+            this.clmSymptoms.HeaderText = "Symptoms";
+            this.clmSymptoms.MinimumWidth = 6;
+            this.clmSymptoms.Name = "clmSymptoms";
+            this.clmSymptoms.ReadOnly = true;
             // 
             // btnRemoveSymptom
             // 
@@ -683,7 +697,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveSymptom.Name = "btnRemoveSymptom";
             this.btnRemoveSymptom.ShadowDecoration.Parent = this.btnRemoveSymptom;
             this.btnRemoveSymptom.Size = new System.Drawing.Size(150, 54);
-            this.btnRemoveSymptom.TabIndex = 18;
+            this.btnRemoveSymptom.TabIndex = 19;
             this.btnRemoveSymptom.Text = "Remove Symptom";
             this.btnRemoveSymptom.Click += new System.EventHandler(this.btnRemoveSymptom_Click);
             // 
@@ -713,7 +727,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddSymptom.Name = "btnAddSymptom";
             this.btnAddSymptom.ShadowDecoration.Parent = this.btnAddSymptom;
             this.btnAddSymptom.Size = new System.Drawing.Size(147, 54);
-            this.btnAddSymptom.TabIndex = 17;
+            this.btnAddSymptom.TabIndex = 18;
             this.btnAddSymptom.Text = "Add Symptom";
             this.btnAddSymptom.Click += new System.EventHandler(this.btnAddSymptom_Click);
             // 
@@ -742,7 +756,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.SelectedText = "";
             this.txtSymptoms.ShadowDecoration.Parent = this.txtSymptoms;
             this.txtSymptoms.Size = new System.Drawing.Size(446, 45);
-            this.txtSymptoms.TabIndex = 16;
+            this.txtSymptoms.TabIndex = 17;
             // 
             // label16
             // 
@@ -828,7 +842,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbDoctorName.Name = "cmbDoctorName";
             this.cmbDoctorName.ShadowDecoration.Parent = this.cmbDoctorName;
             this.cmbDoctorName.Size = new System.Drawing.Size(446, 36);
-            this.cmbDoctorName.TabIndex = 15;
+            this.cmbDoctorName.TabIndex = 16;
             // 
             // btnBack
             // 
@@ -857,7 +871,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(131, 62);
-            this.btnBack.TabIndex = 21;
+            this.btnBack.TabIndex = 22;
             this.btnBack.Text = "Back";
             // 
             // btnAddPatient
@@ -887,7 +901,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.ShadowDecoration.Parent = this.btnAddPatient;
             this.btnAddPatient.Size = new System.Drawing.Size(180, 62);
-            this.btnAddPatient.TabIndex = 20;
+            this.btnAddPatient.TabIndex = 21;
             this.btnAddPatient.Text = "Add Patient";
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
@@ -990,7 +1004,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.SelectedText = "";
             this.txtBloodPressure.ShadowDecoration.Parent = this.txtBloodPressure;
             this.txtBloodPressure.Size = new System.Drawing.Size(446, 45);
-            this.txtBloodPressure.TabIndex = 118;
+            this.txtBloodPressure.TabIndex = 15;
             // 
             // label22
             // 
@@ -1002,20 +1016,6 @@ namespace PatientInformationSystemNew.forms
             this.label22.Size = new System.Drawing.Size(145, 28);
             this.label22.TabIndex = 119;
             this.label22.Text = "Blood Pressure:";
-            // 
-            // clmSymptomsID
-            // 
-            this.clmSymptomsID.HeaderText = "Symptoms ID";
-            this.clmSymptomsID.MinimumWidth = 6;
-            this.clmSymptomsID.Name = "clmSymptomsID";
-            this.clmSymptomsID.ReadOnly = true;
-            // 
-            // clmSymptoms
-            // 
-            this.clmSymptoms.HeaderText = "Symptoms";
-            this.clmSymptoms.MinimumWidth = 6;
-            this.clmSymptoms.Name = "clmSymptoms";
-            this.clmSymptoms.ReadOnly = true;
             // 
             // frmAddPatient
             // 

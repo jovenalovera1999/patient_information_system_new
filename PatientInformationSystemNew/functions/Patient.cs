@@ -113,6 +113,84 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public bool savePrescriptionAndTransferPatientToPatients(string patient_id, string prescription_id, string prescriptions, DateTime date, 
+            string first_name, string middle_name, string last_name, string gender, int age, string address, string cellphone_number, 
+            string telephone_number, string email, double height, double weight, double temperature, double pulse_rate, double blood_pressure, 
+            string doctor)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"INSERT INTO patient_information_db.prescriptions(patient_id, prescription_id, prescriptions, date)
+                                    VALUES(
+                                    AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@prescription_id, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@prescriptions, 'jovencutegwapo123'),
+                                    @date
+                                    );
+
+                                    INSERT INTO patient_information_db.patients(patient_id, first_name, middle_name, last_name, gender, int, 
+                                    address, cellphone_number, telephone_number, email, height, weight, temperature, pulse_rate, blood_pressure, 
+                                    doctor)
+                                    VALUES(
+                                    AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@first_name, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@gender, 'jovencutegwapo123'),
+                                    @age,
+                                    AES_ENCRYPT(@address, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@email, 'jovencutegwapo123'),
+                                    @height,
+                                    @weight,
+                                    @temperature,
+                                    @pulse_rate,
+                                    @blood_pressure,
+                                    AES_ENCRYPT(@doctor, 'jovencutegwapo123')
+                                    );
+
+                                    DELETE FROM patient_information_db.schedule
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
+                        cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@middle_name", middle_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@gender", gender);
+                        cmd.Parameters.AddWithValue("@age", age);
+                        cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
+                        cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@height", height);
+                        cmd.Parameters.AddWithValue("@weight", weight);
+                        cmd.Parameters.AddWithValue("@temperature", temperature);
+                        cmd.Parameters.AddWithValue("@pulse_rate", pulse_rate);
+                        cmd.Parameters.AddWithValue("@blood_pressure", blood_pressure);
+                        cmd.Parameters.AddWithValue("@doctor", doctor);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
         public bool getPatientFromSchedule(string patient_id)
         {
             try

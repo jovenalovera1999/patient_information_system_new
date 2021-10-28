@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Microsoft.Reporting.WinForms;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -23,6 +24,7 @@ namespace PatientInformationSystemNew.forms
         functions.Diagnosis diagnosis = new functions.Diagnosis();
         functions.Symptoms symptoms = new functions.Symptoms();
         functions.Prescription prescription = new functions.Prescription();
+        functions.Patient patient = new functions.Patient();
 
         private void frmCreatePrescription_Load(object sender, EventArgs e)
         {
@@ -44,12 +46,78 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.gridPrescriptions.SelectedCells[1].Value = this.txtPrescriptionReview.Text;
+            this.gridPrescriptions.SelectedCells[1].Value = this.txtPrescriptionPreview.Text;
+        }
+
+        private void btnGeneratePrintNewPrescription_Click(object sender, EventArgs e)
+        {
+            this.rprtPrescription.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            if(String.IsNullOrWhiteSpace(val.PatientMiddleName))
+            {
+                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientLastName));
+            }
+            else
+            {
+                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientMiddleName.Substring(0, 1) + ". " + 
+                    val.PatientLastName));
+            }
+            parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
+            parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
+            parameters.Add(new ReportParameter("pAddress", val.PatientAddress));
+            parameters.Add(new ReportParameter("pDate", DateTime.Now.ToString("MM/dd/yy")));
+            parameters.Add(new ReportParameter("pPrescription", this.txtCreateNewPrescription.Text));
+            this.rprtPrescription.LocalReport.SetParameters(parameters);
+            this.rprtPrescription.RefreshReport();
+        }
+
+        private void btnGeneratePrintPrescriptionPreview_Click(object sender, EventArgs e)
+        {
+            this.rprtPrescription.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            if (String.IsNullOrWhiteSpace(val.PatientMiddleName))
+            {
+                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientLastName));
+            }
+            else
+            {
+                parameters.Add(new ReportParameter("pFullName", val.PatientFirstName + " " + val.PatientMiddleName.Substring(0, 1) + ". " + 
+                    val.PatientLastName));
+            }
+            parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
+            parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
+            parameters.Add(new ReportParameter("pAddress", val.PatientAddress));
+            parameters.Add(new ReportParameter("pDate", DateTime.Now.ToString("MM/dd/yy")));
+            parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptionPreview.Text));
+            this.rprtPrescription.LocalReport.SetParameters(parameters);
+            this.rprtPrescription.RefreshReport();
         }
 
         private void btnPrescription_Click(object sender, EventArgs e)
         {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
 
+            if (String.IsNullOrWhiteSpace(this.txtCreateNewPrescription.Text))
+            {
+                MessageBox.Show("Please input prescription first before proceed!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtCreateNewPrescription.Focus();
+            }
+            else if(patient.savePrescriptionAndTransferPatientToPatients(val.PatientID, generateID.ToString(), this.txtCreateNewPrescription.Text, 
+                DateTime.Now, val.PatientFirstName, val.PatientMiddleName, val.PatientLastName, val.PatientGender, val.PatientAge, val.PatientAddress, 
+                val.PatientCellphoneNumer, val.PatientTelephoneNumber, val.PatientEmail, val.PatientHeight, val.PatientWeight, val.PatientTemperature, 
+                val.PatientPulseRate, val.PatientBloodPressure, val.PatientDoctor))
+            {
+                MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Failed to save prescription and transfer patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
