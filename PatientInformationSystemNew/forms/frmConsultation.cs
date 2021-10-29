@@ -42,7 +42,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.Text = val.PatientTemperature.ToString();
             this.txtPulseRate.Text = val.PatientPulseRate.ToString();
             this.txtBloodPressure.Text = val.PatientBloodPressure.ToString();
-            symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
+            symptom.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
             this.txtDiagnosis.Focus();
         }
 
@@ -119,11 +119,12 @@ namespace PatientInformationSystemNew.forms
                     MessageBoxIcon.Error);
                 this.txtSymptoms.Focus();
             }
-            else if(symptom.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text, DateTime.Now))
+            else if(symptom.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text, DateTime.Now.Date))
             {
-                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
             }
@@ -142,7 +143,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
-                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now, this.gridSymptoms);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -162,7 +163,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
-                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, this.gridSymptoms);
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now, this.gridSymptoms);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -217,7 +218,7 @@ namespace PatientInformationSystemNew.forms
                                 cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
                                 cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
                                 cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
-                                cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                                cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
 
                                 connection.Open();
                                 cmd.ExecuteReader();

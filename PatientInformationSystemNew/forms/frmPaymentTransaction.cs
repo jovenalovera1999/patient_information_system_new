@@ -166,7 +166,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            forms.frmPatient frmPatient = new forms.frmPatient();
+            forms.frmPatients frmPatient = new forms.frmPatients();
             frmPatient.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
             Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];

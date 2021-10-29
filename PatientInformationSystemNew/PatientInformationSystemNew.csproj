@@ -154,11 +154,11 @@
     <Compile Include="forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmPatient.cs">
+    <Compile Include="forms\frmPatients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmPatient.Designer.cs">
-      <DependentUpon>frmPatient.cs</DependentUpon>
+    <Compile Include="forms\frmPatients.Designer.cs">
+      <DependentUpon>frmPatients.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmMyProfile.cs">
       <SubType>Form</SubType>
@@ -229,8 +229,8 @@
     <EmbeddedResource Include="forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPatient.resx">
-      <DependentUpon>frmPatient.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmPatients.resx">
+      <DependentUpon>frmPatients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMyProfile.resx">
       <DependentUpon>frmMyProfile.cs</DependentUpon>

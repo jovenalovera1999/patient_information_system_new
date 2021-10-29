@@ -30,7 +30,7 @@ namespace PatientInformationSystemNew.forms
         private void btnPatient_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
-            forms.frmPatient frmPatient = new forms.frmPatient();
+            forms.frmPatients frmPatient = new forms.frmPatients();
             frmPatient.TopLevel = false;
             this.pnlDashboardBody.Controls.Add(frmPatient);
             frmPatient.Dock = DockStyle.Fill;

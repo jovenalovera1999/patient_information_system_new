@@ -374,7 +374,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription.HoverState.Parent = this.btnPrescription;
             this.btnPrescription.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnPrescription.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPrescription.Location = new System.Drawing.Point(1905, 997);
+            this.btnPrescription.Location = new System.Drawing.Point(1901, 997);
             this.btnPrescription.Name = "btnPrescription";
             this.btnPrescription.ShadowDecoration.Parent = this.btnPrescription;
             this.btnPrescription.Size = new System.Drawing.Size(131, 62);
@@ -405,7 +405,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.HoverState.Parent = this.btnBack;
             this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
             this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBack.Location = new System.Drawing.Point(1759, 997);
+            this.btnBack.Location = new System.Drawing.Point(1755, 997);
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(131, 62);

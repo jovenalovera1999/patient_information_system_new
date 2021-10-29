@@ -14,7 +14,7 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void loadSymptomsInConsultation(string patient_id, DataGridView grid)
+        public void loadSymptomsInConsultation(string patient_id, DateTime date, DataGridView grid)
         {
             try
             {
@@ -25,11 +25,13 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms'
                                     FROM patient_information_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
+                                    date = @date;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

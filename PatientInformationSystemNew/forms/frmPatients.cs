@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PatientInformationSystemNew.forms
 {
-    public partial class frmPatient : Form
+    public partial class frmPatients : Form
     {
-        public frmPatient()
+        public frmPatients()
         {
             InitializeComponent();
         }
@@ -28,14 +28,13 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
-            frmPatientProfile.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatientProfile);
-            frmPatientProfile.Dock = DockStyle.Fill;
-            frmPatientProfile.Show();
-            this.Close();
+            if(patient.getPatientFromPatients(this.txtPatientID.Text))
+            {
+                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+                frmPatientProfile.Show();
+                this.Close();
+                Application.OpenForms["frmDashboard"].Close();
+            }
         }
 
         private void btnPaymentTransaction_Click(object sender, EventArgs e)
@@ -60,6 +59,26 @@ namespace PatientInformationSystemNew.forms
             frmAddPatient.Dock = DockStyle.Fill;
             frmAddPatient.Show();
             this.Close();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtPatientID.Text = this.gridPatients.SelectedCells[0].Value.ToString();
+            this.btnSelect.Enabled = true;
+        }
+
+        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(patient.getPatientFromPatients(this.gridPatients.SelectedCells[0].Value.ToString()))
+            {
+                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+                frmPatientProfile.Show();
+                this.Close();
+                Application.OpenForms["frmDashboard"].Close();
+            }
         }
     }
 }

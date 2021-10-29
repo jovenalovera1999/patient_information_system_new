@@ -167,7 +167,7 @@ namespace PatientInformationSystemNew.forms
                                 cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
                                 cmd.Parameters.AddWithValue("@symptoms_id", this.gridAddPatient.Rows[i].Cells[0].Value);
                                 cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[1].Value);
-                                cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                                cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
 
                                 connection.Open();
                                 cmd.ExecuteReader();
