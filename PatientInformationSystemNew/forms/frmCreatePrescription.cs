@@ -28,17 +28,9 @@ namespace PatientInformationSystemNew.forms
 
         private void frmCreatePrescription_Load(object sender, EventArgs e)
         {
-            this.dateRecords.Value = DateTime.Now;
             diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosis);
             symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptoms);
             prescription.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptions);
-        }
-
-        private void dateRecords_ValueChanged(object sender, EventArgs e)
-        {
-            diagnosis.loadDiagnosisRecordsOfPatientByDate(val.PatientID, this.dateRecords.Value.Date, this.gridDiagnosis);
-            symptoms.loadSymptomsRecordsOfPatientByDate(val.PatientID, this.dateRecords.Value.Date, this.gridSymptoms);
-            prescription.loadPrescriptionRecordsOfPatientByDate(val.PatientID, this.dateRecords.Value.Date, this.gridPrescriptions);
         }
 
         private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

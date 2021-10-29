@@ -79,40 +79,6 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadSymptomsRecordsOfPatientByDate(string patient_id, DateTime date, DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms', 
-                                    date AS 'Date'
-                                    FROM patient_information_db.symptoms
-                                    WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
-                                    date = @date;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@date", date);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error loading symptoms records of patient by date: " + ex.ToString());
-            }
-        }
-
         public bool addPatientSymptom(string patient_id, string symptoms_id, string symptoms, DateTime date)
         {
             try

@@ -63,34 +63,20 @@ namespace PatientInformationSystemNew.forms
             this.Close();
         }
 
-        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        private void btnManageDiagnosis_Click(object sender, EventArgs e)
+        {
+            forms.frmManageDiagnosisSymptoms frmManageDiagnosis = new forms.frmManageDiagnosisSymptoms();
+            frmManageDiagnosis.Show();
+        }
+
+        private void btnManageSymptoms_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnUpdateDiagnosis_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }

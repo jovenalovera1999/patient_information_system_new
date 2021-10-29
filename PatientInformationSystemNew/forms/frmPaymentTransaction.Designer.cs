@@ -394,7 +394,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridPaymentTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridPaymentTransaction.ColumnHeadersHeight = 65;
+            this.gridPaymentTransaction.ColumnHeadersHeight = 55;
             this.gridPaymentTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -414,7 +414,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.RowHeadersVisible = false;
             this.gridPaymentTransaction.RowHeadersWidth = 51;
             this.gridPaymentTransaction.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridPaymentTransaction.RowTemplate.Height = 55;
+            this.gridPaymentTransaction.RowTemplate.Height = 50;
             this.gridPaymentTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPaymentTransaction.Size = new System.Drawing.Size(878, 958);
             this.gridPaymentTransaction.TabIndex = 7;
@@ -430,13 +430,13 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.gridPaymentTransaction.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridPaymentTransaction.ThemeStyle.HeaderStyle.Height = 65;
+            this.gridPaymentTransaction.ThemeStyle.HeaderStyle.Height = 55;
             this.gridPaymentTransaction.ThemeStyle.ReadOnly = true;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridPaymentTransaction.ThemeStyle.RowsStyle.Height = 55;
+            this.gridPaymentTransaction.ThemeStyle.RowsStyle.Height = 50;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridPaymentTransaction.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPaymentTransaction_CellMouseClick);

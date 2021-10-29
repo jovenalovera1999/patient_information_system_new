@@ -33,13 +33,13 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
             this.txtPatientID.Text = generateID.ToString();
-            this.dateBirthday.Value = DateTime.Now;
         }
 
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
             autoGenNum();
-            for(int i = 0; i < 120; i++)
+            this.dateBirthday.Value = DateTime.Now.Date;
+            for (int i = 0; i < 120; i++)
             {
                 this.cmbAge.Items.Add(i);
             }
