@@ -29,9 +29,9 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalAmountPaid = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAmount = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,7 +46,7 @@ namespace PatientInformationSystemNew.forms
             this.btnTransact = new Guna.UI2.WinForms.Guna2Button();
             this.rprtReceipt = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddPatient = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSaveTransaction = new Guna.UI2.WinForms.Guna2Button();
             this.label13 = new System.Windows.Forms.Label();
             this.gridPaymentTransaction = new Guna.UI2.WinForms.Guna2DataGridView();
             this.txtReceiptNo = new Guna.UI2.WinForms.Guna2TextBox();
@@ -329,36 +329,38 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.Size = new System.Drawing.Size(131, 62);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnAddPatient
+            // btnSaveTransaction
             // 
-            this.btnAddPatient.Animated = true;
-            this.btnAddPatient.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddPatient.BorderColor = System.Drawing.Color.Transparent;
-            this.btnAddPatient.BorderRadius = 5;
-            this.btnAddPatient.BorderThickness = 1;
-            this.btnAddPatient.CheckedState.Parent = this.btnAddPatient;
-            this.btnAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddPatient.CustomImages.Parent = this.btnAddPatient;
-            this.btnAddPatient.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddPatient.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddPatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddPatient.DisabledState.Parent = this.btnAddPatient;
-            this.btnAddPatient.FillColor = System.Drawing.Color.Lime;
-            this.btnAddPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnAddPatient.ForeColor = System.Drawing.Color.White;
-            this.btnAddPatient.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnAddPatient.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnAddPatient.HoverState.Parent = this.btnAddPatient;
-            this.btnAddPatient.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
-            this.btnAddPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAddPatient.Location = new System.Drawing.Point(1592, 875);
-            this.btnAddPatient.Name = "btnAddPatient";
-            this.btnAddPatient.ShadowDecoration.Parent = this.btnAddPatient;
-            this.btnAddPatient.Size = new System.Drawing.Size(226, 62);
-            this.btnAddPatient.TabIndex = 5;
-            this.btnAddPatient.Text = "Save Transaction";
+            this.btnSaveTransaction.Animated = true;
+            this.btnSaveTransaction.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSaveTransaction.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSaveTransaction.BorderRadius = 5;
+            this.btnSaveTransaction.BorderThickness = 1;
+            this.btnSaveTransaction.CheckedState.Parent = this.btnSaveTransaction;
+            this.btnSaveTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveTransaction.CustomImages.Parent = this.btnSaveTransaction;
+            this.btnSaveTransaction.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveTransaction.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveTransaction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSaveTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSaveTransaction.DisabledState.Parent = this.btnSaveTransaction;
+            this.btnSaveTransaction.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveTransaction.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSaveTransaction.ForeColor = System.Drawing.Color.White;
+            this.btnSaveTransaction.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSaveTransaction.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveTransaction.HoverState.Parent = this.btnSaveTransaction;
+            this.btnSaveTransaction.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.btnSaveTransaction.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSaveTransaction.Location = new System.Drawing.Point(1592, 875);
+            this.btnSaveTransaction.Name = "btnSaveTransaction";
+            this.btnSaveTransaction.ShadowDecoration.Parent = this.btnSaveTransaction;
+            this.btnSaveTransaction.Size = new System.Drawing.Size(226, 62);
+            this.btnSaveTransaction.TabIndex = 5;
+            this.btnSaveTransaction.Text = "Save Transaction";
+            this.btnSaveTransaction.Click += new System.EventHandler(this.btnSaveTransaction_Click);
             // 
             // label13
             // 
@@ -377,32 +379,32 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.AllowUserToDeleteRows = false;
             this.gridPaymentTransaction.AllowUserToResizeColumns = false;
             this.gridPaymentTransaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.gridPaymentTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridPaymentTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridPaymentTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPaymentTransaction.BackgroundColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPaymentTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPaymentTransaction.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPaymentTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPaymentTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridPaymentTransaction.ColumnHeadersHeight = 65;
             this.gridPaymentTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPaymentTransaction.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPaymentTransaction.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridPaymentTransaction.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridPaymentTransaction.EnableHeadersVisualStyles = false;
             this.gridPaymentTransaction.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -541,7 +543,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.gridPaymentTransaction);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnAddPatient);
+            this.Controls.Add(this.btnSaveTransaction);
             this.Controls.Add(this.rprtReceipt);
             this.Controls.Add(this.txtChange);
             this.Controls.Add(this.label12);
@@ -582,7 +584,7 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label12;
         private Microsoft.Reporting.WinForms.ReportViewer rprtReceipt;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private Guna.UI2.WinForms.Guna2Button btnAddPatient;
+        private Guna.UI2.WinForms.Guna2Button btnSaveTransaction;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2DataGridView gridPaymentTransaction;
         private Guna.UI2.WinForms.Guna2TextBox txtReceiptNo;

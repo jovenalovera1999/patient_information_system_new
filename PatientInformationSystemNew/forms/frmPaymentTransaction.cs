@@ -26,6 +26,7 @@ namespace PatientInformationSystemNew.forms
         {
             payment.loadPatientUnpaid(this.gridPaymentTransaction);
             this.cmbDiscount.Text = "None";
+            this.btnSaveTransaction.Enabled = false;
             this.txtReceiptNo.Focus();
         }
 
@@ -46,6 +47,7 @@ namespace PatientInformationSystemNew.forms
             {
                 this.txtFullName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
+            this.txtReceiptNo.Focus();
         }
 
         private void btnTransact_Click(object sender, EventArgs e)
@@ -128,6 +130,50 @@ namespace PatientInformationSystemNew.forms
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
                 this.rprtReceipt.RefreshReport();
             }
+            this.btnSaveTransaction.Enabled = true;
+        }
+
+        private void btnSaveTransaction_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+                == DialogResult.Yes)
+            {
+                if (payment.savePatientPayment(this.gridPaymentTransaction.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
+                double.Parse(this.txtTotalMedicalFee.Text), this.cmbDiscount.Text, double.Parse(this.txtAmount.Text),
+                double.Parse(this.txtTotalAmountPaid.Text), double.Parse(this.txtChange.Text)))
+                {
+                    MessageBox.Show("Payment transaction saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    this.txtFullName.ResetText();
+                    this.txtReceiptNo.ResetText();
+                    this.txtTotalMedicalFee.ResetText();
+                    this.cmbDiscount.Text = null;
+                    this.txtAmount.ResetText();
+                    this.txtTotalAmountPaid.ResetText();
+                    this.txtChange.ResetText();
+                    payment.loadPatientUnpaid(this.gridPaymentTransaction);
+                    this.txtReceiptNo.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to save payment transaction!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            forms.frmPatient frmPatient = new forms.frmPatient();
+            frmPatient.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPatient);
+            frmPatient.Dock = DockStyle.Fill;
+            frmPatient.Show();
+            this.Close();
         }
     }
 }
