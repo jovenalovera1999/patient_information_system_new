@@ -77,11 +77,13 @@ namespace PatientInformationSystemNew.forms
         {
             this.txtDiagnosisID.ResetText();
             this.txtDiagnosis.ResetText();
+            
             this.btnAddDiagnosis.Enabled = true;
-
+            this.btnUpdateDiagnosis.Enabled = false;
+            this.btnRemoveDiagnosis.Enabled = false;
             this.dateDiagnosis.Value = DateTime.Now.Date;
+            
             autoGenNumDiagnosis();
-
 
             this.txtDiagnosis.Focus();
         }
@@ -161,13 +163,13 @@ namespace PatientInformationSystemNew.forms
         {
             this.txtSymptomsID.ResetText();
             this.txtSymptoms.ResetText();
-            this.dateSymptoms.Value = DateTime.Now;
 
             autoGenNumSymptoms();
 
             this.btnAddSymptoms.Enabled = true;
             this.btnUpdateSymptoms.Enabled = false;
             this.btnRemoveSymptoms.Enabled = false;
+            this.dateSymptoms.Value = DateTime.Now.Date;
 
             this.txtSymptoms.Focus();
         }
@@ -229,6 +231,8 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+            frmPatientProfile.Show();
             this.Close();
         }
     }

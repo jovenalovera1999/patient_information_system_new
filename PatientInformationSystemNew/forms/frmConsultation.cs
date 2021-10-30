@@ -143,7 +143,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
-                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now, this.gridSymptoms);
+                symptom.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
