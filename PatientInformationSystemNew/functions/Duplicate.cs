@@ -48,6 +48,46 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
+
+        public bool diagnosisIDDuplicate(string patient_id, string symptoms_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT * 
+                                    FROM patient_information_db.diagnosis
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;
+                                    ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter();
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error detecting diagonsis id duplicate: " + ex.ToString());
+                return false;
+            }
+        }
         
         public bool symptomsIDDuplicate(string patient_id, string symptoms_id)
         {

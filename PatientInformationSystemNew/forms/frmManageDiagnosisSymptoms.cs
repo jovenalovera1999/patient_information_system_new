@@ -21,6 +21,7 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Diagnosis diagnosis = new functions.Diagnosis();
         functions.Symptoms symptoms = new functions.Symptoms();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         void autoGenNumDiagnosis()
         {
@@ -48,8 +49,8 @@ namespace PatientInformationSystemNew.forms
 
         private void frmManageDiagnosisSymptoms_Load(object sender, EventArgs e)
         {
-            this.dateDiagnosis.Value = DateTime.Now;
-            this.dateSymptoms.Value = DateTime.Now;
+            this.dateDiagnosis.Value = DateTime.Now.Date;
+            this.dateSymptoms.Value = DateTime.Now.Date;
             diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosis);
             symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptoms);
             this.txtDiagnosis.Focus();
@@ -78,7 +79,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.ResetText();
             this.btnAddDiagnosis.Enabled = true;
 
-            this.dateDiagnosis.Value = DateTime.Now;
+            this.dateDiagnosis.Value = DateTime.Now.Date;
             autoGenNumDiagnosis();
 
 
@@ -87,12 +88,18 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDiagnosis_Click_1(object sender, EventArgs e)
         {
-            if (diagnosis.addDiagnosis(val.PatientID, this.txtDiagnosisID.Text, this.txtDiagnosis.Text, this.dateDiagnosis.Value.Date))
+            if(duplicate.diagnosisIDDuplicate(val.PatientID, this.txtDiagnosisID.Text))
+            {
+                MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                autoGenNumDiagnosis();
+                this.txtDiagnosis.Focus();
+            }
+            else if (diagnosis.addDiagnosis(val.PatientID, this.txtDiagnosisID.Text, this.txtDiagnosis.Text, this.dateDiagnosis.Value.Date))
             {
                 diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosis);
                 this.txtDiagnosisID.ResetText();
                 this.txtDiagnosis.ResetText();
-                this.dateDiagnosis.Value = DateTime.Now;
+                this.dateDiagnosis.Value = DateTime.Now.Date;
                 this.txtDiagnosis.Focus();
             }
             else
@@ -109,7 +116,7 @@ namespace PatientInformationSystemNew.forms
                 diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosis);
                 this.txtDiagnosisID.ResetText();
                 this.txtDiagnosis.ResetText();
-                this.dateDiagnosis.Value = DateTime.Now;
+                this.dateDiagnosis.Value = DateTime.Now.Date;
                 this.txtDiagnosis.Focus();
             }
             else
@@ -126,7 +133,7 @@ namespace PatientInformationSystemNew.forms
                 diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosis);
                 this.txtDiagnosisID.ResetText();
                 this.txtDiagnosis.ResetText();
-                this.dateDiagnosis.Value = DateTime.Now;
+                this.dateDiagnosis.Value = DateTime.Now.Date;
                 this.txtDiagnosis.Focus();
             }
             else
@@ -167,17 +174,57 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptoms_Click(object sender, EventArgs e)
         {
-
+            if(duplicate.symptomsIDDuplicate(val.PatientID, this.txtSymptomsID.Text))
+            {
+                MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                autoGenNumSymptoms();
+                this.txtSymptoms.Focus();
+            }
+            else if(symptoms.addPatientSymptom(val.PatientID, this.txtSymptomsID.Text, this.txtSymptoms.Text, dateSymptoms.Value.Date))
+            {
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptoms);
+                this.txtSymptomsID.ResetText();
+                this.txtSymptoms.ResetText();
+                this.dateDiagnosis.Value = DateTime.Now;
+                this.txtDiagnosis.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Error adding symptoms!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-
+            if(symptoms.updateSymptom(val.PatientID, this.txtSymptomsID.Text, this.txtSymptoms.Text))
+            {
+                MessageBox.Show("Symptoms successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptoms);
+                this.txtSymptomsID.ResetText();
+                this.txtSymptoms.ResetText();
+                this.dateSymptoms.Value = DateTime.Now.Date;
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to update symptoms!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-
+            if(symptoms.deleteSymptom(val.PatientID, this.txtSymptomsID.Text))
+            {
+                MessageBox.Show("Symptom successfully deleted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptoms);
+                this.txtSymptomsID.ResetText();
+                this.txtSymptoms.ResetText();
+                this.dateSymptoms.Value = DateTime.Now.Date;
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete the symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

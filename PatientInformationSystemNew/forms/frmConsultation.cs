@@ -115,9 +115,8 @@ namespace PatientInformationSystemNew.forms
 
             if(duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
             {
-                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                this.txtSymptoms.Focus();
+                MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtDiagnosis.Focus();
             }
             else if(symptom.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text, DateTime.Now.Date))
             {
