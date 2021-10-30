@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PatientInformationSystemNew.forms
 {
-    public partial class frmManageDiagnosisSymptoms : Form
+    public partial class frmPatientManageDiagnosisSymptoms : Form
     {
-        public frmManageDiagnosisSymptoms()
+        public frmPatientManageDiagnosisSymptoms()
         {
             InitializeComponent();
         }
@@ -196,7 +196,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-            if(symptoms.updateSymptom(val.PatientID, this.txtSymptomsID.Text, this.txtSymptoms.Text))
+            if(symptoms.updateSymptom(val.PatientID, this.txtSymptomsID.Text, this.txtSymptoms.Text, this.dateSymptoms.Value.Date))
             {
                 MessageBox.Show("Symptoms successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptoms);

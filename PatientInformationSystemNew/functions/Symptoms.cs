@@ -114,7 +114,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool updateSymptom(string patient_id, string symptoms_id, string symptoms)
+        public bool updateSymptom(string patient_id, string symptoms_id, string symptoms, DateTime date)
         {
             try
             {
@@ -122,16 +122,18 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"UPDATE patient_information_db.symptoms 
                                     SET 
-                                    symptoms = AES_ENCRYPT(@symptoms, 'jovencutegwapo123') 
+                                    symptoms = AES_ENCRYPT(@symptoms, 'jovencutegwapo123'),
+                                    date = @date
                                     WHERE 
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
                                     CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@symptoms", symptoms);
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+                        cmd.Parameters.AddWithValue("@symptoms", symptoms);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         cmd.ExecuteReader();

@@ -65,8 +65,9 @@ namespace PatientInformationSystemNew.forms
 
         private void btnManageDiagnosis_Click(object sender, EventArgs e)
         {
-            forms.frmManageDiagnosisSymptoms frmManageDiagnosis = new forms.frmManageDiagnosisSymptoms();
-            frmManageDiagnosis.Show();
+            forms.frmPatientManageDiagnosisSymptoms frmPatientManageDiagnosis = new forms.frmPatientManageDiagnosisSymptoms();
+            frmPatientManageDiagnosis.Show();
+            this.Close();
         }
 
         private void btnManageSymptoms_Click(object sender, EventArgs e)

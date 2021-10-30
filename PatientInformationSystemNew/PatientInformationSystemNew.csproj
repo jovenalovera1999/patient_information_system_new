@@ -112,11 +112,11 @@
     <Compile Include="forms\frmListOfMedicalStaff.Designer.cs">
       <DependentUpon>frmListOfMedicalStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmManageDiagnosisSymptoms.cs">
+    <Compile Include="forms\frmPatientManageDiagnosisSymptoms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmManageDiagnosisSymptoms.Designer.cs">
-      <DependentUpon>frmManageDiagnosisSymptoms.cs</DependentUpon>
+    <Compile Include="forms\frmPatientManageDiagnosisSymptoms.Designer.cs">
+      <DependentUpon>frmPatientManageDiagnosisSymptoms.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmMedicalStaffProfile.cs">
       <SubType>Form</SubType>
@@ -214,8 +214,8 @@
     <EmbeddedResource Include="forms\frmListOfMedicalStaff.resx">
       <DependentUpon>frmListOfMedicalStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmManageDiagnosisSymptoms.resx">
-      <DependentUpon>frmManageDiagnosisSymptoms.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmPatientManageDiagnosisSymptoms.resx">
+      <DependentUpon>frmPatientManageDiagnosisSymptoms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMedicalStaffProfile.resx">
       <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
