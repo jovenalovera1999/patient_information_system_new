@@ -47,6 +47,38 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void loadPatientsInPatients(DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) AS 'Patient ID', 
+                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name',
+                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
+                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
+                                    CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender', 
+                                    birthday AS 'Birthday'
+                                    FROM patient_information_db.patients
+                                    ORDER BY first_name DESC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading patients in patients: " + ex.ToString());
+            }
+        }
+
         // Add patient
         public bool addPatient(string patient_id, string first_name, string middle_name, string last_name, string gender, int age, string address, 
             DateTime birthday, string cellphone_number, string telephone_number, string email, double height, double weight, double temperature, 
@@ -113,37 +145,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadPatientsInPatients(DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) AS 'Patient ID', 
-                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name',
-                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
-                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
-                                    CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender', 
-                                    birthday AS 'Birthday'
-                                    FROM patient_information_db.patients
-                                    ORDER BY first_name DESC;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error loading patients in patients: " + ex.ToString());
-            }
-        }
+        // Save patient
 
         public bool savePrescriptionAndTransferPatientToPatients(string patient_id, string prescription_id, string prescriptions, DateTime date, 
             string first_name, string middle_name, string last_name, string gender, int age, string address, DateTime birthday, 
@@ -225,6 +227,129 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
+
+        // Update patient
+
+        public bool updatePatient(string patient_id, string first_name, string middle_name, string last_name, string gender, int age,
+            string address, DateTime birthday, string cellphone_number, string telephone_number, string email, double height, double weight,
+            double temperature, double pulse_rate, double blood_pressure)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.patients
+                                    SET
+                                    first_name = AES_ENCRYPT(@first_name, 'jovencutegwapo123'),
+                                    middle_name = AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
+                                    last_name = AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
+                                    gender = AES_ENCRYPT(@gender, 'jovencutegwapo123'),
+                                    age = @age,
+                                    address = AES_ENCRYPT(@address, 'jovencutegwapo123'),
+                                    birthday = @birthday,
+                                    cellphone_number = AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),
+                                    telephone_number = AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
+                                    email = AES_ENCRYPT(@email, 'jovencutegwapo123'),
+                                    height = @height,
+                                    weight = @weight,
+                                    temperature = @temperature,
+                                    pulse_rate = @pulse_rate,
+                                    blood_pressure = @blood_pressure
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@middle_name", middle_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@gender", gender);
+                        cmd.Parameters.AddWithValue("@age", age);
+                        cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@birthday", birthday);
+                        cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
+                        cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@height", height);
+                        cmd.Parameters.AddWithValue("@weight", weight);
+                        cmd.Parameters.AddWithValue("@temperature", temperature);
+                        cmd.Parameters.AddWithValue("@pulse_rate", pulse_rate);
+                        cmd.Parameters.AddWithValue("@blood_pressure", blood_pressure);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating patient: " + ex.ToString());
+                return false;
+            }
+        }
+
+        // Cancel, remove or delete patient
+
+        public bool backPatientToScheduleFromConsultation(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.schedule 
+                                    SET status = 'Waiting'
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating patient status in schedule going back: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool cancelPatientInSchedule(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"DELETE 
+                                    FROM patient_information_db.users 
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting patient in schedule: " + ex.ToString());
+                return false;
+            }
+        }
+
+        // Get patient
 
         public bool getPatientFromSchedule(string patient_id)
         {
@@ -367,62 +492,6 @@ namespace PatientInformationSystemNew.functions
             catch (Exception ex)
             {
                 Console.WriteLine("Error getting a patient from schedule: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool backPatientToScheduleFromConsultation(string patient_id)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"UPDATE patient_information_db.schedule 
-                                    SET status = 'Waiting'
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        connection.Open();
-                        cmd.ExecuteReader();
-
-                        return true;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error updating patient status in schedule going back: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool cancelPatientInSchedule(string patient_id)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"DELETE 
-                                    FROM patient_information_db.users 
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        connection.Open();
-                        cmd.ExecuteReader();
-
-                        return true;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error deleting patient in schedule: " + ex.ToString());
                 return false;
             }
         }

@@ -687,6 +687,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSave.Size = new System.Drawing.Size(126, 62);
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 
@@ -799,6 +800,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.TabIndex = 219;
             this.btnRemovePhoto.Text = "Remove Photo";
             this.btnRemovePhoto.Visible = false;
+            this.btnRemovePhoto.Click += new System.EventHandler(this.btnRemovePhoto_Click);
             // 
             // btnUploadPhoto
             // 
@@ -830,6 +832,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.TabIndex = 218;
             this.btnUploadPhoto.Text = "Upload Photo";
             this.btnUploadPhoto.Visible = false;
+            this.btnUploadPhoto.Click += new System.EventHandler(this.btnUploadPhoto_Click);
             // 
             // frmMyProfile
             // 

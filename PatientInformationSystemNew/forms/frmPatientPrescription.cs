@@ -48,6 +48,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEdit.Enabled = false;
             this.txtPrescriptionPreview.Enabled = true;
             this.datePrescription.Visible = true;
+            this.btnAddPrescription.Visible = true;
             this.btnUpdatePrescription.Visible = true;
             this.btnRemovePrescription.Visible = true;
             this.txtPrescriptionPreview.Focus();
@@ -140,6 +141,13 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pPrescription", this.gridPrescriptions.SelectedCells[1].Value.ToString()));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+            frmPatientProfile.Show();
+            this.Close();
         }
     }
 }

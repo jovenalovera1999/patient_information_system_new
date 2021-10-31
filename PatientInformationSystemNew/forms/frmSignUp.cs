@@ -128,12 +128,12 @@ namespace PatientInformationSystemNew.forms
                     {
                         if (String.IsNullOrWhiteSpace(this.txtMiddlename.Text))
                         {
-                            MessageBox.Show(this.txtFirstname.Text + " " + this.txtLastname.Text + " account created!",
+                            MessageBox.Show(string.Format("{0} {1} account created!", this.txtFirstname.Text, this.txtLastname.Text),
                                 "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show(this.txtFirstname.Text + " " + this.txtMiddlename.Text[0] + ". " + this.txtLastname.Text + " account created!",
+                            MessageBox.Show(string.Format("{0} {1}. {2} account created!", this.txtFirstname.Text, this.txtMiddlename.Text[0], this.txtLastname.Text),
                                 "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         this.txtUserID.ResetText();
@@ -145,7 +145,7 @@ namespace PatientInformationSystemNew.forms
                         this.cmbGender.Text = null;
                         this.cmbAge.Text = null;
                         this.txtAddress.ResetText();
-                        this.dateBirthday.Value = DateTime.Now;
+                        this.dateBirthday.Value = DateTime.Now.Date;
                         this.txtCellphoneNumber.ResetText();
                         this.txtTelephoneNumber.ResetText();
                         this.txtEmail.ResetText();
