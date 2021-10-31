@@ -45,19 +45,11 @@ namespace PatientInformationSystemNew.forms
         {
             this.rprtPrescription.Clear();
             ReportParameterCollection parameters = new ReportParameterCollection();
-            if(String.IsNullOrWhiteSpace(val.PatientMiddleName))
-            {
-                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}", val.PatientFirstName, val.PatientLastName)));
-            }
-            else
-            {
-                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}. {2}", val.PatientFirstName, val.PatientMiddleName[0],
-                    val.PatientLastName)));
-            }
+            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
             parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
             parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
             parameters.Add(new ReportParameter("pAddress", val.PatientAddress));
-            parameters.Add(new ReportParameter("pDate", DateTime.Now.ToString("MM/dd/yy")));
+            parameters.Add(new ReportParameter("pDate", DateTime.Now.Date.ToString("MM/dd/yyyy")));
             parameters.Add(new ReportParameter("pPrescription", this.txtCreateNewPrescription.Text));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
@@ -67,19 +59,11 @@ namespace PatientInformationSystemNew.forms
         {
             this.rprtPrescription.Clear();
             ReportParameterCollection parameters = new ReportParameterCollection();
-            if (String.IsNullOrWhiteSpace(val.PatientMiddleName))
-            {
-                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}", val.PatientFirstName, val.PatientLastName)));
-            }
-            else
-            {
-                parameters.Add(new ReportParameter("pFullName", string.Format("{0} {1}. {2}", val.PatientFirstName, val.PatientMiddleName[0], 
-                    val.PatientLastName)));
-            }
+            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
             parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
             parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
             parameters.Add(new ReportParameter("pAddress", val.PatientAddress));
-            parameters.Add(new ReportParameter("pDate", DateTime.Now.ToString("MM/dd/yy")));
+            parameters.Add(new ReportParameter("pDate", DateTime.Now.Date.ToString("MM/dd/yyyy")));
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptionPreview.Text));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
@@ -100,7 +84,7 @@ namespace PatientInformationSystemNew.forms
                 this.txtCreateNewPrescription.Focus();
             }
             else if(patient.savePrescriptionAndTransferPatientToPatients(val.PatientID, generateID.ToString(), this.txtCreateNewPrescription.Text, 
-                DateTime.Now, val.PatientFirstName, val.PatientMiddleName, val.PatientLastName, val.PatientGender, val.PatientAge, val.PatientAddress, 
+                DateTime.Now.Date, val.PatientFirstName, val.PatientMiddleName, val.PatientLastName, val.PatientGender, val.PatientAge, val.PatientAddress, 
                 val.PatientBirthday, val.PatientCellphoneNumer, val.PatientTelephoneNumber, val.PatientEmail, val.PatientHeight, 
                 val.PatientWeight, val.PatientTemperature, val.PatientPulseRate, val.PatientBloodPressure, val.PatientDoctor))
             {

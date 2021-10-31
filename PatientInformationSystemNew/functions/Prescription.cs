@@ -79,5 +79,69 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
+
+        public bool updatePrescriptions(string patient_id, string prescription_id, string prescriptions, DateTime date)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.prescriptions
+                                    SET prescriptions = AES_ENCRYPT(prescriptions, 'jovencutegwapo123'),
+                                    date = @date
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(prescription_id, 'jovencutegwapo123') AS CHAR) = @prescription_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
+                        cmd.Parameters.AddWithValue("@date", date);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating patient prescription: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool removePrescriptions(string patient_id, string prescriptions_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"DELETE FROM patient_information_db.prescriptions
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(prescriptions_id, 'jovencutegwapo123') AS CHAR) = @prescriptions_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@prescriptions_id", prescriptions_id);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error deleting patient prescription: " + ex.ToString());
+                return false;
+            }
+        }
     }
 }

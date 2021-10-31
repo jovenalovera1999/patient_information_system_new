@@ -230,5 +230,20 @@ namespace PatientInformationSystemNew.components
             get { return patient_doctor; }
             set { patient_doctor = value; }
         }
+
+        public string PatientFullName
+        {
+            get
+            {
+                if(String.IsNullOrWhiteSpace(patient_middle_name))
+                {
+                    return string.Format("{0} {1}", patient_first_name, patient_last_name);
+                }
+                else
+                {
+                    return string.Format("{0} {1}. {2}", patient_first_name, patient_middle_name, patient_last_name);
+                }
+            }
+        }
     }
 }

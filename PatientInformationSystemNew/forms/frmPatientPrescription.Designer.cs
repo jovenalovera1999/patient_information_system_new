@@ -94,6 +94,7 @@ namespace PatientInformationSystemNew.forms
             this.btnGeneratePrintPrescriptionPreview.Size = new System.Drawing.Size(145, 83);
             this.btnGeneratePrintPrescriptionPreview.TabIndex = 211;
             this.btnGeneratePrintPrescriptionPreview.Text = "Generate";
+            this.btnGeneratePrintPrescriptionPreview.Click += new System.EventHandler(this.btnGeneratePrintPrescriptionPreview_Click);
             // 
             // label7
             // 
@@ -439,7 +440,6 @@ namespace PatientInformationSystemNew.forms
             this.datePrescription.BorderThickness = 1;
             this.datePrescription.CheckedState.Parent = this.datePrescription;
             this.datePrescription.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.datePrescription.Enabled = false;
             this.datePrescription.FillColor = System.Drawing.Color.Blue;
             this.datePrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.datePrescription.ForeColor = System.Drawing.Color.White;
@@ -455,6 +455,7 @@ namespace PatientInformationSystemNew.forms
             this.datePrescription.Size = new System.Drawing.Size(475, 45);
             this.datePrescription.TabIndex = 1;
             this.datePrescription.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.datePrescription.Visible = false;
             // 
             // btnRemovePrescription
             // 
@@ -471,7 +472,6 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRemovePrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRemovePrescription.DisabledState.Parent = this.btnRemovePrescription;
-            this.btnRemovePrescription.Enabled = false;
             this.btnRemovePrescription.FillColor = System.Drawing.Color.Red;
             this.btnRemovePrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnRemovePrescription.ForeColor = System.Drawing.Color.White;
@@ -485,6 +485,8 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePrescription.Size = new System.Drawing.Size(148, 54);
             this.btnRemovePrescription.TabIndex = 3;
             this.btnRemovePrescription.Text = "Remove Prescription";
+            this.btnRemovePrescription.Visible = false;
+            this.btnRemovePrescription.Click += new System.EventHandler(this.btnRemovePrescription_Click);
             // 
             // btnUpdatePrescription
             // 
@@ -501,7 +503,6 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdatePrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUpdatePrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUpdatePrescription.DisabledState.Parent = this.btnUpdatePrescription;
-            this.btnUpdatePrescription.Enabled = false;
             this.btnUpdatePrescription.FillColor = System.Drawing.Color.Blue;
             this.btnUpdatePrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnUpdatePrescription.ForeColor = System.Drawing.Color.White;
@@ -515,6 +516,8 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdatePrescription.Size = new System.Drawing.Size(148, 54);
             this.btnUpdatePrescription.TabIndex = 2;
             this.btnUpdatePrescription.Text = "Update Prescription";
+            this.btnUpdatePrescription.Visible = false;
+            this.btnUpdatePrescription.Click += new System.EventHandler(this.btnUpdatePrescription_Click);
             // 
             // label5
             // 
@@ -526,6 +529,7 @@ namespace PatientInformationSystemNew.forms
             this.label5.Size = new System.Drawing.Size(90, 28);
             this.label5.TabIndex = 301;
             this.label5.Text = "Set Date:";
+            this.label5.Visible = false;
             // 
             // btnBack
             // 
