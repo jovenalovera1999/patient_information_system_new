@@ -1081,6 +1081,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrescription.Size = new System.Drawing.Size(187, 62);
             this.btnPrescription.TabIndex = 25;
             this.btnPrescription.Text = "Prescription";
+            this.btnPrescription.Click += new System.EventHandler(this.btnPrescription_Click);
             // 
             // btnBack
             // 

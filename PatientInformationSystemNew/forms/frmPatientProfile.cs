@@ -70,6 +70,13 @@ namespace PatientInformationSystemNew.forms
             this.Close();
         }
 
+        private void btnPrescription_Click(object sender, EventArgs e)
+        {
+            forms.frmPatientPrescription frmPatientPrescription = new forms.frmPatientPrescription();
+            frmPatientPrescription.Show();
+            this.Close();
+        }
+
         private void btnManageSymptoms_Click(object sender, EventArgs e)
         {
 

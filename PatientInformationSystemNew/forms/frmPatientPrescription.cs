@@ -23,6 +23,7 @@ namespace PatientInformationSystemNew.forms
         functions.Diagnosis diagnosis = new functions.Diagnosis();
         functions.Symptoms symptoms = new functions.Symptoms();
         functions.Prescription prescriptions = new functions.Prescription();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         private void frmPatientPrescription_Load(object sender, EventArgs e)
         {
@@ -38,6 +39,8 @@ namespace PatientInformationSystemNew.forms
 
             this.txtPrescriptionPreview.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
             this.datePrescription.Value = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
+
+            this.btnGeneratePrintPrescriptionPreview.Enabled = true;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -50,12 +53,52 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptionPreview.Focus();
         }
 
+        private void btnAddPrescription_Click(object sender, EventArgs e)
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.prescriptionIDDuplicate(val.PatientID, generateID.ToString()))
+            {
+                MessageBox.Show("Duplicate ID! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtPrescriptionPreview.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtPrescriptionPreview.Text))
+            {
+                MessageBox.Show("Please input prescription first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtPrescriptionPreview.Focus();
+            }
+            else if(prescriptions.addPrescription(val.PatientID, generateID.ToString(), this.txtPrescriptionPreview.Text, 
+                this.datePrescription.Value.Date))
+            {
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptions);
+                this.txtPrescriptionPreview.ResetText();
+                this.txtPrescriptionPreview.Focus();
+                this.datePrescription.Value = DateTime.Now.Date;
+            }
+            else
+            {
+                MessageBox.Show("Failed to add prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnUpdatePrescription_Click(object sender, EventArgs e)
         {
-            if(prescriptions.updatePrescriptions(val.PatientID, this.gridPrescriptions.SelectedCells[0].Value.ToString(), 
-                this.gridPrescriptions.SelectedCells[1].Value.ToString(), this.datePrescription.Value.Date))
+            if(String.IsNullOrWhiteSpace(this.txtPrescriptionPreview.Text))
+            {
+                MessageBox.Show("Please input prescription first!", "Input First", MessageBoxButtons.OK , MessageBoxIcon.Error);
+                this.txtPrescriptionPreview.Focus();
+            }
+            else if(prescriptions.updatePrescriptions(val.PatientID, this.gridPrescriptions.SelectedCells[0].Value.ToString(), 
+                this.txtPrescriptionPreview.Text, this.datePrescription.Value.Date))
             {
                 MessageBox.Show("Prescription successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
                 prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptions);
                 this.txtPrescriptionPreview.Focus();
             }
@@ -91,9 +134,9 @@ namespace PatientInformationSystemNew.forms
             ReportParameterCollection parameters = new ReportParameterCollection();
             parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
             parameters.Add(new ReportParameter("pAge", val.PatientAge.ToString()));
-            parameters.Add(new ReportParameter(val.PatientGender.Substring(0, 1)));
+            parameters.Add(new ReportParameter("pSex", val.PatientGender.Substring(0, 1)));
             parameters.Add(new ReportParameter("pAddress", val.PatientAddress));
-            parameters.Add(new ReportParameter("pDate", this.gridPrescriptions.SelectedCells[2].Value.ToString()));
+            parameters.Add(new ReportParameter("pDate", this.datePrescription.Value.Date.ToString("dd/MM/yyyy")));
             parameters.Add(new ReportParameter("pPrescription", this.gridPrescriptions.SelectedCells[1].Value.ToString()));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();

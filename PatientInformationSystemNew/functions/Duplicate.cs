@@ -127,5 +127,43 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
+
+        public bool prescriptionIDDuplicate(string patient_id, string prescription_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM patient_information_db.prescriptions
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(prescription_id, 'jovencutegwapo123') AS CHAR) = @prescription_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patien_id", patient_id);
+                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }
