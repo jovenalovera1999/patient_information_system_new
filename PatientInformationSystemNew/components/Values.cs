@@ -245,5 +245,91 @@ namespace PatientInformationSystemNew.components
                 }
             }
         }
+
+        // Doctor values
+        public static string doctor_id;
+        public string DoctorID
+        {
+            get { return doctor_id; }
+            set { doctor_id = value; }
+        }
+        public static byte[] doctor_profile_picture;
+        public byte[] DoctorProfilePicture
+        {
+            get { return doctor_profile_picture; }
+            set { doctor_profile_picture = value; }
+        }
+        public static string doctor_first_name;
+        public string DoctorFirstName
+        {
+            get { return doctor_first_name; }
+            set { doctor_first_name = value; }
+        }
+        public static string doctor_middle_name;
+        public string DoctorMiddleName
+        {
+            get { return doctor_middle_name; }
+            set { doctor_middle_name = value; }
+        }
+        public static string doctor_last_name;
+        public string DoctorLastName
+        {
+            get { return doctor_last_name; }
+            set { doctor_last_name = value; }
+        }
+        public static string doctor_gender;
+        public string DoctorGender
+        {
+            get { return doctor_gender; }
+            set { doctor_gender = value; }
+        }
+        public static int doctor_age;
+        public int DoctorAge
+        {
+            get { return doctor_age; }
+            set { doctor_age = doctor_age = value; }
+        }
+        public static string doctor_address;
+        public string DoctorAddress
+        {
+            get { return doctor_address; }
+            set { doctor_address = value; }
+        }
+        public static DateTime doctor_birthday;
+        public DateTime DoctorBirthday
+        {
+            get { return doctor_birthday; }
+            set { doctor_birthday = value; }
+        }
+        public static string doctor_cellphone_number;
+        public string DoctorCellphoneNumber
+        {
+            get { return doctor_cellphone_number; }
+            set { doctor_cellphone_number = value; }
+        }
+        public static string doctor_telephone_number;
+        public string DoctorTelephoneNumber
+        {
+            get { return doctor_telephone_number; }
+            set { doctor_telephone_number = value; }
+        }
+        public static string doctor_email;
+        public string DoctorEmail
+        {
+            get { return doctor_email; }
+            set { doctor_email = value; }
+        }
+        public static string doctor_role;
+        public string DoctorRole
+        {
+            get { return doctor_role; }
+            set { doctor_role = value; }
+        }
+        public static string doctor_specialization;
+        public string DoctorSpecialization
+        {
+            get { return doctor_specialization; }
+            set { doctor_specialization = value; }
+        }
     }
 }

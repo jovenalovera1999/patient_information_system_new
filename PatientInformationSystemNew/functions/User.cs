@@ -13,7 +13,7 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        // Sign up user
+        // Sign Up User
 
         public bool signUp(string user_id, byte[] profile_picture, string username, string password, string first_name, 
             string middle_name, string last_name, string gender, int age, string address, DateTime birthday, string cellphone_number, 
@@ -150,7 +150,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        // User authentication for fixed Administrator only
+        // User Authentication for Fixed Administrator Only
         public bool userAuthenticationForAdministratorOnly(string username, string password)
         {
             try
@@ -222,7 +222,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        // Get user
+        // Get User
 
         public bool getUser(string user_id)
         {
@@ -293,7 +293,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        //  Update user
+        //  Update User
 
         public bool updateUser(string user_id, byte[] profile_picture, string username, string password, string first_name, string middle_name, 
             string last_name, string gender, int age, string address, DateTime birthday, string cellphone_number, string telephone_number,
