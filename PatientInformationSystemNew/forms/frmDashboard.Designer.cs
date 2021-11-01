@@ -263,6 +263,7 @@ namespace PatientInformationSystemNew.forms
             this.btnDoctors.Size = new System.Drawing.Size(221, 54);
             this.btnDoctors.TabIndex = 12;
             this.btnDoctors.Text = "Doctors";
+            this.btnDoctors.Click += new System.EventHandler(this.btnDoctors_Click);
             // 
             // btnPatient
             // 

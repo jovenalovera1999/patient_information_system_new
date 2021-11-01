@@ -157,6 +157,35 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Your profile successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    if (user.getUser(this.txtMyID.Text))
+                    {
+                        if (val.UserRole != "Doctor")
+                        {
+                            this.btnViewMyPatient.Visible = false;
+                        }
+
+                        if (val.UserProfilePicture != null)
+                        {
+                            MemoryStream ms = new MemoryStream(val.UserProfilePicture);
+                            this.picProfilePicture.Image = Image.FromStream(ms);
+                        }
+
+                        this.txtMyID.Text = val.UserID;
+                        this.txtUsername.Text = val.UserUsername;
+                        this.txtPassword.Text = val.UserPassword;
+                        this.txtFirstName.Text = val.UserFirstName;
+                        this.txtMiddleName.Text = val.UserMiddleName;
+                        this.txtLastName.Text = val.UserLastName;
+                        this.cmbGender.Text = val.UserGender;
+                        this.cmbAge.Text = val.UserAge.ToString();
+                        this.txtAddress.Text = val.UserAddress;
+                        this.dateBirthday.Value = val.UserBirthday;
+                        this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
+                        this.txtTelephoneNumber.Text = val.UserTelephoneNumber;
+                        this.txtEmail.Text = val.UserEmail;
+                        this.txtRole.Text = val.UserRole;
+                    }
+
                     this.txtUsername.Enabled = false;
                     this.txtPassword.Enabled = false;
                     this.txtFirstName.Enabled = false;
@@ -188,13 +217,40 @@ namespace PatientInformationSystemNew.forms
                 BinaryReader br = new BinaryReader(fs);
                 profilePicture = br.ReadBytes((int)fs.Length);
 
-                val.UserProfilePicture = profilePicture;
-
-                if (user.updateUser(this.txtMyID.Text, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                if (user.updateUser(this.txtMyID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                     this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date,
                     this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
                 {
                     MessageBox.Show("Your profile successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if(user.getUser(this.txtMyID.Text))
+                    {
+                        if (val.UserRole != "Doctor")
+                        {
+                            this.btnViewMyPatient.Visible = false;
+                        }
+
+                        if (val.UserProfilePicture != null)
+                        {
+                            MemoryStream ms = new MemoryStream(val.UserProfilePicture);
+                            this.picProfilePicture.Image = Image.FromStream(ms);
+                        }
+
+                        this.txtMyID.Text = val.UserID;
+                        this.txtUsername.Text = val.UserUsername;
+                        this.txtPassword.Text = val.UserPassword;
+                        this.txtFirstName.Text = val.UserFirstName;
+                        this.txtMiddleName.Text = val.UserMiddleName;
+                        this.txtLastName.Text = val.UserLastName;
+                        this.cmbGender.Text = val.UserGender;
+                        this.cmbAge.Text = val.UserAge.ToString();
+                        this.txtAddress.Text = val.UserAddress;
+                        this.dateBirthday.Value = val.UserBirthday;
+                        this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
+                        this.txtTelephoneNumber.Text = val.UserTelephoneNumber;
+                        this.txtEmail.Text = val.UserEmail;
+                        this.txtRole.Text = val.UserRole;
+                    }
 
                     this.txtUsername.Enabled = false;
                     this.txtPassword.Enabled = false;

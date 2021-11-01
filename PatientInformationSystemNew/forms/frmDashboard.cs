@@ -37,6 +37,16 @@ namespace PatientInformationSystemNew.forms
             frmPatient.Show();
         }
 
+        private void btnDoctors_Click(object sender, EventArgs e)
+        {
+            this.pnlDashboardBody.Controls.Clear();
+            forms.frmListOfDoctors frmListOfDoctors = new forms.frmListOfDoctors();
+            frmListOfDoctors.TopLevel = false;
+            this.pnlDashboardBody.Controls.Add(frmListOfDoctors);
+            frmListOfDoctors.Dock = DockStyle.Fill;
+            frmListOfDoctors.Show();
+        }
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
