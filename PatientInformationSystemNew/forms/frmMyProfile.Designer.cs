@@ -885,6 +885,7 @@ namespace PatientInformationSystemNew.forms
             this.Text = "My Profile";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMyProfile_Load);
+            this.VisibleChanged += new System.EventHandler(this.frmMyProfile_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.picProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

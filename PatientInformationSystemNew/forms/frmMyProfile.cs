@@ -22,6 +22,8 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.User user = new functions.User();
 
+
+
         private void frmMyProfile_Load(object sender, EventArgs e)
         {
             for(int i = 1; i < 120; i++)
@@ -214,6 +216,11 @@ namespace PatientInformationSystemNew.forms
                     MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void frmMyProfile_VisibleChanged(object sender, EventArgs e)
+        {
+            user.getUser(this.txtMyID.Text);
         }
     }
 }

@@ -49,6 +49,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
+            this.pnlDashboardBody.Controls.Clear();
             forms.frmMyProfile frmMyProfile = new forms.frmMyProfile();
             frmMyProfile.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];

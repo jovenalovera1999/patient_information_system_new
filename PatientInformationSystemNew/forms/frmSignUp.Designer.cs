@@ -772,6 +772,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.Size = new System.Drawing.Size(112, 105);
             this.btnRemovePhoto.TabIndex = 221;
             this.btnRemovePhoto.Text = "Remove Photo";
+            this.btnRemovePhoto.Click += new System.EventHandler(this.btnRemovePhoto_Click);
             // 
             // btnUploadPhoto
             // 
