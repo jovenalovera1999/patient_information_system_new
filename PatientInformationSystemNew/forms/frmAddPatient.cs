@@ -23,11 +23,9 @@ namespace PatientInformationSystemNew.forms
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        void doctorsNameWithoutMiddleName()
+        void doctorsName()
         {
-            string sql = @"SELECT CONCAT('Dr.', ' ', 
-                            CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', 
-                            CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR))
+            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')
                             FROM patient_information_db.users
                             WHERE CAST(AES_DECRYPT(role, 'jovencutegwapo123') AS CHAR) = 'Doctor'";
             MySqlConnection connection = new MySqlConnection(con.conString());
@@ -41,41 +39,11 @@ namespace PatientInformationSystemNew.forms
 
                 while(myReader.Read())
                 {
-                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ',CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR))");
+                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')");
                     this.cmbDoctorName.Items.Add(doctors_name);
                 }
             }
             catch(Exception ex)
-            {
-                Console.WriteLine("Error filling doctors name: " + ex.ToString());
-            }
-        }
-
-        void doctorsNameWithMiddleName()
-        {
-            string sql = @"SELECT 
-                            CONCAT('Dr.', ' ', 
-                            CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', 
-                            CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR), ' ', 
-                            CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR))
-                            FROM patient_information_db.users
-                            WHERE role = 'Doctor'";
-            MySqlConnection connection = new MySqlConnection(con.conString());
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            MySqlDataReader myReader;
-
-            try
-            {
-                connection.Open();
-                myReader = cmd.ExecuteReader();
-
-                while (myReader.Read())
-                {
-                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR))");
-                    this.cmbDoctorName.Items.Add(doctors_name);
-                }
-            }
-            catch (Exception ex)
             {
                 Console.WriteLine("Error filling doctors name: " + ex.ToString());
             }
@@ -102,7 +70,7 @@ namespace PatientInformationSystemNew.forms
                 this.cmbAge.Items.Add(i);
             }
             this.btnRemoveSymptom.Enabled = false;
-            doctorsNameWithoutMiddleName();
+            doctorsName();
         }
 
         private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
