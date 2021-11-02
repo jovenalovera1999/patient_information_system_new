@@ -50,7 +50,14 @@ namespace PatientInformationSystemNew.forms
 
         private void btnViewDoctorPatients_Click(object sender, EventArgs e)
         {
-
+            forms.frmDoctorsPatientsList frmDoctorsPatientsList = new forms.frmDoctorsPatientsList();
+            frmDoctorsPatientsList.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorsPatientsList);
+            frmDoctorsPatientsList.Dock = DockStyle.Fill;
+            frmDoctorsPatientsList.Show();
+            this.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -179,7 +186,14 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            
+            forms.frmListOfDoctors frmListOfDoctors = new forms.frmListOfDoctors();
+            frmListOfDoctors.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmListOfDoctors);
+            frmListOfDoctors.Dock = DockStyle.Fill;
+            frmListOfDoctors.Show();
+            this.Close();
         }
     }
 }

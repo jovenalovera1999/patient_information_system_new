@@ -79,7 +79,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadDoctorPatients(string doctor_first_name, string doctor_middle_name, string doctor_last_name, DataGridView grid)
+        public void loadDoctorPatients(string doctor_first_name, string doctor_last_name, string specialization, DataGridView grid)
         {
             try
             {
@@ -89,20 +89,20 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) AS 'Patient ID',
                                     CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name',
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
-                                    CAST(AES_DECRYPT(birthday, 'jovencutegwapo123') AS CHAR) AS 'Birthday',
-                                    date AS 'Date Created'
+                                    CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
+                                    birthday AS 'Birthday',
+                                    DATE_FORMAT(date, '%d/%m/%Y') AS 'Date Created'
                                     FROM
                                     patient_information_db.patients
-                                    WHERE
-                                    CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR) LIKE 
-                                    CONCAT(Dr., ' ', @first_name, ' ', @middle_name, ' ', @last_name) OR
-                                    CAST(AES_DECRYPT(Dr. ' ', @first_name, ' ', @last_name) AS CHAR);";
+                                    WHERE 
+                                    CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)
+                                    LIKE CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')');";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@doctor_first_name", doctor_first_name);
-                        cmd.Parameters.AddWithValue("@doctor_middle_name", doctor_middle_name);
                         cmd.Parameters.AddWithValue("@doctor_last_name", doctor_last_name);
+                        cmd.Parameters.AddWithValue("@specialization", specialization);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

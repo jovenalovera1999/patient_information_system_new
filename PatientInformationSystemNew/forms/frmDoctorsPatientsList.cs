@@ -23,7 +23,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmDoctorsPatientsList_Load(object sender, EventArgs e)
         {
-            patient.loadDoctorPatients(val.DoctorFirstName, val.DoctorMiddleName.Substring(0, 1), val.DoctorLastName, this.gridPatients);
+            patient.loadDoctorPatients(val.DoctorFirstName, val.DoctorLastName, val.DoctorSpecialization, this.gridPatients);
         }
 
         private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -50,8 +50,34 @@ namespace PatientInformationSystemNew.forms
         {
             if(patient.getPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
             {
-
+                forms.frmDoctorsPatientProfile frmDoctorsPatientProfile = new forms.frmDoctorsPatientProfile();
+                frmDoctorsPatientProfile.Show();
+                this.Close();
+                Application.OpenForms["frmDashboard"].Close();
             }
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if(patient.getPatient(this.txtPatientID.Text))
+            {
+                forms.frmDoctorsPatientProfile frmDoctorsPatientProfile = new forms.frmDoctorsPatientProfile();
+                frmDoctorsPatientProfile.Show();
+                this.Close();
+                Application.OpenForms["frmDashboard"].Close();
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
+            frmDoctorProfile.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorProfile);
+            frmDoctorProfile.Dock = DockStyle.Fill;
+            frmDoctorProfile.Show();
+            this.Close();
         }
     }
 }

@@ -37,7 +37,7 @@ namespace PatientInformationSystemNew.forms
             this.label1 = new System.Windows.Forms.Label();
             this.txtPatientID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnCancelPatient = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSelect = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridPatients)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridPatients.ColumnHeadersHeight = 65;
             this.gridPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridPatients.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -188,35 +189,36 @@ namespace PatientInformationSystemNew.forms
             this.label8.TabIndex = 42;
             this.label8.Text = "Patient ID:";
             // 
-            // btnCancelPatient
+            // btnBack
             // 
-            this.btnCancelPatient.Animated = true;
-            this.btnCancelPatient.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCancelPatient.BorderColor = System.Drawing.Color.Transparent;
-            this.btnCancelPatient.BorderRadius = 5;
-            this.btnCancelPatient.BorderThickness = 1;
-            this.btnCancelPatient.CheckedState.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelPatient.CustomImages.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancelPatient.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancelPatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCancelPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCancelPatient.DisabledState.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.FillColor = System.Drawing.Color.Red;
-            this.btnCancelPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnCancelPatient.ForeColor = System.Drawing.Color.White;
-            this.btnCancelPatient.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnCancelPatient.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnCancelPatient.HoverState.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnCancelPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelPatient.Location = new System.Drawing.Point(169, 220);
-            this.btnCancelPatient.Name = "btnCancelPatient";
-            this.btnCancelPatient.ShadowDecoration.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.Size = new System.Drawing.Size(124, 54);
-            this.btnCancelPatient.TabIndex = 47;
-            this.btnCancelPatient.Text = "Back";
+            this.btnBack.Animated = true;
+            this.btnBack.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBack.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderRadius = 5;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBack.DisabledState.Parent = this.btnBack;
+            this.btnBack.FillColor = System.Drawing.Color.Red;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBack.Location = new System.Drawing.Point(169, 220);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(124, 54);
+            this.btnBack.TabIndex = 47;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSelect
             // 
@@ -247,6 +249,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Size = new System.Drawing.Size(128, 54);
             this.btnSelect.TabIndex = 46;
             this.btnSelect.Text = "Select";
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // frmDoctorsPatientsList
             // 
@@ -255,7 +258,7 @@ namespace PatientInformationSystemNew.forms
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1830, 958);
             this.Controls.Add(this.gridPatients);
-            this.Controls.Add(this.btnCancelPatient);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtPatientName);
             this.Controls.Add(this.label1);
@@ -276,7 +279,7 @@ namespace PatientInformationSystemNew.forms
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView gridPatients;
-        private Guna.UI2.WinForms.Guna2Button btnCancelPatient;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Button btnSelect;
         private Guna.UI2.WinForms.Guna2TextBox txtPatientName;
         private System.Windows.Forms.Label label1;

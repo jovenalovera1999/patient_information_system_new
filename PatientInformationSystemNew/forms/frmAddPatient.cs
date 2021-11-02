@@ -233,5 +233,17 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            forms.frmPatients frmPatients = new forms.frmPatients();
+            frmPatients.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPatients);
+            frmPatients.Dock = DockStyle.Fill;
+            frmPatients.Show();
+            this.Close();
+        }
     }
 }

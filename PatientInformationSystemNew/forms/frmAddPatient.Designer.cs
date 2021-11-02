@@ -869,6 +869,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.Size = new System.Drawing.Size(131, 62);
             this.btnBack.TabIndex = 22;
             this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnAddPatient
             // 
