@@ -79,7 +79,47 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void loadDoctorPatients(string doctor_first_name, string doctor_middle_name, string doctor_last_name, DataGridView grid)
+        {
+            try
+            {
+                using(MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) AS 'Patient ID',
+                                    CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name',
+                                    CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
+                                    CAST(AES_DECRYPT(birthday, 'jovencutegwapo123') AS CHAR) AS 'Birthday',
+                                    date AS 'Date Created'
+                                    FROM
+                                    patient_information_db.patients
+                                    WHERE
+                                    CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR) LIKE 
+                                    CONCAT(Dr., ' ', @first_name, ' ', @middle_name, ' ', @last_name) OR
+                                    CAST(AES_DECRYPT(Dr. ' ', @first_name, ' ', @last_name) AS CHAR);";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@doctor_first_name", doctor_first_name);
+                        cmd.Parameters.AddWithValue("@doctor_middle_name", doctor_middle_name);
+                        cmd.Parameters.AddWithValue("@doctor_last_name", doctor_last_name);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error loading doctor's patients: " + ex.ToString());
+            }
+        }
+
         // Add patient
+
         public bool addPatient(string patient_id, string first_name, string middle_name, string last_name, string gender, int age, string address, 
             DateTime birthday, string cellphone_number, string telephone_number, string email, double height, double weight, double temperature, 
             double pulse_rate, double blood_pressure, string doctor)
@@ -425,7 +465,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool getPatientFromPatients(string patient_id)
+        public bool getPatient(string patient_id)
         {
             try
             {

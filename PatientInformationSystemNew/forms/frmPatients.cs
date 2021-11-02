@@ -28,7 +28,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if(patient.getPatientFromPatients(this.txtPatientID.Text))
+            if(patient.getPatient(this.txtPatientID.Text))
             {
                 forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
                 frmPatientProfile.Show();
@@ -72,7 +72,7 @@ namespace PatientInformationSystemNew.forms
 
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(patient.getPatientFromPatients(this.gridPatients.SelectedCells[0].Value.ToString()))
+            if(patient.getPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
             {
                 forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
                 frmPatientProfile.Show();

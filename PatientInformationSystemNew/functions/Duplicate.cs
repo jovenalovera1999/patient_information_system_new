@@ -162,6 +162,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
+                Console.WriteLine("Error detecting duplicate prescriptions ID: " + ex.ToString());
                 return false;
             }
         }
