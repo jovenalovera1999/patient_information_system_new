@@ -37,13 +37,13 @@ namespace PatientInformationSystemNew.forms
                 connection.Open();
                 myReader = cmd.ExecuteReader();
 
-                while(myReader.Read())
+                while (myReader.Read())
                 {
                     string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')");
                     this.cmbDoctorName.Items.Add(doctors_name);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error filling doctors name: " + ex.ToString());
             }
@@ -93,7 +93,7 @@ namespace PatientInformationSystemNew.forms
             int n = this.gridAddPatient.Rows.Add();
             if (duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
             {
-                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK, 
+                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 this.txtSymptoms.Focus();
             }
@@ -108,7 +108,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptom_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in this.gridAddPatient.SelectedRows)
+            foreach (DataGridViewRow row in this.gridAddPatient.SelectedRows)
             {
                 this.gridAddPatient.Rows.Remove(row);
             }
@@ -121,49 +121,49 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtFirstName.Text))
+            if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
             {
                 MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtLastName.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtLastName.Text))
             {
                 MessageBox.Show("Last Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtLastName.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.cmbGender.Text))
+            else if (String.IsNullOrWhiteSpace(this.cmbGender.Text))
             {
                 MessageBox.Show("Gender is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.cmbGender.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.cmbAge.Text))
+            else if (String.IsNullOrWhiteSpace(this.cmbAge.Text))
             {
                 MessageBox.Show("Age is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.cmbAge.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtAddress.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtAddress.Text))
             {
                 MessageBox.Show("Address is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtAddress.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) && 
+            else if (String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) &&
                 String.IsNullOrWhiteSpace(this.txtEmail.Text))
             {
-                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required", 
+                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtCellphoneNumber.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
             {
                 MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtWeight.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
             {
                 MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTemperature.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
+            else if (String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
             {
                 MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();

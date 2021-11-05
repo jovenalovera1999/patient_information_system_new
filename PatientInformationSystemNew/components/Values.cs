@@ -241,7 +241,7 @@ namespace PatientInformationSystemNew.components
                 }
                 else
                 {
-                    return string.Format("{0} {1}. {2}", patient_first_name, patient_middle_name, patient_last_name);
+                    return string.Format("{0} {1}. {2}", patient_first_name, patient_middle_name[0], patient_last_name);
                 }
             }
         }

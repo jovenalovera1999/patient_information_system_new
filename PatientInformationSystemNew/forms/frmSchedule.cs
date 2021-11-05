@@ -62,9 +62,13 @@ namespace PatientInformationSystemNew.forms
             if(patient.getPatientFromSchedule(this.gridSchedule.SelectedCells[0].Value.ToString()))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmConsultation);
+                frmConsultation.Dock = DockStyle.Fill;
                 frmConsultation.Show();
                 this.Close();
-                Application.OpenForms["frmDashboard"].Close();
             }
         }
 
@@ -73,9 +77,13 @@ namespace PatientInformationSystemNew.forms
             if(patient.getPatientFromSchedule(this.txtPatientID.Text))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmConsultation);
+                frmConsultation.Dock = DockStyle.Fill;
                 frmConsultation.Show();
                 this.Close();
-                Application.OpenForms["frmDashboard"].Close();
             }
         }
 
