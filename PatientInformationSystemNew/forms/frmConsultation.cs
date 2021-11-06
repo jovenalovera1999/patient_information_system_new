@@ -207,13 +207,19 @@ namespace PatientInformationSystemNew.forms
 
                         using (MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
-                                        VALUES(
-                                        AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
-                                        AES_ENCRYPT(@diagnosis_id, 'jovencutegwapo123'), 
-                                        AES_ENCRYPT(@diagnosis, 'jovencutegwapo123'), 
-                                        @date
-                                        );";
+                            string sql = @"DELETE FROM patient_information_db.diagnosis
+                                            WHERE
+                                            CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                            CAST(AES_DECRYPT(diagnosis_id, 'jovencutegwapo123') AS CHAR) = @diagnosis_id AND
+                                            date = @date;
+
+                                            INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
+                                            VALUES(
+                                            AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
+                                            AES_ENCRYPT(@diagnosis_id, 'jovencutegwapo123'), 
+                                            AES_ENCRYPT(@diagnosis, 'jovencutegwapo123'), 
+                                            @date
+                                            );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {

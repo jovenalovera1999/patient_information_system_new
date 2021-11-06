@@ -187,6 +187,8 @@ namespace PatientInformationSystemNew.forms
                     imgLocation = null;
                     this.picProfilePicture.ImageLocation = null;
                     this.picProfilePicture.Image = null;
+                    this.txtUsername.ResetText();
+                    this.txtPassword.ResetText();
                     this.txtFirstname.ResetText();
                     this.txtMiddlename.ResetText();
                     this.txtLastname.ResetText();

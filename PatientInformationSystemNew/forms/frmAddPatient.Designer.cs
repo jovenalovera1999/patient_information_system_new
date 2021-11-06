@@ -29,9 +29,9 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbAge = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -341,6 +341,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.ShadowDecoration.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtTelephoneNumber.TabIndex = 9;
+            this.txtTelephoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephoneNumber_KeyPress);
             // 
             // label12
             // 
@@ -379,6 +380,7 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.ShadowDecoration.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtCellphoneNumber.TabIndex = 8;
+            this.txtCellphoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellphoneNumber_KeyPress);
             // 
             // label13
             // 
@@ -428,6 +430,7 @@ namespace PatientInformationSystemNew.forms
             this.txtWeight.ShadowDecoration.Parent = this.txtWeight;
             this.txtWeight.Size = new System.Drawing.Size(446, 45);
             this.txtWeight.TabIndex = 12;
+            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
             // 
             // label2
             // 
@@ -466,6 +469,7 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.ShadowDecoration.Parent = this.txtHeight;
             this.txtHeight.Size = new System.Drawing.Size(446, 45);
             this.txtHeight.TabIndex = 11;
+            this.txtHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeight_KeyPress);
             // 
             // label3
             // 
@@ -515,6 +519,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.ShadowDecoration.Parent = this.txtTemperature;
             this.txtTemperature.Size = new System.Drawing.Size(446, 45);
             this.txtTemperature.TabIndex = 13;
+            this.txtTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTemperature_KeyPress);
             // 
             // label5
             // 
@@ -553,6 +558,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.ShadowDecoration.Parent = this.txtPulseRate;
             this.txtPulseRate.Size = new System.Drawing.Size(446, 45);
             this.txtPulseRate.TabIndex = 14;
+            this.txtPulseRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPulseRate_KeyPress);
             // 
             // label11
             // 
@@ -593,35 +599,35 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.AllowUserToDeleteRows = false;
             this.gridAddPatient.AllowUserToResizeColumns = false;
             this.gridAddPatient.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.gridAddPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.gridAddPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.gridAddPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridAddPatient.BackgroundColor = System.Drawing.Color.White;
             this.gridAddPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridAddPatient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridAddPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.gridAddPatient.ColumnHeadersHeight = 55;
             this.gridAddPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAddPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSymptomsID,
             this.clmSymptoms});
             this.gridAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAddPatient.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAddPatient.DefaultCellStyle = dataGridViewCellStyle21;
             this.gridAddPatient.EnableHeadersVisualStyles = false;
             this.gridAddPatient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridAddPatient.Location = new System.Drawing.Point(1363, 446);
@@ -1002,6 +1008,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.ShadowDecoration.Parent = this.txtBloodPressure;
             this.txtBloodPressure.Size = new System.Drawing.Size(446, 45);
             this.txtBloodPressure.TabIndex = 15;
+            this.txtBloodPressure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBloodPressure_KeyPress);
             // 
             // label22
             // 
