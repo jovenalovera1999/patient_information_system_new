@@ -30,10 +30,14 @@ namespace PatientInformationSystemNew.forms
         {
             if(patient.getPatient(this.txtPatientID.Text))
             {
-                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
-                frmPatientProfile.Show();
+                forms.frmPatientProfileNew frmPatientProfileNew = new forms.frmPatientProfileNew();
+                frmPatientProfileNew.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmPatientProfileNew);
+                frmPatientProfileNew.Dock = DockStyle.Fill;
+                frmPatientProfileNew.Show();
                 this.Close();
-                Application.OpenForms["frmDashboard"].Close();
             }
         }
 
@@ -74,10 +78,14 @@ namespace PatientInformationSystemNew.forms
         {
             if(patient.getPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
             {
-                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
-                frmPatientProfile.Show();
+                forms.frmPatientProfileNew frmPatientProfileNew = new forms.frmPatientProfileNew();
+                frmPatientProfileNew.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmPatientProfileNew);
+                frmPatientProfileNew.Dock = DockStyle.Fill;
+                frmPatientProfileNew.Show();
                 this.Close();
-                Application.OpenForms["frmDashboard"].Close();
             }
         }
     }

@@ -24,6 +24,8 @@ namespace PatientInformationSystemNew.forms
         functions.Symptoms symptoms = new functions.Symptoms();
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.Patient patient = new functions.Patient();
+        functions.Diagnosis diagnosis = new functions.Diagnosis();
+        functions.Prescription prescriptions = new functions.Prescription();
 
         private void frmConsultationNew_Load(object sender, EventArgs e)
         {
@@ -45,7 +47,9 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.Text = val.PatientPulseRate.ToString();
             this.txtBloodPressure.Text = val.PatientBloodPressure.ToString();
             symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
-            this.txtDiagnosis.Focus();
+            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
+            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
+            prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -240,8 +244,6 @@ namespace PatientInformationSystemNew.forms
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.btnSaveDiagnosis.Enabled = false;
-                this.txtDiagnosis.Enabled = false;
-                this.txtPrescription.Enabled = true;
                 this.txtPrescription.Focus();
             }
         }
@@ -272,7 +274,6 @@ namespace PatientInformationSystemNew.forms
                 double.Parse(this.txtBloodPressure.Text), val.PatientDoctor))
             {
                 MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.btnAddDiagnosis.Enabled = false;
                 this.btnSavePrescription.Enabled = false;
                 this.btnBack.Enabled = false;
                 this.btnAnotherBack.Enabled = false;

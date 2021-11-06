@@ -428,6 +428,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.ShadowDecoration.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtTelephoneNumber.TabIndex = 11;
+            this.txtTelephoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephoneNumber_KeyPress);
             // 
             // label12
             // 
@@ -466,6 +467,7 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.ShadowDecoration.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtCellphoneNumber.TabIndex = 10;
+            this.txtCellphoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellphoneNumber_KeyPress);
             // 
             // label13
             // 

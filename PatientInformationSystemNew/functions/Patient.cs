@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender',
-                                    birthday AS 'Birthday',
+                                    DATE(birthday, '%m/%d/%Y') AS 'Birthday',
                                     status AS 'Status'
                                     FROM patient_information_db.schedule";
 
@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender', 
-                                    birthday AS 'Birthday'
+                                    DATE_FORMAT(date, '%m/%d/%Y') AS 'Date Created'
                                     FROM patient_information_db.patients
                                     ORDER BY first_name DESC;";
 
@@ -91,7 +91,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
                                     birthday AS 'Birthday',
-                                    DATE_FORMAT(date, '%d/%m/%Y') AS 'Date Created'
+                                    DATE_FORMAT(date, '%m/%d/%Y') AS 'Date Created'
                                     FROM
                                     patient_information_db.patients
                                     WHERE 

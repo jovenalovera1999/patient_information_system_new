@@ -75,13 +75,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 plus sign is allowed
+            // Checks to make sure only 1 plus sign is allowed
             if(e.KeyChar == 43)
             {
                 if((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -89,7 +89,7 @@ namespace PatientInformationSystemNew.forms
                     e.Handled = true;
                 }
             }
-            // checks to make sure only 1 open parenthesis is allowed
+            // Checks to make sure only 1 open parenthesis is allowed
             if (e.KeyChar == 40)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -97,7 +97,7 @@ namespace PatientInformationSystemNew.forms
                     e.Handled = true;
                 }
             }
-            // checks to make sure only 1 close parenthesis is allowed
+            // Checks to make sure only 1 close parenthesis is allowed
             if (e.KeyChar == 41)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -109,13 +109,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 plus sign is allowed
+            // Checks to make sure only 1 plus sign is allowed
             if (e.KeyChar == 43)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -123,7 +123,7 @@ namespace PatientInformationSystemNew.forms
                     e.Handled = true;
                 }
             }
-            // checks to make sure only 1 open parenthesis is allowed
+            // Checks to make sure only 1 open parenthesis is allowed
             if (e.KeyChar == 40)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -131,7 +131,7 @@ namespace PatientInformationSystemNew.forms
                     e.Handled = true;
                 }
             }
-            // checks to make sure only 1 close parenthesis is allowed
+            // Checks to make sure only 1 close parenthesis is allowed
             if (e.KeyChar == 41)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -143,13 +143,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, and decimal
+            // Allows 0-9, backspace, and decimal
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 decimal is allowed
+            // Checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -161,13 +161,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, and decimal
+            // Allows 0-9, backspace, and decimal
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 decimal is allowed
+            // Checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -179,13 +179,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtTemperature_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, and decimal
+            // Allows 0-9, backspace, and decimal
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 decimal is allowed
+            // Checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -197,13 +197,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtPulseRate_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, and decimal
+            // Allows 0-9, backspace, and decimal
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 decimal is allowed
+            // Checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
@@ -215,13 +215,13 @@ namespace PatientInformationSystemNew.forms
 
         private void txtBloodPressure_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allows 0-9, backspace, and decimal
+            // Allows 0-9, backspace, and decimal
             if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
             {
                 e.Handled = true;
                 return;
             }
-            // checks to make sure only 1 decimal is allowed
+            // Checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
