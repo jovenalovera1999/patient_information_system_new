@@ -170,5 +170,32 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Failed to update patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void gridManageDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtSelectedDiagnosis.Text = this.gridManageDiagnosis.SelectedCells[1].Value.ToString();
+            this.dateSelectedDiagnosis.Value = DateTime.Parse(this.gridManageDiagnosis.SelectedCells[2].Value.ToString());
+        }
+
+        private void gridManageSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtSelectedSymptom.Text = this.gridManageSymptoms.SelectedCells[1].Value.ToString();
+            this.dateSelectedSymptom.Value = DateTime.Parse(this.gridManageSymptoms.SelectedCells[2].Value.ToString());
+        }
+
+        private void gridManagePrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtSelectedPrescription.Text = this.gridManagePrescriptions.SelectedCells[1].Value.ToString();
+            this.dateSelectedPrescription.Value = DateTime.Parse(this.gridManagePrescriptions.SelectedCells[2].Value.ToString());
+        }
     }
 }

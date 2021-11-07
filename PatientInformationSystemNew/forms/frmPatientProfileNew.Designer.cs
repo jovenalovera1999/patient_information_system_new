@@ -52,6 +52,10 @@ namespace PatientInformationSystemNew.forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabAboutPatient = new System.Windows.Forms.TabPage();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbAge = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.txtBloodPressure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -86,6 +90,66 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabDiagnosis = new System.Windows.Forms.TabPage();
+            this.btnBackInDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtAddDiagnosisID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.dateAddDiagnosis = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtAddDiagnosis = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.btnAddDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdateDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.dateSelectedDiagnosis = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnNewDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtSelectedDiagnosis = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.gridManageDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.tabSymptoms = new System.Windows.Forms.TabPage();
+            this.btnBackInSymptoms = new Guna.UI2.WinForms.Guna2Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtAddSymptomID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.dateAddSymptom = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtAddSymptom = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.btnAddSymptom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRemoveSymptom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdateSymptom = new Guna.UI2.WinForms.Guna2Button();
+            this.dateSelectedSymptom = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnNewSymptom = new Guna.UI2.WinForms.Guna2Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtSelectedSymptom = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.gridManageSymptoms = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.tabPrescription = new System.Windows.Forms.TabPage();
+            this.btnBackInPrescriptions = new Guna.UI2.WinForms.Guna2Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.txtAddPrescriptionID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.dateAddPrescription = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtAddPrescription = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.btnAddPrescription = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRemovePrescription = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdatePrescription = new Guna.UI2.WinForms.Guna2Button();
+            this.dateSelectedPrescription = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnNewPrescription = new Guna.UI2.WinForms.Guna2Button();
+            this.label45 = new System.Windows.Forms.Label();
+            this.txtSelectedPrescription = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.gridManagePrescriptions = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.tabPaymentHistory = new System.Windows.Forms.TabPage();
+            this.gridPaymentHistory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.tabPrintPrescription = new System.Windows.Forms.TabPage();
             this.tabRecords = new System.Windows.Forms.TabPage();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -96,75 +160,8 @@ namespace PatientInformationSystemNew.forms
             this.label28 = new System.Windows.Forms.Label();
             this.gridSymptomsRecords = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label29 = new System.Windows.Forms.Label();
-            this.tabDiagnosis = new System.Windows.Forms.TabPage();
-            this.btnBackInDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.btnAddDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUpdateDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.dateDiagnosis = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.btnNewDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtDiagnosis = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.gridManageDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.tabSymptoms = new System.Windows.Forms.TabPage();
-            this.btnBackInSymptoms = new Guna.UI2.WinForms.Guna2Button();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label36 = new System.Windows.Forms.Label();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2DateTimePicker3 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.label38 = new System.Windows.Forms.Label();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.gridManageSymptoms = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.tabPrescription = new System.Windows.Forms.TabPage();
-            this.btnBackInPrescriptions = new Guna.UI2.WinForms.Guna2Button();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker4 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label43 = new System.Windows.Forms.Label();
-            this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2DateTimePicker5 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
-            this.label45 = new System.Windows.Forms.Label();
-            this.guna2TextBox8 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.gridManagePrescriptions = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.tabPaymentHistory = new System.Windows.Forms.TabPage();
-            this.gridPaymentHistory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cmbAge = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cmbGender = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TabControl1.SuspendLayout();
             this.tabAboutPatient.SuspendLayout();
-            this.tabRecords.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPrescriptionsRecords)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDiagnosisRecords)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSymptomsRecords)).BeginInit();
             this.tabDiagnosis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridManageDiagnosis)).BeginInit();
             this.tabSymptoms.SuspendLayout();
@@ -173,17 +170,22 @@ namespace PatientInformationSystemNew.forms
             ((System.ComponentModel.ISupportInitialize)(this.gridManagePrescriptions)).BeginInit();
             this.tabPaymentHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPaymentHistory)).BeginInit();
+            this.tabRecords.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPrescriptionsRecords)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDiagnosisRecords)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSymptomsRecords)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2TabControl1
             // 
             this.guna2TabControl1.Alignment = System.Windows.Forms.TabAlignment.Right;
             this.guna2TabControl1.Controls.Add(this.tabAboutPatient);
-            this.guna2TabControl1.Controls.Add(this.tabRecords);
             this.guna2TabControl1.Controls.Add(this.tabDiagnosis);
             this.guna2TabControl1.Controls.Add(this.tabSymptoms);
             this.guna2TabControl1.Controls.Add(this.tabPrescription);
             this.guna2TabControl1.Controls.Add(this.tabPaymentHistory);
+            this.guna2TabControl1.Controls.Add(this.tabPrintPrescription);
+            this.guna2TabControl1.Controls.Add(this.tabRecords);
             this.guna2TabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2TabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2TabControl1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,6 +262,118 @@ namespace PatientInformationSystemNew.forms
             this.tabAboutPatient.Size = new System.Drawing.Size(1682, 950);
             this.tabAboutPatient.TabIndex = 0;
             this.tabAboutPatient.Text = "About Patient";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Animated = true;
+            this.btnSave.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSave.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSave.BorderRadius = 5;
+            this.btnSave.BorderThickness = 1;
+            this.btnSave.CheckedState.Parent = this.btnSave;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.CustomImages.Parent = this.btnSave;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.DisabledState.Parent = this.btnSave;
+            this.btnSave.Enabled = false;
+            this.btnSave.FillColor = System.Drawing.Color.Lime;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSave.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSave.HoverState.Parent = this.btnSave;
+            this.btnSave.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSave.Location = new System.Drawing.Point(1488, 786);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ShadowDecoration.Parent = this.btnSave;
+            this.btnSave.Size = new System.Drawing.Size(131, 62);
+            this.btnSave.TabIndex = 17;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Animated = true;
+            this.btnEdit.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEdit.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BorderRadius = 5;
+            this.btnEdit.BorderThickness = 1;
+            this.btnEdit.CheckedState.Parent = this.btnEdit;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.CustomImages.Parent = this.btnEdit;
+            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit.DisabledState.Parent = this.btnEdit;
+            this.btnEdit.FillColor = System.Drawing.Color.Blue;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEdit.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEdit.HoverState.Parent = this.btnEdit;
+            this.btnEdit.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEdit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEdit.Location = new System.Drawing.Point(1488, 707);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
+            this.btnEdit.Size = new System.Drawing.Size(131, 62);
+            this.btnEdit.TabIndex = 16;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // cmbAge
+            // 
+            this.cmbAge.BackColor = System.Drawing.Color.Transparent;
+            this.cmbAge.BorderRadius = 5;
+            this.cmbAge.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbAge.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAge.Enabled = false;
+            this.cmbAge.FocusedColor = System.Drawing.Color.Blue;
+            this.cmbAge.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.cmbAge.FocusedState.Parent = this.cmbAge;
+            this.cmbAge.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cmbAge.ForeColor = System.Drawing.Color.Black;
+            this.cmbAge.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.cmbAge.HoverState.Parent = this.cmbAge;
+            this.cmbAge.ItemHeight = 30;
+            this.cmbAge.ItemsAppearance.Parent = this.cmbAge;
+            this.cmbAge.Location = new System.Drawing.Point(439, 510);
+            this.cmbAge.Name = "cmbAge";
+            this.cmbAge.ShadowDecoration.Parent = this.cmbAge;
+            this.cmbAge.Size = new System.Drawing.Size(130, 36);
+            this.cmbAge.TabIndex = 5;
+            // 
+            // cmbGender
+            // 
+            this.cmbGender.BackColor = System.Drawing.Color.Transparent;
+            this.cmbGender.BorderRadius = 5;
+            this.cmbGender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGender.Enabled = false;
+            this.cmbGender.FocusedColor = System.Drawing.Color.Blue;
+            this.cmbGender.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.cmbGender.FocusedState.Parent = this.cmbGender;
+            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cmbGender.ForeColor = System.Drawing.Color.Black;
+            this.cmbGender.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.cmbGender.HoverState.Parent = this.cmbGender;
+            this.cmbGender.ItemHeight = 30;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cmbGender.ItemsAppearance.Parent = this.cmbGender;
+            this.cmbGender.Location = new System.Drawing.Point(439, 410);
+            this.cmbGender.Name = "cmbGender";
+            this.cmbGender.ShadowDecoration.Parent = this.cmbGender;
+            this.cmbGender.Size = new System.Drawing.Size(130, 36);
+            this.cmbGender.TabIndex = 4;
             // 
             // btnBack
             // 
@@ -889,304 +1003,25 @@ namespace PatientInformationSystemNew.forms
             this.label6.TabIndex = 137;
             this.label6.Text = "Personal Information";
             // 
-            // tabRecords
-            // 
-            this.tabRecords.BackColor = System.Drawing.Color.DodgerBlue;
-            this.tabRecords.Controls.Add(this.label30);
-            this.tabRecords.Controls.Add(this.label31);
-            this.tabRecords.Controls.Add(this.gridPrescriptionsRecords);
-            this.tabRecords.Controls.Add(this.label26);
-            this.tabRecords.Controls.Add(this.label27);
-            this.tabRecords.Controls.Add(this.gridDiagnosisRecords);
-            this.tabRecords.Controls.Add(this.label28);
-            this.tabRecords.Controls.Add(this.gridSymptomsRecords);
-            this.tabRecords.Controls.Add(this.label29);
-            this.tabRecords.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabRecords.Location = new System.Drawing.Point(4, 4);
-            this.tabRecords.Name = "tabRecords";
-            this.tabRecords.Size = new System.Drawing.Size(1682, 950);
-            this.tabRecords.TabIndex = 2;
-            this.tabRecords.Text = "Records";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(1010, 71);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(186, 28);
-            this.label30.TabIndex = 276;
-            this.label30.Text = "Prescription Record:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(1007, 16);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(212, 46);
-            this.label31.TabIndex = 275;
-            this.label31.Text = "Prescriptions";
-            // 
-            // gridPrescriptionsRecords
-            // 
-            this.gridPrescriptionsRecords.AllowUserToAddRows = false;
-            this.gridPrescriptionsRecords.AllowUserToDeleteRows = false;
-            this.gridPrescriptionsRecords.AllowUserToResizeColumns = false;
-            this.gridPrescriptionsRecords.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridPrescriptionsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridPrescriptionsRecords.BackgroundColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridPrescriptionsRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridPrescriptionsRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPrescriptionsRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridPrescriptionsRecords.ColumnHeadersHeight = 55;
-            this.gridPrescriptionsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridPrescriptionsRecords.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPrescriptionsRecords.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridPrescriptionsRecords.EnableHeadersVisualStyles = false;
-            this.gridPrescriptionsRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridPrescriptionsRecords.Location = new System.Drawing.Point(1015, 111);
-            this.gridPrescriptionsRecords.Name = "gridPrescriptionsRecords";
-            this.gridPrescriptionsRecords.ReadOnly = true;
-            this.gridPrescriptionsRecords.RowHeadersVisible = false;
-            this.gridPrescriptionsRecords.RowHeadersWidth = 51;
-            this.gridPrescriptionsRecords.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridPrescriptionsRecords.RowTemplate.Height = 50;
-            this.gridPrescriptionsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPrescriptionsRecords.Size = new System.Drawing.Size(521, 821);
-            this.gridPrescriptionsRecords.TabIndex = 274;
-            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gridPrescriptionsRecords.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
-            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.Height = 55;
-            this.gridPrescriptionsRecords.ThemeStyle.ReadOnly = true;
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.Height = 50;
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(513, 70);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(175, 28);
-            this.label26.TabIndex = 273;
-            this.label26.Text = "Symptoms Record:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(15, 70);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(167, 28);
-            this.label27.TabIndex = 272;
-            this.label27.Text = "Diagnosis Record:";
-            // 
-            // gridDiagnosisRecords
-            // 
-            this.gridDiagnosisRecords.AllowUserToAddRows = false;
-            this.gridDiagnosisRecords.AllowUserToDeleteRows = false;
-            this.gridDiagnosisRecords.AllowUserToResizeColumns = false;
-            this.gridDiagnosisRecords.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.gridDiagnosisRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridDiagnosisRecords.BackgroundColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridDiagnosisRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridDiagnosisRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridDiagnosisRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.gridDiagnosisRecords.ColumnHeadersHeight = 55;
-            this.gridDiagnosisRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridDiagnosisRecords.DefaultCellStyle = dataGridViewCellStyle6;
-            this.gridDiagnosisRecords.EnableHeadersVisualStyles = false;
-            this.gridDiagnosisRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridDiagnosisRecords.Location = new System.Drawing.Point(20, 111);
-            this.gridDiagnosisRecords.Name = "gridDiagnosisRecords";
-            this.gridDiagnosisRecords.ReadOnly = true;
-            this.gridDiagnosisRecords.RowHeadersVisible = false;
-            this.gridDiagnosisRecords.RowHeadersWidth = 51;
-            this.gridDiagnosisRecords.RowTemplate.Height = 50;
-            this.gridDiagnosisRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDiagnosisRecords.Size = new System.Drawing.Size(482, 821);
-            this.gridDiagnosisRecords.TabIndex = 271;
-            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gridDiagnosisRecords.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
-            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.Height = 55;
-            this.gridDiagnosisRecords.ThemeStyle.ReadOnly = true;
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.Height = 50;
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(12, 14);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(164, 46);
-            this.label28.TabIndex = 270;
-            this.label28.Text = "Diagnosis";
-            // 
-            // gridSymptomsRecords
-            // 
-            this.gridSymptomsRecords.AllowUserToAddRows = false;
-            this.gridSymptomsRecords.AllowUserToDeleteRows = false;
-            this.gridSymptomsRecords.AllowUserToResizeColumns = false;
-            this.gridSymptomsRecords.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.gridSymptomsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridSymptomsRecords.BackgroundColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridSymptomsRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridSymptomsRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSymptomsRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.gridSymptomsRecords.ColumnHeadersHeight = 55;
-            this.gridSymptomsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSymptomsRecords.DefaultCellStyle = dataGridViewCellStyle9;
-            this.gridSymptomsRecords.EnableHeadersVisualStyles = false;
-            this.gridSymptomsRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridSymptomsRecords.Location = new System.Drawing.Point(518, 111);
-            this.gridSymptomsRecords.Name = "gridSymptomsRecords";
-            this.gridSymptomsRecords.ReadOnly = true;
-            this.gridSymptomsRecords.RowHeadersVisible = false;
-            this.gridSymptomsRecords.RowHeadersWidth = 51;
-            this.gridSymptomsRecords.RowTemplate.Height = 50;
-            this.gridSymptomsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridSymptomsRecords.Size = new System.Drawing.Size(482, 821);
-            this.gridSymptomsRecords.TabIndex = 269;
-            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gridSymptomsRecords.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
-            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.Height = 55;
-            this.gridSymptomsRecords.ThemeStyle.ReadOnly = true;
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.Height = 50;
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridSymptomsRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(510, 14);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(177, 46);
-            this.label29.TabIndex = 268;
-            this.label29.Text = "Symptoms";
-            // 
             // tabDiagnosis
             // 
             this.tabDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
             this.tabDiagnosis.Controls.Add(this.btnBackInDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label24);
             this.tabDiagnosis.Controls.Add(this.label19);
-            this.tabDiagnosis.Controls.Add(this.guna2TextBox2);
+            this.tabDiagnosis.Controls.Add(this.txtAddDiagnosisID);
             this.tabDiagnosis.Controls.Add(this.label32);
-            this.tabDiagnosis.Controls.Add(this.guna2DateTimePicker1);
+            this.tabDiagnosis.Controls.Add(this.dateAddDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label18);
-            this.tabDiagnosis.Controls.Add(this.guna2TextBox1);
+            this.tabDiagnosis.Controls.Add(this.txtAddDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label25);
             this.tabDiagnosis.Controls.Add(this.btnAddDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnRemoveDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnUpdateDiagnosis);
-            this.tabDiagnosis.Controls.Add(this.dateDiagnosis);
+            this.tabDiagnosis.Controls.Add(this.dateSelectedDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnNewDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label16);
-            this.tabDiagnosis.Controls.Add(this.txtDiagnosis);
+            this.tabDiagnosis.Controls.Add(this.txtSelectedDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label17);
             this.tabDiagnosis.Controls.Add(this.gridManageDiagnosis);
             this.tabDiagnosis.Location = new System.Drawing.Point(4, 4);
@@ -1247,33 +1082,33 @@ namespace PatientInformationSystemNew.forms
             this.label19.TabIndex = 317;
             this.label19.Text = "Add Diagnosis";
             // 
-            // guna2TextBox2
+            // txtAddDiagnosisID
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.BorderRadius = 5;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.Enabled = false;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(795, 450);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox2.TabIndex = 5;
+            this.txtAddDiagnosisID.Animated = true;
+            this.txtAddDiagnosisID.BorderRadius = 5;
+            this.txtAddDiagnosisID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddDiagnosisID.DefaultText = "";
+            this.txtAddDiagnosisID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddDiagnosisID.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddDiagnosisID.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtAddDiagnosisID.DisabledState.Parent = this.txtAddDiagnosisID;
+            this.txtAddDiagnosisID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddDiagnosisID.Enabled = false;
+            this.txtAddDiagnosisID.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddDiagnosisID.FocusedState.Parent = this.txtAddDiagnosisID;
+            this.txtAddDiagnosisID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddDiagnosisID.ForeColor = System.Drawing.Color.Black;
+            this.txtAddDiagnosisID.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddDiagnosisID.HoverState.Parent = this.txtAddDiagnosisID;
+            this.txtAddDiagnosisID.Location = new System.Drawing.Point(795, 450);
+            this.txtAddDiagnosisID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddDiagnosisID.Name = "txtAddDiagnosisID";
+            this.txtAddDiagnosisID.PasswordChar = '\0';
+            this.txtAddDiagnosisID.PlaceholderText = "";
+            this.txtAddDiagnosisID.SelectedText = "";
+            this.txtAddDiagnosisID.ShadowDecoration.Parent = this.txtAddDiagnosisID;
+            this.txtAddDiagnosisID.Size = new System.Drawing.Size(446, 45);
+            this.txtAddDiagnosisID.TabIndex = 5;
             // 
             // label32
             // 
@@ -1286,30 +1121,30 @@ namespace PatientInformationSystemNew.forms
             this.label32.TabIndex = 316;
             this.label32.Text = "Diagnosis ID:";
             // 
-            // guna2DateTimePicker1
+            // dateAddDiagnosis
             // 
-            this.guna2DateTimePicker1.Animated = true;
-            this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker1.BorderRadius = 5;
-            this.guna2DateTimePicker1.BorderThickness = 1;
-            this.guna2DateTimePicker1.CheckedState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker1.Enabled = false;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(795, 649);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.ShadowDecoration.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(446, 45);
-            this.guna2DateTimePicker1.TabIndex = 7;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.dateAddDiagnosis.Animated = true;
+            this.dateAddDiagnosis.BorderColor = System.Drawing.Color.Transparent;
+            this.dateAddDiagnosis.BorderRadius = 5;
+            this.dateAddDiagnosis.BorderThickness = 1;
+            this.dateAddDiagnosis.CheckedState.Parent = this.dateAddDiagnosis;
+            this.dateAddDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateAddDiagnosis.Enabled = false;
+            this.dateAddDiagnosis.FillColor = System.Drawing.Color.Blue;
+            this.dateAddDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateAddDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.dateAddDiagnosis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateAddDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateAddDiagnosis.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateAddDiagnosis.HoverState.Parent = this.dateAddDiagnosis;
+            this.dateAddDiagnosis.Location = new System.Drawing.Point(795, 649);
+            this.dateAddDiagnosis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateAddDiagnosis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateAddDiagnosis.Name = "dateAddDiagnosis";
+            this.dateAddDiagnosis.ShadowDecoration.Parent = this.dateAddDiagnosis;
+            this.dateAddDiagnosis.Size = new System.Drawing.Size(446, 45);
+            this.dateAddDiagnosis.TabIndex = 7;
+            this.dateAddDiagnosis.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label18
             // 
@@ -1322,33 +1157,33 @@ namespace PatientInformationSystemNew.forms
             this.label18.TabIndex = 314;
             this.label18.Text = "Date:";
             // 
-            // guna2TextBox1
+            // txtAddDiagnosis
             // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Enabled = false;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(795, 550);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox1.TabIndex = 6;
+            this.txtAddDiagnosis.Animated = true;
+            this.txtAddDiagnosis.BorderRadius = 5;
+            this.txtAddDiagnosis.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddDiagnosis.DefaultText = "";
+            this.txtAddDiagnosis.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddDiagnosis.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddDiagnosis.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtAddDiagnosis.DisabledState.Parent = this.txtAddDiagnosis;
+            this.txtAddDiagnosis.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddDiagnosis.Enabled = false;
+            this.txtAddDiagnosis.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddDiagnosis.FocusedState.Parent = this.txtAddDiagnosis;
+            this.txtAddDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddDiagnosis.ForeColor = System.Drawing.Color.Black;
+            this.txtAddDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddDiagnosis.HoverState.Parent = this.txtAddDiagnosis;
+            this.txtAddDiagnosis.Location = new System.Drawing.Point(795, 550);
+            this.txtAddDiagnosis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddDiagnosis.Name = "txtAddDiagnosis";
+            this.txtAddDiagnosis.PasswordChar = '\0';
+            this.txtAddDiagnosis.PlaceholderText = "";
+            this.txtAddDiagnosis.SelectedText = "";
+            this.txtAddDiagnosis.ShadowDecoration.Parent = this.txtAddDiagnosis;
+            this.txtAddDiagnosis.Size = new System.Drawing.Size(446, 45);
+            this.txtAddDiagnosis.TabIndex = 6;
             // 
             // label25
             // 
@@ -1451,30 +1286,30 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdateDiagnosis.TabIndex = 2;
             this.btnUpdateDiagnosis.Text = "Update Diagnosis";
             // 
-            // dateDiagnosis
+            // dateSelectedDiagnosis
             // 
-            this.dateDiagnosis.Animated = true;
-            this.dateDiagnosis.BorderColor = System.Drawing.Color.Transparent;
-            this.dateDiagnosis.BorderRadius = 5;
-            this.dateDiagnosis.BorderThickness = 1;
-            this.dateDiagnosis.CheckedState.Parent = this.dateDiagnosis;
-            this.dateDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateDiagnosis.Enabled = false;
-            this.dateDiagnosis.FillColor = System.Drawing.Color.Blue;
-            this.dateDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dateDiagnosis.ForeColor = System.Drawing.Color.White;
-            this.dateDiagnosis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateDiagnosis.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateDiagnosis.HoverState.Parent = this.dateDiagnosis;
-            this.dateDiagnosis.Location = new System.Drawing.Point(795, 227);
-            this.dateDiagnosis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateDiagnosis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateDiagnosis.Name = "dateDiagnosis";
-            this.dateDiagnosis.ShadowDecoration.Parent = this.dateDiagnosis;
-            this.dateDiagnosis.Size = new System.Drawing.Size(446, 45);
-            this.dateDiagnosis.TabIndex = 1;
-            this.dateDiagnosis.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.dateSelectedDiagnosis.Animated = true;
+            this.dateSelectedDiagnosis.BorderColor = System.Drawing.Color.Transparent;
+            this.dateSelectedDiagnosis.BorderRadius = 5;
+            this.dateSelectedDiagnosis.BorderThickness = 1;
+            this.dateSelectedDiagnosis.CheckedState.Parent = this.dateSelectedDiagnosis;
+            this.dateSelectedDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateSelectedDiagnosis.Enabled = false;
+            this.dateSelectedDiagnosis.FillColor = System.Drawing.Color.Blue;
+            this.dateSelectedDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateSelectedDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.dateSelectedDiagnosis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateSelectedDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateSelectedDiagnosis.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateSelectedDiagnosis.HoverState.Parent = this.dateSelectedDiagnosis;
+            this.dateSelectedDiagnosis.Location = new System.Drawing.Point(795, 227);
+            this.dateSelectedDiagnosis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateSelectedDiagnosis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateSelectedDiagnosis.Name = "dateSelectedDiagnosis";
+            this.dateSelectedDiagnosis.ShadowDecoration.Parent = this.dateSelectedDiagnosis;
+            this.dateSelectedDiagnosis.Size = new System.Drawing.Size(446, 45);
+            this.dateSelectedDiagnosis.TabIndex = 1;
+            this.dateSelectedDiagnosis.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // btnNewDiagnosis
             // 
@@ -1516,33 +1351,33 @@ namespace PatientInformationSystemNew.forms
             this.label16.TabIndex = 307;
             this.label16.Text = "Date:";
             // 
-            // txtDiagnosis
+            // txtSelectedDiagnosis
             // 
-            this.txtDiagnosis.Animated = true;
-            this.txtDiagnosis.BorderRadius = 5;
-            this.txtDiagnosis.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDiagnosis.DefaultText = "";
-            this.txtDiagnosis.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtDiagnosis.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtDiagnosis.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.txtDiagnosis.DisabledState.Parent = this.txtDiagnosis;
-            this.txtDiagnosis.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDiagnosis.Enabled = false;
-            this.txtDiagnosis.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtDiagnosis.FocusedState.Parent = this.txtDiagnosis;
-            this.txtDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtDiagnosis.ForeColor = System.Drawing.Color.Black;
-            this.txtDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtDiagnosis.HoverState.Parent = this.txtDiagnosis;
-            this.txtDiagnosis.Location = new System.Drawing.Point(795, 128);
-            this.txtDiagnosis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDiagnosis.Name = "txtDiagnosis";
-            this.txtDiagnosis.PasswordChar = '\0';
-            this.txtDiagnosis.PlaceholderText = "";
-            this.txtDiagnosis.SelectedText = "";
-            this.txtDiagnosis.ShadowDecoration.Parent = this.txtDiagnosis;
-            this.txtDiagnosis.Size = new System.Drawing.Size(446, 45);
-            this.txtDiagnosis.TabIndex = 0;
+            this.txtSelectedDiagnosis.Animated = true;
+            this.txtSelectedDiagnosis.BorderRadius = 5;
+            this.txtSelectedDiagnosis.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSelectedDiagnosis.DefaultText = "";
+            this.txtSelectedDiagnosis.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtSelectedDiagnosis.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtSelectedDiagnosis.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtSelectedDiagnosis.DisabledState.Parent = this.txtSelectedDiagnosis;
+            this.txtSelectedDiagnosis.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSelectedDiagnosis.Enabled = false;
+            this.txtSelectedDiagnosis.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSelectedDiagnosis.FocusedState.Parent = this.txtSelectedDiagnosis;
+            this.txtSelectedDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSelectedDiagnosis.ForeColor = System.Drawing.Color.Black;
+            this.txtSelectedDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSelectedDiagnosis.HoverState.Parent = this.txtSelectedDiagnosis;
+            this.txtSelectedDiagnosis.Location = new System.Drawing.Point(795, 128);
+            this.txtSelectedDiagnosis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSelectedDiagnosis.Name = "txtSelectedDiagnosis";
+            this.txtSelectedDiagnosis.PasswordChar = '\0';
+            this.txtSelectedDiagnosis.PlaceholderText = "";
+            this.txtSelectedDiagnosis.SelectedText = "";
+            this.txtSelectedDiagnosis.ShadowDecoration.Parent = this.txtSelectedDiagnosis;
+            this.txtSelectedDiagnosis.Size = new System.Drawing.Size(446, 45);
+            this.txtSelectedDiagnosis.TabIndex = 0;
             // 
             // label17
             // 
@@ -1561,32 +1396,32 @@ namespace PatientInformationSystemNew.forms
             this.gridManageDiagnosis.AllowUserToDeleteRows = false;
             this.gridManageDiagnosis.AllowUserToResizeColumns = false;
             this.gridManageDiagnosis.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.gridManageDiagnosis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridManageDiagnosis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridManageDiagnosis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridManageDiagnosis.BackgroundColor = System.Drawing.Color.White;
             this.gridManageDiagnosis.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridManageDiagnosis.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridManageDiagnosis.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridManageDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridManageDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridManageDiagnosis.ColumnHeadersHeight = 55;
             this.gridManageDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridManageDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridManageDiagnosis.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridManageDiagnosis.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridManageDiagnosis.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridManageDiagnosis.EnableHeadersVisualStyles = false;
             this.gridManageDiagnosis.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -1620,6 +1455,7 @@ namespace PatientInformationSystemNew.forms
             this.gridManageDiagnosis.ThemeStyle.RowsStyle.Height = 50;
             this.gridManageDiagnosis.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridManageDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridManageDiagnosis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManageDiagnosis_CellMouseClick);
             // 
             // tabSymptoms
             // 
@@ -1627,19 +1463,19 @@ namespace PatientInformationSystemNew.forms
             this.tabSymptoms.Controls.Add(this.btnBackInSymptoms);
             this.tabSymptoms.Controls.Add(this.label33);
             this.tabSymptoms.Controls.Add(this.label34);
-            this.tabSymptoms.Controls.Add(this.guna2TextBox3);
+            this.tabSymptoms.Controls.Add(this.txtAddSymptomID);
             this.tabSymptoms.Controls.Add(this.label35);
-            this.tabSymptoms.Controls.Add(this.guna2DateTimePicker2);
+            this.tabSymptoms.Controls.Add(this.dateAddSymptom);
             this.tabSymptoms.Controls.Add(this.label36);
-            this.tabSymptoms.Controls.Add(this.guna2TextBox4);
+            this.tabSymptoms.Controls.Add(this.txtAddSymptom);
             this.tabSymptoms.Controls.Add(this.label37);
-            this.tabSymptoms.Controls.Add(this.guna2Button3);
-            this.tabSymptoms.Controls.Add(this.guna2Button4);
-            this.tabSymptoms.Controls.Add(this.guna2Button5);
-            this.tabSymptoms.Controls.Add(this.guna2DateTimePicker3);
-            this.tabSymptoms.Controls.Add(this.guna2Button6);
+            this.tabSymptoms.Controls.Add(this.btnAddSymptom);
+            this.tabSymptoms.Controls.Add(this.btnRemoveSymptom);
+            this.tabSymptoms.Controls.Add(this.btnUpdateSymptom);
+            this.tabSymptoms.Controls.Add(this.dateSelectedSymptom);
+            this.tabSymptoms.Controls.Add(this.btnNewSymptom);
             this.tabSymptoms.Controls.Add(this.label38);
-            this.tabSymptoms.Controls.Add(this.guna2TextBox5);
+            this.tabSymptoms.Controls.Add(this.txtSelectedSymptom);
             this.tabSymptoms.Controls.Add(this.label39);
             this.tabSymptoms.Controls.Add(this.gridManageSymptoms);
             this.tabSymptoms.Location = new System.Drawing.Point(4, 4);
@@ -1685,9 +1521,9 @@ namespace PatientInformationSystemNew.forms
             this.label33.ForeColor = System.Drawing.Color.White;
             this.label33.Location = new System.Drawing.Point(787, 14);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(466, 46);
+            this.label33.Size = new System.Drawing.Size(452, 46);
             this.label33.TabIndex = 336;
-            this.label33.Text = "Update or Remove Symptoms";
+            this.label33.Text = "Update or Remove Symptom";
             // 
             // label34
             // 
@@ -1700,33 +1536,33 @@ namespace PatientInformationSystemNew.forms
             this.label34.TabIndex = 335;
             this.label34.Text = "Add Symptom";
             // 
-            // guna2TextBox3
+            // txtAddSymptomID
             // 
-            this.guna2TextBox3.Animated = true;
-            this.guna2TextBox3.BorderRadius = 5;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.DisabledState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.Enabled = false;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(795, 450);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox3.TabIndex = 5;
+            this.txtAddSymptomID.Animated = true;
+            this.txtAddSymptomID.BorderRadius = 5;
+            this.txtAddSymptomID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddSymptomID.DefaultText = "";
+            this.txtAddSymptomID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddSymptomID.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddSymptomID.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtAddSymptomID.DisabledState.Parent = this.txtAddSymptomID;
+            this.txtAddSymptomID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddSymptomID.Enabled = false;
+            this.txtAddSymptomID.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddSymptomID.FocusedState.Parent = this.txtAddSymptomID;
+            this.txtAddSymptomID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddSymptomID.ForeColor = System.Drawing.Color.Black;
+            this.txtAddSymptomID.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddSymptomID.HoverState.Parent = this.txtAddSymptomID;
+            this.txtAddSymptomID.Location = new System.Drawing.Point(795, 450);
+            this.txtAddSymptomID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddSymptomID.Name = "txtAddSymptomID";
+            this.txtAddSymptomID.PasswordChar = '\0';
+            this.txtAddSymptomID.PlaceholderText = "";
+            this.txtAddSymptomID.SelectedText = "";
+            this.txtAddSymptomID.ShadowDecoration.Parent = this.txtAddSymptomID;
+            this.txtAddSymptomID.Size = new System.Drawing.Size(446, 45);
+            this.txtAddSymptomID.TabIndex = 5;
             // 
             // label35
             // 
@@ -1739,30 +1575,30 @@ namespace PatientInformationSystemNew.forms
             this.label35.TabIndex = 334;
             this.label35.Text = "Symptom ID:";
             // 
-            // guna2DateTimePicker2
+            // dateAddSymptom
             // 
-            this.guna2DateTimePicker2.Animated = true;
-            this.guna2DateTimePicker2.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker2.BorderRadius = 5;
-            this.guna2DateTimePicker2.BorderThickness = 1;
-            this.guna2DateTimePicker2.CheckedState.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker2.Enabled = false;
-            this.guna2DateTimePicker2.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DateTimePicker2.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker2.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker2.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker2.HoverState.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(795, 649);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.ShadowDecoration.Parent = this.guna2DateTimePicker2;
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(446, 45);
-            this.guna2DateTimePicker2.TabIndex = 7;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.dateAddSymptom.Animated = true;
+            this.dateAddSymptom.BorderColor = System.Drawing.Color.Transparent;
+            this.dateAddSymptom.BorderRadius = 5;
+            this.dateAddSymptom.BorderThickness = 1;
+            this.dateAddSymptom.CheckedState.Parent = this.dateAddSymptom;
+            this.dateAddSymptom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateAddSymptom.Enabled = false;
+            this.dateAddSymptom.FillColor = System.Drawing.Color.Blue;
+            this.dateAddSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateAddSymptom.ForeColor = System.Drawing.Color.White;
+            this.dateAddSymptom.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateAddSymptom.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateAddSymptom.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateAddSymptom.HoverState.Parent = this.dateAddSymptom;
+            this.dateAddSymptom.Location = new System.Drawing.Point(795, 649);
+            this.dateAddSymptom.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateAddSymptom.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateAddSymptom.Name = "dateAddSymptom";
+            this.dateAddSymptom.ShadowDecoration.Parent = this.dateAddSymptom;
+            this.dateAddSymptom.Size = new System.Drawing.Size(446, 45);
+            this.dateAddSymptom.TabIndex = 7;
+            this.dateAddSymptom.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label36
             // 
@@ -1775,33 +1611,33 @@ namespace PatientInformationSystemNew.forms
             this.label36.TabIndex = 332;
             this.label36.Text = "Date:";
             // 
-            // guna2TextBox4
+            // txtAddSymptom
             // 
-            this.guna2TextBox4.Animated = true;
-            this.guna2TextBox4.BorderRadius = 5;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.Enabled = false;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(795, 550);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox4.TabIndex = 6;
+            this.txtAddSymptom.Animated = true;
+            this.txtAddSymptom.BorderRadius = 5;
+            this.txtAddSymptom.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddSymptom.DefaultText = "";
+            this.txtAddSymptom.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddSymptom.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddSymptom.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtAddSymptom.DisabledState.Parent = this.txtAddSymptom;
+            this.txtAddSymptom.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddSymptom.Enabled = false;
+            this.txtAddSymptom.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddSymptom.FocusedState.Parent = this.txtAddSymptom;
+            this.txtAddSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddSymptom.ForeColor = System.Drawing.Color.Black;
+            this.txtAddSymptom.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddSymptom.HoverState.Parent = this.txtAddSymptom;
+            this.txtAddSymptom.Location = new System.Drawing.Point(795, 550);
+            this.txtAddSymptom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddSymptom.Name = "txtAddSymptom";
+            this.txtAddSymptom.PasswordChar = '\0';
+            this.txtAddSymptom.PlaceholderText = "";
+            this.txtAddSymptom.SelectedText = "";
+            this.txtAddSymptom.ShadowDecoration.Parent = this.txtAddSymptom;
+            this.txtAddSymptom.Size = new System.Drawing.Size(446, 45);
+            this.txtAddSymptom.TabIndex = 6;
             // 
             // label37
             // 
@@ -1814,149 +1650,149 @@ namespace PatientInformationSystemNew.forms
             this.label37.TabIndex = 331;
             this.label37.Text = "Symptom:";
             // 
-            // guna2Button3
+            // btnAddSymptom
             // 
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button3.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderRadius = 5;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.DisabledState.Parent = this.guna2Button3;
-            this.guna2Button3.Enabled = false;
-            this.guna2Button3.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button3.Location = new System.Drawing.Point(1107, 709);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(134, 54);
-            this.guna2Button3.TabIndex = 8;
-            this.guna2Button3.Text = "Add Symptom";
+            this.btnAddSymptom.Animated = true;
+            this.btnAddSymptom.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddSymptom.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddSymptom.BorderRadius = 5;
+            this.btnAddSymptom.BorderThickness = 1;
+            this.btnAddSymptom.CheckedState.Parent = this.btnAddSymptom;
+            this.btnAddSymptom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSymptom.CustomImages.Parent = this.btnAddSymptom;
+            this.btnAddSymptom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddSymptom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddSymptom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddSymptom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddSymptom.DisabledState.Parent = this.btnAddSymptom;
+            this.btnAddSymptom.Enabled = false;
+            this.btnAddSymptom.FillColor = System.Drawing.Color.Lime;
+            this.btnAddSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAddSymptom.ForeColor = System.Drawing.Color.White;
+            this.btnAddSymptom.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnAddSymptom.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnAddSymptom.HoverState.Parent = this.btnAddSymptom;
+            this.btnAddSymptom.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddSymptom.Location = new System.Drawing.Point(1107, 709);
+            this.btnAddSymptom.Name = "btnAddSymptom";
+            this.btnAddSymptom.ShadowDecoration.Parent = this.btnAddSymptom;
+            this.btnAddSymptom.Size = new System.Drawing.Size(134, 54);
+            this.btnAddSymptom.TabIndex = 8;
+            this.btnAddSymptom.Text = "Add Symptom";
             // 
-            // guna2Button4
+            // btnRemoveSymptom
             // 
-            this.guna2Button4.Animated = true;
-            this.guna2Button4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button4.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderRadius = 5;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.DisabledState.Parent = this.guna2Button4;
-            this.guna2Button4.Enabled = false;
-            this.guna2Button4.FillColor = System.Drawing.Color.Red;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button4.Location = new System.Drawing.Point(958, 287);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(134, 54);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "Remove Symptom";
+            this.btnRemoveSymptom.Animated = true;
+            this.btnRemoveSymptom.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRemoveSymptom.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRemoveSymptom.BorderRadius = 5;
+            this.btnRemoveSymptom.BorderThickness = 1;
+            this.btnRemoveSymptom.CheckedState.Parent = this.btnRemoveSymptom;
+            this.btnRemoveSymptom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveSymptom.CustomImages.Parent = this.btnRemoveSymptom;
+            this.btnRemoveSymptom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveSymptom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveSymptom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemoveSymptom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemoveSymptom.DisabledState.Parent = this.btnRemoveSymptom;
+            this.btnRemoveSymptom.Enabled = false;
+            this.btnRemoveSymptom.FillColor = System.Drawing.Color.Red;
+            this.btnRemoveSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnRemoveSymptom.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveSymptom.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnRemoveSymptom.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnRemoveSymptom.HoverState.Parent = this.btnRemoveSymptom;
+            this.btnRemoveSymptom.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnRemoveSymptom.Location = new System.Drawing.Point(958, 287);
+            this.btnRemoveSymptom.Name = "btnRemoveSymptom";
+            this.btnRemoveSymptom.ShadowDecoration.Parent = this.btnRemoveSymptom;
+            this.btnRemoveSymptom.Size = new System.Drawing.Size(134, 54);
+            this.btnRemoveSymptom.TabIndex = 3;
+            this.btnRemoveSymptom.Text = "Remove Symptom";
             // 
-            // guna2Button5
+            // btnUpdateSymptom
             // 
-            this.guna2Button5.Animated = true;
-            this.guna2Button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button5.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.BorderRadius = 5;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.CheckedState.Parent = this.guna2Button5;
-            this.guna2Button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button5.CustomImages.Parent = this.guna2Button5;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.DisabledState.Parent = this.guna2Button5;
-            this.guna2Button5.Enabled = false;
-            this.guna2Button5.FillColor = System.Drawing.Color.Blue;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button5.Location = new System.Drawing.Point(1107, 287);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
-            this.guna2Button5.Size = new System.Drawing.Size(134, 54);
-            this.guna2Button5.TabIndex = 2;
-            this.guna2Button5.Text = "Update Symptom";
+            this.btnUpdateSymptom.Animated = true;
+            this.btnUpdateSymptom.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateSymptom.BorderColor = System.Drawing.Color.Transparent;
+            this.btnUpdateSymptom.BorderRadius = 5;
+            this.btnUpdateSymptom.BorderThickness = 1;
+            this.btnUpdateSymptom.CheckedState.Parent = this.btnUpdateSymptom;
+            this.btnUpdateSymptom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateSymptom.CustomImages.Parent = this.btnUpdateSymptom;
+            this.btnUpdateSymptom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateSymptom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateSymptom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdateSymptom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdateSymptom.DisabledState.Parent = this.btnUpdateSymptom;
+            this.btnUpdateSymptom.Enabled = false;
+            this.btnUpdateSymptom.FillColor = System.Drawing.Color.Blue;
+            this.btnUpdateSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnUpdateSymptom.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSymptom.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnUpdateSymptom.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnUpdateSymptom.HoverState.Parent = this.btnUpdateSymptom;
+            this.btnUpdateSymptom.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnUpdateSymptom.Location = new System.Drawing.Point(1107, 287);
+            this.btnUpdateSymptom.Name = "btnUpdateSymptom";
+            this.btnUpdateSymptom.ShadowDecoration.Parent = this.btnUpdateSymptom;
+            this.btnUpdateSymptom.Size = new System.Drawing.Size(134, 54);
+            this.btnUpdateSymptom.TabIndex = 2;
+            this.btnUpdateSymptom.Text = "Update Symptom";
             // 
-            // guna2DateTimePicker3
+            // dateSelectedSymptom
             // 
-            this.guna2DateTimePicker3.Animated = true;
-            this.guna2DateTimePicker3.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker3.BorderRadius = 5;
-            this.guna2DateTimePicker3.BorderThickness = 1;
-            this.guna2DateTimePicker3.CheckedState.Parent = this.guna2DateTimePicker3;
-            this.guna2DateTimePicker3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker3.Enabled = false;
-            this.guna2DateTimePicker3.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DateTimePicker3.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker3.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker3.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker3.HoverState.Parent = this.guna2DateTimePicker3;
-            this.guna2DateTimePicker3.Location = new System.Drawing.Point(795, 227);
-            this.guna2DateTimePicker3.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker3.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker3.Name = "guna2DateTimePicker3";
-            this.guna2DateTimePicker3.ShadowDecoration.Parent = this.guna2DateTimePicker3;
-            this.guna2DateTimePicker3.Size = new System.Drawing.Size(446, 45);
-            this.guna2DateTimePicker3.TabIndex = 1;
-            this.guna2DateTimePicker3.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.dateSelectedSymptom.Animated = true;
+            this.dateSelectedSymptom.BorderColor = System.Drawing.Color.Transparent;
+            this.dateSelectedSymptom.BorderRadius = 5;
+            this.dateSelectedSymptom.BorderThickness = 1;
+            this.dateSelectedSymptom.CheckedState.Parent = this.dateSelectedSymptom;
+            this.dateSelectedSymptom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateSelectedSymptom.Enabled = false;
+            this.dateSelectedSymptom.FillColor = System.Drawing.Color.Blue;
+            this.dateSelectedSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateSelectedSymptom.ForeColor = System.Drawing.Color.White;
+            this.dateSelectedSymptom.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateSelectedSymptom.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateSelectedSymptom.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateSelectedSymptom.HoverState.Parent = this.dateSelectedSymptom;
+            this.dateSelectedSymptom.Location = new System.Drawing.Point(795, 227);
+            this.dateSelectedSymptom.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateSelectedSymptom.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateSelectedSymptom.Name = "dateSelectedSymptom";
+            this.dateSelectedSymptom.ShadowDecoration.Parent = this.dateSelectedSymptom;
+            this.dateSelectedSymptom.Size = new System.Drawing.Size(446, 45);
+            this.dateSelectedSymptom.TabIndex = 1;
+            this.dateSelectedSymptom.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
-            // guna2Button6
+            // btnNewSymptom
             // 
-            this.guna2Button6.Animated = true;
-            this.guna2Button6.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button6.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.BorderRadius = 5;
-            this.guna2Button6.BorderThickness = 1;
-            this.guna2Button6.CheckedState.Parent = this.guna2Button6;
-            this.guna2Button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button6.CustomImages.Parent = this.guna2Button6;
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.DisabledState.Parent = this.guna2Button6;
-            this.guna2Button6.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button6.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button6.HoverState.Parent = this.guna2Button6;
-            this.guna2Button6.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button6.Location = new System.Drawing.Point(1155, 72);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
-            this.guna2Button6.Size = new System.Drawing.Size(86, 43);
-            this.guna2Button6.TabIndex = 4;
-            this.guna2Button6.Text = "New";
+            this.btnNewSymptom.Animated = true;
+            this.btnNewSymptom.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNewSymptom.BorderColor = System.Drawing.Color.Transparent;
+            this.btnNewSymptom.BorderRadius = 5;
+            this.btnNewSymptom.BorderThickness = 1;
+            this.btnNewSymptom.CheckedState.Parent = this.btnNewSymptom;
+            this.btnNewSymptom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewSymptom.CustomImages.Parent = this.btnNewSymptom;
+            this.btnNewSymptom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewSymptom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewSymptom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNewSymptom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNewSymptom.DisabledState.Parent = this.btnNewSymptom;
+            this.btnNewSymptom.FillColor = System.Drawing.Color.Lime;
+            this.btnNewSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnNewSymptom.ForeColor = System.Drawing.Color.White;
+            this.btnNewSymptom.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnNewSymptom.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnNewSymptom.HoverState.Parent = this.btnNewSymptom;
+            this.btnNewSymptom.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnNewSymptom.Location = new System.Drawing.Point(1155, 72);
+            this.btnNewSymptom.Name = "btnNewSymptom";
+            this.btnNewSymptom.ShadowDecoration.Parent = this.btnNewSymptom;
+            this.btnNewSymptom.Size = new System.Drawing.Size(86, 43);
+            this.btnNewSymptom.TabIndex = 4;
+            this.btnNewSymptom.Text = "New";
             // 
             // label38
             // 
@@ -1969,33 +1805,33 @@ namespace PatientInformationSystemNew.forms
             this.label38.TabIndex = 325;
             this.label38.Text = "Date:";
             // 
-            // guna2TextBox5
+            // txtSelectedSymptom
             // 
-            this.guna2TextBox5.Animated = true;
-            this.guna2TextBox5.BorderRadius = 5;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.DisabledState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.Enabled = false;
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox5.FocusedState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox5.HoverState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Location = new System.Drawing.Point(795, 128);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PasswordChar = '\0';
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.ShadowDecoration.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox5.TabIndex = 0;
+            this.txtSelectedSymptom.Animated = true;
+            this.txtSelectedSymptom.BorderRadius = 5;
+            this.txtSelectedSymptom.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSelectedSymptom.DefaultText = "";
+            this.txtSelectedSymptom.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtSelectedSymptom.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtSelectedSymptom.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtSelectedSymptom.DisabledState.Parent = this.txtSelectedSymptom;
+            this.txtSelectedSymptom.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSelectedSymptom.Enabled = false;
+            this.txtSelectedSymptom.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSelectedSymptom.FocusedState.Parent = this.txtSelectedSymptom;
+            this.txtSelectedSymptom.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSelectedSymptom.ForeColor = System.Drawing.Color.Black;
+            this.txtSelectedSymptom.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSelectedSymptom.HoverState.Parent = this.txtSelectedSymptom;
+            this.txtSelectedSymptom.Location = new System.Drawing.Point(795, 128);
+            this.txtSelectedSymptom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSelectedSymptom.Name = "txtSelectedSymptom";
+            this.txtSelectedSymptom.PasswordChar = '\0';
+            this.txtSelectedSymptom.PlaceholderText = "";
+            this.txtSelectedSymptom.SelectedText = "";
+            this.txtSelectedSymptom.ShadowDecoration.Parent = this.txtSelectedSymptom;
+            this.txtSelectedSymptom.Size = new System.Drawing.Size(446, 45);
+            this.txtSelectedSymptom.TabIndex = 0;
             // 
             // label39
             // 
@@ -2014,32 +1850,32 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSymptoms.AllowUserToDeleteRows = false;
             this.gridManageSymptoms.AllowUserToResizeColumns = false;
             this.gridManageSymptoms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.gridManageSymptoms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.gridManageSymptoms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridManageSymptoms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridManageSymptoms.BackgroundColor = System.Drawing.Color.White;
             this.gridManageSymptoms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridManageSymptoms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridManageSymptoms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridManageSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridManageSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridManageSymptoms.ColumnHeadersHeight = 55;
             this.gridManageSymptoms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridManageSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridManageSymptoms.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridManageSymptoms.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridManageSymptoms.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridManageSymptoms.EnableHeadersVisualStyles = false;
             this.gridManageSymptoms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2073,6 +1909,7 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSymptoms.ThemeStyle.RowsStyle.Height = 50;
             this.gridManageSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridManageSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridManageSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManageSymptoms_CellMouseClick);
             // 
             // tabPrescription
             // 
@@ -2080,19 +1917,19 @@ namespace PatientInformationSystemNew.forms
             this.tabPrescription.Controls.Add(this.btnBackInPrescriptions);
             this.tabPrescription.Controls.Add(this.label40);
             this.tabPrescription.Controls.Add(this.label41);
-            this.tabPrescription.Controls.Add(this.guna2TextBox6);
+            this.tabPrescription.Controls.Add(this.txtAddPrescriptionID);
             this.tabPrescription.Controls.Add(this.label42);
-            this.tabPrescription.Controls.Add(this.guna2DateTimePicker4);
+            this.tabPrescription.Controls.Add(this.dateAddPrescription);
             this.tabPrescription.Controls.Add(this.label43);
-            this.tabPrescription.Controls.Add(this.guna2TextBox7);
+            this.tabPrescription.Controls.Add(this.txtAddPrescription);
             this.tabPrescription.Controls.Add(this.label44);
-            this.tabPrescription.Controls.Add(this.guna2Button7);
-            this.tabPrescription.Controls.Add(this.guna2Button8);
-            this.tabPrescription.Controls.Add(this.guna2Button9);
-            this.tabPrescription.Controls.Add(this.guna2DateTimePicker5);
-            this.tabPrescription.Controls.Add(this.guna2Button10);
+            this.tabPrescription.Controls.Add(this.btnAddPrescription);
+            this.tabPrescription.Controls.Add(this.btnRemovePrescription);
+            this.tabPrescription.Controls.Add(this.btnUpdatePrescription);
+            this.tabPrescription.Controls.Add(this.dateSelectedPrescription);
+            this.tabPrescription.Controls.Add(this.btnNewPrescription);
             this.tabPrescription.Controls.Add(this.label45);
-            this.tabPrescription.Controls.Add(this.guna2TextBox8);
+            this.tabPrescription.Controls.Add(this.txtSelectedPrescription);
             this.tabPrescription.Controls.Add(this.label46);
             this.tabPrescription.Controls.Add(this.gridManagePrescriptions);
             this.tabPrescription.Location = new System.Drawing.Point(4, 4);
@@ -2138,9 +1975,9 @@ namespace PatientInformationSystemNew.forms
             this.label40.ForeColor = System.Drawing.Color.White;
             this.label40.Location = new System.Drawing.Point(787, 14);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(466, 46);
+            this.label40.Size = new System.Drawing.Size(487, 46);
             this.label40.TabIndex = 352;
-            this.label40.Text = "Update or Remove Symptoms";
+            this.label40.Text = "Update or Remove Prescription";
             // 
             // label41
             // 
@@ -2149,37 +1986,37 @@ namespace PatientInformationSystemNew.forms
             this.label41.ForeColor = System.Drawing.Color.White;
             this.label41.Location = new System.Drawing.Point(787, 354);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(234, 46);
+            this.label41.Size = new System.Drawing.Size(269, 46);
             this.label41.TabIndex = 351;
-            this.label41.Text = "Add Symptom";
+            this.label41.Text = "Add Prescription";
             // 
-            // guna2TextBox6
+            // txtAddPrescriptionID
             // 
-            this.guna2TextBox6.Animated = true;
-            this.guna2TextBox6.BorderRadius = 5;
-            this.guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox6.DefaultText = "";
-            this.guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox6.DisabledState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.Enabled = false;
-            this.guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox6.FocusedState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox6.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox6.HoverState.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Location = new System.Drawing.Point(795, 450);
-            this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox6.Name = "guna2TextBox6";
-            this.guna2TextBox6.PasswordChar = '\0';
-            this.guna2TextBox6.PlaceholderText = "";
-            this.guna2TextBox6.SelectedText = "";
-            this.guna2TextBox6.ShadowDecoration.Parent = this.guna2TextBox6;
-            this.guna2TextBox6.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox6.TabIndex = 5;
+            this.txtAddPrescriptionID.Animated = true;
+            this.txtAddPrescriptionID.BorderRadius = 5;
+            this.txtAddPrescriptionID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddPrescriptionID.DefaultText = "";
+            this.txtAddPrescriptionID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddPrescriptionID.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddPrescriptionID.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtAddPrescriptionID.DisabledState.Parent = this.txtAddPrescriptionID;
+            this.txtAddPrescriptionID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddPrescriptionID.Enabled = false;
+            this.txtAddPrescriptionID.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddPrescriptionID.FocusedState.Parent = this.txtAddPrescriptionID;
+            this.txtAddPrescriptionID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddPrescriptionID.ForeColor = System.Drawing.Color.Black;
+            this.txtAddPrescriptionID.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddPrescriptionID.HoverState.Parent = this.txtAddPrescriptionID;
+            this.txtAddPrescriptionID.Location = new System.Drawing.Point(795, 450);
+            this.txtAddPrescriptionID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddPrescriptionID.Name = "txtAddPrescriptionID";
+            this.txtAddPrescriptionID.PasswordChar = '\0';
+            this.txtAddPrescriptionID.PlaceholderText = "";
+            this.txtAddPrescriptionID.SelectedText = "";
+            this.txtAddPrescriptionID.ShadowDecoration.Parent = this.txtAddPrescriptionID;
+            this.txtAddPrescriptionID.Size = new System.Drawing.Size(446, 45);
+            this.txtAddPrescriptionID.TabIndex = 5;
             // 
             // label42
             // 
@@ -2188,34 +2025,34 @@ namespace PatientInformationSystemNew.forms
             this.label42.ForeColor = System.Drawing.Color.White;
             this.label42.Location = new System.Drawing.Point(790, 409);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(125, 28);
+            this.label42.Size = new System.Drawing.Size(144, 28);
             this.label42.TabIndex = 350;
-            this.label42.Text = "Symptom ID:";
+            this.label42.Text = "Prescription ID:";
             // 
-            // guna2DateTimePicker4
+            // dateAddPrescription
             // 
-            this.guna2DateTimePicker4.Animated = true;
-            this.guna2DateTimePicker4.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker4.BorderRadius = 5;
-            this.guna2DateTimePicker4.BorderThickness = 1;
-            this.guna2DateTimePicker4.CheckedState.Parent = this.guna2DateTimePicker4;
-            this.guna2DateTimePicker4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker4.Enabled = false;
-            this.guna2DateTimePicker4.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DateTimePicker4.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker4.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker4.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker4.HoverState.Parent = this.guna2DateTimePicker4;
-            this.guna2DateTimePicker4.Location = new System.Drawing.Point(795, 649);
-            this.guna2DateTimePicker4.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker4.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker4.Name = "guna2DateTimePicker4";
-            this.guna2DateTimePicker4.ShadowDecoration.Parent = this.guna2DateTimePicker4;
-            this.guna2DateTimePicker4.Size = new System.Drawing.Size(446, 45);
-            this.guna2DateTimePicker4.TabIndex = 7;
-            this.guna2DateTimePicker4.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.dateAddPrescription.Animated = true;
+            this.dateAddPrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.dateAddPrescription.BorderRadius = 5;
+            this.dateAddPrescription.BorderThickness = 1;
+            this.dateAddPrescription.CheckedState.Parent = this.dateAddPrescription;
+            this.dateAddPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateAddPrescription.Enabled = false;
+            this.dateAddPrescription.FillColor = System.Drawing.Color.Blue;
+            this.dateAddPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateAddPrescription.ForeColor = System.Drawing.Color.White;
+            this.dateAddPrescription.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateAddPrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateAddPrescription.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateAddPrescription.HoverState.Parent = this.dateAddPrescription;
+            this.dateAddPrescription.Location = new System.Drawing.Point(795, 649);
+            this.dateAddPrescription.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateAddPrescription.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateAddPrescription.Name = "dateAddPrescription";
+            this.dateAddPrescription.ShadowDecoration.Parent = this.dateAddPrescription;
+            this.dateAddPrescription.Size = new System.Drawing.Size(446, 45);
+            this.dateAddPrescription.TabIndex = 7;
+            this.dateAddPrescription.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label43
             // 
@@ -2228,33 +2065,33 @@ namespace PatientInformationSystemNew.forms
             this.label43.TabIndex = 348;
             this.label43.Text = "Date:";
             // 
-            // guna2TextBox7
+            // txtAddPrescription
             // 
-            this.guna2TextBox7.Animated = true;
-            this.guna2TextBox7.BorderRadius = 5;
-            this.guna2TextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox7.DefaultText = "";
-            this.guna2TextBox7.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox7.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox7.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox7.DisabledState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.Enabled = false;
-            this.guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox7.FocusedState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox7.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox7.HoverState.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Location = new System.Drawing.Point(795, 550);
-            this.guna2TextBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox7.Name = "guna2TextBox7";
-            this.guna2TextBox7.PasswordChar = '\0';
-            this.guna2TextBox7.PlaceholderText = "";
-            this.guna2TextBox7.SelectedText = "";
-            this.guna2TextBox7.ShadowDecoration.Parent = this.guna2TextBox7;
-            this.guna2TextBox7.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox7.TabIndex = 6;
+            this.txtAddPrescription.Animated = true;
+            this.txtAddPrescription.BorderRadius = 5;
+            this.txtAddPrescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddPrescription.DefaultText = "";
+            this.txtAddPrescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtAddPrescription.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtAddPrescription.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtAddPrescription.DisabledState.Parent = this.txtAddPrescription;
+            this.txtAddPrescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAddPrescription.Enabled = false;
+            this.txtAddPrescription.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddPrescription.FocusedState.Parent = this.txtAddPrescription;
+            this.txtAddPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddPrescription.ForeColor = System.Drawing.Color.Black;
+            this.txtAddPrescription.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtAddPrescription.HoverState.Parent = this.txtAddPrescription;
+            this.txtAddPrescription.Location = new System.Drawing.Point(795, 550);
+            this.txtAddPrescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddPrescription.Name = "txtAddPrescription";
+            this.txtAddPrescription.PasswordChar = '\0';
+            this.txtAddPrescription.PlaceholderText = "";
+            this.txtAddPrescription.SelectedText = "";
+            this.txtAddPrescription.ShadowDecoration.Parent = this.txtAddPrescription;
+            this.txtAddPrescription.Size = new System.Drawing.Size(446, 45);
+            this.txtAddPrescription.TabIndex = 6;
             // 
             // label44
             // 
@@ -2263,153 +2100,153 @@ namespace PatientInformationSystemNew.forms
             this.label44.ForeColor = System.Drawing.Color.White;
             this.label44.Location = new System.Drawing.Point(790, 509);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(101, 28);
+            this.label44.Size = new System.Drawing.Size(120, 28);
             this.label44.TabIndex = 347;
-            this.label44.Text = "Symptom:";
+            this.label44.Text = "Prescription:";
             // 
-            // guna2Button7
+            // btnAddPrescription
             // 
-            this.guna2Button7.Animated = true;
-            this.guna2Button7.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button7.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button7.BorderRadius = 5;
-            this.guna2Button7.BorderThickness = 1;
-            this.guna2Button7.CheckedState.Parent = this.guna2Button7;
-            this.guna2Button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button7.CustomImages.Parent = this.guna2Button7;
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.DisabledState.Parent = this.guna2Button7;
-            this.guna2Button7.Enabled = false;
-            this.guna2Button7.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button7.ForeColor = System.Drawing.Color.White;
-            this.guna2Button7.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button7.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button7.HoverState.Parent = this.guna2Button7;
-            this.guna2Button7.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button7.Location = new System.Drawing.Point(1107, 709);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.ShadowDecoration.Parent = this.guna2Button7;
-            this.guna2Button7.Size = new System.Drawing.Size(134, 54);
-            this.guna2Button7.TabIndex = 8;
-            this.guna2Button7.Text = "Add Symptom";
+            this.btnAddPrescription.Animated = true;
+            this.btnAddPrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddPrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddPrescription.BorderRadius = 5;
+            this.btnAddPrescription.BorderThickness = 1;
+            this.btnAddPrescription.CheckedState.Parent = this.btnAddPrescription;
+            this.btnAddPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPrescription.CustomImages.Parent = this.btnAddPrescription;
+            this.btnAddPrescription.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddPrescription.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddPrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddPrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddPrescription.DisabledState.Parent = this.btnAddPrescription;
+            this.btnAddPrescription.Enabled = false;
+            this.btnAddPrescription.FillColor = System.Drawing.Color.Lime;
+            this.btnAddPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAddPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnAddPrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnAddPrescription.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnAddPrescription.HoverState.Parent = this.btnAddPrescription;
+            this.btnAddPrescription.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddPrescription.Location = new System.Drawing.Point(1107, 709);
+            this.btnAddPrescription.Name = "btnAddPrescription";
+            this.btnAddPrescription.ShadowDecoration.Parent = this.btnAddPrescription;
+            this.btnAddPrescription.Size = new System.Drawing.Size(134, 54);
+            this.btnAddPrescription.TabIndex = 8;
+            this.btnAddPrescription.Text = "Add Prescription";
             // 
-            // guna2Button8
+            // btnRemovePrescription
             // 
-            this.guna2Button8.Animated = true;
-            this.guna2Button8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button8.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.BorderRadius = 5;
-            this.guna2Button8.BorderThickness = 1;
-            this.guna2Button8.CheckedState.Parent = this.guna2Button8;
-            this.guna2Button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button8.CustomImages.Parent = this.guna2Button8;
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.DisabledState.Parent = this.guna2Button8;
-            this.guna2Button8.Enabled = false;
-            this.guna2Button8.FillColor = System.Drawing.Color.Red;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button8.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2Button8.HoverState.Parent = this.guna2Button8;
-            this.guna2Button8.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button8.Location = new System.Drawing.Point(958, 287);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.ShadowDecoration.Parent = this.guna2Button8;
-            this.guna2Button8.Size = new System.Drawing.Size(134, 54);
-            this.guna2Button8.TabIndex = 3;
-            this.guna2Button8.Text = "Remove Symptom";
+            this.btnRemovePrescription.Animated = true;
+            this.btnRemovePrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRemovePrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRemovePrescription.BorderRadius = 5;
+            this.btnRemovePrescription.BorderThickness = 1;
+            this.btnRemovePrescription.CheckedState.Parent = this.btnRemovePrescription;
+            this.btnRemovePrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemovePrescription.CustomImages.Parent = this.btnRemovePrescription;
+            this.btnRemovePrescription.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemovePrescription.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemovePrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemovePrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemovePrescription.DisabledState.Parent = this.btnRemovePrescription;
+            this.btnRemovePrescription.Enabled = false;
+            this.btnRemovePrescription.FillColor = System.Drawing.Color.Red;
+            this.btnRemovePrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnRemovePrescription.ForeColor = System.Drawing.Color.White;
+            this.btnRemovePrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnRemovePrescription.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnRemovePrescription.HoverState.Parent = this.btnRemovePrescription;
+            this.btnRemovePrescription.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnRemovePrescription.Location = new System.Drawing.Point(958, 287);
+            this.btnRemovePrescription.Name = "btnRemovePrescription";
+            this.btnRemovePrescription.ShadowDecoration.Parent = this.btnRemovePrescription;
+            this.btnRemovePrescription.Size = new System.Drawing.Size(134, 54);
+            this.btnRemovePrescription.TabIndex = 3;
+            this.btnRemovePrescription.Text = "Remove Prescription";
             // 
-            // guna2Button9
+            // btnUpdatePrescription
             // 
-            this.guna2Button9.Animated = true;
-            this.guna2Button9.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button9.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button9.BorderRadius = 5;
-            this.guna2Button9.BorderThickness = 1;
-            this.guna2Button9.CheckedState.Parent = this.guna2Button9;
-            this.guna2Button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button9.CustomImages.Parent = this.guna2Button9;
-            this.guna2Button9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button9.DisabledState.Parent = this.guna2Button9;
-            this.guna2Button9.Enabled = false;
-            this.guna2Button9.FillColor = System.Drawing.Color.Blue;
-            this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button9.ForeColor = System.Drawing.Color.White;
-            this.guna2Button9.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button9.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2Button9.HoverState.Parent = this.guna2Button9;
-            this.guna2Button9.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button9.Location = new System.Drawing.Point(1107, 287);
-            this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.ShadowDecoration.Parent = this.guna2Button9;
-            this.guna2Button9.Size = new System.Drawing.Size(134, 54);
-            this.guna2Button9.TabIndex = 2;
-            this.guna2Button9.Text = "Update Symptom";
+            this.btnUpdatePrescription.Animated = true;
+            this.btnUpdatePrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdatePrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.btnUpdatePrescription.BorderRadius = 5;
+            this.btnUpdatePrescription.BorderThickness = 1;
+            this.btnUpdatePrescription.CheckedState.Parent = this.btnUpdatePrescription;
+            this.btnUpdatePrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdatePrescription.CustomImages.Parent = this.btnUpdatePrescription;
+            this.btnUpdatePrescription.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdatePrescription.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdatePrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdatePrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdatePrescription.DisabledState.Parent = this.btnUpdatePrescription;
+            this.btnUpdatePrescription.Enabled = false;
+            this.btnUpdatePrescription.FillColor = System.Drawing.Color.Blue;
+            this.btnUpdatePrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnUpdatePrescription.ForeColor = System.Drawing.Color.White;
+            this.btnUpdatePrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnUpdatePrescription.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnUpdatePrescription.HoverState.Parent = this.btnUpdatePrescription;
+            this.btnUpdatePrescription.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnUpdatePrescription.Location = new System.Drawing.Point(1107, 287);
+            this.btnUpdatePrescription.Name = "btnUpdatePrescription";
+            this.btnUpdatePrescription.ShadowDecoration.Parent = this.btnUpdatePrescription;
+            this.btnUpdatePrescription.Size = new System.Drawing.Size(134, 54);
+            this.btnUpdatePrescription.TabIndex = 2;
+            this.btnUpdatePrescription.Text = "Update Prescription";
             // 
-            // guna2DateTimePicker5
+            // dateSelectedPrescription
             // 
-            this.guna2DateTimePicker5.Animated = true;
-            this.guna2DateTimePicker5.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker5.BorderRadius = 5;
-            this.guna2DateTimePicker5.BorderThickness = 1;
-            this.guna2DateTimePicker5.CheckedState.Parent = this.guna2DateTimePicker5;
-            this.guna2DateTimePicker5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker5.Enabled = false;
-            this.guna2DateTimePicker5.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DateTimePicker5.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker5.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker5.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker5.HoverState.Parent = this.guna2DateTimePicker5;
-            this.guna2DateTimePicker5.Location = new System.Drawing.Point(795, 227);
-            this.guna2DateTimePicker5.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker5.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker5.Name = "guna2DateTimePicker5";
-            this.guna2DateTimePicker5.ShadowDecoration.Parent = this.guna2DateTimePicker5;
-            this.guna2DateTimePicker5.Size = new System.Drawing.Size(446, 45);
-            this.guna2DateTimePicker5.TabIndex = 1;
-            this.guna2DateTimePicker5.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
+            this.dateSelectedPrescription.Animated = true;
+            this.dateSelectedPrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.dateSelectedPrescription.BorderRadius = 5;
+            this.dateSelectedPrescription.BorderThickness = 1;
+            this.dateSelectedPrescription.CheckedState.Parent = this.dateSelectedPrescription;
+            this.dateSelectedPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateSelectedPrescription.Enabled = false;
+            this.dateSelectedPrescription.FillColor = System.Drawing.Color.Blue;
+            this.dateSelectedPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateSelectedPrescription.ForeColor = System.Drawing.Color.White;
+            this.dateSelectedPrescription.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateSelectedPrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateSelectedPrescription.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateSelectedPrescription.HoverState.Parent = this.dateSelectedPrescription;
+            this.dateSelectedPrescription.Location = new System.Drawing.Point(795, 227);
+            this.dateSelectedPrescription.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateSelectedPrescription.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateSelectedPrescription.Name = "dateSelectedPrescription";
+            this.dateSelectedPrescription.ShadowDecoration.Parent = this.dateSelectedPrescription;
+            this.dateSelectedPrescription.Size = new System.Drawing.Size(446, 45);
+            this.dateSelectedPrescription.TabIndex = 1;
+            this.dateSelectedPrescription.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
-            // guna2Button10
+            // btnNewPrescription
             // 
-            this.guna2Button10.Animated = true;
-            this.guna2Button10.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button10.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button10.BorderRadius = 5;
-            this.guna2Button10.BorderThickness = 1;
-            this.guna2Button10.CheckedState.Parent = this.guna2Button10;
-            this.guna2Button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button10.CustomImages.Parent = this.guna2Button10;
-            this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button10.DisabledState.Parent = this.guna2Button10;
-            this.guna2Button10.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button10.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button10.ForeColor = System.Drawing.Color.White;
-            this.guna2Button10.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button10.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button10.HoverState.Parent = this.guna2Button10;
-            this.guna2Button10.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button10.Location = new System.Drawing.Point(1155, 72);
-            this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.ShadowDecoration.Parent = this.guna2Button10;
-            this.guna2Button10.Size = new System.Drawing.Size(86, 43);
-            this.guna2Button10.TabIndex = 4;
-            this.guna2Button10.Text = "New";
+            this.btnNewPrescription.Animated = true;
+            this.btnNewPrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNewPrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.btnNewPrescription.BorderRadius = 5;
+            this.btnNewPrescription.BorderThickness = 1;
+            this.btnNewPrescription.CheckedState.Parent = this.btnNewPrescription;
+            this.btnNewPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewPrescription.CustomImages.Parent = this.btnNewPrescription;
+            this.btnNewPrescription.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewPrescription.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNewPrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNewPrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNewPrescription.DisabledState.Parent = this.btnNewPrescription;
+            this.btnNewPrescription.FillColor = System.Drawing.Color.Lime;
+            this.btnNewPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnNewPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnNewPrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnNewPrescription.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnNewPrescription.HoverState.Parent = this.btnNewPrescription;
+            this.btnNewPrescription.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnNewPrescription.Location = new System.Drawing.Point(1155, 72);
+            this.btnNewPrescription.Name = "btnNewPrescription";
+            this.btnNewPrescription.ShadowDecoration.Parent = this.btnNewPrescription;
+            this.btnNewPrescription.Size = new System.Drawing.Size(86, 43);
+            this.btnNewPrescription.TabIndex = 4;
+            this.btnNewPrescription.Text = "New";
             // 
             // label45
             // 
@@ -2422,33 +2259,33 @@ namespace PatientInformationSystemNew.forms
             this.label45.TabIndex = 341;
             this.label45.Text = "Date:";
             // 
-            // guna2TextBox8
+            // txtSelectedPrescription
             // 
-            this.guna2TextBox8.Animated = true;
-            this.guna2TextBox8.BorderRadius = 5;
-            this.guna2TextBox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox8.DefaultText = "";
-            this.guna2TextBox8.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox8.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox8.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox8.DisabledState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox8.Enabled = false;
-            this.guna2TextBox8.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox8.FocusedState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox8.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox8.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox8.HoverState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Location = new System.Drawing.Point(795, 128);
-            this.guna2TextBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox8.Name = "guna2TextBox8";
-            this.guna2TextBox8.PasswordChar = '\0';
-            this.guna2TextBox8.PlaceholderText = "";
-            this.guna2TextBox8.SelectedText = "";
-            this.guna2TextBox8.ShadowDecoration.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox8.TabIndex = 0;
+            this.txtSelectedPrescription.Animated = true;
+            this.txtSelectedPrescription.BorderRadius = 5;
+            this.txtSelectedPrescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSelectedPrescription.DefaultText = "";
+            this.txtSelectedPrescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtSelectedPrescription.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtSelectedPrescription.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtSelectedPrescription.DisabledState.Parent = this.txtSelectedPrescription;
+            this.txtSelectedPrescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSelectedPrescription.Enabled = false;
+            this.txtSelectedPrescription.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSelectedPrescription.FocusedState.Parent = this.txtSelectedPrescription;
+            this.txtSelectedPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSelectedPrescription.ForeColor = System.Drawing.Color.Black;
+            this.txtSelectedPrescription.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSelectedPrescription.HoverState.Parent = this.txtSelectedPrescription;
+            this.txtSelectedPrescription.Location = new System.Drawing.Point(795, 128);
+            this.txtSelectedPrescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSelectedPrescription.Name = "txtSelectedPrescription";
+            this.txtSelectedPrescription.PasswordChar = '\0';
+            this.txtSelectedPrescription.PlaceholderText = "";
+            this.txtSelectedPrescription.SelectedText = "";
+            this.txtSelectedPrescription.ShadowDecoration.Parent = this.txtSelectedPrescription;
+            this.txtSelectedPrescription.Size = new System.Drawing.Size(446, 45);
+            this.txtSelectedPrescription.TabIndex = 0;
             // 
             // label46
             // 
@@ -2457,9 +2294,9 @@ namespace PatientInformationSystemNew.forms
             this.label46.ForeColor = System.Drawing.Color.White;
             this.label46.Location = new System.Drawing.Point(790, 87);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(101, 28);
+            this.label46.Size = new System.Drawing.Size(120, 28);
             this.label46.TabIndex = 340;
-            this.label46.Text = "Symptom:";
+            this.label46.Text = "Prescription:";
             // 
             // gridManagePrescriptions
             // 
@@ -2467,32 +2304,32 @@ namespace PatientInformationSystemNew.forms
             this.gridManagePrescriptions.AllowUserToDeleteRows = false;
             this.gridManagePrescriptions.AllowUserToResizeColumns = false;
             this.gridManagePrescriptions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.gridManagePrescriptions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.gridManagePrescriptions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.gridManagePrescriptions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridManagePrescriptions.BackgroundColor = System.Drawing.Color.White;
             this.gridManagePrescriptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridManagePrescriptions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridManagePrescriptions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridManagePrescriptions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridManagePrescriptions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.gridManagePrescriptions.ColumnHeadersHeight = 55;
             this.gridManagePrescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridManagePrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridManagePrescriptions.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridManagePrescriptions.DefaultCellStyle = dataGridViewCellStyle9;
             this.gridManagePrescriptions.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridManagePrescriptions.EnableHeadersVisualStyles = false;
             this.gridManagePrescriptions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2526,6 +2363,7 @@ namespace PatientInformationSystemNew.forms
             this.gridManagePrescriptions.ThemeStyle.RowsStyle.Height = 50;
             this.gridManagePrescriptions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridManagePrescriptions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridManagePrescriptions.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManagePrescriptions_CellMouseClick);
             // 
             // tabPaymentHistory
             // 
@@ -2543,32 +2381,32 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory.AllowUserToDeleteRows = false;
             this.gridPaymentHistory.AllowUserToResizeColumns = false;
             this.gridPaymentHistory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.gridPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.gridPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.gridPaymentHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPaymentHistory.BackgroundColor = System.Drawing.Color.White;
             this.gridPaymentHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPaymentHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPaymentHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.gridPaymentHistory.ColumnHeadersHeight = 55;
             this.gridPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPaymentHistory.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPaymentHistory.DefaultCellStyle = dataGridViewCellStyle12;
             this.gridPaymentHistory.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridPaymentHistory.EnableHeadersVisualStyles = false;
             this.gridPaymentHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2603,117 +2441,293 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPaymentHistory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // cmbAge
+            // tabPrintPrescription
             // 
-            this.cmbAge.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAge.BorderRadius = 5;
-            this.cmbAge.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbAge.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAge.Enabled = false;
-            this.cmbAge.FocusedColor = System.Drawing.Color.Blue;
-            this.cmbAge.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbAge.FocusedState.Parent = this.cmbAge;
-            this.cmbAge.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.cmbAge.ForeColor = System.Drawing.Color.Black;
-            this.cmbAge.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbAge.HoverState.Parent = this.cmbAge;
-            this.cmbAge.ItemHeight = 30;
-            this.cmbAge.ItemsAppearance.Parent = this.cmbAge;
-            this.cmbAge.Location = new System.Drawing.Point(439, 510);
-            this.cmbAge.Name = "cmbAge";
-            this.cmbAge.ShadowDecoration.Parent = this.cmbAge;
-            this.cmbAge.Size = new System.Drawing.Size(130, 36);
-            this.cmbAge.TabIndex = 5;
+            this.tabPrintPrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPrintPrescription.Location = new System.Drawing.Point(4, 4);
+            this.tabPrintPrescription.Name = "tabPrintPrescription";
+            this.tabPrintPrescription.Size = new System.Drawing.Size(1682, 950);
+            this.tabPrintPrescription.TabIndex = 7;
+            this.tabPrintPrescription.Text = "Print Prescription";
             // 
-            // cmbGender
+            // tabRecords
             // 
-            this.cmbGender.BackColor = System.Drawing.Color.Transparent;
-            this.cmbGender.BorderRadius = 5;
-            this.cmbGender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGender.Enabled = false;
-            this.cmbGender.FocusedColor = System.Drawing.Color.Blue;
-            this.cmbGender.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbGender.FocusedState.Parent = this.cmbGender;
-            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.cmbGender.ForeColor = System.Drawing.Color.Black;
-            this.cmbGender.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbGender.HoverState.Parent = this.cmbGender;
-            this.cmbGender.ItemHeight = 30;
-            this.cmbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cmbGender.ItemsAppearance.Parent = this.cmbGender;
-            this.cmbGender.Location = new System.Drawing.Point(439, 410);
-            this.cmbGender.Name = "cmbGender";
-            this.cmbGender.ShadowDecoration.Parent = this.cmbGender;
-            this.cmbGender.Size = new System.Drawing.Size(130, 36);
-            this.cmbGender.TabIndex = 4;
+            this.tabRecords.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabRecords.Controls.Add(this.label30);
+            this.tabRecords.Controls.Add(this.label31);
+            this.tabRecords.Controls.Add(this.gridPrescriptionsRecords);
+            this.tabRecords.Controls.Add(this.label26);
+            this.tabRecords.Controls.Add(this.label27);
+            this.tabRecords.Controls.Add(this.gridDiagnosisRecords);
+            this.tabRecords.Controls.Add(this.label28);
+            this.tabRecords.Controls.Add(this.gridSymptomsRecords);
+            this.tabRecords.Controls.Add(this.label29);
+            this.tabRecords.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabRecords.Location = new System.Drawing.Point(4, 4);
+            this.tabRecords.Name = "tabRecords";
+            this.tabRecords.Size = new System.Drawing.Size(1682, 950);
+            this.tabRecords.TabIndex = 2;
+            this.tabRecords.Text = "Records";
             // 
-            // btnEdit
+            // label30
             // 
-            this.btnEdit.Animated = true;
-            this.btnEdit.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEdit.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderRadius = 5;
-            this.btnEdit.BorderThickness = 1;
-            this.btnEdit.CheckedState.Parent = this.btnEdit;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.CustomImages.Parent = this.btnEdit;
-            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEdit.DisabledState.Parent = this.btnEdit;
-            this.btnEdit.FillColor = System.Drawing.Color.Blue;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEdit.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEdit.HoverState.Parent = this.btnEdit;
-            this.btnEdit.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEdit.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEdit.Location = new System.Drawing.Point(1488, 707);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
-            this.btnEdit.Size = new System.Drawing.Size(131, 62);
-            this.btnEdit.TabIndex = 16;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(1010, 71);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(186, 28);
+            this.label30.TabIndex = 276;
+            this.label30.Text = "Prescription Record:";
             // 
-            // btnSave
+            // label31
             // 
-            this.btnSave.Animated = true;
-            this.btnSave.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSave.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSave.BorderRadius = 5;
-            this.btnSave.BorderThickness = 1;
-            this.btnSave.CheckedState.Parent = this.btnSave;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.CustomImages.Parent = this.btnSave;
-            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSave.DisabledState.Parent = this.btnSave;
-            this.btnSave.Enabled = false;
-            this.btnSave.FillColor = System.Drawing.Color.Lime;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnSave.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnSave.HoverState.Parent = this.btnSave;
-            this.btnSave.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
-            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSave.Location = new System.Drawing.Point(1488, 786);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.ShadowDecoration.Parent = this.btnSave;
-            this.btnSave.Size = new System.Drawing.Size(131, 62);
-            this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(1007, 16);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(212, 46);
+            this.label31.TabIndex = 275;
+            this.label31.Text = "Prescriptions";
+            // 
+            // gridPrescriptionsRecords
+            // 
+            this.gridPrescriptionsRecords.AllowUserToAddRows = false;
+            this.gridPrescriptionsRecords.AllowUserToDeleteRows = false;
+            this.gridPrescriptionsRecords.AllowUserToResizeColumns = false;
+            this.gridPrescriptionsRecords.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.gridPrescriptionsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridPrescriptionsRecords.BackgroundColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridPrescriptionsRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridPrescriptionsRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPrescriptionsRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.gridPrescriptionsRecords.ColumnHeadersHeight = 55;
+            this.gridPrescriptionsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridPrescriptionsRecords.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPrescriptionsRecords.DefaultCellStyle = dataGridViewCellStyle15;
+            this.gridPrescriptionsRecords.EnableHeadersVisualStyles = false;
+            this.gridPrescriptionsRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridPrescriptionsRecords.Location = new System.Drawing.Point(1015, 111);
+            this.gridPrescriptionsRecords.Name = "gridPrescriptionsRecords";
+            this.gridPrescriptionsRecords.ReadOnly = true;
+            this.gridPrescriptionsRecords.RowHeadersVisible = false;
+            this.gridPrescriptionsRecords.RowHeadersWidth = 51;
+            this.gridPrescriptionsRecords.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridPrescriptionsRecords.RowTemplate.Height = 50;
+            this.gridPrescriptionsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridPrescriptionsRecords.Size = new System.Drawing.Size(521, 821);
+            this.gridPrescriptionsRecords.TabIndex = 274;
+            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.gridPrescriptionsRecords.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.gridPrescriptionsRecords.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridPrescriptionsRecords.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridPrescriptionsRecords.ThemeStyle.ReadOnly = true;
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.Height = 50;
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.gridPrescriptionsRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(513, 70);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(175, 28);
+            this.label26.TabIndex = 273;
+            this.label26.Text = "Symptoms Record:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(15, 70);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(167, 28);
+            this.label27.TabIndex = 272;
+            this.label27.Text = "Diagnosis Record:";
+            // 
+            // gridDiagnosisRecords
+            // 
+            this.gridDiagnosisRecords.AllowUserToAddRows = false;
+            this.gridDiagnosisRecords.AllowUserToDeleteRows = false;
+            this.gridDiagnosisRecords.AllowUserToResizeColumns = false;
+            this.gridDiagnosisRecords.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.gridDiagnosisRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridDiagnosisRecords.BackgroundColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDiagnosisRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridDiagnosisRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridDiagnosisRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.gridDiagnosisRecords.ColumnHeadersHeight = 55;
+            this.gridDiagnosisRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridDiagnosisRecords.DefaultCellStyle = dataGridViewCellStyle18;
+            this.gridDiagnosisRecords.EnableHeadersVisualStyles = false;
+            this.gridDiagnosisRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridDiagnosisRecords.Location = new System.Drawing.Point(20, 111);
+            this.gridDiagnosisRecords.Name = "gridDiagnosisRecords";
+            this.gridDiagnosisRecords.ReadOnly = true;
+            this.gridDiagnosisRecords.RowHeadersVisible = false;
+            this.gridDiagnosisRecords.RowHeadersWidth = 51;
+            this.gridDiagnosisRecords.RowTemplate.Height = 50;
+            this.gridDiagnosisRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridDiagnosisRecords.Size = new System.Drawing.Size(482, 821);
+            this.gridDiagnosisRecords.TabIndex = 271;
+            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.gridDiagnosisRecords.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.gridDiagnosisRecords.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridDiagnosisRecords.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridDiagnosisRecords.ThemeStyle.ReadOnly = true;
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.Height = 50;
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.gridDiagnosisRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(12, 14);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(164, 46);
+            this.label28.TabIndex = 270;
+            this.label28.Text = "Diagnosis";
+            // 
+            // gridSymptomsRecords
+            // 
+            this.gridSymptomsRecords.AllowUserToAddRows = false;
+            this.gridSymptomsRecords.AllowUserToDeleteRows = false;
+            this.gridSymptomsRecords.AllowUserToResizeColumns = false;
+            this.gridSymptomsRecords.AllowUserToResizeRows = false;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.gridSymptomsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridSymptomsRecords.BackgroundColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridSymptomsRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridSymptomsRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSymptomsRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.gridSymptomsRecords.ColumnHeadersHeight = 55;
+            this.gridSymptomsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSymptomsRecords.DefaultCellStyle = dataGridViewCellStyle21;
+            this.gridSymptomsRecords.EnableHeadersVisualStyles = false;
+            this.gridSymptomsRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridSymptomsRecords.Location = new System.Drawing.Point(518, 111);
+            this.gridSymptomsRecords.Name = "gridSymptomsRecords";
+            this.gridSymptomsRecords.ReadOnly = true;
+            this.gridSymptomsRecords.RowHeadersVisible = false;
+            this.gridSymptomsRecords.RowHeadersWidth = 51;
+            this.gridSymptomsRecords.RowTemplate.Height = 50;
+            this.gridSymptomsRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridSymptomsRecords.Size = new System.Drawing.Size(482, 821);
+            this.gridSymptomsRecords.TabIndex = 269;
+            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.gridSymptomsRecords.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.gridSymptomsRecords.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridSymptomsRecords.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridSymptomsRecords.ThemeStyle.ReadOnly = true;
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.Height = 50;
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.gridSymptomsRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(510, 14);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(177, 46);
+            this.label29.TabIndex = 268;
+            this.label29.Text = "Symptoms";
             // 
             // frmPatientProfileNew
             // 
@@ -2731,11 +2745,6 @@ namespace PatientInformationSystemNew.forms
             this.guna2TabControl1.ResumeLayout(false);
             this.tabAboutPatient.ResumeLayout(false);
             this.tabAboutPatient.PerformLayout();
-            this.tabRecords.ResumeLayout(false);
-            this.tabRecords.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPrescriptionsRecords)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDiagnosisRecords)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSymptomsRecords)).EndInit();
             this.tabDiagnosis.ResumeLayout(false);
             this.tabDiagnosis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridManageDiagnosis)).EndInit();
@@ -2747,6 +2756,11 @@ namespace PatientInformationSystemNew.forms
             ((System.ComponentModel.ISupportInitialize)(this.gridManagePrescriptions)).EndInit();
             this.tabPaymentHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridPaymentHistory)).EndInit();
+            this.tabRecords.ResumeLayout(false);
+            this.tabRecords.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPrescriptionsRecords)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDiagnosisRecords)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSymptomsRecords)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2806,17 +2820,17 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnAddDiagnosis;
         private Guna.UI2.WinForms.Guna2Button btnRemoveDiagnosis;
         private Guna.UI2.WinForms.Guna2Button btnUpdateDiagnosis;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateDiagnosis;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateSelectedDiagnosis;
         private Guna.UI2.WinForms.Guna2Button btnNewDiagnosis;
         private System.Windows.Forms.Label label16;
-        private Guna.UI2.WinForms.Guna2TextBox txtDiagnosis;
+        private Guna.UI2.WinForms.Guna2TextBox txtSelectedDiagnosis;
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2DataGridView gridManageDiagnosis;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddDiagnosisID;
         private System.Windows.Forms.Label label32;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateAddDiagnosis;
         private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddDiagnosis;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label19;
@@ -2824,36 +2838,36 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnBackInSymptoms;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddSymptomID;
         private System.Windows.Forms.Label label35;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateAddSymptom;
         private System.Windows.Forms.Label label36;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddSymptom;
         private System.Windows.Forms.Label label37;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private Guna.UI2.WinForms.Guna2Button btnAddSymptom;
+        private Guna.UI2.WinForms.Guna2Button btnRemoveSymptom;
+        private Guna.UI2.WinForms.Guna2Button btnUpdateSymptom;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateSelectedSymptom;
+        private Guna.UI2.WinForms.Guna2Button btnNewSymptom;
         private System.Windows.Forms.Label label38;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox txtSelectedSymptom;
         private System.Windows.Forms.Label label39;
         private Guna.UI2.WinForms.Guna2DataGridView gridManageSymptoms;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddPrescriptionID;
         private System.Windows.Forms.Label label42;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker4;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateAddPrescription;
         private System.Windows.Forms.Label label43;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
+        private Guna.UI2.WinForms.Guna2TextBox txtAddPrescription;
         private System.Windows.Forms.Label label44;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button10;
+        private Guna.UI2.WinForms.Guna2Button btnAddPrescription;
+        private Guna.UI2.WinForms.Guna2Button btnRemovePrescription;
+        private Guna.UI2.WinForms.Guna2Button btnUpdatePrescription;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateSelectedPrescription;
+        private Guna.UI2.WinForms.Guna2Button btnNewPrescription;
         private System.Windows.Forms.Label label45;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox8;
+        private Guna.UI2.WinForms.Guna2TextBox txtSelectedPrescription;
         private System.Windows.Forms.Label label46;
         private Guna.UI2.WinForms.Guna2DataGridView gridManagePrescriptions;
         private Guna.UI2.WinForms.Guna2DataGridView gridPaymentHistory;
@@ -2862,5 +2876,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2ComboBox cmbGender;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private System.Windows.Forms.TabPage tabPrintPrescription;
     }
 }

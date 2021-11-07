@@ -288,10 +288,12 @@ namespace PatientInformationSystemNew.forms
         {
             if (String.IsNullOrWhiteSpace(this.txtPrescription.Text))
             {
+                this.btnGenerate.Enabled = false;
                 this.btnSavePrescription.Enabled = false;
             }
             else
             {
+                this.btnGenerate.Enabled = true;
                 this.btnSavePrescription.Enabled = true;
             }
         }
