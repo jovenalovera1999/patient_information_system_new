@@ -24,6 +24,20 @@ namespace PatientInformationSystemNew.forms
         functions.Prescription prescriptions = new functions.Prescription();
         functions.Patient patient = new functions.Patient();
 
+        void autoGenNum()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtAddDiagnosisID.Text = generateID.ToString();
+            this.txtAddSymptomID.Text = generateID.ToString();
+            this.txtAddPrescriptionID.Text = generateID.ToString();
+        }
+
         private void frmPatientProfileNew_Load(object sender, EventArgs e)
         {
             for(int i = 0; i < 120; i++)
@@ -178,6 +192,9 @@ namespace PatientInformationSystemNew.forms
 
             this.txtSelectedDiagnosis.Text = this.gridManageDiagnosis.SelectedCells[1].Value.ToString();
             this.dateSelectedDiagnosis.Value = DateTime.Parse(this.gridManageDiagnosis.SelectedCells[2].Value.ToString());
+
+            this.txtSelectedDiagnosis.Enabled = true;
+            this.dateSelectedDiagnosis.Enabled = true;
         }
 
         private void gridManageSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -187,6 +204,9 @@ namespace PatientInformationSystemNew.forms
 
             this.txtSelectedSymptom.Text = this.gridManageSymptoms.SelectedCells[1].Value.ToString();
             this.dateSelectedSymptom.Value = DateTime.Parse(this.gridManageSymptoms.SelectedCells[2].Value.ToString());
+
+            this.txtSelectedSymptom.Enabled = true;
+            this.dateSelectedSymptom.Enabled = true;
         }
 
         private void gridManagePrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -196,6 +216,214 @@ namespace PatientInformationSystemNew.forms
 
             this.txtSelectedPrescription.Text = this.gridManagePrescriptions.SelectedCells[1].Value.ToString();
             this.dateSelectedPrescription.Value = DateTime.Parse(this.gridManagePrescriptions.SelectedCells[2].Value.ToString());
+
+            this.txtSelectedPrescription.Enabled = true;
+            this.dateSelectedPrescription.Enabled = true;
+        }
+
+        private void btnNewDiagnosis_Click(object sender, EventArgs e)
+        {
+            this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            this.txtAddDiagnosisID.Enabled = true;
+            this.txtAddDiagnosis.Enabled = true;
+
+            this.txtAddDiagnosis.Focus();
+        }
+
+        private void btnNewSymptom_Click(object sender, EventArgs e)
+        {
+            this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            this.txtAddSymptomID.Enabled = true;
+            this.txtAddSymptom.Enabled = true;
+
+            this.txtAddSymptom.Focus();
+        }
+
+        private void btnNewPrescription_Click(object sender, EventArgs e)
+        {
+            this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            this.txtAddPrescriptionID.Enabled = true;
+            this.txtAddPrescription.Enabled = true;
+
+            this.txtAddPrescription.Focus();
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+            if(diagnosis.addDiagnosis(val.PatientID, this.txtAddDiagnosisID.Text, this.txtAddDiagnosis.Text, this.dateAddDiagnosis.Value.Date))
+            {
+                autoGenNum();
+                this.txtAddDiagnosis.ResetText();
+                this.txtAddDiagnosis.Focus();
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+            }
+        }
+
+        private void btnAddSymptom_Click(object sender, EventArgs e)
+        {
+            if(symptoms.addPatientSymptom(val.PatientID, this.txtAddSymptomID.Text, this.txtAddSymptom.Text, this.dateAddSymptom.Value.Date))
+            {
+                autoGenNum();
+                this.txtAddSymptom.ResetText();
+                this.txtAddSymptom.Focus();
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+            }
+        }
+
+        private void btnAddPrescription_Click(object sender, EventArgs e)
+        {
+            if(prescriptions.addPrescription(val.PatientID, this.txtAddPrescriptionID.Text, this.txtAddPrescription.Text, 
+                this.dateAddPrescription.Value.Date))
+            {
+                autoGenNum();
+                this.txtAddPrescription.ResetText();
+                this.txtAddPrescription.Focus();
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptionsRecords);
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
+            }
+        }
+
+        private void btnUpdateDiagnosis_Click(object sender, EventArgs e)
+        {
+            if(diagnosis.updateDiagnosis(val.PatientID, this.gridManageDiagnosis.SelectedCells[0].Value.ToString(), this.txtSelectedDiagnosis.Text,
+                this.dateSelectedDiagnosis.Value.Date))
+            {
+                MessageBox.Show(string.Format("{0} updated into {1} successfully!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString(),
+                    this.txtSelectedDiagnosis.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                this.txtSelectedDiagnosis.ResetText();
+                this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
+                this.txtSelectedDiagnosis.Enabled = false;
+                this.dateSelectedDiagnosis.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to update {0}!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdateSymptom_Click(object sender, EventArgs e)
+        {
+            if (symptoms.updateSymptom(val.PatientID, this.gridManageSymptoms.SelectedCells[0].Value.ToString(), this.txtSelectedSymptom.Text,
+                this.dateSelectedSymptom.Value.Date))
+            {
+                MessageBox.Show(string.Format("{0} updated into {1} successfully!", this.gridManageSymptoms.SelectedCells[1].Value.ToString(),
+                    this.txtSelectedSymptom.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                this.txtSelectedSymptom.ResetText();
+                this.dateSelectedSymptom.Value = DateTime.Now.Date;
+                this.txtSelectedSymptom.Enabled = false;
+                this.dateSelectedSymptom.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to update {0}!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdatePrescription_Click(object sender, EventArgs e)
+        {
+            if (prescriptions.updatePrescriptions(val.PatientID, this.gridManagePrescriptions.SelectedCells[0].Value.ToString(), 
+                this.txtSelectedPrescription.Text, this.dateSelectedPrescription.Value.Date))
+            {
+                MessageBox.Show(string.Format("{0} updated into {1} successfully!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString(),
+                    this.txtSelectedPrescription.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptionsRecords);
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
+                this.txtSelectedPrescription.ResetText();
+                this.dateSelectedPrescription.Value = DateTime.Now.Date;
+                this.txtSelectedPrescription.Enabled = false;
+                this.dateSelectedPrescription.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to update {0}!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+            if(diagnosis.removeDiagnosis(val.PatientID, this.gridManageDiagnosis.SelectedCells[0].Value.ToString()))
+            {
+                MessageBox.Show(string.Format("{0} successfully removed or deleted!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()),
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                this.txtSelectedDiagnosis.ResetText();
+                this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
+                this.txtSelectedDiagnosis.Enabled = false;
+                this.dateSelectedDiagnosis.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to remove or delete {0}!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemoveSymptom_Click(object sender, EventArgs e)
+        {
+            if (symptoms.deleteSymptom(val.PatientID, this.gridManageSymptoms.SelectedCells[0].Value.ToString()))
+            {
+                MessageBox.Show(string.Format("{0} successfully removed or deleted!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()),
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                this.txtSelectedSymptom.ResetText();
+                this.dateSelectedSymptom.Value = DateTime.Now.Date;
+                this.txtSelectedSymptom.Enabled = false;
+                this.dateSelectedSymptom.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to remove or delete {0}!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemovePrescription_Click(object sender, EventArgs e)
+        {
+            if (prescriptions.removePrescriptions(val.PatientID, this.gridManagePrescriptions.SelectedCells[0].Value.ToString()))
+            {
+                MessageBox.Show(string.Format("{0} successfully removed or deleted!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString()),
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptionsRecords);
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
+                this.txtSelectedPrescription.ResetText();
+                this.dateSelectedPrescription.Value = DateTime.Now.Date;
+                this.txtSelectedPrescription.Enabled = false;
+                this.dateSelectedPrescription.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to remove or delete {0}!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
