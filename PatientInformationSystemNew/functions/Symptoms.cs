@@ -56,10 +56,11 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT 
                                     CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms', 
-                                    DATE_FORMAT(date, '%d %M %Y') AS 'Date' 
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
                                     FROM patient_information_db.symptoms 
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

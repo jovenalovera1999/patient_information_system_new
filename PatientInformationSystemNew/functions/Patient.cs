@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender',
-                                    DATE_FORMAT(birthday, '%d %M %Y') AS 'Birthday',
+                                    DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
                                     status AS 'Status'
                                     FROM patient_information_db.schedule";
 
@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR) AS 'Gender', 
-                                    DATE_FORMAT(date, '%d %M %Y') AS 'Date Created'
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date Created'
                                     FROM patient_information_db.patients
                                     ORDER BY first_name DESC;";
 
@@ -90,8 +90,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR) AS 'First Name',
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR) AS 'Last Name',
-                                    birthday AS 'Birthday',
-                                    DATE_FORMAT(date, '%d %M %Y') AS 'Date Created'
+                                    DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date Created'
                                     FROM
                                     patient_information_db.patients
                                     WHERE 

@@ -45,6 +45,41 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void loadPatientPaymentHistory(string patient_id, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    CAST(AES_DECRYPT(receipt_no, 'jovencutegwapo123') AS CHAR) AS 'Receipt No.',
+                                    total_medical_fee AS 'Total Medical Fee',
+                                    CAST(AES_DECRYPT(discount, 'jovencutegwapo123') AS CHAR) AS 'Discount',
+                                    amount AS 'Amount',
+                                    total_amount_paid AS 'Total Amount Paid',
+                                    `change` AS 'Change',
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    FROM patient_information_db.transactions
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error loading patient payment history: " + ex.ToString());
+            }
+        }
+
         public bool savePatientPayment(string patient_id, string receipt_no, double total_medical_fee, string discount, double amount, 
             double total_amount_paid, double change)
         {
@@ -89,6 +124,50 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error saving payment transaction: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool updatePaymentTransaction(string patient_id, string receipt_no, double total_medical_fee, string discount, double amount,
+            double total_amount_paid, double change)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.transactions
+                                    SET
+                                    receipt_no = AES_ENCRYPT(@receipt_no, 'jovencutegwapo123'),
+                                    total_medical_fee = @total_medical_fee,
+                                    discount = AES_ENCRYPT(@discount, 'jovencutegwapo123'),
+                                    amount = @amount,
+                                    total_amount_paid = @total_amount_paid,
+                                    change = @change
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(receipt_no, 'jovencutegwapo123') AS CHAR) = @receipt_no OR
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@receipt_no", receipt_no);
+                        cmd.Parameters.AddWithValue("@total_medical_fee", total_medical_fee);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@amount", amount);
+                        cmd.Parameters.AddWithValue("@total_amount_paid", total_amount_paid);
+                        cmd.Parameters.AddWithValue("@change", change);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating patient payment: " + ex.ToString());
                 return false;
             }
         }
