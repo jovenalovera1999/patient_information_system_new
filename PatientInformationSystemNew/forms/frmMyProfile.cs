@@ -200,8 +200,9 @@ namespace PatientInformationSystemNew.forms
                     this.txtEmail.Enabled = false;
                     this.btnUploadPhoto.Visible = false;
                     this.btnRemovePhoto.Visible = false;
-                    this.btnEdit.Enabled = true;
                     this.btnSave.Enabled = false;
+
+                    this.btnEdit.Enabled = true;
                 }
                 else
                 {
@@ -266,8 +267,9 @@ namespace PatientInformationSystemNew.forms
                     this.txtEmail.Enabled = false;
                     this.btnUploadPhoto.Visible = false;
                     this.btnRemovePhoto.Visible = false;
-                    this.btnEdit.Enabled = true;
                     this.btnSave.Enabled = false;
+
+                    this.btnEdit.Enabled = true;
                 }
                 else
                 {

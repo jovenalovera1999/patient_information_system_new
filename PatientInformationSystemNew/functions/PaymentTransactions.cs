@@ -142,7 +142,7 @@ namespace PatientInformationSystemNew.functions
                                     discount = AES_ENCRYPT(@discount, 'jovencutegwapo123'),
                                     amount = @amount,
                                     total_amount_paid = @total_amount_paid,
-                                    change = @change
+                                    `change` = @change
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
                                     CAST(AES_DECRYPT(receipt_no, 'jovencutegwapo123') AS CHAR) = @receipt_no OR

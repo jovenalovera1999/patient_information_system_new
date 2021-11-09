@@ -9,11 +9,13 @@ namespace PatientInformationSystemNew.components
     class Values
     {
         // Server values
+
         public string server_name = "localhost";
         public string server_user = "root";
         public string server_pass = "";
 
         // User values
+
         public static string user_id;
         public string UserID
         {
@@ -127,6 +129,7 @@ namespace PatientInformationSystemNew.components
         }
 
         // Patient values
+
         public static string patient_id;
         public string PatientID
         {
@@ -247,6 +250,7 @@ namespace PatientInformationSystemNew.components
         }
 
         // Doctor values
+
         public static string doctor_id;
         public string DoctorID
         {
@@ -330,6 +334,14 @@ namespace PatientInformationSystemNew.components
         {
             get { return doctor_specialization; }
             set { doctor_specialization = value; }
+        }
+
+        // Prescription date
+        public static DateTime prescription_date;
+        public DateTime PrescriptionDate
+        {
+            get { return prescription_date; }
+            set { prescription_date = value; }
         }
     }
 }

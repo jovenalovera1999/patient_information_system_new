@@ -94,6 +94,12 @@
     <Compile Include="forms\frmDoctorProfile.Designer.cs">
       <DependentUpon>frmDoctorProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmDoctorProfileNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmDoctorProfileNew.Designer.cs">
+      <DependentUpon>frmDoctorProfileNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmDoctorsPatientProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,35 +124,17 @@
     <Compile Include="forms\frmListOfMedicalStaff.Designer.cs">
       <DependentUpon>frmListOfMedicalStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmPatientManageDiagnosisSymptoms.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmPatientManageDiagnosisSymptoms.Designer.cs">
-      <DependentUpon>frmPatientManageDiagnosisSymptoms.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmMedicalStaffProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmMedicalStaffProfile.Designer.cs">
       <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmPatientPrescription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmPatientPrescription.Designer.cs">
-      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmPatientProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmPatientProfile.Designer.cs">
       <DependentUpon>frmPatientProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\frmPatientProfileNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmPatientProfileNew.Designer.cs">
-      <DependentUpon>frmPatientProfileNew.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmPaymentTransaction.cs">
       <SubType>Form</SubType>
@@ -212,6 +200,9 @@
     <EmbeddedResource Include="forms\frmDoctorProfile.resx">
       <DependentUpon>frmDoctorProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmDoctorProfileNew.resx">
+      <DependentUpon>frmDoctorProfileNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDoctorsPatientProfile.resx">
       <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,20 +215,11 @@
     <EmbeddedResource Include="forms\frmListOfMedicalStaff.resx">
       <DependentUpon>frmListOfMedicalStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPatientManageDiagnosisSymptoms.resx">
-      <DependentUpon>frmPatientManageDiagnosisSymptoms.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmMedicalStaffProfile.resx">
       <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPatientPrescription.resx">
-      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPatientProfile.resx">
       <DependentUpon>frmPatientProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPatientProfileNew.resx">
-      <DependentUpon>frmPatientProfileNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPaymentTransaction.resx">
       <DependentUpon>frmPaymentTransaction.cs</DependentUpon>

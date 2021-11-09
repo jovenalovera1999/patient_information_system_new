@@ -166,6 +166,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSelect.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSelect.DisabledState.Parent = this.btnSelect;
+            this.btnSelect.Enabled = false;
             this.btnSelect.FillColor = System.Drawing.Color.Lime;
             this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnSelect.ForeColor = System.Drawing.Color.White;

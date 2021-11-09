@@ -77,6 +77,49 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public bool getPrescription(string patient_id, string prescription_id, DateTime date)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    DATE_FORMAT(date, '%m/%d/%y')
+                                    FROM patient_information_db.prescriptions
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(prescription_id, 'jovencutegwapo123') AS CHAR) = @prescription_id AND
+                                    date = @date;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@date", date);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            val.PrescriptionDate = dt.Rows[0].Field<DateTime>("date");
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error getting prescription: " + ex.ToString());
+                return false;
+            }
+        }
+
         public bool addPrescriptionFromConsultaion(string patient_id, string prescription_id, string prescriptions, DateTime date)
         {
             try

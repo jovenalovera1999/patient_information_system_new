@@ -30,13 +30,13 @@ namespace PatientInformationSystemNew.forms
         {
             if(patient.getPatient(this.txtPatientID.Text))
             {
-                forms.frmPatientProfileNew frmPatientProfileNew = new forms.frmPatientProfileNew();
-                frmPatientProfileNew.TopLevel = false;
+                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+                frmPatientProfile.TopLevel = false;
                 forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
                 Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmPatientProfileNew);
-                frmPatientProfileNew.Dock = DockStyle.Fill;
-                frmPatientProfileNew.Show();
+                pnlDashboardBody.Controls.Add(frmPatientProfile);
+                frmPatientProfile.Dock = DockStyle.Fill;
+                frmPatientProfile.Show();
                 this.Close();
             }
         }
@@ -78,13 +78,13 @@ namespace PatientInformationSystemNew.forms
         {
             if(patient.getPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
             {
-                forms.frmPatientProfileNew frmPatientProfileNew = new forms.frmPatientProfileNew();
-                frmPatientProfileNew.TopLevel = false;
+                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
+                frmPatientProfile.TopLevel = false;
                 forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
                 Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmPatientProfileNew);
-                frmPatientProfileNew.Dock = DockStyle.Fill;
-                frmPatientProfileNew.Show();
+                pnlDashboardBody.Controls.Add(frmPatientProfile);
+                frmPatientProfile.Dock = DockStyle.Fill;
+                frmPatientProfile.Show();
                 this.Close();
             }
         }
