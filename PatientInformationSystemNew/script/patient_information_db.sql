@@ -133,8 +133,19 @@ CREATE TABLE patient_information_db.inventory (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
-    quantity                            INT(10) NOT NULL,
+    quantity                            VARBINARY(800) NOT NULL,
     expiration_date                     DATE,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE patient_information_db.inventory_incoming (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    supply_id                           VARBINARY(800) NOT NULL,
+    supply_name                         VARBINARY(800) NOT NULL,
+    quantity                            VARBINARY(800) NOT NULL,
+    expiration_date                     DATE,
+    arrive_date                         DATE,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );

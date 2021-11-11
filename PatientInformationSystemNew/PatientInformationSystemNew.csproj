@@ -181,6 +181,7 @@
     <Compile Include="functions\Diagnosis.cs" />
     <Compile Include="functions\Doctor.cs" />
     <Compile Include="functions\Duplicate.cs" />
+    <Compile Include="functions\Inventory.cs" />
     <Compile Include="functions\Patient.cs" />
     <Compile Include="functions\PaymentTransactions.cs" />
     <Compile Include="functions\Prescription.cs" />

@@ -77,6 +77,16 @@ namespace PatientInformationSystemNew.forms
             frmListOfDoctors.Show();
         }
 
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            this.pnlDashboardBody.Controls.Clear();
+            forms.frmInventory frmInventory = new forms.frmInventory();
+            frmInventory.TopLevel = false;
+            this.pnlDashboardBody.Controls.Add(frmInventory);
+            frmInventory.Dock = DockStyle.Fill;
+            frmInventory.Show();
+        }
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
