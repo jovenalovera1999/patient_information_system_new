@@ -24,9 +24,12 @@ namespace PatientInformationSystemNew.forms
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             t = new System.Timers.Timer();
-            t.Interval = 1000; // seconds
+            t.Interval = 1000; // Seconds
             t.Elapsed += OnTimeEvent;
+
             this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            this.lblDate.Text = DateTime.Now.Date.ToString("D");
+
             t.Start();
         }
 
@@ -35,6 +38,7 @@ namespace PatientInformationSystemNew.forms
             Invoke(new Action(() =>
             {
                 s += 1;
+
                 if(s == 60)
                 {
                     s = 00;
@@ -93,6 +97,12 @@ namespace PatientInformationSystemNew.forms
             pnlDashboardBody.Controls.Add(frmMyProfileNew);
             frmMyProfileNew.Dock = DockStyle.Fill;
             frmMyProfileNew.Show();
+        }
+
+        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

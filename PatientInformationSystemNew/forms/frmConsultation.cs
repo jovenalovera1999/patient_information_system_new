@@ -21,6 +21,7 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.Symptoms symptoms = new functions.Symptoms();
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.Patient patient = new functions.Patient();
@@ -46,10 +47,11 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.Text = val.PatientTemperature.ToString();
             this.txtPulseRate.Text = val.PatientPulseRate.ToString();
             this.txtBloodPressure.Text = val.PatientBloodPressure.ToString();
+
+            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
             symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
-            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
-            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
-            prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
+            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
+            prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridPrescriptionsRecord);
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -83,6 +85,7 @@ namespace PatientInformationSystemNew.forms
             int n = this.gridDiagnosis.Rows.Add();
             this.gridDiagnosis.Rows[n].Cells[0].Value = generateID;
             this.gridDiagnosis.Rows[n].Cells[1].Value = this.txtDiagnosis.Text;
+
             this.txtDiagnosis.ResetText();
             this.txtDiagnosis.Focus();
 
@@ -98,8 +101,10 @@ namespace PatientInformationSystemNew.forms
             {
                 this.gridDiagnosis.Rows.Remove(row);
             }
+
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
             this.btnRemoveDiagnosis.Enabled = false;
 
             this.txtDiagnosis.ResetText();
@@ -138,6 +143,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
+
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
             }
@@ -155,9 +162,12 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
+
                 symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -175,9 +185,12 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
+
                 symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -243,6 +256,9 @@ namespace PatientInformationSystemNew.forms
                     }
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+
                 this.btnSaveDiagnosis.Enabled = false;
                 this.txtPrescription.Focus();
             }
@@ -252,6 +268,7 @@ namespace PatientInformationSystemNew.forms
         {
             Random number = new Random();
             var generateID = new StringBuilder();
+
             while (generateID.Length < 5)
             {
                 generateID.Append(number.Next(10).ToString());
@@ -273,7 +290,9 @@ namespace PatientInformationSystemNew.forms
                 double.Parse(this.txtHeight.Text), double.Parse(this.txtWeight.Text), double.Parse(this.txtTemperature.Text), double.Parse(this.txtPulseRate.Text), 
                 double.Parse(this.txtBloodPressure.Text), val.PatientDoctor))
             {
-                MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+
                 this.btnSavePrescription.Enabled = false;
                 this.btnBack.Enabled = false;
                 this.btnAnotherBack.Enabled = false;
@@ -301,6 +320,7 @@ namespace PatientInformationSystemNew.forms
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             this.rprtPrescription.Clear();
+
             ReportParameterCollection parameters = new ReportParameterCollection();
             parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
             parameters.Add(new ReportParameter("pAge", this.txtAge.Text));
@@ -308,6 +328,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
             parameters.Add(new ReportParameter("pDate", DateTime.Now.Date.ToString("MM/dd/yyyy")));
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescription.Text));
+
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
         }

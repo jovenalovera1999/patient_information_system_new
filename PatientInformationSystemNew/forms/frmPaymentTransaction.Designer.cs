@@ -323,7 +323,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.HoverState.Parent = this.btnBack;
             this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
             this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBack.Location = new System.Drawing.Point(1446, 875);
+            this.btnBack.Location = new System.Drawing.Point(1438, 875);
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(131, 62);
@@ -354,7 +354,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveTransaction.HoverState.Parent = this.btnSaveTransaction;
             this.btnSaveTransaction.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnSaveTransaction.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSaveTransaction.Location = new System.Drawing.Point(1592, 875);
+            this.btnSaveTransaction.Location = new System.Drawing.Point(1584, 875);
             this.btnSaveTransaction.Name = "btnSaveTransaction";
             this.btnSaveTransaction.ShadowDecoration.Parent = this.btnSaveTransaction;
             this.btnSaveTransaction.Size = new System.Drawing.Size(226, 62);

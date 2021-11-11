@@ -100,6 +100,12 @@
     <Compile Include="forms\frmDoctorsPatientProfile.Designer.cs">
       <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmInventory.Designer.cs">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmListOfDoctors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDoctorsPatientProfile.resx">
       <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmInventory.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmListOfDoctors.resx">
       <DependentUpon>frmListOfDoctors.cs</DependentUpon>
