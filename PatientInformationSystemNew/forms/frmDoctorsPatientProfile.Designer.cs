@@ -1,7 +1,7 @@
 ﻿
 namespace PatientInformationSystemNew.forms
 {
-    partial class frmDoctorsPatientProfileNew
+    partial class frmDoctorsPatientProfile
     {
         /// <summary>
         /// Required designer variable.

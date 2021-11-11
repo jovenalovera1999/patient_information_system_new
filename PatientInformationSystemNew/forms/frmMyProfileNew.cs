@@ -11,27 +11,27 @@ using System.IO;
 
 namespace PatientInformationSystemNew.forms
 {
-    public partial class frmMyProfile : Form
+    public partial class frmMyProfileNew : Form
     {
-        public frmMyProfile()
+        public frmMyProfileNew()
         {
             InitializeComponent();
         }
 
-        components.Connections con = new components.Connections();
+        components.Connections connection = new components.Connections();
         components.Values val = new components.Values();
+
         functions.User user = new functions.User();
+        functions.Patient patient = new functions.Patient();
 
-
-
-        private void frmMyProfile_Load(object sender, EventArgs e)
+        private void frmMyProfileNew_Load(object sender, EventArgs e)
         {
-            for(int i = 1; i < 120; i++)
+            for (int i = 1; i < 120; i++)
             {
                 this.cmbAge.Items.Add(i);
             }
 
-            if(val.UserProfilePicture != null)
+            if (val.UserProfilePicture != null)
             {
                 MemoryStream ms = new MemoryStream(val.UserProfilePicture);
                 this.picProfilePicture.Image = Image.FromStream(ms);
@@ -43,7 +43,9 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstName.Text = val.UserFirstName;
             this.txtMiddleName.Text = val.UserMiddleName;
             this.txtLastName.Text = val.UserLastName;
+            this.txtGender.Text = val.UserGender;
             this.cmbGender.Text = val.UserGender;
+            this.txtAge.Text = val.UserAge.ToString();
             this.cmbAge.Text = val.UserAge.ToString();
             this.txtAddress.Text = val.UserAddress;
             this.dateBirthday.Value = val.UserBirthday;
@@ -51,6 +53,40 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.Text = val.UserTelephoneNumber;
             this.txtEmail.Text = val.UserEmail;
             this.txtRole.Text = val.UserRole;
+
+            if (val.UserRole != "Doctor")
+            {
+                this.tabControlUser.TabPages.Remove(tabMyPatients);
+            }
+            else
+            {
+                patient.loadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, val.UserSpecialization, this.gridPatients);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            this.txtUsername.Enabled = true;
+            this.txtPassword.Enabled = true;
+            this.txtFirstName.Enabled = true;
+            this.txtMiddleName.Enabled = true;
+            this.txtLastName.Enabled = true;
+            this.cmbGender.Visible = true;
+            this.cmbAge.Visible = true;
+            this.txtAddress.Enabled = true;
+            this.dateBirthday.Enabled = true;
+            this.txtCellphoneNumber.Enabled = true;
+            this.txtTelephoneNumber.Enabled = true;
+            this.txtEmail.Enabled = true;
+            this.btnUploadPhoto.Visible = true;
+            this.btnRemovePhoto.Visible = true;
+            this.btnSave.Enabled = true;
+
+            this.txtGender.Visible = false;
+            this.txtAge.Visible = false;
+            this.btnEdit.Enabled = false;
+
+            this.txtMyID.Focus();
         }
 
         string imgLocation = "";
@@ -59,7 +95,7 @@ namespace PatientInformationSystemNew.forms
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
 
-            if(dialog.ShowDialog() == DialogResult.OK)
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
                 imgLocation = dialog.FileName.ToString();
                 this.picProfilePicture.ImageLocation = imgLocation;
@@ -71,26 +107,6 @@ namespace PatientInformationSystemNew.forms
             val.UserProfilePicture = null;
             imgLocation = null;
             this.picProfilePicture.Image = null;
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            this.txtUsername.Enabled = true;
-            this.txtPassword.Enabled = true;
-            this.txtFirstName.Enabled = true;
-            this.txtMiddleName.Enabled = true;
-            this.txtLastName.Enabled = true;
-            this.cmbGender.Enabled = true;
-            this.cmbAge.Enabled = true;
-            this.txtAddress.Enabled = true;
-            this.dateBirthday.Enabled = true;
-            this.txtCellphoneNumber.Enabled = true;
-            this.txtTelephoneNumber.Enabled = true;
-            this.txtEmail.Enabled = true;
-            this.btnUploadPhoto.Visible = true;
-            this.btnRemovePhoto.Visible = true;
-            this.btnEdit.Enabled = false;
-            this.btnSave.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -167,7 +183,9 @@ namespace PatientInformationSystemNew.forms
                         this.txtMiddleName.Text = val.UserMiddleName;
                         this.txtLastName.Text = val.UserLastName;
                         this.cmbGender.Text = val.UserGender;
+                        this.txtGender.Text = val.UserGender;
                         this.cmbAge.Text = val.UserAge.ToString();
+                        this.txtAge.Text = val.UserAge.ToString();
                         this.txtAddress.Text = val.UserAddress;
                         this.dateBirthday.Value = val.UserBirthday;
                         this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
@@ -181,8 +199,8 @@ namespace PatientInformationSystemNew.forms
                     this.txtFirstName.Enabled = false;
                     this.txtMiddleName.Enabled = false;
                     this.txtLastName.Enabled = false;
-                    this.cmbGender.Enabled = false;
-                    this.cmbAge.Enabled = false;
+                    this.cmbGender.Visible = false;
+                    this.cmbAge.Visible = false;
                     this.txtAddress.Enabled = false;
                     this.dateBirthday.Enabled = false;
                     this.txtCellphoneNumber.Enabled = false;
@@ -192,6 +210,8 @@ namespace PatientInformationSystemNew.forms
                     this.btnRemovePhoto.Visible = false;
                     this.btnSave.Enabled = false;
 
+                    this.txtGender.Visible = true;
+                    this.txtAge.Visible = true;
                     this.btnEdit.Enabled = true;
                 }
                 else
@@ -214,7 +234,7 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Your profile successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    if(user.getUser(this.txtMyID.Text))
+                    if (user.getUser(this.txtMyID.Text))
                     {
                         if (val.UserProfilePicture != null)
                         {
@@ -229,7 +249,9 @@ namespace PatientInformationSystemNew.forms
                         this.txtMiddleName.Text = val.UserMiddleName;
                         this.txtLastName.Text = val.UserLastName;
                         this.cmbGender.Text = val.UserGender;
+                        this.txtGender.Text = val.UserGender;
                         this.cmbAge.Text = val.UserAge.ToString();
+                        this.txtAge.Text = val.UserAge.ToString();
                         this.txtAddress.Text = val.UserAddress;
                         this.dateBirthday.Value = val.UserBirthday;
                         this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
@@ -243,8 +265,8 @@ namespace PatientInformationSystemNew.forms
                     this.txtFirstName.Enabled = false;
                     this.txtMiddleName.Enabled = false;
                     this.txtLastName.Enabled = false;
-                    this.cmbGender.Enabled = false;
-                    this.cmbAge.Enabled = false;
+                    this.cmbGender.Visible = false;
+                    this.cmbAge.Visible = false;
                     this.txtAddress.Enabled = false;
                     this.dateBirthday.Enabled = false;
                     this.txtCellphoneNumber.Enabled = false;
@@ -254,6 +276,8 @@ namespace PatientInformationSystemNew.forms
                     this.btnRemovePhoto.Visible = false;
                     this.btnSave.Enabled = false;
 
+                    this.txtGender.Visible = true;
+                    this.txtAge.Visible = true;
                     this.btnEdit.Enabled = true;
                 }
                 else
@@ -263,14 +287,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void frmMyProfile_VisibleChanged(object sender, EventArgs e)
+        private void frmMyProfileNew_VisibleChanged(object sender, EventArgs e)
         {
             user.getUser(this.txtMyID.Text);
-        }
-
-        private void btnViewMyPatient_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace PatientInformationSystemNew.forms
@@ -15,6 +16,31 @@ namespace PatientInformationSystemNew.forms
         public frmDashboard()
         {
             InitializeComponent();
+        }
+
+        System.Timers.Timer t;
+        int s;
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+            t = new System.Timers.Timer();
+            t.Interval = 1000; // seconds
+            t.Elapsed += OnTimeEvent;
+            this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            t.Start();
+        }
+
+        private void OnTimeEvent(object sender, ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                s += 1;
+                if(s == 60)
+                {
+                    s = 00;
+                }
+                this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            }));
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
@@ -60,13 +86,13 @@ namespace PatientInformationSystemNew.forms
         private void btnProfile_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
-            forms.frmMyProfile frmMyProfile = new forms.frmMyProfile();
-            frmMyProfile.TopLevel = false;
+            forms.frmMyProfileNew frmMyProfileNew = new forms.frmMyProfileNew();
+            frmMyProfileNew.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
             Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmMyProfile);
-            frmMyProfile.Dock = DockStyle.Fill;
-            frmMyProfile.Show();
+            pnlDashboardBody.Controls.Add(frmMyProfileNew);
+            frmMyProfileNew.Dock = DockStyle.Fill;
+            frmMyProfileNew.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -77,6 +103,7 @@ namespace PatientInformationSystemNew.forms
                 forms.frmLogin login = new forms.frmLogin();
                 login.Show();
                 this.pnlDashboardBody.Controls.Clear();
+                t.Stop();
                 this.Close();
             }
         }

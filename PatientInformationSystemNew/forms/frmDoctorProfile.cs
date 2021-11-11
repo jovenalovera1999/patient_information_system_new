@@ -11,9 +11,9 @@ using System.IO;
 
 namespace PatientInformationSystemNew.forms
 {
-    public partial class frmDoctorProfileNew : Form
+    public partial class frmDoctorProfile : Form
     {
-        public frmDoctorProfileNew()
+        public frmDoctorProfile()
         {
             InitializeComponent();
         }
@@ -52,7 +52,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.Text = val.DoctorEmail;
             this.txtSpecialization.Text = val.DoctorSpecialization;
 
-            patient.loadDoctorPatients(val.DoctorFirstName, val.DoctorLastName, val.DoctorSpecialization, this.gridPatients);
+            patient.loadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, this.txtSpecialization.Text, this.gridPatients);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -224,7 +224,7 @@ namespace PatientInformationSystemNew.forms
         {
             if(patient.getPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
             {
-                forms.frmDoctorsPatientProfileNew frmDoctorsPatientProfileNew = new forms.frmDoctorsPatientProfileNew();
+                forms.frmDoctorsPatientProfile frmDoctorsPatientProfileNew = new forms.frmDoctorsPatientProfile();
                 frmDoctorsPatientProfileNew.TopLevel = false;
                 forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
                 Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
@@ -239,7 +239,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (patient.getPatient(this.txtPatientID.Text))
             {
-                forms.frmDoctorsPatientProfileNew frmDoctorsPatientProfileNew = new forms.frmDoctorsPatientProfileNew();
+                forms.frmDoctorsPatientProfile frmDoctorsPatientProfileNew = new forms.frmDoctorsPatientProfile();
                 frmDoctorsPatientProfileNew.TopLevel = false;
                 forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
                 Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];

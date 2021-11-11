@@ -31,6 +31,7 @@ namespace PatientInformationSystemNew.forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlDashboardHeader = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -43,6 +44,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
             this.btnSchedule = new Guna.UI2.WinForms.Guna2Button();
             this.pnlDashboardBody = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlDashboardHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.pnlDashboardLeftSide.SuspendLayout();
@@ -50,6 +52,8 @@ namespace PatientInformationSystemNew.forms
             // 
             // pnlDashboardHeader
             // 
+            this.pnlDashboardHeader.Controls.Add(this.lblTime);
+            this.pnlDashboardHeader.Controls.Add(this.label1);
             this.pnlDashboardHeader.Controls.Add(this.label3);
             this.pnlDashboardHeader.Controls.Add(this.label2);
             this.pnlDashboardHeader.Controls.Add(this.guna2CirclePictureBox1);
@@ -58,6 +62,17 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardHeader.Name = "pnlDashboardHeader";
             this.pnlDashboardHeader.Size = new System.Drawing.Size(1920, 122);
             this.pnlDashboardHeader.TabIndex = 0;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(1752, 19);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(273, 57);
+            this.lblTime.TabIndex = 7;
+            this.lblTime.Text = "12:00:00 AM";
             // 
             // label3
             // 
@@ -336,6 +351,17 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardBody.Size = new System.Drawing.Size(1699, 958);
             this.pnlDashboardBody.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(1757, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 28);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Monday, 11 November 2021";
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -350,6 +376,7 @@ namespace PatientInformationSystemNew.forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.pnlDashboardHeader.ResumeLayout(false);
             this.pnlDashboardHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -373,5 +400,7 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnProfile;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private System.Windows.Forms.Panel pnlDashboardBody;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label label1;
     }
 }

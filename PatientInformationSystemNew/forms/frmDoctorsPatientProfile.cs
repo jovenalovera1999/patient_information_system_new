@@ -11,9 +11,9 @@ using Microsoft.Reporting.WinForms;
 
 namespace PatientInformationSystemNew.forms
 {
-    public partial class frmDoctorsPatientProfileNew : Form
+    public partial class frmDoctorsPatientProfile : Form
     {
-        public frmDoctorsPatientProfileNew()
+        public frmDoctorsPatientProfile()
         {
             InitializeComponent();
         }
@@ -765,14 +765,14 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBackToDoctorsPatientsInPeronalInfo_Click(object sender, EventArgs e)
         {
-            forms.frmDoctorProfileNew frmDoctorProfileNew = new forms.frmDoctorProfileNew();
+            forms.frmDoctorProfile frmDoctorProfileNew = new forms.frmDoctorProfile();
             frmDoctorProfileNew.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
             Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
             pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
             frmDoctorProfileNew.Dock = DockStyle.Fill;
             frmDoctorProfileNew.Show();
-            forms.frmDoctorProfileNew doctorProfileNew = (forms.frmDoctorProfileNew)Application.OpenForms["frmDoctorProfileNew"];
+            forms.frmDoctorProfile doctorProfileNew = (forms.frmDoctorProfile)Application.OpenForms["frmDoctorProfileNew"];
             TabControl tabControlDoctorProfile = (TabControl)doctorProfileNew.Controls["tabControlDoctor"];
             tabControlDoctorProfile.SelectedIndex = 1;
             this.Close();
@@ -780,27 +780,77 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBackToDoctorsPatientsInPrintPrescription_Click(object sender, EventArgs e)
         {
-
+            forms.frmDoctorProfile frmDoctorProfileNew = new forms.frmDoctorProfile();
+            frmDoctorProfileNew.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
+            frmDoctorProfileNew.Dock = DockStyle.Fill;
+            frmDoctorProfileNew.Show();
+            forms.frmDoctorProfile doctorProfileNew = (forms.frmDoctorProfile)Application.OpenForms["frmDoctorProfileNew"];
+            TabControl tabControlDoctorProfile = (TabControl)doctorProfileNew.Controls["tabControlDoctor"];
+            tabControlDoctorProfile.SelectedIndex = 1;
+            this.Close();
         }
 
         private void btnBackToDoctorsPatientsInManageDiagnosis_Click(object sender, EventArgs e)
         {
-
+            forms.frmDoctorProfile frmDoctorProfileNew = new forms.frmDoctorProfile();
+            frmDoctorProfileNew.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
+            frmDoctorProfileNew.Dock = DockStyle.Fill;
+            frmDoctorProfileNew.Show();
+            forms.frmDoctorProfile doctorProfileNew = (forms.frmDoctorProfile)Application.OpenForms["frmDoctorProfileNew"];
+            TabControl tabControlDoctorProfile = (TabControl)doctorProfileNew.Controls["tabControlDoctor"];
+            tabControlDoctorProfile.SelectedIndex = 1;
+            this.Close();
         }
 
         private void btnBackToDoctorsPatientsInManageSymptoms_Click(object sender, EventArgs e)
         {
-
+            forms.frmDoctorProfile frmDoctorProfileNew = new forms.frmDoctorProfile();
+            frmDoctorProfileNew.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
+            frmDoctorProfileNew.Dock = DockStyle.Fill;
+            frmDoctorProfileNew.Show();
+            forms.frmDoctorProfile doctorProfileNew = (forms.frmDoctorProfile)Application.OpenForms["frmDoctorProfileNew"];
+            TabControl tabControlDoctorProfile = (TabControl)doctorProfileNew.Controls["tabControlDoctor"];
+            tabControlDoctorProfile.SelectedIndex = 1;
+            this.Close();
         }
 
         private void btnBackToDoctorsPatientsInManagePrescription_Click(object sender, EventArgs e)
         {
-
+            forms.frmDoctorProfile frmDoctorProfileNew = new forms.frmDoctorProfile();
+            frmDoctorProfileNew.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
+            frmDoctorProfileNew.Dock = DockStyle.Fill;
+            frmDoctorProfileNew.Show();
+            forms.frmDoctorProfile doctorProfileNew = (forms.frmDoctorProfile)Application.OpenForms["frmDoctorProfileNew"];
+            TabControl tabControlDoctorProfile = (TabControl)doctorProfileNew.Controls["tabControlDoctor"];
+            tabControlDoctorProfile.SelectedIndex = 1;
+            this.Close();
         }
 
         private void btnBackToDoctorsPatientsInPaymentHistory_Click(object sender, EventArgs e)
         {
-
+            forms.frmDoctorProfile frmDoctorProfileNew = new forms.frmDoctorProfile();
+            frmDoctorProfileNew.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
+            frmDoctorProfileNew.Dock = DockStyle.Fill;
+            frmDoctorProfileNew.Show();
+            forms.frmDoctorProfile doctorProfileNew = (forms.frmDoctorProfile)Application.OpenForms["frmDoctorProfileNew"];
+            TabControl tabControlDoctorProfile = (TabControl)doctorProfileNew.Controls["tabControlDoctor"];
+            tabControlDoctorProfile.SelectedIndex = 1;
+            this.Close();
         }
     }
 }

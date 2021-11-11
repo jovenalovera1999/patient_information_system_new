@@ -30,13 +30,13 @@ namespace PatientInformationSystemNew.forms
         {
             if(doctor.getDoctor(this.txtDoctorID.Text))
             {
-                forms.frmDoctorProfileNew frmDoctorProfileNew = new forms.frmDoctorProfileNew();
-                frmDoctorProfileNew.TopLevel = false;
+                forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
+                frmDoctorProfile.TopLevel = false;
                 forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
                 Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
-                frmDoctorProfileNew.Dock = DockStyle.Fill;
-                frmDoctorProfileNew.Show();
+                pnlDashboardBody.Controls.Add(frmDoctorProfile);
+                frmDoctorProfile.Dock = DockStyle.Fill;
+                frmDoctorProfile.Show();
                 this.Close();
             }
         }
@@ -72,13 +72,13 @@ namespace PatientInformationSystemNew.forms
         {
             if (doctor.getDoctor(this.gridDoctors.SelectedCells[0].Value.ToString()))
             {
-                forms.frmDoctorProfileNew frmDoctorProfileNew = new forms.frmDoctorProfileNew();
-                frmDoctorProfileNew.TopLevel = false;
+                forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
+                frmDoctorProfile.TopLevel = false;
                 forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
                 Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmDoctorProfileNew);
-                frmDoctorProfileNew.Dock = DockStyle.Fill;
-                frmDoctorProfileNew.Show();
+                pnlDashboardBody.Controls.Add(frmDoctorProfile);
+                frmDoctorProfile.Dock = DockStyle.Fill;
+                frmDoctorProfile.Show();
                 this.Close();
             }
         }

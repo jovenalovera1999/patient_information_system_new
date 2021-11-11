@@ -60,7 +60,6 @@ namespace PatientInformationSystemNew.forms
             this.txtMyID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtRole = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnViewMyPatient = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.picProfilePicture = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -626,37 +625,6 @@ namespace PatientInformationSystemNew.forms
             this.txtRole.Size = new System.Drawing.Size(446, 45);
             this.txtRole.TabIndex = 12;
             // 
-            // btnViewMyPatient
-            // 
-            this.btnViewMyPatient.Animated = true;
-            this.btnViewMyPatient.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnViewMyPatient.BorderColor = System.Drawing.Color.Transparent;
-            this.btnViewMyPatient.BorderRadius = 5;
-            this.btnViewMyPatient.BorderThickness = 1;
-            this.btnViewMyPatient.CheckedState.Parent = this.btnViewMyPatient;
-            this.btnViewMyPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewMyPatient.CustomImages.Parent = this.btnViewMyPatient;
-            this.btnViewMyPatient.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewMyPatient.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewMyPatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewMyPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewMyPatient.DisabledState.Parent = this.btnViewMyPatient;
-            this.btnViewMyPatient.Enabled = false;
-            this.btnViewMyPatient.FillColor = System.Drawing.Color.Lime;
-            this.btnViewMyPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnViewMyPatient.ForeColor = System.Drawing.Color.White;
-            this.btnViewMyPatient.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnViewMyPatient.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnViewMyPatient.HoverState.Parent = this.btnViewMyPatient;
-            this.btnViewMyPatient.Image = global::PatientInformationSystemNew.Properties.Resources.patient_icon;
-            this.btnViewMyPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnViewMyPatient.Location = new System.Drawing.Point(1532, 571);
-            this.btnViewMyPatient.Name = "btnViewMyPatient";
-            this.btnViewMyPatient.ShadowDecoration.Parent = this.btnViewMyPatient;
-            this.btnViewMyPatient.Size = new System.Drawing.Size(121, 96);
-            this.btnViewMyPatient.TabIndex = 13;
-            this.btnViewMyPatient.Text = "View My Patients";
-            // 
             // btnSave
             // 
             this.btnSave.Animated = true;
@@ -845,7 +813,6 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label21);
             this.Controls.Add(this.dateBirthday);
             this.Controls.Add(this.picProfilePicture);
-            this.Controls.Add(this.btnViewMyPatient);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtRole);
@@ -927,7 +894,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox txtRole;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
-        private Guna.UI2.WinForms.Guna2Button btnViewMyPatient;
         private Guna.UI2.WinForms.Guna2PictureBox picProfilePicture;
         private System.Windows.Forms.Label label21;
         private Guna.UI2.WinForms.Guna2DateTimePicker dateBirthday;
