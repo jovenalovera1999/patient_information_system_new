@@ -21,6 +21,7 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
 
         functions.Inventory inventory = new functions.Inventory();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         void autoGenNum()
         {
@@ -39,6 +40,9 @@ namespace PatientInformationSystemNew.forms
             autoGenNum();
 
             inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+            this.dateExpiration.Value = DateTime.Now.Date;
+            this.dateArrive.Value = DateTime.Now.Date;
         }
 
         private void txtSupplyName_TextChanged(object sender, EventArgs e)
@@ -85,6 +89,21 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyID.Text = this.gridIncomingSupplies.SelectedCells[0].Value.ToString();
             this.txtSupplyName.Text = this.gridIncomingSupplies.SelectedCells[1].Value.ToString();
             this.txtSupplyQuantity.Text = this.gridIncomingSupplies.SelectedCells[2].Value.ToString();
+            this.dateArrive.Value = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[5].Value.ToString());
+
+            if(String.IsNullOrWhiteSpace(this.gridIncomingSupplies.SelectedCells[3].Value.ToString()))
+            {
+                this.switchExpirationDate.Checked = false;
+                this.dateExpiration.Value = DateTime.Now.Date;
+            }
+            else
+            {
+                this.switchExpirationDate.Checked = true;
+                this.dateExpiration.Value = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[3].Value.ToString());
+            }
+
+            this.btnSaveIncomingSupplies.Enabled = true;
+            this.btnDeleteIncomingSupplies.Enabled = true;
         }
 
         private void btnAddIncomingSupplies_Click(object sender, EventArgs e)
@@ -102,7 +121,7 @@ namespace PatientInformationSystemNew.forms
             else if(this.switchExpirationDate.Checked == true)
             {
                 if (inventory.addIncomingSuppliesWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
-                this.dateExpiration.Value.Date, this.dateArrive.Value.Date))
+                    this.dateExpiration.Value.Date, this.dateArrive.Value.Date))
                 {
                     MessageBox.Show("Incoming supply successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -111,8 +130,6 @@ namespace PatientInformationSystemNew.forms
 
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
-
-                    this.txtSupplyName.Focus();
                 }
                 else
                 {
@@ -121,8 +138,18 @@ namespace PatientInformationSystemNew.forms
             }
             else if(this.dateExpiration.Checked == false)
             {
-                if (inventory.addIncomingSuppliesWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
-                this.dateArrive.Value.Date))
+                if(duplicate.inventorySupplyDuplicate(this.txtSupplyName.Text))
+                {
+                    MessageBox.Show(string.Format("{0} is already in inventory!", this.txtSupplyName.Text), "Already Exist", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    this.txtSupplyName.ResetText();
+                    this.txtSupplyQuantity.ResetText();
+
+                    this.txtSupplyName.Focus();
+                }
+                else if (inventory.addIncomingSuppliesWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                    this.dateArrive.Value.Date))
                 {
                     MessageBox.Show("Incoming supply successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -143,12 +170,64 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveIncomingSupplies_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(this.txtSupplyName.Text))
+            {
+                MessageBox.Show("Supply name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyName.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtSupplyQuantity.Text))
+            {
+                MessageBox.Show("Supply quantity is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyQuantity.Focus();
+            }
+            else if (this.switchExpirationDate.Checked == true)
+            {
+                if (inventory.addIncomingSuppliesWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                    this.dateExpiration.Value.Date, this.dateArrive.Value.Date))
+                {
+                    MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    autoGenNum();
+                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                    this.txtSupplyName.ResetText();
+                    this.txtSupplyQuantity.ResetText();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update incoming supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (this.dateExpiration.Checked == false)
+            {
+                if (inventory.updateSupplyWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                    this.dateArrive.Value.Date))
+                {
+                    MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    autoGenNum();
+                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                    this.txtSupplyName.ResetText();
+                    this.txtSupplyQuantity.ResetText();
+
+                    this.txtSupplyName.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update incoming supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnEditIncomingSupplies_Click(object sender, EventArgs e)
         {
+            this.btnAddIncomingSupplies.Visible = false;
+            this.btnCancelIncomingSupplies.Visible = false;
+            this.btnEditIncomingSupplies.Enabled = false;
 
+            this.btnSaveIncomingSupplies.Visible = true;
+            this.btnDeleteIncomingSupplies.Visible = true;
         }
 
         private void btnCancelIncomingSupplies_Click(object sender, EventArgs e)
@@ -158,7 +237,23 @@ namespace PatientInformationSystemNew.forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(inventory.deleteIncomingSupply(this.txtSupplyID.Text))
+            {
+                MessageBox.Show(string.Format("{0} successfully deleted!", this.txtSupplyName.Text), "Success", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
+                autoGenNum();
+
+                this.txtSupplyName.ResetText();
+                this.txtSupplyQuantity.ResetText();
+
+                this.txtSupplyName.Focus();
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to delete {0}!", this.txtSupplyName.Text), "Failed", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }
