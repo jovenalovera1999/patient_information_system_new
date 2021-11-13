@@ -103,6 +103,7 @@ namespace PatientInformationSystemNew.forms
             }
 
             this.btnSaveIncomingSupplies.Enabled = true;
+            this.btnSupplyArrived.Enabled = true;
             this.btnDeleteIncomingSupplies.Enabled = true;
         }
 
@@ -185,13 +186,21 @@ namespace PatientInformationSystemNew.forms
                 if (inventory.addIncomingSuppliesWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
                     this.dateExpiration.Value.Date, this.dateArrive.Value.Date))
                 {
-                    MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     autoGenNum();
                     inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
+
+                    this.btnAddIncomingSupplies.Visible = true;
+                    this.btnEditIncomingSupplies.Enabled = true;
+                    this.btnCancelIncomingSupplies.Visible = true;
+
+                    this.btnSaveIncomingSupplies.Visible = false;
+                    this.btnSupplyArrived.Enabled = false;
+                    this.btnDeleteIncomingSupplies.Visible = false;
                 }
                 else
                 {
@@ -211,7 +220,13 @@ namespace PatientInformationSystemNew.forms
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
 
-                    this.txtSupplyName.Focus();
+                    this.btnAddIncomingSupplies.Visible = true;
+                    this.btnEditIncomingSupplies.Enabled = true;
+                    this.btnCancelIncomingSupplies.Visible = true;
+
+                    this.btnSaveIncomingSupplies.Visible = false;
+                    this.btnSupplyArrived.Enabled = false;
+                    this.btnDeleteIncomingSupplies.Visible = false;
                 }
                 else
                 {

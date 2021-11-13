@@ -72,6 +72,18 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void txtDiagnosis_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
+            {
+                this.btnAddDiagnosis.Enabled = false;
+            }
+            else
+            {
+                this.btnAddDiagnosis.Enabled = true;
+            }
+        }
+
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
             Random number = new Random();
@@ -106,6 +118,11 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
             this.btnRemoveDiagnosis.Enabled = false;
+            
+            if(this.gridDiagnosis.Rows.Count == 0)
+            {
+                this.btnSaveDiagnosis.Enabled = false;
+            }
 
             this.txtDiagnosis.ResetText();
             this.txtDiagnosis.Focus();

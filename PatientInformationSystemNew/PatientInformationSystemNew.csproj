@@ -82,12 +82,6 @@
     <Compile Include="forms\frmConsultation.Designer.cs">
       <DependentUpon>frmConsultation.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmCreatePrescription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmCreatePrescription.Designer.cs">
-      <DependentUpon>frmCreatePrescription.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmDoctorProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,12 +154,6 @@
     <Compile Include="forms\frmPatients.Designer.cs">
       <DependentUpon>frmPatients.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmMyProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmMyProfile.Designer.cs">
-      <DependentUpon>frmMyProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmConsultation.resx">
       <DependentUpon>frmConsultation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmCreatePrescription.resx">
-      <DependentUpon>frmCreatePrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDoctorProfile.resx">
       <DependentUpon>frmDoctorProfile.cs</DependentUpon>
@@ -233,9 +218,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPatients.resx">
       <DependentUpon>frmPatients.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmMyProfile.resx">
-      <DependentUpon>frmMyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmSchedule.resx">
       <DependentUpon>frmSchedule.cs</DependentUpon>
