@@ -29,15 +29,15 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlInventory = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabSupplies = new System.Windows.Forms.TabPage();
             this.gridSupplies = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -60,18 +60,18 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabManageSupplies = new System.Windows.Forms.TabPage();
+            this.switchExpirationDateManageSupplies = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.btnAddManageSupplies = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCancelManageSupplies = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUpdateManageSupplies = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.btnDeleteManageSupplies = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSaveManageSupplies = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditManageSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dateExpirationManageSupplies = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtSupplyQuantityManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSupplyNameManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSupplyIDManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gridManageSupplies = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabControlInventory.SuspendLayout();
@@ -133,32 +133,32 @@ namespace PatientInformationSystemNew.forms
             this.gridSupplies.AllowUserToDeleteRows = false;
             this.gridSupplies.AllowUserToResizeColumns = false;
             this.gridSupplies.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.gridSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.gridSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.gridSupplies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridSupplies.BackgroundColor = System.Drawing.Color.White;
             this.gridSupplies.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSupplies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSupplies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSupplies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSupplies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.gridSupplies.ColumnHeadersHeight = 55;
             this.gridSupplies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSupplies.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSupplies.DefaultCellStyle = dataGridViewCellStyle24;
             this.gridSupplies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSupplies.EnableHeadersVisualStyles = false;
             this.gridSupplies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -250,6 +250,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSupplyArrived.Size = new System.Drawing.Size(199, 86);
             this.btnSupplyArrived.TabIndex = 166;
             this.btnSupplyArrived.Text = "Supply Arrived";
+            this.btnSupplyArrived.Click += new System.EventHandler(this.btnSupplyArrived_Click);
             // 
             // btnDeleteIncomingSupplies
             // 
@@ -334,7 +335,6 @@ namespace PatientInformationSystemNew.forms
             this.btnAddIncomingSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddIncomingSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddIncomingSupplies.DisabledState.Parent = this.btnAddIncomingSupplies;
-            this.btnAddIncomingSupplies.Enabled = false;
             this.btnAddIncomingSupplies.FillColor = System.Drawing.Color.Lime;
             this.btnAddIncomingSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAddIncomingSupplies.ForeColor = System.Drawing.Color.White;
@@ -497,7 +497,6 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyQuantity.ShadowDecoration.Parent = this.txtSupplyQuantity;
             this.txtSupplyQuantity.Size = new System.Drawing.Size(446, 45);
             this.txtSupplyQuantity.TabIndex = 36;
-            this.txtSupplyQuantity.TextChanged += new System.EventHandler(this.txtSupplyQuantity_TextChanged);
             // 
             // label2
             // 
@@ -536,7 +535,6 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyName.ShadowDecoration.Parent = this.txtSupplyName;
             this.txtSupplyName.Size = new System.Drawing.Size(446, 45);
             this.txtSupplyName.TabIndex = 34;
-            this.txtSupplyName.TextChanged += new System.EventHandler(this.txtSupplyName_TextChanged);
             // 
             // label1
             // 
@@ -555,32 +553,32 @@ namespace PatientInformationSystemNew.forms
             this.gridIncomingSupplies.AllowUserToDeleteRows = false;
             this.gridIncomingSupplies.AllowUserToResizeColumns = false;
             this.gridIncomingSupplies.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.gridIncomingSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            this.gridIncomingSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.gridIncomingSupplies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridIncomingSupplies.BackgroundColor = System.Drawing.Color.White;
             this.gridIncomingSupplies.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridIncomingSupplies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridIncomingSupplies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridIncomingSupplies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridIncomingSupplies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.gridIncomingSupplies.ColumnHeadersHeight = 55;
             this.gridIncomingSupplies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridIncomingSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridIncomingSupplies.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridIncomingSupplies.DefaultCellStyle = dataGridViewCellStyle27;
             this.gridIncomingSupplies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridIncomingSupplies.EnableHeadersVisualStyles = false;
             this.gridIncomingSupplies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -659,18 +657,18 @@ namespace PatientInformationSystemNew.forms
             // tabManageSupplies
             // 
             this.tabManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabManageSupplies.Controls.Add(this.switchExpirationDateManageSupplies);
             this.tabManageSupplies.Controls.Add(this.btnAddManageSupplies);
-            this.tabManageSupplies.Controls.Add(this.btnCancelManageSupplies);
-            this.tabManageSupplies.Controls.Add(this.guna2Button3);
-            this.tabManageSupplies.Controls.Add(this.btnUpdateManageSupplies);
-            this.tabManageSupplies.Controls.Add(this.guna2ToggleSwitch1);
+            this.tabManageSupplies.Controls.Add(this.btnDeleteManageSupplies);
+            this.tabManageSupplies.Controls.Add(this.btnSaveManageSupplies);
+            this.tabManageSupplies.Controls.Add(this.btnEditManageSupplies);
             this.tabManageSupplies.Controls.Add(this.label3);
-            this.tabManageSupplies.Controls.Add(this.guna2DateTimePicker1);
-            this.tabManageSupplies.Controls.Add(this.guna2TextBox3);
+            this.tabManageSupplies.Controls.Add(this.dateExpirationManageSupplies);
+            this.tabManageSupplies.Controls.Add(this.txtSupplyQuantityManageSupplies);
             this.tabManageSupplies.Controls.Add(this.label4);
-            this.tabManageSupplies.Controls.Add(this.guna2TextBox4);
+            this.tabManageSupplies.Controls.Add(this.txtSupplyNameManageSupplies);
             this.tabManageSupplies.Controls.Add(this.label5);
-            this.tabManageSupplies.Controls.Add(this.guna2TextBox5);
+            this.tabManageSupplies.Controls.Add(this.txtSupplyIDManageSupplies);
             this.tabManageSupplies.Controls.Add(this.label6);
             this.tabManageSupplies.Controls.Add(this.gridManageSupplies);
             this.tabManageSupplies.Location = new System.Drawing.Point(4, 4);
@@ -679,6 +677,26 @@ namespace PatientInformationSystemNew.forms
             this.tabManageSupplies.Size = new System.Drawing.Size(1682, 950);
             this.tabManageSupplies.TabIndex = 3;
             this.tabManageSupplies.Text = "Manage Supplies";
+            // 
+            // switchExpirationDateManageSupplies
+            // 
+            this.switchExpirationDateManageSupplies.Animated = true;
+            this.switchExpirationDateManageSupplies.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.switchExpirationDateManageSupplies.CheckedState.FillColor = System.Drawing.Color.Lime;
+            this.switchExpirationDateManageSupplies.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.switchExpirationDateManageSupplies.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.switchExpirationDateManageSupplies.CheckedState.Parent = this.switchExpirationDateManageSupplies;
+            this.switchExpirationDateManageSupplies.Location = new System.Drawing.Point(649, 15);
+            this.switchExpirationDateManageSupplies.Name = "switchExpirationDateManageSupplies";
+            this.switchExpirationDateManageSupplies.ShadowDecoration.Parent = this.switchExpirationDateManageSupplies;
+            this.switchExpirationDateManageSupplies.Size = new System.Drawing.Size(51, 28);
+            this.switchExpirationDateManageSupplies.TabIndex = 176;
+            this.switchExpirationDateManageSupplies.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.switchExpirationDateManageSupplies.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.switchExpirationDateManageSupplies.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.switchExpirationDateManageSupplies.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.switchExpirationDateManageSupplies.UncheckedState.Parent = this.switchExpirationDateManageSupplies;
+            this.switchExpirationDateManageSupplies.CheckedChanged += new System.EventHandler(this.switchExpirationDateManageSupplies_CheckedChanged);
             // 
             // btnAddManageSupplies
             // 
@@ -710,116 +728,102 @@ namespace PatientInformationSystemNew.forms
             this.btnAddManageSupplies.Size = new System.Drawing.Size(130, 86);
             this.btnAddManageSupplies.TabIndex = 175;
             this.btnAddManageSupplies.Text = "Add";
+            this.btnAddManageSupplies.Click += new System.EventHandler(this.btnAddManageSupplies_Click);
             // 
-            // btnCancelManageSupplies
+            // btnDeleteManageSupplies
             // 
-            this.btnCancelManageSupplies.Animated = true;
-            this.btnCancelManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCancelManageSupplies.BorderColor = System.Drawing.Color.Transparent;
-            this.btnCancelManageSupplies.BorderRadius = 5;
-            this.btnCancelManageSupplies.BorderThickness = 1;
-            this.btnCancelManageSupplies.CheckedState.Parent = this.btnCancelManageSupplies;
-            this.btnCancelManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelManageSupplies.CustomImages.Parent = this.btnCancelManageSupplies;
-            this.btnCancelManageSupplies.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancelManageSupplies.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancelManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCancelManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCancelManageSupplies.DisabledState.Parent = this.btnCancelManageSupplies;
-            this.btnCancelManageSupplies.FillColor = System.Drawing.Color.Red;
-            this.btnCancelManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnCancelManageSupplies.ForeColor = System.Drawing.Color.White;
-            this.btnCancelManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnCancelManageSupplies.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnCancelManageSupplies.HoverState.Parent = this.btnCancelManageSupplies;
-            this.btnCancelManageSupplies.Image = global::PatientInformationSystemNew.Properties.Resources.cancel_icon;
-            this.btnCancelManageSupplies.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelManageSupplies.Location = new System.Drawing.Point(634, 213);
-            this.btnCancelManageSupplies.Name = "btnCancelManageSupplies";
-            this.btnCancelManageSupplies.ShadowDecoration.Parent = this.btnCancelManageSupplies;
-            this.btnCancelManageSupplies.Size = new System.Drawing.Size(130, 86);
-            this.btnCancelManageSupplies.TabIndex = 174;
-            this.btnCancelManageSupplies.Text = "Cancel";
+            this.btnDeleteManageSupplies.Animated = true;
+            this.btnDeleteManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteManageSupplies.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDeleteManageSupplies.BorderRadius = 5;
+            this.btnDeleteManageSupplies.BorderThickness = 1;
+            this.btnDeleteManageSupplies.CheckedState.Parent = this.btnDeleteManageSupplies;
+            this.btnDeleteManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteManageSupplies.CustomImages.Parent = this.btnDeleteManageSupplies;
+            this.btnDeleteManageSupplies.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteManageSupplies.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteManageSupplies.DisabledState.Parent = this.btnDeleteManageSupplies;
+            this.btnDeleteManageSupplies.Enabled = false;
+            this.btnDeleteManageSupplies.FillColor = System.Drawing.Color.Red;
+            this.btnDeleteManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnDeleteManageSupplies.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnDeleteManageSupplies.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnDeleteManageSupplies.HoverState.Parent = this.btnDeleteManageSupplies;
+            this.btnDeleteManageSupplies.Image = global::PatientInformationSystemNew.Properties.Resources.delete_icon;
+            this.btnDeleteManageSupplies.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteManageSupplies.Location = new System.Drawing.Point(634, 213);
+            this.btnDeleteManageSupplies.Name = "btnDeleteManageSupplies";
+            this.btnDeleteManageSupplies.ShadowDecoration.Parent = this.btnDeleteManageSupplies;
+            this.btnDeleteManageSupplies.Size = new System.Drawing.Size(130, 86);
+            this.btnDeleteManageSupplies.TabIndex = 174;
+            this.btnDeleteManageSupplies.Text = "Delete";
             // 
-            // guna2Button3
+            // btnSaveManageSupplies
             // 
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button3.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderRadius = 5;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.DisabledState.Parent = this.guna2Button3;
-            this.guna2Button3.Enabled = false;
-            this.guna2Button3.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button3.Location = new System.Drawing.Point(489, 114);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(106, 86);
-            this.guna2Button3.TabIndex = 173;
-            this.guna2Button3.Text = "Save";
+            this.btnSaveManageSupplies.Animated = true;
+            this.btnSaveManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSaveManageSupplies.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSaveManageSupplies.BorderRadius = 5;
+            this.btnSaveManageSupplies.BorderThickness = 1;
+            this.btnSaveManageSupplies.CheckedState.Parent = this.btnSaveManageSupplies;
+            this.btnSaveManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveManageSupplies.CustomImages.Parent = this.btnSaveManageSupplies;
+            this.btnSaveManageSupplies.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveManageSupplies.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSaveManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSaveManageSupplies.DisabledState.Parent = this.btnSaveManageSupplies;
+            this.btnSaveManageSupplies.Enabled = false;
+            this.btnSaveManageSupplies.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSaveManageSupplies.ForeColor = System.Drawing.Color.White;
+            this.btnSaveManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSaveManageSupplies.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveManageSupplies.HoverState.Parent = this.btnSaveManageSupplies;
+            this.btnSaveManageSupplies.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.btnSaveManageSupplies.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSaveManageSupplies.Location = new System.Drawing.Point(489, 114);
+            this.btnSaveManageSupplies.Name = "btnSaveManageSupplies";
+            this.btnSaveManageSupplies.ShadowDecoration.Parent = this.btnSaveManageSupplies;
+            this.btnSaveManageSupplies.Size = new System.Drawing.Size(130, 86);
+            this.btnSaveManageSupplies.TabIndex = 173;
+            this.btnSaveManageSupplies.Text = "Save";
+            this.btnSaveManageSupplies.Visible = false;
+            this.btnSaveManageSupplies.Click += new System.EventHandler(this.btnSaveManageSupplies_Click);
             // 
-            // btnUpdateManageSupplies
+            // btnEditManageSupplies
             // 
-            this.btnUpdateManageSupplies.Animated = true;
-            this.btnUpdateManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdateManageSupplies.BorderColor = System.Drawing.Color.Transparent;
-            this.btnUpdateManageSupplies.BorderRadius = 5;
-            this.btnUpdateManageSupplies.BorderThickness = 1;
-            this.btnUpdateManageSupplies.CheckedState.Parent = this.btnUpdateManageSupplies;
-            this.btnUpdateManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateManageSupplies.CustomImages.Parent = this.btnUpdateManageSupplies;
-            this.btnUpdateManageSupplies.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateManageSupplies.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnUpdateManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnUpdateManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUpdateManageSupplies.DisabledState.Parent = this.btnUpdateManageSupplies;
-            this.btnUpdateManageSupplies.FillColor = System.Drawing.Color.Blue;
-            this.btnUpdateManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnUpdateManageSupplies.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnUpdateManageSupplies.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnUpdateManageSupplies.HoverState.Parent = this.btnUpdateManageSupplies;
-            this.btnUpdateManageSupplies.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnUpdateManageSupplies.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUpdateManageSupplies.Location = new System.Drawing.Point(489, 213);
-            this.btnUpdateManageSupplies.Name = "btnUpdateManageSupplies";
-            this.btnUpdateManageSupplies.ShadowDecoration.Parent = this.btnUpdateManageSupplies;
-            this.btnUpdateManageSupplies.Size = new System.Drawing.Size(130, 86);
-            this.btnUpdateManageSupplies.TabIndex = 172;
-            this.btnUpdateManageSupplies.Text = "Update";
-            // 
-            // guna2ToggleSwitch1
-            // 
-            this.guna2ToggleSwitch1.Animated = true;
-            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.Lime;
-            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.CheckedState.Parent = this.guna2ToggleSwitch1;
-            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(649, 23);
-            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
-            this.guna2ToggleSwitch1.ShadowDecoration.Parent = this.guna2ToggleSwitch1;
-            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(35, 20);
-            this.guna2ToggleSwitch1.TabIndex = 171;
-            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2ToggleSwitch1.UncheckedState.Parent = this.guna2ToggleSwitch1;
+            this.btnEditManageSupplies.Animated = true;
+            this.btnEditManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditManageSupplies.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditManageSupplies.BorderRadius = 5;
+            this.btnEditManageSupplies.BorderThickness = 1;
+            this.btnEditManageSupplies.CheckedState.Parent = this.btnEditManageSupplies;
+            this.btnEditManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditManageSupplies.CustomImages.Parent = this.btnEditManageSupplies;
+            this.btnEditManageSupplies.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditManageSupplies.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditManageSupplies.DisabledState.Parent = this.btnEditManageSupplies;
+            this.btnEditManageSupplies.FillColor = System.Drawing.Color.Blue;
+            this.btnEditManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditManageSupplies.ForeColor = System.Drawing.Color.White;
+            this.btnEditManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditManageSupplies.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditManageSupplies.HoverState.Parent = this.btnEditManageSupplies;
+            this.btnEditManageSupplies.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditManageSupplies.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditManageSupplies.Location = new System.Drawing.Point(489, 213);
+            this.btnEditManageSupplies.Name = "btnEditManageSupplies";
+            this.btnEditManageSupplies.ShadowDecoration.Parent = this.btnEditManageSupplies;
+            this.btnEditManageSupplies.Size = new System.Drawing.Size(130, 86);
+            this.btnEditManageSupplies.TabIndex = 172;
+            this.btnEditManageSupplies.Text = "Edit";
+            this.btnEditManageSupplies.Click += new System.EventHandler(this.btnEditManageSupplies_Click);
             // 
             // label3
             // 
@@ -832,57 +836,58 @@ namespace PatientInformationSystemNew.forms
             this.label3.TabIndex = 170;
             this.label3.Text = "Expiration Date:";
             // 
-            // guna2DateTimePicker1
+            // dateExpirationManageSupplies
             // 
-            this.guna2DateTimePicker1.Animated = true;
-            this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker1.BorderRadius = 5;
-            this.guna2DateTimePicker1.BorderThickness = 1;
-            this.guna2DateTimePicker1.CheckedState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.guna2DateTimePicker1.HoverState.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(489, 56);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.ShadowDecoration.Parent = this.guna2DateTimePicker1;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(446, 45);
-            this.guna2DateTimePicker1.TabIndex = 169;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
+            this.dateExpirationManageSupplies.Animated = true;
+            this.dateExpirationManageSupplies.BorderColor = System.Drawing.Color.Transparent;
+            this.dateExpirationManageSupplies.BorderRadius = 5;
+            this.dateExpirationManageSupplies.BorderThickness = 1;
+            this.dateExpirationManageSupplies.CheckedState.Parent = this.dateExpirationManageSupplies;
+            this.dateExpirationManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateExpirationManageSupplies.Enabled = false;
+            this.dateExpirationManageSupplies.FillColor = System.Drawing.Color.Blue;
+            this.dateExpirationManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateExpirationManageSupplies.ForeColor = System.Drawing.Color.White;
+            this.dateExpirationManageSupplies.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateExpirationManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
+            this.dateExpirationManageSupplies.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.dateExpirationManageSupplies.HoverState.Parent = this.dateExpirationManageSupplies;
+            this.dateExpirationManageSupplies.Location = new System.Drawing.Point(489, 56);
+            this.dateExpirationManageSupplies.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateExpirationManageSupplies.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateExpirationManageSupplies.Name = "dateExpirationManageSupplies";
+            this.dateExpirationManageSupplies.ShadowDecoration.Parent = this.dateExpirationManageSupplies;
+            this.dateExpirationManageSupplies.Size = new System.Drawing.Size(446, 45);
+            this.dateExpirationManageSupplies.TabIndex = 169;
+            this.dateExpirationManageSupplies.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
             // 
-            // guna2TextBox3
+            // txtSupplyQuantityManageSupplies
             // 
-            this.guna2TextBox3.Animated = true;
-            this.guna2TextBox3.BorderRadius = 5;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.DisabledState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.Enabled = false;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(25, 254);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox3.TabIndex = 168;
+            this.txtSupplyQuantityManageSupplies.Animated = true;
+            this.txtSupplyQuantityManageSupplies.BorderRadius = 5;
+            this.txtSupplyQuantityManageSupplies.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSupplyQuantityManageSupplies.DefaultText = "";
+            this.txtSupplyQuantityManageSupplies.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtSupplyQuantityManageSupplies.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtSupplyQuantityManageSupplies.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtSupplyQuantityManageSupplies.DisabledState.Parent = this.txtSupplyQuantityManageSupplies;
+            this.txtSupplyQuantityManageSupplies.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSupplyQuantityManageSupplies.Enabled = false;
+            this.txtSupplyQuantityManageSupplies.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSupplyQuantityManageSupplies.FocusedState.Parent = this.txtSupplyQuantityManageSupplies;
+            this.txtSupplyQuantityManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSupplyQuantityManageSupplies.ForeColor = System.Drawing.Color.Black;
+            this.txtSupplyQuantityManageSupplies.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSupplyQuantityManageSupplies.HoverState.Parent = this.txtSupplyQuantityManageSupplies;
+            this.txtSupplyQuantityManageSupplies.Location = new System.Drawing.Point(25, 254);
+            this.txtSupplyQuantityManageSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSupplyQuantityManageSupplies.Name = "txtSupplyQuantityManageSupplies";
+            this.txtSupplyQuantityManageSupplies.PasswordChar = '\0';
+            this.txtSupplyQuantityManageSupplies.PlaceholderText = "";
+            this.txtSupplyQuantityManageSupplies.SelectedText = "";
+            this.txtSupplyQuantityManageSupplies.ShadowDecoration.Parent = this.txtSupplyQuantityManageSupplies;
+            this.txtSupplyQuantityManageSupplies.Size = new System.Drawing.Size(446, 45);
+            this.txtSupplyQuantityManageSupplies.TabIndex = 168;
             // 
             // label4
             // 
@@ -895,33 +900,33 @@ namespace PatientInformationSystemNew.forms
             this.label4.TabIndex = 167;
             this.label4.Text = "Supply Quantity:";
             // 
-            // guna2TextBox4
+            // txtSupplyNameManageSupplies
             // 
-            this.guna2TextBox4.Animated = true;
-            this.guna2TextBox4.BorderRadius = 5;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.Enabled = false;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(25, 155);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox4.TabIndex = 166;
+            this.txtSupplyNameManageSupplies.Animated = true;
+            this.txtSupplyNameManageSupplies.BorderRadius = 5;
+            this.txtSupplyNameManageSupplies.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSupplyNameManageSupplies.DefaultText = "";
+            this.txtSupplyNameManageSupplies.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtSupplyNameManageSupplies.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtSupplyNameManageSupplies.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtSupplyNameManageSupplies.DisabledState.Parent = this.txtSupplyNameManageSupplies;
+            this.txtSupplyNameManageSupplies.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSupplyNameManageSupplies.Enabled = false;
+            this.txtSupplyNameManageSupplies.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSupplyNameManageSupplies.FocusedState.Parent = this.txtSupplyNameManageSupplies;
+            this.txtSupplyNameManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSupplyNameManageSupplies.ForeColor = System.Drawing.Color.Black;
+            this.txtSupplyNameManageSupplies.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSupplyNameManageSupplies.HoverState.Parent = this.txtSupplyNameManageSupplies;
+            this.txtSupplyNameManageSupplies.Location = new System.Drawing.Point(25, 155);
+            this.txtSupplyNameManageSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSupplyNameManageSupplies.Name = "txtSupplyNameManageSupplies";
+            this.txtSupplyNameManageSupplies.PasswordChar = '\0';
+            this.txtSupplyNameManageSupplies.PlaceholderText = "";
+            this.txtSupplyNameManageSupplies.SelectedText = "";
+            this.txtSupplyNameManageSupplies.ShadowDecoration.Parent = this.txtSupplyNameManageSupplies;
+            this.txtSupplyNameManageSupplies.Size = new System.Drawing.Size(446, 45);
+            this.txtSupplyNameManageSupplies.TabIndex = 166;
             // 
             // label5
             // 
@@ -934,33 +939,33 @@ namespace PatientInformationSystemNew.forms
             this.label5.TabIndex = 165;
             this.label5.Text = "Supply Name:";
             // 
-            // guna2TextBox5
+            // txtSupplyIDManageSupplies
             // 
-            this.guna2TextBox5.Animated = true;
-            this.guna2TextBox5.BorderRadius = 5;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.DisabledState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.Enabled = false;
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox5.FocusedState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox5.HoverState.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Location = new System.Drawing.Point(25, 56);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PasswordChar = '\0';
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.ShadowDecoration.Parent = this.guna2TextBox5;
-            this.guna2TextBox5.Size = new System.Drawing.Size(446, 45);
-            this.guna2TextBox5.TabIndex = 164;
+            this.txtSupplyIDManageSupplies.Animated = true;
+            this.txtSupplyIDManageSupplies.BorderRadius = 5;
+            this.txtSupplyIDManageSupplies.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSupplyIDManageSupplies.DefaultText = "";
+            this.txtSupplyIDManageSupplies.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtSupplyIDManageSupplies.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtSupplyIDManageSupplies.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtSupplyIDManageSupplies.DisabledState.Parent = this.txtSupplyIDManageSupplies;
+            this.txtSupplyIDManageSupplies.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSupplyIDManageSupplies.Enabled = false;
+            this.txtSupplyIDManageSupplies.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSupplyIDManageSupplies.FocusedState.Parent = this.txtSupplyIDManageSupplies;
+            this.txtSupplyIDManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSupplyIDManageSupplies.ForeColor = System.Drawing.Color.Black;
+            this.txtSupplyIDManageSupplies.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtSupplyIDManageSupplies.HoverState.Parent = this.txtSupplyIDManageSupplies;
+            this.txtSupplyIDManageSupplies.Location = new System.Drawing.Point(25, 56);
+            this.txtSupplyIDManageSupplies.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSupplyIDManageSupplies.Name = "txtSupplyIDManageSupplies";
+            this.txtSupplyIDManageSupplies.PasswordChar = '\0';
+            this.txtSupplyIDManageSupplies.PlaceholderText = "";
+            this.txtSupplyIDManageSupplies.SelectedText = "";
+            this.txtSupplyIDManageSupplies.ShadowDecoration.Parent = this.txtSupplyIDManageSupplies;
+            this.txtSupplyIDManageSupplies.Size = new System.Drawing.Size(446, 45);
+            this.txtSupplyIDManageSupplies.TabIndex = 164;
             // 
             // label6
             // 
@@ -979,36 +984,36 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSupplies.AllowUserToDeleteRows = false;
             this.gridManageSupplies.AllowUserToResizeColumns = false;
             this.gridManageSupplies.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.gridManageSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.gridManageSupplies.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.gridManageSupplies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridManageSupplies.BackgroundColor = System.Drawing.Color.White;
             this.gridManageSupplies.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridManageSupplies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridManageSupplies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridManageSupplies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridManageSupplies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.gridManageSupplies.ColumnHeadersHeight = 55;
             this.gridManageSupplies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridManageSupplies.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridManageSupplies.DefaultCellStyle = dataGridViewCellStyle21;
             this.gridManageSupplies.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridManageSupplies.EnableHeadersVisualStyles = false;
             this.gridManageSupplies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridManageSupplies.Location = new System.Drawing.Point(3, 315);
+            this.gridManageSupplies.Location = new System.Drawing.Point(3, 337);
             this.gridManageSupplies.Name = "gridManageSupplies";
             this.gridManageSupplies.ReadOnly = true;
             this.gridManageSupplies.RowHeadersVisible = false;
@@ -1016,7 +1021,7 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSupplies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridManageSupplies.RowTemplate.Height = 50;
             this.gridManageSupplies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridManageSupplies.Size = new System.Drawing.Size(1676, 632);
+            this.gridManageSupplies.Size = new System.Drawing.Size(1676, 610);
             this.gridManageSupplies.TabIndex = 33;
             this.gridManageSupplies.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridManageSupplies.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1039,6 +1044,7 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSupplies.ThemeStyle.RowsStyle.Height = 50;
             this.gridManageSupplies.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridManageSupplies.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridManageSupplies.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManageSupplies_CellMouseClick);
             // 
             // frmInventory
             // 
@@ -1088,21 +1094,21 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnAddIncomingSupplies;
         private Guna.UI2.WinForms.Guna2DataGridView gridManageSupplies;
         private Guna.UI2.WinForms.Guna2Button btnAddManageSupplies;
-        private Guna.UI2.WinForms.Guna2Button btnCancelManageSupplies;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button btnUpdateManageSupplies;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteManageSupplies;
+        private Guna.UI2.WinForms.Guna2Button btnSaveManageSupplies;
+        private Guna.UI2.WinForms.Guna2Button btnEditManageSupplies;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateExpirationManageSupplies;
+        private Guna.UI2.WinForms.Guna2TextBox txtSupplyQuantityManageSupplies;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox txtSupplyNameManageSupplies;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox txtSupplyIDManageSupplies;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2DateTimePicker dateArrive;
         private Guna.UI2.WinForms.Guna2Button btnDeleteIncomingSupplies;
         private Guna.UI2.WinForms.Guna2Button btnSupplyArrived;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch switchExpirationDateManageSupplies;
     }
 }

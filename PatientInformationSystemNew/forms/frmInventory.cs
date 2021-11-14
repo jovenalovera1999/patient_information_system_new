@@ -33,40 +33,19 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
             this.txtSupplyID.Text = generateID.ToString();
+            this.txtSupplyIDManageSupplies.Text = generateID.ToString();
         }
 
         private void frmInventory_Load(object sender, EventArgs e)
         {
             autoGenNum();
 
+            inventory.loadInventory(this.gridSupplies);
             inventory.loadIncomingInventory(this.gridIncomingSupplies);
+            inventory.loadInventory(this.gridManageSupplies);
 
             this.dateExpiration.Value = DateTime.Now.Date;
             this.dateArrive.Value = DateTime.Now.Date;
-        }
-
-        private void txtSupplyName_TextChanged(object sender, EventArgs e)
-        {
-            if(!String.IsNullOrWhiteSpace(this.txtSupplyName.Text) && String.IsNullOrWhiteSpace(this.txtSupplyQuantity.Text))
-            {
-                this.btnAddIncomingSupplies.Enabled = false;
-            }
-            else
-            {
-                this.btnAddIncomingSupplies.Enabled = true;
-            }
-        }
-
-        private void txtSupplyQuantity_TextChanged(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrWhiteSpace(this.txtSupplyQuantity.Text) && String.IsNullOrWhiteSpace(this.txtSupplyName.Text))
-            {
-                this.btnAddIncomingSupplies.Enabled = false;
-            }
-            else
-            {
-                this.btnAddIncomingSupplies.Enabled = true;
-            }
         }
 
         private void switchExpirationDate_CheckedChanged(object sender, EventArgs e)
@@ -109,7 +88,12 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddIncomingSupplies_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtSupplyName.Text))
+            if(String.IsNullOrWhiteSpace(this.txtSupplyName.Text) && String.IsNullOrWhiteSpace(this.txtSupplyQuantity.Text))
+            {
+                MessageBox.Show("Supply name and quantity are required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyName.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtSupplyName.Text))
             {
                 MessageBox.Show("Supply name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtSupplyName.Focus();
@@ -238,7 +222,7 @@ namespace PatientInformationSystemNew.forms
             if(this.txtSupplyID.Text != this.gridIncomingSupplies.SelectedCells[0].Value.ToString())
             {
                 MessageBox.Show("Please select supply first in incoming supplies list!", "Select First", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                    MessageBoxIcon.Error);
             }
             else
             {
@@ -247,6 +231,158 @@ namespace PatientInformationSystemNew.forms
 
                 this.btnSaveIncomingSupplies.Visible = true;
                 this.btnDeleteIncomingSupplies.Visible = true;
+            }
+        }
+
+        private void btnSupplyArrived_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < 50; ++i)
+            {
+                if (this.txtSupplyID.Text != this.gridIncomingSupplies.SelectedCells[0].Value.ToString())
+                {
+                    MessageBox.Show("Please select supply first before clicking!", "Select First", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    break;
+                }
+                else if (this.gridIncomingSupplies.SelectedCells[6].Value.ToString() != string.Format("{0} Days Left", i.ToString()))
+                {
+                    if(MessageBox.Show("This supply does not arrived yet according to arrive date it shows! Continue?", "Confirmation",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if(this.switchExpirationDate.Checked == true)
+                        {
+                            if(inventory.supplyArrivedWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                                this.dateExpiration.Value.Date))
+                            {
+                                MessageBox.Show("Supply has arrived and its been transferred!", "Transferred", MessageBoxButtons.OK, 
+                                    MessageBoxIcon.Information);
+
+                                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                                inventory.loadInventory(this.gridSupplies);
+                                inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                                this.btnSupplyArrived.Enabled = false;
+
+                                autoGenNum();
+
+                                this.txtSupplyName.ResetText();
+                                this.txtSupplyQuantity.ResetText();
+
+                                this.txtSupplyName.Focus();
+
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to transfer supply that has arrived!", "Failed", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (inventory.supplyArrivedWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text))
+                            {
+                                MessageBox.Show("Supply has arrived and its been transferred!", "Transferred", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+
+                                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                                inventory.loadInventory(this.gridSupplies);
+                                inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                                this.btnSupplyArrived.Enabled = false;
+
+                                autoGenNum();
+
+                                this.txtSupplyName.ResetText();
+                                this.txtSupplyQuantity.ResetText();
+
+                                this.txtSupplyName.Focus();
+
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to transfer supply that has arrived!", "Failed", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (this.switchExpirationDate.Checked == true)
+                    {
+                        if (inventory.supplyArrivedWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                            this.dateExpiration.Value.Date))
+                        {
+                            MessageBox.Show("Supply has arrived and its been transferred!", "Transferred", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                            this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                            this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                            inventory.loadInventory(this.gridSupplies);
+                            inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                            this.btnSupplyArrived.Enabled = false;
+
+                            autoGenNum();
+
+                            this.txtSupplyName.ResetText();
+                            this.txtSupplyQuantity.ResetText();
+
+                            this.txtSupplyName.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to transfer supply that has arrived!", "Failed", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (inventory.supplyArrivedWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text))
+                        {
+                            MessageBox.Show("Supply has arrived and its been transferred!", "Transferred", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                            this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                            this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                            inventory.loadInventory(this.gridSupplies);
+                            inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                            this.btnSupplyArrived.Enabled = false;
+
+                            autoGenNum();
+
+                            this.txtSupplyName.ResetText();
+                            this.txtSupplyQuantity.ResetText();
+
+                            this.txtSupplyName.Focus();
+
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to transfer supply that has arrived!", "Failed", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                            break;
+                        }
+                    }
+                }
             }
         }
 
@@ -269,6 +405,122 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show(string.Format("Failed to delete {0}!", this.txtSupplyName.Text), "Failed", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void switchExpirationDateManageSupplies_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.switchExpirationDateManageSupplies.Checked)
+            {
+                this.switchExpirationDateManageSupplies.Checked = true;
+            }
+            else
+            {
+                this.switchExpirationDateManageSupplies.Checked = false;
+            }
+        }
+
+        private void btnAddManageSupplies_Click(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(this.txtSupplyNameManageSupplies.Text) && 
+                String.IsNullOrWhiteSpace(this.txtSupplyQuantityManageSupplies.Text))
+            {
+                MessageBox.Show("Supply name and quantity are required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyName.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtSupplyNameManageSupplies.Text))
+            {
+                MessageBox.Show("Supply name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyNameManageSupplies.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtSupplyQuantityManageSupplies.Text))
+            {
+                MessageBox.Show("Quantity is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyQuantityManageSupplies.Focus();
+            }
+            else if(this.switchExpirationDateManageSupplies.Checked == true)
+            {
+                if(inventory.addSupplyWithExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
+                    this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value.Date))
+                {
+                    inventory.loadInventory(this.gridManageSupplies);
+
+                    autoGenNum();
+
+                    this.txtSupplyIDManageSupplies.ResetText();
+                    this.txtSupplyQuantity.ResetText();
+
+                    this.switchExpirationDateManageSupplies.Checked = false;
+                    this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
+
+                    this.txtSupplyName.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if (inventory.addSupplyWithoutExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
+                    this.txtSupplyQuantityManageSupplies.Text))
+                {
+                    inventory.loadInventory(this.gridManageSupplies);
+
+                    autoGenNum();
+
+                    this.txtSupplyIDManageSupplies.ResetText();
+                    this.txtSupplyQuantity.ResetText();
+
+                    this.txtSupplyName.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnEditManageSupplies_Click(object sender, EventArgs e)
+        {
+            if(this.txtSupplyIDManageSupplies.Text != this.gridManageSupplies.SelectedCells[0].Value.ToString())
+            {
+                MessageBox.Show("Please select supply first before clicking edit!", "Select First", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.btnAddManageSupplies.Visible = false;
+                this.btnEditManageSupplies.Enabled = false;
+
+                this.btnSaveManageSupplies.Visible = true;
+                this.btnDeleteManageSupplies.Enabled = true;
+            }
+        }
+
+        private void gridManageSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtSupplyIDManageSupplies.Text = this.gridManageSupplies.SelectedCells[0].Value.ToString();
+            this.txtSupplyNameManageSupplies.Text = this.gridManageSupplies.SelectedCells[1].Value.ToString();
+            this.txtSupplyQuantityManageSupplies.Text = this.gridManageSupplies.SelectedCells[2].Value.ToString();
+
+            if(String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[3].Value.ToString()))
+            {
+                this.switchExpirationDateManageSupplies.Checked = false;
+                this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
+            }
+            else
+            {
+                this.switchExpirationDateManageSupplies.Checked = true;
+                this.dateExpirationManageSupplies.Value = DateTime.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString());
+            }
+        }
+
+        private void btnSaveManageSupplies_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
