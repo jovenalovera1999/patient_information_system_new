@@ -196,7 +196,6 @@ namespace PatientInformationSystemNew.forms
 
                     this.btnAddIncomingSupplies.Visible = true;
                     this.btnEditIncomingSupplies.Enabled = true;
-                    this.btnCancelIncomingSupplies.Visible = true;
 
                     this.btnSaveIncomingSupplies.Visible = false;
                     this.btnSupplyArrived.Enabled = false;
@@ -222,7 +221,6 @@ namespace PatientInformationSystemNew.forms
 
                     this.btnAddIncomingSupplies.Visible = true;
                     this.btnEditIncomingSupplies.Enabled = true;
-                    this.btnCancelIncomingSupplies.Visible = true;
 
                     this.btnSaveIncomingSupplies.Visible = false;
                     this.btnSupplyArrived.Enabled = false;
@@ -237,17 +235,19 @@ namespace PatientInformationSystemNew.forms
 
         private void btnEditIncomingSupplies_Click(object sender, EventArgs e)
         {
-            this.btnAddIncomingSupplies.Visible = false;
-            this.btnCancelIncomingSupplies.Visible = false;
-            this.btnEditIncomingSupplies.Enabled = false;
+            if(this.txtSupplyID.Text != this.gridIncomingSupplies.SelectedCells[0].Value.ToString())
+            {
+                MessageBox.Show("Please select supply first in incoming supplies list!", "Select First", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            else
+            {
+                this.btnAddIncomingSupplies.Visible = false;
+                this.btnEditIncomingSupplies.Enabled = false;
 
-            this.btnSaveIncomingSupplies.Visible = true;
-            this.btnDeleteIncomingSupplies.Visible = true;
-        }
-
-        private void btnCancelIncomingSupplies_Click(object sender, EventArgs e)
-        {
-
+                this.btnSaveIncomingSupplies.Visible = true;
+                this.btnDeleteIncomingSupplies.Visible = true;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

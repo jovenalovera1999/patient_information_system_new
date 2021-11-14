@@ -109,12 +109,6 @@ namespace PatientInformationSystemNew.forms
             frmMyProfileNew.Show();
         }
 
-        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            e.Cancel = true;
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
