@@ -172,8 +172,13 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    inventory.loadInventory(this.gridSupplies);
+                    inventory.loadInventory(this.gridManageSupplies);
+
                     autoGenNum();
-                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
@@ -184,6 +189,8 @@ namespace PatientInformationSystemNew.forms
                     this.btnSaveIncomingSupplies.Visible = false;
                     this.btnSupplyArrived.Enabled = false;
                     this.btnDeleteIncomingSupplies.Visible = false;
+
+                    this.txtSupplyName.Focus();
                 }
                 else
                 {
@@ -197,8 +204,13 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    inventory.loadInventory(this.gridSupplies);
+                    inventory.loadInventory(this.gridManageSupplies);
+
                     autoGenNum();
-                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
@@ -209,6 +221,8 @@ namespace PatientInformationSystemNew.forms
                     this.btnSaveIncomingSupplies.Visible = false;
                     this.btnSupplyArrived.Enabled = false;
                     this.btnDeleteIncomingSupplies.Visible = false;
+
+                    this.txtSupplyName.Focus();
                 }
                 else
                 {
@@ -219,12 +233,13 @@ namespace PatientInformationSystemNew.forms
 
         private void btnEditIncomingSupplies_Click(object sender, EventArgs e)
         {
-            if(this.txtSupplyID.Text != this.gridIncomingSupplies.SelectedCells[0].Value.ToString())
+            if(this.gridIncomingSupplies.Rows.Count == 0)
             {
-                MessageBox.Show("Please select supply first in incoming supplies list!", "Select First", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("There are no incoming supplies to edit! Please add incoming supplies first", "Add First", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyName.Focus();
             }
-            else
+            else if (this.txtSupplyID.Text == this.gridIncomingSupplies.SelectedCells[0].Value.ToString())
             {
                 this.btnAddIncomingSupplies.Visible = false;
                 this.btnEditIncomingSupplies.Enabled = false;
@@ -232,20 +247,18 @@ namespace PatientInformationSystemNew.forms
                 this.btnSaveIncomingSupplies.Visible = true;
                 this.btnDeleteIncomingSupplies.Visible = true;
             }
+            else
+            {
+                MessageBox.Show("Please select supply first in incoming supplies list!", "Select First", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupplyArrived_Click(object sender, EventArgs e)
         {
             for(int i = 0; i < 50; ++i)
             {
-                if (this.txtSupplyID.Text != this.gridIncomingSupplies.SelectedCells[0].Value.ToString())
-                {
-                    MessageBox.Show("Please select supply first before clicking!", "Select First", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    break;
-                }
-                else if (this.gridIncomingSupplies.SelectedCells[6].Value.ToString() != string.Format("{0} Days Left", i.ToString()))
+                if (this.gridIncomingSupplies.SelectedCells[6].Value.ToString() != string.Format("{0} Days Left", i.ToString()))
                 {
                     if(MessageBox.Show("This supply does not arrived yet according to arrive date it shows! Continue?", "Confirmation",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -393,6 +406,21 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show(string.Format("{0} successfully deleted!", this.txtSupplyName.Text), "Success", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
+                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                this.switchExpirationDate.Checked = false;
+                this.dateExpiration.Value = DateTime.Now.Date;
+
+                this.btnAddIncomingSupplies.Visible = true;
+                this.btnEditIncomingSupplies.Enabled = true;
+
+                this.btnSaveIncomingSupplies.Visible = false;
+                this.btnDeleteIncomingSupplies.Visible = false;
+                this.btnSupplyArrived.Enabled = false;
+
                 autoGenNum();
 
                 this.txtSupplyName.ResetText();
@@ -404,18 +432,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show(string.Format("Failed to delete {0}!", this.txtSupplyName.Text), "Failed", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-            }
-        }
-
-        private void switchExpirationDateManageSupplies_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.switchExpirationDateManageSupplies.Checked)
-            {
-                this.switchExpirationDateManageSupplies.Checked = true;
-            }
-            else
-            {
-                this.switchExpirationDateManageSupplies.Checked = false;
             }
         }
 
@@ -482,18 +498,36 @@ namespace PatientInformationSystemNew.forms
 
         private void btnEditManageSupplies_Click(object sender, EventArgs e)
         {
-            if(this.txtSupplyIDManageSupplies.Text != this.gridManageSupplies.SelectedCells[0].Value.ToString())
+            if(this.gridManageSupplies.Rows.Count == 0)
             {
-                MessageBox.Show("Please select supply first before clicking edit!", "Select First", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("There are no supplies to edit! Please add supplies first!", "Add First",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtSupplyNameManageSupplies.Focus();
             }
-            else
+            if(this.txtSupplyIDManageSupplies.Text == this.gridManageSupplies.SelectedCells[0].Value.ToString())
             {
                 this.btnAddManageSupplies.Visible = false;
                 this.btnEditManageSupplies.Enabled = false;
 
                 this.btnSaveManageSupplies.Visible = true;
                 this.btnDeleteManageSupplies.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Please select supply first before clicking edit!", "Select First", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void switchExpirationDateManageSupplies_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.switchExpirationDateManageSupplies.Checked)
+            {
+                this.dateExpirationManageSupplies.Enabled = true;
+            }
+            else
+            {
+                this.dateExpirationManageSupplies.Enabled = false;
             }
         }
 
@@ -506,7 +540,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyNameManageSupplies.Text = this.gridManageSupplies.SelectedCells[1].Value.ToString();
             this.txtSupplyQuantityManageSupplies.Text = this.gridManageSupplies.SelectedCells[2].Value.ToString();
 
-            if(String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[3].Value.ToString()))
+            if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[3].Value.ToString()))
             {
                 this.switchExpirationDateManageSupplies.Checked = false;
                 this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
@@ -520,7 +554,65 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveManageSupplies_Click(object sender, EventArgs e)
         {
+            if(this.switchExpirationDateManageSupplies.Checked == true)
+            {
+                if(inventory.saveManageSuppliesWithExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
+                    this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value.Date))
+                {
+                    MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    inventory.loadInventory(this.gridSupplies);
+                    inventory.loadInventory(this.gridManageSupplies);
+
+                    this.btnAddManageSupplies.Visible = true;
+                    this.btnEditManageSupplies.Enabled = true;
+
+                    this.btnSaveManageSupplies.Visible = false;
+
+                    autoGenNum();
+
+                    this.txtSupplyNameManageSupplies.ResetText();
+                    this.txtSupplyQuantityManageSupplies.ResetText();
+
+                    this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
+
+                    this.switchExpirationDateManageSupplies.Checked = false;
+                    this.dateExpirationManageSupplies.Enabled = false;
+
+                    this.txtSupplyNameManageSupplies.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if (inventory.saveManageSuppliesWithoutExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
+                    this.txtSupplyQuantityManageSupplies.Text))
+                {
+                    MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    inventory.loadInventory(this.gridSupplies);
+                    inventory.loadInventory(this.gridManageSupplies);
+
+                    this.btnAddManageSupplies.Visible = true;
+                    this.btnEditManageSupplies.Enabled = true;
+
+                    this.btnSaveManageSupplies.Visible = false;
+
+                    autoGenNum();
+
+                    this.txtSupplyNameManageSupplies.ResetText();
+                    this.txtSupplyQuantityManageSupplies.ResetText();
+
+                    this.txtSupplyNameManageSupplies.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
