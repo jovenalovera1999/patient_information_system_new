@@ -84,6 +84,10 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveIncomingSupplies.Enabled = true;
             this.btnSupplyArrived.Enabled = true;
             this.btnDeleteIncomingSupplies.Enabled = true;
+
+            this.btnAddIncomingSupplies.Enabled = false;
+
+            this.txtSupplyName.Focus();
         }
 
         private void btnAddIncomingSupplies_Click(object sender, EventArgs e)
@@ -110,11 +114,19 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Incoming supply successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    autoGenNum();
                     inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                    autoGenNum();
 
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
+
+                    this.switchExpirationDate.Checked = false;
+
+                    this.dateExpiration.Value = DateTime.Now.Date;
+                    this.dateArrive.Value = DateTime.Now.Date;
+
+                    this.txtSupplyName.Focus();
                 }
                 else
                 {
@@ -131,6 +143,8 @@ namespace PatientInformationSystemNew.forms
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
 
+                    this.dateArrive.Value = DateTime.Now.Date;
+
                     this.txtSupplyName.Focus();
                 }
                 else if (inventory.addIncomingSuppliesWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
@@ -143,6 +157,8 @@ namespace PatientInformationSystemNew.forms
 
                     this.txtSupplyName.ResetText();
                     this.txtSupplyQuantity.ResetText();
+
+                    this.dateArrive.Value = DateTime.Now.Date;
 
                     this.txtSupplyName.Focus();
                 }
@@ -167,7 +183,7 @@ namespace PatientInformationSystemNew.forms
             }
             else if (this.switchExpirationDate.Checked == true)
             {
-                if (inventory.addIncomingSuppliesWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                if (inventory.updateIncomingSupplyWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
                     this.dateExpiration.Value.Date, this.dateArrive.Value.Date))
                 {
                     MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -175,8 +191,7 @@ namespace PatientInformationSystemNew.forms
                     this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                    inventory.loadInventory(this.gridSupplies);
-                    inventory.loadInventory(this.gridManageSupplies);
+                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                     autoGenNum();
 
@@ -184,11 +199,17 @@ namespace PatientInformationSystemNew.forms
                     this.txtSupplyQuantity.ResetText();
 
                     this.btnAddIncomingSupplies.Visible = true;
+                    this.btnAddIncomingSupplies.Enabled = true;
                     this.btnEditIncomingSupplies.Enabled = true;
 
                     this.btnSaveIncomingSupplies.Visible = false;
                     this.btnSupplyArrived.Enabled = false;
-                    this.btnDeleteIncomingSupplies.Visible = false;
+                    this.btnDeleteIncomingSupplies.Enabled = false;
+
+                    this.switchExpirationDate.Checked = false;
+
+                    this.dateExpiration.Value = DateTime.Now.Date;
+                    this.dateArrive.Value = DateTime.Now.Date;
 
                     this.txtSupplyName.Focus();
                 }
@@ -199,7 +220,7 @@ namespace PatientInformationSystemNew.forms
             }
             else if (this.dateExpiration.Checked == false)
             {
-                if (inventory.updateSupplyWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                if (inventory.updateIncomingSupplyWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
                     this.dateArrive.Value.Date))
                 {
                     MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,8 +228,7 @@ namespace PatientInformationSystemNew.forms
                     this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                    inventory.loadInventory(this.gridSupplies);
-                    inventory.loadInventory(this.gridManageSupplies);
+                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                     autoGenNum();
 
@@ -216,11 +236,14 @@ namespace PatientInformationSystemNew.forms
                     this.txtSupplyQuantity.ResetText();
 
                     this.btnAddIncomingSupplies.Visible = true;
+                    this.btnAddIncomingSupplies.Enabled = true;
                     this.btnEditIncomingSupplies.Enabled = true;
 
                     this.btnSaveIncomingSupplies.Visible = false;
                     this.btnSupplyArrived.Enabled = false;
-                    this.btnDeleteIncomingSupplies.Visible = false;
+                    this.btnDeleteIncomingSupplies.Enabled = false;
+
+                    this.dateArrive.Value = DateTime.Now.Date;
 
                     this.txtSupplyName.Focus();
                 }
@@ -245,7 +268,8 @@ namespace PatientInformationSystemNew.forms
                 this.btnEditIncomingSupplies.Enabled = false;
 
                 this.btnSaveIncomingSupplies.Visible = true;
-                this.btnDeleteIncomingSupplies.Visible = true;
+
+                this.txtSupplyQuantity.Focus();
             }
             else
             {
@@ -278,6 +302,13 @@ namespace PatientInformationSystemNew.forms
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                                 this.btnSupplyArrived.Enabled = false;
+                                this.btnDeleteIncomingSupplies.Enabled = false;
+                                this.switchExpirationDate.Checked = false;
+
+                                this.btnAddIncomingSupplies.Enabled = true;
+
+                                this.dateExpiration.Value = DateTime.Now.Date;
+                                this.dateArrive.Value = DateTime.Now.Date;
 
                                 autoGenNum();
 
@@ -310,6 +341,12 @@ namespace PatientInformationSystemNew.forms
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                                 this.btnSupplyArrived.Enabled = false;
+                                this.btnDeleteIncomingSupplies.Enabled = false;
+
+                                this.btnAddIncomingSupplies.Enabled = true;
+
+                                this.dateExpiration.Value = DateTime.Now.Date;
+                                this.dateArrive.Value = DateTime.Now.Date;
 
                                 autoGenNum();
 
@@ -329,6 +366,32 @@ namespace PatientInformationSystemNew.forms
                             }
                         }
                     }
+                    else
+                    {
+                        this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                        this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                        autoGenNum();
+
+                        this.txtSupplyName.ResetText();
+                        this.txtSupplyQuantity.ResetText();
+
+                        this.dateExpiration.Value = DateTime.Now.Date;
+                        this.dateArrive.Value = DateTime.Now.Date;
+
+                        this.switchExpirationDate.Checked = false;
+                        this.btnSupplyArrived.Enabled = false;
+                        this.btnSaveIncomingSupplies.Visible = false;
+                        this.btnDeleteIncomingSupplies.Enabled = false;
+
+                        this.btnAddIncomingSupplies.Visible = true;
+                        this.btnAddIncomingSupplies.Enabled = true;
+                        this.btnEditIncomingSupplies.Enabled = true;
+
+                        this.txtSupplyName.Focus();
+
+                        break;
+                    }
                 }
                 else
                 {
@@ -347,6 +410,9 @@ namespace PatientInformationSystemNew.forms
                             inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                             this.btnSupplyArrived.Enabled = false;
+                            this.btnDeleteIncomingSupplies.Enabled = false;
+
+                            this.btnAddIncomingSupplies.Enabled = true;
 
                             autoGenNum();
 
@@ -377,6 +443,9 @@ namespace PatientInformationSystemNew.forms
                             inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                             this.btnSupplyArrived.Enabled = false;
+                            this.btnDeleteIncomingSupplies.Enabled = false;
+
+                            this.btnAddIncomingSupplies.Enabled = true;
 
                             autoGenNum();
 
@@ -415,10 +484,11 @@ namespace PatientInformationSystemNew.forms
                 this.dateExpiration.Value = DateTime.Now.Date;
 
                 this.btnAddIncomingSupplies.Visible = true;
+                this.btnAddIncomingSupplies.Enabled = true;
                 this.btnEditIncomingSupplies.Enabled = true;
 
                 this.btnSaveIncomingSupplies.Visible = false;
-                this.btnDeleteIncomingSupplies.Visible = false;
+                this.btnDeleteIncomingSupplies.Enabled = false;
                 this.btnSupplyArrived.Enabled = false;
 
                 autoGenNum();
@@ -510,7 +580,6 @@ namespace PatientInformationSystemNew.forms
                 this.btnEditManageSupplies.Enabled = false;
 
                 this.btnSaveManageSupplies.Visible = true;
-                this.btnDeleteManageSupplies.Enabled = true;
             }
             else
             {
@@ -550,6 +619,9 @@ namespace PatientInformationSystemNew.forms
                 this.switchExpirationDateManageSupplies.Checked = true;
                 this.dateExpirationManageSupplies.Value = DateTime.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString());
             }
+            
+            this.btnDeleteManageSupplies.Enabled = true;
+            this.txtSupplyNameManageSupplies.Focus();
         }
 
         private void btnSaveManageSupplies_Click(object sender, EventArgs e)
@@ -568,6 +640,7 @@ namespace PatientInformationSystemNew.forms
                     this.btnEditManageSupplies.Enabled = true;
 
                     this.btnSaveManageSupplies.Visible = false;
+                    this.btnDeleteManageSupplies.Enabled = false;
 
                     autoGenNum();
 
@@ -577,7 +650,6 @@ namespace PatientInformationSystemNew.forms
                     this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
 
                     this.switchExpirationDateManageSupplies.Checked = false;
-                    this.dateExpirationManageSupplies.Enabled = false;
 
                     this.txtSupplyNameManageSupplies.Focus();
                 }
@@ -600,6 +672,7 @@ namespace PatientInformationSystemNew.forms
                     this.btnEditManageSupplies.Enabled = true;
 
                     this.btnSaveManageSupplies.Visible = false;
+                    this.btnDeleteManageSupplies.Enabled = false;
 
                     autoGenNum();
 

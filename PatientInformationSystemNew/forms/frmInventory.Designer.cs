@@ -282,7 +282,6 @@ namespace PatientInformationSystemNew.forms
             this.btnDeleteIncomingSupplies.Size = new System.Drawing.Size(130, 86);
             this.btnDeleteIncomingSupplies.TabIndex = 165;
             this.btnDeleteIncomingSupplies.Text = "Delete";
-            this.btnDeleteIncomingSupplies.Visible = false;
             this.btnDeleteIncomingSupplies.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label7
@@ -713,7 +712,6 @@ namespace PatientInformationSystemNew.forms
             this.btnAddManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddManageSupplies.DisabledState.Parent = this.btnAddManageSupplies;
-            this.btnAddManageSupplies.Enabled = false;
             this.btnAddManageSupplies.FillColor = System.Drawing.Color.Lime;
             this.btnAddManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAddManageSupplies.ForeColor = System.Drawing.Color.White;
@@ -776,7 +774,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveManageSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSaveManageSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSaveManageSupplies.DisabledState.Parent = this.btnSaveManageSupplies;
-            this.btnSaveManageSupplies.Enabled = false;
             this.btnSaveManageSupplies.FillColor = System.Drawing.Color.Lime;
             this.btnSaveManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnSaveManageSupplies.ForeColor = System.Drawing.Color.White;
@@ -872,7 +869,6 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyQuantityManageSupplies.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtSupplyQuantityManageSupplies.DisabledState.Parent = this.txtSupplyQuantityManageSupplies;
             this.txtSupplyQuantityManageSupplies.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSupplyQuantityManageSupplies.Enabled = false;
             this.txtSupplyQuantityManageSupplies.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtSupplyQuantityManageSupplies.FocusedState.Parent = this.txtSupplyQuantityManageSupplies;
             this.txtSupplyQuantityManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -911,7 +907,6 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyNameManageSupplies.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtSupplyNameManageSupplies.DisabledState.Parent = this.txtSupplyNameManageSupplies;
             this.txtSupplyNameManageSupplies.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSupplyNameManageSupplies.Enabled = false;
             this.txtSupplyNameManageSupplies.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtSupplyNameManageSupplies.FocusedState.Parent = this.txtSupplyNameManageSupplies;
             this.txtSupplyNameManageSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);

@@ -171,7 +171,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
-                        cmd.Parameters.AddWithValue("@quanttiy", quantity);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
 
                         connection.Open();
@@ -204,7 +204,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
-                        cmd.Parameters.AddWithValue("@quanttiy", quantity);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
 
                         connection.Open();
                         cmd.ExecuteReader();
@@ -362,7 +362,7 @@ namespace PatientInformationSystemNew.functions
 
         // Update
 
-        public bool updateSupplyWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date, DateTime arrive_date)
+        public bool updateIncomingSupplyWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date, DateTime arrive_date)
         {
             try
             {
@@ -399,7 +399,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool updateSupplyWithoutExpiration(string supply_id, string supply_name, string quantity, DateTime arrive_date)
+        public bool updateIncomingSupplyWithoutExpiration(string supply_id, string supply_name, string quantity, DateTime arrive_date)
         {
             try
             {
