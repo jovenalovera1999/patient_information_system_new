@@ -331,5 +331,47 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
+
+        // Inventory
+
+        public bool duplicateSupplyNameWithoutExpirationDate(string supply_name)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(quantity, 'jovencutegwapo123') AS CHAR)
+                                    FROM patient_information_db.inventory
+                                    WHERE 
+                                    CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count == 1)
+                        {
+                            val.SupplyQuantity = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(quantity, 'jovencutegwapo123') AS CHAR)");
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error detecting same name of supply to add or update from incoming supply: " + ex.ToString());
+                return false;
+            }
+        }
     }
 }

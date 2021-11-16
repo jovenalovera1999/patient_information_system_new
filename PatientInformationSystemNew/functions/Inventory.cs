@@ -152,74 +152,6 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        // Save
-
-        public bool saveManageSuppliesWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"UPDATE patient_information_db.inventory
-                                    SET 
-                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
-                                    expiration_date = @expiration_date
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@supply_id", supply_id);
-                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
-                        cmd.Parameters.AddWithValue("@quantity", quantity);
-                        cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
-
-                        connection.Open();
-                        cmd.ExecuteReader();
-
-                        return true;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error saving updated supply with expiration in manage supplies: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool saveManageSuppliesWithoutExpiration(string supply_id, string supply_name, string quantity)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"UPDATE patient_information_db.inventory
-                                    SET 
-                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@supply_id", supply_id);
-                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
-                        cmd.Parameters.AddWithValue("@quantity", quantity);
-
-                        connection.Open();
-                        cmd.ExecuteReader();
-
-                        return true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error saving updated supply without expiration in manage supplies: " + ex.ToString());
-                return false;
-            }
-        }
-
         // Add
 
         public bool addIncomingSuppliesWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date, DateTime arrive_date)
@@ -430,6 +362,105 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error updating supply without expiration: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool saveManageSuppliesWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.inventory
+                                    SET 
+                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
+                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    expiration_date = @expiration_date
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@supply_id", supply_id);
+                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving updated supply with expiration in manage supplies: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool saveManageSuppliesWithoutExpiration(string supply_id, string supply_name, string quantity)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.inventory
+                                    SET 
+                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
+                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@supply_id", supply_id);
+                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving updated supply without expiration in manage supplies: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool updateQuantityOfSupplyFromIncomingSupply(string supply_id, string supply_name, string quantity)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
+                                    WHERE CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;
+
+                                    DELETE FROM patient_information_db.inventory_incoming
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@supply_id", supply_id);
+                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating supply quantity from incoming supplies: " + ex.ToString());
                 return false;
             }
         }

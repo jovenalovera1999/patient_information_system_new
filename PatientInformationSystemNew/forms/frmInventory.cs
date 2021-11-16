@@ -280,7 +280,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSupplyArrived_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < 50; ++i)
+            for (int i = 0; i < 50; ++i)
             {
                 if (this.gridIncomingSupplies.SelectedCells[6].Value.ToString() != string.Format("{0} Days Left", i.ToString()))
                 {
@@ -299,6 +299,7 @@ namespace PatientInformationSystemNew.forms
                                 this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                                 inventory.loadInventory(this.gridSupplies);
+                                inventory.loadInventory(this.gridManageSupplies);
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                                 this.btnSupplyArrived.Enabled = false;
@@ -329,7 +330,48 @@ namespace PatientInformationSystemNew.forms
                         }
                         else
                         {
-                            if (inventory.supplyArrivedWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text))
+                            if (duplicate.duplicateSupplyNameWithoutExpirationDate(this.gridIncomingSupplies.SelectedCells[1].Value.ToString()))
+                            {
+                                int total = (int.Parse(val.SupplyQuantity) + int.Parse(this.gridIncomingSupplies.SelectedCells[2].Value.ToString()));
+
+                                if (inventory.updateQuantityOfSupplyFromIncomingSupply(this.gridIncomingSupplies.SelectedCells[0].Value.ToString(),
+                                    this.gridIncomingSupplies.SelectedCells[1].Value.ToString(), total.ToString()))
+                                {
+                                    MessageBox.Show("Supply has been updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                                    this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                                    inventory.loadInventory(this.gridSupplies);
+                                    inventory.loadInventory(this.gridManageSupplies);
+                                    inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                                    this.btnSupplyArrived.Enabled = false;
+                                    this.btnDeleteIncomingSupplies.Enabled = false;
+                                    this.switchExpirationDate.Checked = false;
+
+                                    this.btnAddIncomingSupplies.Enabled = true;
+
+                                    this.dateExpiration.Value = DateTime.Now.Date;
+                                    this.dateArrive.Value = DateTime.Now.Date;
+
+                                    autoGenNum();
+
+                                    this.txtSupplyName.ResetText();
+                                    this.txtSupplyQuantity.ResetText();
+
+                                    this.txtSupplyName.Focus();
+
+                                    break;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to update supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                    break;
+                                }
+                            }
+                            else if (inventory.supplyArrivedWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text))
                             {
                                 MessageBox.Show("Supply has arrived and its been transferred!", "Transferred", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
@@ -338,6 +380,7 @@ namespace PatientInformationSystemNew.forms
                                 this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                                 inventory.loadInventory(this.gridSupplies);
+                                inventory.loadInventory(this.gridManageSupplies);
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                                 this.btnSupplyArrived.Enabled = false;
@@ -407,6 +450,7 @@ namespace PatientInformationSystemNew.forms
                             this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                             inventory.loadInventory(this.gridSupplies);
+                            inventory.loadInventory(this.gridManageSupplies);
                             inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                             this.btnSupplyArrived.Enabled = false;
@@ -420,6 +464,8 @@ namespace PatientInformationSystemNew.forms
                             this.txtSupplyQuantity.ResetText();
 
                             this.txtSupplyName.Focus();
+
+                            break;
                         }
                         else
                         {
@@ -431,7 +477,48 @@ namespace PatientInformationSystemNew.forms
                     }
                     else
                     {
-                        if (inventory.supplyArrivedWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text))
+                        if (duplicate.duplicateSupplyNameWithoutExpirationDate(this.gridIncomingSupplies.SelectedCells[1].Value.ToString()))
+                        {
+                            int total = (int.Parse(val.SupplyQuantity) + int.Parse(this.gridIncomingSupplies.SelectedCells[2].Value.ToString()));
+
+                            if (inventory.updateQuantityOfSupplyFromIncomingSupply(this.gridIncomingSupplies.SelectedCells[0].Value.ToString(),
+                                this.gridIncomingSupplies.SelectedCells[1].Value.ToString(), total.ToString()))
+                            {
+                                MessageBox.Show("Supply has been updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                                this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                                inventory.loadInventory(this.gridSupplies);
+                                inventory.loadInventory(this.gridManageSupplies);
+                                inventory.loadIncomingInventory(this.gridIncomingSupplies);
+
+                                this.btnSupplyArrived.Enabled = false;
+                                this.btnDeleteIncomingSupplies.Enabled = false;
+                                this.switchExpirationDate.Checked = false;
+
+                                this.btnAddIncomingSupplies.Enabled = true;
+
+                                this.dateExpiration.Value = DateTime.Now.Date;
+                                this.dateArrive.Value = DateTime.Now.Date;
+
+                                autoGenNum();
+
+                                this.txtSupplyName.ResetText();
+                                this.txtSupplyQuantity.ResetText();
+
+                                this.txtSupplyName.Focus();
+
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to update supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                break;
+                            }
+                        }
+                        else if (inventory.supplyArrivedWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text))
                         {
                             MessageBox.Show("Supply has arrived and its been transferred!", "Transferred", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
@@ -440,6 +527,7 @@ namespace PatientInformationSystemNew.forms
                             this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                             inventory.loadInventory(this.gridSupplies);
+                            inventory.loadInventory(this.gridManageSupplies);
                             inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
                             this.btnSupplyArrived.Enabled = false;
@@ -528,6 +616,10 @@ namespace PatientInformationSystemNew.forms
                 if(inventory.addSupplyWithExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
                     this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value.Date))
                 {
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    inventory.loadInventory(this.gridSupplies);
                     inventory.loadInventory(this.gridManageSupplies);
 
                     autoGenNum();
@@ -550,6 +642,10 @@ namespace PatientInformationSystemNew.forms
                 if (inventory.addSupplyWithoutExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
                     this.txtSupplyQuantityManageSupplies.Text))
                 {
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    inventory.loadInventory(this.gridSupplies);
                     inventory.loadInventory(this.gridManageSupplies);
 
                     autoGenNum();

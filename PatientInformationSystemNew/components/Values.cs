@@ -343,5 +343,14 @@ namespace PatientInformationSystemNew.components
             get { return prescription_date; }
             set { prescription_date = value; }
         }
+
+        // Inventory values
+
+        public static string supply_quantity;
+        public string SupplyQuantity
+        {
+            get { return supply_quantity; }
+            set { supply_quantity = value; }
+        }
     }
 }
