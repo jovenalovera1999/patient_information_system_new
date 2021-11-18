@@ -465,6 +465,64 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public bool updateQuantityOfExistingSupplyWithoutExpiration(string supply_name, string quantity)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
+                                    WHERE CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating the existing supply in manage supplies: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool itemUsed(string supply_id, string quantity)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE patient_information_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutewgapo123') AS CHAR) = @supply_id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@supply_id", supply_id);
+                        cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                        connection.Open();
+                        cmd.ExecuteReader();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating supply by deducting quantity: " + ex.ToString());
+                return false;
+            }
+        }
+
         // Delete
 
         public bool deleteIncomingSupply(string supply_id)

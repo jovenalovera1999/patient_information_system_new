@@ -593,6 +593,37 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        // Manage Supplies
+
+        private void gridManageSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtSupplyIDManageSupplies.Text = this.gridManageSupplies.SelectedCells[0].Value.ToString();
+            this.txtSupplyNameManageSupplies.Text = this.gridManageSupplies.SelectedCells[1].Value.ToString();
+            this.txtSupplyQuantityManageSupplies.Text = this.gridManageSupplies.SelectedCells[2].Value.ToString();
+
+            if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[3].Value.ToString()))
+            {
+                this.switchExpirationDateManageSupplies.Checked = false;
+                this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
+            }
+            else
+            {
+                this.switchExpirationDateManageSupplies.Checked = true;
+                this.dateExpirationManageSupplies.Value = DateTime.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString());
+            }
+
+            this.btnEditManageSupplies.Enabled = true;
+            this.btnDeleteManageSupplies.Enabled = true;
+            this.btnDeductItem.Enabled = true;
+
+            this.btnAddManageSupplies.Enabled = false;
+
+            this.txtSupplyNameManageSupplies.Focus();
+        }
+
         private void btnAddManageSupplies_Click(object sender, EventArgs e)
         {
             if(String.IsNullOrWhiteSpace(this.txtSupplyNameManageSupplies.Text) && 
@@ -624,8 +655,8 @@ namespace PatientInformationSystemNew.forms
 
                     autoGenNum();
 
-                    this.txtSupplyIDManageSupplies.ResetText();
-                    this.txtSupplyQuantity.ResetText();
+                    this.txtSupplyNameManageSupplies.ResetText();
+                    this.txtSupplyQuantityManageSupplies.ResetText();
 
                     this.switchExpirationDateManageSupplies.Checked = false;
                     this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
@@ -639,7 +670,35 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                if (inventory.addSupplyWithoutExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
+                if(duplicate.duplicateSupplyNameWithoutExpirationDate(this.txtSupplyNameManageSupplies.Text))
+                {
+                    int total_quantity_manage_supplies = (int.Parse(val.SupplyQuantity) + 
+                        int.Parse(this.txtSupplyQuantityManageSupplies.Text));
+
+                    if(inventory.updateQuantityOfExistingSupplyWithoutExpiration(this.txtSupplyNameManageSupplies.Text, 
+                        total_quantity_manage_supplies.ToString()))
+                    {
+                        MessageBox.Show("Supply has been updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                        this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                        inventory.loadInventory(this.gridSupplies);
+                        inventory.loadInventory(this.gridManageSupplies);
+
+                        autoGenNum();
+
+                        this.txtSupplyNameManageSupplies.ResetText();
+                        this.txtSupplyQuantityManageSupplies.ResetText();
+
+                        this.txtSupplyNameManageSupplies.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update existing supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (inventory.addSupplyWithoutExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
                     this.txtSupplyQuantityManageSupplies.Text))
                 {
                     this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -650,10 +709,10 @@ namespace PatientInformationSystemNew.forms
 
                     autoGenNum();
 
-                    this.txtSupplyIDManageSupplies.ResetText();
-                    this.txtSupplyQuantity.ResetText();
+                    this.txtSupplyNameManageSupplies.ResetText();
+                    this.txtSupplyQuantityManageSupplies.ResetText();
 
-                    this.txtSupplyName.Focus();
+                    this.txtSupplyNameManageSupplies.Focus();
                 }
                 else
                 {
@@ -696,30 +755,6 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void gridManageSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
-            this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.White;
-
-            this.txtSupplyIDManageSupplies.Text = this.gridManageSupplies.SelectedCells[0].Value.ToString();
-            this.txtSupplyNameManageSupplies.Text = this.gridManageSupplies.SelectedCells[1].Value.ToString();
-            this.txtSupplyQuantityManageSupplies.Text = this.gridManageSupplies.SelectedCells[2].Value.ToString();
-
-            if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[3].Value.ToString()))
-            {
-                this.switchExpirationDateManageSupplies.Checked = false;
-                this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
-            }
-            else
-            {
-                this.switchExpirationDateManageSupplies.Checked = true;
-                this.dateExpirationManageSupplies.Value = DateTime.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString());
-            }
-            
-            this.btnDeleteManageSupplies.Enabled = true;
-            this.txtSupplyNameManageSupplies.Focus();
-        }
-
         private void btnSaveManageSupplies_Click(object sender, EventArgs e)
         {
             if(this.switchExpirationDateManageSupplies.Checked == true)
@@ -729,6 +764,9 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
                     inventory.loadInventory(this.gridSupplies);
                     inventory.loadInventory(this.gridManageSupplies);
 
@@ -737,6 +775,7 @@ namespace PatientInformationSystemNew.forms
 
                     this.btnSaveManageSupplies.Visible = false;
                     this.btnDeleteManageSupplies.Enabled = false;
+                    this.btnDeductItem.Enabled = false;
 
                     autoGenNum();
 
@@ -761,6 +800,9 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
                     inventory.loadInventory(this.gridSupplies);
                     inventory.loadInventory(this.gridManageSupplies);
 
@@ -769,6 +811,7 @@ namespace PatientInformationSystemNew.forms
 
                     this.btnSaveManageSupplies.Visible = false;
                     this.btnDeleteManageSupplies.Enabled = false;
+                    this.btnDeductItem.Enabled = false;
 
                     autoGenNum();
 
@@ -781,6 +824,51 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Failed to update supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnDeductItem_Click(object sender, EventArgs e)
+        {
+            int total_deduct_items = (int.Parse(this.gridManageSupplies.SelectedCells[2].Value.ToString()) - 
+                int.Parse(this.txtItemUsed.Text));
+
+            if(String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
+            {
+                MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtItemUsed.Focus();
+            }
+            else if (inventory.itemUsed(this.gridManageSupplies.SelectedCells[0].Value.ToString(), total_deduct_items.ToString()))
+            {
+                MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                inventory.loadInventory(this.gridSupplies);
+                inventory.loadInventory(this.gridManageSupplies);
+
+                this.btnAddManageSupplies.Visible = true;
+                this.btnAddManageSupplies.Enabled = true;
+                this.btnEditManageSupplies.Enabled = true;
+
+                this.btnSaveManageSupplies.Visible = false;
+                this.btnDeleteManageSupplies.Enabled = false;
+                this.btnDeductItem.Enabled = false;
+
+                autoGenNum();
+
+                this.txtSupplyNameManageSupplies.ResetText();
+                this.txtSupplyQuantityManageSupplies.ResetText();
+
+                this.dateExpirationManageSupplies.Value = DateTime.Now.Date;
+
+                this.switchExpirationDateManageSupplies.Checked = false;
+
+                this.txtSupplyNameManageSupplies.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
