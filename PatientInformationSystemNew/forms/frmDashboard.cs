@@ -44,6 +44,11 @@ namespace PatientInformationSystemNew.forms
                     s = 00;
                 }
                 this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+
+                if(this.lblTime.Text == "12:00:00 am")
+                {
+                    this.lblDate.Text = DateTime.Now.ToString("D");
+                }
             }));
         }
 

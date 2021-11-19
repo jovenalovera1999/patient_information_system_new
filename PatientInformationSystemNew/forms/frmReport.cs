@@ -16,5 +16,12 @@ namespace PatientInformationSystemNew.forms
         {
             InitializeComponent();
         }
+
+        private void frmReport_Load(object sender, EventArgs e)
+        {
+
+            this.rprtPatientsSales.RefreshReport();
+            this.rprtInventory.RefreshReport();
+        }
     }
 }

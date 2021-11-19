@@ -16,7 +16,7 @@ namespace PatientInformationSystemNew.functions
         // Sign Up User
 
         public bool signUp(string user_id, byte[] profile_picture, string username, string password, string first_name, 
-            string middle_name, string last_name, string gender, int age, string address, DateTime birthday, string cellphone_number, 
+            string middle_name, string last_name, string gender, string age, string address, DateTime birthday, string cellphone_number, 
             string telephone_number, string email, string role, string specialization)
         {
             try
@@ -34,7 +34,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@gender, 'jovencutegwapo123'),
-                                    @age,
+                                    AES_ENCRYPT(@age, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@address, 'jovencutegwapo123'),
                                     @birthday,
                                     AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),
@@ -94,7 +94,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
-                                    age,
+                                    CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
@@ -125,7 +125,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
                             val.UserLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
                             val.UserGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
-                            val.UserAge = dt.Rows[0].Field<int>("age");
+                            val.UserAge = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR)");
                             val.UserAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
                             val.UserBirthday = dt.Rows[0].Field<DateTime>("birthday");
                             val.UserCellphoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
@@ -166,7 +166,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
-                                    age,
+                                    CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
@@ -197,7 +197,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
                             val.UserLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
                             val.UserGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
-                            val.UserAge = dt.Rows[0].Field<int>("age");
+                            val.UserAge = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR)");
                             val.UserAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
                             val.UserBirthday = DateTime.Now.Date;
                             val.UserCellphoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
@@ -239,7 +239,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
-                                    age,
+                                    CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
@@ -268,7 +268,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
                             val.UserLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
                             val.UserGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
-                            val.UserAge = dt.Rows[0].Field<int>("age");
+                            val.UserAge = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR)");
                             val.UserAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
                             val.UserBirthday = dt.Rows[0].Field<DateTime>("birthday");
                             val.UserCellphoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
@@ -296,7 +296,7 @@ namespace PatientInformationSystemNew.functions
         //  Update User
 
         public bool updateUser(string user_id, byte[] profile_picture, string username, string password, string first_name, string middle_name, 
-            string last_name, string gender, int age, string address, DateTime birthday, string cellphone_number, string telephone_number,
+            string last_name, string gender, string age, string address, DateTime birthday, string cellphone_number, string telephone_number,
             string email)
         {
             try
@@ -312,7 +312,7 @@ namespace PatientInformationSystemNew.functions
                                     middle_name = AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
                                     last_name = AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
                                     gender = AES_ENCRYPT(@gender, 'jovencutegwapo123'),
-                                    age = @age,
+                                    age = AES_ENCRYPT(@age, 'jovencutegwapo123'),
                                     address = AES_ENCRYPT(@address, 'jovencutegwapo123'),
                                     birthday = @birthday,
                                     cellphone_number = AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),

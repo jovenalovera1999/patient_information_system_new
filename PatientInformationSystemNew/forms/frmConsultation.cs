@@ -36,17 +36,17 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddleName.Text = val.PatientMiddleName;
             this.txtLastName.Text = val.PatientLastName;
             this.txtGender.Text = val.PatientGender;
-            this.txtAge.Text = val.PatientAge.ToString();
+            this.txtAge.Text = val.PatientAge;
             this.txtAddress.Text = val.PatientAddress;
             this.dateBirthday.Value = val.PatientBirthday;
             this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
             this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
             this.txtEmail.Text = val.PatientEmail;
-            this.txtHeight.Text = val.PatientHeight.ToString();
-            this.txtWeight.Text = val.PatientWeight.ToString();
-            this.txtTemperature.Text = val.PatientTemperature.ToString();
-            this.txtPulseRate.Text = val.PatientPulseRate.ToString();
-            this.txtBloodPressure.Text = val.PatientBloodPressure.ToString();
+            this.txtHeight.Text = val.PatientHeight;
+            this.txtWeight.Text = val.PatientWeight;
+            this.txtTemperature.Text = val.PatientTemperature;
+            this.txtPulseRate.Text = val.PatientPulseRate;
+            this.txtBloodPressure.Text = val.PatientBloodPressure;
 
             diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
             symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
@@ -84,6 +84,18 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void txtSymptoms_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            {
+                this.btnAddSymptoms.Enabled = false;
+            }
+            else
+            {
+                this.btnAddSymptoms.Enabled = true;
+            }
+        }
+
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
             Random number = new Random();
@@ -105,6 +117,8 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
             this.btnSaveDiagnosis.Enabled = true;
+
+            this.btnRemoveDiagnosis.Enabled = false;
         }
 
         private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
@@ -296,16 +310,16 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input prescription first before proceed!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtPrescription.Focus();
             }
-            else if(this.btnSaveDiagnosis.Enabled == true)
+            else if(this.btnSaveDiagnosis.Enabled == true || !String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
             {
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
             else if (patient.savePrescriptionAndTransferPatientToPatients(this.txtPatientID.Text, generateID.ToString(), this.txtPrescription.Text,
-                DateTime.Now.Date, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, this.txtGender.Text, int.Parse(this.txtAge.Text),
+                DateTime.Now.Date, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, this.txtGender.Text, this.txtAge.Text,
                 this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                double.Parse(this.txtHeight.Text), double.Parse(this.txtWeight.Text), double.Parse(this.txtTemperature.Text), double.Parse(this.txtPulseRate.Text), 
-                double.Parse(this.txtBloodPressure.Text), val.PatientDoctor))
+                this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, 
+                this.txtBloodPressure.Text, val.PatientDoctor))
             {
                 MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
@@ -355,7 +369,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text))
+                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;
@@ -374,7 +388,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text))
+                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;

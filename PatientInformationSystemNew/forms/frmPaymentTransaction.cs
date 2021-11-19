@@ -117,6 +117,7 @@ namespace PatientInformationSystemNew.forms
                 string last_name = this.gridPaymentTransaction.SelectedCells[3].Value.ToString();
 
                 this.rprtReceipt.Clear();
+
                 ReportParameterCollection parameters = new ReportParameterCollection();
                 parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
                 parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
@@ -127,6 +128,7 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
                 parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
                 parameters.Add(new ReportParameter("pCashier", val.UserFullName));
+
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
                 this.rprtReceipt.RefreshReport();
             }
@@ -138,23 +140,28 @@ namespace PatientInformationSystemNew.forms
             if(MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
                 == DialogResult.Yes)
             {
-                if (payment.savePatientPayment(this.gridPaymentTransaction.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
-                double.Parse(this.txtTotalMedicalFee.Text), this.cmbDiscount.Text, double.Parse(this.txtAmount.Text),
-                double.Parse(this.txtTotalAmountPaid.Text), double.Parse(this.txtChange.Text)))
+                if (payment.savePatientPayment(this.gridPaymentTransaction.SelectedCells[0].Value.ToString(), 
+                    this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text,
+                    this.txtTotalAmountPaid.Text, this.txtChange.Text))
                 {
-                    MessageBox.Show("Payment transaction saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Payment transaction successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+                    payment.loadPatientUnpaid(this.gridPaymentTransaction);
+
+                    this.rprtReceipt.Clear();
+
                     this.txtFullName.ResetText();
                     this.txtReceiptNo.ResetText();
                     this.txtTotalMedicalFee.ResetText();
-                    this.cmbDiscount.Text = null;
                     this.txtAmount.ResetText();
                     this.txtTotalAmountPaid.ResetText();
                     this.txtChange.ResetText();
-                    payment.loadPatientUnpaid(this.gridPaymentTransaction);
+
+                    this.cmbDiscount.Text = null;
+
                     this.txtReceiptNo.Focus();
                 }
                 else

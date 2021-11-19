@@ -64,8 +64,8 @@ namespace PatientInformationSystemNew.components
             get { return user_gender; }
             set { user_gender = value; }
         }
-        public static int user_age;
-        public int UserAge
+        public static string user_age;
+        public string UserAge
         {
             get { return user_age; }
             set { user_age = value; }
@@ -160,8 +160,8 @@ namespace PatientInformationSystemNew.components
             get { return patient_gender; }
             set { patient_gender = value; }
         }
-        public static int patient_age;
-        public int PatientAge
+        public static string patient_age;
+        public string PatientAge
         {
             get { return patient_age; }
             set { patient_age = value; }
@@ -197,32 +197,32 @@ namespace PatientInformationSystemNew.components
             get { return patient_email; }
             set { patient_email = value; }
         }
-        public static double patient_height;
-        public double PatientHeight
+        public static string patient_height;
+        public string PatientHeight
         {
             get { return patient_height; }
             set { patient_height = value; }
         }
-        public static double patient_weight;
-        public double PatientWeight
+        public static string patient_weight;
+        public string PatientWeight
         {
             get { return patient_weight; }
             set { patient_weight = value; }
         }
-        public static double patient_temperature;
-        public double PatientTemperature
+        public static string patient_temperature;
+        public string PatientTemperature
         {
             get { return patient_temperature; }
             set { patient_temperature = value; }
         }
-        public static double patient_pulse_rate;
-        public double PatientPulseRate
+        public static string patient_pulse_rate;
+        public string PatientPulseRate
         {
             get { return patient_pulse_rate; }
             set { patient_pulse_rate = value; }
         }
-        public static double patient_blood_pressure;
-        public double PatientBloodPressure
+        public static string patient_blood_pressure;
+        public string PatientBloodPressure
         {
             get { return patient_blood_pressure; }
             set { patient_blood_pressure = value; }

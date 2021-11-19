@@ -80,8 +80,8 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool savePatientPayment(string patient_id, string receipt_no, double total_medical_fee, string discount, double amount, 
-            double total_amount_paid, double change)
+        public bool savePatientPayment(string patient_id, string receipt_no, string total_medical_fee, string discount, string amount,
+            string total_amount_paid, string change)
         {
             try
             {
@@ -92,11 +92,11 @@ namespace PatientInformationSystemNew.functions
                                     VALUES(
                                     AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@receipt_no, 'jovencutegwapo123'), 
-                                    @total_medical_fee,
+                                    AES_ENCRYPT(@total_medical_fee, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@discount, 'jovencutegwapo123'),
-                                    @amount,
-                                    @total_amount_paid,
-                                    @change
+                                    AES_ENCRYPT(@amount, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@total_amount_paid, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@change, 'jovencutegwapo123')
                                     );
 
                                     UPDATE patient_information_db.patients

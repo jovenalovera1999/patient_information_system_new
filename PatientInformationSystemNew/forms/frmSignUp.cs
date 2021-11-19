@@ -194,34 +194,29 @@ namespace PatientInformationSystemNew.forms
             else if(String.IsNullOrWhiteSpace(imgLocation)) 
             {
                 if(user.signUp(this.txtUserID.Text, null, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text, this.txtMiddlename.Text,
-                    this.txtLastname.Text, this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date, 
+                    this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, 
                     this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.cmbRole.Text, this.txtSpecialization.Text))
                 {
-                    if(String.IsNullOrWhiteSpace(this.txtMiddlename.Text))
-                    {
-                        MessageBox.Show(string.Format("{0} {1} account successfully created!", this.txtFirstname.Text, this.txtLastname.Text),
-                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(string.Format("{0} {1}. {2} account successfully created!", this.txtFirstname.Text, 
-                            this.txtMiddlename.Text[0], this.txtLastname.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("User account has been successfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.txtUserID.ResetText();
                     this.txtUsername.ResetText();
                     this.txtPassword.ResetText();
                     this.txtFirstname.ResetText();
                     this.txtMiddlename.ResetText();
                     this.txtLastname.ResetText();
-                    this.cmbGender.Text = null;
-                    this.cmbAge.Text = null;
                     this.txtAddress.ResetText();
-                    this.dateBirthday.Value = DateTime.Now.Date;
                     this.txtCellphoneNumber.ResetText();
                     this.txtTelephoneNumber.ResetText();
                     this.txtEmail.ResetText();
-                    this.cmbRole.Text = null;
                     this.txtSpecialization.ResetText();
+
+                    this.cmbGender.Text = null;
+                    this.cmbAge.Text = null;
+                    this.cmbRole.Text = null;
+
+                    this.dateBirthday.Value = DateTime.Now.Date;
+
                     this.txtUserID.Focus();
                 }
                 else
@@ -237,38 +232,33 @@ namespace PatientInformationSystemNew.forms
                 profilePicture = br.ReadBytes((int)fs.Length);
 
                 if(user.signUp(this.txtUserID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text,
-                    this.txtMiddlename.Text, this.txtLastname.Text, this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text,
+                    this.txtMiddlename.Text, this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
                     this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
                     this.cmbRole.Text, this.txtSpecialization.Text))
                 {
-                    if(String.IsNullOrWhiteSpace(this.txtMiddlename.Text))
-                    {
-                        MessageBox.Show(string.Format("{0} {1} account successfully created!", this.txtFirstname.Text, this.txtLastname.Text), 
-                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(string.Format("{0} {1}. {2} account successfully created!", this.txtFirstname.Text, this.txtMiddlename.Text[0],
-                            this.txtLastname.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("User account has been successfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.txtUserID.ResetText();
-                    imgLocation = null;
-                    this.picProfilePicture.ImageLocation = null;
-                    this.picProfilePicture.Image = null;
                     this.txtUsername.ResetText();
                     this.txtPassword.ResetText();
                     this.txtFirstname.ResetText();
                     this.txtMiddlename.ResetText();
                     this.txtLastname.ResetText();
-                    this.cmbGender.Text = null;
-                    this.cmbAge.Text = null;
                     this.txtAddress.ResetText();
-                    this.dateBirthday.Value = DateTime.Now.Date;
                     this.txtCellphoneNumber.ResetText();
                     this.txtTelephoneNumber.ResetText();
                     this.txtEmail.ResetText();
-                    this.cmbRole.Text = null;
                     this.txtSpecialization.ResetText();
+
+                    imgLocation = null;
+                    this.picProfilePicture.ImageLocation = null;
+                    this.picProfilePicture.Image = null;
+                    this.cmbGender.Text = null;
+                    this.cmbAge.Text = null;
+                    this.cmbRole.Text = null;
+
+                    this.dateBirthday.Value = DateTime.Now.Date;
+
                     this.txtUserID.Focus();
                 }
                 else

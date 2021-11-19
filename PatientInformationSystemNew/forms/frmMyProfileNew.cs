@@ -45,8 +45,8 @@ namespace PatientInformationSystemNew.forms
             this.txtLastName.Text = val.UserLastName;
             this.txtGender.Text = val.UserGender;
             this.cmbGender.Text = val.UserGender;
-            this.txtAge.Text = val.UserAge.ToString();
-            this.cmbAge.Text = val.UserAge.ToString();
+            this.txtAge.Text = val.UserAge;
+            this.cmbAge.Text = val.UserAge;
             this.txtAddress.Text = val.UserAddress;
             this.dateBirthday.Value = val.UserBirthday;
             this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
@@ -163,10 +163,10 @@ namespace PatientInformationSystemNew.forms
                 // User already with or without profile picture
 
                 if (user.updateUser(this.txtMyID.Text, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text,
+                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
                     this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
                 {
-                    MessageBox.Show("Your profile successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (user.getUser(this.txtMyID.Text))
                     {
@@ -184,8 +184,8 @@ namespace PatientInformationSystemNew.forms
                         this.txtLastName.Text = val.UserLastName;
                         this.cmbGender.Text = val.UserGender;
                         this.txtGender.Text = val.UserGender;
-                        this.cmbAge.Text = val.UserAge.ToString();
-                        this.txtAge.Text = val.UserAge.ToString();
+                        this.cmbAge.Text = val.UserAge;
+                        this.txtAge.Text = val.UserAge;
                         this.txtAddress.Text = val.UserAddress;
                         this.dateBirthday.Value = val.UserBirthday;
                         this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
@@ -216,7 +216,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (!String.IsNullOrWhiteSpace(imgLocation))
@@ -229,10 +229,10 @@ namespace PatientInformationSystemNew.forms
                 profilePicture = br.ReadBytes((int)fs.Length);
 
                 if (user.updateUser(this.txtMyID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date,
+                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
                     this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
                 {
-                    MessageBox.Show("Your profile successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     if (user.getUser(this.txtMyID.Text))
                     {
@@ -250,8 +250,8 @@ namespace PatientInformationSystemNew.forms
                         this.txtLastName.Text = val.UserLastName;
                         this.cmbGender.Text = val.UserGender;
                         this.txtGender.Text = val.UserGender;
-                        this.cmbAge.Text = val.UserAge.ToString();
-                        this.txtAge.Text = val.UserAge.ToString();
+                        this.cmbAge.Text = val.UserAge;
+                        this.txtAge.Text = val.UserAge;
                         this.txtAddress.Text = val.UserAddress;
                         this.dateBirthday.Value = val.UserBirthday;
                         this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
@@ -282,7 +282,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -13,6 +13,10 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
+        // Patient
+
+        // Username
+
         public bool usernameDuplicate(string username)
         {
             try

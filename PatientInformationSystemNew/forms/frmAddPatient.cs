@@ -327,9 +327,9 @@ namespace PatientInformationSystemNew.forms
                 this.txtFirstName.Focus();
             }
             else if(patient.addPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, 
-                this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, double.Parse(this.txtHeight.Text), double.Parse(this.txtWeight.Text), 
-                double.Parse(this.txtTemperature.Text), double.Parse(this.txtPulseRate.Text), double.Parse(this.txtBloodPressure.Text), 
+                this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text, 
+                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, 
                 this.cmbDoctorName.Text))
             {
                 for(int i = 0; i < this.gridAddPatient.Rows.Count; i++)

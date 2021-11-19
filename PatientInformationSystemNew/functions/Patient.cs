@@ -120,9 +120,9 @@ namespace PatientInformationSystemNew.functions
 
         // Add patient
 
-        public bool addPatient(string patient_id, string first_name, string middle_name, string last_name, string gender, int age, string address, 
-            DateTime birthday, string cellphone_number, string telephone_number, string email, double height, double weight, double temperature, 
-            double pulse_rate, double blood_pressure, string doctor)
+        public bool addPatient(string patient_id, string first_name, string middle_name, string last_name, string gender, string age, string address, 
+            DateTime birthday, string cellphone_number, string telephone_number, string email, string height, string weight, string temperature,
+            string pulse_rate, string blood_pressure, string doctor)
         {
             try
             {
@@ -137,17 +137,17 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@middle_name, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@last_name, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@gender, 'jovencutegwapo123'), 
-                                    @age, 
+                                    AES_ENCRYPT(@age, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@address, 'jovencutegwapo123'), 
                                     @birthday, 
                                     AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@email, 'jovencutegwapo123'), 
-                                    @height, 
-                                    @weight, 
-                                    @temperature, 
-                                    @pulse_rate, 
-                                    @blood_pressure, 
+                                    AES_ENCRYPT(@height, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@weight, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@temperature, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@pulse_rate, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@blood_pressure, 'jovencutegwapo123'), 
                                     AES_ENCRYPT(@doctor, 'jovencutegwapo123')
                                     );";
 
@@ -188,9 +188,9 @@ namespace PatientInformationSystemNew.functions
         // Save patient
 
         public bool savePrescriptionAndTransferPatientToPatients(string patient_id, string prescription_id, string prescriptions, DateTime date, 
-            string first_name, string middle_name, string last_name, string gender, int age, string address, DateTime birthday, 
-            string cellphone_number, string telephone_number, string email, double height, double weight, double temperature, double pulse_rate, 
-            double blood_pressure, string doctor)
+            string first_name, string middle_name, string last_name, string gender, string age, string address, DateTime birthday, 
+            string cellphone_number, string telephone_number, string email, string height, string weight, string temperature, string pulse_rate,
+            string blood_pressure, string doctor)
         {
             try
             {
@@ -213,19 +213,24 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@gender, 'jovencutegwapo123'),
-                                    @age,
+                                    AES_ENCRYPT(@age, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@address, 'jovencutegwapo123'),
                                     @birthday,
                                     AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@email, 'jovencutegwapo123'),
-                                    @height,
-                                    @weight,
-                                    @temperature,
-                                    @pulse_rate,
-                                    @blood_pressure,
+                                    AES_ENCRYPT(@height, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@weight, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@temperature, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@pulse_rate, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@blood_pressure, 'jovencutegwapo123'),
                                     AES_ENCRYPT(@doctor, 'jovencutegwapo123')
                                     );
+
+                                    INSERT INTO patient_information_db.number_of_patients(patient_id, date)
+                                    VALUES(
+                                    AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
+                                    @date);
 
                                     DELETE FROM patient_information_db.schedule
                                     WHERE
@@ -270,9 +275,9 @@ namespace PatientInformationSystemNew.functions
 
         // Update patient
 
-        public bool updatePatient(string patient_id, string first_name, string middle_name, string last_name, string gender, int age,
-            string address, DateTime birthday, string cellphone_number, string telephone_number, string email, double height, double weight,
-            double temperature, double pulse_rate, double blood_pressure)
+        public bool updatePatient(string patient_id, string first_name, string middle_name, string last_name, string gender, string age,
+            string address, DateTime birthday, string cellphone_number, string telephone_number, string email, string height, string weight,
+            string temperature, string pulse_rate, string blood_pressure)
         {
             try
             {
@@ -284,17 +289,17 @@ namespace PatientInformationSystemNew.functions
                                     middle_name = AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
                                     last_name = AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
                                     gender = AES_ENCRYPT(@gender, 'jovencutegwapo123'),
-                                    age = @age,
+                                    age = AES_ENCRYPT(@age, 'jovencutegwapo123'),
                                     address = AES_ENCRYPT(@address, 'jovencutegwapo123'),
                                     birthday = @birthday,
                                     cellphone_number = AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),
                                     telephone_number = AES_ENCRYPT(@telephone_number, 'jovencutegwapo123'),
                                     email = AES_ENCRYPT(@email, 'jovencutegwapo123'),
-                                    height = @height,
-                                    weight = @weight,
-                                    temperature = @temperature,
-                                    pulse_rate = @pulse_rate,
-                                    blood_pressure = @blood_pressure
+                                    height = AES_ENCRYPT(@height, 'jovencutegwapo123'),
+                                    weight = AES_ENCRYPT(@weight, 'jovencutegwapo123'),
+                                    temperature = AES_ENCRYPT(@temperature, 'jovencutegwapo123'),
+                                    pulse_rate = AES_ENCRYPT(@pulse_rate, 'jovencutegwapo123'),
+                                    blood_pressure = AES_ENCRYPT(@blood_pressure, 'jovencutegwapo123')
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
 
@@ -333,7 +338,7 @@ namespace PatientInformationSystemNew.functions
 
         // Cancel, remove or delete patient
 
-        public bool backPatientToScheduleFromConsultation(string patient_id)
+        public bool backPatientToScheduleFromConsultation(string patient_id, DateTime date)
         {
             try
             {
@@ -341,11 +346,17 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"UPDATE patient_information_db.schedule 
                                     SET status = 'Waiting'
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;
+
+                                    DELETE FROM patient_information_db.diagnosis
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
+                                    date = @date";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         cmd.ExecuteReader();
@@ -403,17 +414,17 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
-                                    age,
+                                    CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR),
-                                    height,
-                                    weight,
-                                    temperature,
-                                    pulse_rate,
-                                    blood_pressure,
+                                    CAST(AES_DECRYPT(height, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(weight, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(temperature, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(pulse_rate, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(blood_pressure, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)
                                     FROM patient_information_db.schedule 
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;
@@ -436,17 +447,17 @@ namespace PatientInformationSystemNew.functions
                             val.PatientMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
                             val.PatientLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
                             val.PatientGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
-                            val.PatientAge = dt.Rows[0].Field<int>("age");
+                            val.PatientAge = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR)");
                             val.PatientAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
                             val.PatientBirthday = dt.Rows[0].Field<DateTime>("birthday");
                             val.PatientCellphoneNumer = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
                             val.PatientTelephoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR)");
                             val.PatientEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR)");
-                            val.PatientHeight = dt.Rows[0].Field<double>("height");
-                            val.PatientWeight = dt.Rows[0].Field<double>("weight");
-                            val.PatientTemperature = dt.Rows[0].Field<double>("temperature");
-                            val.PatientPulseRate = dt.Rows[0].Field<double>("pulse_rate");
-                            val.PatientBloodPressure = dt.Rows[0].Field<double>("blood_pressure");
+                            val.PatientHeight = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(height, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientWeight = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(weight, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientTemperature = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(temperature, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientPulseRate = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(pulse_rate, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientBloodPressure = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(blood_pressure, 'jovencutegwapo123') AS CHAR)");
                             val.PatientDoctor = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)");
 
                             return true;
@@ -477,17 +488,17 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
-                                    age,
+                                    CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR),
-                                    height,
-                                    weight,
-                                    temperature,
-                                    pulse_rate,
-                                    blood_pressure,
+                                    CAST(AES_DECRYPT(height, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(weight, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(temperature, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(pulse_rate, 'jovencutegwapo123') AS CHAR),
+                                    CAST(AES_DECRYPT(blood_pressure, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)
                                     FROM patient_information_db.patients 
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
@@ -507,17 +518,17 @@ namespace PatientInformationSystemNew.functions
                             val.PatientMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
                             val.PatientLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
                             val.PatientGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
-                            val.PatientAge = dt.Rows[0].Field<int>("age");
+                            val.PatientAge = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR)");
                             val.PatientAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
                             val.PatientBirthday = dt.Rows[0].Field<DateTime>("birthday");
                             val.PatientCellphoneNumer = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
                             val.PatientTelephoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(telephone_number, 'jovencutegwapo123') AS CHAR)");
                             val.PatientEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'jovencutegwapo123') AS CHAR)");
-                            val.PatientHeight = dt.Rows[0].Field<double>("height");
-                            val.PatientWeight = dt.Rows[0].Field<double>("weight");
-                            val.PatientTemperature = dt.Rows[0].Field<double>("temperature");
-                            val.PatientPulseRate = dt.Rows[0].Field<double>("pulse_rate");
-                            val.PatientBloodPressure = dt.Rows[0].Field<double>("blood_pressure");
+                            val.PatientHeight = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(height, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientWeight = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(weight, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientTemperature = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(temperature, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientPulseRate = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(pulse_rate, 'jovencutegwapo123') AS CHAR)");
+                            val.PatientBloodPressure = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(blood_pressure, 'jovencutegwapo123') AS CHAR)");
                             val.PatientDoctor = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(doctor, 'jovencutegwapo123') AS CHAR)");
 
                             return true;

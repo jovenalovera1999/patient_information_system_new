@@ -56,17 +56,17 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddleName.Text = val.PatientMiddleName;
             this.txtLastName.Text = val.PatientLastName;
             this.cmbGender.Text = val.PatientGender;
-            this.cmbAge.Text = val.PatientAge.ToString();
+            this.cmbAge.Text = val.PatientAge;
             this.txtAddress.Text = val.PatientAddress;
             this.dateBirthday.Value = val.PatientBirthday;
             this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
             this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
             this.txtEmail.Text = val.PatientEmail;
-            this.txtHeight.Text = val.PatientHeight.ToString();
-            this.txtWeight.Text = val.PatientWeight.ToString();
-            this.txtTemperature.Text = val.PatientTemperature.ToString();
-            this.txtPulseRate.Text = val.PatientPulseRate.ToString();
-            this.txtBloodPressure.Text = val.PatientBloodPressure.ToString();
+            this.txtHeight.Text = val.PatientHeight;
+            this.txtWeight.Text = val.PatientWeight;
+            this.txtTemperature.Text = val.PatientTemperature;
+            this.txtPulseRate.Text = val.PatientPulseRate;
+            this.txtBloodPressure.Text = val.PatientBloodPressure;
             this.txtFullName.Text = val.PatientFullName;
             this.cmbDiscount.Text = "None";
 
@@ -676,9 +676,9 @@ namespace PatientInformationSystemNew.forms
                 this.txtTemperature.Focus();
             }
             else if (patient.updatePatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
-                this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, double.Parse(this.txtHeight.Text), double.Parse(this.txtWeight.Text),
-                double.Parse(this.txtTemperature.Text), double.Parse(this.txtPulseRate.Text), double.Parse(this.txtBloodPressure.Text)))
+                this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
+                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text))
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
