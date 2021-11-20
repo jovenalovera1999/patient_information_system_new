@@ -66,7 +66,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR),
-                                    age,
+                                    CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR),
                                     CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR),
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR),
@@ -93,7 +93,7 @@ namespace PatientInformationSystemNew.functions
                             val.DoctorMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'jovencutegwapo123') AS CHAR)");
                             val.DoctorLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR)");
                             val.DoctorGender = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(gender, 'jovencutegwapo123') AS CHAR)");
-                            val.DoctorAge = dt.Rows[0].Field<int>("age");
+                            val.DoctorAge = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(age, 'jovencutegwapo123') AS CHAR)");
                             val.DoctorAddress = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(address, 'jovencutegwapo123') AS CHAR)");
                             val.DoctorBirthday = dt.Rows[0].Field<DateTime>("birthday");
                             val.DoctorCellphoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'jovencutegwapo123') AS CHAR)");
@@ -120,7 +120,7 @@ namespace PatientInformationSystemNew.functions
 
         // Update Doctor
 
-        public bool updateDoctor(string user_id, string first_name, string middle_name, string last_name, string gender, int age, string address, 
+        public bool updateDoctor(string user_id, string first_name, string middle_name, string last_name, string gender, string age, string address, 
             DateTime birthday, string cellphone_number, string telephone_number, string email, string specialization)
         {
             try
@@ -134,7 +134,7 @@ namespace PatientInformationSystemNew.functions
                                     middle_name = AES_ENCRYPT(@middle_name, 'jovencutegwapo123'),
                                     last_name = AES_ENCRYPT(@last_name, 'jovencutegwapo123'),
                                     gender = AES_ENCRYPT(@gender, 'jovencutegwapo123'),
-                                    age = @age,
+                                    age = AES_ENCRYPT(@age, 'jovencutegwapo123'),
                                     address = AES_ENCRYPT(@address, 'jovencutegwapo123'),
                                     birthday = @birthday,
                                     cellphone_number = AES_ENCRYPT(@cellphone_number, 'jovencutegwapo123'),

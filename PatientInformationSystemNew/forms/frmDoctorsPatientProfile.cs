@@ -137,10 +137,19 @@ namespace PatientInformationSystemNew.forms
             this.txtSelectedDiagnosis.Text = this.gridManageDiagnosis.SelectedCells[1].Value.ToString();
             this.dateSelectedDiagnosis.Value = DateTime.Parse(this.gridManageDiagnosis.SelectedCells[2].Value.ToString());
 
+            this.txtAddDiagnosis.ResetText();
+
+            this.txtAddDiagnosis.Enabled = false;
+            this.dateAddDiagnosis.Enabled = false;
+            this.btnAddDiagnosis.Enabled = false;
+
+            this.btnNewDiagnosis.Enabled = true;
             this.txtSelectedDiagnosis.Enabled = true;
             this.dateSelectedDiagnosis.Enabled = true;
             this.btnUpdateDiagnosis.Enabled = true;
             this.btnRemoveDiagnosis.Enabled = true;
+
+            this.txtSelectedDiagnosis.Focus();
         }
 
         private void gridManageSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -151,10 +160,19 @@ namespace PatientInformationSystemNew.forms
             this.txtSelectedSymptom.Text = this.gridManageSymptoms.SelectedCells[1].Value.ToString();
             this.dateSelectedSymptom.Value = DateTime.Parse(this.gridManageSymptoms.SelectedCells[2].Value.ToString());
 
+            this.txtAddSymptom.ResetText();
+
+            this.txtAddSymptom.Enabled = false;
+            this.dateAddSymptom.Enabled = false;
+            this.btnAddSymptom.Enabled = false;
+
+            this.btnNewSymptom.Enabled = true;
             this.txtSelectedSymptom.Enabled = true;
             this.dateSelectedSymptom.Enabled = true;
             this.btnUpdateSymptom.Enabled = true;
             this.btnRemoveSymptom.Enabled = true;
+
+            this.txtSelectedSymptom.Focus();
         }
 
         private void gridManagePrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -165,10 +183,19 @@ namespace PatientInformationSystemNew.forms
             this.txtSelectedPrescription.Text = this.gridManagePrescriptions.SelectedCells[1].Value.ToString();
             this.dateSelectedPrescription.Value = DateTime.Parse(this.gridManagePrescriptions.SelectedCells[2].Value.ToString());
 
+            this.txtAddPrescription.ResetText();
+
+            this.txtAddPrescription.Enabled = false;
+            this.dateAddPrescription.Enabled = false;
+            this.btnAddPrescription.Enabled = false;
+
+            this.btnNewPrescription.Enabled = true;
             this.txtSelectedPrescription.Enabled = true;
             this.dateSelectedPrescription.Enabled = true;
             this.btnUpdatePrescription.Enabled = true;
             this.btnRemovePrescription.Enabled = true;
+
+            this.txtSelectedPrescription.Focus();
         }
 
         private void gridPrintPrescription_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -232,8 +259,15 @@ namespace PatientInformationSystemNew.forms
             this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtSelectedDiagnosis.ResetText();
+
+            this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
+
             this.txtSelectedDiagnosis.Enabled = false;
             this.dateSelectedDiagnosis.Enabled = false;
+            this.btnUpdateDiagnosis.Enabled = false;
+            this.btnRemoveDiagnosis.Enabled = false;
+            this.btnNewDiagnosis.Enabled = false;
 
             this.txtAddDiagnosis.Enabled = true;
             this.dateAddDiagnosis.Enabled = true;
@@ -247,8 +281,15 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtSelectedSymptom.ResetText();
+
+            this.dateSelectedSymptom.Value = DateTime.Now.Date;
+
             this.txtSelectedSymptom.Enabled = false;
             this.dateSelectedSymptom.Enabled = false;
+            this.btnUpdateSymptom.Enabled = false;
+            this.btnRemoveSymptom.Enabled = false;
+            this.btnNewSymptom.Enabled = false;
 
             this.txtAddSymptom.Enabled = true;
             this.dateAddSymptom.Enabled = true;
@@ -262,8 +303,15 @@ namespace PatientInformationSystemNew.forms
             this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtSelectedPrescription.ResetText();
+
+            this.dateSelectedPrescription.Value = DateTime.Now.Date;
+
             this.txtSelectedPrescription.Enabled = false;
             this.dateSelectedPrescription.Enabled = false;
+            this.btnUpdatePrescription.Enabled = false;
+            this.btnRemovePrescription.Enabled = false;
+            this.btnNewPrescription.Enabled = false;
 
             this.txtAddPrescription.Enabled = true;
             this.dateAddPrescription.Enabled = true;
@@ -272,25 +320,34 @@ namespace PatientInformationSystemNew.forms
             this.txtAddPrescription.Focus();
         }
 
+        // Add
+
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
             if (duplicate.diagnosisNameDuplicate(val.PatientID, this.txtAddDiagnosis.Text, this.dateAddDiagnosis.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} is already exist at the same date!", this.txtAddDiagnosis.Text), "Already Exist", MessageBoxButtons.OK,
+                MessageBox.Show(string.Format("{0} is already exist same as of date!", this.txtAddDiagnosis.Text), "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.txtAddDiagnosis.ResetText();
                 this.txtAddDiagnosis.Focus();
             }
+            else if (String.IsNullOrWhiteSpace(this.txtAddDiagnosis.Text))
+            {
+                MessageBox.Show("Diagnosis is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtAddDiagnosis.Focus();
+            }
             else if (diagnosis.addDiagnosis(val.PatientID, this.txtAddDiagnosisID.Text, this.txtAddDiagnosis.Text, this.dateAddDiagnosis.Value.Date))
             {
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+
                 autoGenNum();
 
                 this.txtAddDiagnosis.ResetText();
-                this.txtAddDiagnosis.Focus();
+                this.dateAddDiagnosis.Value = DateTime.Now.Date;
 
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                this.txtAddDiagnosis.Focus();
             }
             else
             {
@@ -298,31 +355,36 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        // Add
-
         private void btnAddSymptom_Click(object sender, EventArgs e)
         {
             if (duplicate.symptomNameDuplicate(val.PatientID, this.txtAddDiagnosis.Text, this.dateAddSymptom.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} is already exist at the same date!", this.txtAddSymptom.Text), "Already Exist", MessageBoxButtons.OK,
+                MessageBox.Show(string.Format("{0} is already exist same as of date!", this.txtAddSymptom.Text), "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.txtAddSymptom.ResetText();
                 this.txtAddSymptom.Focus();
             }
+            else if (String.IsNullOrWhiteSpace(this.txtAddSymptom.Text))
+            {
+                MessageBox.Show("Symptom is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtAddSymptom.Focus();
+            }
             else if (symptoms.addPatientSymptom(val.PatientID, this.txtAddSymptomID.Text, this.txtAddSymptom.Text, this.dateAddSymptom.Value.Date))
             {
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+
                 autoGenNum();
 
                 this.txtAddSymptom.ResetText();
-                this.txtAddSymptom.Focus();
+                this.dateAddSymptom.Value = DateTime.Now.Date;
 
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                this.txtAddSymptom.Focus();
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to add {0}!", this.txtAddSymptom.Text), "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to add symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -330,44 +392,50 @@ namespace PatientInformationSystemNew.forms
         {
             if (duplicate.symptomNameDuplicate(val.PatientID, this.txtAddPrescription.Text, this.dateAddPrescription.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} is already exist at the same date!", this.txtAddPrescription.Text), "Already Exist", MessageBoxButtons.OK,
+                MessageBox.Show("Prescription is already exist same as of date!", "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.txtAddPrescription.ResetText();
+                this.txtAddPrescription.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtAddPrescription.Text))
+            {
+                MessageBox.Show("Prescription is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtAddPrescription.Focus();
             }
             else if (prescriptions.addPrescription(val.PatientID, this.txtAddPrescriptionID.Text, this.txtAddPrescription.Text,
                 this.dateAddPrescription.Value.Date))
             {
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptionsRecords);
+                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
+
                 autoGenNum();
 
                 this.txtAddPrescription.ResetText();
-                this.txtAddPrescription.Focus();
+                this.dateAddPrescription.Value = DateTime.Now.Date;
 
-                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridPrescriptionsRecords);
-                prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
+                this.txtAddPrescription.Focus();
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to add {0}!", this.txtAddSymptom.Text), "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to add prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Update
 
         private void btnUpdateDiagnosis_Click(object sender, EventArgs e)
         {
             if (duplicate.diagnosisNameDuplicate(val.PatientID, this.txtSelectedDiagnosis.Text, this.dateSelectedDiagnosis.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} is already exist at the same date!", this.txtSelectedDiagnosis.Text), "Already Exist", MessageBoxButtons.OK,
+                MessageBox.Show(string.Format("{0} is already exist same as of date!", this.txtSelectedDiagnosis.Text), "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-
-                this.txtSelectedDiagnosis.ResetText();
                 this.txtSelectedDiagnosis.Focus();
             }
             else if (diagnosis.updateDiagnosis(val.PatientID, this.gridManageDiagnosis.SelectedCells[0].Value.ToString(), this.txtSelectedDiagnosis.Text,
                 this.dateSelectedDiagnosis.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} updated to {1} successfully!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString(),
-                    this.txtSelectedDiagnosis.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -376,8 +444,8 @@ namespace PatientInformationSystemNew.forms
                 diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 this.txtSelectedDiagnosis.ResetText();
-
                 this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
+
                 this.txtSelectedDiagnosis.Enabled = false;
                 this.dateSelectedDiagnosis.Enabled = false;
                 this.btnUpdateDiagnosis.Enabled = false;
@@ -394,7 +462,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (duplicate.symptomNameDuplicate(val.PatientID, this.txtSelectedSymptom.Text, this.dateSelectedSymptom.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} is already exist at the same date!", this.txtSelectedSymptom.Text), "Already Exist", MessageBoxButtons.OK,
+                MessageBox.Show(string.Format("{0} is already exist same as of date!", this.txtSelectedSymptom.Text), "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.txtSelectedSymptom.ResetText();
@@ -403,8 +471,7 @@ namespace PatientInformationSystemNew.forms
             else if (symptoms.updateSymptom(val.PatientID, this.gridManageSymptoms.SelectedCells[0].Value.ToString(), this.txtSelectedSymptom.Text,
                 this.dateSelectedSymptom.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} updated to {1} successfully!", this.gridManageSymptoms.SelectedCells[1].Value.ToString(),
-                    this.txtSelectedSymptom.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -413,8 +480,8 @@ namespace PatientInformationSystemNew.forms
                 symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 this.txtSelectedSymptom.ResetText();
-
                 this.dateSelectedSymptom.Value = DateTime.Now.Date;
+
                 this.txtSelectedSymptom.Enabled = false;
                 this.dateSelectedSymptom.Enabled = false;
                 this.btnUpdateSymptom.Enabled = false;
@@ -429,9 +496,9 @@ namespace PatientInformationSystemNew.forms
 
         private void btnUpdatePrescription_Click(object sender, EventArgs e)
         {
-            if (duplicate.diagnosisNameDuplicate(val.PatientID, this.txtSelectedPrescription.Text, this.dateSelectedPrescription.Value.Date))
+            if (duplicate.prescriptionNameDuplicate(val.PatientID, this.txtSelectedPrescription.Text, this.dateSelectedPrescription.Value.Date))
             {
-                MessageBox.Show(string.Format("{0} is already exist at the same date!", this.txtSelectedDiagnosis.Text), "Already Exist", MessageBoxButtons.OK,
+                MessageBox.Show("Prescription is already exist same as of date!", "Already Exist", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
                 this.txtSelectedPrescription.ResetText();
@@ -449,8 +516,8 @@ namespace PatientInformationSystemNew.forms
                 prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
 
                 this.txtSelectedPrescription.ResetText();
-
                 this.dateSelectedPrescription.Value = DateTime.Now.Date;
+
                 this.txtSelectedPrescription.Enabled = false;
                 this.dateSelectedPrescription.Enabled = false;
                 this.btnUpdatePrescription.Enabled = false;
@@ -458,18 +525,17 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to update {0}!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString()), "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to update prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Remove or Delete
+        // Remove
 
         private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
         {
             if (diagnosis.removeDiagnosis(val.PatientID, this.gridManageDiagnosis.SelectedCells[0].Value.ToString()))
             {
-                MessageBox.Show(string.Format("{0} successfully removed or deleted!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()),
+                MessageBox.Show(string.Format("{0} successfully removed!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()),
                     "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -479,8 +545,8 @@ namespace PatientInformationSystemNew.forms
                 diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 this.txtSelectedDiagnosis.ResetText();
-
                 this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
+
                 this.txtSelectedDiagnosis.Enabled = false;
                 this.dateSelectedDiagnosis.Enabled = false;
                 this.btnUpdateDiagnosis.Enabled = false;
@@ -488,7 +554,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to remove or delete {0}!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()), "Failed",
+                MessageBox.Show(string.Format("Failed to remove {0}!", this.gridManageDiagnosis.SelectedCells[1].Value.ToString()), "Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -497,7 +563,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (symptoms.deleteSymptom(val.PatientID, this.gridManageSymptoms.SelectedCells[0].Value.ToString()))
             {
-                MessageBox.Show(string.Format("{0} successfully removed or deleted!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()),
+                MessageBox.Show(string.Format("{0} successfully removed!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()),
                     "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -507,8 +573,8 @@ namespace PatientInformationSystemNew.forms
                 symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 this.txtSelectedSymptom.ResetText();
-
                 this.dateSelectedSymptom.Value = DateTime.Now.Date;
+
                 this.txtSelectedSymptom.Enabled = false;
                 this.dateSelectedSymptom.Enabled = false;
                 this.btnUpdateSymptom.Enabled = false;
@@ -516,7 +582,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to remove or delete {0}!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()), "Failed",
+                MessageBox.Show(string.Format("Failed to remove {0}!", this.gridManageSymptoms.SelectedCells[1].Value.ToString()), "Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -525,8 +591,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (prescriptions.removePrescriptions(val.PatientID, this.gridManagePrescriptions.SelectedCells[0].Value.ToString()))
             {
-                MessageBox.Show(string.Format("{0} successfully removed or deleted!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString()),
-                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Prescription successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManagePrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -535,8 +600,8 @@ namespace PatientInformationSystemNew.forms
                 prescriptions.loadPrescriptionRecordsOfPatient(val.PatientID, this.gridManagePrescriptions);
 
                 this.txtSelectedPrescription.ResetText();
-
                 this.dateSelectedPrescription.Value = DateTime.Now.Date;
+
                 this.txtSelectedPrescription.Enabled = false;
                 this.dateSelectedPrescription.Enabled = false;
                 this.btnUpdatePrescription.Enabled = false;
@@ -544,8 +609,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to remove or delete {0}!", this.gridManagePrescriptions.SelectedCells[1].Value.ToString()), "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to remove prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -739,8 +803,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if (payment.updatePaymentTransaction(val.PatientID, this.txtReceiptNo.Text, double.Parse(this.txtTotalMedicalFee.Text), this.cmbDiscount.Text,
-                double.Parse(this.txtAmount.Text), double.Parse(this.txtTotalAmountPaid.Text), double.Parse(this.txtChange.Text)))
+            else if (payment.updatePaymentTransaction(val.PatientID, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text,
+                this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text))
             {
                 MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

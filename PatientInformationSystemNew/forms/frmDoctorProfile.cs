@@ -43,8 +43,8 @@ namespace PatientInformationSystemNew.forms
             this.txtLastName.Text = val.DoctorLastName;
             this.txtGender.Text = val.DoctorGender;
             this.cmbGender.Text = val.DoctorGender;
-            this.txtAge.Text = val.DoctorAge.ToString();
-            this.cmbAge.Text = val.DoctorAge.ToString();
+            this.txtAge.Text = val.DoctorAge;
+            this.cmbAge.Text = val.DoctorAge;
             this.txtAddress.Text = val.DoctorAddress;
             this.dateBirthday.Value = val.DoctorBirthday;
             this.txtCellphoneNumber.Text = val.DoctorCellphoneNumber;
@@ -118,7 +118,7 @@ namespace PatientInformationSystemNew.forms
                 this.txtSpecialization.Focus();
             }
             else if (doctor.updateDoctor(this.txtDoctorID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
-                this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
+                this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtSpecialization.Text))
             {
                 if (String.IsNullOrWhiteSpace(this.txtMiddleName.Text))
@@ -145,8 +145,8 @@ namespace PatientInformationSystemNew.forms
                     this.txtLastName.Text = val.DoctorLastName;
                     this.txtGender.Text = val.DoctorGender;
                     this.cmbGender.Text = val.DoctorGender;
-                    this.txtAge.Text = val.DoctorAge.ToString();
-                    this.cmbAge.Text = val.DoctorAge.ToString();
+                    this.txtAge.Text = val.DoctorAge;
+                    this.cmbAge.Text = val.DoctorAge;
                     this.txtAddress.Text = val.DoctorAddress;
                     this.dateBirthday.Value = val.DoctorBirthday;
                     this.txtCellphoneNumber.Text = val.DoctorCellphoneNumber;

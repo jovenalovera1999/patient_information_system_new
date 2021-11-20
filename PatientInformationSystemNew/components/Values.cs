@@ -287,8 +287,8 @@ namespace PatientInformationSystemNew.components
             get { return doctor_gender; }
             set { doctor_gender = value; }
         }
-        public static int doctor_age;
-        public int DoctorAge
+        public static string doctor_age;
+        public string DoctorAge
         {
             get { return doctor_age; }
             set { doctor_age = doctor_age = value; }

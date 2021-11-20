@@ -53,11 +53,11 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"SELECT
                                     CAST(AES_DECRYPT(receipt_no, 'jovencutegwapo123') AS CHAR) AS 'Receipt No.',
-                                    total_medical_fee AS 'Total Medical Fee',
+                                    CAST(AES_DECRYPT(total_medical_fee, 'jovencutegwapo123') AS CHAR) AS 'Total Medical Fee',
                                     CAST(AES_DECRYPT(discount, 'jovencutegwapo123') AS CHAR) AS 'Discount',
-                                    amount AS 'Amount',
-                                    total_amount_paid AS 'Total Amount Paid',
-                                    `change` AS 'Change',
+                                    CAST(AES_DECRYPT(amount, 'jovencutegwapo123') AS CHAR) AS 'Amount',
+                                    CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR) AS 'Total Amount Paid',
+                                    CAST(AES_DECRYPT(`change`, 'jovencutegwapo123') AS CHAR) AS 'Change',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM patient_information_db.transactions
                                     WHERE CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id;";
@@ -128,8 +128,8 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool updatePaymentTransaction(string patient_id, string receipt_no, double total_medical_fee, string discount, double amount,
-            double total_amount_paid, double change)
+        public bool updatePaymentTransaction(string patient_id, string receipt_no, string total_medical_fee, string discount, string amount,
+            string total_amount_paid, string change)
         {
             try
             {
@@ -138,11 +138,11 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"UPDATE patient_information_db.transactions
                                     SET
                                     receipt_no = AES_ENCRYPT(@receipt_no, 'jovencutegwapo123'),
-                                    total_medical_fee = @total_medical_fee,
+                                    total_medical_fee = AES_ENCRYPT(@total_medical_fee, 'jovencutegwapo123'),
                                     discount = AES_ENCRYPT(@discount, 'jovencutegwapo123'),
-                                    amount = @amount,
-                                    total_amount_paid = @total_amount_paid,
-                                    `change` = @change
+                                    amount = AES_ENCRYPT(@amount, 'jovencutegwapo123'),
+                                    total_amount_paid = AES_ENCRYPT(@total_amount_paid, 'jovencutegwapo123'),
+                                    `change` = AES_ENCRYPT(@change, 'jovencutegwapo123')
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
                                     CAST(AES_DECRYPT(receipt_no, 'jovencutegwapo123') AS CHAR) = @receipt_no OR
