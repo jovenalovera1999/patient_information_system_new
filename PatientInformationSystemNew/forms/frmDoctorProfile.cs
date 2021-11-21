@@ -121,16 +121,7 @@ namespace PatientInformationSystemNew.forms
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtSpecialization.Text))
             {
-                if (String.IsNullOrWhiteSpace(this.txtMiddleName.Text))
-                {
-                    MessageBox.Show(string.Format("Dr. {0} {1} successfully updated!", this.txtFirstName.Text, this.txtLastName.Text), "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(string.Format("Dr. {0} {1}. {2} successfully updated!", this.txtFirstName.Text, this.txtMiddleName.Text[0],
-                        this.txtLastName.Text), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Doctor has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if (doctor.getDoctor(this.txtDoctorID.Text))
                 {
@@ -175,16 +166,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                if (String.IsNullOrWhiteSpace(this.txtMiddleName.Text))
-                {
-                    MessageBox.Show(string.Format("Failed to update Dr. {0} {2} account!", this.txtFirstName.Text, this.txtLastName.Text), "Failed",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show(string.Format("Failed to update Dr. {0} {1}. {2} account!", this.txtFirstName.Text, this.txtMiddleName.Text[0],
-                        this.txtLastName.Text), "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Failed to update doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -218,6 +200,8 @@ namespace PatientInformationSystemNew.forms
             {
                 this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
+
+            this.btnSelect.Enabled = true;
         }
 
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

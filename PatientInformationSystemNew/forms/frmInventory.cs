@@ -81,6 +81,7 @@ namespace PatientInformationSystemNew.forms
                 this.dateExpiration.Value = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[3].Value.ToString());
             }
 
+            this.btnEditIncomingSupplies.Enabled = true;
             this.btnSaveIncomingSupplies.Enabled = true;
             this.btnSupplyArrived.Enabled = true;
             this.btnDeleteIncomingSupplies.Enabled = true;
@@ -302,6 +303,7 @@ namespace PatientInformationSystemNew.forms
                                 inventory.loadInventory(this.gridManageSupplies);
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
+                                this.btnEditIncomingSupplies.Enabled = false;
                                 this.btnSupplyArrived.Enabled = false;
                                 this.btnDeleteIncomingSupplies.Enabled = false;
                                 this.switchExpirationDate.Checked = false;
@@ -346,6 +348,7 @@ namespace PatientInformationSystemNew.forms
                                     inventory.loadInventory(this.gridManageSupplies);
                                     inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
+                                    this.btnEditIncomingSupplies.Enabled = false;
                                     this.btnSupplyArrived.Enabled = false;
                                     this.btnDeleteIncomingSupplies.Enabled = false;
                                     this.switchExpirationDate.Checked = false;
@@ -383,6 +386,7 @@ namespace PatientInformationSystemNew.forms
                                 inventory.loadInventory(this.gridManageSupplies);
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
+                                this.btnEditIncomingSupplies.Enabled = false;
                                 this.btnSupplyArrived.Enabled = false;
                                 this.btnDeleteIncomingSupplies.Enabled = false;
 
@@ -424,6 +428,7 @@ namespace PatientInformationSystemNew.forms
 
                         this.switchExpirationDate.Checked = false;
                         this.btnSupplyArrived.Enabled = false;
+                        this.btnEditIncomingSupplies.Enabled = false;
                         this.btnSaveIncomingSupplies.Visible = false;
                         this.btnDeleteIncomingSupplies.Enabled = false;
 
@@ -453,6 +458,7 @@ namespace PatientInformationSystemNew.forms
                             inventory.loadInventory(this.gridManageSupplies);
                             inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
+                            this.btnEditIncomingSupplies.Enabled = false;
                             this.btnSupplyArrived.Enabled = false;
                             this.btnDeleteIncomingSupplies.Enabled = false;
 
@@ -493,6 +499,7 @@ namespace PatientInformationSystemNew.forms
                                 inventory.loadInventory(this.gridManageSupplies);
                                 inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
+                                this.btnEditIncomingSupplies.Enabled = false;
                                 this.btnSupplyArrived.Enabled = false;
                                 this.btnDeleteIncomingSupplies.Enabled = false;
                                 this.switchExpirationDate.Checked = false;
@@ -530,6 +537,7 @@ namespace PatientInformationSystemNew.forms
                             inventory.loadInventory(this.gridManageSupplies);
                             inventory.loadIncomingInventory(this.gridIncomingSupplies);
 
+                            this.btnEditIncomingSupplies.Enabled = false;
                             this.btnSupplyArrived.Enabled = false;
                             this.btnDeleteIncomingSupplies.Enabled = false;
 
@@ -573,8 +581,8 @@ namespace PatientInformationSystemNew.forms
 
                 this.btnAddIncomingSupplies.Visible = true;
                 this.btnAddIncomingSupplies.Enabled = true;
-                this.btnEditIncomingSupplies.Enabled = true;
 
+                this.btnEditIncomingSupplies.Enabled = false;
                 this.btnSaveIncomingSupplies.Visible = false;
                 this.btnDeleteIncomingSupplies.Enabled = false;
                 this.btnSupplyArrived.Enabled = false;
@@ -771,8 +779,8 @@ namespace PatientInformationSystemNew.forms
                     inventory.loadInventory(this.gridManageSupplies);
 
                     this.btnAddManageSupplies.Visible = true;
-                    this.btnEditManageSupplies.Enabled = true;
 
+                    this.btnEditManageSupplies.Enabled = false;
                     this.btnSaveManageSupplies.Visible = false;
                     this.btnDeleteManageSupplies.Enabled = false;
                     this.btnDeductItem.Enabled = false;
@@ -807,8 +815,8 @@ namespace PatientInformationSystemNew.forms
                     inventory.loadInventory(this.gridManageSupplies);
 
                     this.btnAddManageSupplies.Visible = true;
-                    this.btnEditManageSupplies.Enabled = true;
 
+                    this.btnEditManageSupplies.Enabled = false;
                     this.btnSaveManageSupplies.Visible = false;
                     this.btnDeleteManageSupplies.Enabled = false;
                     this.btnDeductItem.Enabled = false;
@@ -849,8 +857,8 @@ namespace PatientInformationSystemNew.forms
 
                 this.btnAddManageSupplies.Visible = true;
                 this.btnAddManageSupplies.Enabled = true;
-                this.btnEditManageSupplies.Enabled = true;
 
+                this.btnEditManageSupplies.Enabled = false;
                 this.btnSaveManageSupplies.Visible = false;
                 this.btnDeleteManageSupplies.Enabled = false;
                 this.btnDeductItem.Enabled = false;

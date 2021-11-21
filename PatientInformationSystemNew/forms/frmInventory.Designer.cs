@@ -60,6 +60,8 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabManageSupplies = new System.Windows.Forms.TabPage();
+            this.txtItemUsed = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnDeductItem = new Guna.UI2.WinForms.Guna2Button();
             this.switchExpirationDateManageSupplies = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.btnAddManageSupplies = new Guna.UI2.WinForms.Guna2Button();
@@ -75,8 +77,6 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyIDManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gridManageSupplies = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtItemUsed = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tabControlInventory.SuspendLayout();
             this.tabSupplies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSupplies)).BeginInit();
@@ -401,6 +401,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditIncomingSupplies.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEditIncomingSupplies.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEditIncomingSupplies.DisabledState.Parent = this.btnEditIncomingSupplies;
+            this.btnEditIncomingSupplies.Enabled = false;
             this.btnEditIncomingSupplies.FillColor = System.Drawing.Color.Blue;
             this.btnEditIncomingSupplies.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnEditIncomingSupplies.ForeColor = System.Drawing.Color.White;
@@ -682,6 +683,44 @@ namespace PatientInformationSystemNew.forms
             this.tabManageSupplies.Size = new System.Drawing.Size(1682, 950);
             this.tabManageSupplies.TabIndex = 3;
             this.tabManageSupplies.Text = "Manage Supplies";
+            // 
+            // txtItemUsed
+            // 
+            this.txtItemUsed.Animated = true;
+            this.txtItemUsed.BorderRadius = 5;
+            this.txtItemUsed.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtItemUsed.DefaultText = "";
+            this.txtItemUsed.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtItemUsed.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtItemUsed.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtItemUsed.DisabledState.Parent = this.txtItemUsed;
+            this.txtItemUsed.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtItemUsed.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtItemUsed.FocusedState.Parent = this.txtItemUsed;
+            this.txtItemUsed.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtItemUsed.ForeColor = System.Drawing.Color.Black;
+            this.txtItemUsed.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtItemUsed.HoverState.Parent = this.txtItemUsed;
+            this.txtItemUsed.Location = new System.Drawing.Point(1163, 56);
+            this.txtItemUsed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtItemUsed.Name = "txtItemUsed";
+            this.txtItemUsed.PasswordChar = '\0';
+            this.txtItemUsed.PlaceholderText = "";
+            this.txtItemUsed.SelectedText = "";
+            this.txtItemUsed.ShadowDecoration.Parent = this.txtItemUsed;
+            this.txtItemUsed.Size = new System.Drawing.Size(446, 45);
+            this.txtItemUsed.TabIndex = 179;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(1158, 15);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 28);
+            this.label9.TabIndex = 178;
+            this.label9.Text = "Item Used:";
             // 
             // btnDeductItem
             // 
@@ -1079,44 +1118,6 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSupplies.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridManageSupplies.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridManageSupplies.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManageSupplies_CellMouseClick);
-            // 
-            // txtItemUsed
-            // 
-            this.txtItemUsed.Animated = true;
-            this.txtItemUsed.BorderRadius = 5;
-            this.txtItemUsed.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtItemUsed.DefaultText = "";
-            this.txtItemUsed.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtItemUsed.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtItemUsed.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.txtItemUsed.DisabledState.Parent = this.txtItemUsed;
-            this.txtItemUsed.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtItemUsed.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtItemUsed.FocusedState.Parent = this.txtItemUsed;
-            this.txtItemUsed.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtItemUsed.ForeColor = System.Drawing.Color.Black;
-            this.txtItemUsed.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtItemUsed.HoverState.Parent = this.txtItemUsed;
-            this.txtItemUsed.Location = new System.Drawing.Point(1163, 56);
-            this.txtItemUsed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtItemUsed.Name = "txtItemUsed";
-            this.txtItemUsed.PasswordChar = '\0';
-            this.txtItemUsed.PlaceholderText = "";
-            this.txtItemUsed.SelectedText = "";
-            this.txtItemUsed.ShadowDecoration.Parent = this.txtItemUsed;
-            this.txtItemUsed.Size = new System.Drawing.Size(446, 45);
-            this.txtItemUsed.TabIndex = 179;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(1158, 15);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 28);
-            this.label9.TabIndex = 178;
-            this.label9.Text = "Item Used:";
             // 
             // frmInventory
             // 
