@@ -352,5 +352,56 @@ namespace PatientInformationSystemNew.components
             get { return supply_quantity; }
             set { supply_quantity = value; }
         }
+
+        // Report values
+
+        public static string count_total_patients_in_month;
+        public string CountTotalPatientsInMonth
+        {
+            get { return count_total_patients_in_month;}
+            set { count_total_patients_in_month = value; }
+        }
+        public static string count_total_patients_in_day;
+        public string CountTotalPatientsInDay
+        {
+            get { return count_total_patients_in_day;}
+            set { count_total_patients_in_day = value; }
+        }
+        public static string count_total_patients_in_year;
+        public string CountTotalPatientsInYear
+        {
+            get { return count_total_patients_in_year; }
+            set { count_total_patients_in_year = value; }
+        }
+        public static string count_overall_total_patients;
+        public string CountOverallTotalPatients
+        {
+            get { return count_overall_total_patients; }
+            set { count_overall_total_patients = value; }
+        }
+        public static string count_total_sales_in_month;
+        public string CountTotalSalesInMonth
+        {
+            get { return count_total_sales_in_month; }
+            set { count_total_sales_in_month = value; }
+        }
+        public static string count_total_sales_in_day;
+        public string CountTotalSalesInDay
+        {
+            get { return count_total_sales_in_day; }
+            set { count_total_sales_in_day = value; }
+        }
+        public static string count_total_sales_in_year;
+        public string CountTotalSalesInYear
+        {
+            get { return count_total_sales_in_year; }
+            set { count_total_sales_in_year = value; }
+        }
+        public static string count_overall_total_sales;
+        public string CountOverallTotalSales
+        {
+            get { return count_overall_total_sales; }
+            set { count_overall_total_sales = value; }
+        }
     }
 }

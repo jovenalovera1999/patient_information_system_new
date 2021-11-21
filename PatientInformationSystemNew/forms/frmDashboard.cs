@@ -102,6 +102,16 @@ namespace PatientInformationSystemNew.forms
             frmSignUp.Show();
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            this.pnlDashboardBody.Controls.Clear();
+            forms.frmReport frmReport = new forms.frmReport();
+            frmReport.TopLevel = false;
+            this.pnlDashboardBody.Controls.Add(frmReport);
+            frmReport.Dock = DockStyle.Fill;
+            frmReport.Show();
+        }
+
         private void btnProfile_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
