@@ -338,8 +338,5 @@
   <ItemGroup>
     <None Include="Resources\medical_staff_icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\print_icon.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
