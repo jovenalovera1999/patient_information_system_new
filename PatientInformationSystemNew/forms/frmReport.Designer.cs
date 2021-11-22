@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabControlReport = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPatientsAndSales = new System.Windows.Forms.TabPage();
+            this.lblOverallTotalSales = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblOverallTotalPatients = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.rprtPatientsSales = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dateReport = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.chartSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -54,10 +58,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.rprtInventory = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.lblOverallTotalPatients = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblOverallTotalSales = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabControlReport.SuspendLayout();
             this.tabPatientsAndSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
@@ -129,6 +129,50 @@
             this.tabPatientsAndSales.TabIndex = 0;
             this.tabPatientsAndSales.Text = "Patients and Sales";
             // 
+            // lblOverallTotalSales
+            // 
+            this.lblOverallTotalSales.AutoSize = true;
+            this.lblOverallTotalSales.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverallTotalSales.ForeColor = System.Drawing.Color.White;
+            this.lblOverallTotalSales.Location = new System.Drawing.Point(17, 883);
+            this.lblOverallTotalSales.Name = "lblOverallTotalSales";
+            this.lblOverallTotalSales.Size = new System.Drawing.Size(38, 46);
+            this.lblOverallTotalSales.TabIndex = 291;
+            this.lblOverallTotalSales.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(19, 839);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(221, 35);
+            this.label6.TabIndex = 290;
+            this.label6.Text = "Overall Total Sales:";
+            // 
+            // lblOverallTotalPatients
+            // 
+            this.lblOverallTotalPatients.AutoSize = true;
+            this.lblOverallTotalPatients.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverallTotalPatients.ForeColor = System.Drawing.Color.White;
+            this.lblOverallTotalPatients.Location = new System.Drawing.Point(17, 415);
+            this.lblOverallTotalPatients.Name = "lblOverallTotalPatients";
+            this.lblOverallTotalPatients.Size = new System.Drawing.Size(38, 46);
+            this.lblOverallTotalPatients.TabIndex = 289;
+            this.lblOverallTotalPatients.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(19, 371);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(251, 35);
+            this.label2.TabIndex = 288;
+            this.label2.Text = "Overall Total Patients:";
+            // 
             // rprtPatientsSales
             // 
             this.rprtPatientsSales.Location = new System.Drawing.Point(893, 74);
@@ -163,19 +207,21 @@
             // 
             // chartSales
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartSales.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea1);
             this.chartSales.Location = new System.Drawing.Point(390, 542);
             this.chartSales.Name = "chartSales";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartSales.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            series1.Name = "Sales";
+            this.chartSales.Series.Add(series1);
             this.chartSales.Size = new System.Drawing.Size(488, 387);
             this.chartSales.TabIndex = 283;
             this.chartSales.Text = "chart6";
+            title1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title1.Name = "chartSales";
+            title1.Text = "Sales Chart";
+            this.chartSales.Titles.Add(title1);
             // 
             // lblTotalSalesInYear
             // 
@@ -245,19 +291,20 @@
             // 
             // chartPatients
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartPatients.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartPatients.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chartPatients.ChartAreas.Add(chartArea2);
             this.chartPatients.Location = new System.Drawing.Point(390, 74);
             this.chartPatients.Name = "chartPatients";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartPatients.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Patients";
+            this.chartPatients.Series.Add(series2);
             this.chartPatients.Size = new System.Drawing.Size(488, 387);
             this.chartPatients.TabIndex = 274;
             this.chartPatients.Text = "chart1";
+            title2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title2.Name = "chartPatients";
+            title2.Text = "Patients Chart";
+            this.chartPatients.Titles.Add(title2);
             // 
             // lblTotalPatientsInYear
             // 
@@ -342,50 +389,6 @@
             this.rprtInventory.Name = "rprtInventory";
             this.rprtInventory.Size = new System.Drawing.Size(1682, 950);
             this.rprtInventory.TabIndex = 0;
-            // 
-            // lblOverallTotalPatients
-            // 
-            this.lblOverallTotalPatients.AutoSize = true;
-            this.lblOverallTotalPatients.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverallTotalPatients.ForeColor = System.Drawing.Color.White;
-            this.lblOverallTotalPatients.Location = new System.Drawing.Point(17, 415);
-            this.lblOverallTotalPatients.Name = "lblOverallTotalPatients";
-            this.lblOverallTotalPatients.Size = new System.Drawing.Size(38, 46);
-            this.lblOverallTotalPatients.TabIndex = 289;
-            this.lblOverallTotalPatients.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(19, 371);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 35);
-            this.label2.TabIndex = 288;
-            this.label2.Text = "Overall Total Patients:";
-            // 
-            // lblOverallTotalSales
-            // 
-            this.lblOverallTotalSales.AutoSize = true;
-            this.lblOverallTotalSales.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverallTotalSales.ForeColor = System.Drawing.Color.White;
-            this.lblOverallTotalSales.Location = new System.Drawing.Point(17, 883);
-            this.lblOverallTotalSales.Name = "lblOverallTotalSales";
-            this.lblOverallTotalSales.Size = new System.Drawing.Size(38, 46);
-            this.lblOverallTotalSales.TabIndex = 291;
-            this.lblOverallTotalSales.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(19, 839);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(221, 35);
-            this.label6.TabIndex = 290;
-            this.label6.Text = "Overall Total Sales:";
             // 
             // frmReport
             // 

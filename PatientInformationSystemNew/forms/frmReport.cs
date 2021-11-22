@@ -106,6 +106,25 @@ namespace PatientInformationSystemNew.forms
             {
                 this.lblOverallTotalSales.Text = "0";
             }
+
+            foreach(var series in this.chartPatients.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach(var series in this.chartSales.Series)
+            {
+                series.Points.Clear();
+            }
+
+            this.chartPatients.Series[0].Points.AddXY("Month", this.lblTotalPatientsInMonth.Text);
+            this.chartPatients.Series[0].Points.AddXY("Day", this.lblTotalPatientsInDay.Text);
+            this.chartPatients.Series[0].Points.AddXY("Year", this.lblTotalPatientsInYear.Text);
+            this.chartPatients.Series[0].Points.AddXY("Overall", this.lblOverallTotalPatients.Text);
+
+            this.chartSales.Series[0].Points.AddXY("Month", this.lblTotalSalesInMonth.Text);
+            this.chartSales.Series[0].Points.AddXY("Day", this.lblTotalSalesInDay.Text);
+            this.chartSales.Series[0].Points.AddXY("Year", this.lblTotalSalesInYear.Text);
+            this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
         }
     }
 }

@@ -248,6 +248,7 @@
     </Compile>
     <EmbeddedResource Include="report\rprtPrescription.rdlc" />
     <EmbeddedResource Include="report\rprtReceipt.rdlc" />
+    <EmbeddedResource Include="report\rprtReportPatientsAndSales.rdlc" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
