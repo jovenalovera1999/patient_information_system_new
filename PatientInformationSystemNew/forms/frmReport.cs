@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -125,6 +126,26 @@ namespace PatientInformationSystemNew.forms
             this.chartSales.Series[0].Points.AddXY("Day", this.lblTotalSalesInDay.Text);
             this.chartSales.Series[0].Points.AddXY("Year", this.lblTotalSalesInYear.Text);
             this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            this.rprtPatientsSales.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pDateReviewed", DateTime.Now.ToString("D")));
+            parameters.Add(new ReportParameter("pReviewedBy", val.UserFullName));
+            parameters.Add(new ReportParameter("pRole", val.UserRole));
+            parameters.Add(new ReportParameter("pSelectedDate", this.dateReport.Value.ToString("D")));
+            parameters.Add(new ReportParameter("pTotalPatientsInMonth", this.lblTotalPatientsInMonth.Text));
+            parameters.Add(new ReportParameter("pTotalPatientsInDay", this.lblTotalPatientsInDay.Text));
+            parameters.Add(new ReportParameter("pTotalPatientsInYear", this.lblTotalPatientsInYear.Text));
+            parameters.Add(new ReportParameter("pOverallTotalPatients", this.lblOverallTotalPatients.Text));
+            parameters.Add(new ReportParameter("pTotalSalesInMonth", this.lblTotalSalesInMonth.Text));
+            parameters.Add(new ReportParameter("pTotalSalesInDay", this.lblTotalSalesInDay.Text));
+            parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInYear.Text));
+            parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text));
+            this.rprtPatientsSales.LocalReport.SetParameters(parameters);
+            this.rprtPatientsSales.RefreshReport();
         }
     }
 }

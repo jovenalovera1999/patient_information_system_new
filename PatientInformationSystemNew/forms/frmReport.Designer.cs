@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabControlReport = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPatientsAndSales = new System.Windows.Forms.TabPage();
             this.lblOverallTotalSales = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.rprtInventory = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.tabControlReport.SuspendLayout();
             this.tabPatientsAndSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
@@ -101,6 +102,7 @@
             // tabPatientsAndSales
             // 
             this.tabPatientsAndSales.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPatientsAndSales.Controls.Add(this.btnPrint);
             this.tabPatientsAndSales.Controls.Add(this.lblOverallTotalSales);
             this.tabPatientsAndSales.Controls.Add(this.label6);
             this.tabPatientsAndSales.Controls.Add(this.lblOverallTotalPatients);
@@ -134,7 +136,7 @@
             this.lblOverallTotalSales.AutoSize = true;
             this.lblOverallTotalSales.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOverallTotalSales.ForeColor = System.Drawing.Color.White;
-            this.lblOverallTotalSales.Location = new System.Drawing.Point(17, 883);
+            this.lblOverallTotalSales.Location = new System.Drawing.Point(17, 817);
             this.lblOverallTotalSales.Name = "lblOverallTotalSales";
             this.lblOverallTotalSales.Size = new System.Drawing.Size(38, 46);
             this.lblOverallTotalSales.TabIndex = 291;
@@ -145,7 +147,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(19, 839);
+            this.label6.Location = new System.Drawing.Point(19, 773);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(221, 35);
             this.label6.TabIndex = 290;
@@ -175,10 +177,12 @@
             // 
             // rprtPatientsSales
             // 
+            this.rprtPatientsSales.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtReportPatientsAndSales.rdlc";
             this.rprtPatientsSales.Location = new System.Drawing.Point(893, 74);
             this.rprtPatientsSales.Name = "rprtPatientsSales";
-            this.rprtPatientsSales.Size = new System.Drawing.Size(683, 855);
+            this.rprtPatientsSales.Size = new System.Drawing.Size(557, 789);
             this.rprtPatientsSales.TabIndex = 287;
+            this.rprtPatientsSales.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
             // dateReport
             // 
@@ -207,28 +211,28 @@
             // 
             // chartSales
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea1);
-            this.chartSales.Location = new System.Drawing.Point(390, 542);
+            chartArea9.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea9);
+            this.chartSales.Location = new System.Drawing.Point(390, 476);
             this.chartSales.Name = "chartSales";
-            series1.ChartArea = "ChartArea1";
-            series1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            series1.Name = "Sales";
-            this.chartSales.Series.Add(series1);
+            series9.ChartArea = "ChartArea1";
+            series9.Font = new System.Drawing.Font("Segoe UI", 11F);
+            series9.Name = "Sales";
+            this.chartSales.Series.Add(series9);
             this.chartSales.Size = new System.Drawing.Size(488, 387);
             this.chartSales.TabIndex = 283;
             this.chartSales.Text = "chart6";
-            title1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title1.Name = "chartSales";
-            title1.Text = "Sales Chart";
-            this.chartSales.Titles.Add(title1);
+            title9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title9.Name = "chartSales";
+            title9.Text = "Sales Chart";
+            this.chartSales.Titles.Add(title9);
             // 
             // lblTotalSalesInYear
             // 
             this.lblTotalSalesInYear.AutoSize = true;
             this.lblTotalSalesInYear.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSalesInYear.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesInYear.Location = new System.Drawing.Point(17, 784);
+            this.lblTotalSalesInYear.Location = new System.Drawing.Point(17, 718);
             this.lblTotalSalesInYear.Name = "lblTotalSalesInYear";
             this.lblTotalSalesInYear.Size = new System.Drawing.Size(38, 46);
             this.lblTotalSalesInYear.TabIndex = 282;
@@ -239,7 +243,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(19, 740);
+            this.label7.Location = new System.Drawing.Point(19, 674);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(217, 35);
             this.label7.TabIndex = 281;
@@ -250,7 +254,7 @@
             this.lblTotalSalesInDay.AutoSize = true;
             this.lblTotalSalesInDay.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSalesInDay.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesInDay.Location = new System.Drawing.Point(17, 685);
+            this.lblTotalSalesInDay.Location = new System.Drawing.Point(17, 619);
             this.lblTotalSalesInDay.Name = "lblTotalSalesInDay";
             this.lblTotalSalesInDay.Size = new System.Drawing.Size(38, 46);
             this.lblTotalSalesInDay.TabIndex = 280;
@@ -261,7 +265,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(19, 641);
+            this.label9.Location = new System.Drawing.Point(19, 575);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(213, 35);
             this.label9.TabIndex = 279;
@@ -272,7 +276,7 @@
             this.lblTotalSalesInMonth.AutoSize = true;
             this.lblTotalSalesInMonth.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSalesInMonth.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesInMonth.Location = new System.Drawing.Point(17, 586);
+            this.lblTotalSalesInMonth.Location = new System.Drawing.Point(17, 520);
             this.lblTotalSalesInMonth.Name = "lblTotalSalesInMonth";
             this.lblTotalSalesInMonth.Size = new System.Drawing.Size(38, 46);
             this.lblTotalSalesInMonth.TabIndex = 278;
@@ -283,7 +287,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(19, 542);
+            this.label11.Location = new System.Drawing.Point(19, 476);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(243, 35);
             this.label11.TabIndex = 277;
@@ -291,20 +295,20 @@
             // 
             // chartPatients
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartPatients.ChartAreas.Add(chartArea2);
+            chartArea10.Name = "ChartArea1";
+            this.chartPatients.ChartAreas.Add(chartArea10);
             this.chartPatients.Location = new System.Drawing.Point(390, 74);
             this.chartPatients.Name = "chartPatients";
-            series2.ChartArea = "ChartArea1";
-            series2.Name = "Patients";
-            this.chartPatients.Series.Add(series2);
+            series10.ChartArea = "ChartArea1";
+            series10.Name = "Patients";
+            this.chartPatients.Series.Add(series10);
             this.chartPatients.Size = new System.Drawing.Size(488, 387);
             this.chartPatients.TabIndex = 274;
             this.chartPatients.Text = "chart1";
-            title2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title2.Name = "chartPatients";
-            title2.Text = "Patients Chart";
-            this.chartPatients.Titles.Add(title2);
+            title10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title10.Name = "chartPatients";
+            title10.Text = "Patients Chart";
+            this.chartPatients.Titles.Add(title10);
             // 
             // lblTotalPatientsInYear
             // 
@@ -390,6 +394,37 @@
             this.rprtInventory.Size = new System.Drawing.Size(1682, 950);
             this.rprtInventory.TabIndex = 0;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Animated = true;
+            this.btnPrint.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrint.BorderColor = System.Drawing.Color.Transparent;
+            this.btnPrint.BorderRadius = 5;
+            this.btnPrint.BorderThickness = 1;
+            this.btnPrint.CheckedState.Parent = this.btnPrint;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.CustomImages.Parent = this.btnPrint;
+            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrint.DisabledState.Parent = this.btnPrint;
+            this.btnPrint.FillColor = System.Drawing.Color.Blue;
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnPrint.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnPrint.HoverState.Parent = this.btnPrint;
+            this.btnPrint.Image = global::PatientInformationSystemNew.Properties.Resources.print_icon;
+            this.btnPrint.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPrint.Location = new System.Drawing.Point(1485, 870);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.ShadowDecoration.Parent = this.btnPrint;
+            this.btnPrint.Size = new System.Drawing.Size(131, 62);
+            this.btnPrint.TabIndex = 292;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -438,5 +473,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblOverallTotalPatients;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button btnPrint;
     }
 }
