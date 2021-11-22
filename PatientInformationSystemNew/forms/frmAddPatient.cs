@@ -21,6 +21,33 @@ namespace PatientInformationSystemNew.forms
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
+        functions.Duplicate duplicate = new functions.Duplicate();
+
+        void doctorsName()
+        {
+            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')
+                            FROM patient_information_db.users
+                            WHERE CAST(AES_DECRYPT(role, 'jovencutegwapo123') AS CHAR) = 'Doctor'";
+            MySqlConnection connection = new MySqlConnection(con.conString());
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader myReader;
+
+            try
+            {
+                connection.Open();
+                myReader = cmd.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')");
+                    this.cmbDoctorName.Items.Add(doctors_name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error filling doctors name: " + ex.ToString());
+            }
+        }
 
         void autoGenNum()
         {
@@ -32,17 +59,176 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
             this.txtPatientID.Text = generateID.ToString();
-            this.dateBirthday.Value = DateTime.Now;
         }
 
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
             autoGenNum();
-            for(int i = 0; i < 120; i++)
+            this.dateBirthday.Value = DateTime.Now.Date;
+            for (int i = 0; i < 120; i++)
             {
                 this.cmbAge.Items.Add(i);
             }
             this.btnRemoveSymptom.Enabled = false;
+            doctorsName();
+        }
+
+        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 plus sign is allowed
+            if(e.KeyChar == 43)
+            {
+                if((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtPulseRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtBloodPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
         }
 
         private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -55,15 +241,32 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptom_Click(object sender, EventArgs e)
         {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
             int n = this.gridAddPatient.Rows.Add();
-            this.gridAddPatient.Rows[n].Cells[0].Value = this.txtSymptoms.Text;
-            this.txtSymptoms.ResetText();
-            this.txtSymptoms.Focus();
+            if (duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
+            {
+                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
+                this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
         }
 
         private void btnRemoveSymptom_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in this.gridAddPatient.SelectedRows)
+            foreach (DataGridViewRow row in this.gridAddPatient.SelectedRows)
             {
                 this.gridAddPatient.Rows.Remove(row);
             }
@@ -76,77 +279,80 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtFirstName.Text))
+            if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
             {
                 MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtLastName.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtLastName.Text))
             {
                 MessageBox.Show("Last Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtLastName.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.cmbGender.Text))
+            else if (String.IsNullOrWhiteSpace(this.cmbGender.Text))
             {
                 MessageBox.Show("Gender is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.cmbGender.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.cmbAge.Text))
+            else if (String.IsNullOrWhiteSpace(this.cmbAge.Text))
             {
                 MessageBox.Show("Age is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.cmbAge.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtAddress.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtAddress.Text))
             {
                 MessageBox.Show("Address is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtAddress.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) && 
+            else if (String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) &&
                 String.IsNullOrWhiteSpace(this.txtEmail.Text))
             {
-                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required", 
+                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtCellphoneNumber.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
             {
                 MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtWeight.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
             {
                 MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTemperature.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
+            else if (String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
             {
                 MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();
             }
             else if(patient.addPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, 
-                this.cmbGender.Text, int.Parse(this.cmbAge.Text), this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, double.Parse(this.txtHeight.Text), double.Parse(this.txtWeight.Text), 
-                double.Parse(this.txtTemperature.Text), double.Parse(this.txtPulseRate.Text), double.Parse(this.txtBloodPressure.Text), 
+                this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text, 
+                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, 
                 this.cmbDoctorName.Text))
             {
                 for(int i = 0; i < this.gridAddPatient.Rows.Count; i++)
                 {
                     try
                     {
+
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms, date)
+                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms, date)
                                             VALUES(
                                             AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
-                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123'), 
+                                            AES_ENCRYPT(@symptoms_id, 'jovencutegwapo123'),
+                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123'),
                                             @date
                                             );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
                                 cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
-                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[0].Value);
-                                cmd.Parameters.AddWithValue("@date", DateTime.Now);
+                                cmd.Parameters.AddWithValue("@symptoms_id", this.gridAddPatient.Rows[i].Cells[0].Value);
+                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[1].Value);
+                                cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
 
                                 connection.Open();
                                 cmd.ExecuteReader();
@@ -184,6 +390,18 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            forms.frmPatients frmPatients = new forms.frmPatients();
+            frmPatients.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPatients);
+            frmPatients.Dock = DockStyle.Fill;
+            frmPatients.Show();
+            this.Close();
         }
     }
 }

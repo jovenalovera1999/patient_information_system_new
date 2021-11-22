@@ -9,11 +9,13 @@ namespace PatientInformationSystemNew.components
     class Values
     {
         // Server values
+
         public string server_name = "localhost";
         public string server_user = "root";
         public string server_pass = "";
 
         // User values
+
         public static string user_id;
         public string UserID
         {
@@ -62,8 +64,8 @@ namespace PatientInformationSystemNew.components
             get { return user_gender; }
             set { user_gender = value; }
         }
-        public static int user_age;
-        public int UserAge
+        public static string user_age;
+        public string UserAge
         {
             get { return user_age; }
             set { user_age = value; }
@@ -111,7 +113,23 @@ namespace PatientInformationSystemNew.components
             set { user_specialization = value; }
         }
 
+        public string UserFullName
+        {
+            get
+            {
+                if(String.IsNullOrWhiteSpace(user_middle_name))
+                {
+                    return string.Format("{0} {1}", user_first_name, user_last_name);
+                }
+                else
+                {
+                    return string.Format("{0} {1}. {2}", user_first_name, user_middle_name[0], user_last_name);
+                }
+            }
+        }
+
         // Patient values
+
         public static string patient_id;
         public string PatientID
         {
@@ -142,8 +160,8 @@ namespace PatientInformationSystemNew.components
             get { return patient_gender; }
             set { patient_gender = value; }
         }
-        public static int patient_age;
-        public int PatientAge
+        public static string patient_age;
+        public string PatientAge
         {
             get { return patient_age; }
             set { patient_age = value; }
@@ -179,32 +197,32 @@ namespace PatientInformationSystemNew.components
             get { return patient_email; }
             set { patient_email = value; }
         }
-        public static double patient_height;
-        public double PatientHeight
+        public static string patient_height;
+        public string PatientHeight
         {
             get { return patient_height; }
             set { patient_height = value; }
         }
-        public static double patient_weight;
-        public double PatientWeight
+        public static string patient_weight;
+        public string PatientWeight
         {
             get { return patient_weight; }
             set { patient_weight = value; }
         }
-        public static double patient_temperature;
-        public double PatientTemperature
+        public static string patient_temperature;
+        public string PatientTemperature
         {
             get { return patient_temperature; }
             set { patient_temperature = value; }
         }
-        public static double patient_pulse_rate;
-        public double PatientPulseRate
+        public static string patient_pulse_rate;
+        public string PatientPulseRate
         {
             get { return patient_pulse_rate; }
             set { patient_pulse_rate = value; }
         }
-        public static double patient_blood_pressure;
-        public double PatientBloodPressure
+        public static string patient_blood_pressure;
+        public string PatientBloodPressure
         {
             get { return patient_blood_pressure; }
             set { patient_blood_pressure = value; }
@@ -214,6 +232,176 @@ namespace PatientInformationSystemNew.components
         {
             get { return patient_doctor; }
             set { patient_doctor = value; }
+        }
+
+        public string PatientFullName
+        {
+            get
+            {
+                if(String.IsNullOrWhiteSpace(patient_middle_name))
+                {
+                    return string.Format("{0} {1}", patient_first_name, patient_last_name);
+                }
+                else
+                {
+                    return string.Format("{0} {1}. {2}", patient_first_name, patient_middle_name[0], patient_last_name);
+                }
+            }
+        }
+
+        // Doctor values
+
+        public static string doctor_id;
+        public string DoctorID
+        {
+            get { return doctor_id; }
+            set { doctor_id = value; }
+        }
+        public static byte[] doctor_profile_picture;
+        public byte[] DoctorProfilePicture
+        {
+            get { return doctor_profile_picture; }
+            set { doctor_profile_picture = value; }
+        }
+        public static string doctor_first_name;
+        public string DoctorFirstName
+        {
+            get { return doctor_first_name; }
+            set { doctor_first_name = value; }
+        }
+        public static string doctor_middle_name;
+        public string DoctorMiddleName
+        {
+            get { return doctor_middle_name; }
+            set { doctor_middle_name = value; }
+        }
+        public static string doctor_last_name;
+        public string DoctorLastName
+        {
+            get { return doctor_last_name; }
+            set { doctor_last_name = value; }
+        }
+        public static string doctor_gender;
+        public string DoctorGender
+        {
+            get { return doctor_gender; }
+            set { doctor_gender = value; }
+        }
+        public static string doctor_age;
+        public string DoctorAge
+        {
+            get { return doctor_age; }
+            set { doctor_age = doctor_age = value; }
+        }
+        public static string doctor_address;
+        public string DoctorAddress
+        {
+            get { return doctor_address; }
+            set { doctor_address = value; }
+        }
+        public static DateTime doctor_birthday;
+        public DateTime DoctorBirthday
+        {
+            get { return doctor_birthday; }
+            set { doctor_birthday = value; }
+        }
+        public static string doctor_cellphone_number;
+        public string DoctorCellphoneNumber
+        {
+            get { return doctor_cellphone_number; }
+            set { doctor_cellphone_number = value; }
+        }
+        public static string doctor_telephone_number;
+        public string DoctorTelephoneNumber
+        {
+            get { return doctor_telephone_number; }
+            set { doctor_telephone_number = value; }
+        }
+        public static string doctor_email;
+        public string DoctorEmail
+        {
+            get { return doctor_email; }
+            set { doctor_email = value; }
+        }
+        public static string doctor_role;
+        public string DoctorRole
+        {
+            get { return doctor_role; }
+            set { doctor_role = value; }
+        }
+        public static string doctor_specialization;
+        public string DoctorSpecialization
+        {
+            get { return doctor_specialization; }
+            set { doctor_specialization = value; }
+        }
+
+        // Prescription date
+        public static DateTime prescription_date;
+        public DateTime PrescriptionDate
+        {
+            get { return prescription_date; }
+            set { prescription_date = value; }
+        }
+
+        // Inventory values
+
+        public static string supply_quantity;
+        public string SupplyQuantity
+        {
+            get { return supply_quantity; }
+            set { supply_quantity = value; }
+        }
+
+        // Report values
+
+        public static string count_total_patients_in_month;
+        public string CountTotalPatientsInMonth
+        {
+            get { return count_total_patients_in_month;}
+            set { count_total_patients_in_month = value; }
+        }
+        public static string count_total_patients_in_day;
+        public string CountTotalPatientsInDay
+        {
+            get { return count_total_patients_in_day;}
+            set { count_total_patients_in_day = value; }
+        }
+        public static string count_total_patients_in_year;
+        public string CountTotalPatientsInYear
+        {
+            get { return count_total_patients_in_year; }
+            set { count_total_patients_in_year = value; }
+        }
+        public static string count_overall_total_patients;
+        public string CountOverallTotalPatients
+        {
+            get { return count_overall_total_patients; }
+            set { count_overall_total_patients = value; }
+        }
+        public static string count_total_sales_in_month;
+        public string CountTotalSalesInMonth
+        {
+            get { return count_total_sales_in_month; }
+            set { count_total_sales_in_month = value; }
+        }
+        public static string count_total_sales_in_day;
+        public string CountTotalSalesInDay
+        {
+            get { return count_total_sales_in_day; }
+            set { count_total_sales_in_day = value; }
+        }
+        public static string count_total_sales_in_year;
+        public string CountTotalSalesInYear
+        {
+            get { return count_total_sales_in_year; }
+            set { count_total_sales_in_year = value; }
+        }
+        public static string count_overall_total_sales;
+        public string CountOverallTotalSales
+        {
+            get { return count_overall_total_sales; }
+            set { count_overall_total_sales = value; }
         }
     }
 }

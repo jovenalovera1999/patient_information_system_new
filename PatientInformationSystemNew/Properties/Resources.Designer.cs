@@ -223,9 +223,29 @@ namespace PatientInformationSystemNew.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap print_icon {
+            get {
+                object obj = ResourceManager.GetObject("print_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap profile_icon {
             get {
                 object obj = ResourceManager.GetObject("profile_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report_icon {
+            get {
+                object obj = ResourceManager.GetObject("report_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

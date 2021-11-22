@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,12 @@
     <Compile Include="forms\frmAddPatient.Designer.cs">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmConsultation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmConsultation.Designer.cs">
+      <DependentUpon>frmConsultation.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmDoctorProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +95,11 @@
     <Compile Include="forms\frmDoctorsPatientProfile.Designer.cs">
       <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmDoctorsPatientsList.cs">
+    <Compile Include="forms\frmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmDoctorsPatientsList.Designer.cs">
-      <DependentUpon>frmDoctorsPatientsList.cs</DependentUpon>
+    <Compile Include="forms\frmInventory.Designer.cs">
+      <DependentUpon>frmInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmListOfDoctors.cs">
       <SubType>Form</SubType>
@@ -112,11 +119,11 @@
     <Compile Include="forms\frmMedicalStaffProfile.Designer.cs">
       <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmPatientPrescription.cs">
+    <Compile Include="forms\frmMyProfileNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmPatientPrescription.Designer.cs">
-      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    <Compile Include="forms\frmMyProfileNew.Designer.cs">
+      <DependentUpon>frmMyProfileNew.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmPatientProfile.cs">
       <SubType>Form</SubType>
@@ -130,18 +137,6 @@
     <Compile Include="forms\frmPaymentTransaction.Designer.cs">
       <DependentUpon>frmPaymentTransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmConsultation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmConsultation.Designer.cs">
-      <DependentUpon>frmConsultation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\frmConsultationPrescription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\frmConsultationPrescription.Designer.cs">
-      <DependentUpon>frmConsultationPrescription.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,17 +149,17 @@
     <Compile Include="forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmPatient.cs">
+    <Compile Include="forms\frmPatients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmPatient.Designer.cs">
-      <DependentUpon>frmPatient.cs</DependentUpon>
+    <Compile Include="forms\frmPatients.Designer.cs">
+      <DependentUpon>frmPatients.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\frmMyProfile.cs">
+    <Compile Include="forms\frmReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\frmMyProfile.Designer.cs">
-      <DependentUpon>frmMyProfile.cs</DependentUpon>
+    <Compile Include="forms\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\frmSchedule.cs">
       <SubType>Form</SubType>
@@ -178,8 +173,14 @@
     <Compile Include="forms\frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="functions\Diagnosis.cs" />
+    <Compile Include="functions\Doctor.cs" />
     <Compile Include="functions\Duplicate.cs" />
+    <Compile Include="functions\Inventory.cs" />
     <Compile Include="functions\Patient.cs" />
+    <Compile Include="functions\PaymentTransactions.cs" />
+    <Compile Include="functions\Prescription.cs" />
+    <Compile Include="functions\Report.cs" />
     <Compile Include="functions\Symptoms.cs" />
     <Compile Include="functions\User.cs" />
     <Compile Include="Program.cs" />
@@ -187,14 +188,17 @@
     <EmbeddedResource Include="forms\frmAddPatient.resx">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmConsultation.resx">
+      <DependentUpon>frmConsultation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDoctorProfile.resx">
       <DependentUpon>frmDoctorProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDoctorsPatientProfile.resx">
       <DependentUpon>frmDoctorsPatientProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmDoctorsPatientsList.resx">
-      <DependentUpon>frmDoctorsPatientsList.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmInventory.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmListOfDoctors.resx">
       <DependentUpon>frmListOfDoctors.cs</DependentUpon>
@@ -205,8 +209,8 @@
     <EmbeddedResource Include="forms\frmMedicalStaffProfile.resx">
       <DependentUpon>frmMedicalStaffProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPatientPrescription.resx">
-      <DependentUpon>frmPatientPrescription.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmMyProfileNew.resx">
+      <DependentUpon>frmMyProfileNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmPatientProfile.resx">
       <DependentUpon>frmPatientProfile.cs</DependentUpon>
@@ -214,23 +218,17 @@
     <EmbeddedResource Include="forms\frmPaymentTransaction.resx">
       <DependentUpon>frmPaymentTransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmConsultation.resx">
-      <DependentUpon>frmConsultation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmConsultationPrescription.resx">
-      <DependentUpon>frmConsultationPrescription.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmPatient.resx">
-      <DependentUpon>frmPatient.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmPatients.resx">
+      <DependentUpon>frmPatients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\frmMyProfile.resx">
-      <DependentUpon>frmMyProfile.cs</DependentUpon>
+    <EmbeddedResource Include="forms\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmSchedule.resx">
       <DependentUpon>frmSchedule.cs</DependentUpon>
@@ -248,6 +246,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="report\rprtPrescription.rdlc" />
+    <EmbeddedResource Include="report\rprtReceipt.rdlc" />
+    <EmbeddedResource Include="report\rprtReportPatientsAndSales.rdlc" />
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -262,7 +266,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\report_icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login_icon.png" />
   </ItemGroup>
@@ -331,6 +337,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\medical_staff_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

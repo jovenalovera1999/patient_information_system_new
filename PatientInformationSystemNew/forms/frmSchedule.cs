@@ -47,13 +47,13 @@ namespace PatientInformationSystemNew.forms
             string last_name = this.gridSchedule.SelectedCells[3].Value.ToString();
 
             this.txtPatientID.Text = this.gridSchedule.SelectedCells[0].Value.ToString();
-            if(String.IsNullOrWhiteSpace(this.gridSchedule.SelectedCells[2].Value.ToString()))
+            if(String.IsNullOrWhiteSpace(middle_name))
             {
-                this.txtPatientName.Text = first_name + " " + last_name;
+                this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);
             }
             else
             {
-                this.txtPatientName.Text = first_name + " " + middle_name[0] + ". " + last_name;
+                this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
         }
 
@@ -62,9 +62,13 @@ namespace PatientInformationSystemNew.forms
             if(patient.getPatientFromSchedule(this.gridSchedule.SelectedCells[0].Value.ToString()))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmConsultation);
+                frmConsultation.Dock = DockStyle.Fill;
                 frmConsultation.Show();
                 this.Close();
-                Application.OpenForms["frmDashboard"].Close();
             }
         }
 
@@ -73,9 +77,13 @@ namespace PatientInformationSystemNew.forms
             if(patient.getPatientFromSchedule(this.txtPatientID.Text))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmConsultation);
+                frmConsultation.Dock = DockStyle.Fill;
                 frmConsultation.Show();
                 this.Close();
-                Application.OpenForms["frmDashboard"].Close();
             }
         }
 

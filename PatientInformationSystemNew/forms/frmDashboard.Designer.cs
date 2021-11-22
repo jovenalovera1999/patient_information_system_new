@@ -31,10 +31,13 @@ namespace PatientInformationSystemNew.forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.pnlDashboardHeader = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlDashboardLeftSide = new System.Windows.Forms.Panel();
+            this.btnReport = new Guna.UI2.WinForms.Guna2Button();
             this.btnProfile = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnSignUp = new Guna.UI2.WinForms.Guna2Button();
@@ -50,6 +53,8 @@ namespace PatientInformationSystemNew.forms
             // 
             // pnlDashboardHeader
             // 
+            this.pnlDashboardHeader.Controls.Add(this.lblTime);
+            this.pnlDashboardHeader.Controls.Add(this.lblDate);
             this.pnlDashboardHeader.Controls.Add(this.label3);
             this.pnlDashboardHeader.Controls.Add(this.label2);
             this.pnlDashboardHeader.Controls.Add(this.guna2CirclePictureBox1);
@@ -58,6 +63,28 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardHeader.Name = "pnlDashboardHeader";
             this.pnlDashboardHeader.Size = new System.Drawing.Size(1920, 122);
             this.pnlDashboardHeader.TabIndex = 0;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(1733, 19);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(264, 57);
+            this.lblTime.TabIndex = 7;
+            this.lblTime.Text = "12:00:00 am";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(1738, 76);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(263, 28);
+            this.lblDate.TabIndex = 8;
+            this.lblDate.Text = "Monday, 11 November 2021";
             // 
             // label3
             // 
@@ -98,6 +125,7 @@ namespace PatientInformationSystemNew.forms
             // 
             // pnlDashboardLeftSide
             // 
+            this.pnlDashboardLeftSide.Controls.Add(this.btnReport);
             this.pnlDashboardLeftSide.Controls.Add(this.btnProfile);
             this.pnlDashboardLeftSide.Controls.Add(this.btnLogout);
             this.pnlDashboardLeftSide.Controls.Add(this.btnSignUp);
@@ -110,6 +138,37 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardLeftSide.Name = "pnlDashboardLeftSide";
             this.pnlDashboardLeftSide.Size = new System.Drawing.Size(221, 958);
             this.pnlDashboardLeftSide.TabIndex = 1;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Animated = true;
+            this.btnReport.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReport.BorderColor = System.Drawing.Color.Transparent;
+            this.btnReport.BorderThickness = 1;
+            this.btnReport.CheckedState.Parent = this.btnReport;
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.CustomImages.Parent = this.btnReport;
+            this.btnReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReport.DisabledState.Parent = this.btnReport;
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReport.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnReport.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnReport.HoverState.Parent = this.btnReport;
+            this.btnReport.Image = global::PatientInformationSystemNew.Properties.Resources.report_icon;
+            this.btnReport.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnReport.Location = new System.Drawing.Point(0, 270);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.ShadowDecoration.Parent = this.btnReport;
+            this.btnReport.Size = new System.Drawing.Size(221, 54);
+            this.btnReport.TabIndex = 17;
+            this.btnReport.Text = "Report";
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnProfile
             // 
@@ -233,6 +292,7 @@ namespace PatientInformationSystemNew.forms
             this.btnInventory.Size = new System.Drawing.Size(221, 54);
             this.btnInventory.TabIndex = 13;
             this.btnInventory.Text = "Inventory";
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnDoctors
             // 
@@ -263,6 +323,7 @@ namespace PatientInformationSystemNew.forms
             this.btnDoctors.Size = new System.Drawing.Size(221, 54);
             this.btnDoctors.TabIndex = 12;
             this.btnDoctors.Text = "Doctors";
+            this.btnDoctors.Click += new System.EventHandler(this.btnDoctors_Click);
             // 
             // btnPatient
             // 
@@ -349,6 +410,7 @@ namespace PatientInformationSystemNew.forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.pnlDashboardHeader.ResumeLayout(false);
             this.pnlDashboardHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -372,5 +434,8 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnProfile;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private System.Windows.Forms.Panel pnlDashboardBody;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblDate;
+        private Guna.UI2.WinForms.Guna2Button btnReport;
     }
 }

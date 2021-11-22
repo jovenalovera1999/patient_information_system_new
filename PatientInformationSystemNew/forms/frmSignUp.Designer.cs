@@ -193,9 +193,9 @@ namespace PatientInformationSystemNew.forms
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(273, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(342, 46);
+            this.label4.Size = new System.Drawing.Size(335, 46);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Medical Personnel ID:";
+            this.label4.Text = "Medical Personnel ID";
             // 
             // label5
             // 
@@ -204,9 +204,9 @@ namespace PatientInformationSystemNew.forms
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(273, 178);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 46);
+            this.label5.Size = new System.Drawing.Size(144, 46);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Account:";
+            this.label5.Text = "Account";
             // 
             // label6
             // 
@@ -215,9 +215,9 @@ namespace PatientInformationSystemNew.forms
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(736, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(338, 46);
+            this.label6.Size = new System.Drawing.Size(331, 46);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Personal Information:";
+            this.label6.Text = "Personal Information";
             // 
             // txtMiddlename
             // 
@@ -428,6 +428,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.ShadowDecoration.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtTelephoneNumber.TabIndex = 11;
+            this.txtTelephoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephoneNumber_KeyPress);
             // 
             // label12
             // 
@@ -466,6 +467,7 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.ShadowDecoration.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtCellphoneNumber.TabIndex = 10;
+            this.txtCellphoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellphoneNumber_KeyPress);
             // 
             // label13
             // 
@@ -485,9 +487,9 @@ namespace PatientInformationSystemNew.forms
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(1199, 22);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(329, 46);
+            this.label14.Size = new System.Drawing.Size(322, 46);
             this.label14.TabIndex = 31;
-            this.label14.Text = "Contact Information:";
+            this.label14.Text = "Contact Information";
             // 
             // txtEmail
             // 
@@ -534,9 +536,9 @@ namespace PatientInformationSystemNew.forms
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(1199, 374);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(92, 46);
+            this.label16.Size = new System.Drawing.Size(85, 46);
             this.label16.TabIndex = 38;
-            this.label16.Text = "Role:";
+            this.label16.Text = "Role";
             // 
             // cmbRole
             // 
@@ -704,9 +706,9 @@ namespace PatientInformationSystemNew.forms
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(1199, 517);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(231, 46);
+            this.label20.Size = new System.Drawing.Size(224, 46);
             this.label20.TabIndex = 211;
-            this.label20.Text = "Specialization:";
+            this.label20.Text = "Specialization";
             // 
             // dateBirthday
             // 
@@ -772,6 +774,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.Size = new System.Drawing.Size(112, 105);
             this.btnRemovePhoto.TabIndex = 221;
             this.btnRemovePhoto.Text = "Remove Photo";
+            this.btnRemovePhoto.Click += new System.EventHandler(this.btnRemovePhoto_Click);
             // 
             // btnUploadPhoto
             // 
