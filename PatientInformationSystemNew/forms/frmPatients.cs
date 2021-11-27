@@ -23,7 +23,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmPatient_Load(object sender, EventArgs e)
         {
-            patient.loadPatientsInPatients(this.gridPatients);
+            patient.LoadPatientsInPatients(this.gridPatients);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

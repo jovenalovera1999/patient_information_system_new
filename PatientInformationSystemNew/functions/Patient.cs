@@ -49,7 +49,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadPatientsInPatients(DataGridView grid)
+        public void LoadPatientsInPatients(DataGridView grid)
         {
             try
             {
@@ -69,6 +69,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         grid.DataSource = dt;

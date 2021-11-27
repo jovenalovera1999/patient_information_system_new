@@ -739,10 +739,9 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTemperature.Focus();
             }
-            else if (patient.updatePatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
+            else if (patient.UpdatePatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
-                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text))
+                this.txtTelephoneNumber.Text, this.txtEmail.Text))
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
