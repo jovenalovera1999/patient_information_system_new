@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS patient_information_db;
+DROP DATABASE IF EXISTS pis_db;
 
-CREATE DATABASE patient_information_db;
+CREATE DATABASE pis_db;
 
-CREATE TABLE patient_information_db.users (
+CREATE TABLE pis_db.users (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     user_id                             VARBINARY(800) NOT NULL,
     profile_picture                     BLOB DEFAULT NULL,
@@ -20,29 +20,47 @@ CREATE TABLE patient_information_db.users (
     email                               VARBINARY(800) DEFAULT NULL,
     role                  				VARBINARY(800) NOT NULL,
     specialization                      VARBINARY(800) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATETIME,
     PRIMARY KEY(id)
 );
 
-INSERT INTO patient_information_db.users(user_id, username, password, first_name, middle_name, last_name, gender, age, address, cellphone_number, 
+INSERT INTO pis_db.users(user_id, username, password, first_name, middle_name, last_name, gender, age, address, cellphone_number, 
 telephone_number, email, role)
 VALUES(
-    AES_ENCRYPT('99999999999', 'jovencutegwapo123'),
-    AES_ENCRYPT('admin', 'jovencutegwapo123'),
-    AES_ENCRYPT('admin', 'jovencutegwapo123'),
-    AES_ENCRYPT('Joven Joshua', 'jovencutegwapo123'),
-    AES_ENCRYPT('Celiz', 'jovencutegwapo123'),
-    AES_ENCRYPT('Alovera', 'jovencutegwapo123'),
-    AES_ENCRYPT('Male', 'jovencutegwapo123'),
-    AES_ENCRYPT('22', 'jovencutegwapo123'),
-    AES_ENCRYPT('1696 San Roque St. Roxas City', 'jovencutegwapo123'),
-    AES_ENCRYPT('09434071429', 'jovencutegwapo123'),
-    AES_ENCRYPT('6210433', 'jovencutegwapo123'),
-    AES_ENCRYPT('jovenalovera1999@gmail.com', 'jovencutegwapo123'),
-    AES_ENCRYPT('Administrator', 'jovencutegwapo123')
+    AES_ENCRYPT('99999999999', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('admin', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('admin', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Joven Joshua', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Celiz', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Alovera', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Male', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('22', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('1696 San Roque St. Roxas City', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('09434071429', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('6210433', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('jovenalovera1999@gmail.com', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Administrator', 'j0v3ncut3gw4p0per0jok3l4ang')
 );
 
-CREATE TABLE patient_information_db.schedule (
+INSERT INTO pis_db.users(user_id, username, password, first_name, last_name, gender, age, address, cellphone_number, 
+telephone_number, email, role, specialization)
+VALUES(
+    AES_ENCRYPT('746394', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Jessie', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Bueno', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Male', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('31', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Mabini St. Roxas City', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('09736496845', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('6298463', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('jessiebueno@gmail.com', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('Pediatric', 'j0v3ncut3gw4p0per0jok3l4ang')
+);
+
+CREATE TABLE pis_db.patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
     first_name                          VARBINARY(800) NOT NULL,
@@ -55,48 +73,40 @@ CREATE TABLE patient_information_db.schedule (
     cellphone_number                    VARBINARY(800) DEFAULT NULL,
     telephone_number                    VARBINARY(800) DEFAULT NULL,
     email                               VARBINARY(800) DEFAULT NULL,
-    height                              VARBINARY(800) DEFAULT NULL,
-    weight                              VARBINARY(800) NOT NULL,
-    temperature                         VARBINARY(800) NOT NULL,
-    pulse_rate                          VARBINARY(800) DEFAULT NULL,
-    blood_pressure                      VARBINARY(800) DEFAULT NULL,
-    doctor                              VARBINARY(800) NOT NULL,
     status                              VARCHAR(800) DEFAULT 'Waiting',
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE patient_information_db.patients (
-    id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
-    first_name                          VARBINARY(800) NOT NULL,
-    middle_name                         VARBINARY(800) DEFAULT NULL,
-    last_name                           VARBINARY(800) NOT NULL,
-    gender                              VARBINARY(800) NOT NULL,
-    age                                 VARBINARY(800) NOT NULL,
-    address                             VARBINARY(800) NOT NULL,
-    birthday                            DATE,
-    cellphone_number                    VARBINARY(800) DEFAULT NULL,
-    telephone_number                    VARBINARY(800) DEFAULT NULL,
-    email                               VARBINARY(800) DEFAULT NULL,
-    height                              VARBINARY(800) DEFAULT NULL,
-    weight                              VARBINARY(800) NOT NULL,
-    temperature                         VARBINARY(800) NOT NULL,
-    pulse_rate                          VARBINARY(800) DEFAULT NULL,
-    blood_pressure                      VARBINARY(800) DEFAULT NULL,
-    doctor                              VARBINARY(800) NOT NULL,
     payment_status                      VARCHAR(800) DEFAULT 'Unpaid',
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.number_of_patients (
+CREATE TABLE pis_db.number_of_patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.vital_signs (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARBINARY(800) NOT NULL,
+    height                              VARBINARY(800) DEFAULT NULL,
+    weight                              VARBINARY(800) NOT NULL,
+    temperature                         VARBINARY(800) NOT NULL,
+    pulse_rate                          VARBINARY(800) DEFAULT NULL,
+    blood_pressure                      VARBINARY(800) DEFAULT NULL,
     date                                DATE,
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.diagnosis (
+CREATE TABLE pis_db.patient_doctor (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARBINARY(800) NOT NULL,
+    doctor                              VARBINARY(800) NOT NULL,
+    date                                DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.diagnosis (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
     diagnosis_id                        VARBINARY(800) NOT NULL,
@@ -105,7 +115,7 @@ CREATE TABLE patient_information_db.diagnosis (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.symptoms (
+CREATE TABLE pis_db.symptoms (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
     symptoms_id                         VARBINARY(800) NOT NULL,
@@ -114,7 +124,7 @@ CREATE TABLE patient_information_db.symptoms (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.prescriptions (
+CREATE TABLE pis_db.prescriptions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,    
     patient_id                          VARBINARY(800) NOT NULL,
     prescription_id                     VARBINARY(800) NOT NULL,
@@ -123,7 +133,7 @@ CREATE TABLE patient_information_db.prescriptions (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.transactions (
+CREATE TABLE pis_db.transactions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
     receipt_no                          VARBINARY(800) NOT NULL,
@@ -132,27 +142,27 @@ CREATE TABLE patient_information_db.transactions (
     amount                              VARBINARY(800) NOT NULL,
     total_amount_paid                   VARBINARY(800) NOT NULL,
     `change`                            VARBINARY(800) DEFAULT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.inventory (
+CREATE TABLE pis_db.inventory (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
     expiration_date                     DATE,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
     PRIMARY KEY(id)
 );
 
-CREATE TABLE patient_information_db.inventory_incoming (
+CREATE TABLE pis_db.inventory_incoming (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
     expiration_date                     DATE,
     arrive_date                         DATE,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date                                DATE,
     PRIMARY KEY(id)
 );

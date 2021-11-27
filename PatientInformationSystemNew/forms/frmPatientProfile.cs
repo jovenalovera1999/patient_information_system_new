@@ -62,19 +62,14 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
             this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
             this.txtEmail.Text = val.PatientEmail;
-            this.txtHeight.Text = val.PatientHeight;
-            this.txtWeight.Text = val.PatientWeight;
-            this.txtTemperature.Text = val.PatientTemperature;
-            this.txtPulseRate.Text = val.PatientPulseRate;
-            this.txtBloodPressure.Text = val.PatientBloodPressure;
             this.txtFullName.Text = val.PatientFullName;
             this.cmbDiscount.Text = "None";
 
-            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
-            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridManageDiagnosis);
+            diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
+            diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridManageDiagnosis);
 
-            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecords);
-            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridManageSymptoms);
+            symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecords);
+            symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridManageSymptoms);
 
             prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridPrescriptionsRecords);
             prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridManagePrescriptions);
@@ -105,11 +100,6 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.Enabled = true;
             this.txtTelephoneNumber.Enabled = true;
             this.txtEmail.Enabled = true;
-            this.txtHeight.Enabled = true;
-            this.txtWeight.Enabled = true;
-            this.txtTemperature.Enabled = true;
-            this.txtPulseRate.Enabled = true;
-            this.txtBloodPressure.Enabled = true;
             this.btnSave.Enabled = true;
 
             this.btnEdit.Enabled = false;
@@ -339,8 +329,8 @@ namespace PatientInformationSystemNew.forms
             }
             else if(diagnosis.addDiagnosis(val.PatientID, this.txtAddDiagnosisID.Text, this.txtAddDiagnosis.Text, this.dateAddDiagnosis.Value.Date))
             {
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 autoGenNum();
 
@@ -372,8 +362,8 @@ namespace PatientInformationSystemNew.forms
             }
             else if (symptoms.addPatientSymptom(val.PatientID, this.txtAddSymptomID.Text, this.txtAddSymptom.Text, this.dateAddSymptom.Value.Date))
             {
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 autoGenNum();
 
@@ -440,8 +430,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 this.txtSelectedDiagnosis.ResetText();
                 this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
@@ -476,8 +466,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 this.txtSelectedSymptom.ResetText();
                 this.dateSelectedSymptom.Value = DateTime.Now.Date;
@@ -541,8 +531,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 this.txtSelectedDiagnosis.ResetText();
                 this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
@@ -569,8 +559,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 this.txtSelectedSymptom.ResetText();
                 this.dateSelectedSymptom.Value = DateTime.Now.Date;
@@ -729,24 +719,13 @@ namespace PatientInformationSystemNew.forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtCellphoneNumber.Focus();
             }
-            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
-            {
-                MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtWeight.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
-            {
-                MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtTemperature.Focus();
-            }
-            else if (patient.updatePatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
+            else if (patient.UpdatePatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
-                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text))
+                this.txtTelephoneNumber.Text, this.txtEmail.Text))
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (patient.getPatient(this.txtPatientID.Text))
+                if (patient.GetPatient(this.txtPatientID.Text))
                 {
                     this.txtPatientID.Text = val.PatientID;
                     this.txtFirstName.Text = val.PatientFirstName;
@@ -759,11 +738,6 @@ namespace PatientInformationSystemNew.forms
                     this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
                     this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
                     this.txtEmail.Text = val.PatientEmail;
-                    this.txtHeight.Text = val.PatientHeight.ToString();
-                    this.txtWeight.Text = val.PatientWeight.ToString();
-                    this.txtTemperature.Text = val.PatientTemperature.ToString();
-                    this.txtPulseRate.Text = val.PatientPulseRate.ToString();
-                    this.txtBloodPressure.Text = val.PatientBloodPressure.ToString();
                 }
 
                 this.txtFirstName.Enabled = false;
@@ -776,11 +750,6 @@ namespace PatientInformationSystemNew.forms
                 this.txtCellphoneNumber.Enabled = false;
                 this.txtTelephoneNumber.Enabled = false;
                 this.txtEmail.Enabled = false;
-                this.txtHeight.Enabled = false;
-                this.txtWeight.Enabled = false;
-                this.txtTemperature.Enabled = false;
-                this.txtPulseRate.Enabled = false;
-                this.txtBloodPressure.Enabled = false;
                 this.btnSave.Enabled = false;
 
                 this.btnEdit.Enabled = true;

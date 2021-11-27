@@ -70,11 +70,11 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName.Text = val.PatientFullName;
             this.cmbDiscount.Text = "None";
 
-            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
-            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridManageDiagnosis);
+            diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecords);
+            diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridManageDiagnosis);
 
-            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecords);
-            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridManageSymptoms);
+            symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecords);
+            symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridManageSymptoms);
 
             prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridPrescriptionsRecords);
             prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridManagePrescriptions);
@@ -339,8 +339,8 @@ namespace PatientInformationSystemNew.forms
             }
             else if (diagnosis.addDiagnosis(val.PatientID, this.txtAddDiagnosisID.Text, this.txtAddDiagnosis.Text, this.dateAddDiagnosis.Value.Date))
             {
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 autoGenNum();
 
@@ -372,8 +372,8 @@ namespace PatientInformationSystemNew.forms
             }
             else if (symptoms.addPatientSymptom(val.PatientID, this.txtAddSymptomID.Text, this.txtAddSymptom.Text, this.dateAddSymptom.Value.Date))
             {
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 autoGenNum();
 
@@ -440,8 +440,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 this.txtSelectedDiagnosis.ResetText();
                 this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
@@ -476,8 +476,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 this.txtSelectedSymptom.ResetText();
                 this.dateSelectedSymptom.Value = DateTime.Now.Date;
@@ -541,8 +541,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
-                diagnosis.loadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridDiagnosisRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientID, this.gridManageDiagnosis);
 
                 this.txtSelectedDiagnosis.ResetText();
                 this.dateSelectedDiagnosis.Value = DateTime.Now.Date;
@@ -569,8 +569,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridManageSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.loadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
 
                 this.txtSelectedSymptom.ResetText();
                 this.dateSelectedSymptom.Value = DateTime.Now.Date;
@@ -746,7 +746,7 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (patient.getPatient(this.txtPatientID.Text))
+                if (patient.GetPatient(this.txtPatientID.Text))
                 {
                     this.txtPatientID.Text = val.PatientID;
                     this.txtFirstName.Text = val.PatientFirstName;

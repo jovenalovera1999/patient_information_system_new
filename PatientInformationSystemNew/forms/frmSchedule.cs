@@ -31,7 +31,7 @@ namespace PatientInformationSystemNew.forms
             {
                 this.btnCancelPatient.Visible = false;
             }
-            patient.loadPatientInSchedule(this.gridSchedule);
+            patient.LoadPatientInSchedule(this.gridSchedule);
         }
 
         private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.forms
 
         private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(patient.getPatientFromSchedule(this.gridSchedule.SelectedCells[0].Value.ToString()))
+            if(patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[0].Value.ToString()))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;
@@ -74,7 +74,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if(patient.getPatientFromSchedule(this.txtPatientID.Text))
+            if(patient.GetPatientFromSchedule(this.txtPatientID.Text))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;

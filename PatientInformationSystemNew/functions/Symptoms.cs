@@ -14,18 +14,18 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void loadSymptomsInConsultation(string patient_id, DateTime date, DataGridView grid)
+        public void LoadSymptomsInConsultation(string patient_id, DateTime date, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms'
-                                    FROM patient_information_db.symptoms
+                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms'
+                                    FROM pis_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
                                     date = @date;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -35,6 +35,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         grid.DataSource = dt;
@@ -47,19 +48,19 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadSymptomsRecordsOfPatient(string patient_id, DataGridView grid)
+        public void LoadSymptomsRecordsOfPatient(string patient_id, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) AS 'Symptoms', 
+                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms', 
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
-                                    FROM patient_information_db.symptoms 
+                                    FROM pis_db.symptoms 
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -86,11 +87,11 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms, date)
+                    string sql = @"INSERT INTO pis_db.symptoms(patient_id, symptoms_id, symptoms, date)
                                     VALUES(
-                                    AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@symptoms_id, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@symptoms, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     @date
                                     )";
 
@@ -121,13 +122,13 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.symptoms 
+                    string sql = @"UPDATE pis_db.symptoms 
                                     SET 
-                                    symptoms = AES_ENCRYPT(@symptoms, 'jovencutegwapo123'),
+                                    symptoms = AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -156,10 +157,10 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM patient_information_db.symptoms
+                    string sql = @"DELETE FROM pis_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND 
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

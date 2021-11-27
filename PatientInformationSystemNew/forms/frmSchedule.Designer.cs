@@ -141,7 +141,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridSchedule.ColumnHeadersHeight = 55;
+            this.gridSchedule.ColumnHeadersHeight = 45;
             this.gridSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -161,7 +161,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.RowHeadersVisible = false;
             this.gridSchedule.RowHeadersWidth = 51;
             this.gridSchedule.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridSchedule.RowTemplate.Height = 50;
+            this.gridSchedule.RowTemplate.Height = 45;
             this.gridSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSchedule.Size = new System.Drawing.Size(1830, 655);
             this.gridSchedule.TabIndex = 25;
@@ -177,13 +177,13 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSchedule.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridSchedule.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridSchedule.ThemeStyle.HeaderStyle.Height = 45;
             this.gridSchedule.ThemeStyle.ReadOnly = true;
             this.gridSchedule.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSchedule.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSchedule.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSchedule.ThemeStyle.RowsStyle.Height = 50;
+            this.gridSchedule.ThemeStyle.RowsStyle.Height = 45;
             this.gridSchedule.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridSchedule.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSchedule_CellMouseClick);

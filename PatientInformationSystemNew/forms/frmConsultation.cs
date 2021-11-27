@@ -48,9 +48,9 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.Text = val.PatientPulseRate;
             this.txtBloodPressure.Text = val.PatientBloodPressure;
 
-            diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
-            symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
-            symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
+            diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+            symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+            symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
             prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridPrescriptionsRecord);
         }
 
@@ -173,8 +173,8 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
-                symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
+                symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -197,8 +197,8 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
-                symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+                symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -220,8 +220,8 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.loadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
-                symptoms.loadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+                symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -255,17 +255,16 @@ namespace PatientInformationSystemNew.forms
 
                         using (MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"DELETE FROM patient_information_db.diagnosis
+                            string sql = @"DELETE FROM pis_db.diagnosis
                                             WHERE
-                                            CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                            CAST(AES_DECRYPT(diagnosis_id, 'jovencutegwapo123') AS CHAR) = @diagnosis_id AND
-                                            date = @date;
+                                            CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                            CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;
 
-                                            INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
+                                            INSERT INTO pis_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
                                             VALUES(
-                                            AES_ENCRYPT(@patient_id, 'jovencutegwapo123'), 
-                                            AES_ENCRYPT(@diagnosis_id, 'jovencutegwapo123'), 
-                                            AES_ENCRYPT(@diagnosis, 'jovencutegwapo123'), 
+                                            AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                            AES_ENCRYPT(@diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                            AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                             @date
                                             );";
 
@@ -288,7 +287,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                diagnosis.loadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+                diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.btnSaveDiagnosis.Enabled = false;
                 this.txtPrescription.Focus();
@@ -315,13 +314,9 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
-            else if (patient.savePrescriptionAndTransferPatientToPatients(this.txtPatientID.Text, generateID.ToString(), this.txtPrescription.Text,
-                DateTime.Now.Date, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, this.txtGender.Text, this.txtAge.Text,
-                this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, 
-                this.txtBloodPressure.Text, val.PatientDoctor))
+            else if (patient.SavePatientCompleteConsultation(this.txtPatientID.Text))
             {
-                MessageBox.Show("Prescription successfully saved and patient successfully transfered!", "Success", MessageBoxButtons.OK, 
+                MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
 
                 this.btnSavePrescription.Enabled = false;
@@ -330,7 +325,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                MessageBox.Show("Failed to save prescription and transfer patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -369,7 +364,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
+                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;
@@ -388,7 +383,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.backPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
+                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;

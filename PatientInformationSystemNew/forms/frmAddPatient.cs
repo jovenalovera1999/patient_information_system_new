@@ -25,9 +25,9 @@ namespace PatientInformationSystemNew.forms
 
         void doctorsName()
         {
-            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')
-                            FROM patient_information_db.users
-                            WHERE CAST(AES_DECRYPT(role, 'jovencutegwapo123') AS CHAR) = 'Doctor'";
+            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')
+                            FROM pis_db.users
+                            WHERE CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Doctor'";
             MySqlConnection connection = new MySqlConnection(con.conString());
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             MySqlDataReader myReader;
@@ -39,7 +39,7 @@ namespace PatientInformationSystemNew.forms
 
                 while (myReader.Read())
                 {
-                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'jovencutegwapo123') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'jovencutegwapo123') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'jovencutegwapo123') AS CHAR), ')')");
+                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')");
                     this.cmbDoctorName.Items.Add(doctors_name);
                 }
             }
@@ -326,11 +326,11 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();
             }
-            else if(patient.addPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, 
+            else if(patient.AddPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text, 
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text, 
                 this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, 
-                this.cmbDoctorName.Text))
+                this.cmbDoctorName.Text, DateTime.Now.Date))
             {
                 for(int i = 0; i < this.gridAddPatient.Rows.Count; i++)
                 {
@@ -339,11 +339,11 @@ namespace PatientInformationSystemNew.forms
 
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO patient_information_db.symptoms(patient_id, symptoms_id, symptoms, date)
+                            string sql = @"INSERT INTO pis_db.symptoms(patient_id, symptoms_id, symptoms, date)
                                             VALUES(
-                                            AES_ENCRYPT(@patient_id, 'jovencutegwapo123'),
-                                            AES_ENCRYPT(@symptoms_id, 'jovencutegwapo123'),
-                                            AES_ENCRYPT(@symptoms, 'jovencutegwapo123'),
+                                            AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                            AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                            AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             @date
                                             );";
 
@@ -372,7 +372,7 @@ namespace PatientInformationSystemNew.forms
                 this.cmbGender.Text = null;
                 this.cmbAge.Text = null;
                 this.txtAddress.ResetText();
-                this.dateBirthday.Value = DateTime.Now;
+                this.dateBirthday.Value = DateTime.Now.Date;
                 this.txtCellphoneNumber.ResetText();
                 this.txtTelephoneNumber.ResetText();
                 this.txtEmail.ResetText();
