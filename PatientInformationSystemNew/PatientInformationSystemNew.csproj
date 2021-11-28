@@ -183,6 +183,7 @@
     <Compile Include="functions\Report.cs" />
     <Compile Include="functions\Symptoms.cs" />
     <Compile Include="functions\User.cs" />
+    <Compile Include="functions\VitalSigns.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmAddPatient.resx">

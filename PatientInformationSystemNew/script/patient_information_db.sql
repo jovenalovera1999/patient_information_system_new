@@ -106,6 +106,7 @@ CREATE TABLE pis_db.patient_doctor (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     full_name                           VARBINARY(800) NOT NULL,
+    doctor_id                           VARBINARY(800) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
     date                                DATE,
                                         PRIMARY KEY(id),
