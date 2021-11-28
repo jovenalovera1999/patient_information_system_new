@@ -63,6 +63,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Gender', 
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date Created'
                                     FROM pis_db.patients
+                                    WHERE status = 'Complete'
                                     ORDER BY first_name DESC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -132,7 +133,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"INSERT INTO pis_db.patients(patient_id, first_name, middle_name, last_name, gender, age, address, birthday, cellphone_number, telephone_number, 
-                                    email, date)
+                                    email)
                                     VALUES(
                                     AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
@@ -144,27 +145,7 @@ namespace PatientInformationSystemNew.functions
                                     @birthday, 
                                     AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
-                                    );
-
-                                    INSERT INTO pis_db.vital_signs(patient_id, height, weight, temperature, pulse_rate, 
-                                    blood_pressure, date)
-                                    VALUES(
-                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
-                                    );
-
-                                    INSERT INTO pis_db.patient_doctor(patient_id, doctor, date)
-                                    VALUES(
-                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
+                                    AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -180,16 +161,80 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
                         cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
                         cmd.Parameters.AddWithValue("@email", email);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+                    }
+
+                    sql = @"SELECT
+                            id,
+                            CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                            CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                            CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                            FROM pis_db.patients ORDER BY id DESC LIMIT 1;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        val.PatientPrimaryID = dt.Rows[0].Field<int>("id");
+                        val.PatientFirstName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                        val.PatientMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                        val.PatientLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                    }
+
+                    sql = @"INSERT INTO pis_db.vital_signs(patient_fid, full_name, height, weight, temperature, pulse_rate, 
+                            blood_pressure, date)
+                            VALUES(
+                            @patient_fid,
+                            AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                            AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                            AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                            AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                            AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                            AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                            @date
+                            );";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
+                        cmd.Parameters.AddWithValue("@full_name", val.PatientFullName);
                         cmd.Parameters.AddWithValue("@height", height);
                         cmd.Parameters.AddWithValue("@weight", weight);
                         cmd.Parameters.AddWithValue("@temperature", temperature);
                         cmd.Parameters.AddWithValue("@pulse_rate", pulse_rate);
                         cmd.Parameters.AddWithValue("@blood_pressure", blood_pressure);
+                        cmd.Parameters.AddWithValue("@date", date);
+
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+                    }
+
+                    sql = @"INSERT INTO pis_db.patient_doctor(patient_fid, full_name, doctor, date)
+                            VALUES(
+                            @patient_fid,
+                            AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                            AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                            @date
+                            );";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
+                        cmd.Parameters.AddWithValue("@full_name", val.PatientFullName);
                         cmd.Parameters.AddWithValue("@doctor", doctor);
                         cmd.Parameters.AddWithValue("@date", date);
 
-                        connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -204,22 +249,39 @@ namespace PatientInformationSystemNew.functions
 
         // Save patient
 
-        public bool SavePatientCompleteConsultation(string patient_id)
+        public bool SavePatientCompleteConsultation(int id, int patient_fid, string full_name, string prescription_id,
+            string prescriptions, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.patients
+                    string sql = @"INSERT INTO pis_db.prescriptions(patient_fid, full_name, prescription_id, prescriptions, date)
+                                    VALUES(
+                                    @patient_fid,
+                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    @date
+                                    );
+
+                                    UPDATE pis_db.patients
                                     SET status = 'Complete'
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -286,7 +348,7 @@ namespace PatientInformationSystemNew.functions
 
         // Cancel, remove or delete patient
 
-        public bool BackPatientToScheduleFromConsultation(string patient_id, DateTime date)
+        public bool BackPatientToScheduleFromConsultation(int id, int patient_fid)
         {
             try
             {
@@ -294,20 +356,20 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"UPDATE pis_db.patients 
                                     SET status = 'Waiting'
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;
+                                    WHERE id = @id;
 
                                     DELETE FROM pis_db.diagnosis
                                     WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    date = @date";
+                                    patient_fid = @patient_fid";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
 
                         return true;
                     }
@@ -367,11 +429,15 @@ namespace PatientInformationSystemNew.functions
                                     birthday,
                                     CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    FROM pis_db.patients 
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;
-
-                                    UPDATE pis_db.patients SET status = 'Consulting' 
+                                    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                                    FROM pis_db.patients
+                                    INNER JOIN pis_db.vital_signs ON pis_db.patients.id = pis_db.vital_signs.id
+                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -396,33 +462,6 @@ namespace PatientInformationSystemNew.functions
                             val.PatientCellphoneNumer = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientTelephoneNumber = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-
-                    sql = @"SELECT
-                            CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                            CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                            CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                            CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                            CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                            FROM pis_db.vital_signs
-                            WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if(dt.Rows.Count == 1)
-                        {
                             val.PatientHeight = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientWeight = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientTemperature = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
@@ -435,9 +474,11 @@ namespace PatientInformationSystemNew.functions
                         }
                     }
 
-                    sql = @"SELECT
-                            CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                            FROM pis_db.patient_doctor
+                    sql = @"SELECT *
+                            FROM pis_db.patients
+                            WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;
+
+                            UPDATE pis_db.patients SET status = 'Consulting' 
                             WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -451,7 +492,7 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
-                            val.PatientDoctor = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            val.PatientPrimaryID = dt.Rows[0].Field<int>("id");
                             return true;
                         }
                         else

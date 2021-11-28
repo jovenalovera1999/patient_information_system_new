@@ -49,7 +49,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.Text = val.PatientBloodPressure;
 
             diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
-            symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+            symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
             symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
             prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridPrescriptionsRecord);
         }
@@ -168,12 +168,13 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtDiagnosis.Focus();
             }
-            else if (symptoms.addPatientSymptom(this.txtPatientID.Text, generateID.ToString(), this.txtSymptoms.Text, DateTime.Now.Date))
+            else if (symptoms.AddPatientSymptom(val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
+                this.txtSymptoms.Text, DateTime.Now.Date))
             {
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
@@ -197,7 +198,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
@@ -220,7 +221,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.LoadSymptomsInConsultation(this.txtPatientID.Text, DateTime.Now.Date, this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
@@ -257,12 +258,13 @@ namespace PatientInformationSystemNew.forms
                         {
                             string sql = @"DELETE FROM pis_db.diagnosis
                                             WHERE
-                                            CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                            patient_fid = @patient_fid AND
                                             CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;
 
-                                            INSERT INTO pis_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
+                                            INSERT INTO pis_db.diagnosis(patient_fid, full_name, diagnosis_id, diagnosis, date)
                                             VALUES(
-                                            AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                            @patient_fid, 
+                                            AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                             AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                             @date
@@ -270,13 +272,16 @@ namespace PatientInformationSystemNew.forms
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
-                                cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
+                                cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
+                                cmd.Parameters.AddWithValue("@full_name", val.PatientFullName);
                                 cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
                                 cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
                                 cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
 
                                 connection.Open();
-                                cmd.ExecuteReader();
+                                MySqlDataReader dr;
+                                dr = cmd.ExecuteReader();
+                                dr.Close();
                             }
                         }
                     }
@@ -314,7 +319,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
-            else if (patient.SavePatientCompleteConsultation(this.txtPatientID.Text))
+            else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
+                this.txtPrescription.Text, DateTime.Now.Date))
             {
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
@@ -364,7 +370,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
+                if (patient.BackPatientToScheduleFromConsultation(val.PatientPrimaryID, val.PatientPrimaryID))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;
@@ -383,7 +389,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, DateTime.Now.Date))
+                if (patient.BackPatientToScheduleFromConsultation(val.PatientPrimaryID, val.PatientPrimaryID))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;

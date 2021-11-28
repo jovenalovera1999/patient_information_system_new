@@ -370,18 +370,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Symptom is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtAddSymptom.Focus();
             }
-            else if (symptoms.addPatientSymptom(val.PatientID, this.txtAddSymptomID.Text, this.txtAddSymptom.Text, this.dateAddSymptom.Value.Date))
-            {
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridSymptomsRecords);
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientID, this.gridManageSymptoms);
-
-                autoGenNum();
-
-                this.txtAddSymptom.ResetText();
-                this.dateAddSymptom.Value = DateTime.Now.Date;
-
-                this.txtAddSymptom.Focus();
-            }
             else
             {
                 MessageBox.Show("Failed to add symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -339,9 +339,10 @@ namespace PatientInformationSystemNew.forms
 
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO pis_db.symptoms(patient_id, symptoms_id, symptoms, date)
+                            string sql = @"INSERT INTO pis_db.symptoms(patient_fid, full_name, symptoms_id, symptoms, date)
                                             VALUES(
-                                            AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                            @patient_fid,
+                                            AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             @date
@@ -349,13 +350,15 @@ namespace PatientInformationSystemNew.forms
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
-                                cmd.Parameters.AddWithValue("@patient_id", this.txtPatientID.Text);
+                                cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
+                                cmd.Parameters.AddWithValue("@full_name", val.PatientFullName);
                                 cmd.Parameters.AddWithValue("@symptoms_id", this.gridAddPatient.Rows[i].Cells[0].Value);
                                 cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[1].Value);
                                 cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
 
                                 connection.Open();
-                                cmd.ExecuteReader();
+                                MySqlDataReader dr;
+                                dr = cmd.ExecuteReader();
                             }
                         }
                     }

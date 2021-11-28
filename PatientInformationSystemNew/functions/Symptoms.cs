@@ -14,7 +14,7 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void LoadSymptomsInConsultation(string patient_id, DateTime date, DataGridView grid)
+        public void LoadSymptomsInConsultation(int patient_fid, DataGridView grid)
         {
             try
             {
@@ -25,13 +25,11 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms'
                                     FROM pis_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    date = @date;";
+                                    patient_fid = @patient_fid;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -81,15 +79,16 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool addPatientSymptom(string patient_id, string symptoms_id, string symptoms, DateTime date)
+        public bool AddPatientSymptom(int patient_fid, string full_name, string symptoms_id, string symptoms, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.symptoms(patient_id, symptoms_id, symptoms, date)
+                    string sql = @"INSERT INTO pis_db.symptoms(patient_fid, full_name, symptoms_id, symptoms, date)
                                     VALUES(
-                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    @patient_fid,
+                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     @date
@@ -97,7 +96,8 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
                         cmd.Parameters.AddWithValue("@date", date);

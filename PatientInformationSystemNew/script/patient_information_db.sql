@@ -20,8 +20,8 @@ CREATE TABLE pis_db.users (
     email                               VARBINARY(800) DEFAULT NULL,
     role                  				VARBINARY(800) NOT NULL,
     specialization                      VARBINARY(800) DEFAULT NULL,
-    date                                DATETIME,
-    PRIMARY KEY(id)
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
 );
 
 INSERT INTO pis_db.users(user_id, username, password, first_name, middle_name, last_name, gender, age, address, cellphone_number, 
@@ -45,7 +45,7 @@ VALUES(
 INSERT INTO pis_db.users(user_id, username, password, first_name, last_name, gender, age, address, cellphone_number, 
 telephone_number, email, role, specialization)
 VALUES(
-    AES_ENCRYPT('746394', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('99999999999', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Jessie', 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -53,8 +53,8 @@ VALUES(
     AES_ENCRYPT('Male', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('31', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Mabini St. Roxas City', 'j0v3ncut3gw4p0per0jok3l4ang'),
-    AES_ENCRYPT('09736496845', 'j0v3ncut3gw4p0per0jok3l4ang'),
-    AES_ENCRYPT('6298463', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('09734063476', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('628783', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('jessiebueno@gmail.com', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Pediatric', 'j0v3ncut3gw4p0per0jok3l4ang')
@@ -76,74 +76,88 @@ CREATE TABLE pis_db.patients (
     status                              VARCHAR(800) DEFAULT 'Waiting',
     payment_status                      VARCHAR(800) DEFAULT 'Unpaid',
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
+                                        PRIMARY KEY(id)
 );
 
 CREATE TABLE pis_db.number_of_patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
+    patient_fid                         INT(10) NOT NULL,
+    date                                DATE,
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.vital_signs (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
+    patient_fid                         INT(10) NOT NULL,
+    full_name                           VARBINARY(800) NOT NULL,
+    vital_signs_id                      VARBINARY(800) NOT NULL,
     height                              VARBINARY(800) DEFAULT NULL,
     weight                              VARBINARY(800) NOT NULL,
     temperature                         VARBINARY(800) NOT NULL,
     pulse_rate                          VARBINARY(800) DEFAULT NULL,
     blood_pressure                      VARBINARY(800) DEFAULT NULL,
     date                                DATE,
-    PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.patient_doctor (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
+    patient_fid                         INT(10) NOT NULL,
+    full_name                           VARBINARY(800) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
     date                                DATE,
-    PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.diagnosis (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
+    patient_fid                         INT(10) NOT NULL,
+    full_name                           VARBINARY(800) NOT NULL,
     diagnosis_id                        VARBINARY(800) NOT NULL,
     diagnosis                           VARBINARY(800) DEFAULT NULL,
     date                                DATE,
-    PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.symptoms (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
+    patient_fid                         INT(10) NOT NULL,
+    full_name                           VARBINARY(800) NOT NULL,
     symptoms_id                         VARBINARY(800) NOT NULL,
     symptoms                            VARBINARY(800) DEFAULT NULL,
     date                                DATE,
-    PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.prescriptions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,    
-    patient_id                          VARBINARY(800) NOT NULL,
+    patient_fid                         INT(10) NOT NULL,
+    full_name                           VARBINARY(800) NOT NULL,
     prescription_id                     VARBINARY(800) NOT NULL,
     prescriptions                       VARBINARY(800) DEFAULT NULL,
     date                                DATE,
-    PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.transactions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_id                          VARBINARY(800) NOT NULL,
+    patient_fid                         INT(10) NOT NULL,
+    full_name                           VARBINARY(800) NOT NULL,
     receipt_no                          VARBINARY(800) NOT NULL,
     total_medical_fee                   VARBINARY(800) NOT NULL,
     discount                            VARBINARY(800) DEFAULT NULL,
     amount                              VARBINARY(800) NOT NULL,
     total_amount_paid                   VARBINARY(800) NOT NULL,
     `change`                            VARBINARY(800) DEFAULT NULL,
-    date                                DATE,
-    PRIMARY KEY(id)
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
 CREATE TABLE pis_db.inventory (
@@ -152,8 +166,8 @@ CREATE TABLE pis_db.inventory (
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
     expiration_date                     DATE,
-    date                                DATE,
-    PRIMARY KEY(id)
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
 );
 
 CREATE TABLE pis_db.inventory_incoming (
@@ -163,6 +177,6 @@ CREATE TABLE pis_db.inventory_incoming (
     quantity                            VARBINARY(800) NOT NULL,
     expiration_date                     DATE,
     arrive_date                         DATE,
-    date                                DATE,
-    PRIMARY KEY(id)
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
 );
