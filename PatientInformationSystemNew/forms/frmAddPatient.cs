@@ -22,6 +22,7 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
+        functions.Doctor doctor = new functions.Doctor();
 
         void doctorsName()
         {
@@ -249,19 +250,10 @@ namespace PatientInformationSystemNew.forms
             }
 
             int n = this.gridAddPatient.Rows.Add();
-            if (duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
-            {
-                MessageBox.Show("Symptoms ID is already exist! Please try add symptoms again!", "Already Exist", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                this.txtSymptoms.Focus();
-            }
-            else
-            {
-                this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
-                this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
-            }
+            this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
+            this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
+            this.txtSymptoms.ResetText();
+            this.txtSymptoms.Focus();
         }
 
         private void btnRemoveSymptom_Click(object sender, EventArgs e)
@@ -279,6 +271,13 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
             if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
             {
                 MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -330,7 +329,7 @@ namespace PatientInformationSystemNew.forms
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text, 
                 this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, 
-                this.cmbDoctorName.Text, DateTime.Now.Date))
+                this.cmbDoctorName.Text, DateTime.Now.Date, generateID.ToString(), generateID.ToString()))
             {
                 for(int i = 0; i < this.gridAddPatient.Rows.Count; i++)
                 {

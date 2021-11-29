@@ -14,7 +14,7 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void LoadDiagnosisRecordsOfPatient(string patient_id, DataGridView grid)
+        public void LoadDiagnosisRecordsOfPatient(string full_name, DataGridView grid)
         {
             try
             {
@@ -25,15 +25,16 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Diagnosis', 
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.diagnosis 
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id
+                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("full_name", full_name);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         grid.DataSource = dt;

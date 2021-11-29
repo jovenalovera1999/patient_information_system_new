@@ -46,7 +46,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void LoadSymptomsRecordsOfPatient(string patient_id, DataGridView grid)
+        public void LoadSymptomsRecordsOfPatient(string full_name, DataGridView grid)
         {
             try
             {
@@ -58,15 +58,16 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
                                     FROM pis_db.symptoms 
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         grid.DataSource = dt;

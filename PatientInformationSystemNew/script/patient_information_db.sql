@@ -45,7 +45,7 @@ VALUES(
 INSERT INTO pis_db.users(user_id, username, password, first_name, last_name, gender, age, address, cellphone_number, 
 telephone_number, email, role, specialization)
 VALUES(
-    AES_ENCRYPT('99999999999', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('57657', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('doctor', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Jessie', 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -107,6 +107,7 @@ CREATE TABLE pis_db.patient_doctor (
     patient_fid                         INT(10) NOT NULL,
     full_name                           VARBINARY(800) NOT NULL,
     doctor_id                           VARBINARY(800) NOT NULL,
+    user_id                             VARBINARY(800) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
     date                                DATE,
                                         PRIMARY KEY(id),

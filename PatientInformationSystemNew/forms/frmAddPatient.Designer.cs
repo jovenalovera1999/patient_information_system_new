@@ -62,6 +62,8 @@ namespace PatientInformationSystemNew.forms
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gridAddPatient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clmSymptomsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSymptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveSymptom = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddSymptom = new Guna.UI2.WinForms.Guna2Button();
             this.txtSymptoms = new Guna.UI2.WinForms.Guna2TextBox();
@@ -78,8 +80,6 @@ namespace PatientInformationSystemNew.forms
             this.label23 = new System.Windows.Forms.Label();
             this.txtBloodPressure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.clmSymptomsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSymptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridAddPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -663,6 +663,20 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridAddPatient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridAddPatient_CellMouseClick);
             // 
+            // clmSymptomsID
+            // 
+            this.clmSymptomsID.HeaderText = "ID";
+            this.clmSymptomsID.MinimumWidth = 6;
+            this.clmSymptomsID.Name = "clmSymptomsID";
+            this.clmSymptomsID.ReadOnly = true;
+            // 
+            // clmSymptoms
+            // 
+            this.clmSymptoms.HeaderText = "Symptoms";
+            this.clmSymptoms.MinimumWidth = 6;
+            this.clmSymptoms.Name = "clmSymptoms";
+            this.clmSymptoms.ReadOnly = true;
+            // 
             // btnRemoveSymptom
             // 
             this.btnRemoveSymptom.Animated = true;
@@ -1006,20 +1020,6 @@ namespace PatientInformationSystemNew.forms
             this.label22.Size = new System.Drawing.Size(145, 28);
             this.label22.TabIndex = 119;
             this.label22.Text = "Blood Pressure:";
-            // 
-            // clmSymptomsID
-            // 
-            this.clmSymptomsID.HeaderText = "ID";
-            this.clmSymptomsID.MinimumWidth = 6;
-            this.clmSymptomsID.Name = "clmSymptomsID";
-            this.clmSymptomsID.ReadOnly = true;
-            // 
-            // clmSymptoms
-            // 
-            this.clmSymptoms.HeaderText = "Symptoms";
-            this.clmSymptoms.MinimumWidth = 6;
-            this.clmSymptoms.Name = "clmSymptoms";
-            this.clmSymptoms.ReadOnly = true;
             // 
             // frmAddPatient
             // 

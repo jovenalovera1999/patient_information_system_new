@@ -28,6 +28,7 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.VitalSigns vital_signs = new functions.VitalSigns();
+        functions.Doctor doctor = new functions.Doctor();
 
         void autoGenNum()
         {
@@ -67,6 +68,11 @@ namespace PatientInformationSystemNew.forms
             this.cmbDiscount.Text = "None";
 
             vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+            doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
+            diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
+            symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
+            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
         }
 
         // Cell Mouse Click Once
@@ -220,6 +226,8 @@ namespace PatientInformationSystemNew.forms
                 }
 
                 vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+                doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
+
 
                 this.txtFirstName.Enabled = false;
                 this.txtMiddleName.Enabled = false;

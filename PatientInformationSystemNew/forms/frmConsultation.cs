@@ -48,10 +48,11 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.Text = val.PatientPulseRate;
             this.txtBloodPressure.Text = val.PatientBloodPressure;
 
-            diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
             symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-            symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
-            prescriptions.loadPrescriptionRecordsOfPatient(this.txtPatientID.Text, this.gridPrescriptionsRecord);
+
+            diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosisRecord);
+            symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
+            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptionsRecord);
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

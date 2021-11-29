@@ -240,6 +240,13 @@ namespace PatientInformationSystemNew.components
             set { patient_doctor = value; }
         }
 
+        public static string patient_doctor_id;
+        public string PatientDoctorID
+        {
+            get { return patient_doctor_id; }
+            set { patient_doctor_id = value; }
+        }
+
         public string PatientFullName
         {
             get
