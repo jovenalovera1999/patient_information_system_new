@@ -49,5 +49,41 @@ namespace PatientInformationSystemNew.functions
                 Console.WriteLine("Error loading vital signs: " + ex.ToString());
             }
         }
+
+        public void LoadEachPatientVitalSigns(int patient_fid, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    CAST(AES_DECRYPT(vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
+                                    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Height',
+                                    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Weight',
+                                    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Temperature',
+                                    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Pulse Rate',
+                                    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    FROM pis_db.vital_signs
+                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading each patient vital signs: " + ex.ToString());
+            }
+        }
     }
 }

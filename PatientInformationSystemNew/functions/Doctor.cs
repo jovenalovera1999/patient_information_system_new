@@ -82,6 +82,39 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void LoadEachPatientDoctor(int patient_fid, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
+                                    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Medical Personnel ID',
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Doctor',
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    FROM pis_db.patient_doctor
+                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading each patient doctor: " + ex.ToString());
+            }
+        }
+
         // Get Doctor
 
         public bool getDoctor(string user_id)

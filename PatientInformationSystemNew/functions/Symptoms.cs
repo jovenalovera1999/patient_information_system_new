@@ -80,6 +80,39 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void LoadSymptomsRecordsOfEachPatient(int patient_fid, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
+                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms', 
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
+                                    FROM pis_db.symptoms 
+                                    WHERE 
+                                    patient_fid = @patient_fid ORDER BY date ASC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading symptoms records of each patient: " + ex.ToString());
+            }
+        }
+
         public bool AddPatientSymptom(int patient_fid, string full_name, string symptoms_id, string symptoms, DateTime date)
         {
             try

@@ -83,6 +83,7 @@ namespace PatientInformationSystemNew.forms
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabVitalSigns = new System.Windows.Forms.TabPage();
+            this.btnCancelVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.txtBloodPressure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.txtPulseRate = new Guna.UI2.WinForms.Guna2TextBox();
@@ -106,6 +107,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.gridVitalSigns = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabDoctors = new System.Windows.Forms.TabPage();
+            this.btnCancelDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.cmbNameDoctors = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnNewDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveDoctors = new Guna.UI2.WinForms.Guna2Button();
@@ -118,9 +120,10 @@ namespace PatientInformationSystemNew.forms
             this.dateDoctors = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.guna2Button26 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddDoctor = new Guna.UI2.WinForms.Guna2Button();
             this.gridDoctorsRecords = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabDiagnosis = new System.Windows.Forms.TabPage();
+            this.btnCancelDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
@@ -136,10 +139,11 @@ namespace PatientInformationSystemNew.forms
             this.btnAddDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.gridDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabSymptoms = new System.Windows.Forms.TabPage();
+            this.btnCancelSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveSymptoms = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSymptoms = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSaveSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSymptomsID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -147,10 +151,11 @@ namespace PatientInformationSystemNew.forms
             this.label4 = new System.Windows.Forms.Label();
             this.txtSymptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnBackToPatientsInSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.gridSymptoms = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPrescription = new System.Windows.Forms.TabPage();
+            this.btnCancelPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemovePrescriptions = new Guna.UI2.WinForms.Guna2Button();
@@ -160,9 +165,9 @@ namespace PatientInformationSystemNew.forms
             this.label16 = new System.Windows.Forms.Label();
             this.datePrescriptions = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtPRescriptions = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPrescriptions = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.guna2Button14 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnBackToPatientsInPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.gridPrescriptions = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPrintPrescription = new System.Windows.Forms.TabPage();
@@ -912,6 +917,7 @@ namespace PatientInformationSystemNew.forms
             // tabVitalSigns
             // 
             this.tabVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabVitalSigns.Controls.Add(this.btnCancelVitalSigns);
             this.tabVitalSigns.Controls.Add(this.txtBloodPressure);
             this.tabVitalSigns.Controls.Add(this.label43);
             this.tabVitalSigns.Controls.Add(this.txtPulseRate);
@@ -939,6 +945,36 @@ namespace PatientInformationSystemNew.forms
             this.tabVitalSigns.Size = new System.Drawing.Size(1682, 950);
             this.tabVitalSigns.TabIndex = 10;
             this.tabVitalSigns.Text = "Vital Signs";
+            // 
+            // btnCancelVitalSigns
+            // 
+            this.btnCancelVitalSigns.Animated = true;
+            this.btnCancelVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelVitalSigns.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCancelVitalSigns.BorderRadius = 5;
+            this.btnCancelVitalSigns.BorderThickness = 1;
+            this.btnCancelVitalSigns.CheckedState.Parent = this.btnCancelVitalSigns;
+            this.btnCancelVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelVitalSigns.CustomImages.Parent = this.btnCancelVitalSigns;
+            this.btnCancelVitalSigns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelVitalSigns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancelVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancelVitalSigns.DisabledState.Parent = this.btnCancelVitalSigns;
+            this.btnCancelVitalSigns.FillColor = System.Drawing.Color.Red;
+            this.btnCancelVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCancelVitalSigns.ForeColor = System.Drawing.Color.White;
+            this.btnCancelVitalSigns.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnCancelVitalSigns.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnCancelVitalSigns.HoverState.Parent = this.btnCancelVitalSigns;
+            this.btnCancelVitalSigns.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnCancelVitalSigns.Location = new System.Drawing.Point(952, 186);
+            this.btnCancelVitalSigns.Name = "btnCancelVitalSigns";
+            this.btnCancelVitalSigns.ShadowDecoration.Parent = this.btnCancelVitalSigns;
+            this.btnCancelVitalSigns.Size = new System.Drawing.Size(131, 62);
+            this.btnCancelVitalSigns.TabIndex = 345;
+            this.btnCancelVitalSigns.Text = "Cancel";
+            this.btnCancelVitalSigns.Visible = false;
             // 
             // txtBloodPressure
             // 
@@ -1111,7 +1147,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNewVitalSigns.DisabledState.Parent = this.btnNewVitalSigns;
-            this.btnNewVitalSigns.Enabled = false;
             this.btnNewVitalSigns.FillColor = System.Drawing.Color.Lime;
             this.btnNewVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnNewVitalSigns.ForeColor = System.Drawing.Color.White;
@@ -1125,6 +1160,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnNewVitalSigns.TabIndex = 336;
             this.btnNewVitalSigns.Text = "New";
+            this.btnNewVitalSigns.Click += new System.EventHandler(this.btnNewVitalSigns_Click);
             // 
             // btnRemoveVitalSigns
             // 
@@ -1391,7 +1427,6 @@ namespace PatientInformationSystemNew.forms
             this.btnAddVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddVitalSigns.DisabledState.Parent = this.btnAddVitalSigns;
-            this.btnAddVitalSigns.Enabled = false;
             this.btnAddVitalSigns.FillColor = System.Drawing.Color.Lime;
             this.btnAddVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAddVitalSigns.ForeColor = System.Drawing.Color.White;
@@ -1406,6 +1441,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddVitalSigns.TabIndex = 327;
             this.btnAddVitalSigns.Text = "Add";
             this.btnAddVitalSigns.Visible = false;
+            this.btnAddVitalSigns.Click += new System.EventHandler(this.btnAddVitalSigns_Click);
             // 
             // gridVitalSigns
             // 
@@ -1477,6 +1513,7 @@ namespace PatientInformationSystemNew.forms
             // tabDoctors
             // 
             this.tabDoctors.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabDoctors.Controls.Add(this.btnCancelDoctors);
             this.tabDoctors.Controls.Add(this.cmbNameDoctors);
             this.tabDoctors.Controls.Add(this.btnNewDoctors);
             this.tabDoctors.Controls.Add(this.btnRemoveDoctors);
@@ -1489,13 +1526,43 @@ namespace PatientInformationSystemNew.forms
             this.tabDoctors.Controls.Add(this.dateDoctors);
             this.tabDoctors.Controls.Add(this.label38);
             this.tabDoctors.Controls.Add(this.label39);
-            this.tabDoctors.Controls.Add(this.guna2Button26);
+            this.tabDoctors.Controls.Add(this.btnAddDoctor);
             this.tabDoctors.Controls.Add(this.gridDoctorsRecords);
             this.tabDoctors.Location = new System.Drawing.Point(4, 4);
             this.tabDoctors.Name = "tabDoctors";
             this.tabDoctors.Size = new System.Drawing.Size(1682, 950);
             this.tabDoctors.TabIndex = 11;
             this.tabDoctors.Text = "Doctors";
+            // 
+            // btnCancelDoctors
+            // 
+            this.btnCancelDoctors.Animated = true;
+            this.btnCancelDoctors.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelDoctors.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCancelDoctors.BorderRadius = 5;
+            this.btnCancelDoctors.BorderThickness = 1;
+            this.btnCancelDoctors.CheckedState.Parent = this.btnCancelDoctors;
+            this.btnCancelDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelDoctors.CustomImages.Parent = this.btnCancelDoctors;
+            this.btnCancelDoctors.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelDoctors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelDoctors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancelDoctors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancelDoctors.DisabledState.Parent = this.btnCancelDoctors;
+            this.btnCancelDoctors.FillColor = System.Drawing.Color.Red;
+            this.btnCancelDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCancelDoctors.ForeColor = System.Drawing.Color.White;
+            this.btnCancelDoctors.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnCancelDoctors.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnCancelDoctors.HoverState.Parent = this.btnCancelDoctors;
+            this.btnCancelDoctors.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnCancelDoctors.Location = new System.Drawing.Point(488, 186);
+            this.btnCancelDoctors.Name = "btnCancelDoctors";
+            this.btnCancelDoctors.ShadowDecoration.Parent = this.btnCancelDoctors;
+            this.btnCancelDoctors.Size = new System.Drawing.Size(131, 62);
+            this.btnCancelDoctors.TabIndex = 338;
+            this.btnCancelDoctors.Text = "Cancel";
+            this.btnCancelDoctors.Visible = false;
             // 
             // cmbNameDoctors
             // 
@@ -1504,6 +1571,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbNameDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbNameDoctors.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbNameDoctors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNameDoctors.Enabled = false;
             this.cmbNameDoctors.FocusedColor = System.Drawing.Color.Blue;
             this.cmbNameDoctors.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.cmbNameDoctors.FocusedState.Parent = this.cmbNameDoctors;
@@ -1518,6 +1586,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbNameDoctors.ShadowDecoration.Parent = this.cmbNameDoctors;
             this.cmbNameDoctors.Size = new System.Drawing.Size(446, 36);
             this.cmbNameDoctors.TabIndex = 337;
+            this.cmbNameDoctors.SelectedIndexChanged += new System.EventHandler(this.cmbNameDoctors_SelectedIndexChanged);
             // 
             // btnNewDoctors
             // 
@@ -1534,7 +1603,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDoctors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewDoctors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNewDoctors.DisabledState.Parent = this.btnNewDoctors;
-            this.btnNewDoctors.Enabled = false;
             this.btnNewDoctors.FillColor = System.Drawing.Color.Lime;
             this.btnNewDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnNewDoctors.ForeColor = System.Drawing.Color.White;
@@ -1548,6 +1616,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDoctors.Size = new System.Drawing.Size(131, 62);
             this.btnNewDoctors.TabIndex = 336;
             this.btnNewDoctors.Text = "New";
+            this.btnNewDoctors.Click += new System.EventHandler(this.btnNewDoctors_Click);
             // 
             // btnRemoveDoctors
             // 
@@ -1771,36 +1840,37 @@ namespace PatientInformationSystemNew.forms
             this.label39.TabIndex = 328;
             this.label39.Text = "Doctor:";
             // 
-            // guna2Button26
+            // btnAddDoctor
             // 
-            this.guna2Button26.Animated = true;
-            this.guna2Button26.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button26.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button26.BorderRadius = 5;
-            this.guna2Button26.BorderThickness = 1;
-            this.guna2Button26.CheckedState.Parent = this.guna2Button26;
-            this.guna2Button26.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button26.CustomImages.Parent = this.guna2Button26;
-            this.guna2Button26.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button26.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button26.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button26.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button26.DisabledState.Parent = this.guna2Button26;
-            this.guna2Button26.Enabled = false;
-            this.guna2Button26.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button26.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button26.ForeColor = System.Drawing.Color.White;
-            this.guna2Button26.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button26.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button26.HoverState.Parent = this.guna2Button26;
-            this.guna2Button26.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button26.Location = new System.Drawing.Point(488, 111);
-            this.guna2Button26.Name = "guna2Button26";
-            this.guna2Button26.ShadowDecoration.Parent = this.guna2Button26;
-            this.guna2Button26.Size = new System.Drawing.Size(131, 62);
-            this.guna2Button26.TabIndex = 327;
-            this.guna2Button26.Text = "Add";
-            this.guna2Button26.Visible = false;
+            this.btnAddDoctor.Animated = true;
+            this.btnAddDoctor.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddDoctor.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddDoctor.BorderRadius = 5;
+            this.btnAddDoctor.BorderThickness = 1;
+            this.btnAddDoctor.CheckedState.Parent = this.btnAddDoctor;
+            this.btnAddDoctor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddDoctor.CustomImages.Parent = this.btnAddDoctor;
+            this.btnAddDoctor.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddDoctor.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddDoctor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddDoctor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddDoctor.DisabledState.Parent = this.btnAddDoctor;
+            this.btnAddDoctor.Enabled = false;
+            this.btnAddDoctor.FillColor = System.Drawing.Color.Lime;
+            this.btnAddDoctor.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAddDoctor.ForeColor = System.Drawing.Color.White;
+            this.btnAddDoctor.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnAddDoctor.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnAddDoctor.HoverState.Parent = this.btnAddDoctor;
+            this.btnAddDoctor.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddDoctor.Location = new System.Drawing.Point(488, 111);
+            this.btnAddDoctor.Name = "btnAddDoctor";
+            this.btnAddDoctor.ShadowDecoration.Parent = this.btnAddDoctor;
+            this.btnAddDoctor.Size = new System.Drawing.Size(131, 62);
+            this.btnAddDoctor.TabIndex = 327;
+            this.btnAddDoctor.Text = "Add";
+            this.btnAddDoctor.Visible = false;
+            this.btnAddDoctor.Click += new System.EventHandler(this.btnAddDoctor_Click);
             // 
             // gridDoctorsRecords
             // 
@@ -1871,6 +1941,7 @@ namespace PatientInformationSystemNew.forms
             // tabDiagnosis
             // 
             this.tabDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabDiagnosis.Controls.Add(this.btnCancelDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnNewDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnRemoveDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnSaveDiagnosis);
@@ -1891,6 +1962,36 @@ namespace PatientInformationSystemNew.forms
             this.tabDiagnosis.TabIndex = 3;
             this.tabDiagnosis.Text = "Diagnosis";
             // 
+            // btnCancelDiagnosis
+            // 
+            this.btnCancelDiagnosis.Animated = true;
+            this.btnCancelDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelDiagnosis.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCancelDiagnosis.BorderRadius = 5;
+            this.btnCancelDiagnosis.BorderThickness = 1;
+            this.btnCancelDiagnosis.CheckedState.Parent = this.btnCancelDiagnosis;
+            this.btnCancelDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelDiagnosis.CustomImages.Parent = this.btnCancelDiagnosis;
+            this.btnCancelDiagnosis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelDiagnosis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancelDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancelDiagnosis.DisabledState.Parent = this.btnCancelDiagnosis;
+            this.btnCancelDiagnosis.FillColor = System.Drawing.Color.Red;
+            this.btnCancelDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCancelDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.btnCancelDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnCancelDiagnosis.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnCancelDiagnosis.HoverState.Parent = this.btnCancelDiagnosis;
+            this.btnCancelDiagnosis.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnCancelDiagnosis.Location = new System.Drawing.Point(488, 186);
+            this.btnCancelDiagnosis.Name = "btnCancelDiagnosis";
+            this.btnCancelDiagnosis.ShadowDecoration.Parent = this.btnCancelDiagnosis;
+            this.btnCancelDiagnosis.Size = new System.Drawing.Size(131, 62);
+            this.btnCancelDiagnosis.TabIndex = 339;
+            this.btnCancelDiagnosis.Text = "Cancel";
+            this.btnCancelDiagnosis.Visible = false;
+            // 
             // btnNewDiagnosis
             // 
             this.btnNewDiagnosis.Animated = true;
@@ -1906,7 +2007,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNewDiagnosis.DisabledState.Parent = this.btnNewDiagnosis;
-            this.btnNewDiagnosis.Enabled = false;
             this.btnNewDiagnosis.FillColor = System.Drawing.Color.Lime;
             this.btnNewDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnNewDiagnosis.ForeColor = System.Drawing.Color.White;
@@ -1920,6 +2020,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnNewDiagnosis.TabIndex = 323;
             this.btnNewDiagnosis.Text = "New";
+            this.btnNewDiagnosis.Click += new System.EventHandler(this.btnNewDiagnosis_Click);
             // 
             // btnRemoveDiagnosis
             // 
@@ -2159,6 +2260,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.ShadowDecoration.Parent = this.txtDiagnosis;
             this.txtDiagnosis.Size = new System.Drawing.Size(446, 45);
             this.txtDiagnosis.TabIndex = 6;
+            this.txtDiagnosis.TextChanged += new System.EventHandler(this.txtDiagnosis_TextChanged);
             // 
             // label25
             // 
@@ -2201,6 +2303,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddDiagnosis.TabIndex = 8;
             this.btnAddDiagnosis.Text = "Add";
             this.btnAddDiagnosis.Visible = false;
+            this.btnAddDiagnosis.Click += new System.EventHandler(this.btnAddDiagnosis_Click);
             // 
             // gridDiagnosis
             // 
@@ -2272,10 +2375,11 @@ namespace PatientInformationSystemNew.forms
             // tabSymptoms
             // 
             this.tabSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabSymptoms.Controls.Add(this.btnCancelSymptoms);
             this.tabSymptoms.Controls.Add(this.btnEditSymptoms);
             this.tabSymptoms.Controls.Add(this.btnNewSymptoms);
             this.tabSymptoms.Controls.Add(this.btnRemoveSymptoms);
-            this.tabSymptoms.Controls.Add(this.btnSymptoms);
+            this.tabSymptoms.Controls.Add(this.btnSaveSymptoms);
             this.tabSymptoms.Controls.Add(this.label2);
             this.tabSymptoms.Controls.Add(this.txtSymptomsID);
             this.tabSymptoms.Controls.Add(this.label3);
@@ -2283,7 +2387,7 @@ namespace PatientInformationSystemNew.forms
             this.tabSymptoms.Controls.Add(this.label4);
             this.tabSymptoms.Controls.Add(this.txtSymptoms);
             this.tabSymptoms.Controls.Add(this.label5);
-            this.tabSymptoms.Controls.Add(this.guna2Button8);
+            this.tabSymptoms.Controls.Add(this.btnAddSymptoms);
             this.tabSymptoms.Controls.Add(this.btnBackToPatientsInSymptoms);
             this.tabSymptoms.Controls.Add(this.gridSymptoms);
             this.tabSymptoms.Location = new System.Drawing.Point(4, 4);
@@ -2291,6 +2395,36 @@ namespace PatientInformationSystemNew.forms
             this.tabSymptoms.Size = new System.Drawing.Size(1682, 950);
             this.tabSymptoms.TabIndex = 4;
             this.tabSymptoms.Text = "Symptoms";
+            // 
+            // btnCancelSymptoms
+            // 
+            this.btnCancelSymptoms.Animated = true;
+            this.btnCancelSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelSymptoms.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCancelSymptoms.BorderRadius = 5;
+            this.btnCancelSymptoms.BorderThickness = 1;
+            this.btnCancelSymptoms.CheckedState.Parent = this.btnCancelSymptoms;
+            this.btnCancelSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelSymptoms.CustomImages.Parent = this.btnCancelSymptoms;
+            this.btnCancelSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancelSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancelSymptoms.DisabledState.Parent = this.btnCancelSymptoms;
+            this.btnCancelSymptoms.FillColor = System.Drawing.Color.Red;
+            this.btnCancelSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCancelSymptoms.ForeColor = System.Drawing.Color.White;
+            this.btnCancelSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnCancelSymptoms.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnCancelSymptoms.HoverState.Parent = this.btnCancelSymptoms;
+            this.btnCancelSymptoms.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnCancelSymptoms.Location = new System.Drawing.Point(488, 186);
+            this.btnCancelSymptoms.Name = "btnCancelSymptoms";
+            this.btnCancelSymptoms.ShadowDecoration.Parent = this.btnCancelSymptoms;
+            this.btnCancelSymptoms.Size = new System.Drawing.Size(131, 62);
+            this.btnCancelSymptoms.TabIndex = 339;
+            this.btnCancelSymptoms.Text = "Cancel";
+            this.btnCancelSymptoms.Visible = false;
             // 
             // btnEditSymptoms
             // 
@@ -2339,7 +2473,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNewSymptoms.DisabledState.Parent = this.btnNewSymptoms;
-            this.btnNewSymptoms.Enabled = false;
             this.btnNewSymptoms.FillColor = System.Drawing.Color.Lime;
             this.btnNewSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnNewSymptoms.ForeColor = System.Drawing.Color.White;
@@ -2353,6 +2486,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnNewSymptoms.TabIndex = 334;
             this.btnNewSymptoms.Text = "New";
+            this.btnNewSymptoms.Click += new System.EventHandler(this.btnNewSymptoms_Click);
             // 
             // btnRemoveSymptoms
             // 
@@ -2384,37 +2518,37 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveSymptoms.Text = "Remove";
             this.btnRemoveSymptoms.Visible = false;
             // 
-            // btnSymptoms
+            // btnSaveSymptoms
             // 
-            this.btnSymptoms.Animated = true;
-            this.btnSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSymptoms.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSymptoms.BorderRadius = 5;
-            this.btnSymptoms.BorderThickness = 1;
-            this.btnSymptoms.CheckedState.Parent = this.btnSymptoms;
-            this.btnSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSymptoms.CustomImages.Parent = this.btnSymptoms;
-            this.btnSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSymptoms.DisabledState.Parent = this.btnSymptoms;
-            this.btnSymptoms.Enabled = false;
-            this.btnSymptoms.FillColor = System.Drawing.Color.Lime;
-            this.btnSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSymptoms.ForeColor = System.Drawing.Color.White;
-            this.btnSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnSymptoms.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnSymptoms.HoverState.Parent = this.btnSymptoms;
-            this.btnSymptoms.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSymptoms.Location = new System.Drawing.Point(488, 111);
-            this.btnSymptoms.Name = "btnSymptoms";
-            this.btnSymptoms.ShadowDecoration.Parent = this.btnSymptoms;
-            this.btnSymptoms.Size = new System.Drawing.Size(131, 62);
-            this.btnSymptoms.TabIndex = 332;
-            this.btnSymptoms.Text = "Save";
-            this.btnSymptoms.Visible = false;
-            this.btnSymptoms.Click += new System.EventHandler(this.btnSymptoms_Click);
+            this.btnSaveSymptoms.Animated = true;
+            this.btnSaveSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSaveSymptoms.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSaveSymptoms.BorderRadius = 5;
+            this.btnSaveSymptoms.BorderThickness = 1;
+            this.btnSaveSymptoms.CheckedState.Parent = this.btnSaveSymptoms;
+            this.btnSaveSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveSymptoms.CustomImages.Parent = this.btnSaveSymptoms;
+            this.btnSaveSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSaveSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSaveSymptoms.DisabledState.Parent = this.btnSaveSymptoms;
+            this.btnSaveSymptoms.Enabled = false;
+            this.btnSaveSymptoms.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSaveSymptoms.ForeColor = System.Drawing.Color.White;
+            this.btnSaveSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSaveSymptoms.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSaveSymptoms.HoverState.Parent = this.btnSaveSymptoms;
+            this.btnSaveSymptoms.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSaveSymptoms.Location = new System.Drawing.Point(488, 111);
+            this.btnSaveSymptoms.Name = "btnSaveSymptoms";
+            this.btnSaveSymptoms.ShadowDecoration.Parent = this.btnSaveSymptoms;
+            this.btnSaveSymptoms.Size = new System.Drawing.Size(131, 62);
+            this.btnSaveSymptoms.TabIndex = 332;
+            this.btnSaveSymptoms.Text = "Save";
+            this.btnSaveSymptoms.Visible = false;
+            this.btnSaveSymptoms.Click += new System.EventHandler(this.btnSymptoms_Click);
             // 
             // label2
             // 
@@ -2529,6 +2663,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.ShadowDecoration.Parent = this.txtSymptoms;
             this.txtSymptoms.Size = new System.Drawing.Size(446, 45);
             this.txtSymptoms.TabIndex = 325;
+            this.txtSymptoms.TextChanged += new System.EventHandler(this.txtSymptoms_TextChanged);
             // 
             // label5
             // 
@@ -2539,38 +2674,39 @@ namespace PatientInformationSystemNew.forms
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 28);
             this.label5.TabIndex = 328;
-            this.label5.Text = "Diagnosis:";
+            this.label5.Text = "Symptom:";
             // 
-            // guna2Button8
+            // btnAddSymptoms
             // 
-            this.guna2Button8.Animated = true;
-            this.guna2Button8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button8.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button8.BorderRadius = 5;
-            this.guna2Button8.BorderThickness = 1;
-            this.guna2Button8.CheckedState.Parent = this.guna2Button8;
-            this.guna2Button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button8.CustomImages.Parent = this.guna2Button8;
-            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button8.DisabledState.Parent = this.guna2Button8;
-            this.guna2Button8.Enabled = false;
-            this.guna2Button8.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button8.ForeColor = System.Drawing.Color.White;
-            this.guna2Button8.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button8.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button8.HoverState.Parent = this.guna2Button8;
-            this.guna2Button8.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button8.Location = new System.Drawing.Point(488, 111);
-            this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.ShadowDecoration.Parent = this.guna2Button8;
-            this.guna2Button8.Size = new System.Drawing.Size(131, 62);
-            this.guna2Button8.TabIndex = 327;
-            this.guna2Button8.Text = "Add";
-            this.guna2Button8.Visible = false;
+            this.btnAddSymptoms.Animated = true;
+            this.btnAddSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddSymptoms.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddSymptoms.BorderRadius = 5;
+            this.btnAddSymptoms.BorderThickness = 1;
+            this.btnAddSymptoms.CheckedState.Parent = this.btnAddSymptoms;
+            this.btnAddSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSymptoms.CustomImages.Parent = this.btnAddSymptoms;
+            this.btnAddSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddSymptoms.DisabledState.Parent = this.btnAddSymptoms;
+            this.btnAddSymptoms.Enabled = false;
+            this.btnAddSymptoms.FillColor = System.Drawing.Color.Lime;
+            this.btnAddSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAddSymptoms.ForeColor = System.Drawing.Color.White;
+            this.btnAddSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnAddSymptoms.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnAddSymptoms.HoverState.Parent = this.btnAddSymptoms;
+            this.btnAddSymptoms.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddSymptoms.Location = new System.Drawing.Point(488, 111);
+            this.btnAddSymptoms.Name = "btnAddSymptoms";
+            this.btnAddSymptoms.ShadowDecoration.Parent = this.btnAddSymptoms;
+            this.btnAddSymptoms.Size = new System.Drawing.Size(131, 62);
+            this.btnAddSymptoms.TabIndex = 327;
+            this.btnAddSymptoms.Text = "Add";
+            this.btnAddSymptoms.Visible = false;
+            this.btnAddSymptoms.Click += new System.EventHandler(this.btnAddSymptoms_Click);
             // 
             // btnBackToPatientsInSymptoms
             // 
@@ -2668,11 +2804,12 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ThemeStyle.RowsStyle.Height = 40;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManageSymptoms_CellMouseClick);
+            this.gridSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSymptoms_CellMouseClick);
             // 
             // tabPrescription
             // 
             this.tabPrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPrescription.Controls.Add(this.btnCancelPrescriptions);
             this.tabPrescription.Controls.Add(this.btnEditPrescriptions);
             this.tabPrescription.Controls.Add(this.btnNewPrescriptions);
             this.tabPrescription.Controls.Add(this.btnRemovePrescriptions);
@@ -2682,9 +2819,9 @@ namespace PatientInformationSystemNew.forms
             this.tabPrescription.Controls.Add(this.label16);
             this.tabPrescription.Controls.Add(this.datePrescriptions);
             this.tabPrescription.Controls.Add(this.label17);
-            this.tabPrescription.Controls.Add(this.txtPRescriptions);
+            this.tabPrescription.Controls.Add(this.txtPrescriptions);
             this.tabPrescription.Controls.Add(this.label22);
-            this.tabPrescription.Controls.Add(this.guna2Button14);
+            this.tabPrescription.Controls.Add(this.btnAddPrescriptions);
             this.tabPrescription.Controls.Add(this.btnBackToPatientsInPrescriptions);
             this.tabPrescription.Controls.Add(this.gridPrescriptions);
             this.tabPrescription.Location = new System.Drawing.Point(4, 4);
@@ -2692,6 +2829,36 @@ namespace PatientInformationSystemNew.forms
             this.tabPrescription.Size = new System.Drawing.Size(1682, 950);
             this.tabPrescription.TabIndex = 5;
             this.tabPrescription.Text = "Prescriptions";
+            // 
+            // btnCancelPrescriptions
+            // 
+            this.btnCancelPrescriptions.Animated = true;
+            this.btnCancelPrescriptions.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelPrescriptions.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCancelPrescriptions.BorderRadius = 5;
+            this.btnCancelPrescriptions.BorderThickness = 1;
+            this.btnCancelPrescriptions.CheckedState.Parent = this.btnCancelPrescriptions;
+            this.btnCancelPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelPrescriptions.CustomImages.Parent = this.btnCancelPrescriptions;
+            this.btnCancelPrescriptions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelPrescriptions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancelPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancelPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancelPrescriptions.DisabledState.Parent = this.btnCancelPrescriptions;
+            this.btnCancelPrescriptions.FillColor = System.Drawing.Color.Red;
+            this.btnCancelPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCancelPrescriptions.ForeColor = System.Drawing.Color.White;
+            this.btnCancelPrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnCancelPrescriptions.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnCancelPrescriptions.HoverState.Parent = this.btnCancelPrescriptions;
+            this.btnCancelPrescriptions.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnCancelPrescriptions.Location = new System.Drawing.Point(488, 288);
+            this.btnCancelPrescriptions.Name = "btnCancelPrescriptions";
+            this.btnCancelPrescriptions.ShadowDecoration.Parent = this.btnCancelPrescriptions;
+            this.btnCancelPrescriptions.Size = new System.Drawing.Size(131, 62);
+            this.btnCancelPrescriptions.TabIndex = 366;
+            this.btnCancelPrescriptions.Text = "Cancel";
+            this.btnCancelPrescriptions.Visible = false;
             // 
             // btnEditPrescriptions
             // 
@@ -2740,7 +2907,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnNewPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNewPrescriptions.DisabledState.Parent = this.btnNewPrescriptions;
-            this.btnNewPrescriptions.Enabled = false;
             this.btnNewPrescriptions.FillColor = System.Drawing.Color.Lime;
             this.btnNewPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnNewPrescriptions.ForeColor = System.Drawing.Color.White;
@@ -2754,6 +2920,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnNewPrescriptions.TabIndex = 364;
             this.btnNewPrescriptions.Text = "New";
+            this.btnNewPrescriptions.Click += new System.EventHandler(this.btnNewPrescriptions_Click);
             // 
             // btnRemovePrescriptions
             // 
@@ -2903,33 +3070,35 @@ namespace PatientInformationSystemNew.forms
             this.label17.TabIndex = 359;
             this.label17.Text = "Date:";
             // 
-            // txtPRescriptions
+            // txtPrescriptions
             // 
-            this.txtPRescriptions.Animated = true;
-            this.txtPRescriptions.BorderRadius = 5;
-            this.txtPRescriptions.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPRescriptions.DefaultText = "";
-            this.txtPRescriptions.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtPRescriptions.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtPRescriptions.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.txtPRescriptions.DisabledState.Parent = this.txtPRescriptions;
-            this.txtPRescriptions.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPRescriptions.Enabled = false;
-            this.txtPRescriptions.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtPRescriptions.FocusedState.Parent = this.txtPRescriptions;
-            this.txtPRescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtPRescriptions.ForeColor = System.Drawing.Color.Black;
-            this.txtPRescriptions.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtPRescriptions.HoverState.Parent = this.txtPRescriptions;
-            this.txtPRescriptions.Location = new System.Drawing.Point(26, 211);
-            this.txtPRescriptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtPRescriptions.Name = "txtPRescriptions";
-            this.txtPRescriptions.PasswordChar = '\0';
-            this.txtPRescriptions.PlaceholderText = "";
-            this.txtPRescriptions.SelectedText = "";
-            this.txtPRescriptions.ShadowDecoration.Parent = this.txtPRescriptions;
-            this.txtPRescriptions.Size = new System.Drawing.Size(441, 373);
-            this.txtPRescriptions.TabIndex = 355;
+            this.txtPrescriptions.Animated = true;
+            this.txtPrescriptions.BorderRadius = 5;
+            this.txtPrescriptions.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPrescriptions.DefaultText = "";
+            this.txtPrescriptions.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtPrescriptions.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtPrescriptions.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtPrescriptions.DisabledState.Parent = this.txtPrescriptions;
+            this.txtPrescriptions.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrescriptions.Enabled = false;
+            this.txtPrescriptions.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPrescriptions.FocusedState.Parent = this.txtPrescriptions;
+            this.txtPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPrescriptions.ForeColor = System.Drawing.Color.Black;
+            this.txtPrescriptions.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtPrescriptions.HoverState.Parent = this.txtPrescriptions;
+            this.txtPrescriptions.Location = new System.Drawing.Point(26, 211);
+            this.txtPrescriptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrescriptions.Multiline = true;
+            this.txtPrescriptions.Name = "txtPrescriptions";
+            this.txtPrescriptions.PasswordChar = '\0';
+            this.txtPrescriptions.PlaceholderText = "";
+            this.txtPrescriptions.SelectedText = "";
+            this.txtPrescriptions.ShadowDecoration.Parent = this.txtPrescriptions;
+            this.txtPrescriptions.Size = new System.Drawing.Size(441, 373);
+            this.txtPrescriptions.TabIndex = 355;
+            this.txtPrescriptions.TextChanged += new System.EventHandler(this.txtPRescriptions_TextChanged);
             // 
             // label22
             // 
@@ -2942,36 +3111,37 @@ namespace PatientInformationSystemNew.forms
             this.label22.TabIndex = 358;
             this.label22.Text = "Prescription:";
             // 
-            // guna2Button14
+            // btnAddPrescriptions
             // 
-            this.guna2Button14.Animated = true;
-            this.guna2Button14.BackColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button14.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button14.BorderRadius = 5;
-            this.guna2Button14.BorderThickness = 1;
-            this.guna2Button14.CheckedState.Parent = this.guna2Button14;
-            this.guna2Button14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button14.CustomImages.Parent = this.guna2Button14;
-            this.guna2Button14.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button14.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button14.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button14.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button14.DisabledState.Parent = this.guna2Button14;
-            this.guna2Button14.Enabled = false;
-            this.guna2Button14.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button14.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2Button14.ForeColor = System.Drawing.Color.White;
-            this.guna2Button14.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button14.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.guna2Button14.HoverState.Parent = this.guna2Button14;
-            this.guna2Button14.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button14.Location = new System.Drawing.Point(488, 211);
-            this.guna2Button14.Name = "guna2Button14";
-            this.guna2Button14.ShadowDecoration.Parent = this.guna2Button14;
-            this.guna2Button14.Size = new System.Drawing.Size(131, 62);
-            this.guna2Button14.TabIndex = 357;
-            this.guna2Button14.Text = "Add";
-            this.guna2Button14.Visible = false;
+            this.btnAddPrescriptions.Animated = true;
+            this.btnAddPrescriptions.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddPrescriptions.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAddPrescriptions.BorderRadius = 5;
+            this.btnAddPrescriptions.BorderThickness = 1;
+            this.btnAddPrescriptions.CheckedState.Parent = this.btnAddPrescriptions;
+            this.btnAddPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddPrescriptions.CustomImages.Parent = this.btnAddPrescriptions;
+            this.btnAddPrescriptions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddPrescriptions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddPrescriptions.DisabledState.Parent = this.btnAddPrescriptions;
+            this.btnAddPrescriptions.Enabled = false;
+            this.btnAddPrescriptions.FillColor = System.Drawing.Color.Lime;
+            this.btnAddPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAddPrescriptions.ForeColor = System.Drawing.Color.White;
+            this.btnAddPrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnAddPrescriptions.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnAddPrescriptions.HoverState.Parent = this.btnAddPrescriptions;
+            this.btnAddPrescriptions.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddPrescriptions.Location = new System.Drawing.Point(488, 211);
+            this.btnAddPrescriptions.Name = "btnAddPrescriptions";
+            this.btnAddPrescriptions.ShadowDecoration.Parent = this.btnAddPrescriptions;
+            this.btnAddPrescriptions.Size = new System.Drawing.Size(131, 62);
+            this.btnAddPrescriptions.TabIndex = 357;
+            this.btnAddPrescriptions.Text = "Add";
+            this.btnAddPrescriptions.Visible = false;
+            this.btnAddPrescriptions.Click += new System.EventHandler(this.btnAddPrescriptions_Click);
             // 
             // btnBackToPatientsInPrescriptions
             // 
@@ -3039,14 +3209,14 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPrescriptions.EnableHeadersVisualStyles = false;
             this.gridPrescriptions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridPrescriptions.Location = new System.Drawing.Point(0, 601);
+            this.gridPrescriptions.Location = new System.Drawing.Point(0, 614);
             this.gridPrescriptions.Name = "gridPrescriptions";
             this.gridPrescriptions.ReadOnly = true;
             this.gridPrescriptions.RowHeadersVisible = false;
             this.gridPrescriptions.RowHeadersWidth = 51;
             this.gridPrescriptions.RowTemplate.Height = 40;
             this.gridPrescriptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPrescriptions.Size = new System.Drawing.Size(1682, 349);
+            this.gridPrescriptions.Size = new System.Drawing.Size(1682, 336);
             this.gridPrescriptions.TabIndex = 324;
             this.gridPrescriptions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPrescriptions.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -3842,7 +4012,7 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnNewDiagnosis;
         private Guna.UI2.WinForms.Guna2Button btnNewSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnRemoveSymptoms;
-        private Guna.UI2.WinForms.Guna2Button btnSymptoms;
+        private Guna.UI2.WinForms.Guna2Button btnSaveSymptoms;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtSymptomsID;
         private System.Windows.Forms.Label label3;
@@ -3850,7 +4020,7 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtSymptoms;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2Button btnAddSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnEditSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnEditPrescriptions;
         private Guna.UI2.WinForms.Guna2Button btnNewPrescriptions;
@@ -3861,9 +4031,9 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label16;
         private Guna.UI2.WinForms.Guna2DateTimePicker datePrescriptions;
         private System.Windows.Forms.Label label17;
-        private Guna.UI2.WinForms.Guna2TextBox txtPRescriptions;
+        private Guna.UI2.WinForms.Guna2TextBox txtPrescriptions;
         private System.Windows.Forms.Label label22;
-        private Guna.UI2.WinForms.Guna2Button guna2Button14;
+        private Guna.UI2.WinForms.Guna2Button btnAddPrescriptions;
         private Guna.UI2.WinForms.Guna2Button btnNewDoctors;
         private Guna.UI2.WinForms.Guna2Button btnRemoveDoctors;
         private Guna.UI2.WinForms.Guna2Button btnSaveDoctors;
@@ -3875,7 +4045,7 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2DateTimePicker dateDoctors;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private Guna.UI2.WinForms.Guna2Button guna2Button26;
+        private Guna.UI2.WinForms.Guna2Button btnAddDoctor;
         private Guna.UI2.WinForms.Guna2Button btnNewVitalSigns;
         private Guna.UI2.WinForms.Guna2Button btnRemoveVitalSigns;
         private Guna.UI2.WinForms.Guna2Button btnSaveVitalSigns;
@@ -3901,5 +4071,10 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox txtAge;
         private Guna.UI2.WinForms.Guna2TextBox txtGender;
         private Guna.UI2.WinForms.Guna2TextBox txtBirthday;
+        private Guna.UI2.WinForms.Guna2Button btnCancelDoctors;
+        private Guna.UI2.WinForms.Guna2Button btnCancelVitalSigns;
+        private Guna.UI2.WinForms.Guna2Button btnCancelDiagnosis;
+        private Guna.UI2.WinForms.Guna2Button btnCancelSymptoms;
+        private Guna.UI2.WinForms.Guna2Button btnCancelPrescriptions;
     }
 }

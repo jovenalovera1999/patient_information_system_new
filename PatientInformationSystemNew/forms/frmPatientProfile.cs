@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
+using MySql.Data.MySqlClient;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -30,7 +31,33 @@ namespace PatientInformationSystemNew.forms
         functions.VitalSigns vital_signs = new functions.VitalSigns();
         functions.Doctor doctor = new functions.Doctor();
 
-        void autoGenNum()
+        void DoctorsName()
+        {
+            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')
+                            FROM pis_db.users
+                            WHERE CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Doctor'";
+            MySqlConnection connection = new MySqlConnection(con.conString());
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader myReader;
+
+            try
+            {
+                connection.Open();
+                myReader = cmd.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')");
+                    this.cmbNameDoctors.Items.Add(doctors_name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error filling doctors name: " + ex.ToString());
+            }
+        }
+
+        void AutoGenNumVitalSigns()
         {
             Random number = new Random();
             var generateID = new StringBuilder();
@@ -39,12 +66,59 @@ namespace PatientInformationSystemNew.forms
             {
                 generateID.Append(number.Next(10).ToString());
             }
+            this.txtVitalSignsID.Text = generateID.ToString();
+        }
+
+        void AutoGenNumDoctor()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtIDDoctors.Text = generateID.ToString();
+        }
+
+        void AutoGenNumDiagnosis()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtDiagnosisID.Text = generateID.ToString();
+        }
+
+        void AutoGenNumSymptoms()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtSymptomsID.Text = generateID.ToString();
+        }
+
+        void AutoGenNumPrescription()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtPrescriptionsID.Text = generateID.ToString();
         }
 
         private void frmPatientProfileNew_Load(object sender, EventArgs e)
         {
-            autoGenNum();
-
             for(int i = 0; i < 120; i++)
             {
                 this.cmbAge.Items.Add(i);
@@ -73,6 +147,14 @@ namespace PatientInformationSystemNew.forms
             symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
             prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
             prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
+
+            DoctorsName();
+
+            this.dateVitalSigns.Value = DateTime.Now.Date;
+            this.dateDoctors.Value = DateTime.Now.Date;
+            this.dateDiagnosis.Value = DateTime.Now.Date;
+            this.dateSymptoms.Value = DateTime.Now.Date;
+            this.datePrescriptions.Value = DateTime.Now.Date;
         }
 
         // Cell Mouse Click Once
@@ -95,22 +177,49 @@ namespace PatientInformationSystemNew.forms
 
         private void gridDoctorsRecords_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
+            this.txtIDDoctors.Text = this.gridDoctorsRecords.SelectedCells[0].Value.ToString();
+            this.cmbNameDoctors.Text = this.gridDoctorsRecords.SelectedCells[2].Value.ToString();
+            this.dateDoctors.Value = DateTime.Parse(this.gridDoctorsRecords.SelectedCells[3].Value.ToString());
+
+            this.btnEditDoctors.Enabled = true;
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
+            this.txtDiagnosisID.Text = this.gridDiagnosis.SelectedCells[0].Value.ToString();
+            this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
+            this.dateDiagnosis.Value = DateTime.Parse(this.gridDiagnosis.SelectedCells[2].Value.ToString());
+
+            this.btnEditDiagnosis.Enabled = true;
         }
 
-        private void gridManageSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
+            this.txtSymptomsID.Text = this.gridSymptoms.SelectedCells[0].Value.ToString();
+            this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
+            this.dateSymptoms.Value = DateTime.Parse(this.gridSymptoms.SelectedCells[2].Value.ToString());
+
+            this.btnEditSymptoms.Enabled = true;
         }
 
         private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
+            this.txtPrescriptionsID.Text = this.gridPrescriptions.SelectedCells[0].Value.ToString();
+            this.txtPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
+
+            this.btnEditPrescriptions.Enabled = true;
         }
 
         // Edit
@@ -161,6 +270,172 @@ namespace PatientInformationSystemNew.forms
         }
 
         private void btnEditPayment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // New
+
+        private void btnNewVitalSigns_Click(object sender, EventArgs e)
+        {
+            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            vital_signs.LoadEachPatientVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+
+            this.btnAddVitalSigns.Visible = true;
+            this.btnCancelVitalSigns.Visible = true;
+
+            this.btnNewVitalSigns.Enabled = false;
+            this.btnEditVitalSigns.Enabled = false;
+            this.btnSaveVitalSigns.Visible = false;
+            this.btnRemoveVitalSigns.Visible = false;
+
+            AutoGenNumVitalSigns();
+
+            this.txtHeight.Enabled = true;
+            this.txtWeight.Enabled = true;
+            this.txtTemperature.Enabled = true;
+            this.txtPulseRate.Enabled = true;
+            this.txtBloodPressure.Enabled = true;
+            this.dateVitalSigns.Enabled = true;
+
+            this.txtHeight.Focus();
+        }
+
+        private void btnNewDoctors_Click(object sender, EventArgs e)
+        {
+            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDoctorsRecords);
+
+            this.btnAddDoctor.Visible = true;
+            this.btnCancelDoctors.Visible = true;
+
+            this.btnNewDoctors.Enabled = false;
+            this.btnEditDoctors.Enabled = false;
+            this.btnSaveDoctors.Visible = false;
+            this.btnRemoveDoctors.Visible = false;
+
+            AutoGenNumDoctor();
+
+            this.cmbNameDoctors.Enabled = true;
+            this.dateDoctors.Enabled = true;
+
+            this.cmbNameDoctors.Focus();
+        }
+
+        private void btnNewDiagnosis_Click(object sender, EventArgs e)
+        {
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            diagnosis.LoadEachPatientDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+
+            this.btnAddDiagnosis.Visible = true;
+            this.btnCancelDiagnosis.Visible = true;
+
+            this.btnNewDiagnosis.Enabled = false;
+            this.btnEditDoctors.Enabled = false;
+            this.btnSaveDiagnosis.Enabled = false;
+            this.btnRemoveDiagnosis.Enabled = false;
+
+            AutoGenNumDiagnosis();
+
+            this.txtDiagnosis.Enabled = true;
+            this.dateDiagnosis.Enabled = true;
+
+            this.txtDiagnosis.Focus();
+        }
+
+        private void btnNewSymptoms_Click(object sender, EventArgs e)
+        {
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            symptoms.LoadSymptomsRecordsOfEachPatient(val.PatientPrimaryID, this.gridSymptoms);
+
+            this.btnAddSymptoms.Visible = true;
+            this.btnCancelSymptoms.Visible = true;
+
+            this.btnNewSymptoms.Enabled = false;
+            this.btnEditSymptoms.Enabled = false;
+            this.btnSaveSymptoms.Visible = false;
+            this.btnRemoveSymptoms.Visible = false;
+
+            AutoGenNumSymptoms();
+
+            this.txtSymptoms.Enabled = true;
+            this.dateSymptoms.Enabled = true;
+
+            this.txtSymptoms.Focus();
+        }
+
+        private void btnNewPrescriptions_Click(object sender, EventArgs e)
+        {
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
+
+            this.btnAddPrescriptions.Visible = true;
+            this.btnCancelPrescriptions.Visible = true;
+
+            this.btnNewPrescriptions.Enabled = false;
+            this.btnEditPrescriptions.Enabled = false;
+            this.btnSavePrescriptions.Visible = false;
+            this.btnRemovePrescriptions.Visible = false;
+
+            AutoGenNumPrescription();
+
+            this.txtPrescriptions.Enabled = true;
+            this.datePrescriptions.Enabled = true;
+
+            this.txtPrescriptions.Focus();
+        }
+
+        // Add
+
+        private void btnAddVitalSigns_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                MessageBox.Show("Weight and Temperature are required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtWeight.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtWeight.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTemperature.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add vital signs!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAddDoctor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddPrescriptions_Click(object sender, EventArgs e)
         {
 
         }
@@ -321,6 +596,49 @@ namespace PatientInformationSystemNew.forms
         private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        // Text Changed
+
+        private void cmbNameDoctors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiagnosis_TextChanged(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
+            {
+                this.btnAddDiagnosis.Enabled = false;
+            }
+            else
+            {
+                this.btnAddDiagnosis.Enabled = true;
+            }
+        }
+
+        private void txtSymptoms_TextChanged(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            {
+                this.btnAddSymptoms.Enabled = false;
+            }
+            else
+            {
+                this.btnAddSymptoms.Enabled = true;
+            }
+        }
+
+        private void txtPRescriptions_TextChanged(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
+            {
+                this.btnAddPrescriptions.Enabled = false;
+            }
+            else
+            {
+                this.btnAddPrescriptions.Enabled = true;
+            }
         }
 
         // Transact

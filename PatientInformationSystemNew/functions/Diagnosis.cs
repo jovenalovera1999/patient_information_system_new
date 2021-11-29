@@ -47,6 +47,38 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void LoadEachPatientDiagnosis(int patient_fid, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
+                                    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Diagnosis', 
+                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    FROM pis_db.diagnosis 
+                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading diagnosis records of each patient: " + ex.ToString());
+            }
+        }
+
         public bool addDiagnosis(string patient_id, string diagnosis_id, string diagnosis, DateTime date)
         {
             try
