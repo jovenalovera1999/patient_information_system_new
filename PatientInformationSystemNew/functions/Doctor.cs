@@ -184,6 +184,49 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        // Add
+
+        public bool AddDoctor(int patient_fid, string full_name, string doctor_id, string user_id, string doctor, DateTime date)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"INSERT INTO pis_db.patient_doctor(patient_fid, full_name, doctor_id, user_id, doctor, date)
+                                    VALUES(
+                                    @patient_fid,
+                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    date
+                                    );";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@doctor_id", doctor_id);
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        cmd.Parameters.AddWithValue("@doctor", doctor);
+                        cmd.Parameters.AddWithValue("@date", date);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error adding each patient doctor: " + ex.ToString());
+                return false;
+            }
+        }
+
         // Update Doctor
 
         public bool updateDoctor(string user_id, string first_name, string middle_name, string last_name, string gender, string age, string address, 

@@ -480,20 +480,27 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddVitalSigns_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            if (duplicate.VitalSignsIDDuplicate(val.PatientFullName, this.txtVitalSignsID.Text))
             {
-                MessageBox.Show("Weight and Temperature are required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtWeight.Focus();
+                MessageBox.Show("Vital Signs ID is already taken! Generating a new ID", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AutoGenNumVitalSigns();
             }
-            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            else if(vital_signs.AddPatientVitalSigns(val.PatientPrimaryID, val.PatientFullName, this.txtVitalSignsID.Text, this.txtHeight.Text,
+                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value.Date))
             {
-                MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtWeight.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
-            {
-                MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtTemperature.Focus();
+                MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                vital_signs.LoadEachPatientVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+
+                AutoGenNumVitalSigns();
+                this.txtHeight.ResetText();
+                this.txtWeight.ResetText();
+                this.txtTemperature.ResetText();
+                this.txtPulseRate.ResetText();
+                this.txtBloodPressure.ResetText();
+                this.dateVitalSigns.Value = DateTime.Now.Date;
+
+                this.txtHeight.Focus();
             }
             else
             {
@@ -608,7 +615,6 @@ namespace PatientInformationSystemNew.forms
                 vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
                 doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
 
-
                 this.txtFirstName.Enabled = false;
                 this.txtMiddleName.Enabled = false;
                 this.txtLastName.Enabled = false;
@@ -700,10 +706,48 @@ namespace PatientInformationSystemNew.forms
 
         private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            
         }
 
         // Text Changed
+
+        private void txtWeight_TextChanged(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else if (!String.IsNullOrWhiteSpace(this.txtTemperature.Text) && String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else
+            {
+                this.btnAddVitalSigns.Enabled = true;
+                this.btnSaveVitalSigns.Enabled = true;
+            }
+        }
+
+        private void txtTemperature_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(this.txtTemperature.Text) && String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else if (!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else
+            {
+                this.btnAddVitalSigns.Enabled = true;
+                this.btnSaveVitalSigns.Enabled = true;
+            }
+        }
 
         private void cmbNameDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
