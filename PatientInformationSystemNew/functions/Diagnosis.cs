@@ -79,15 +79,16 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool addDiagnosis(string patient_id, string diagnosis_id, string diagnosis, DateTime date)
+        public bool AddDiagnosis(int patient_fid, string full_name, string diagnosis_id, string diagnosis, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.diagnosis(patient_id, diagnosis_id, diagnosis, date)
+                    string sql = @"INSERT INTO pis_db.diagnosis(patient_fid, full_name, diagnosis_id, diagnosis, date)
                                     VALUES(
-                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    @patient_fid,
+                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @date
@@ -95,13 +96,16 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
                         cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -120,7 +124,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.diagnosis 
+                    string sql = @"UPDATE pis_db.diagnosis 
                                     SET 
                                     diagnosis = AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
@@ -155,7 +159,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM patient_information_db.diagnosis
+                    string sql = @"DELETE FROM pis_db.diagnosis
                                     WHERE 
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
                                     CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";

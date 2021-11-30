@@ -24,8 +24,8 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.users 
-                                    WHERE CAST(AES_DECRYPT(username, 'jovencutegwapo123') AS CHAR) = @username;";
+                                    FROM pis_db.users 
+                                    WHERE CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @username;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -55,26 +55,26 @@ namespace PatientInformationSystemNew.functions
 
         // Diagnosis
 
-        public bool diagnosisIDDuplicate(string patient_id, string diagnosis_id)
+        public bool DiagnosisIDDuplicate(string full_name, string diagnosis_id)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.diagnosis
-                                    WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(diagnosis_id, 'jovencutegwapo123') AS CHAR) = @diagnosis_id;
-                                    ";
+                                    FROM pis_db.diagnosis
+                                    WHERE
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if(dt.Rows.Count == 1)
@@ -95,27 +95,26 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool diagnosisNameDuplicate(string patient_id, string diagnosis, DateTime date)
+        public bool DiagnosisNameDuplicate(int patient_fid, string diagnosis)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.diagnosis
+                                    FROM pis_db.diagnosis
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(diagnosis, 'jovencutegwapo123') AS CHAR) = @diagnosis AND
-                                    date = @date;";
+                                    patient_fid = @patient_fid AND
+                                    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
-                        cmd.Parameters.AddWithValue("@date", date);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if (dt.Rows.Count == 1)
@@ -145,10 +144,10 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.symptoms 
+                                    FROM pis_db.symptoms 
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(symptoms_id, 'jovencutegwapo123') AS CHAR) = @symptoms_id;";
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -184,10 +183,10 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.symptoms
+                                    FROM pis_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(symptoms, 'jovencutegwapo123') AS CHAR) = @symptoms AND
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms AND
                                     date = @date;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -227,10 +226,10 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT *
-                                    FROM patient_information_db.prescriptions
+                                    FROM pis_db.prescriptions
                                     WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(prescription_id, 'jovencutegwapo123') AS CHAR) = @prescription_id;";
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -266,10 +265,10 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.prescriptions
+                                    FROM pis_db.prescriptions
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'jovencutegwapo123') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(prescriptions, 'jovencutegwapo123') AS CHAR) = @prescriptions AND
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescriptions AND
                                     date = @date;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -307,8 +306,8 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT * 
-                                    FROM patient_information_db.inventory_incoming
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;";
+                                    FROM pis_db.inventory_incoming
+                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -345,11 +344,11 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR),
-                                    CAST(AES_DECRYPT(quantity, 'jovencutegwapo123') AS CHAR)
-                                    FROM patient_information_db.inventory
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                                    FROM pis_db.inventory
                                     WHERE 
-                                    CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;";
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -361,7 +360,7 @@ namespace PatientInformationSystemNew.functions
 
                         if (dt.Rows.Count == 1)
                         {
-                            val.SupplyQuantity = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(quantity, 'jovencutegwapo123') AS CHAR)");
+                            val.SupplyQuantity = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             return true;
                         }
                         else

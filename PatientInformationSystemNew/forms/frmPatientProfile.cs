@@ -246,27 +246,89 @@ namespace PatientInformationSystemNew.forms
 
         private void btnEditVitalSigns_Click(object sender, EventArgs e)
         {
+            this.btnAddVitalSigns.Visible = false;
+            this.btnCancelVitalSigns.Visible = false;
 
+            this.txtHeight.Enabled = true;
+            this.txtWeight.Enabled = true;
+            this.txtTemperature.Enabled = true;
+            this.txtPulseRate.Enabled = true;
+            this.txtBloodPressure.Enabled = true;
+            this.dateVitalSigns.Enabled = true;
+
+            this.btnSaveVitalSigns.Visible = true;
+            this.btnRemoveVitalSigns.Visible = true;
+
+            this.btnNewVitalSigns.Enabled = true;
+            this.btnEditVitalSigns.Enabled = false;
+
+            this.txtHeight.Focus();
         }
 
         private void btnEditDoctors_Click(object sender, EventArgs e)
         {
+            this.btnAddDoctor.Visible = false;
+            this.btnCancelDoctors.Visible = false;
 
+            this.cmbNameDoctors.Enabled = true;
+            this.dateDoctors.Enabled = true;
+
+            this.btnSaveDoctors.Visible = true;
+            this.btnRemoveVitalSigns.Visible = true;
+
+            this.btnNewDoctors.Enabled = true;
+            this.btnEditDoctors.Enabled = false;
+
+            this.cmbNameDoctors.Focus();
         }
 
         private void btnEditDiagnosis_Click(object sender, EventArgs e)
         {
+            this.btnAddDiagnosis.Visible = false;
+            this.btnCancelDiagnosis.Visible = false;
 
+            this.txtDiagnosis.Enabled = true;
+            this.dateDiagnosis.Enabled = true;
+
+            this.btnSaveDiagnosis.Visible = true;
+            this.btnRemoveDiagnosis.Visible = true;
+
+            this.btnNewDiagnosis.Enabled = true;
+            this.btnEditDiagnosis.Enabled = false;
+
+            this.txtDiagnosis.Focus();
         }
 
         private void btnEditSymptoms_Click(object sender, EventArgs e)
         {
+            this.btnAddSymptoms.Visible = false;
+            this.btnCancelSymptoms.Visible = false;
 
+            this.txtSymptoms.Enabled = true;
+            this.dateSymptoms.Enabled = true;
+
+            this.btnSaveSymptoms.Visible = true;
+            this.btnRemoveSymptoms.Visible = true;
+
+            this.btnNewSymptoms.Enabled = true;
+            this.btnEditSymptoms.Enabled = false;
+
+            this.txtSymptoms.Focus();
         }
 
         private void btnEditPrescriptions_Click(object sender, EventArgs e)
         {
+            this.btnAddPrescriptions.Visible = false;
+            this.btnCancelPrescriptions.Visible = false;
 
+            this.txtPrescriptions.Enabled = true;
+            this.datePrescriptions.Enabled = true;
+
+            this.btnSavePrescriptions.Visible = true;
+            this.btnRemovePrescriptions.Visible = true;
+
+            this.btnNewPrescriptions.Enabled = true;
+            this.btnEditPrescriptions.Enabled = false;
         }
 
         private void btnEditPayment_Click(object sender, EventArgs e)
@@ -281,7 +343,16 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtVitalSignsID.ResetText();
+            this.txtHeight.ResetText();
+            this.txtWeight.ResetText();
+            this.txtTemperature.ResetText();
+            this.txtPulseRate.ResetText();
+            this.txtBloodPressure.ResetText();
+            this.dateVitalSigns.Value = DateTime.Now.Date;
+
             vital_signs.LoadEachPatientVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+            AutoGenNumVitalSigns();
 
             this.btnAddVitalSigns.Visible = true;
             this.btnCancelVitalSigns.Visible = true;
@@ -290,8 +361,6 @@ namespace PatientInformationSystemNew.forms
             this.btnEditVitalSigns.Enabled = false;
             this.btnSaveVitalSigns.Visible = false;
             this.btnRemoveVitalSigns.Visible = false;
-
-            AutoGenNumVitalSigns();
 
             this.txtHeight.Enabled = true;
             this.txtWeight.Enabled = true;
@@ -308,7 +377,12 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtIDDoctors.ResetText();
+            this.cmbNameDoctors.Text = null;
+            this.dateDoctors.Value = DateTime.Now.Date;
+
             doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDoctorsRecords);
+            AutoGenNumDoctor();
 
             this.btnAddDoctor.Visible = true;
             this.btnCancelDoctors.Visible = true;
@@ -317,8 +391,6 @@ namespace PatientInformationSystemNew.forms
             this.btnEditDoctors.Enabled = false;
             this.btnSaveDoctors.Visible = false;
             this.btnRemoveDoctors.Visible = false;
-
-            AutoGenNumDoctor();
 
             this.cmbNameDoctors.Enabled = true;
             this.dateDoctors.Enabled = true;
@@ -331,17 +403,21 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtDiagnosisID.ResetText();
+            this.txtDiagnosis.ResetText();
+            this.dateDiagnosis.Value = DateTime.Now.Date;
+
             diagnosis.LoadEachPatientDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+            AutoGenNumDiagnosis();
 
             this.btnAddDiagnosis.Visible = true;
             this.btnCancelDiagnosis.Visible = true;
+            this.txtDiagnosisID.Enabled = true;
 
             this.btnNewDiagnosis.Enabled = false;
             this.btnEditDoctors.Enabled = false;
             this.btnSaveDiagnosis.Enabled = false;
             this.btnRemoveDiagnosis.Enabled = false;
-
-            AutoGenNumDiagnosis();
 
             this.txtDiagnosis.Enabled = true;
             this.dateDiagnosis.Enabled = true;
@@ -354,7 +430,12 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtSymptomsID.ResetText();
+            this.txtSymptoms.ResetText();
+            this.dateSymptoms.Value = DateTime.Now.Date;
+
             symptoms.LoadSymptomsRecordsOfEachPatient(val.PatientPrimaryID, this.gridSymptoms);
+            AutoGenNumSymptoms();
 
             this.btnAddSymptoms.Visible = true;
             this.btnCancelSymptoms.Visible = true;
@@ -363,8 +444,6 @@ namespace PatientInformationSystemNew.forms
             this.btnEditSymptoms.Enabled = false;
             this.btnSaveSymptoms.Visible = false;
             this.btnRemoveSymptoms.Visible = false;
-
-            AutoGenNumSymptoms();
 
             this.txtSymptoms.Enabled = true;
             this.dateSymptoms.Enabled = true;
@@ -377,7 +456,11 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+            this.txtPrescriptionsID.ResetText();
+            this.txtPrescriptions.ResetText();
+
             prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
+            AutoGenNumPrescription();
 
             this.btnAddPrescriptions.Visible = true;
             this.btnCancelPrescriptions.Visible = true;
@@ -386,8 +469,6 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPrescriptions.Enabled = false;
             this.btnSavePrescriptions.Visible = false;
             this.btnRemovePrescriptions.Visible = false;
-
-            AutoGenNumPrescription();
 
             this.txtPrescriptions.Enabled = true;
             this.datePrescriptions.Enabled = true;
@@ -422,12 +503,36 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
+            if(duplicate.DiagnosisIDDuplicate(val.PatientFullName, this.txtDiagnosisID.Text))
+            {
+                MessageBox.Show("Diagnosis ID is already taken! Generating a new ID", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AutoGenNumDiagnosis();
+            }
+            else if(duplicate.DiagnosisNameDuplicate(val.PatientPrimaryID, this.txtDiagnosis.Text))
+            {
+                MessageBox.Show("Diagnosis is already exist!", "Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                this.txtDiagnosis.ResetText();
+                this.txtDiagnosis.Focus();
+            }
+            else if(diagnosis.AddDiagnosis(val.PatientPrimaryID, val.PatientFullName, this.txtDiagnosisID.Text, this.txtDiagnosis.Text,
+                this.dateDiagnosis.Value.Date))
+            {
+                MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                diagnosis.LoadEachPatientDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+
+                AutoGenNumDiagnosis();
+                this.txtDiagnosis.ResetText();
+                this.dateDiagnosis.Value = DateTime.Now.Date;
+
+                this.txtDiagnosis.Focus();
+            }
         }
 
         private void btnAddSymptoms_Click(object sender, EventArgs e)
@@ -602,7 +707,16 @@ namespace PatientInformationSystemNew.forms
 
         private void cmbNameDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(String.IsNullOrWhiteSpace(this.cmbNameDoctors.Text))
+            {
+                this.btnAddDoctor.Enabled = false;
+                this.btnSaveDoctors.Enabled = false;
+            }
+            else
+            {
+                this.btnAddDoctor.Enabled = true;
+                this.btnSaveDoctors.Enabled = true;
+            }
         }
 
         private void txtDiagnosis_TextChanged(object sender, EventArgs e)
@@ -610,10 +724,12 @@ namespace PatientInformationSystemNew.forms
             if(String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
             {
                 this.btnAddDiagnosis.Enabled = false;
+                this.btnSaveDiagnosis.Enabled = false;
             }
             else
             {
                 this.btnAddDiagnosis.Enabled = true;
+                this.btnSaveDiagnosis.Enabled = true;
             }
         }
 
@@ -622,10 +738,12 @@ namespace PatientInformationSystemNew.forms
             if(String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
             {
                 this.btnAddSymptoms.Enabled = false;
+                this.btnSaveSymptoms.Enabled = false;
             }
             else
             {
                 this.btnAddSymptoms.Enabled = true;
+                this.btnSaveSymptoms.Enabled = true;
             }
         }
 
@@ -634,10 +752,12 @@ namespace PatientInformationSystemNew.forms
             if(String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
             {
                 this.btnAddPrescriptions.Enabled = false;
+                this.btnSavePrescriptions.Enabled = false;
             }
             else
             {
                 this.btnAddPrescriptions.Enabled = true;
+                this.btnSavePrescriptions.Enabled = true;
             }
         }
 
