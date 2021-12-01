@@ -137,7 +137,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
 
                         return true;
                     }

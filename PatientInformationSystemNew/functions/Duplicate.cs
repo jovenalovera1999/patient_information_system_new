@@ -93,6 +93,88 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        // Doctor
+
+        public bool DoctorDuplicateID(string full_name, string doctor_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM pis_db.patient_doctor
+                                    WHERE 
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@doctor_id", doctor_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error detecting duplicate doctor id: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool DoctorDuplicate(int patient_fid, string doctor)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM pis_db.patient_doctor
+                                    WHERE
+                                    patient_fid = @patient_fid AND
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@doctor", doctor);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error detecting duplicate doctor: " + ex.ToString());
+                return false;
+            }
+        }
+
         // Diagnosis
 
         public bool DiagnosisIDDuplicate(string full_name, string diagnosis_id)
@@ -177,7 +259,7 @@ namespace PatientInformationSystemNew.functions
 
         // Symptoms
 
-        public bool symptomsIDDuplicate(string patient_id, string symptoms_id)
+        public bool SymptomsIDDuplicate(string full_name, string symptoms_id)
         {
             try
             {
@@ -186,16 +268,17 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT * 
                                     FROM pis_db.symptoms 
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if(dt.Rows.Count == 1)
@@ -216,7 +299,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool symptomNameDuplicate(string patient_id, string symptoms, DateTime date)
+        public bool SymptomNameDuplicate(int patient_fid, string symptoms)
         {
             try
             {
@@ -225,18 +308,17 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT * 
                                     FROM pis_db.symptoms
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms AND
-                                    date = @date;";
+                                    patient_fid = @patient_fid AND
+                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
-                        cmd.Parameters.AddWithValue("@date", date);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if (dt.Rows.Count == 1)
@@ -259,7 +341,7 @@ namespace PatientInformationSystemNew.functions
 
         // Prescription
 
-        public bool prescriptionIDDuplicate(string patient_id, string prescription_id)
+        public bool PrescriptionIDDuplicate(string full_name, string prescription_id)
         {
             try
             {
@@ -268,16 +350,17 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT *
                                     FROM pis_db.prescriptions
                                     WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patien_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if(dt.Rows.Count == 1)
@@ -298,7 +381,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool prescriptionNameDuplicate(string patient_id, string prescriptions, DateTime date)
+        public bool PrescriptionNameDuplicate(int patient_fid, string prescriptions)
         {
             try
             {
@@ -307,18 +390,17 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT * 
                                     FROM pis_db.prescriptions
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescriptions AND
-                                    date = @date;";
+                                    patient_fid = @patient_fid AND
+                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescriptions;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
-                        cmd.Parameters.AddWithValue("@date", date);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if (dt.Rows.Count == 1)

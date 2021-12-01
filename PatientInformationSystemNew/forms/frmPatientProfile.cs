@@ -482,7 +482,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (duplicate.VitalSignsIDDuplicate(val.PatientFullName, this.txtVitalSignsID.Text))
             {
-                MessageBox.Show("Vital Signs ID is already taken! Generating a new ID", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vital Signs ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 AutoGenNumVitalSigns();
             }
             else if(vital_signs.AddPatientVitalSigns(val.PatientPrimaryID, val.PatientFullName, this.txtVitalSignsID.Text, this.txtHeight.Text,
@@ -510,14 +510,42 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
-            
+            doctor.GetDoctorID(this.cmbNameDoctors.Text);
+
+            if(duplicate.DoctorDuplicateID(val.PatientFullName, this.txtIDDoctors.Text))
+            {
+                MessageBox.Show("Doctor ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AutoGenNumDoctor();
+            }
+            else if(duplicate.DoctorDuplicate(val.PatientPrimaryID, this.cmbNameDoctors.Text))
+            {
+                MessageBox.Show("Doctor is already exist!", "Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.cmbNameDoctors.Text = null;
+                this.cmbNameDoctors.Focus();
+            }
+            else if(doctor.AddDoctor(val.PatientPrimaryID, val.PatientFullName, this.txtIDDoctors.Text, val.DoctorID, this.cmbNameDoctors.Text,
+                this.dateDoctors.Value.Date))
+            {
+                MessageBox.Show("Doctor successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDiagnosis);
+
+                AutoGenNumDoctor();
+                this.cmbNameDoctors.Text = null;
+                this.dateDoctors.Value = DateTime.Now.Date;
+            }
+            else
+            {
+                MessageBox.Show("Failed to add doctor", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
             if(duplicate.DiagnosisIDDuplicate(val.PatientFullName, this.txtDiagnosisID.Text))
             {
-                MessageBox.Show("Diagnosis ID is already taken! Generating a new ID", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Diagnosis ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 AutoGenNumDiagnosis();
             }
             else if(duplicate.DiagnosisNameDuplicate(val.PatientPrimaryID, this.txtDiagnosis.Text))
@@ -540,14 +568,114 @@ namespace PatientInformationSystemNew.forms
 
                 this.txtDiagnosis.Focus();
             }
+            else
+            {
+                MessageBox.Show("Failed to add diagnosis!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddSymptoms_Click(object sender, EventArgs e)
         {
+            if(duplicate.SymptomsIDDuplicate(val.PatientFullName, this.txtSymptomsID.Text))
+            {
+                MessageBox.Show("Symptom ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AutoGenNumSymptoms();
+            }
+            else if(duplicate.SymptomNameDuplicate(val.PatientPrimaryID, this.txtSymptoms.Text))
+            {
+                MessageBox.Show("Symptom is already exist!", "Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else if(symptoms.AddPatientSymptom(val.PatientPrimaryID, val.PatientFullName, this.txtSymptomsID.Text, this.txtSymptoms.Text,
+                this.dateSymptoms.Value.Date))
+            {
+                MessageBox.Show("Symptom successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                symptoms.LoadSymptomsRecordsOfEachPatient(val.PatientPrimaryID, this.gridSymptoms);
+
+                AutoGenNumSymptoms();
+                this.txtSymptoms.ResetText();
+                this.dateSymptoms.Value = DateTime.Now.Date;
+
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddPrescriptions_Click(object sender, EventArgs e)
+        {
+            if(duplicate.PrescriptionIDDuplicate(val.PatientFullName, this.txtPrescriptionsID.Text))
+            {
+                MessageBox.Show("Prescription ID is already taken! Generating a new ID! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                AutoGenNumPrescription();
+            }
+            else if(duplicate.PrescriptionNameDuplicate(val.PatientPrimaryID, this.txtPrescriptions.Text))
+            {
+                MessageBox.Show("Prescription is already exist", "Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.txtPrescriptions.ResetText();
+                this.txtPrescriptions.Focus();
+            }
+            else if(prescriptions.AddPrescription(val.PatientPrimaryID, val.PatientFullName, this.txtPrescriptionsID.Text, this.txtPrescriptions.Text,
+                this.datePrescriptions.Value.Date))
+            {
+                MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
+
+                AutoGenNumPrescription();
+                this.txtPrescriptions.ResetText();
+                this.datePrescriptions.Value = DateTime.Now.Date;
+
+                this.txtPrescriptions.Focus();
+            }
+
+        }
+
+        // Cancel
+
+        private void btnCancelVitalSigns_Click(object sender, EventArgs e)
+        {
+            this.txtVitalSignsID.ResetText();
+            this.txtHeight.ResetText();
+            this.txtWeight.ResetText();
+            this.txtTemperature.ResetText();
+            this.txtPulseRate.ResetText();
+            this.txtBloodPressure.ResetText();
+
+            this.txtHeight.Enabled = false;
+            this.txtWeight.Enabled = false;
+            this.txtTemperature.Enabled = false;
+            this.txtPulseRate.Enabled = false;
+            this.txtBloodPressure.Enabled = false;
+            this.btnAddVitalSigns.Visible = false;
+            this.btnCancelVitalSigns.Visible = false;
+
+            this.btnNewVitalSigns.Enabled = true;
+        }
+
+        private void btnCancelDoctors_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelDiagnosis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelSymptoms_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelPrescriptions_Click(object sender, EventArgs e)
         {
 
         }

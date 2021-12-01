@@ -188,15 +188,16 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool addPrescription(string patient_id, string prescription_id, string prescriptions, DateTime date)
+        public bool AddPrescription(int patient_fid, string full_name, string prescription_id, string prescriptions, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.prescriptions(patient_id, prescription_id, prescriptions, date)
+                    string sql = @"INSERT INTO pis_db.prescriptions(patient_fid, full_name, prescription_id, prescriptions, date)
                                     VALUES(
-                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    @patient_fid,
+                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @date
@@ -204,13 +205,15 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
 
                         return true;
                     }
@@ -218,10 +221,11 @@ namespace PatientInformationSystemNew.functions
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error adding a new prescription from consultation: " + ex.ToString());
+                Console.WriteLine("Error adding prescription: " + ex.ToString());
                 return false;
             }
         }
+
         public bool updatePrescriptions(string patient_id, string prescription_id, string prescriptions, DateTime date)
         {
             try

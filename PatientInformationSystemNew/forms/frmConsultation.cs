@@ -164,7 +164,7 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
 
-            if (duplicate.symptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
+            if (duplicate.SymptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
             {
                 MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtDiagnosis.Focus();
