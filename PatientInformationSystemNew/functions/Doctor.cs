@@ -270,52 +270,33 @@ namespace PatientInformationSystemNew.functions
 
         // Update Doctor
 
-        public bool updateDoctor(string user_id, string first_name, string middle_name, string last_name, string gender, string age, string address, 
-            DateTime birthday, string cellphone_number, string telephone_number, string email, string specialization)
+        public bool UpdateDoctor(string full_name, string doctor_id, string user_id, string doctor, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.users
+                    string sql = @"UPDATE pis_db.patient_doctor
                                     SET
                                     user_id = AES_ENCRYPT(@user_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    first_name = AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    middle_name = AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    last_name = AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    gender = AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    age = AES_ENCRYPT(@age, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    address = AES_ENCRYPT(@address, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    birthday = @birthday,
-                                    cellphone_number = AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    telephone_number = AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    email = AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    specialization = AES_ENCRYPT(@specialization, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    doctor = AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    date = @date
                                     WHERE
-                                    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @user_id OR
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @first_name AND 
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @middle_name AND
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @last_name OR
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @first_name AND
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @last_name;";
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor_id";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@doctor_id", doctor_id);
                         cmd.Parameters.AddWithValue("@user_id", user_id);
-                        cmd.Parameters.AddWithValue("@first_name", first_name);
-                        cmd.Parameters.AddWithValue("@middle_name", middle_name);
-                        cmd.Parameters.AddWithValue("@last_name", last_name);
-                        cmd.Parameters.AddWithValue("@gender", gender);
-                        cmd.Parameters.AddWithValue("@age", age);
-                        cmd.Parameters.AddWithValue("@address", address);
-                        cmd.Parameters.AddWithValue("@birthday", birthday);
-                        cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
-                        cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
-                        cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@specialization", specialization);
+                        cmd.Parameters.AddWithValue("@doctor", doctor);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -323,7 +304,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error updating doctor: " + ex.ToString());
+                Console.WriteLine("Error updating patient doctor: " + ex.ToString());
                 return false;
             }
         }

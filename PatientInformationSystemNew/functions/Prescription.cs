@@ -226,7 +226,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool updatePrescriptions(string patient_id, string prescription_id, string prescriptions, DateTime date)
+        public bool UpdatePrescriptions(string full_name, string prescription_id, string prescriptions, DateTime date)
         {
             try
             {
@@ -236,18 +236,20 @@ namespace PatientInformationSystemNew.functions
                                     SET prescriptions = AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
                                     WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }

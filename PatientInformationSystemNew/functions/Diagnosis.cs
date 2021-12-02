@@ -118,7 +118,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool updateDiagnosis(string patient_id, string diagnosis_id, string diagnosis, DateTime date)
+        public bool UpdateDiagnosis(string full_name, string diagnosis_id, string diagnosis, DateTime date)
         {
             try
             {
@@ -129,18 +129,20 @@ namespace PatientInformationSystemNew.functions
                                     diagnosis = AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
                                     WHERE   
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND 
                                     CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
                         cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }

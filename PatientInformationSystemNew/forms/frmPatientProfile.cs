@@ -820,38 +820,150 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveVitalSigns_Click(object sender, EventArgs e)
         {
-            if(vital_signs.UpdateVitalSigns(val.PatientFullName, this.gridVitalSigns.SelectedCells[0].Value.ToString(), this.txtHeight.Text,
+            if(vital_signs.UpdateVitalSigns(val.PatientFullName, this.txtVitalSignsID.Text, this.txtHeight.Text,
                 this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value.Date))
             {
+                MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
 
                 this.txtVitalSignsID.ResetText();
+                this.txtHeight.ResetText();
+                this.txtWeight.ResetText();
+                this.txtTemperature.ResetText();
+                this.txtPulseRate.ResetText();
+                this.txtBloodPressure.ResetText();
+                this.dateVitalSigns.Value = DateTime.Now.Date;
+
+                this.txtHeight.Enabled = false;
+                this.txtWeight.Enabled = false;
+                this.txtTemperature.Enabled = false;
+                this.txtPulseRate.Enabled = false;
+                this.txtBloodPressure.Enabled = false;
+                this.dateVitalSigns.Enabled = false;
+
+                this.btnSaveVitalSigns.Visible = false;
+                this.btnRemoveVitalSigns.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Failed to update vital signs!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnSaveDoctors_Click(object sender, EventArgs e)
         {
+            doctor.GetDoctorID(this.cmbNameDoctors.Text);
 
+            if(doctor.UpdateDoctor(val.PatientFullName, this.txtIDDoctors.Text, val.PatientDoctorID, this.cmbNameDoctors.Text,
+                this.dateDoctors.Value.Date))
+            {
+                MessageBox.Show("Doctor successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
+
+                this.txtIDDoctors.ResetText();
+                this.cmbNameDoctors.Text = null;
+                this.dateDoctors.Value = DateTime.Now.Date;
+
+                this.cmbNameDoctors.Enabled = false;
+                this.dateDoctors.Enabled = false;
+
+                this.btnSaveDoctors.Visible = false;
+                this.btnRemoveDoctors.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Failed to update doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSaveDiagnosis_Click(object sender, EventArgs e)
         {
+            if(diagnosis.UpdateDiagnosis(val.PatientFullName, this.txtDiagnosisID.Text, this.txtDiagnosis.Text, this.dateDiagnosis.Value.Date))
+            {
+                MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
+
+                this.txtDiagnosisID.ResetText();
+                this.txtDiagnosis.ResetText();
+                this.dateDiagnosis.Value = DateTime.Now.Date;
+
+                this.txtDiagnosisID.Enabled = false;
+                this.txtDiagnosis.Enabled = false;
+
+                this.btnSaveDiagnosis.Visible = false;
+                this.btnRemoveDiagnosis.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Failed to update diagnosis!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSymptoms_Click(object sender, EventArgs e)
         {
+            if(symptoms.UpdateSymptom(val.PatientFullName, this.txtSymptomsID.Text, this.txtSymptoms.Text, this.dateSymptoms.Value.Date))
+            {
+                MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
+
+                this.txtSymptomsID.ResetText();
+                this.txtSymptoms.ResetText();
+                this.dateSymptoms.Value = DateTime.Now.Date;
+
+                this.txtSymptomsID.Enabled = false;
+                this.txtSymptoms.Enabled = false;
+
+                this.btnSaveSymptoms.Visible = false;
+                this.btnRemoveSymptoms.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Error updating symptom!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSavePrescriptions_Click(object sender, EventArgs e)
         {
+            if(prescriptions.UpdatePrescriptions(val.PatientFullName, this.txtPrescriptionsID.Text, this.txtPrescriptions.Text,
+                this.datePrescriptions.Value.Date))
+            {
+                MessageBox.Show("Prescription successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+
+                this.txtPrescriptionsID.ResetText();
+                this.txtPrescriptions.ResetText();
+                this.datePrescriptions.Value = DateTime.Now.Date;
+
+                this.txtPrescriptions.Enabled = false;
+                this.datePrescriptions.Enabled = false;
+
+                this.btnSavePrescriptions.Visible = false;
+                this.btnRemovePrescriptions.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Failed to update prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSavePayment_Click(object sender, EventArgs e)
