@@ -29,35 +29,32 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle193 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle194 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle195 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle196 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle197 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle198 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle199 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle200 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle201 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle202 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle203 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle204 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle190 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle191 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle192 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle205 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle206 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle207 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle208 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle209 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle210 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlPatient = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPersonalInfo = new System.Windows.Forms.TabPage();
             this.txtBirthday = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtAge = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGender = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnBackToPatientsInPeronalInfo = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSavePersonalInfo = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditPersonalInfo = new Guna.UI2.WinForms.Guna2Button();
             this.cmbAge = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -95,8 +92,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveVitalSigns = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditVitalSigns = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBackToPatientsVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.label24 = new System.Windows.Forms.Label();
             this.txtVitalSignsID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -112,8 +107,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveDoctors = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditDoctors = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBackToPatientsDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.label36 = new System.Windows.Forms.Label();
             this.txtIDDoctors = new Guna.UI2.WinForms.Guna2TextBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -127,8 +120,6 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditDiagnosis = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBackToPatientsInDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.label19 = new System.Windows.Forms.Label();
             this.txtDiagnosisID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -140,7 +131,6 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabSymptoms = new System.Windows.Forms.TabPage();
             this.btnCancelSymptoms = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveSymptoms = new Guna.UI2.WinForms.Guna2Button();
@@ -152,11 +142,9 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddSymptoms = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBackToPatientsInSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.gridSymptoms = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPrescription = new System.Windows.Forms.TabPage();
             this.btnCancelPrescriptions = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnNewPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemovePrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnSavePrescriptions = new Guna.UI2.WinForms.Guna2Button();
@@ -168,17 +156,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptions = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.btnAddPrescriptions = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBackToPatientsInPrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.gridPrescriptions = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPrintPrescription = new System.Windows.Forms.TabPage();
             this.rprtPrescription = new Microsoft.Reporting.WinForms.ReportViewer();
             this.gridPrintPrescription = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnBackToPatientsInPrintPrescription = new Guna.UI2.WinForms.Guna2Button();
             this.tabPaymentHistory = new System.Windows.Forms.TabPage();
-            this.btnSavePayment = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditPayment = new Guna.UI2.WinForms.Guna2Button();
             this.rprtReceipt = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.btnTransact = new Guna.UI2.WinForms.Guna2Button();
             this.txtChange = new Guna.UI2.WinForms.Guna2TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.txtTotalAmountPaid = new Guna.UI2.WinForms.Guna2TextBox();
@@ -195,8 +178,26 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.btnBackToPatientsInPaymentHistory = new Guna.UI2.WinForms.Guna2Button();
             this.gridPaymentHistory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnBackToPatientsInPeronalInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSavePersonalInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditPersonalInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditVitalSigns = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsVitalSigns = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditDoctors = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsDoctors = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsInDiagnosis = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditSymptoms = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsInSymptoms = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditPrescriptions = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsInPrescriptions = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsInPrintPrescription = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPrintPaymentHistory = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSavePayment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditPayment = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTransact = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBackToPatientsInPaymentHistory = new Guna.UI2.WinForms.Guna2Button();
             this.tabControlPatient.SuspendLayout();
             this.tabPersonalInfo.SuspendLayout();
             this.tabVitalSigns.SuspendLayout();
@@ -378,100 +379,6 @@ namespace PatientInformationSystemNew.forms
             this.txtGender.ShadowDecoration.Parent = this.txtGender;
             this.txtGender.Size = new System.Drawing.Size(130, 45);
             this.txtGender.TabIndex = 159;
-            // 
-            // btnBackToPatientsInPeronalInfo
-            // 
-            this.btnBackToPatientsInPeronalInfo.Animated = true;
-            this.btnBackToPatientsInPeronalInfo.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsInPeronalInfo.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsInPeronalInfo.BorderRadius = 5;
-            this.btnBackToPatientsInPeronalInfo.BorderThickness = 1;
-            this.btnBackToPatientsInPeronalInfo.CheckedState.Parent = this.btnBackToPatientsInPeronalInfo;
-            this.btnBackToPatientsInPeronalInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsInPeronalInfo.CustomImages.Parent = this.btnBackToPatientsInPeronalInfo;
-            this.btnBackToPatientsInPeronalInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPeronalInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPeronalInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsInPeronalInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsInPeronalInfo.DisabledState.Parent = this.btnBackToPatientsInPeronalInfo;
-            this.btnBackToPatientsInPeronalInfo.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPeronalInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsInPeronalInfo.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPeronalInfo.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPeronalInfo.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPeronalInfo.HoverState.Parent = this.btnBackToPatientsInPeronalInfo;
-            this.btnBackToPatientsInPeronalInfo.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsInPeronalInfo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsInPeronalInfo.Location = new System.Drawing.Point(1491, 824);
-            this.btnBackToPatientsInPeronalInfo.Name = "btnBackToPatientsInPeronalInfo";
-            this.btnBackToPatientsInPeronalInfo.ShadowDecoration.Parent = this.btnBackToPatientsInPeronalInfo;
-            this.btnBackToPatientsInPeronalInfo.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsInPeronalInfo.TabIndex = 158;
-            this.btnBackToPatientsInPeronalInfo.Text = "Back to Patients";
-            this.btnBackToPatientsInPeronalInfo.Click += new System.EventHandler(this.btnBackToPatientsInPeronalInfo_Click);
-            // 
-            // btnSavePersonalInfo
-            // 
-            this.btnSavePersonalInfo.Animated = true;
-            this.btnSavePersonalInfo.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSavePersonalInfo.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSavePersonalInfo.BorderRadius = 5;
-            this.btnSavePersonalInfo.BorderThickness = 1;
-            this.btnSavePersonalInfo.CheckedState.Parent = this.btnSavePersonalInfo;
-            this.btnSavePersonalInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSavePersonalInfo.CustomImages.Parent = this.btnSavePersonalInfo;
-            this.btnSavePersonalInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSavePersonalInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSavePersonalInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSavePersonalInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSavePersonalInfo.DisabledState.Parent = this.btnSavePersonalInfo;
-            this.btnSavePersonalInfo.Enabled = false;
-            this.btnSavePersonalInfo.FillColor = System.Drawing.Color.Lime;
-            this.btnSavePersonalInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSavePersonalInfo.ForeColor = System.Drawing.Color.White;
-            this.btnSavePersonalInfo.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnSavePersonalInfo.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnSavePersonalInfo.HoverState.Parent = this.btnSavePersonalInfo;
-            this.btnSavePersonalInfo.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
-            this.btnSavePersonalInfo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSavePersonalInfo.Location = new System.Drawing.Point(1491, 665);
-            this.btnSavePersonalInfo.Name = "btnSavePersonalInfo";
-            this.btnSavePersonalInfo.ShadowDecoration.Parent = this.btnSavePersonalInfo;
-            this.btnSavePersonalInfo.Size = new System.Drawing.Size(131, 62);
-            this.btnSavePersonalInfo.TabIndex = 17;
-            this.btnSavePersonalInfo.Text = "Save";
-            this.btnSavePersonalInfo.Click += new System.EventHandler(this.btnSavePersonalInfo_Click);
-            // 
-            // btnEditPersonalInfo
-            // 
-            this.btnEditPersonalInfo.Animated = true;
-            this.btnEditPersonalInfo.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditPersonalInfo.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditPersonalInfo.BorderRadius = 5;
-            this.btnEditPersonalInfo.BorderThickness = 1;
-            this.btnEditPersonalInfo.CheckedState.Parent = this.btnEditPersonalInfo;
-            this.btnEditPersonalInfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditPersonalInfo.CustomImages.Parent = this.btnEditPersonalInfo;
-            this.btnEditPersonalInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditPersonalInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditPersonalInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditPersonalInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditPersonalInfo.DisabledState.Parent = this.btnEditPersonalInfo;
-            this.btnEditPersonalInfo.FillColor = System.Drawing.Color.Blue;
-            this.btnEditPersonalInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditPersonalInfo.ForeColor = System.Drawing.Color.White;
-            this.btnEditPersonalInfo.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditPersonalInfo.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditPersonalInfo.HoverState.Parent = this.btnEditPersonalInfo;
-            this.btnEditPersonalInfo.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditPersonalInfo.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditPersonalInfo.Location = new System.Drawing.Point(1491, 746);
-            this.btnEditPersonalInfo.Name = "btnEditPersonalInfo";
-            this.btnEditPersonalInfo.ShadowDecoration.Parent = this.btnEditPersonalInfo;
-            this.btnEditPersonalInfo.Size = new System.Drawing.Size(131, 62);
-            this.btnEditPersonalInfo.TabIndex = 16;
-            this.btnEditPersonalInfo.Text = "Edit";
-            this.btnEditPersonalInfo.Click += new System.EventHandler(this.btnEditPersonalInfo_Click);
             // 
             // cmbAge
             // 
@@ -929,8 +836,6 @@ namespace PatientInformationSystemNew.forms
             this.tabVitalSigns.Controls.Add(this.btnNewVitalSigns);
             this.tabVitalSigns.Controls.Add(this.btnRemoveVitalSigns);
             this.tabVitalSigns.Controls.Add(this.btnSaveVitalSigns);
-            this.tabVitalSigns.Controls.Add(this.btnEditVitalSigns);
-            this.tabVitalSigns.Controls.Add(this.btnBackToPatientsVitalSigns);
             this.tabVitalSigns.Controls.Add(this.label24);
             this.tabVitalSigns.Controls.Add(this.txtVitalSignsID);
             this.tabVitalSigns.Controls.Add(this.label33);
@@ -940,6 +845,8 @@ namespace PatientInformationSystemNew.forms
             this.tabVitalSigns.Controls.Add(this.label35);
             this.tabVitalSigns.Controls.Add(this.btnAddVitalSigns);
             this.tabVitalSigns.Controls.Add(this.gridVitalSigns);
+            this.tabVitalSigns.Controls.Add(this.btnEditVitalSigns);
+            this.tabVitalSigns.Controls.Add(this.btnBackToPatientsVitalSigns);
             this.tabVitalSigns.Location = new System.Drawing.Point(4, 4);
             this.tabVitalSigns.Name = "tabVitalSigns";
             this.tabVitalSigns.Size = new System.Drawing.Size(1682, 950);
@@ -1227,69 +1134,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveVitalSigns.Visible = false;
             this.btnSaveVitalSigns.Click += new System.EventHandler(this.btnSaveVitalSigns_Click);
             // 
-            // btnEditVitalSigns
-            // 
-            this.btnEditVitalSigns.Animated = true;
-            this.btnEditVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditVitalSigns.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditVitalSigns.BorderRadius = 5;
-            this.btnEditVitalSigns.BorderThickness = 1;
-            this.btnEditVitalSigns.CheckedState.Parent = this.btnEditVitalSigns;
-            this.btnEditVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditVitalSigns.CustomImages.Parent = this.btnEditVitalSigns;
-            this.btnEditVitalSigns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditVitalSigns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditVitalSigns.DisabledState.Parent = this.btnEditVitalSigns;
-            this.btnEditVitalSigns.Enabled = false;
-            this.btnEditVitalSigns.FillColor = System.Drawing.Color.Blue;
-            this.btnEditVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditVitalSigns.ForeColor = System.Drawing.Color.White;
-            this.btnEditVitalSigns.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditVitalSigns.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditVitalSigns.HoverState.Parent = this.btnEditVitalSigns;
-            this.btnEditVitalSigns.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditVitalSigns.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditVitalSigns.Location = new System.Drawing.Point(1491, 274);
-            this.btnEditVitalSigns.Name = "btnEditVitalSigns";
-            this.btnEditVitalSigns.ShadowDecoration.Parent = this.btnEditVitalSigns;
-            this.btnEditVitalSigns.Size = new System.Drawing.Size(131, 62);
-            this.btnEditVitalSigns.TabIndex = 13;
-            this.btnEditVitalSigns.Text = "Edit";
-            this.btnEditVitalSigns.Click += new System.EventHandler(this.btnEditVitalSigns_Click);
-            // 
-            // btnBackToPatientsVitalSigns
-            // 
-            this.btnBackToPatientsVitalSigns.Animated = true;
-            this.btnBackToPatientsVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsVitalSigns.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsVitalSigns.BorderRadius = 5;
-            this.btnBackToPatientsVitalSigns.BorderThickness = 1;
-            this.btnBackToPatientsVitalSigns.CheckedState.Parent = this.btnBackToPatientsVitalSigns;
-            this.btnBackToPatientsVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsVitalSigns.CustomImages.Parent = this.btnBackToPatientsVitalSigns;
-            this.btnBackToPatientsVitalSigns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsVitalSigns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsVitalSigns.DisabledState.Parent = this.btnBackToPatientsVitalSigns;
-            this.btnBackToPatientsVitalSigns.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsVitalSigns.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsVitalSigns.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsVitalSigns.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsVitalSigns.HoverState.Parent = this.btnBackToPatientsVitalSigns;
-            this.btnBackToPatientsVitalSigns.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsVitalSigns.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsVitalSigns.Location = new System.Drawing.Point(1491, 350);
-            this.btnBackToPatientsVitalSigns.Name = "btnBackToPatientsVitalSigns";
-            this.btnBackToPatientsVitalSigns.ShadowDecoration.Parent = this.btnBackToPatientsVitalSigns;
-            this.btnBackToPatientsVitalSigns.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsVitalSigns.TabIndex = 14;
-            this.btnBackToPatientsVitalSigns.Text = "Back to Patients";
-            this.btnBackToPatientsVitalSigns.Click += new System.EventHandler(this.btnBackToPatientsVitalSigns_Click);
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -1312,6 +1156,7 @@ namespace PatientInformationSystemNew.forms
             this.txtVitalSignsID.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtVitalSignsID.DisabledState.Parent = this.txtVitalSignsID;
             this.txtVitalSignsID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtVitalSignsID.Enabled = false;
             this.txtVitalSignsID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtVitalSignsID.FocusedState.Parent = this.txtVitalSignsID;
             this.txtVitalSignsID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1452,31 +1297,31 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.AllowUserToDeleteRows = false;
             this.gridVitalSigns.AllowUserToResizeColumns = false;
             this.gridVitalSigns.AllowUserToResizeRows = false;
-            dataGridViewCellStyle193.BackColor = System.Drawing.Color.White;
-            this.gridVitalSigns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle193;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            this.gridVitalSigns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.gridVitalSigns.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridVitalSigns.BackgroundColor = System.Drawing.Color.White;
             this.gridVitalSigns.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridVitalSigns.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridVitalSigns.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle194.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle194.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle194.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle194.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle194.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle194.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle194.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridVitalSigns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle194;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridVitalSigns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.gridVitalSigns.ColumnHeadersHeight = 40;
             this.gridVitalSigns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle195.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle195.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle195.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle195.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle195.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle195.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle195.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridVitalSigns.DefaultCellStyle = dataGridViewCellStyle195;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridVitalSigns.DefaultCellStyle = dataGridViewCellStyle27;
             this.gridVitalSigns.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridVitalSigns.EnableHeadersVisualStyles = false;
             this.gridVitalSigns.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -1521,8 +1366,6 @@ namespace PatientInformationSystemNew.forms
             this.tabDoctors.Controls.Add(this.btnNewDoctors);
             this.tabDoctors.Controls.Add(this.btnRemoveDoctors);
             this.tabDoctors.Controls.Add(this.btnSaveDoctors);
-            this.tabDoctors.Controls.Add(this.btnEditDoctors);
-            this.tabDoctors.Controls.Add(this.btnBackToPatientsDoctors);
             this.tabDoctors.Controls.Add(this.label36);
             this.tabDoctors.Controls.Add(this.txtIDDoctors);
             this.tabDoctors.Controls.Add(this.label37);
@@ -1531,6 +1374,8 @@ namespace PatientInformationSystemNew.forms
             this.tabDoctors.Controls.Add(this.label39);
             this.tabDoctors.Controls.Add(this.btnAddDoctor);
             this.tabDoctors.Controls.Add(this.gridDoctorsRecords);
+            this.tabDoctors.Controls.Add(this.btnEditDoctors);
+            this.tabDoctors.Controls.Add(this.btnBackToPatientsDoctors);
             this.tabDoctors.Location = new System.Drawing.Point(4, 4);
             this.tabDoctors.Name = "tabDoctors";
             this.tabDoctors.Size = new System.Drawing.Size(1682, 950);
@@ -1684,69 +1529,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveDoctors.Visible = false;
             this.btnSaveDoctors.Click += new System.EventHandler(this.btnSaveDoctors_Click);
             // 
-            // btnEditDoctors
-            // 
-            this.btnEditDoctors.Animated = true;
-            this.btnEditDoctors.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditDoctors.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditDoctors.BorderRadius = 5;
-            this.btnEditDoctors.BorderThickness = 1;
-            this.btnEditDoctors.CheckedState.Parent = this.btnEditDoctors;
-            this.btnEditDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditDoctors.CustomImages.Parent = this.btnEditDoctors;
-            this.btnEditDoctors.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditDoctors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditDoctors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditDoctors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditDoctors.DisabledState.Parent = this.btnEditDoctors;
-            this.btnEditDoctors.Enabled = false;
-            this.btnEditDoctors.FillColor = System.Drawing.Color.Blue;
-            this.btnEditDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditDoctors.ForeColor = System.Drawing.Color.White;
-            this.btnEditDoctors.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditDoctors.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditDoctors.HoverState.Parent = this.btnEditDoctors;
-            this.btnEditDoctors.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditDoctors.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditDoctors.Location = new System.Drawing.Point(1491, 173);
-            this.btnEditDoctors.Name = "btnEditDoctors";
-            this.btnEditDoctors.ShadowDecoration.Parent = this.btnEditDoctors;
-            this.btnEditDoctors.Size = new System.Drawing.Size(131, 62);
-            this.btnEditDoctors.TabIndex = 333;
-            this.btnEditDoctors.Text = "Edit";
-            this.btnEditDoctors.Click += new System.EventHandler(this.btnEditDoctors_Click);
-            // 
-            // btnBackToPatientsDoctors
-            // 
-            this.btnBackToPatientsDoctors.Animated = true;
-            this.btnBackToPatientsDoctors.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsDoctors.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsDoctors.BorderRadius = 5;
-            this.btnBackToPatientsDoctors.BorderThickness = 1;
-            this.btnBackToPatientsDoctors.CheckedState.Parent = this.btnBackToPatientsDoctors;
-            this.btnBackToPatientsDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsDoctors.CustomImages.Parent = this.btnBackToPatientsDoctors;
-            this.btnBackToPatientsDoctors.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsDoctors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsDoctors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsDoctors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsDoctors.DisabledState.Parent = this.btnBackToPatientsDoctors;
-            this.btnBackToPatientsDoctors.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsDoctors.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsDoctors.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsDoctors.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsDoctors.HoverState.Parent = this.btnBackToPatientsDoctors;
-            this.btnBackToPatientsDoctors.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsDoctors.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsDoctors.Location = new System.Drawing.Point(1491, 251);
-            this.btnBackToPatientsDoctors.Name = "btnBackToPatientsDoctors";
-            this.btnBackToPatientsDoctors.ShadowDecoration.Parent = this.btnBackToPatientsDoctors;
-            this.btnBackToPatientsDoctors.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsDoctors.TabIndex = 332;
-            this.btnBackToPatientsDoctors.Text = "Back to Patients";
-            this.btnBackToPatientsDoctors.Click += new System.EventHandler(this.btnBackToPatientsDoctors_Click);
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -1882,31 +1664,31 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctorsRecords.AllowUserToDeleteRows = false;
             this.gridDoctorsRecords.AllowUserToResizeColumns = false;
             this.gridDoctorsRecords.AllowUserToResizeRows = false;
-            dataGridViewCellStyle196.BackColor = System.Drawing.Color.White;
-            this.gridDoctorsRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle196;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            this.gridDoctorsRecords.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
             this.gridDoctorsRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDoctorsRecords.BackgroundColor = System.Drawing.Color.White;
             this.gridDoctorsRecords.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridDoctorsRecords.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridDoctorsRecords.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle197.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle197.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle197.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle197.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle197.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle197.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle197.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridDoctorsRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle197;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridDoctorsRecords.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.gridDoctorsRecords.ColumnHeadersHeight = 40;
             this.gridDoctorsRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle198.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle198.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle198.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle198.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle198.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle198.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle198.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridDoctorsRecords.DefaultCellStyle = dataGridViewCellStyle198;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridDoctorsRecords.DefaultCellStyle = dataGridViewCellStyle30;
             this.gridDoctorsRecords.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridDoctorsRecords.EnableHeadersVisualStyles = false;
             this.gridDoctorsRecords.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -1949,8 +1731,6 @@ namespace PatientInformationSystemNew.forms
             this.tabDiagnosis.Controls.Add(this.btnNewDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnRemoveDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnSaveDiagnosis);
-            this.tabDiagnosis.Controls.Add(this.btnEditDiagnosis);
-            this.tabDiagnosis.Controls.Add(this.btnBackToPatientsInDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label19);
             this.tabDiagnosis.Controls.Add(this.txtDiagnosisID);
             this.tabDiagnosis.Controls.Add(this.label32);
@@ -1960,6 +1740,8 @@ namespace PatientInformationSystemNew.forms
             this.tabDiagnosis.Controls.Add(this.label25);
             this.tabDiagnosis.Controls.Add(this.btnAddDiagnosis);
             this.tabDiagnosis.Controls.Add(this.gridDiagnosis);
+            this.tabDiagnosis.Controls.Add(this.btnEditDiagnosis);
+            this.tabDiagnosis.Controls.Add(this.btnBackToPatientsInDiagnosis);
             this.tabDiagnosis.Location = new System.Drawing.Point(4, 4);
             this.tabDiagnosis.Name = "tabDiagnosis";
             this.tabDiagnosis.Size = new System.Drawing.Size(1682, 950);
@@ -2088,69 +1870,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveDiagnosis.Text = "Save";
             this.btnSaveDiagnosis.Visible = false;
             this.btnSaveDiagnosis.Click += new System.EventHandler(this.btnSaveDiagnosis_Click);
-            // 
-            // btnEditDiagnosis
-            // 
-            this.btnEditDiagnosis.Animated = true;
-            this.btnEditDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditDiagnosis.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditDiagnosis.BorderRadius = 5;
-            this.btnEditDiagnosis.BorderThickness = 1;
-            this.btnEditDiagnosis.CheckedState.Parent = this.btnEditDiagnosis;
-            this.btnEditDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditDiagnosis.CustomImages.Parent = this.btnEditDiagnosis;
-            this.btnEditDiagnosis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditDiagnosis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditDiagnosis.DisabledState.Parent = this.btnEditDiagnosis;
-            this.btnEditDiagnosis.Enabled = false;
-            this.btnEditDiagnosis.FillColor = System.Drawing.Color.Blue;
-            this.btnEditDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditDiagnosis.ForeColor = System.Drawing.Color.White;
-            this.btnEditDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditDiagnosis.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditDiagnosis.HoverState.Parent = this.btnEditDiagnosis;
-            this.btnEditDiagnosis.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditDiagnosis.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditDiagnosis.Location = new System.Drawing.Point(1491, 173);
-            this.btnEditDiagnosis.Name = "btnEditDiagnosis";
-            this.btnEditDiagnosis.ShadowDecoration.Parent = this.btnEditDiagnosis;
-            this.btnEditDiagnosis.Size = new System.Drawing.Size(131, 62);
-            this.btnEditDiagnosis.TabIndex = 320;
-            this.btnEditDiagnosis.Text = "Edit";
-            this.btnEditDiagnosis.Click += new System.EventHandler(this.btnEditDiagnosis_Click);
-            // 
-            // btnBackToPatientsInDiagnosis
-            // 
-            this.btnBackToPatientsInDiagnosis.Animated = true;
-            this.btnBackToPatientsInDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsInDiagnosis.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsInDiagnosis.BorderRadius = 5;
-            this.btnBackToPatientsInDiagnosis.BorderThickness = 1;
-            this.btnBackToPatientsInDiagnosis.CheckedState.Parent = this.btnBackToPatientsInDiagnosis;
-            this.btnBackToPatientsInDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsInDiagnosis.CustomImages.Parent = this.btnBackToPatientsInDiagnosis;
-            this.btnBackToPatientsInDiagnosis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInDiagnosis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsInDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsInDiagnosis.DisabledState.Parent = this.btnBackToPatientsInDiagnosis;
-            this.btnBackToPatientsInDiagnosis.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsInDiagnosis.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInDiagnosis.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInDiagnosis.HoverState.Parent = this.btnBackToPatientsInDiagnosis;
-            this.btnBackToPatientsInDiagnosis.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsInDiagnosis.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsInDiagnosis.Location = new System.Drawing.Point(1491, 251);
-            this.btnBackToPatientsInDiagnosis.Name = "btnBackToPatientsInDiagnosis";
-            this.btnBackToPatientsInDiagnosis.ShadowDecoration.Parent = this.btnBackToPatientsInDiagnosis;
-            this.btnBackToPatientsInDiagnosis.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsInDiagnosis.TabIndex = 319;
-            this.btnBackToPatientsInDiagnosis.Text = "Back to Patients";
-            this.btnBackToPatientsInDiagnosis.Click += new System.EventHandler(this.btnBackToPatientsInDiagnosis_Click_1);
             // 
             // label19
             // 
@@ -2316,32 +2035,32 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.AllowUserToDeleteRows = false;
             this.gridDiagnosis.AllowUserToResizeColumns = false;
             this.gridDiagnosis.AllowUserToResizeRows = false;
-            dataGridViewCellStyle199.BackColor = System.Drawing.Color.White;
-            this.gridDiagnosis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle199;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            this.gridDiagnosis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.gridDiagnosis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDiagnosis.BackgroundColor = System.Drawing.Color.White;
             this.gridDiagnosis.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridDiagnosis.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridDiagnosis.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle200.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle200.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle200.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle200.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle200.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle200.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle200.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle200;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.gridDiagnosis.ColumnHeadersHeight = 40;
             this.gridDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle201.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle201.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle201.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle201.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle201.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle201.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle201.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridDiagnosis.DefaultCellStyle = dataGridViewCellStyle201;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridDiagnosis.DefaultCellStyle = dataGridViewCellStyle33;
             this.gridDiagnosis.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridDiagnosis.EnableHeadersVisualStyles = false;
             this.gridDiagnosis.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2381,7 +2100,6 @@ namespace PatientInformationSystemNew.forms
             // 
             this.tabSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
             this.tabSymptoms.Controls.Add(this.btnCancelSymptoms);
-            this.tabSymptoms.Controls.Add(this.btnEditSymptoms);
             this.tabSymptoms.Controls.Add(this.btnNewSymptoms);
             this.tabSymptoms.Controls.Add(this.btnRemoveSymptoms);
             this.tabSymptoms.Controls.Add(this.btnSaveSymptoms);
@@ -2393,8 +2111,9 @@ namespace PatientInformationSystemNew.forms
             this.tabSymptoms.Controls.Add(this.txtSymptoms);
             this.tabSymptoms.Controls.Add(this.label5);
             this.tabSymptoms.Controls.Add(this.btnAddSymptoms);
-            this.tabSymptoms.Controls.Add(this.btnBackToPatientsInSymptoms);
             this.tabSymptoms.Controls.Add(this.gridSymptoms);
+            this.tabSymptoms.Controls.Add(this.btnEditSymptoms);
+            this.tabSymptoms.Controls.Add(this.btnBackToPatientsInSymptoms);
             this.tabSymptoms.Location = new System.Drawing.Point(4, 4);
             this.tabSymptoms.Name = "tabSymptoms";
             this.tabSymptoms.Size = new System.Drawing.Size(1682, 950);
@@ -2431,38 +2150,6 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelSymptoms.Text = "Cancel";
             this.btnCancelSymptoms.Visible = false;
             this.btnCancelSymptoms.Click += new System.EventHandler(this.btnCancelSymptoms_Click);
-            // 
-            // btnEditSymptoms
-            // 
-            this.btnEditSymptoms.Animated = true;
-            this.btnEditSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditSymptoms.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditSymptoms.BorderRadius = 5;
-            this.btnEditSymptoms.BorderThickness = 1;
-            this.btnEditSymptoms.CheckedState.Parent = this.btnEditSymptoms;
-            this.btnEditSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditSymptoms.CustomImages.Parent = this.btnEditSymptoms;
-            this.btnEditSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditSymptoms.DisabledState.Parent = this.btnEditSymptoms;
-            this.btnEditSymptoms.Enabled = false;
-            this.btnEditSymptoms.FillColor = System.Drawing.Color.Blue;
-            this.btnEditSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditSymptoms.ForeColor = System.Drawing.Color.White;
-            this.btnEditSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditSymptoms.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditSymptoms.HoverState.Parent = this.btnEditSymptoms;
-            this.btnEditSymptoms.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditSymptoms.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditSymptoms.Location = new System.Drawing.Point(1491, 173);
-            this.btnEditSymptoms.Name = "btnEditSymptoms";
-            this.btnEditSymptoms.ShadowDecoration.Parent = this.btnEditSymptoms;
-            this.btnEditSymptoms.Size = new System.Drawing.Size(131, 62);
-            this.btnEditSymptoms.TabIndex = 335;
-            this.btnEditSymptoms.Text = "Edit";
-            this.btnEditSymptoms.Click += new System.EventHandler(this.btnEditSymptoms_Click);
             // 
             // btnNewSymptoms
             // 
@@ -2713,69 +2400,38 @@ namespace PatientInformationSystemNew.forms
             this.btnAddSymptoms.Visible = false;
             this.btnAddSymptoms.Click += new System.EventHandler(this.btnAddSymptoms_Click);
             // 
-            // btnBackToPatientsInSymptoms
-            // 
-            this.btnBackToPatientsInSymptoms.Animated = true;
-            this.btnBackToPatientsInSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsInSymptoms.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsInSymptoms.BorderRadius = 5;
-            this.btnBackToPatientsInSymptoms.BorderThickness = 1;
-            this.btnBackToPatientsInSymptoms.CheckedState.Parent = this.btnBackToPatientsInSymptoms;
-            this.btnBackToPatientsInSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsInSymptoms.CustomImages.Parent = this.btnBackToPatientsInSymptoms;
-            this.btnBackToPatientsInSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsInSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsInSymptoms.DisabledState.Parent = this.btnBackToPatientsInSymptoms;
-            this.btnBackToPatientsInSymptoms.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsInSymptoms.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInSymptoms.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInSymptoms.HoverState.Parent = this.btnBackToPatientsInSymptoms;
-            this.btnBackToPatientsInSymptoms.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsInSymptoms.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsInSymptoms.Location = new System.Drawing.Point(1491, 251);
-            this.btnBackToPatientsInSymptoms.Name = "btnBackToPatientsInSymptoms";
-            this.btnBackToPatientsInSymptoms.ShadowDecoration.Parent = this.btnBackToPatientsInSymptoms;
-            this.btnBackToPatientsInSymptoms.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsInSymptoms.TabIndex = 9;
-            this.btnBackToPatientsInSymptoms.Text = "Back to Patients";
-            this.btnBackToPatientsInSymptoms.Click += new System.EventHandler(this.btnBackToPatientsInSymptoms_Click);
-            // 
             // gridSymptoms
             // 
             this.gridSymptoms.AllowUserToAddRows = false;
             this.gridSymptoms.AllowUserToDeleteRows = false;
             this.gridSymptoms.AllowUserToResizeColumns = false;
             this.gridSymptoms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle202.BackColor = System.Drawing.Color.White;
-            this.gridSymptoms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle202;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.White;
+            this.gridSymptoms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.gridSymptoms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridSymptoms.BackgroundColor = System.Drawing.Color.White;
             this.gridSymptoms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSymptoms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSymptoms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle203.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle203.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle203.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle203.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle203.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle203.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle203.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle203;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.gridSymptoms.ColumnHeadersHeight = 40;
             this.gridSymptoms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle204.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle204.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle204.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle204.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle204.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle204.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle204.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSymptoms.DefaultCellStyle = dataGridViewCellStyle204;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSymptoms.DefaultCellStyle = dataGridViewCellStyle36;
             this.gridSymptoms.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridSymptoms.EnableHeadersVisualStyles = false;
             this.gridSymptoms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2815,7 +2471,6 @@ namespace PatientInformationSystemNew.forms
             // 
             this.tabPrescription.BackColor = System.Drawing.Color.DodgerBlue;
             this.tabPrescription.Controls.Add(this.btnCancelPrescriptions);
-            this.tabPrescription.Controls.Add(this.btnEditPrescriptions);
             this.tabPrescription.Controls.Add(this.btnNewPrescriptions);
             this.tabPrescription.Controls.Add(this.btnRemovePrescriptions);
             this.tabPrescription.Controls.Add(this.btnSavePrescriptions);
@@ -2827,8 +2482,9 @@ namespace PatientInformationSystemNew.forms
             this.tabPrescription.Controls.Add(this.txtPrescriptions);
             this.tabPrescription.Controls.Add(this.label22);
             this.tabPrescription.Controls.Add(this.btnAddPrescriptions);
-            this.tabPrescription.Controls.Add(this.btnBackToPatientsInPrescriptions);
             this.tabPrescription.Controls.Add(this.gridPrescriptions);
+            this.tabPrescription.Controls.Add(this.btnEditPrescriptions);
+            this.tabPrescription.Controls.Add(this.btnBackToPatientsInPrescriptions);
             this.tabPrescription.Location = new System.Drawing.Point(4, 4);
             this.tabPrescription.Name = "tabPrescription";
             this.tabPrescription.Size = new System.Drawing.Size(1682, 950);
@@ -2865,38 +2521,6 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPrescriptions.Text = "Cancel";
             this.btnCancelPrescriptions.Visible = false;
             this.btnCancelPrescriptions.Click += new System.EventHandler(this.btnCancelPrescriptions_Click);
-            // 
-            // btnEditPrescriptions
-            // 
-            this.btnEditPrescriptions.Animated = true;
-            this.btnEditPrescriptions.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditPrescriptions.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditPrescriptions.BorderRadius = 5;
-            this.btnEditPrescriptions.BorderThickness = 1;
-            this.btnEditPrescriptions.CheckedState.Parent = this.btnEditPrescriptions;
-            this.btnEditPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditPrescriptions.CustomImages.Parent = this.btnEditPrescriptions;
-            this.btnEditPrescriptions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditPrescriptions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditPrescriptions.DisabledState.Parent = this.btnEditPrescriptions;
-            this.btnEditPrescriptions.Enabled = false;
-            this.btnEditPrescriptions.FillColor = System.Drawing.Color.Blue;
-            this.btnEditPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditPrescriptions.ForeColor = System.Drawing.Color.White;
-            this.btnEditPrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditPrescriptions.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditPrescriptions.HoverState.Parent = this.btnEditPrescriptions;
-            this.btnEditPrescriptions.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditPrescriptions.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditPrescriptions.Location = new System.Drawing.Point(1491, 403);
-            this.btnEditPrescriptions.Name = "btnEditPrescriptions";
-            this.btnEditPrescriptions.ShadowDecoration.Parent = this.btnEditPrescriptions;
-            this.btnEditPrescriptions.Size = new System.Drawing.Size(131, 62);
-            this.btnEditPrescriptions.TabIndex = 365;
-            this.btnEditPrescriptions.Text = "Edit";
-            this.btnEditPrescriptions.Click += new System.EventHandler(this.btnEditPrescriptions_Click);
             // 
             // btnNewPrescriptions
             // 
@@ -3012,6 +2636,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptionsID.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtPrescriptionsID.DisabledState.Parent = this.txtPrescriptionsID;
             this.txtPrescriptionsID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPrescriptionsID.Enabled = false;
             this.txtPrescriptionsID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPrescriptionsID.FocusedState.Parent = this.txtPrescriptionsID;
             this.txtPrescriptionsID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -3148,69 +2773,38 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPrescriptions.Visible = false;
             this.btnAddPrescriptions.Click += new System.EventHandler(this.btnAddPrescriptions_Click);
             // 
-            // btnBackToPatientsInPrescriptions
-            // 
-            this.btnBackToPatientsInPrescriptions.Animated = true;
-            this.btnBackToPatientsInPrescriptions.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsInPrescriptions.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsInPrescriptions.BorderRadius = 5;
-            this.btnBackToPatientsInPrescriptions.BorderThickness = 1;
-            this.btnBackToPatientsInPrescriptions.CheckedState.Parent = this.btnBackToPatientsInPrescriptions;
-            this.btnBackToPatientsInPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsInPrescriptions.CustomImages.Parent = this.btnBackToPatientsInPrescriptions;
-            this.btnBackToPatientsInPrescriptions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPrescriptions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsInPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsInPrescriptions.DisabledState.Parent = this.btnBackToPatientsInPrescriptions;
-            this.btnBackToPatientsInPrescriptions.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsInPrescriptions.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPrescriptions.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPrescriptions.HoverState.Parent = this.btnBackToPatientsInPrescriptions;
-            this.btnBackToPatientsInPrescriptions.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsInPrescriptions.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsInPrescriptions.Location = new System.Drawing.Point(1491, 480);
-            this.btnBackToPatientsInPrescriptions.Name = "btnBackToPatientsInPrescriptions";
-            this.btnBackToPatientsInPrescriptions.ShadowDecoration.Parent = this.btnBackToPatientsInPrescriptions;
-            this.btnBackToPatientsInPrescriptions.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsInPrescriptions.TabIndex = 353;
-            this.btnBackToPatientsInPrescriptions.Text = "Back to Patients";
-            this.btnBackToPatientsInPrescriptions.Click += new System.EventHandler(this.btnBackToPatientsInPrescriptions_Click);
-            // 
             // gridPrescriptions
             // 
             this.gridPrescriptions.AllowUserToAddRows = false;
             this.gridPrescriptions.AllowUserToDeleteRows = false;
             this.gridPrescriptions.AllowUserToResizeColumns = false;
             this.gridPrescriptions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle190.BackColor = System.Drawing.Color.White;
-            this.gridPrescriptions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle190;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            this.gridPrescriptions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.gridPrescriptions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPrescriptions.BackgroundColor = System.Drawing.Color.White;
             this.gridPrescriptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPrescriptions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPrescriptions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle191.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle191.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle191.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle191.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle191.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle191.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle191.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPrescriptions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle191;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPrescriptions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.gridPrescriptions.ColumnHeadersHeight = 40;
             this.gridPrescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle192.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle192.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle192.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle192.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle192.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle192.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle192.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPrescriptions.DefaultCellStyle = dataGridViewCellStyle192;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPrescriptions.DefaultCellStyle = dataGridViewCellStyle39;
             this.gridPrescriptions.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPrescriptions.EnableHeadersVisualStyles = false;
             this.gridPrescriptions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -3273,32 +2867,32 @@ namespace PatientInformationSystemNew.forms
             this.gridPrintPrescription.AllowUserToDeleteRows = false;
             this.gridPrintPrescription.AllowUserToResizeColumns = false;
             this.gridPrintPrescription.AllowUserToResizeRows = false;
-            dataGridViewCellStyle205.BackColor = System.Drawing.Color.White;
-            this.gridPrintPrescription.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle205;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.White;
+            this.gridPrintPrescription.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
             this.gridPrintPrescription.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPrintPrescription.BackgroundColor = System.Drawing.Color.White;
             this.gridPrintPrescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPrintPrescription.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPrintPrescription.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle206.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle206.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle206.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle206.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle206.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle206.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle206.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPrintPrescription.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle206;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPrintPrescription.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.gridPrintPrescription.ColumnHeadersHeight = 40;
             this.gridPrintPrescription.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPrintPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle207.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle207.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle207.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle207.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle207.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle207.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle207.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPrintPrescription.DefaultCellStyle = dataGridViewCellStyle207;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPrintPrescription.DefaultCellStyle = dataGridViewCellStyle42;
             this.gridPrintPrescription.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridPrintPrescription.EnableHeadersVisualStyles = false;
             this.gridPrintPrescription.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -3333,40 +2927,10 @@ namespace PatientInformationSystemNew.forms
             this.gridPrintPrescription.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPrintPrescription.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // btnBackToPatientsInPrintPrescription
-            // 
-            this.btnBackToPatientsInPrintPrescription.Animated = true;
-            this.btnBackToPatientsInPrintPrescription.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsInPrintPrescription.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsInPrintPrescription.BorderRadius = 5;
-            this.btnBackToPatientsInPrintPrescription.BorderThickness = 1;
-            this.btnBackToPatientsInPrintPrescription.CheckedState.Parent = this.btnBackToPatientsInPrintPrescription;
-            this.btnBackToPatientsInPrintPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsInPrintPrescription.CustomImages.Parent = this.btnBackToPatientsInPrintPrescription;
-            this.btnBackToPatientsInPrintPrescription.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPrintPrescription.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPrintPrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsInPrintPrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsInPrintPrescription.DisabledState.Parent = this.btnBackToPatientsInPrintPrescription;
-            this.btnBackToPatientsInPrintPrescription.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsInPrintPrescription.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPrintPrescription.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPrintPrescription.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPrintPrescription.HoverState.Parent = this.btnBackToPatientsInPrintPrescription;
-            this.btnBackToPatientsInPrintPrescription.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsInPrintPrescription.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsInPrintPrescription.Location = new System.Drawing.Point(1491, 824);
-            this.btnBackToPatientsInPrintPrescription.Name = "btnBackToPatientsInPrintPrescription";
-            this.btnBackToPatientsInPrintPrescription.ShadowDecoration.Parent = this.btnBackToPatientsInPrintPrescription;
-            this.btnBackToPatientsInPrintPrescription.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsInPrintPrescription.TabIndex = 355;
-            this.btnBackToPatientsInPrintPrescription.Text = "Back to Patients";
-            this.btnBackToPatientsInPrintPrescription.Click += new System.EventHandler(this.btnBackToPatientsInPrintPrescription_Click);
-            // 
             // tabPaymentHistory
             // 
             this.tabPaymentHistory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPaymentHistory.Controls.Add(this.btnPrintPaymentHistory);
             this.tabPaymentHistory.Controls.Add(this.btnSavePayment);
             this.tabPaymentHistory.Controls.Add(this.btnEditPayment);
             this.tabPaymentHistory.Controls.Add(this.rprtReceipt);
@@ -3395,110 +2959,14 @@ namespace PatientInformationSystemNew.forms
             this.tabPaymentHistory.TabIndex = 6;
             this.tabPaymentHistory.Text = "Payment History";
             // 
-            // btnSavePayment
-            // 
-            this.btnSavePayment.Animated = true;
-            this.btnSavePayment.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSavePayment.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSavePayment.BorderRadius = 5;
-            this.btnSavePayment.BorderThickness = 1;
-            this.btnSavePayment.CheckedState.Parent = this.btnSavePayment;
-            this.btnSavePayment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSavePayment.CustomImages.Parent = this.btnSavePayment;
-            this.btnSavePayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSavePayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSavePayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSavePayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSavePayment.DisabledState.Parent = this.btnSavePayment;
-            this.btnSavePayment.Enabled = false;
-            this.btnSavePayment.FillColor = System.Drawing.Color.Lime;
-            this.btnSavePayment.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSavePayment.ForeColor = System.Drawing.Color.White;
-            this.btnSavePayment.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnSavePayment.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnSavePayment.HoverState.Parent = this.btnSavePayment;
-            this.btnSavePayment.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
-            this.btnSavePayment.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSavePayment.Location = new System.Drawing.Point(1491, 322);
-            this.btnSavePayment.Name = "btnSavePayment";
-            this.btnSavePayment.ShadowDecoration.Parent = this.btnSavePayment;
-            this.btnSavePayment.Size = new System.Drawing.Size(131, 62);
-            this.btnSavePayment.TabIndex = 373;
-            this.btnSavePayment.Text = "Save";
-            this.btnSavePayment.Click += new System.EventHandler(this.btnSavePayment_Click);
-            // 
-            // btnEditPayment
-            // 
-            this.btnEditPayment.Animated = true;
-            this.btnEditPayment.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnEditPayment.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEditPayment.BorderRadius = 5;
-            this.btnEditPayment.BorderThickness = 1;
-            this.btnEditPayment.CheckedState.Parent = this.btnEditPayment;
-            this.btnEditPayment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditPayment.CustomImages.Parent = this.btnEditPayment;
-            this.btnEditPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditPayment.DisabledState.Parent = this.btnEditPayment;
-            this.btnEditPayment.Enabled = false;
-            this.btnEditPayment.FillColor = System.Drawing.Color.Blue;
-            this.btnEditPayment.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnEditPayment.ForeColor = System.Drawing.Color.White;
-            this.btnEditPayment.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnEditPayment.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnEditPayment.HoverState.Parent = this.btnEditPayment;
-            this.btnEditPayment.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
-            this.btnEditPayment.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEditPayment.Location = new System.Drawing.Point(1491, 400);
-            this.btnEditPayment.Name = "btnEditPayment";
-            this.btnEditPayment.ShadowDecoration.Parent = this.btnEditPayment;
-            this.btnEditPayment.Size = new System.Drawing.Size(131, 62);
-            this.btnEditPayment.TabIndex = 8;
-            this.btnEditPayment.Text = "Edit";
-            this.btnEditPayment.Click += new System.EventHandler(this.btnEditPayment_Click);
-            // 
             // rprtReceipt
             // 
             this.rprtReceipt.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtReceipt.rdlc";
-            this.rprtReceipt.Location = new System.Drawing.Point(1009, 15);
+            this.rprtReceipt.Location = new System.Drawing.Point(999, 15);
             this.rprtReceipt.Name = "rprtReceipt";
             this.rprtReceipt.Size = new System.Drawing.Size(453, 566);
             this.rprtReceipt.TabIndex = 372;
             this.rprtReceipt.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
-            // 
-            // btnTransact
-            // 
-            this.btnTransact.Animated = true;
-            this.btnTransact.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnTransact.BorderColor = System.Drawing.Color.Transparent;
-            this.btnTransact.BorderRadius = 5;
-            this.btnTransact.BorderThickness = 1;
-            this.btnTransact.CheckedState.Parent = this.btnTransact;
-            this.btnTransact.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransact.CustomImages.Parent = this.btnTransact;
-            this.btnTransact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTransact.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTransact.DisabledState.Parent = this.btnTransact;
-            this.btnTransact.FillColor = System.Drawing.Color.Blue;
-            this.btnTransact.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnTransact.ForeColor = System.Drawing.Color.White;
-            this.btnTransact.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnTransact.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btnTransact.HoverState.Parent = this.btnTransact;
-            this.btnTransact.Image = global::PatientInformationSystemNew.Properties.Resources.transact_icon;
-            this.btnTransact.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTransact.Location = new System.Drawing.Point(489, 536);
-            this.btnTransact.Name = "btnTransact";
-            this.btnTransact.ShadowDecoration.Parent = this.btnTransact;
-            this.btnTransact.Size = new System.Drawing.Size(446, 45);
-            this.btnTransact.TabIndex = 7;
-            this.btnTransact.Text = "Transact";
-            this.btnTransact.Visible = false;
-            this.btnTransact.Click += new System.EventHandler(this.btnTransact_Click);
             // 
             // txtChange
             // 
@@ -3795,69 +3263,38 @@ namespace PatientInformationSystemNew.forms
             this.label27.TabIndex = 356;
             this.label27.Text = "Patient Name";
             // 
-            // btnBackToPatientsInPaymentHistory
-            // 
-            this.btnBackToPatientsInPaymentHistory.Animated = true;
-            this.btnBackToPatientsInPaymentHistory.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBackToPatientsInPaymentHistory.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackToPatientsInPaymentHistory.BorderRadius = 5;
-            this.btnBackToPatientsInPaymentHistory.BorderThickness = 1;
-            this.btnBackToPatientsInPaymentHistory.CheckedState.Parent = this.btnBackToPatientsInPaymentHistory;
-            this.btnBackToPatientsInPaymentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToPatientsInPaymentHistory.CustomImages.Parent = this.btnBackToPatientsInPaymentHistory;
-            this.btnBackToPatientsInPaymentHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPaymentHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBackToPatientsInPaymentHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBackToPatientsInPaymentHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBackToPatientsInPaymentHistory.DisabledState.Parent = this.btnBackToPatientsInPaymentHistory;
-            this.btnBackToPatientsInPaymentHistory.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPaymentHistory.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBackToPatientsInPaymentHistory.ForeColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPaymentHistory.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnBackToPatientsInPaymentHistory.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnBackToPatientsInPaymentHistory.HoverState.Parent = this.btnBackToPatientsInPaymentHistory;
-            this.btnBackToPatientsInPaymentHistory.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnBackToPatientsInPaymentHistory.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBackToPatientsInPaymentHistory.Location = new System.Drawing.Point(1491, 477);
-            this.btnBackToPatientsInPaymentHistory.Name = "btnBackToPatientsInPaymentHistory";
-            this.btnBackToPatientsInPaymentHistory.ShadowDecoration.Parent = this.btnBackToPatientsInPaymentHistory;
-            this.btnBackToPatientsInPaymentHistory.Size = new System.Drawing.Size(131, 104);
-            this.btnBackToPatientsInPaymentHistory.TabIndex = 9;
-            this.btnBackToPatientsInPaymentHistory.Text = "Back to Patients";
-            this.btnBackToPatientsInPaymentHistory.Click += new System.EventHandler(this.btnBackToPatientsInPaymentHistory_Click);
-            // 
             // gridPaymentHistory
             // 
             this.gridPaymentHistory.AllowUserToAddRows = false;
             this.gridPaymentHistory.AllowUserToDeleteRows = false;
             this.gridPaymentHistory.AllowUserToResizeColumns = false;
             this.gridPaymentHistory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle208.BackColor = System.Drawing.Color.White;
-            this.gridPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle208;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.gridPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.gridPaymentHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPaymentHistory.BackgroundColor = System.Drawing.Color.White;
             this.gridPaymentHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPaymentHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPaymentHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle209.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle209.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle209.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle209.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle209.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle209.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle209.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle209;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.gridPaymentHistory.ColumnHeadersHeight = 40;
             this.gridPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle210.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle210.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle210.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle210.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle210.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle210.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle210.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPaymentHistory.DefaultCellStyle = dataGridViewCellStyle210;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPaymentHistory.DefaultCellStyle = dataGridViewCellStyle24;
             this.gridPaymentHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPaymentHistory.EnableHeadersVisualStyles = false;
             this.gridPaymentHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -3891,6 +3328,604 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory.ThemeStyle.RowsStyle.Height = 40;
             this.gridPaymentHistory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPaymentHistory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // btnBackToPatientsInPeronalInfo
+            // 
+            this.btnBackToPatientsInPeronalInfo.Animated = true;
+            this.btnBackToPatientsInPeronalInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsInPeronalInfo.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsInPeronalInfo.BorderRadius = 5;
+            this.btnBackToPatientsInPeronalInfo.BorderThickness = 1;
+            this.btnBackToPatientsInPeronalInfo.CheckedState.Parent = this.btnBackToPatientsInPeronalInfo;
+            this.btnBackToPatientsInPeronalInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsInPeronalInfo.CustomImages.Parent = this.btnBackToPatientsInPeronalInfo;
+            this.btnBackToPatientsInPeronalInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPeronalInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPeronalInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsInPeronalInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsInPeronalInfo.DisabledState.Parent = this.btnBackToPatientsInPeronalInfo;
+            this.btnBackToPatientsInPeronalInfo.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPeronalInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsInPeronalInfo.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPeronalInfo.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPeronalInfo.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPeronalInfo.HoverState.Parent = this.btnBackToPatientsInPeronalInfo;
+            this.btnBackToPatientsInPeronalInfo.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsInPeronalInfo.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsInPeronalInfo.Location = new System.Drawing.Point(1491, 824);
+            this.btnBackToPatientsInPeronalInfo.Name = "btnBackToPatientsInPeronalInfo";
+            this.btnBackToPatientsInPeronalInfo.ShadowDecoration.Parent = this.btnBackToPatientsInPeronalInfo;
+            this.btnBackToPatientsInPeronalInfo.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsInPeronalInfo.TabIndex = 158;
+            this.btnBackToPatientsInPeronalInfo.Text = "Back to Patients";
+            this.btnBackToPatientsInPeronalInfo.Click += new System.EventHandler(this.btnBackToPatientsInPeronalInfo_Click);
+            // 
+            // btnSavePersonalInfo
+            // 
+            this.btnSavePersonalInfo.Animated = true;
+            this.btnSavePersonalInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSavePersonalInfo.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSavePersonalInfo.BorderRadius = 5;
+            this.btnSavePersonalInfo.BorderThickness = 1;
+            this.btnSavePersonalInfo.CheckedState.Parent = this.btnSavePersonalInfo;
+            this.btnSavePersonalInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSavePersonalInfo.CustomImages.Parent = this.btnSavePersonalInfo;
+            this.btnSavePersonalInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSavePersonalInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSavePersonalInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSavePersonalInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSavePersonalInfo.DisabledState.Parent = this.btnSavePersonalInfo;
+            this.btnSavePersonalInfo.Enabled = false;
+            this.btnSavePersonalInfo.FillColor = System.Drawing.Color.Lime;
+            this.btnSavePersonalInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSavePersonalInfo.ForeColor = System.Drawing.Color.White;
+            this.btnSavePersonalInfo.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSavePersonalInfo.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSavePersonalInfo.HoverState.Parent = this.btnSavePersonalInfo;
+            this.btnSavePersonalInfo.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.btnSavePersonalInfo.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSavePersonalInfo.Location = new System.Drawing.Point(1491, 665);
+            this.btnSavePersonalInfo.Name = "btnSavePersonalInfo";
+            this.btnSavePersonalInfo.ShadowDecoration.Parent = this.btnSavePersonalInfo;
+            this.btnSavePersonalInfo.Size = new System.Drawing.Size(131, 62);
+            this.btnSavePersonalInfo.TabIndex = 17;
+            this.btnSavePersonalInfo.Text = "Save";
+            this.btnSavePersonalInfo.Click += new System.EventHandler(this.btnSavePersonalInfo_Click);
+            // 
+            // btnEditPersonalInfo
+            // 
+            this.btnEditPersonalInfo.Animated = true;
+            this.btnEditPersonalInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditPersonalInfo.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditPersonalInfo.BorderRadius = 5;
+            this.btnEditPersonalInfo.BorderThickness = 1;
+            this.btnEditPersonalInfo.CheckedState.Parent = this.btnEditPersonalInfo;
+            this.btnEditPersonalInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditPersonalInfo.CustomImages.Parent = this.btnEditPersonalInfo;
+            this.btnEditPersonalInfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditPersonalInfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditPersonalInfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditPersonalInfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditPersonalInfo.DisabledState.Parent = this.btnEditPersonalInfo;
+            this.btnEditPersonalInfo.FillColor = System.Drawing.Color.Blue;
+            this.btnEditPersonalInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditPersonalInfo.ForeColor = System.Drawing.Color.White;
+            this.btnEditPersonalInfo.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditPersonalInfo.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditPersonalInfo.HoverState.Parent = this.btnEditPersonalInfo;
+            this.btnEditPersonalInfo.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditPersonalInfo.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditPersonalInfo.Location = new System.Drawing.Point(1491, 746);
+            this.btnEditPersonalInfo.Name = "btnEditPersonalInfo";
+            this.btnEditPersonalInfo.ShadowDecoration.Parent = this.btnEditPersonalInfo;
+            this.btnEditPersonalInfo.Size = new System.Drawing.Size(131, 62);
+            this.btnEditPersonalInfo.TabIndex = 16;
+            this.btnEditPersonalInfo.Text = "Edit";
+            this.btnEditPersonalInfo.Click += new System.EventHandler(this.btnEditPersonalInfo_Click);
+            // 
+            // btnEditVitalSigns
+            // 
+            this.btnEditVitalSigns.Animated = true;
+            this.btnEditVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditVitalSigns.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditVitalSigns.BorderRadius = 5;
+            this.btnEditVitalSigns.BorderThickness = 1;
+            this.btnEditVitalSigns.CheckedState.Parent = this.btnEditVitalSigns;
+            this.btnEditVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditVitalSigns.CustomImages.Parent = this.btnEditVitalSigns;
+            this.btnEditVitalSigns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditVitalSigns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditVitalSigns.DisabledState.Parent = this.btnEditVitalSigns;
+            this.btnEditVitalSigns.Enabled = false;
+            this.btnEditVitalSigns.FillColor = System.Drawing.Color.Blue;
+            this.btnEditVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditVitalSigns.ForeColor = System.Drawing.Color.White;
+            this.btnEditVitalSigns.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditVitalSigns.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditVitalSigns.HoverState.Parent = this.btnEditVitalSigns;
+            this.btnEditVitalSigns.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditVitalSigns.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditVitalSigns.Location = new System.Drawing.Point(1491, 274);
+            this.btnEditVitalSigns.Name = "btnEditVitalSigns";
+            this.btnEditVitalSigns.ShadowDecoration.Parent = this.btnEditVitalSigns;
+            this.btnEditVitalSigns.Size = new System.Drawing.Size(131, 62);
+            this.btnEditVitalSigns.TabIndex = 13;
+            this.btnEditVitalSigns.Text = "Edit";
+            this.btnEditVitalSigns.Click += new System.EventHandler(this.btnEditVitalSigns_Click);
+            // 
+            // btnBackToPatientsVitalSigns
+            // 
+            this.btnBackToPatientsVitalSigns.Animated = true;
+            this.btnBackToPatientsVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsVitalSigns.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsVitalSigns.BorderRadius = 5;
+            this.btnBackToPatientsVitalSigns.BorderThickness = 1;
+            this.btnBackToPatientsVitalSigns.CheckedState.Parent = this.btnBackToPatientsVitalSigns;
+            this.btnBackToPatientsVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsVitalSigns.CustomImages.Parent = this.btnBackToPatientsVitalSigns;
+            this.btnBackToPatientsVitalSigns.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsVitalSigns.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsVitalSigns.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsVitalSigns.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsVitalSigns.DisabledState.Parent = this.btnBackToPatientsVitalSigns;
+            this.btnBackToPatientsVitalSigns.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsVitalSigns.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsVitalSigns.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsVitalSigns.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsVitalSigns.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsVitalSigns.HoverState.Parent = this.btnBackToPatientsVitalSigns;
+            this.btnBackToPatientsVitalSigns.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsVitalSigns.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsVitalSigns.Location = new System.Drawing.Point(1491, 350);
+            this.btnBackToPatientsVitalSigns.Name = "btnBackToPatientsVitalSigns";
+            this.btnBackToPatientsVitalSigns.ShadowDecoration.Parent = this.btnBackToPatientsVitalSigns;
+            this.btnBackToPatientsVitalSigns.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsVitalSigns.TabIndex = 14;
+            this.btnBackToPatientsVitalSigns.Text = "Back to Patients";
+            this.btnBackToPatientsVitalSigns.Click += new System.EventHandler(this.btnBackToPatientsVitalSigns_Click);
+            // 
+            // btnEditDoctors
+            // 
+            this.btnEditDoctors.Animated = true;
+            this.btnEditDoctors.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditDoctors.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditDoctors.BorderRadius = 5;
+            this.btnEditDoctors.BorderThickness = 1;
+            this.btnEditDoctors.CheckedState.Parent = this.btnEditDoctors;
+            this.btnEditDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditDoctors.CustomImages.Parent = this.btnEditDoctors;
+            this.btnEditDoctors.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDoctors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDoctors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditDoctors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditDoctors.DisabledState.Parent = this.btnEditDoctors;
+            this.btnEditDoctors.Enabled = false;
+            this.btnEditDoctors.FillColor = System.Drawing.Color.Blue;
+            this.btnEditDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditDoctors.ForeColor = System.Drawing.Color.White;
+            this.btnEditDoctors.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditDoctors.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditDoctors.HoverState.Parent = this.btnEditDoctors;
+            this.btnEditDoctors.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditDoctors.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditDoctors.Location = new System.Drawing.Point(1491, 173);
+            this.btnEditDoctors.Name = "btnEditDoctors";
+            this.btnEditDoctors.ShadowDecoration.Parent = this.btnEditDoctors;
+            this.btnEditDoctors.Size = new System.Drawing.Size(131, 62);
+            this.btnEditDoctors.TabIndex = 333;
+            this.btnEditDoctors.Text = "Edit";
+            this.btnEditDoctors.Click += new System.EventHandler(this.btnEditDoctors_Click);
+            // 
+            // btnBackToPatientsDoctors
+            // 
+            this.btnBackToPatientsDoctors.Animated = true;
+            this.btnBackToPatientsDoctors.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsDoctors.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsDoctors.BorderRadius = 5;
+            this.btnBackToPatientsDoctors.BorderThickness = 1;
+            this.btnBackToPatientsDoctors.CheckedState.Parent = this.btnBackToPatientsDoctors;
+            this.btnBackToPatientsDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsDoctors.CustomImages.Parent = this.btnBackToPatientsDoctors;
+            this.btnBackToPatientsDoctors.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsDoctors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsDoctors.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsDoctors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsDoctors.DisabledState.Parent = this.btnBackToPatientsDoctors;
+            this.btnBackToPatientsDoctors.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsDoctors.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsDoctors.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsDoctors.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsDoctors.HoverState.Parent = this.btnBackToPatientsDoctors;
+            this.btnBackToPatientsDoctors.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsDoctors.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsDoctors.Location = new System.Drawing.Point(1491, 251);
+            this.btnBackToPatientsDoctors.Name = "btnBackToPatientsDoctors";
+            this.btnBackToPatientsDoctors.ShadowDecoration.Parent = this.btnBackToPatientsDoctors;
+            this.btnBackToPatientsDoctors.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsDoctors.TabIndex = 332;
+            this.btnBackToPatientsDoctors.Text = "Back to Patients";
+            this.btnBackToPatientsDoctors.Click += new System.EventHandler(this.btnBackToPatientsDoctors_Click);
+            // 
+            // btnEditDiagnosis
+            // 
+            this.btnEditDiagnosis.Animated = true;
+            this.btnEditDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditDiagnosis.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditDiagnosis.BorderRadius = 5;
+            this.btnEditDiagnosis.BorderThickness = 1;
+            this.btnEditDiagnosis.CheckedState.Parent = this.btnEditDiagnosis;
+            this.btnEditDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditDiagnosis.CustomImages.Parent = this.btnEditDiagnosis;
+            this.btnEditDiagnosis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDiagnosis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditDiagnosis.DisabledState.Parent = this.btnEditDiagnosis;
+            this.btnEditDiagnosis.Enabled = false;
+            this.btnEditDiagnosis.FillColor = System.Drawing.Color.Blue;
+            this.btnEditDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.btnEditDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditDiagnosis.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditDiagnosis.HoverState.Parent = this.btnEditDiagnosis;
+            this.btnEditDiagnosis.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditDiagnosis.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditDiagnosis.Location = new System.Drawing.Point(1491, 173);
+            this.btnEditDiagnosis.Name = "btnEditDiagnosis";
+            this.btnEditDiagnosis.ShadowDecoration.Parent = this.btnEditDiagnosis;
+            this.btnEditDiagnosis.Size = new System.Drawing.Size(131, 62);
+            this.btnEditDiagnosis.TabIndex = 320;
+            this.btnEditDiagnosis.Text = "Edit";
+            this.btnEditDiagnosis.Click += new System.EventHandler(this.btnEditDiagnosis_Click);
+            // 
+            // btnBackToPatientsInDiagnosis
+            // 
+            this.btnBackToPatientsInDiagnosis.Animated = true;
+            this.btnBackToPatientsInDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsInDiagnosis.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsInDiagnosis.BorderRadius = 5;
+            this.btnBackToPatientsInDiagnosis.BorderThickness = 1;
+            this.btnBackToPatientsInDiagnosis.CheckedState.Parent = this.btnBackToPatientsInDiagnosis;
+            this.btnBackToPatientsInDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsInDiagnosis.CustomImages.Parent = this.btnBackToPatientsInDiagnosis;
+            this.btnBackToPatientsInDiagnosis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInDiagnosis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInDiagnosis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsInDiagnosis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsInDiagnosis.DisabledState.Parent = this.btnBackToPatientsInDiagnosis;
+            this.btnBackToPatientsInDiagnosis.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsInDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInDiagnosis.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInDiagnosis.HoverState.Parent = this.btnBackToPatientsInDiagnosis;
+            this.btnBackToPatientsInDiagnosis.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsInDiagnosis.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsInDiagnosis.Location = new System.Drawing.Point(1491, 251);
+            this.btnBackToPatientsInDiagnosis.Name = "btnBackToPatientsInDiagnosis";
+            this.btnBackToPatientsInDiagnosis.ShadowDecoration.Parent = this.btnBackToPatientsInDiagnosis;
+            this.btnBackToPatientsInDiagnosis.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsInDiagnosis.TabIndex = 319;
+            this.btnBackToPatientsInDiagnosis.Text = "Back to Patients";
+            this.btnBackToPatientsInDiagnosis.Click += new System.EventHandler(this.btnBackToPatientsInDiagnosis_Click_1);
+            // 
+            // btnEditSymptoms
+            // 
+            this.btnEditSymptoms.Animated = true;
+            this.btnEditSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditSymptoms.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditSymptoms.BorderRadius = 5;
+            this.btnEditSymptoms.BorderThickness = 1;
+            this.btnEditSymptoms.CheckedState.Parent = this.btnEditSymptoms;
+            this.btnEditSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditSymptoms.CustomImages.Parent = this.btnEditSymptoms;
+            this.btnEditSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditSymptoms.DisabledState.Parent = this.btnEditSymptoms;
+            this.btnEditSymptoms.Enabled = false;
+            this.btnEditSymptoms.FillColor = System.Drawing.Color.Blue;
+            this.btnEditSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditSymptoms.ForeColor = System.Drawing.Color.White;
+            this.btnEditSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditSymptoms.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditSymptoms.HoverState.Parent = this.btnEditSymptoms;
+            this.btnEditSymptoms.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditSymptoms.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditSymptoms.Location = new System.Drawing.Point(1491, 173);
+            this.btnEditSymptoms.Name = "btnEditSymptoms";
+            this.btnEditSymptoms.ShadowDecoration.Parent = this.btnEditSymptoms;
+            this.btnEditSymptoms.Size = new System.Drawing.Size(131, 62);
+            this.btnEditSymptoms.TabIndex = 335;
+            this.btnEditSymptoms.Text = "Edit";
+            this.btnEditSymptoms.Click += new System.EventHandler(this.btnEditSymptoms_Click);
+            // 
+            // btnBackToPatientsInSymptoms
+            // 
+            this.btnBackToPatientsInSymptoms.Animated = true;
+            this.btnBackToPatientsInSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsInSymptoms.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsInSymptoms.BorderRadius = 5;
+            this.btnBackToPatientsInSymptoms.BorderThickness = 1;
+            this.btnBackToPatientsInSymptoms.CheckedState.Parent = this.btnBackToPatientsInSymptoms;
+            this.btnBackToPatientsInSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsInSymptoms.CustomImages.Parent = this.btnBackToPatientsInSymptoms;
+            this.btnBackToPatientsInSymptoms.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInSymptoms.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInSymptoms.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsInSymptoms.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsInSymptoms.DisabledState.Parent = this.btnBackToPatientsInSymptoms;
+            this.btnBackToPatientsInSymptoms.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsInSymptoms.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInSymptoms.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInSymptoms.HoverState.Parent = this.btnBackToPatientsInSymptoms;
+            this.btnBackToPatientsInSymptoms.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsInSymptoms.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsInSymptoms.Location = new System.Drawing.Point(1491, 251);
+            this.btnBackToPatientsInSymptoms.Name = "btnBackToPatientsInSymptoms";
+            this.btnBackToPatientsInSymptoms.ShadowDecoration.Parent = this.btnBackToPatientsInSymptoms;
+            this.btnBackToPatientsInSymptoms.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsInSymptoms.TabIndex = 9;
+            this.btnBackToPatientsInSymptoms.Text = "Back to Patients";
+            this.btnBackToPatientsInSymptoms.Click += new System.EventHandler(this.btnBackToPatientsInSymptoms_Click);
+            // 
+            // btnEditPrescriptions
+            // 
+            this.btnEditPrescriptions.Animated = true;
+            this.btnEditPrescriptions.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditPrescriptions.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditPrescriptions.BorderRadius = 5;
+            this.btnEditPrescriptions.BorderThickness = 1;
+            this.btnEditPrescriptions.CheckedState.Parent = this.btnEditPrescriptions;
+            this.btnEditPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditPrescriptions.CustomImages.Parent = this.btnEditPrescriptions;
+            this.btnEditPrescriptions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditPrescriptions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditPrescriptions.DisabledState.Parent = this.btnEditPrescriptions;
+            this.btnEditPrescriptions.Enabled = false;
+            this.btnEditPrescriptions.FillColor = System.Drawing.Color.Blue;
+            this.btnEditPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditPrescriptions.ForeColor = System.Drawing.Color.White;
+            this.btnEditPrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditPrescriptions.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditPrescriptions.HoverState.Parent = this.btnEditPrescriptions;
+            this.btnEditPrescriptions.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditPrescriptions.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditPrescriptions.Location = new System.Drawing.Point(1491, 403);
+            this.btnEditPrescriptions.Name = "btnEditPrescriptions";
+            this.btnEditPrescriptions.ShadowDecoration.Parent = this.btnEditPrescriptions;
+            this.btnEditPrescriptions.Size = new System.Drawing.Size(131, 62);
+            this.btnEditPrescriptions.TabIndex = 365;
+            this.btnEditPrescriptions.Text = "Edit";
+            this.btnEditPrescriptions.Click += new System.EventHandler(this.btnEditPrescriptions_Click);
+            // 
+            // btnBackToPatientsInPrescriptions
+            // 
+            this.btnBackToPatientsInPrescriptions.Animated = true;
+            this.btnBackToPatientsInPrescriptions.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsInPrescriptions.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsInPrescriptions.BorderRadius = 5;
+            this.btnBackToPatientsInPrescriptions.BorderThickness = 1;
+            this.btnBackToPatientsInPrescriptions.CheckedState.Parent = this.btnBackToPatientsInPrescriptions;
+            this.btnBackToPatientsInPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsInPrescriptions.CustomImages.Parent = this.btnBackToPatientsInPrescriptions;
+            this.btnBackToPatientsInPrescriptions.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPrescriptions.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPrescriptions.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsInPrescriptions.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsInPrescriptions.DisabledState.Parent = this.btnBackToPatientsInPrescriptions;
+            this.btnBackToPatientsInPrescriptions.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsInPrescriptions.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPrescriptions.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPrescriptions.HoverState.Parent = this.btnBackToPatientsInPrescriptions;
+            this.btnBackToPatientsInPrescriptions.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsInPrescriptions.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsInPrescriptions.Location = new System.Drawing.Point(1491, 480);
+            this.btnBackToPatientsInPrescriptions.Name = "btnBackToPatientsInPrescriptions";
+            this.btnBackToPatientsInPrescriptions.ShadowDecoration.Parent = this.btnBackToPatientsInPrescriptions;
+            this.btnBackToPatientsInPrescriptions.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsInPrescriptions.TabIndex = 353;
+            this.btnBackToPatientsInPrescriptions.Text = "Back to Patients";
+            this.btnBackToPatientsInPrescriptions.Click += new System.EventHandler(this.btnBackToPatientsInPrescriptions_Click);
+            // 
+            // btnBackToPatientsInPrintPrescription
+            // 
+            this.btnBackToPatientsInPrintPrescription.Animated = true;
+            this.btnBackToPatientsInPrintPrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsInPrintPrescription.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsInPrintPrescription.BorderRadius = 5;
+            this.btnBackToPatientsInPrintPrescription.BorderThickness = 1;
+            this.btnBackToPatientsInPrintPrescription.CheckedState.Parent = this.btnBackToPatientsInPrintPrescription;
+            this.btnBackToPatientsInPrintPrescription.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsInPrintPrescription.CustomImages.Parent = this.btnBackToPatientsInPrintPrescription;
+            this.btnBackToPatientsInPrintPrescription.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPrintPrescription.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPrintPrescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsInPrintPrescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsInPrintPrescription.DisabledState.Parent = this.btnBackToPatientsInPrintPrescription;
+            this.btnBackToPatientsInPrintPrescription.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPrintPrescription.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsInPrintPrescription.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPrintPrescription.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPrintPrescription.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPrintPrescription.HoverState.Parent = this.btnBackToPatientsInPrintPrescription;
+            this.btnBackToPatientsInPrintPrescription.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsInPrintPrescription.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsInPrintPrescription.Location = new System.Drawing.Point(1491, 824);
+            this.btnBackToPatientsInPrintPrescription.Name = "btnBackToPatientsInPrintPrescription";
+            this.btnBackToPatientsInPrintPrescription.ShadowDecoration.Parent = this.btnBackToPatientsInPrintPrescription;
+            this.btnBackToPatientsInPrintPrescription.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsInPrintPrescription.TabIndex = 355;
+            this.btnBackToPatientsInPrintPrescription.Text = "Back to Patients";
+            this.btnBackToPatientsInPrintPrescription.Click += new System.EventHandler(this.btnBackToPatientsInPrintPrescription_Click);
+            // 
+            // btnPrintPaymentHistory
+            // 
+            this.btnPrintPaymentHistory.Animated = true;
+            this.btnPrintPaymentHistory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrintPaymentHistory.BorderColor = System.Drawing.Color.Transparent;
+            this.btnPrintPaymentHistory.BorderRadius = 5;
+            this.btnPrintPaymentHistory.BorderThickness = 1;
+            this.btnPrintPaymentHistory.CheckedState.Parent = this.btnPrintPaymentHistory;
+            this.btnPrintPaymentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintPaymentHistory.CustomImages.Parent = this.btnPrintPaymentHistory;
+            this.btnPrintPaymentHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintPaymentHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintPaymentHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintPaymentHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintPaymentHistory.DisabledState.Parent = this.btnPrintPaymentHistory;
+            this.btnPrintPaymentHistory.Enabled = false;
+            this.btnPrintPaymentHistory.FillColor = System.Drawing.Color.Blue;
+            this.btnPrintPaymentHistory.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnPrintPaymentHistory.ForeColor = System.Drawing.Color.White;
+            this.btnPrintPaymentHistory.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnPrintPaymentHistory.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnPrintPaymentHistory.HoverState.Parent = this.btnPrintPaymentHistory;
+            this.btnPrintPaymentHistory.Image = global::PatientInformationSystemNew.Properties.Resources.print_icon;
+            this.btnPrintPaymentHistory.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPrintPaymentHistory.Location = new System.Drawing.Point(1491, 248);
+            this.btnPrintPaymentHistory.Name = "btnPrintPaymentHistory";
+            this.btnPrintPaymentHistory.ShadowDecoration.Parent = this.btnPrintPaymentHistory;
+            this.btnPrintPaymentHistory.Size = new System.Drawing.Size(131, 62);
+            this.btnPrintPaymentHistory.TabIndex = 374;
+            this.btnPrintPaymentHistory.Text = "Print";
+            // 
+            // btnSavePayment
+            // 
+            this.btnSavePayment.Animated = true;
+            this.btnSavePayment.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSavePayment.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSavePayment.BorderRadius = 5;
+            this.btnSavePayment.BorderThickness = 1;
+            this.btnSavePayment.CheckedState.Parent = this.btnSavePayment;
+            this.btnSavePayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSavePayment.CustomImages.Parent = this.btnSavePayment;
+            this.btnSavePayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSavePayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSavePayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSavePayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSavePayment.DisabledState.Parent = this.btnSavePayment;
+            this.btnSavePayment.Enabled = false;
+            this.btnSavePayment.FillColor = System.Drawing.Color.Lime;
+            this.btnSavePayment.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSavePayment.ForeColor = System.Drawing.Color.White;
+            this.btnSavePayment.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSavePayment.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnSavePayment.HoverState.Parent = this.btnSavePayment;
+            this.btnSavePayment.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
+            this.btnSavePayment.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSavePayment.Location = new System.Drawing.Point(1491, 322);
+            this.btnSavePayment.Name = "btnSavePayment";
+            this.btnSavePayment.ShadowDecoration.Parent = this.btnSavePayment;
+            this.btnSavePayment.Size = new System.Drawing.Size(131, 62);
+            this.btnSavePayment.TabIndex = 373;
+            this.btnSavePayment.Text = "Save";
+            this.btnSavePayment.Click += new System.EventHandler(this.btnSavePayment_Click);
+            // 
+            // btnEditPayment
+            // 
+            this.btnEditPayment.Animated = true;
+            this.btnEditPayment.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEditPayment.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditPayment.BorderRadius = 5;
+            this.btnEditPayment.BorderThickness = 1;
+            this.btnEditPayment.CheckedState.Parent = this.btnEditPayment;
+            this.btnEditPayment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditPayment.CustomImages.Parent = this.btnEditPayment;
+            this.btnEditPayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditPayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditPayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditPayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditPayment.DisabledState.Parent = this.btnEditPayment;
+            this.btnEditPayment.Enabled = false;
+            this.btnEditPayment.FillColor = System.Drawing.Color.Blue;
+            this.btnEditPayment.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEditPayment.ForeColor = System.Drawing.Color.White;
+            this.btnEditPayment.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnEditPayment.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnEditPayment.HoverState.Parent = this.btnEditPayment;
+            this.btnEditPayment.Image = global::PatientInformationSystemNew.Properties.Resources.edit_icon;
+            this.btnEditPayment.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEditPayment.Location = new System.Drawing.Point(1491, 400);
+            this.btnEditPayment.Name = "btnEditPayment";
+            this.btnEditPayment.ShadowDecoration.Parent = this.btnEditPayment;
+            this.btnEditPayment.Size = new System.Drawing.Size(131, 62);
+            this.btnEditPayment.TabIndex = 8;
+            this.btnEditPayment.Text = "Edit";
+            this.btnEditPayment.Click += new System.EventHandler(this.btnEditPayment_Click);
+            // 
+            // btnTransact
+            // 
+            this.btnTransact.Animated = true;
+            this.btnTransact.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnTransact.BorderColor = System.Drawing.Color.Transparent;
+            this.btnTransact.BorderRadius = 5;
+            this.btnTransact.BorderThickness = 1;
+            this.btnTransact.CheckedState.Parent = this.btnTransact;
+            this.btnTransact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransact.CustomImages.Parent = this.btnTransact;
+            this.btnTransact.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransact.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransact.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTransact.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTransact.DisabledState.Parent = this.btnTransact;
+            this.btnTransact.FillColor = System.Drawing.Color.Blue;
+            this.btnTransact.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnTransact.ForeColor = System.Drawing.Color.White;
+            this.btnTransact.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnTransact.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnTransact.HoverState.Parent = this.btnTransact;
+            this.btnTransact.Image = global::PatientInformationSystemNew.Properties.Resources.transact_icon;
+            this.btnTransact.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnTransact.Location = new System.Drawing.Point(489, 536);
+            this.btnTransact.Name = "btnTransact";
+            this.btnTransact.ShadowDecoration.Parent = this.btnTransact;
+            this.btnTransact.Size = new System.Drawing.Size(446, 45);
+            this.btnTransact.TabIndex = 7;
+            this.btnTransact.Text = "Transact";
+            this.btnTransact.Visible = false;
+            this.btnTransact.Click += new System.EventHandler(this.btnTransact_Click);
+            // 
+            // btnBackToPatientsInPaymentHistory
+            // 
+            this.btnBackToPatientsInPaymentHistory.Animated = true;
+            this.btnBackToPatientsInPaymentHistory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBackToPatientsInPaymentHistory.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackToPatientsInPaymentHistory.BorderRadius = 5;
+            this.btnBackToPatientsInPaymentHistory.BorderThickness = 1;
+            this.btnBackToPatientsInPaymentHistory.CheckedState.Parent = this.btnBackToPatientsInPaymentHistory;
+            this.btnBackToPatientsInPaymentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackToPatientsInPaymentHistory.CustomImages.Parent = this.btnBackToPatientsInPaymentHistory;
+            this.btnBackToPatientsInPaymentHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPaymentHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBackToPatientsInPaymentHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBackToPatientsInPaymentHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBackToPatientsInPaymentHistory.DisabledState.Parent = this.btnBackToPatientsInPaymentHistory;
+            this.btnBackToPatientsInPaymentHistory.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPaymentHistory.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBackToPatientsInPaymentHistory.ForeColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPaymentHistory.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBackToPatientsInPaymentHistory.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBackToPatientsInPaymentHistory.HoverState.Parent = this.btnBackToPatientsInPaymentHistory;
+            this.btnBackToPatientsInPaymentHistory.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBackToPatientsInPaymentHistory.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBackToPatientsInPaymentHistory.Location = new System.Drawing.Point(1491, 477);
+            this.btnBackToPatientsInPaymentHistory.Name = "btnBackToPatientsInPaymentHistory";
+            this.btnBackToPatientsInPaymentHistory.ShadowDecoration.Parent = this.btnBackToPatientsInPaymentHistory;
+            this.btnBackToPatientsInPaymentHistory.Size = new System.Drawing.Size(131, 104);
+            this.btnBackToPatientsInPaymentHistory.TabIndex = 9;
+            this.btnBackToPatientsInPaymentHistory.Text = "Back to Patients";
+            this.btnBackToPatientsInPaymentHistory.Click += new System.EventHandler(this.btnBackToPatientsInPaymentHistory_Click);
             // 
             // frmPatientProfile
             // 
@@ -4081,5 +4116,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnCancelDiagnosis;
         private Guna.UI2.WinForms.Guna2Button btnCancelSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnCancelPrescriptions;
+        private Guna.UI2.WinForms.Guna2Button btnPrintPaymentHistory;
     }
 }

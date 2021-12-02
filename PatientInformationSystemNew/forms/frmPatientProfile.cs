@@ -333,7 +333,12 @@ namespace PatientInformationSystemNew.forms
 
         private void btnEditPayment_Click(object sender, EventArgs e)
         {
-
+            this.txtReceiptNo.Enabled = true;
+            this.txtTotalMedicalFee.Enabled = true;
+            this.cmbDiscount.Enabled = true;
+            this.txtAmount.Enabled = true;
+            this.btnTransact.Visible = true;
+            this.btnSavePayment.Enabled = true;
         }
 
         // New
@@ -628,6 +633,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
+                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
 
                 AutoGenNumPrescription();
                 this.txtPrescriptions.ResetText();
@@ -635,25 +641,32 @@ namespace PatientInformationSystemNew.forms
 
                 this.txtPrescriptions.Focus();
             }
-
+            else
+            {
+                MessageBox.Show("Failed to add prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Cancel
 
         private void btnCancelVitalSigns_Click(object sender, EventArgs e)
         {
+            vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+
             this.txtVitalSignsID.ResetText();
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
             this.txtTemperature.ResetText();
             this.txtPulseRate.ResetText();
             this.txtBloodPressure.ResetText();
+            this.dateVitalSigns.Value = DateTime.Now.Date;
 
             this.txtHeight.Enabled = false;
             this.txtWeight.Enabled = false;
             this.txtTemperature.Enabled = false;
             this.txtPulseRate.Enabled = false;
             this.txtBloodPressure.Enabled = false;
+            this.dateVitalSigns.Enabled = false;
             this.btnAddVitalSigns.Visible = false;
             this.btnCancelVitalSigns.Visible = false;
 
@@ -662,22 +675,61 @@ namespace PatientInformationSystemNew.forms
 
         private void btnCancelDoctors_Click(object sender, EventArgs e)
         {
+            doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
 
+            this.txtIDDoctors.ResetText();
+            this.cmbNameDoctors.Text = null;
+            this.dateDoctors.Value = DateTime.Now.Date;
+
+            this.cmbNameDoctors.Enabled = false;
+            this.dateDoctors.Enabled = false;
+            this.btnAddDoctor.Enabled = false;
+            this.btnCancelDoctors.Enabled = false;
+
+            this.btnNewDoctors.Enabled = true;
         }
 
         private void btnCancelDiagnosis_Click(object sender, EventArgs e)
         {
+            diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
 
+            this.txtDiagnosisID.ResetText();
+            this.txtDiagnosis.ResetText();
+            this.dateDiagnosis.Value = DateTime.Now.Date;
+
+            this.txtDiagnosis.Enabled = false;
+            this.dateDiagnosis.Enabled = false;
+
+            this.btnNewDiagnosis.Enabled = true;
         }
 
         private void btnCancelSymptoms_Click(object sender, EventArgs e)
         {
+            symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
 
+            this.txtSymptomsID.ResetText();
+            this.txtSymptoms.ResetText();
+            this.dateSymptoms.Value = DateTime.Now.Date;
+
+            this.txtSymptoms.Enabled = false;
+            this.dateSymptoms.Enabled = false;
+
+            this.btnNewSymptoms.Enabled = true;
         }
 
         private void btnCancelPrescriptions_Click(object sender, EventArgs e)
         {
+            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
 
+            this.txtPrescriptionsID.ResetText();
+            this.txtPrescriptions.ResetText();
+            this.datePrescriptions.Value = DateTime.Now.Date;
+
+            this.txtPrescriptions.Enabled = false;
+            this.datePrescriptions.Enabled = false;
+
+            this.btnNewPrescriptions.Enabled = true;
         }
 
         // Save
@@ -768,7 +820,18 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveVitalSigns_Click(object sender, EventArgs e)
         {
+            if(vital_signs.UpdateVitalSigns(val.PatientFullName, this.gridVitalSigns.SelectedCells[0].Value.ToString(), this.txtHeight.Text,
+                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value.Date))
+            {
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+                MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+
+                this.txtVitalSignsID.ResetText();
+            }
         }
 
         private void btnSaveDoctors_Click(object sender, EventArgs e)

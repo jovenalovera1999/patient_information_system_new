@@ -163,6 +163,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@temperature", temperature);
                         cmd.Parameters.AddWithValue("@pulse_rate", pulse_rate);
                         cmd.Parameters.AddWithValue("@blood_pressure", blood_pressure);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -175,7 +176,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error updateing each patient vital signs: " + ex.ToString());
+                Console.WriteLine("Error updating each patient vital signs: " + ex.ToString());
                 return false;
             }
         }
