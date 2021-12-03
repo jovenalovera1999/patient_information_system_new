@@ -263,7 +263,12 @@ namespace PatientInformationSystemNew.components
         }
 
         // Doctor values
-
+        public static int doctor_primary_id;
+        public int DoctorPrimaryID
+        {
+            get { return doctor_primary_id; }
+            set { doctor_primary_id = value; }
+        }
         public static string doctor_id;
         public string DoctorID
         {

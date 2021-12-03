@@ -217,15 +217,15 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool DiagnosisNameDuplicate(int patient_fid, string diagnosis)
+        public bool DiagnosisDuplicateName(int patient_fid, string diagnosis)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT * 
+                    string sql = @"SELECT *
                                     FROM pis_db.diagnosis
-                                    WHERE 
+                                    WHERE
                                     patient_fid = @patient_fid AND
                                     CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis;";
 
@@ -239,7 +239,7 @@ namespace PatientInformationSystemNew.functions
                         dt.Clear();
                         da.Fill(dt);
 
-                        if (dt.Rows.Count == 1)
+                        if(dt.Rows.Count == 1)
                         {
                             return true;
                         }
@@ -250,9 +250,9 @@ namespace PatientInformationSystemNew.functions
                     }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Console.WriteLine("Error detecting diagonsis name duplicate: " + ex.ToString());
+                Console.WriteLine("Error detecting duplicate diagnosis name: " + ex.ToString());
                 return false;
             }
         }

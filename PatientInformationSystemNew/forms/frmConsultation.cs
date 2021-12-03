@@ -189,7 +189,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptoms.updateSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text,
+            if (symptoms.UpdateSymptom(val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text,
                 DateTime.Now.Date))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);

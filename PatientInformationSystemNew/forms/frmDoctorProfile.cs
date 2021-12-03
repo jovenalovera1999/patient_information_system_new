@@ -117,7 +117,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Specialization is required!", "Requried", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtSpecialization.Focus();
             }
-            else if (doctor.updateDoctor(this.txtDoctorID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
+            else if (doctor.UpdateDoctorProfile(val.DoctorPrimaryID, this.txtDoctorID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtSpecialization.Text))
             {

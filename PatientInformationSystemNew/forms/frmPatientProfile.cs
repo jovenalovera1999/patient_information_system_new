@@ -146,7 +146,6 @@ namespace PatientInformationSystemNew.forms
             diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
             symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
             prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
-            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
 
             DoctorsName();
 
@@ -218,6 +217,7 @@ namespace PatientInformationSystemNew.forms
 
             this.txtPrescriptionsID.Text = this.gridPrescriptions.SelectedCells[0].Value.ToString();
             this.txtPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
+            this.datePrescriptions.Value = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
             this.btnEditPrescriptions.Enabled = true;
         }
@@ -274,7 +274,7 @@ namespace PatientInformationSystemNew.forms
             this.dateDoctors.Enabled = true;
 
             this.btnSaveDoctors.Visible = true;
-            this.btnRemoveVitalSigns.Visible = true;
+            this.btnRemoveDoctors.Visible = true;
 
             this.btnNewDoctors.Enabled = true;
             this.btnEditDoctors.Enabled = false;
@@ -417,12 +417,11 @@ namespace PatientInformationSystemNew.forms
 
             this.btnAddDiagnosis.Visible = true;
             this.btnCancelDiagnosis.Visible = true;
-            this.txtDiagnosisID.Enabled = true;
 
             this.btnNewDiagnosis.Enabled = false;
-            this.btnEditDoctors.Enabled = false;
-            this.btnSaveDiagnosis.Enabled = false;
-            this.btnRemoveDiagnosis.Enabled = false;
+            this.btnEditDiagnosis.Enabled = false;
+            this.btnSaveDiagnosis.Visible = false;
+            this.btnRemoveDiagnosis.Visible = false;
 
             this.txtDiagnosis.Enabled = true;
             this.dateDiagnosis.Enabled = true;
@@ -495,6 +494,9 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
                 vital_signs.LoadEachPatientVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
                 AutoGenNumVitalSigns();
@@ -534,7 +536,10 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Doctor successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDiagnosis);
+                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDoctorsRecords);
 
                 AutoGenNumDoctor();
                 this.cmbNameDoctors.Text = null;
@@ -548,12 +553,12 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
-            if(duplicate.DiagnosisIDDuplicate(val.PatientFullName, this.txtDiagnosisID.Text))
+            if (duplicate.DiagnosisIDDuplicate(val.PatientFullName, this.txtDiagnosisID.Text))
             {
                 MessageBox.Show("Diagnosis ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 AutoGenNumDiagnosis();
             }
-            else if(duplicate.DiagnosisNameDuplicate(val.PatientPrimaryID, this.txtDiagnosis.Text))
+            else if (duplicate.DiagnosisDuplicateName(val.PatientPrimaryID, this.txtDiagnosis.Text))
             {
                 MessageBox.Show("Diagnosis is already exist!", "Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -564,6 +569,9 @@ namespace PatientInformationSystemNew.forms
                 this.dateDiagnosis.Value.Date))
             {
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 diagnosis.LoadEachPatientDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
@@ -597,6 +605,9 @@ namespace PatientInformationSystemNew.forms
                 this.dateSymptoms.Value.Date))
             {
                 MessageBox.Show("Symptom successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.LoadSymptomsRecordsOfEachPatient(val.PatientPrimaryID, this.gridSymptoms);
 
@@ -632,8 +643,10 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
                 prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
-                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
 
                 AutoGenNumPrescription();
                 this.txtPrescriptions.ResetText();
@@ -683,8 +696,8 @@ namespace PatientInformationSystemNew.forms
 
             this.cmbNameDoctors.Enabled = false;
             this.dateDoctors.Enabled = false;
-            this.btnAddDoctor.Enabled = false;
-            this.btnCancelDoctors.Enabled = false;
+            this.btnAddDoctor.Visible = false;
+            this.btnCancelDoctors.Visible = false;
 
             this.btnNewDoctors.Enabled = true;
         }
@@ -699,6 +712,8 @@ namespace PatientInformationSystemNew.forms
 
             this.txtDiagnosis.Enabled = false;
             this.dateDiagnosis.Enabled = false;
+            this.btnAddDiagnosis.Visible = false;
+            this.btnCancelDiagnosis.Visible = false;
 
             this.btnNewDiagnosis.Enabled = true;
         }
@@ -713,6 +728,8 @@ namespace PatientInformationSystemNew.forms
 
             this.txtSymptoms.Enabled = false;
             this.dateSymptoms.Enabled = false;
+            this.btnAddSymptoms.Visible = false;
+            this.btnCancelSymptoms.Visible = false;
 
             this.btnNewSymptoms.Enabled = true;
         }
@@ -720,7 +737,6 @@ namespace PatientInformationSystemNew.forms
         private void btnCancelPrescriptions_Click(object sender, EventArgs e)
         {
             prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
-            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrintPrescription);
 
             this.txtPrescriptionsID.ResetText();
             this.txtPrescriptions.ResetText();
@@ -728,6 +744,9 @@ namespace PatientInformationSystemNew.forms
 
             this.txtPrescriptions.Enabled = false;
             this.datePrescriptions.Enabled = false;
+            this.btnAddPrescriptions.Visible = false;
+            this.btnCancelPrescriptions.Visible = false;
+            this.btnPrintPrescriptions.Enabled = false;
 
             this.btnNewPrescriptions.Enabled = true;
         }
@@ -959,6 +978,7 @@ namespace PatientInformationSystemNew.forms
 
                 this.btnSavePrescriptions.Visible = false;
                 this.btnRemovePrescriptions.Visible = false;
+                this.btnPrintPrescriptions.Enabled = false;
             }
             else
             {
@@ -1000,16 +1020,91 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        // Key Press
+        // Remove
 
-        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
+        {
+            if(vital_signs.RemoveVitalSigns(this.txtVitalSignsID.Text))
+            {
+                MessageBox.Show("Vital signs successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+
+                this.txtVitalSignsID.ResetText();
+                this.txtHeight.ResetText();
+                this.txtWeight.ResetText();
+                this.txtTemperature.ResetText();
+                this.txtPulseRate.ResetText();
+                this.txtBloodPressure.ResetText();
+                this.dateVitalSigns.Value = DateTime.Now.Date;
+
+                this.txtHeight.Focus();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btnRemoveDoctors_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemovePrescriptions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Key Press
+
+        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
         }
 
         // Text Changed
@@ -1094,17 +1189,47 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtPRescriptions_TextChanged(object sender, EventArgs e)
+        private void txtPrescriptionsID_TextChanged(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
+            if(!String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
             {
                 this.btnAddPrescriptions.Enabled = false;
                 this.btnSavePrescriptions.Enabled = false;
+                this.btnPrintPrescriptions.Enabled = false;
+            }
+            else if(!String.IsNullOrWhiteSpace(this.txtPrescriptions.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text))
+            {
+                this.btnAddPrescriptions.Enabled = false;
+                this.btnSavePrescriptions.Enabled = false;
+                this.btnPrintPrescriptions.Enabled = false;
             }
             else
             {
                 this.btnAddPrescriptions.Enabled = true;
                 this.btnSavePrescriptions.Enabled = true;
+                this.btnPrintPrescriptions.Enabled = true;
+            }
+        }
+
+        private void txtPrescriptions_TextChanged(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrWhiteSpace(this.txtPrescriptions.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text))
+            {
+                this.btnAddPrescriptions.Enabled = false;
+                this.btnSavePrescriptions.Enabled = false;
+                this.btnPrintPrescriptions.Enabled = false;
+            }
+            else if(!String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
+            {
+                this.btnAddPrescriptions.Enabled = false;
+                this.btnSavePrescriptions.Enabled = false;
+                this.btnPrintPrescriptions.Enabled = false;
+            }
+            else
+            {
+                this.btnAddPrescriptions.Enabled = true;
+                this.btnSavePrescriptions.Enabled = true;
+                this.btnPrintPrescriptions.Enabled = true;
             }
         }
 
@@ -1170,7 +1295,6 @@ namespace PatientInformationSystemNew.forms
                 DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[6].Value.ToString());
 
                 this.rprtReceipt.Clear();
-
                 ReportParameterCollection parameters = new ReportParameterCollection();
                 parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
                 parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
@@ -1181,11 +1305,24 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
                 parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
                 parameters.Add(new ReportParameter("pCashier", val.UserFullName));
-
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
                 this.rprtReceipt.RefreshReport();
             }
             this.btnSavePayment.Enabled = true;
+        }
+
+        private void btnPrintPrescriptions_Click(object sender, EventArgs e)
+        {
+            this.rprtPrescription.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
+            parameters.Add(new ReportParameter("pAge", this.txtAge.Text));
+            parameters.Add(new ReportParameter("pSex", this.txtGender.Text.Substring(0, 1)));
+            parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
+            parameters.Add(new ReportParameter("pDate", this.datePrescriptions.Value.ToString("MM/dd/yyyy")));
+            parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
+            this.rprtPrescription.LocalReport.SetParameters(parameters);
+            this.rprtPrescription.RefreshReport();
         }
 
         // Back

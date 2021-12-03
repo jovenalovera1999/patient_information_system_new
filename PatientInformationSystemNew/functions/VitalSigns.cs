@@ -29,7 +29,9 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.vital_signs
-                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name;";
+                                    WHERE 
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    status = 'Show';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -65,7 +67,10 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.vital_signs
-                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+                                    WHERE 
+                                    patient_fid = @patient_fid AND
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -177,6 +182,37 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error updating each patient vital signs: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool RemoveVitalSigns(string vital_signs_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE pis_db.vital_signs
+                                    SET
+                                    status = 'Removed'
+                                    WHERE CAST(AES_DECRYPT(vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @vital_signs_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@vital_signs_id", vital_signs_id);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error removing vital signs: " + ex.ToString());
                 return false;
             }
         }

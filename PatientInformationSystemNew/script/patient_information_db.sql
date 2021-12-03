@@ -97,6 +97,7 @@ CREATE TABLE pis_db.vital_signs (
     temperature                         VARBINARY(800) NOT NULL,
     pulse_rate                          VARBINARY(800) DEFAULT NULL,
     blood_pressure                      VARBINARY(800) DEFAULT NULL,
+    status                              VARCHAR(55) DEFAULT 'Show',
     date                                DATE,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -109,6 +110,7 @@ CREATE TABLE pis_db.patient_doctor (
     doctor_id                           VARBINARY(800) NOT NULL,
     user_id                             VARBINARY(800) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
+    status                              VARCHAR(55) DEFAULT 'Show',
     date                                DATE,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -120,6 +122,7 @@ CREATE TABLE pis_db.diagnosis (
     full_name                           VARBINARY(800) NOT NULL,
     diagnosis_id                        VARBINARY(800) NOT NULL,
     diagnosis                           VARBINARY(800) DEFAULT NULL,
+    status                              VARCHAR(55) DEFAULT 'Show',
     date                                DATE,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -131,6 +134,7 @@ CREATE TABLE pis_db.symptoms (
     full_name                           VARBINARY(800) NOT NULL,
     symptoms_id                         VARBINARY(800) NOT NULL,
     symptoms                            VARBINARY(800) DEFAULT NULL,
+    status                              VARCHAR(55) DEFAULT 'Show',
     date                                DATE,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -142,6 +146,7 @@ CREATE TABLE pis_db.prescriptions (
     full_name                           VARBINARY(800) NOT NULL,
     prescription_id                     VARBINARY(800) NOT NULL,
     prescriptions                       VARBINARY(800) DEFAULT NULL,
+    status                              VARCHAR(55) DEFAULT 'Show',
     date                                DATE,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)

@@ -149,10 +149,12 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if(dt.Rows.Count == 1)
                         {
+                            val.DoctorPrimaryID = dt.Rows[0].Field<int>("id");
                             val.DoctorID = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.DoctorProfilePicture = dt.Rows[0].Field<byte[]>("profile_picture");
                             val.DoctorFirstName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
@@ -305,6 +307,59 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error updating patient doctor: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool UpdateDoctorProfile(int id, string user_id, string first_name, string middle_name, string last_name, string gender, string age,
+            string address, DateTime birthday, string cellphone_number, string telephone_number, string email, string specialization)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE pis_db.users
+                                    SET
+                                    user_id = AES_ENCRYPT(@user_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    first_name = AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    middle_name = AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    last_name = AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    gender = AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    age = AES_ENCRYPT(@age, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    address = AES_ENCRYPT(@address, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    cellphone_number = AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    telephone_number AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    email = AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    specialization = AES_ENCRPT(@specialization, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    WHERE id = @id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        cmd.Parameters.AddWithValue("@first_name", first_name);
+                        cmd.Parameters.AddWithValue("@middle_name", middle_name);
+                        cmd.Parameters.AddWithValue("@last_name", last_name);
+                        cmd.Parameters.AddWithValue("@gender", gender);
+                        cmd.Parameters.AddWithValue("@age", age);
+                        cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
+                        cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
+                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@specialization", specialization);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating doctor profile: " + ex.ToString());
                 return false;
             }
         }
