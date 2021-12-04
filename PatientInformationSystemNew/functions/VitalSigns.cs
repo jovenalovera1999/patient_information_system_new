@@ -31,7 +31,8 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.vital_signs
                                     WHERE 
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    status = 'Show';";
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

@@ -25,7 +25,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms'
                                     FROM pis_db.symptoms
                                     WHERE 
-                                    patient_fid = @patient_fid;";
+                                    patient_fid = @patient_fid AND
+                                    status = 'In Consultation';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -58,7 +59,8 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
                                     FROM pis_db.symptoms 
                                     WHERE 
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    status = 'Show'
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -92,7 +94,9 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
                                     FROM pis_db.symptoms 
                                     WHERE 
-                                    patient_fid = @patient_fid ORDER BY date ASC;";
+                                    patient_fid = @patient_fid AND
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -188,24 +192,25 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool deleteSymptom(string patient_id, string symptoms_id)
+        public bool RemoveSymptom(string symptoms_id)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM pis_db.symptoms
+                    string sql = @"UPDATE pis_db.symptoms
+                                    SET status = 'Removed'
                                     WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
                                     CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -213,7 +218,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error deleting patient symptom: " + ex.ToString());
+                Console.WriteLine("Error updating symptom to removed: " + ex.ToString());
                 return false;
             }
         }

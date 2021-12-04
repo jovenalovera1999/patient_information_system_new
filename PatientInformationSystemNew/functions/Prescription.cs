@@ -25,7 +25,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
                                     FROM pis_db.prescriptions
-                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name
+                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    status = 'Show'
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -58,7 +59,10 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
                                     FROM pis_db.prescriptions
-                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+                                    WHERE 
+                                    patient_fid = @patient_fid AND
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -262,24 +266,25 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool removePrescriptions(string patient_id, string prescription_id)
+        public bool RemovePrescriptions(string prescription_id)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM pis_db.prescriptions
+                    string sql = @"UPDATE pis_db.prescriptions
+                                    SET status = 'Removed'
                                     WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
                                     CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -287,7 +292,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error deleting patient prescription: " + ex.ToString());
+                Console.WriteLine("Error updating prescription to removed: " + ex.ToString());
                 return false;
             }
         }

@@ -213,7 +213,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptoms.deleteSymptom(this.txtPatientID.Text, this.gridSymptoms.SelectedCells[0].Value.ToString()))
+            if (symptoms.RemoveSymptom(this.gridSymptoms.SelectedCells[0].Value.ToString()))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -323,6 +323,32 @@ namespace PatientInformationSystemNew.forms
             else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
                 this.txtPrescription.Text, DateTime.Now.Date))
             {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                    {
+                        string sql = @"UPDATE pis_db.symptoms
+                                       SET status = 'Show'
+                                       WHERE
+                                       patient_fid = @patient_fid AND
+                                       status = 'In Consultation';";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
+
+                            connection.Open();
+                            MySqlDataReader dr;
+                            dr = cmd.ExecuteReader();
+                            dr.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error updating symptoms to show: " + ex.ToString());
+                }
+
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
 

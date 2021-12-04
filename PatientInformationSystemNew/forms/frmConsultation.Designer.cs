@@ -92,6 +92,8 @@ namespace PatientInformationSystemNew.forms
             this.btnSavePrescription = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.gridDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clmDiagnosisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDiagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddDiagnosis = new Guna.UI2.WinForms.Guna2Button();
@@ -110,8 +112,6 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptomsRecord = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPrescriptionsRecord = new System.Windows.Forms.TabPage();
             this.gridPrescriptionsRecord = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.clmDiagnosisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDiagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConsultation.SuspendLayout();
             this.tabOverview.SuspendLayout();
             this.tabPrescriptions.SuspendLayout();
@@ -1133,7 +1133,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridDiagnosis.ColumnHeadersHeight = 55;
+            this.gridDiagnosis.ColumnHeadersHeight = 40;
             this.gridDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridDiagnosis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmDiagnosisID,
@@ -1155,7 +1155,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowHeadersVisible = false;
             this.gridDiagnosis.RowHeadersWidth = 51;
             this.gridDiagnosis.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridDiagnosis.RowTemplate.Height = 50;
+            this.gridDiagnosis.RowTemplate.Height = 40;
             this.gridDiagnosis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDiagnosis.Size = new System.Drawing.Size(446, 690);
             this.gridDiagnosis.TabIndex = 159;
@@ -1171,16 +1171,30 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDiagnosis.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridDiagnosis.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridDiagnosis.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridDiagnosis.ThemeStyle.HeaderStyle.Height = 40;
             this.gridDiagnosis.ThemeStyle.ReadOnly = true;
             this.gridDiagnosis.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridDiagnosis.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridDiagnosis.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDiagnosis.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridDiagnosis.ThemeStyle.RowsStyle.Height = 50;
+            this.gridDiagnosis.ThemeStyle.RowsStyle.Height = 40;
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridDiagnosis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDiagnosis_CellMouseClick);
+            // 
+            // clmDiagnosisID
+            // 
+            this.clmDiagnosisID.HeaderText = "ID";
+            this.clmDiagnosisID.MinimumWidth = 6;
+            this.clmDiagnosisID.Name = "clmDiagnosisID";
+            this.clmDiagnosisID.ReadOnly = true;
+            // 
+            // clmDiagnosis
+            // 
+            this.clmDiagnosis.HeaderText = "Diagnosis";
+            this.clmDiagnosis.MinimumWidth = 6;
+            this.clmDiagnosis.Name = "clmDiagnosis";
+            this.clmDiagnosis.ReadOnly = true;
             // 
             // btnAddSymptoms
             // 
@@ -1346,7 +1360,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.gridSymptoms.ColumnHeadersHeight = 55;
+            this.gridSymptoms.ColumnHeadersHeight = 40;
             this.gridSymptoms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1364,7 +1378,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ReadOnly = true;
             this.gridSymptoms.RowHeadersVisible = false;
             this.gridSymptoms.RowHeadersWidth = 51;
-            this.gridSymptoms.RowTemplate.Height = 50;
+            this.gridSymptoms.RowTemplate.Height = 40;
             this.gridSymptoms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSymptoms.Size = new System.Drawing.Size(446, 690);
             this.gridSymptoms.TabIndex = 153;
@@ -1380,13 +1394,13 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptoms.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridSymptoms.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridSymptoms.ThemeStyle.HeaderStyle.Height = 40;
             this.gridSymptoms.ThemeStyle.ReadOnly = true;
             this.gridSymptoms.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSymptoms.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptoms.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSymptoms.ThemeStyle.RowsStyle.Height = 50;
+            this.gridSymptoms.ThemeStyle.RowsStyle.Height = 40;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSymptoms_CellMouseClick);
@@ -1535,7 +1549,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridDiagnosisRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.gridDiagnosisRecord.ColumnHeadersHeight = 55;
+            this.gridDiagnosisRecord.ColumnHeadersHeight = 40;
             this.gridDiagnosisRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
@@ -1553,7 +1567,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosisRecord.ReadOnly = true;
             this.gridDiagnosisRecord.RowHeadersVisible = false;
             this.gridDiagnosisRecord.RowHeadersWidth = 51;
-            this.gridDiagnosisRecord.RowTemplate.Height = 50;
+            this.gridDiagnosisRecord.RowTemplate.Height = 40;
             this.gridDiagnosisRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDiagnosisRecord.Size = new System.Drawing.Size(1676, 944);
             this.gridDiagnosisRecord.TabIndex = 272;
@@ -1569,13 +1583,13 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosisRecord.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDiagnosisRecord.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridDiagnosisRecord.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridDiagnosisRecord.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridDiagnosisRecord.ThemeStyle.HeaderStyle.Height = 40;
             this.gridDiagnosisRecord.ThemeStyle.ReadOnly = true;
             this.gridDiagnosisRecord.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridDiagnosisRecord.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridDiagnosisRecord.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDiagnosisRecord.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridDiagnosisRecord.ThemeStyle.RowsStyle.Height = 50;
+            this.gridDiagnosisRecord.ThemeStyle.RowsStyle.Height = 40;
             this.gridDiagnosisRecord.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridDiagnosisRecord.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
@@ -1611,7 +1625,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridSymptomsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.gridSymptomsRecord.ColumnHeadersHeight = 55;
+            this.gridSymptomsRecord.ColumnHeadersHeight = 40;
             this.gridSymptomsRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
@@ -1629,7 +1643,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptomsRecord.ReadOnly = true;
             this.gridSymptomsRecord.RowHeadersVisible = false;
             this.gridSymptomsRecord.RowHeadersWidth = 51;
-            this.gridSymptomsRecord.RowTemplate.Height = 50;
+            this.gridSymptomsRecord.RowTemplate.Height = 40;
             this.gridSymptomsRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSymptomsRecord.Size = new System.Drawing.Size(1676, 944);
             this.gridSymptomsRecord.TabIndex = 270;
@@ -1645,13 +1659,13 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptomsRecord.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptomsRecord.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridSymptomsRecord.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridSymptomsRecord.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridSymptomsRecord.ThemeStyle.HeaderStyle.Height = 40;
             this.gridSymptomsRecord.ThemeStyle.ReadOnly = true;
             this.gridSymptomsRecord.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridSymptomsRecord.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSymptomsRecord.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptomsRecord.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSymptomsRecord.ThemeStyle.RowsStyle.Height = 50;
+            this.gridSymptomsRecord.ThemeStyle.RowsStyle.Height = 40;
             this.gridSymptomsRecord.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSymptomsRecord.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
@@ -1687,7 +1701,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridPrescriptionsRecord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.gridPrescriptionsRecord.ColumnHeadersHeight = 55;
+            this.gridPrescriptionsRecord.ColumnHeadersHeight = 40;
             this.gridPrescriptionsRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPrescriptionsRecord.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1707,7 +1721,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptionsRecord.RowHeadersVisible = false;
             this.gridPrescriptionsRecord.RowHeadersWidth = 51;
             this.gridPrescriptionsRecord.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridPrescriptionsRecord.RowTemplate.Height = 50;
+            this.gridPrescriptionsRecord.RowTemplate.Height = 40;
             this.gridPrescriptionsRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPrescriptionsRecord.Size = new System.Drawing.Size(1676, 944);
             this.gridPrescriptionsRecord.TabIndex = 275;
@@ -1723,29 +1737,15 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptionsRecord.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPrescriptionsRecord.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridPrescriptionsRecord.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridPrescriptionsRecord.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridPrescriptionsRecord.ThemeStyle.HeaderStyle.Height = 40;
             this.gridPrescriptionsRecord.ThemeStyle.ReadOnly = true;
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.Height = 50;
+            this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.Height = 40;
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // clmDiagnosisID
-            // 
-            this.clmDiagnosisID.HeaderText = "ID";
-            this.clmDiagnosisID.MinimumWidth = 6;
-            this.clmDiagnosisID.Name = "clmDiagnosisID";
-            this.clmDiagnosisID.ReadOnly = true;
-            // 
-            // clmDiagnosis
-            // 
-            this.clmDiagnosis.HeaderText = "Diagnosis";
-            this.clmDiagnosis.MinimumWidth = 6;
-            this.clmDiagnosis.Name = "clmDiagnosis";
-            this.clmDiagnosis.ReadOnly = true;
             // 
             // frmConsultation
             // 

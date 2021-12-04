@@ -25,7 +25,9 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Diagnosis', 
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.diagnosis 
-                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name
+                                    WHERE 
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    status = 'Show'
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -58,7 +60,10 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Diagnosis', 
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.diagnosis 
-                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+                                    WHERE 
+                                    patient_fid = @patient_fid AND
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -155,24 +160,26 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool removeDiagnosis(string patient_id, string diagnosis_id)
+        public bool RemoveDiagnosis(string diagnosis_id)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM pis_db.diagnosis
-                                    WHERE 
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
+                    string sql = @"UPDATE pis_db.diagnosis
+                                    SET
+                                    status = 'Removed'
+                                    WHERE
                                     CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -180,7 +187,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error deleting diagnosis: " + ex.ToString());
+                Console.WriteLine("Error updating diagnosis to removed: " + ex.ToString());
                 return false;
             }
         }

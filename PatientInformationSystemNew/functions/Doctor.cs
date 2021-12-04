@@ -61,7 +61,9 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Doctor',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.patient_doctor
-                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name;";
+                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -94,7 +96,10 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Doctor',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.patient_doctor
-                                    WHERE patient_fid = @patient_fid ORDER BY date ASC;";
+                                    WHERE 
+                                    patient_fid = @patient_fid AND
+                                    status = 'Show'
+                                    ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -360,6 +365,36 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error updating doctor profile: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool RemoveDoctor(string doctor_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE pis_db.patient_doctor
+                                    SET status = 'Removed'
+                                    WHERE CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@doctor_id", doctor_id);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating doctor to removed: " + ex.ToString());
                 return false;
             }
         }

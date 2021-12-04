@@ -1045,7 +1045,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-
+                MessageBox.Show("Failed to remove vital signs!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
