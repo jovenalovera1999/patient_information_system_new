@@ -135,46 +135,6 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool DoctorDuplicate(int patient_fid, string doctor)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT *
-                                    FROM pis_db.patient_doctor
-                                    WHERE
-                                    patient_fid = @patient_fid AND
-                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@doctor", doctor);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if(dt.Rows.Count == 1)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error detecting duplicate doctor: " + ex.ToString());
-                return false;
-            }
-        }
-
         // Diagnosis
 
         public bool DiagnosisIDDuplicate(string full_name, string diagnosis_id)
@@ -213,46 +173,6 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error detecting diagonsis id duplicate: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool DiagnosisDuplicateName(int patient_fid, string diagnosis)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT *
-                                    FROM pis_db.diagnosis
-                                    WHERE
-                                    patient_fid = @patient_fid AND
-                                    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if(dt.Rows.Count == 1)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error detecting duplicate diagnosis name: " + ex.ToString());
                 return false;
             }
         }
@@ -299,46 +219,6 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SymptomNameDuplicate(int patient_fid, string symptoms)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT * 
-                                    FROM pis_db.symptoms
-                                    WHERE 
-                                    patient_fid = @patient_fid AND
-                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@symptoms", symptoms);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if (dt.Rows.Count == 1)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error detecting symptom name duplicate: " + ex.ToString());
-                return false;
-            }
-        }
-
         // Prescription
 
         public bool PrescriptionIDDuplicate(string full_name, string prescription_id)
@@ -381,45 +261,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool PrescriptionNameDuplicate(int patient_fid, string prescriptions)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT * 
-                                    FROM pis_db.prescriptions
-                                    WHERE 
-                                    patient_fid = @patient_fid AND
-                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescriptions;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if (dt.Rows.Count == 1)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error detecting prescription duplicate: " + ex.ToString());
-                return false;
-            }
-        }
+        // Inventory
 
         public bool inventorySupplyDuplicate(string supply_name)
         {

@@ -134,7 +134,7 @@ CREATE TABLE pis_db.symptoms (
     full_name                           VARBINARY(800) NOT NULL,
     symptoms_id                         VARBINARY(800) NOT NULL,
     symptoms                            VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(55) DEFAULT 'In Consultation',
+    status                              VARCHAR(55) DEFAULT 'Show',
     date                                DATE,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)

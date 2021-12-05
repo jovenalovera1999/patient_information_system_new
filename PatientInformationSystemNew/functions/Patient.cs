@@ -219,7 +219,7 @@ namespace PatientInformationSystemNew.functions
                     }
 
                     sql = @"INSERT INTO pis_db.vital_signs(patient_fid, full_name, vital_signs_id, height, weight, temperature, pulse_rate, 
-                            blood_pressure, date)
+                            blood_pressure, status, date)
                             VALUES(
                             @patient_fid,
                             AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -229,6 +229,7 @@ namespace PatientInformationSystemNew.functions
                             AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                             AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                             AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                            'In Consultation',
                             @date
                             );";
 
@@ -326,6 +327,24 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @date
                                     );
+
+                                    UPDATE pis_db.vital_signs
+                                    SET status = 'Show'
+                                    WHERE
+                                    patient_fid = @patient_fid AND
+                                    status = 'In Consultation';
+
+                                    UPDATE pis_db.diagnosis
+                                    SET status = 'Show'
+                                    WHERE
+                                    patient_fid = @patient_fid AND
+                                    status = 'In Consultation';
+
+                                    UPDATE pis_db.symptoms
+                                    SET status = 'Show'
+                                    WHERE
+                                    patient_fid = @patient_fid AND
+                                    status = 'In Consultation';
 
                                     UPDATE pis_db.patients
                                     SET status = 'Complete'
@@ -633,7 +652,9 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.vital_signs ON pis_db.patients.id = pis_db.vital_signs.id
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+                                    WHERE 
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    pis_db.vital_signs.status = 'In Consultation';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

@@ -338,12 +338,13 @@ namespace PatientInformationSystemNew.forms
 
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO pis_db.symptoms(patient_fid, full_name, symptoms_id, symptoms, date)
+                            string sql = @"INSERT INTO pis_db.symptoms(patient_fid, full_name, symptoms_id, symptoms, status, date)
                                             VALUES(
                                             @patient_fid,
                                             AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                            'In Consultation',
                                             @date
                                             );";
 

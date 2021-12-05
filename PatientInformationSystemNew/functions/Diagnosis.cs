@@ -160,7 +160,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveDiagnosis(string diagnosis_id)
+        public bool RemoveDiagnosis(string full_name, string diagnosis_id)
         {
             try
             {
@@ -170,10 +170,12 @@ namespace PatientInformationSystemNew.functions
                                     SET
                                     status = 'Removed'
                                     WHERE
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
 
                         connection.Open();

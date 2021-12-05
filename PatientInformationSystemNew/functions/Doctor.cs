@@ -369,7 +369,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveDoctor(string doctor_id)
+        public bool RemoveDoctor(string full_name, string doctor_id)
         {
             try
             {
@@ -377,10 +377,13 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"UPDATE pis_db.patient_doctor
                                     SET status = 'Removed'
-                                    WHERE CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor_id;";
+                                    WHERE
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@doctor_id", doctor_id);
 
                         connection.Open();

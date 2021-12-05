@@ -266,7 +266,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemovePrescriptions(string prescription_id)
+        public bool RemovePrescriptions(string full_name, string prescription_id)
         {
             try
             {
@@ -275,10 +275,12 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"UPDATE pis_db.prescriptions
                                     SET status = 'Removed'
                                     WHERE
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
 
                         connection.Open();

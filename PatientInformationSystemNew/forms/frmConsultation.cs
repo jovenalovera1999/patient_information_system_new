@@ -169,7 +169,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtDiagnosis.Focus();
             }
-            else if (symptoms.AddPatientSymptom(val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
+            else if (symptoms.AddPatientSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
                 this.txtSymptoms.Text, DateTime.Now.Date))
             {
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -189,8 +189,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptoms.UpdateSymptom(val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text,
-                DateTime.Now.Date))
+            if (symptoms.UpdateSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -213,7 +212,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptoms.RemoveSymptom(this.gridSymptoms.SelectedCells[0].Value.ToString()))
+            if (symptoms.RemoveSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString()))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -257,17 +256,19 @@ namespace PatientInformationSystemNew.forms
 
                         using (MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"DELETE FROM pis_db.diagnosis
+                            string sql = @"UPDATE pis_db.diagnosis
+                                            SET status = 'Removed'
                                             WHERE
-                                            patient_fid = @patient_fid AND
-                                            CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;
+                                            CONCAT(patient_fid, ' ', CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', status)
+                                            = CONCAT(@patient_fid, ' ', @diagnosis_id, ' ', 'In Consultation');
 
-                                            INSERT INTO pis_db.diagnosis(patient_fid, full_name, diagnosis_id, diagnosis, date)
+                                            INSERT INTO pis_db.diagnosis(patient_fid, full_name, diagnosis_id, diagnosis, status, date)
                                             VALUES(
                                             @patient_fid, 
                                             AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                            AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                            AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                            'In Consultation',
                                             @date
                                             );";
 
@@ -323,32 +324,6 @@ namespace PatientInformationSystemNew.forms
             else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
                 this.txtPrescription.Text, DateTime.Now.Date))
             {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                    {
-                        string sql = @"UPDATE pis_db.symptoms
-                                       SET status = 'Show'
-                                       WHERE
-                                       patient_fid = @patient_fid AND
-                                       status = 'In Consultation';";
-
-                        using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
-
-                            connection.Open();
-                            MySqlDataReader dr;
-                            dr = cmd.ExecuteReader();
-                            dr.Close();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error updating symptoms to show: " + ex.ToString());
-                }
-
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
 
