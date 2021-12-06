@@ -24,7 +24,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmPaymentTransaction_Load(object sender, EventArgs e)
         {
-            payment.loadPatientUnpaid(this.gridPaymentTransaction);
+            payment.LoadPatientUnpaid(this.gridPaymentTransaction);
             this.cmbDiscount.Text = "None";
             this.btnSaveTransaction.Enabled = false;
             this.txtReceiptNo.Focus();
@@ -34,6 +34,8 @@ namespace PatientInformationSystemNew.forms
         {
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            payment.GetPatientIDForPaymentTransaction(this.gridPaymentTransaction.SelectedCells[0].Value.ToString());
 
             string first_name = this.gridPaymentTransaction.SelectedCells[1].Value.ToString();
             string middle_name = this.gridPaymentTransaction.SelectedCells[2].Value.ToString();
@@ -111,13 +113,7 @@ namespace PatientInformationSystemNew.forms
                     this.txtTotalAmountPaid.Text = discounted.ToString();
                     this.txtChange.Text = total.ToString();
                 }
-
-                string first_name = this.gridPaymentTransaction.SelectedCells[1].Value.ToString();
-                string middle_name = this.gridPaymentTransaction.SelectedCells[2].Value.ToString();
-                string last_name = this.gridPaymentTransaction.SelectedCells[3].Value.ToString();
-
                 this.rprtReceipt.Clear();
-
                 ReportParameterCollection parameters = new ReportParameterCollection();
                 parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
                 parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
@@ -128,7 +124,6 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
                 parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
                 parameters.Add(new ReportParameter("pCashier", val.UserFullName));
-
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
                 this.rprtReceipt.RefreshReport();
             }
@@ -140,8 +135,8 @@ namespace PatientInformationSystemNew.forms
             if(MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
                 == DialogResult.Yes)
             {
-                if (payment.savePatientPayment(this.gridPaymentTransaction.SelectedCells[0].Value.ToString(), 
-                    this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text,
+                if (payment.SavePatientPayment(val.PatientPrimaryIDForPaymentTransaction, val.PatientPrimaryIDForPaymentTransaction, 
+                    this.txtFullName.Text, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, 
                     this.txtTotalAmountPaid.Text, this.txtChange.Text))
                 {
                     MessageBox.Show("Payment transaction successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -149,7 +144,7 @@ namespace PatientInformationSystemNew.forms
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                    payment.loadPatientUnpaid(this.gridPaymentTransaction);
+                    payment.LoadPatientUnpaid(this.gridPaymentTransaction);
 
                     this.rprtReceipt.Clear();
 
@@ -161,6 +156,7 @@ namespace PatientInformationSystemNew.forms
                     this.txtChange.ResetText();
 
                     this.cmbDiscount.Text = null;
+                    this.btnSaveTransaction.Enabled = false;
 
                     this.txtReceiptNo.Focus();
                 }

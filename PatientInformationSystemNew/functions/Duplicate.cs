@@ -261,6 +261,33 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        // Transactions
+
+        public bool ReceiptNoDuplicate(string full_name, string receipt_no)
+        {
+            try
+            {
+                using(MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM pis_db.transactions
+                                    WHERE
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @receipt_no;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        
+                    }
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
         // Inventory
 
         public bool inventorySupplyDuplicate(string supply_name)
@@ -298,8 +325,6 @@ namespace PatientInformationSystemNew.functions
                 return false;
             }
         }
-
-        // Inventory
 
         public bool duplicateSupplyNameWithoutExpirationDate(string supply_name)
         {

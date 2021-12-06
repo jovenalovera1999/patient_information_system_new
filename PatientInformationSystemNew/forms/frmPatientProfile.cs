@@ -146,6 +146,7 @@ namespace PatientInformationSystemNew.forms
             diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
             symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
             prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+            payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
 
             DoctorsName();
 
@@ -220,6 +221,22 @@ namespace PatientInformationSystemNew.forms
             this.datePrescriptions.Value = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
             this.btnEditPrescriptions.Enabled = true;
+        }
+
+        private void gridPaymentHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtReceiptNo.Text = this.gridPaymentHistory.SelectedCells[0].Value.ToString();
+            this.txtTotalMedicalFee.Text = this.gridPaymentHistory.SelectedCells[1].Value.ToString();
+            this.cmbDiscount.Text = this.gridPaymentHistory.SelectedCells[2].Value.ToString();
+            this.txtAmount.Text = this.gridPaymentHistory.SelectedCells[3].Value.ToString();
+            this.txtTotalAmountPaid.Text = this.gridPaymentHistory.SelectedCells[4].Value.ToString();
+            this.txtChange.Text = this.gridPaymentHistory.SelectedCells[5].Value.ToString();
+
+            this.btnEditPayment.Enabled = true;
+            this.btnPrintPaymentHistory.Enabled = true;
         }
 
         // Edit
@@ -1001,7 +1018,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnTransact.Visible = false;
                 this.btnSavePayment.Enabled = false;
 
-                payment.loadPatientPaymentHistory(this.txtPatientID.Text, this.gridPaymentHistory);
+                payment.LoadPatientPaymentHistory(this.txtPatientID.Text, this.gridPaymentHistory);
             }
             else
             {

@@ -421,5 +421,14 @@ namespace PatientInformationSystemNew.components
             get { return count_overall_total_sales; }
             set { count_overall_total_sales = value; }
         }
+
+        // Transaction values
+
+        public static int patient_primary_id_for_payment_transaction;
+        public int PatientPrimaryIDForPaymentTransaction
+        {
+            get { return patient_primary_id_for_payment_transaction; }
+            set { patient_primary_id_for_payment_transaction = value; }
+        }
     }
 }
