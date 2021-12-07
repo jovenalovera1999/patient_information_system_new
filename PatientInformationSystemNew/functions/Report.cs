@@ -20,7 +20,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT COUNT(*)
-                                    FROM patient_information_db.number_of_patients
+                                    FROM pis_db.number_of_patients
                                     WHERE
                                     DATE_FORMAT(date, '%M') = @month AND
                                     DATE_FORMAT(date, '%Y') = @year;";
@@ -32,6 +32,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -52,7 +53,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT COUNT(*)
-                                    FROM patient_information_db.number_of_patients
+                                    FROM pis_db.number_of_patients
                                     WHERE
                                     DATE_FORMAT(date, '%M') = @month AND
                                     DATE_FORMAT(date, '%d') = @day AND
@@ -66,6 +67,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -86,7 +88,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT COUNT(*)
-                                    FROM patient_information_db.number_of_patients
+                                    FROM pis_db.number_of_patients
                                     WHERE
                                     DATE_FORMAT(date, '%Y') = @year;";
 
@@ -96,6 +98,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -116,12 +119,13 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT COUNT(*)
-                                    FROM patient_information_db.number_of_patients;";
+                                    FROM pis_db.number_of_patients;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -142,7 +146,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM patient_information_db.transactions
+                                    FROM pis_db.transactions
                                     WHERE
                                     DATE_FORMAT(date, '%M') = @month AND
                                     DATE_FORMAT(date, '%Y') = @year;";
@@ -154,6 +158,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -174,7 +179,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM patient_information_db.transactions
+                                    FROM pis_db.transactions
                                     WHERE
                                     DATE_FORMAT(date, '%M') = @month AND
                                     DATE_FORMAT(date, '%d') = @day AND
@@ -188,6 +193,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -207,7 +213,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM patient_information_db.transactions
+                                    FROM pis_db.transactions
                                     WHERE
                                     DATE_FORMAT(date, '%Y') = @year;";
 
@@ -217,6 +223,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();
@@ -237,12 +244,13 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM patient_information_db.transactions;";
+                                    FROM pis_db.transactions;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         connection.Open();

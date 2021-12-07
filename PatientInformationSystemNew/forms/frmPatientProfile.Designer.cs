@@ -3357,6 +3357,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrintPaymentHistory.Size = new System.Drawing.Size(131, 62);
             this.btnPrintPaymentHistory.TabIndex = 374;
             this.btnPrintPaymentHistory.Text = "Print";
+            this.btnPrintPaymentHistory.Click += new System.EventHandler(this.btnPrintPaymentHistory_Click);
             // 
             // btnSavePayment
             // 

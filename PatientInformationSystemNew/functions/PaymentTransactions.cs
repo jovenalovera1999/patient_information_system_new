@@ -55,6 +55,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
+                                    CAST(AES_DECRYPT(transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
                                     CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Receipt No.',
                                     CAST(AES_DECRYPT(total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Total Medical Fee',
                                     CAST(AES_DECRYPT(discount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Discount',
@@ -84,19 +85,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SavePatientPayment(int id, int patient_fid, string full_name, string receipt_no, string total_medical_fee, string discount, 
+        public bool SavePatientPayment(int id, int patient_fid, string transaction_id, string full_name, string receipt_no, string total_medical_fee, string discount, 
             string amount, string total_amount_paid, string change)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.transactions(patient_fid, full_name, receipt_no, total_medical_fee, discount, amount, 
-                                    total_amount_paid, `change`)
+                    string sql = @"INSERT INTO pis_db.transactions(patient_fid, full_name, transaction_id, receipt_no, total_medical_fee, discount,
+                                    amount, total_amount_paid, `change`)
                                     VALUES(
                                     @patient_fid,
                                     AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@discount, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@amount, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -113,6 +115,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@transaction_id", transaction_id);
                         cmd.Parameters.AddWithValue("@receipt_no", receipt_no);
                         cmd.Parameters.AddWithValue("@total_medical_fee", total_medical_fee);
                         cmd.Parameters.AddWithValue("@discount", discount);
@@ -136,8 +139,8 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool updatePaymentTransaction(string patient_id, string receipt_no, string total_medical_fee, string discount, string amount,
-            string total_amount_paid, string change)
+        public bool UpdatePaymentTransaction(string full_name, string transaction_id, string receipt_no, string total_medical_fee, 
+            string discount, string amount, string total_amount_paid, string change)
         {
             try
             {
@@ -152,13 +155,13 @@ namespace PatientInformationSystemNew.functions
                                     total_amount_paid = AES_ENCRYPT(@total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     `change` = AES_ENCRYPT(@change, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @receipt_no OR
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    CAST(AES_DECRYPT(transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @transaction_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@transaction_id", transaction_id);
                         cmd.Parameters.AddWithValue("@receipt_no", receipt_no);
                         cmd.Parameters.AddWithValue("@total_medical_fee", total_medical_fee);
                         cmd.Parameters.AddWithValue("@discount", discount);
@@ -167,7 +170,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@change", change);
 
                         connection.Open();
-                        cmd.ExecuteReader();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }

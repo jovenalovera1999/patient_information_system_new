@@ -263,7 +263,7 @@ namespace PatientInformationSystemNew.functions
 
         // Transactions
 
-        public bool ReceiptNoDuplicate(string full_name, string receipt_no)
+        public bool TransactionIDDuplicate(string full_name, string transaction_id)
         {
             try
             {
@@ -273,17 +273,32 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.transactions
                                     WHERE
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @receipt_no;";
+                                    CAST(AES_DECRYPT(transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @transaction_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        
+                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@transaction_id", transaction_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
-                return true;
             }
             catch(Exception ex)
             {
+                Console.WriteLine("Error detecting duplicate receipt no: " + ex.ToString());
                 return false;
             }
         }

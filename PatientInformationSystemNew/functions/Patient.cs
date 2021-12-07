@@ -328,6 +328,11 @@ namespace PatientInformationSystemNew.functions
                                     @date
                                     );
 
+                                    INSERT INTO pis_db.number_of_patients(full_name)
+                                    VALUES(
+                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
                                     UPDATE pis_db.vital_signs
                                     SET status = 'Show'
                                     WHERE

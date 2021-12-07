@@ -81,10 +81,9 @@ CREATE TABLE pis_db.patients (
 
 CREATE TABLE pis_db.number_of_patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_fid                         INT(10) NOT NULL,
-    date                                DATE,
-                                        PRIMARY KEY(id),
-                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
+    full_name                           VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
 );
 
 CREATE TABLE pis_db.vital_signs (
@@ -156,6 +155,7 @@ CREATE TABLE pis_db.transactions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     full_name                           VARBINARY(800) NOT NULL,
+    transaction_id                      VARBINARY(800) NOT NULL,
     receipt_no                          VARBINARY(800) NOT NULL,
     total_medical_fee                   VARBINARY(800) NOT NULL,
     discount                            VARBINARY(800) DEFAULT NULL,

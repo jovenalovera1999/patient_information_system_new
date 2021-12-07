@@ -139,7 +139,6 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
             this.txtEmail.Text = val.PatientEmail;
             this.txtFullName.Text = val.PatientFullName;
-            this.cmbDiscount.Text = "None";
 
             vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
             doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
@@ -228,13 +227,14 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.txtReceiptNo.Text = this.gridPaymentHistory.SelectedCells[0].Value.ToString();
-            this.txtTotalMedicalFee.Text = this.gridPaymentHistory.SelectedCells[1].Value.ToString();
-            this.cmbDiscount.Text = this.gridPaymentHistory.SelectedCells[2].Value.ToString();
-            this.txtAmount.Text = this.gridPaymentHistory.SelectedCells[3].Value.ToString();
-            this.txtTotalAmountPaid.Text = this.gridPaymentHistory.SelectedCells[4].Value.ToString();
-            this.txtChange.Text = this.gridPaymentHistory.SelectedCells[5].Value.ToString();
+            this.txtReceiptNo.Text = this.gridPaymentHistory.SelectedCells[1].Value.ToString();
+            this.txtTotalMedicalFee.Text = this.gridPaymentHistory.SelectedCells[2].Value.ToString();
+            this.cmbDiscount.Text = this.gridPaymentHistory.SelectedCells[3].Value.ToString();
+            this.txtAmount.Text = this.gridPaymentHistory.SelectedCells[4].Value.ToString();
+            this.txtTotalAmountPaid.Text = this.gridPaymentHistory.SelectedCells[5].Value.ToString();
+            this.txtChange.Text = this.gridPaymentHistory.SelectedCells[6].Value.ToString();
 
+            this.btnSavePayment.Enabled = false;
             this.btnEditPayment.Enabled = true;
             this.btnPrintPaymentHistory.Enabled = true;
         }
@@ -356,6 +356,10 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.Enabled = true;
             this.btnTransact.Visible = true;
             this.btnSavePayment.Enabled = true;
+
+            this.btnEditPayment.Enabled = false;
+
+            this.txtReceiptNo.Focus();
         }
 
         // New
@@ -1004,21 +1008,22 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if(payment.updatePaymentTransaction(val.PatientID, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text,
-                this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text))
+            else if(payment.UpdatePaymentTransaction(val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
+                this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text))
             {
                 MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+                this.txtReceiptNo.Enabled = false;
                 this.txtTotalMedicalFee.Enabled = false;
                 this.cmbDiscount.Enabled = false;
                 this.txtAmount.Enabled = false;
                 this.btnTransact.Visible = false;
                 this.btnSavePayment.Enabled = false;
 
-                payment.LoadPatientPaymentHistory(this.txtPatientID.Text, this.gridPaymentHistory);
+                payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
             }
             else
             {
@@ -1521,24 +1526,11 @@ namespace PatientInformationSystemNew.forms
                     this.txtTotalAmountPaid.Text = discounted.ToString();
                     this.txtChange.Text = total.ToString();
                 }
-                DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[6].Value.ToString());
-
-                this.rprtReceipt.Clear();
-                ReportParameterCollection parameters = new ReportParameterCollection();
-                parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
-                parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
-                parameters.Add(new ReportParameter("pDate", date.ToString("MM/dd/yy")));
-                parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
-                parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
-                parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
-                parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
-                parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
-                parameters.Add(new ReportParameter("pCashier", val.UserFullName));
-                this.rprtReceipt.LocalReport.SetParameters(parameters);
-                this.rprtReceipt.RefreshReport();
             }
             this.btnSavePayment.Enabled = true;
         }
+
+        // Print
 
         private void btnPrintPrescriptions_Click(object sender, EventArgs e)
         {
@@ -1552,6 +1544,11 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
+        }
+
+        private void btnPrintPaymentHistory_Click(object sender, EventArgs e)
+        {
+
         }
 
         // Back

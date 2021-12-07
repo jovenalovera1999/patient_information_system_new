@@ -20,7 +20,9 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         private void frmPaymentTransaction_Load(object sender, EventArgs e)
         {
@@ -132,11 +134,24 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveTransaction_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if (MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
-                if (payment.SavePatientPayment(val.PatientPrimaryIDForPaymentTransaction, val.PatientPrimaryIDForPaymentTransaction, 
-                    this.txtFullName.Text, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, 
+                if (duplicate.TransactionIDDuplicate(val.PatientFullName, generateID.ToString()))
+                {
+                    MessageBox.Show("Transaction ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else if (payment.SavePatientPayment(val.PatientPrimaryIDForPaymentTransaction, val.PatientPrimaryIDForPaymentTransaction,
+                    generateID.ToString(), this.txtFullName.Text, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, 
                     this.txtTotalAmountPaid.Text, this.txtChange.Text))
                 {
                     MessageBox.Show("Payment transaction successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -155,7 +170,7 @@ namespace PatientInformationSystemNew.forms
                     this.txtTotalAmountPaid.ResetText();
                     this.txtChange.ResetText();
 
-                    this.cmbDiscount.Text = null;
+                    this.cmbDiscount.Text = "None";
                     this.btnSaveTransaction.Enabled = false;
 
                     this.txtReceiptNo.Focus();
