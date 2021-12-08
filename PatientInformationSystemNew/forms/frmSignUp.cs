@@ -122,7 +122,13 @@ namespace PatientInformationSystemNew.forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if(duplicate.usernameDuplicate(this.txtUsername.Text))
+            if(duplicate.UserIDDuplicate(this.txtUserID.Text))
+            {
+                MessageBox.Show("User ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtUserID.ResetText();
+                this.txtUserID.Focus();
+            }
+            else if(duplicate.UsernameDuplicate(this.txtUsername.Text))
             {
                 MessageBox.Show("Username is already taken! Please choose different username!", "Already Taken", MessageBoxButtons.OK, 
                     MessageBoxIcon.Error);
@@ -193,7 +199,7 @@ namespace PatientInformationSystemNew.forms
             }
             else if(String.IsNullOrWhiteSpace(imgLocation)) 
             {
-                if(user.signUp(this.txtUserID.Text, null, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text, this.txtMiddlename.Text,
+                if(user.SignUp(this.txtUserID.Text, null, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text, this.txtMiddlename.Text,
                     this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, 
                     this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.cmbRole.Text, this.txtSpecialization.Text))
                 {
@@ -231,7 +237,7 @@ namespace PatientInformationSystemNew.forms
                 BinaryReader br = new BinaryReader(fs);
                 profilePicture = br.ReadBytes((int)fs.Length);
 
-                if(user.signUp(this.txtUserID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text,
+                if(user.SignUp(this.txtUserID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text,
                     this.txtMiddlename.Text, this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
                     this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
                     this.cmbRole.Text, this.txtSpecialization.Text))

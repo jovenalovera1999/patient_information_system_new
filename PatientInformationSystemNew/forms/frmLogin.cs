@@ -43,13 +43,13 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Password is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtPassword.Focus();
             }
-            else if(login.userAuthentication(this.txtUsername.Text, this.txtPassword.Text))
+            else if(login.UserAuthentication(this.txtUsername.Text, this.txtPassword.Text))
             {
                 forms.frmDashboard frmDashboard = new forms.frmDashboard();
                 frmDashboard.Show();
                 this.Hide();
             }
-            else if(login.userAuthenticationForAdministratorOnly(this.txtUsername.Text, this.txtPassword.Text))
+            else if(login.UserAuthenticationForAdministratorOnly(this.txtUsername.Text, this.txtPassword.Text))
             {
                 forms.frmDashboard frmDashboard = new forms.frmDashboard();
                 frmDashboard.Show();

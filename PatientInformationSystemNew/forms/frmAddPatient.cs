@@ -278,7 +278,12 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
 
-            if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
+            if(duplicate.PatientIDDuplicate(this.txtPatientID.Text))
+            {
+                MessageBox.Show("Patient ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                autoGenNum();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
             {
                 MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();

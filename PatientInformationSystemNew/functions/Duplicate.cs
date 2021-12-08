@@ -13,9 +13,46 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        // Username
+        // User
 
-        public bool usernameDuplicate(string username)
+        public bool UserIDDuplicate(string user_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM pis_db.users
+                                    WHERE CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @user_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error detecting duplicate user id: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool UsernameDuplicate(string username)
         {
             try
             {
@@ -31,6 +68,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if(dt.Rows.Count == 1)
@@ -47,6 +85,45 @@ namespace PatientInformationSystemNew.functions
             catch(Exception ex)
             {
                 Console.WriteLine("Error detecting duplicate username: " + ex.ToString());
+                return false;
+            }
+        }
+
+        // Patient
+
+        public bool PatientIDDuplicate(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELEC *
+                                    FROM pis_db.patients
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error detecting duplicate patient id: " + ex.ToString());
                 return false;
             }
         }

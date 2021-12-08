@@ -60,7 +60,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                patient.loadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, val.UserSpecialization, this.gridPatients);
+                patient.LoadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, val.UserSpecialization, this.gridPatients);
             }
         }
 
@@ -162,13 +162,13 @@ namespace PatientInformationSystemNew.forms
             {
                 // User already with or without profile picture
 
-                if (user.updateUser(this.txtMyID.Text, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                     this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
                     this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
                 {
                     MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    if (user.getUser(this.txtMyID.Text))
+                    if (user.GetUser(this.txtMyID.Text))
                     {
                         if (val.UserProfilePicture != null)
                         {
@@ -228,13 +228,13 @@ namespace PatientInformationSystemNew.forms
                 BinaryReader br = new BinaryReader(fs);
                 profilePicture = br.ReadBytes((int)fs.Length);
 
-                if (user.updateUser(this.txtMyID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                     this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
                     this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
                 {
                     MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    if (user.getUser(this.txtMyID.Text))
+                    if (user.GetUser(this.txtMyID.Text))
                     {
                         if (val.UserProfilePicture != null)
                         {
@@ -289,7 +289,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmMyProfileNew_VisibleChanged(object sender, EventArgs e)
         {
-            user.getUser(this.txtMyID.Text);
+            user.GetUser(this.txtMyID.Text);
         }
     }
 }

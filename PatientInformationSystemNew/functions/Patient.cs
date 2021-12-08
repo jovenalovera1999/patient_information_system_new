@@ -83,7 +83,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadDoctorPatients(string doctor_first_name, string doctor_last_name, string specialization, DataGridView grid)
+        public void LoadDoctorPatients(string doctor_first_name, string doctor_last_name, string specialization, DataGridView grid)
         {
             try
             {
@@ -95,9 +95,9 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
                                     DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date Created'
-                                    FROM
-                                    pis_db.patients
+                                    DATE_FORMAT(pis_db.patients.date, '%M %d, %Y') AS 'Date Created'
+                                    FROM pis_db.patients
+                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE 
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     LIKE CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')');";

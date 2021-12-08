@@ -28,7 +28,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if(doctor.getDoctor(this.txtDoctorID.Text))
+            if(doctor.GetDoctor(this.txtDoctorID.Text))
             {
                 forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
                 frmDoctorProfile.TopLevel = false;
@@ -70,7 +70,7 @@ namespace PatientInformationSystemNew.forms
 
         private void gridDoctors_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (doctor.getDoctor(this.gridDoctors.SelectedCells[0].Value.ToString()))
+            if (doctor.GetDoctor(this.gridDoctors.SelectedCells[0].Value.ToString()))
             {
                 forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
                 frmDoctorProfile.TopLevel = false;

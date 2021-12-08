@@ -122,13 +122,14 @@ namespace PatientInformationSystemNew.functions
 
         // Get Doctor
 
-        public bool getDoctor(string user_id)
+        public bool GetDoctor(string user_id)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT 
+                    string sql = @"SELECT
+                                    id,
                                     CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     profile_picture,
                                     CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),

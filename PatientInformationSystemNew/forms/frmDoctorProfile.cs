@@ -52,7 +52,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.Text = val.DoctorEmail;
             this.txtSpecialization.Text = val.DoctorSpecialization;
 
-            patient.loadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, this.txtSpecialization.Text, this.gridPatients);
+            patient.LoadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, this.txtSpecialization.Text, this.gridPatients);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Doctor has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (doctor.getDoctor(this.txtDoctorID.Text))
+                if (doctor.GetDoctor(this.txtDoctorID.Text))
                 {
                     if (val.DoctorProfilePicture != null)
                     {

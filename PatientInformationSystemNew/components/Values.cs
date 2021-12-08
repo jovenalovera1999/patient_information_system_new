@@ -16,6 +16,13 @@ namespace PatientInformationSystemNew.components
 
         // User values
 
+        public static int user_primary_id;
+        public int UserPrimaryID
+        {
+            get { return user_primary_id; }
+            set { user_primary_id = value; }
+        }
+
         public static string user_id;
         public string UserID
         {
