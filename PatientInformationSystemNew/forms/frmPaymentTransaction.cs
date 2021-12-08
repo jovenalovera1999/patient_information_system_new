@@ -152,7 +152,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 else if (payment.SavePatientPayment(val.PatientPrimaryIDForPaymentTransaction, val.PatientPrimaryIDForPaymentTransaction,
                     generateID.ToString(), this.txtFullName.Text, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, 
-                    this.txtTotalAmountPaid.Text, this.txtChange.Text))
+                    this.txtTotalAmountPaid.Text, this.txtChange.Text, val.UserFullName))
                 {
                     MessageBox.Show("Payment transaction successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

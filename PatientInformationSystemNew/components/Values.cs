@@ -430,5 +430,12 @@ namespace PatientInformationSystemNew.components
             get { return patient_primary_id_for_payment_transaction; }
             set { patient_primary_id_for_payment_transaction = value; }
         }
+
+        public static int transaction_primary_id;
+        public int TransactionPrimaryID
+        {
+            get { return transaction_primary_id; }
+            set { transaction_primary_id = value; }
+        }
     }
 }

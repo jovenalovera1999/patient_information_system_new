@@ -1548,7 +1548,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnPrintPaymentHistory_Click(object sender, EventArgs e)
         {
+            DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[8].Value.ToString());
 
+            this.rprtReceipt.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
+            parameters.Add(new ReportParameter("pDate", date.ToString("MM/dd/yyyy")));
+            parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
+            parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
+            parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
+            parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
+            parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
+            parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
+            parameters.Add(new ReportParameter("pCashier", this.gridPaymentHistory.SelectedCells[7].Value.ToString()));
+            this.rprtReceipt.LocalReport.SetParameters(parameters);
+            this.rprtReceipt.RefreshReport();
         }
 
         // Back

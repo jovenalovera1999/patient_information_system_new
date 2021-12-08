@@ -167,6 +167,14 @@ CREATE TABLE pis_db.transactions (
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
+CREATE TABLE pis_db.cashier (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    transaction_fid                     INT(10) NOT NULL,
+    cashier                             VARBINARY(800) NOT NULL,
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(transaction_fid) REFERENCES pis_db.transactions(id)
+);
+
 CREATE TABLE pis_db.inventory (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     supply_id                           VARBINARY(800) NOT NULL,

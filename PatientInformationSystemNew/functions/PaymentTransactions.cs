@@ -62,8 +62,10 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(amount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Amount',
                                     CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Total Amount Paid',
                                     CAST(AES_DECRYPT(`change`, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Change',
+                                    CAST(AES_DECRYPT(cashier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Cashier',
                                     DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
                                     FROM pis_db.transactions
+                                    INNER JOIN pis_db.cashier ON pis_db.transactions.id = pis_db.cashier.id
                                     WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -86,7 +88,7 @@ namespace PatientInformationSystemNew.functions
         }
 
         public bool SavePatientPayment(int id, int patient_fid, string transaction_id, string full_name, string receipt_no, string total_medical_fee, string discount, 
-            string amount, string total_amount_paid, string change)
+            string amount, string total_amount_paid, string change, string cashier)
         {
             try
             {
@@ -104,15 +106,10 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@amount, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@change, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    UPDATE pis_db.patients
-                                    SET payment_status = 'Paid' 
-                                    WHERE id = @id;";
+                                    );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@transaction_id", transaction_id);
@@ -124,6 +121,41 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@change", change);
 
                         connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+                    }
+
+                    sql = @"SELECT *
+                                FROM pis_db.transactions
+                                ORDER BY id DESC LIMIT 1;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        val.TransactionPrimaryID = dt.Rows[0].Field<int>("id");
+                    }
+
+                    sql = @"INSERT INTO pis_db.cashier(transaction_fid, cashier)
+                            VALUES(
+                            @transaction_fid,
+                            AES_ENCRYPT(@cashier, 'j0v3ncut3gw4p0per0jok3l4ang')
+                            );
+
+                            UPDATE pis_db.patients
+                            SET payment_status = 'Paid' 
+                            WHERE id = @id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@transaction_fid", val.TransactionPrimaryID);
+                        cmd.Parameters.AddWithValue("@cashier", cashier);
+
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
