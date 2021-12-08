@@ -1008,26 +1008,27 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if(payment.UpdatePaymentTransaction(val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
+            else if(MessageBox.Show("Save update payment? Be sure to transact the payment before proceeding!", "Confirmation", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (payment.UpdatePaymentTransaction(val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
                 this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text))
-            {
-                MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {
+                    MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                    this.txtReceiptNo.Enabled = false;
+                    this.txtTotalMedicalFee.Enabled = false;
+                    this.cmbDiscount.Enabled = false;
+                    this.txtAmount.Enabled = false;
+                    this.btnTransact.Visible = false;
+                    this.btnSavePayment.Enabled = false;
 
-                this.txtReceiptNo.Enabled = false;
-                this.txtTotalMedicalFee.Enabled = false;
-                this.cmbDiscount.Enabled = false;
-                this.txtAmount.Enabled = false;
-                this.btnTransact.Visible = false;
-                this.btnSavePayment.Enabled = false;
-
-                payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
-            }
-            else
-            {
-                MessageBox.Show("Failed to update payment!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update payment!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -1548,21 +1549,43 @@ namespace PatientInformationSystemNew.forms
 
         private void btnPrintPaymentHistory_Click(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[8].Value.ToString());
+            if(String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
+            {
+                MessageBox.Show("Receipt no is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtReceiptNo.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            {
+                MessageBox.Show("Total medical fee is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTotalMedicalFee.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtAmount.Text))
+            {
+                MessageBox.Show("Amount is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtAmount.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtTotalAmountPaid.Text) || String.IsNullOrWhiteSpace(this.txtChange.Text))
+            {
+                MessageBox.Show("Please transact first before printing!", "Transact First", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[8].Value.ToString());
 
-            this.rprtReceipt.Clear();
-            ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
-            parameters.Add(new ReportParameter("pDate", date.ToString("MM/dd/yyyy")));
-            parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
-            parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
-            parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
-            parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
-            parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
-            parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
-            parameters.Add(new ReportParameter("pCashier", this.gridPaymentHistory.SelectedCells[7].Value.ToString()));
-            this.rprtReceipt.LocalReport.SetParameters(parameters);
-            this.rprtReceipt.RefreshReport();
+                this.rprtReceipt.Clear();
+                ReportParameterCollection parameters = new ReportParameterCollection();
+                parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
+                parameters.Add(new ReportParameter("pDate", date.ToString("MM/dd/yyyy")));
+                parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
+                parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
+                parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
+                parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
+                parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
+                parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
+                parameters.Add(new ReportParameter("pCashier", this.gridPaymentHistory.SelectedCells[7].Value.ToString()));
+                this.rprtReceipt.LocalReport.SetParameters(parameters);
+                this.rprtReceipt.RefreshReport();
+            }
         }
 
         // Back
