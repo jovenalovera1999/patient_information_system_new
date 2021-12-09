@@ -23,15 +23,16 @@ namespace PatientInformationSystemNew.forms
 
         private void frmSchedule_Load(object sender, EventArgs e)
         {
-            if(val.UserRole == "Medical Staff")
+            if(val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
             {
                 this.btnSelect.Enabled = false;
+                patient.LoadPatientInSchedule(this.gridSchedule);
             }
             else if(val.UserRole == "Doctor")
             {
                 this.btnCancelPatient.Visible = false;
+                patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
             }
-            patient.LoadPatientInSchedule(this.gridSchedule);
         }
 
         private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -89,7 +90,37 @@ namespace PatientInformationSystemNew.forms
 
         private void btnCancelPatient_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Are you sure you want to cancel patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (patient.CancelPatientInSchedule(this.txtPatientID.Text))
+                {
+                    MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
+                    this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
+                    {
+                        patient.LoadPatientInSchedule(this.gridSchedule);
+                    }
+                    else if (val.UserRole == "Doctor")
+                    {
+                        patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
+                    }
+
+                    this.txtPatientID.ResetText();
+                    this.txtPatientName.ResetText();
+
+                    this.btnSelect.Enabled = false;
+                    this.btnCancelPatient.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -23,6 +23,11 @@ namespace PatientInformationSystemNew.forms
 
         private void frmPatient_Load(object sender, EventArgs e)
         {
+            if(val.UserRole == "Doctor")
+            {
+                this.btnPaymentTransaction.Visible = false;
+                this.btnAddPatient.Visible = false;
+            }
             patient.LoadPatientsInPatients(this.gridPatients);
         }
 

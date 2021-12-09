@@ -21,6 +21,9 @@ namespace PatientInformationSystemNew.forms
         System.Timers.Timer t;
         int s;
 
+        components.Connections con = new components.Connections();
+        components.Values val = new components.Values();
+
         private void frmDashboard_Load(object sender, EventArgs e)
         {
             t = new System.Timers.Timer();
@@ -31,6 +34,19 @@ namespace PatientInformationSystemNew.forms
             this.lblDate.Text = DateTime.Now.Date.ToString("D");
 
             t.Start();
+
+            if(val.UserRole == "Doctor")
+            {
+                this.btnDoctors.Visible = false;
+                this.btnSignUp.Visible = false;
+                this.btnReport.Visible = false;
+            }
+            else if(val.UserRole == "Medical Staff")
+            {
+                this.btnDoctors.Visible = false;
+                this.btnSignUp.Visible = false;
+                this.btnReport.Visible = false;
+            }
         }
 
         private void OnTimeEvent(object sender, ElapsedEventArgs e)

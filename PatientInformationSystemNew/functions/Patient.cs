@@ -83,6 +83,47 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public void LoadDoctorPatientsInSchedule(string doctor_first_name, string doctor_last_name, string specialization, DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Patient ID',
+                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'First Name',
+                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
+                                    DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
+                                    DATE_FORMAT(pis_db.patients.date, '%M %d, %Y') AS 'Date Created'
+                                    FROM pis_db.patients
+                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
+                                    WHERE 
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                                    = CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')') AND
+                                    pis_db.patients.status = 'Waiting' OR pis_db.patients.status = 'Consulting' ORDER BY pis_db.patients.id ASC;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@doctor_first_name", doctor_first_name);
+                        cmd.Parameters.AddWithValue("@doctor_last_name", doctor_last_name);
+                        cmd.Parameters.AddWithValue("@specialization", specialization);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading doctor's patients in schedule: " + ex.ToString());
+            }
+        }
+
         public void LoadDoctorPatients(string doctor_first_name, string doctor_last_name, string specialization, DataGridView grid)
         {
             try
@@ -98,9 +139,10 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(pis_db.patients.date, '%M %d, %Y') AS 'Date Created'
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
-                                    WHERE 
+                                    WHERE
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    LIKE CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')');";
+                                    = CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')') AND
+                                    status = 'Show';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -110,6 +152,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         grid.DataSource = dt;
@@ -566,6 +609,36 @@ namespace PatientInformationSystemNew.functions
 
         // Cancel, remove or delete patient
 
+        public bool CancelPatientInSchedule(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE pis_db.patients
+                                    SET status = 'Cancelled'
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error updating patient to cancelled: " + ex.ToString());
+                return false;
+            }
+        }
+
         public bool BackPatientToScheduleFromConsultation(int id, int patient_fid)
         {
             try
@@ -588,6 +661,7 @@ namespace PatientInformationSystemNew.functions
                         connection.Open();
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -596,34 +670,6 @@ namespace PatientInformationSystemNew.functions
             catch (Exception ex)
             {
                 Console.WriteLine("Error updating patient status in schedule going back: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool CancelPatientInSchedule(string patient_id)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"DELETE 
-                                    FROM pis_db.patients
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        connection.Open();
-                        cmd.ExecuteReader();
-
-                        return true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error deleting patient in schedule: " + ex.ToString());
                 return false;
             }
         }
