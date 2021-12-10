@@ -444,5 +444,21 @@ namespace PatientInformationSystemNew.components
             get { return transaction_primary_id; }
             set { transaction_primary_id = value; }
         }
+
+        // Schedule values
+
+        public static int patient_in_schedule_primary_id;
+        public int PatientInSchedulePrimaryID
+        {
+            get { return patient_in_schedule_primary_id; }
+            set { patient_in_schedule_primary_id = value; }
+        }
+
+        public static DateTime patient_in_schedule_date_created;
+        public DateTime PatientInScheduleDateCreated
+        {
+            get { return patient_in_schedule_date_created; }
+            set { patient_in_schedule_date_created = value; }
+        }
     }
 }

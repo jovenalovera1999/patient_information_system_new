@@ -609,7 +609,7 @@ namespace PatientInformationSystemNew.functions
 
         // Cancel, remove or delete patient
 
-        public bool CancelPatientInSchedule(string patient_id)
+        public bool CancelPatientInScheduleWithoutExistingFirstAccount(int patient_fid, string patient_id)
         {
             try
             {
@@ -617,10 +617,15 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"UPDATE pis_db.patients
                                     SET status = 'Cancelled'
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;
+
+                                    UPDATE pis_db.symptoms
+                                    SET status = 'Removed'
+                                    WHERE patient_fid = @patient_fid AND status = 'In Consultation';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
 
                         connection.Open();
@@ -634,7 +639,42 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error updating patient to cancelled: " + ex.ToString());
+                Console.WriteLine("Error updating patient in schedule to cancelled: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool CancelPatientInScheduleWithExistingFirstAccount(int patient_fid, string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE pis_db.patients
+                                    SET status = 'Show'
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;
+
+                                    UPDATE pis_db.symptoms
+                                    SET status = 'Removed'
+                                    WHERE patient_fid = @patient_fid AND status = 'In Consultation';";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating patient in schedule to show: " + ex.ToString());
                 return false;
             }
         }
@@ -834,6 +874,46 @@ namespace PatientInformationSystemNew.functions
             catch (Exception ex)
             {
                 Console.WriteLine("Error getting a patient from schedule: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool GetPatientIDAndDateCreated(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT id, date
+                                    FROM pis_db.patients
+                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            val.PatientInSchedulePrimaryID = dt.Rows[0].Field<int>("id");
+                            val.PatientInScheduleDateCreated = dt.Rows[0].Field<DateTime>("date");
+
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error getting patient date: " + ex.ToString());
                 return false;
             }
         }
