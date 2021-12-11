@@ -303,6 +303,16 @@ namespace PatientInformationSystemNew.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap update_history_icon {
+            get {
+                object obj = ResourceManager.GetObject("update_history_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap upload_photo_icon {
             get {
                 object obj = ResourceManager.GetObject("upload_photo_icon", resourceCulture);

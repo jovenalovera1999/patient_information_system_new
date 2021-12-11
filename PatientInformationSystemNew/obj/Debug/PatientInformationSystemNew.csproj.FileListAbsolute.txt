@@ -55,3 +55,4 @@ D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\De
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.forms.frmReport.resources
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\RdlCompile.cache
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\RdlCompile.compiled
+D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.forms.frmUpdateHistory.resources

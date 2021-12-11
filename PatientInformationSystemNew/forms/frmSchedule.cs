@@ -122,7 +122,8 @@ namespace PatientInformationSystemNew.forms
                     }
                     else
                     {
-                        MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -152,7 +153,8 @@ namespace PatientInformationSystemNew.forms
                     }
                     else
                     {
-                        MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
