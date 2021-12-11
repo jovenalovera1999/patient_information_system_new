@@ -23,6 +23,7 @@ namespace PatientInformationSystemNew.forms
 
         functions.User user = new functions.User();
         functions.Patient patient = new functions.Patient();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         private void frmMyProfileNew_Load(object sender, EventArgs e)
         {
@@ -119,7 +120,11 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
 
-            if (String.IsNullOrWhiteSpace(this.txtMyID.Text))
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtMyID.Text))
             {
                 MessageBox.Show("User ID is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtMyID.Focus();
@@ -173,9 +178,9 @@ namespace PatientInformationSystemNew.forms
                 if(val.UserGender == "Male")
                 {
                     if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
-                    this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                    generateID.ToString(), val.UserFullName, string.Format("{0} updated his profile!", val.UserFullName)))
+                        this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
+                        this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
+                        generateID.ToString(), val.UserFullName, string.Format("{0} updated his profile!", val.UserFullName)))
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -233,9 +238,9 @@ namespace PatientInformationSystemNew.forms
                 else
                 {
                     if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
-                    this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                    generateID.ToString(), val.UserFullName, string.Format("{0} updated her profile!", val.UserFullName)))
+                        this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
+                        this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
+                        generateID.ToString(), val.UserFullName, string.Format("{0} updated her profile!", val.UserFullName)))
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

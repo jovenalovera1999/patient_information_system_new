@@ -189,7 +189,20 @@ namespace PatientInformationSystemNew.forms
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptoms.UpdateSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.txtSymptoms.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if()
+            {
+
+            }
+            else if (symptoms.UpdateSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(),
+                this.txtSymptoms.Text, ))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;

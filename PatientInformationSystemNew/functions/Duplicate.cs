@@ -398,6 +398,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if(dt.Rows.Count == 1)
@@ -437,6 +438,7 @@ namespace PatientInformationSystemNew.functions
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         if (dt.Rows.Count == 1)
@@ -454,6 +456,45 @@ namespace PatientInformationSystemNew.functions
             catch (Exception ex)
             {
                 Console.WriteLine("Error detecting same name of supply to add or update from incoming supply: " + ex.ToString());
+                return false;
+            }
+        }
+
+        // Update history
+
+        public bool UpdateHistoryIDDuplicate(string update_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM pis_db.update_history
+                                    WHERE CAST(AES_DECRYPT(update_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @update_id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error detecting update history id duplicate: " + ex.ToString());
                 return false;
             }
         }

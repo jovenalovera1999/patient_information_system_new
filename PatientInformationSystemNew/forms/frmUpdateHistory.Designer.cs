@@ -142,12 +142,13 @@ namespace PatientInformationSystemNew.forms
             this.txtDescription.HoverState.Parent = this.txtDescription;
             this.txtDescription.Location = new System.Drawing.Point(26, 263);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.PasswordChar = '\0';
             this.txtDescription.PlaceholderText = "";
             this.txtDescription.SelectedText = "";
             this.txtDescription.ShadowDecoration.Parent = this.txtDescription;
-            this.txtDescription.Size = new System.Drawing.Size(1646, 45);
+            this.txtDescription.Size = new System.Drawing.Size(1646, 134);
             this.txtDescription.TabIndex = 30;
             // 
             // label2
@@ -235,7 +236,7 @@ namespace PatientInformationSystemNew.forms
             this.gridUpdateHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridUpdateHistory.EnableHeadersVisualStyles = false;
             this.gridUpdateHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridUpdateHistory.Location = new System.Drawing.Point(0, 348);
+            this.gridUpdateHistory.Location = new System.Drawing.Point(0, 438);
             this.gridUpdateHistory.Name = "gridUpdateHistory";
             this.gridUpdateHistory.ReadOnly = true;
             this.gridUpdateHistory.RowHeadersVisible = false;
@@ -243,7 +244,7 @@ namespace PatientInformationSystemNew.forms
             this.gridUpdateHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridUpdateHistory.RowTemplate.Height = 40;
             this.gridUpdateHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridUpdateHistory.Size = new System.Drawing.Size(1699, 610);
+            this.gridUpdateHistory.Size = new System.Drawing.Size(1699, 520);
             this.gridUpdateHistory.TabIndex = 33;
             this.gridUpdateHistory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridUpdateHistory.ThemeStyle.AlternatingRowsStyle.Font = null;

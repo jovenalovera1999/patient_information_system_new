@@ -128,14 +128,22 @@ namespace PatientInformationSystemNew.forms
             frmReport.Show();
         }
 
+        private void btnUpdateHistory_Click(object sender, EventArgs e)
+        {
+            this.pnlDashboardBody.Controls.Clear();
+            forms.frmUpdateHistory frmUpdateHistory = new forms.frmUpdateHistory();
+            frmUpdateHistory.TopLevel = false;
+            this.pnlDashboardBody.Controls.Add(frmUpdateHistory);
+            frmUpdateHistory.Dock = DockStyle.Fill;
+            frmUpdateHistory.Show();
+        }
+
         private void btnProfile_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmMyProfileNew frmMyProfileNew = new forms.frmMyProfileNew();
             frmMyProfileNew.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmMyProfileNew);
+            this.pnlDashboardBody.Controls.Add(frmMyProfileNew);
             frmMyProfileNew.Dock = DockStyle.Fill;
             frmMyProfileNew.Show();
         }

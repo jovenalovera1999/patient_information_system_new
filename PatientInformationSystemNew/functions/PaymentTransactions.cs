@@ -172,13 +172,20 @@ namespace PatientInformationSystemNew.functions
         }
 
         public bool UpdatePaymentTransaction(string full_name, string transaction_id, string receipt_no, string total_medical_fee, 
-            string discount, string amount, string total_amount_paid, string change)
+            string discount, string amount, string total_amount_paid, string change, string update_id, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.transactions
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.transactions
                                     SET
                                     receipt_no = AES_ENCRYPT(@receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     total_medical_fee = AES_ENCRYPT(@total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -200,6 +207,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@amount", amount);
                         cmd.Parameters.AddWithValue("@total_amount_paid", total_amount_paid);
                         cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;

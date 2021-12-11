@@ -200,13 +200,21 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdatePrescriptions(string full_name, string prescription_id, string prescriptions, DateTime date)
+        public bool UpdatePrescriptions(string full_name, string prescription_id, string prescriptions, DateTime date, string update_id,
+            string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.prescriptions
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.prescriptions
                                     SET prescriptions = AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
                                     WHERE
@@ -219,6 +227,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -236,13 +247,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemovePrescriptions(string full_name, string prescription_id)
+        public bool RemovePrescriptions(string full_name, string prescription_id, string update_id, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.prescriptions
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.prescriptions
                                     SET status = 'Removed'
                                     WHERE
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
@@ -252,6 +270,9 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
