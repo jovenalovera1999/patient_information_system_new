@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Temperature',
                                     CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Pulse Rate',
                                     CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
                                     FROM pis_db.vital_signs
                                     WHERE 
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
@@ -66,7 +66,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Temperature',
                                     CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Pulse Rate',
                                     CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
                                     FROM pis_db.vital_signs
                                     WHERE 
                                     patient_fid = @patient_fid AND

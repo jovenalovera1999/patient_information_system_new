@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
                                     CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Gender',
-                                    DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
+                                    DATE_FORMAT(birthday, '%a, %d %b %Y ') AS 'Birthday',
                                     status AS 'Status'
                                     FROM pis_db.patients
                                     WHERE status = 'Waiting' OR status = 'Consulting'";
@@ -61,7 +61,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
                                     CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Gender', 
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date Created'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date Created'
                                     FROM pis_db.patients
                                     WHERE status = 'Complete'
                                     ORDER BY first_name DESC;";
@@ -94,8 +94,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'First Name',
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
-                                    DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
-                                    DATE_FORMAT(pis_db.patients.date, '%M %d, %Y') AS 'Date Created'
+                                    DATE_FORMAT(birthday, '%a, %d %b %Y') AS 'Birthday',
+                                    pis_db.patients.status AS 'Status'
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE 
@@ -135,8 +135,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'First Name',
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
-                                    DATE_FORMAT(birthday, '%M %d, %Y') AS 'Birthday',
-                                    DATE_FORMAT(pis_db.patients.date, '%M %d, %Y') AS 'Date Created'
+                                    DATE_FORMAT(birthday, '%a, %d %b %Y') AS 'Birthday',
+                                    DATE_FORMAT(pis_db.patients.date, '%a, %d %b %Y') AS 'Date Created'
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE
@@ -173,7 +173,7 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"SELECT
                                     CAST(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS 'Doctor',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
                                     FROM pis_db.patient_doctor
                                     WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name;";
 

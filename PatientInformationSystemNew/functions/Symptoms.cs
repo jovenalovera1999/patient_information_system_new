@@ -56,7 +56,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT 
                                     CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms', 
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
                                     FROM pis_db.symptoms 
                                     WHERE 
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
@@ -91,7 +91,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT 
                                     CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms', 
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
                                     FROM pis_db.symptoms 
                                     WHERE 
                                     patient_fid = @patient_fid AND
@@ -194,13 +194,22 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateSymptom(string full_name, string symptoms_id, string symptoms, DateTime date)
+        public bool UpdateSymptom(string full_name, string symptoms_id, string symptoms, DateTime date, string update_id, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.symptoms 
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES
+                                    (
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.symptoms 
                                     SET 
                                     symptoms = AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
@@ -214,6 +223,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
                         cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -231,13 +243,22 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateSymptomInConsultation(int patient_fid, string full_name, string symptoms_id, string symptoms)
+        public bool UpdateSymptomInConsultation(int patient_fid, string full_name, string symptoms_id, string symptoms, string update_id,
+            string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.symptoms 
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES
+                                    (
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.symptoms 
                                     SET 
                                     symptoms = AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE 
@@ -250,6 +271,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -267,13 +291,21 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveSymptom(string full_name, string symptoms_id)
+        public bool RemoveSymptom(string full_name, string symptoms_id, string update_id, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.symptoms
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES
+                                    (
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.symptoms
                                     SET status = 'Removed'
                                     WHERE
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
@@ -283,6 +315,9 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -300,13 +335,22 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveSymptomInConsultation(int patient_fid, string full_name, string symptoms_id)
+        public bool RemoveSymptomInConsultation(int patient_fid, string full_name, string symptoms_id, string update_id, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.symptoms
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES
+                                    (
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.symptoms
                                     SET status = 'Removed'
                                     WHERE
                                     CONCAT(patient_fid, ' ', CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', status) 
@@ -317,6 +361,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;

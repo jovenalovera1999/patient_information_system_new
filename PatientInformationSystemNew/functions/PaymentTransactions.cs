@@ -63,7 +63,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Total Amount Paid',
                                     CAST(AES_DECRYPT(`change`, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Change',
                                     CAST(AES_DECRYPT(cashier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Cashier',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
                                     FROM pis_db.transactions
                                     INNER JOIN pis_db.cashier ON pis_db.transactions.id = pis_db.cashier.id
                                     WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name;";

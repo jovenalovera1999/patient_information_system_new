@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
                                     CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Medical Personnel ID',
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Doctor',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
                                     FROM pis_db.patient_doctor
                                     WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     status = 'Show'
@@ -94,7 +94,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(doctor_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
                                     CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Medical Personnel ID',
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Doctor',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date'
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
                                     FROM pis_db.patient_doctor
                                     WHERE 
                                     patient_fid = @patient_fid AND
@@ -278,13 +278,22 @@ namespace PatientInformationSystemNew.functions
 
         // Update Doctor
 
-        public bool UpdateDoctor(string full_name, string doctor_id, string user_id, string doctor, DateTime date)
+        public bool UpdateDoctor(string full_name, string doctor_id, string user_id, string doctor, DateTime date, string update_id, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.patient_doctor
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES
+                                    (
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.patient_doctor
                                     SET
                                     user_id = AES_ENCRYPT(@user_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     doctor = AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -300,6 +309,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@user_id", user_id);
                         cmd.Parameters.AddWithValue("@doctor", doctor);
                         cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -370,13 +382,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveDoctor(string full_name, string doctor_id)
+        public bool RemoveDoctor(string full_name, string doctor_id, string update_id, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.patient_doctor
+                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.patient_doctor
                                     SET status = 'Removed'
                                     WHERE
                                     CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
@@ -386,6 +405,9 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@doctor_id", doctor_id);
+                        cmd.Parameters.AddWithValue("@update_id", update_id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;

@@ -198,7 +198,7 @@ CREATE TABLE pis_db.inventory_incoming (
 
 CREATE TABLE pis_db.update_history(
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    supply_id                           VARBINARY(800) NOT NULL,
+    update_id                           VARBINARY(800) NOT NULL,
     user                                VARBINARY(800) NOT NULL,
     description                         VARBINARY(800) NOT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

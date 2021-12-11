@@ -23,7 +23,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT 
                                     CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
                                     FROM pis_db.prescriptions
                                     WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
                                     status = 'Show'
@@ -57,7 +57,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT 
                                     CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
+                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
                                     FROM pis_db.prescriptions
                                     WHERE 
                                     patient_fid = @patient_fid AND
@@ -83,36 +83,6 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void loadPrintPrescriptionRecordsOfPatient(string patient_id, DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
-                                    DATE_FORMAT(date, '%M %d, %Y') AS 'Date' 
-                                    FROM pis_db.prescriptions
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error loading print prescription records of patient: " + ex.ToString());
-            }
-        }
 
         public bool getPrescription(string patient_id, string prescription_id, DateTime date)
         {
