@@ -197,12 +197,14 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
 
-            if()
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
             {
-
+                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (symptoms.UpdateSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(),
-                this.txtSymptoms.Text, ))
+                this.txtSymptoms.Text, generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} symptom! ID: {1}. Set Symptom from " +
+                "{2} to {3}!", val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.gridSymptoms.SelectedCells[1].Value.ToString(),
+                this.txtSymptoms.Text)))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -225,7 +227,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            if (symptoms.RemoveSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString()))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if (duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (symptoms.RemoveSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(),
+                generateID.ToString(), val.UserFullName, string.Format("Removed patient {0} symptom! ID: {1}. {2} has been removed!", val.PatientFullName,
+                this.gridSymptoms.SelectedCells[0].Value.ToString(), this.gridSymptoms.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
@@ -385,7 +401,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.BackPatientToScheduleFromConsultation(val.PatientPrimaryID, val.PatientPrimaryID))
+                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, val.PatientPrimaryID))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;
@@ -404,7 +420,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.BackPatientToScheduleFromConsultation(val.PatientPrimaryID, val.PatientPrimaryID))
+                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, val.PatientPrimaryID))
                 {
                     forms.frmSchedule frmSchedule = new forms.frmSchedule();
                     frmSchedule.TopLevel = false;

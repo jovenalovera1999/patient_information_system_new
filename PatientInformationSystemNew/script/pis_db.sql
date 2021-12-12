@@ -60,6 +60,20 @@ VALUES(
     AES_ENCRYPT('Pediatric', 'j0v3ncut3gw4p0per0jok3l4ang')
 );
 
+CREATE TABLE pis_db.schedule (
+    id                                  INT(10) NOT NULL,
+    patient_id                          VARBINARY(800) NOT NULL,
+    first_name                          VARBINARY(800) NOT NULL,    
+    middle_name                         VARBINARY(800) DEFAULT NULL,
+    last_name                           VARBINARY(800) NOT NULL,
+    gender                              VARBINARY(800) NOT NULL,
+    birthday                            DATE,
+    doctor                              VARBINARY(800) NOT NULL,
+    status                              VARCHAR(800) DEFAULT 'Waiting',
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
 CREATE TABLE pis_db.patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
@@ -73,7 +87,7 @@ CREATE TABLE pis_db.patients (
     cellphone_number                    VARBINARY(800) DEFAULT NULL,
     telephone_number                    VARBINARY(800) DEFAULT NULL,
     email                               VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(800) DEFAULT 'Waiting',
+    status                              VARCHAR(800) DEFAULT 'For Consulting',
     payment_status                      VARCHAR(800) DEFAULT 'Unpaid',
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)

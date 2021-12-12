@@ -1084,7 +1084,19 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSavePayment_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
             {
                 MessageBox.Show("Please input total medical fee first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
@@ -1098,7 +1110,14 @@ namespace PatientInformationSystemNew.forms
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (payment.UpdatePaymentTransaction(val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
-                this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text))
+                this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
+                generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} payment transaction! ID: {1}. Set Receipt No. from " +
+                "{2} to {3}, Total Medical Fee from {4} to {5}, Discount from {6} to {7}, Amount from {8} to {9}, Total Amount Paid from {10} to {11} " +
+                "and Change from {12} to {13}!", val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(),
+                this.gridPaymentHistory.SelectedCells[1].Value.ToString(), this.txtReceiptNo.Text, this.gridPaymentHistory.SelectedCells[2].Value.ToString(),
+                this.txtTotalMedicalFee.Text, this.gridPaymentHistory.SelectedCells[3].Value.ToString(), this.cmbDiscount.Text,
+                this.gridPaymentHistory.SelectedCells[4].Value.ToString(), this.txtAmount.Text, this.gridPaymentHistory.SelectedCells[5].Value.ToString(),
+                this.txtTotalAmountPaid.Text, this.gridPaymentHistory.SelectedCells[6].Value.ToString(), this.txtChange.Text)))
                 {
                     MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1158,7 +1177,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveDoctors_Click(object sender, EventArgs e)
         {
-            if(doctor.RemoveDoctor(val.PatientFullName, this.txtIDDoctors.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(doctor.RemoveDoctor(val.PatientFullName, this.txtIDDoctors.Text, generateID.ToString(), val.UserFullName,
+                string.Format("Removed patient {0} doctor! ID: {1}. {2} has been removed!", val.PatientFullName,
+                this.gridDiagnosis.SelectedCells[0].Value.ToString(), this.gridDiagnosis.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Doctor successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1186,7 +1219,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
         {
-            if (diagnosis.RemoveDiagnosis(val.PatientFullName, this.txtDiagnosisID.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (diagnosis.RemoveDiagnosis(val.PatientFullName, this.txtDiagnosisID.Text, generateID.ToString(), val.UserFullName,
+                string.Format("Removed patient {0} diagnosis! ID: {1}. {2} has been removed!", val.PatientFullName,
+                this.gridDiagnosis.SelectedCells[0].Value.ToString(), this.gridDiagnosis.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Diagnosis successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1214,7 +1261,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            if(symptoms.RemoveSymptom(val.PatientFullName, this.txtSymptomsID.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while(generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(symptoms.RemoveSymptom(val.PatientFullName, this.txtSymptomsID.Text, generateID.ToString(), val.UserFullName,
+                string.Format("Removed patient {0} symptom! ID: {1}. {2} has been removed!", val.PatientFullName,
+                this.gridSymptoms.SelectedCells[0].Value.ToString(), this.gridSymptoms.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Symptom successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1242,7 +1303,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemovePrescriptions_Click(object sender, EventArgs e)
         {
-            if(prescriptions.RemovePrescriptions(val.PatientFullName, this.txtPrescriptionsID.Text))
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 5)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+
+            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
+            {
+                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (prescriptions.RemovePrescriptions(val.PatientFullName, this.txtPrescriptionsID.Text, generateID.ToString(), val.UserFullName,
+                string.Format("Removed patient {0} prescription! ID: {1}. {2} has been removed!", val.PatientFullName,
+                this.gridPrescriptions.SelectedCells[0].Value.ToString(), this.gridPrescriptions.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

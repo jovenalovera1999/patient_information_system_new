@@ -29,8 +29,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Gender',
                                     DATE_FORMAT(birthday, '%a, %d %b %Y ') AS 'Birthday',
                                     status AS 'Status'
-                                    FROM pis_db.patients
-                                    WHERE status = 'Waiting' OR status = 'Consulting'";
+                                    FROM pis_db.schedule
+                                    WHERE status = 'Waiting' OR status = 'Consulting';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -95,13 +95,12 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
                                     DATE_FORMAT(birthday, '%a, %d %b %Y') AS 'Birthday',
-                                    pis_db.patients.status AS 'Status'
-                                    FROM pis_db.patients
-                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
+                                    status AS 'Status'
+                                    FROM pis_db.schedule
                                     WHERE 
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     = CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')') AND
-                                    pis_db.patients.status = 'Waiting' OR pis_db.patients.status = 'Consulting' ORDER BY pis_db.patients.id ASC;";
+                                    status = 'Waiting' OR status = 'Consulting';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -142,7 +141,7 @@ namespace PatientInformationSystemNew.functions
                                     WHERE
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     = CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')') AND
-                                    status = 'Show';";
+                                    status = 'Complete';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -219,6 +218,17 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    INSERT INTO pis_db.schedule(patient_id, first_name, middle_name, last_name, gender, birthday, doctor)
+                                    VALUES(
+                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    @birthday,
+                                    AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -355,7 +365,7 @@ namespace PatientInformationSystemNew.functions
 
         // Save patient
 
-        public bool SavePatientCompleteConsultation(int id, int patient_fid, string full_name, string prescription_id,
+        public bool SavePatientCompleteConsultation(int id, string patient_id, int patient_fid, string full_name, string prescription_id,
             string prescriptions, DateTime date)
         {
             try
@@ -396,11 +406,17 @@ namespace PatientInformationSystemNew.functions
 
                                     UPDATE pis_db.patients
                                     SET status = 'Complete'
-                                    WHERE id = @id;";
+                                    WHERE id = @id;
+
+                                    UPDATE pis_db.schedule
+                                    SET status = 'Done'
+                                    WHERE CAST(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') = @patient_id AND 
+                                    status = 'Consulting';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@full_name", full_name);
                         cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
@@ -689,23 +705,26 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool BackPatientToScheduleFromConsultation(int id, int patient_fid)
+        public bool BackPatientToScheduleFromConsultation(string patient_id, int patient_fid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.patients 
-                                    SET status = 'Waiting'
-                                    WHERE id = @id;
-
-                                    DELETE FROM pis_db.diagnosis
+                    string sql = @"UPDATE pis_db.diagnosis
+                                    SET status = 'Deleted'
                                     WHERE
-                                    patient_fid = @patient_fid";
+                                    patient_fid = @patient_fid AND status = 'In Consultation';
+
+                                    UPDATE pis_db.schedule 
+                                    SET status = 'Waiting'
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    status = 'Consulting';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
 
                         connection.Open();
@@ -796,7 +815,7 @@ namespace PatientInformationSystemNew.functions
                             FROM pis_db.patients
                             WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;
 
-                            UPDATE pis_db.patients SET status = 'Consulting' 
+                            UPDATE pis_db.schedule SET status = 'Consulting' 
                             WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
