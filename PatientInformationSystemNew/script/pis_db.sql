@@ -61,7 +61,7 @@ VALUES(
 );
 
 CREATE TABLE pis_db.schedule (
-    id                                  INT(10) NOT NULL,
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_id                          VARBINARY(800) NOT NULL,
     first_name                          VARBINARY(800) NOT NULL,    
     middle_name                         VARBINARY(800) DEFAULT NULL,

@@ -48,7 +48,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.Text = val.PatientPulseRate;
             this.txtBloodPressure.Text = val.PatientBloodPressure;
 
-            symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+            symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
 
             diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosisRecord);
             symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
@@ -175,7 +175,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
@@ -213,7 +213,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
@@ -250,7 +250,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
@@ -350,7 +350,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
-            else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
+            else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
                 this.txtPrescription.Text, DateTime.Now.Date))
             {
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
