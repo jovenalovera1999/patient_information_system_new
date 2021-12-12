@@ -23,12 +23,12 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) AS 'Supply ID',
-                                    CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) AS 'Supply Name',
-                                    CAST(AES_DECRYPT(quantity, 'jovencutegwapo123') AS CHAR) AS 'Quantity',
+                                    CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Supply ID',
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Supply Name',
+                                    CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Quantity',
                                     DATE_FORMAT(expiration_date, '%M %d, %Y') AS 'Expiration Date',
                                     CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left') AS 'Expire In'
-                                    FROM patient_information_db.inventory;";
+                                    FROM pis_db.inventory;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -53,14 +53,14 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) AS 'Supply ID',
-                                    CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) AS 'Supply Name',
-                                    CAST(AES_DECRYPT(quantity, 'jovencutegwapo123') AS CHAR) AS 'Quantity',
+                                    CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Supply ID',
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Supply Name',
+                                    CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Quantity',
                                     DATE_FORMAT(expiration_date, '%M %d, %Y') AS 'Expiration Date',
                                     CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left') AS 'Expire In',
                                     DATE_FORMAT(arrive_date, '%M %d, %Y') AS 'Arrive Date',
                                     CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left') AS 'Arrive In'
-                                    FROM patient_information_db.inventory_incoming;";
+                                    FROM pis_db.inventory_incoming;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -86,15 +86,15 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.inventory(supply_id, supply_name, quantity, expiration_date)
+                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
                                     VALUES(
-                                    AES_ENCRYPT(@supply_id, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@supply_name, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@quantity, 'jovencutegwapo123'), 
+                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     @expiration_date);
 
-                                    DELETE FROM patient_information_db.inventory_incoming
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    DELETE FROM pis_db.inventory_incoming
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -123,14 +123,14 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.inventory(supply_id, supply_name, quantity)
+                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity)
                                     VALUES(
-                                    AES_ENCRYPT(@supply_id, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@supply_name, 'jovencutegwapo123'), 
-                                    AES_ENCRYPT(@quantity, 'jovencutegwapo123'));
+                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'));
 
-                                    DELETE FROM patient_information_db.inventory_incoming
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    DELETE FROM pis_db.inventory_incoming
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -160,11 +160,11 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.inventory_incoming(supply_id, supply_name, quantity, expiration_date, arrive_date)
+                    string sql = @"INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, expiration_date, arrive_date)
                                     VALUES(
-                                    AES_ENCRYPT(@supply_id, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @expiration_date,
                                     @arrive_date
                                     );";
@@ -197,11 +197,11 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.inventory_incoming(supply_id, supply_name, quantity, arrive_date)
+                    string sql = @"INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, arrive_date)
                                     VALUES(
-                                    AES_ENCRYPT(@supply_id, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @arrive_date
                                     );";
 
@@ -232,11 +232,11 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.inventory(supply_id, supply_name, quantity, expiration_date)
+                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
                                     VALUES(
-                                    AES_ENCRYPT(@supply_id, 'jovencutegwapo123'),
-                                    AES_ENCRYT(@supply_name, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @expiration_date);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -266,11 +266,11 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO patient_information_db.inventory(supply_id, supply_name, quantity)
+                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity)
                                     VALUES(
-                                    AES_ENCRYPT(@supply_id, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    AES_ENCRYPT(@quantity, 'jovencutegwapo123'));";
+                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'));";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -300,14 +300,14 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory_incoming
+                    string sql = @"UPDATE pis_db.inventory_incoming
                                     SET 
-                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     expiration_date = @expiration_date,
                                     arrive_date = @arrive_date
                                     WHERE
-                                    CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -337,13 +337,13 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory_incoming
+                    string sql = @"UPDATE pis_db.inventory_incoming
                                     SET 
-                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     arrive_date = @arrive_date
                                     WHERE
-                                    CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -372,12 +372,12 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory
+                    string sql = @"UPDATE pis_db.inventory
                                     SET 
-                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123'),
+                                    supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     expiration_date = @expiration_date
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -406,11 +406,11 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory
+                    string sql = @"UPDATE pis_db.inventory
                                     SET 
-                                    supply_name = AES_ENCRYPT(@supply_name, 'jovencutegwapo123'),
-                                    quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -438,12 +438,12 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory
-                                    SET quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;
+                    string sql = @"UPDATE pis_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
 
-                                    DELETE FROM patient_information_db.inventory_incoming
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                                    DELETE FROM pis_db.inventory_incoming
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -471,9 +471,9 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory
-                                    SET quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'jovencutegwapo123') AS CHAR) = @supply_name;";
+                    string sql = @"UPDATE pis_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -500,8 +500,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE patient_information_db.inventory
-                                    SET quantity = AES_ENCRYPT(@quantity, 'jovencutegwapo123')
+                    string sql = @"UPDATE pis_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE CAST(AES_DECRYPT(supply_id, 'jovencutewgapo123') AS CHAR) = @supply_id";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -531,8 +531,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"DELETE FROM patient_information_db.inventory_incoming
-                                    WHERE CAST(AES_DECRYPT(supply_id, 'jovencutegwapo123') AS CHAR) = @supply_id;";
+                    string sql = @"DELETE FROM pis_db.inventory_incoming
+                                    WHERE CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

@@ -40,12 +40,14 @@ namespace PatientInformationSystemNew.forms
                 this.btnDoctors.Visible = false;
                 this.btnSignUp.Visible = false;
                 this.btnReport.Visible = false;
+                this.btnUpdateHistory.Visible = false;
             }
             else if(val.UserRole == "Medical Staff")
             {
                 this.btnDoctors.Visible = false;
                 this.btnSignUp.Visible = false;
                 this.btnReport.Visible = false;
+                this.btnUpdateHistory.Visible = false;
             }
         }
 
