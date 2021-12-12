@@ -48,7 +48,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.Text = val.PatientPulseRate;
             this.txtBloodPressure.Text = val.PatientBloodPressure;
 
-            symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
+            symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
 
             diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosisRecord);
             symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
@@ -175,7 +175,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
@@ -213,7 +213,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();
@@ -250,7 +250,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnUpdateSymptoms.Enabled = false;
                 this.btnRemoveSymptoms.Enabled = false;
 
-                symptoms.LoadSymptomsInConsultation(this.gridSymptoms);
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
                 symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
 
                 this.txtSymptoms.ResetText();

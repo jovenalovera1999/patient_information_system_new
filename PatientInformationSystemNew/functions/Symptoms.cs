@@ -14,7 +14,7 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void LoadSymptomsInConsultation(DataGridView grid)
+        public void LoadSymptomsInConsultation(int patient_fid, DataGridView grid)
         {
             try
             {
@@ -24,11 +24,14 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
                                     CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms'
                                     FROM pis_db.symptoms
-                                    INNER JOIN pis_db.patients ON pis_db.symptoms.patient_fid = pis_db.patients.id
-                                    WHERE pis_db.symptoms.status = 'In Consultation';";
+                                    WHERE
+                                    patient_fid = @patient_fid AND
+                                    status = 'In Consultation';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
