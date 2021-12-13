@@ -809,13 +809,13 @@ namespace PatientInformationSystemNew.forms
             }
             else if (patient.UpdatePatient(val.PatientPrimaryID, val.PatientPrimaryID, this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, generateID.ToString(), val.UserFullName, string.Format("Updated patient {0}! " +
-                "Set First Name from {1} to {2}, Middle Name from {3} to {4}, Last Name from {5} to {6}, Gender from {7} to {8}, Age from {9} to {10}, " +
-                "Address from {11} to {12}, Birthday from {13} to {14}, Cellphone Number from {15} to {16}, Telephone Number from {17} to {18}, " +
-                "and Email from {19} to {20}!", val.PatientFullName, val.PatientFirstName, this.txtFirstName.Text, val.PatientMiddleName,
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Personal Info!\r\n" +
+                "First Name: from {1} to {2}\r\nMiddle Name: from {3} to {4}\r\nLast Name: from {5} to {6}\r\nGender: from {7} to {8}\r\nAge: from {9} to {10}\r\n" +
+                "Address: from {11} to {12}\r\nBirthday: from {13} to {14}\r\nCellphone Number: from {15} to {16}\r\nTelephone Number: from {17} to {18}\r\n" +
+                "Email: from {19} to {20}!", val.PatientFullName, val.PatientFirstName, this.txtFirstName.Text, val.PatientMiddleName,
                 this.txtMiddleName.Text, val.PatientLastName, this.txtLastName.Text, val.PatientGender, this.cmbGender.Text, val.PatientAge, this.cmbAge.Text,
                 val.PatientAddress, this.txtAddress.Text, val.PatientBirthday.ToString("D"), this.dateBirthday.Value.Date.ToString("D"),
-                val.PatientCellphoneNumer, this.txtCellphoneNumber, val.PatientTelephoneNumber, this.txtTelephoneNumber.Text,
+                val.PatientCellphoneNumer, this.txtCellphoneNumber.Text, val.PatientTelephoneNumber, this.txtTelephoneNumber.Text,
                 val.PatientEmail, this.txtEmail.Text)))
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -840,6 +840,10 @@ namespace PatientInformationSystemNew.forms
 
                 vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
                 doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
+                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+                payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
 
                 this.txtFirstName.Enabled = false;
                 this.txtMiddleName.Enabled = false;
@@ -918,10 +922,10 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(doctor.UpdateDoctor(val.PatientFullName, this.txtIDDoctors.Text, val.PatientDoctorID, this.cmbNameDoctors.Text,
-                this.dateDoctors.Value.Date, generateID.ToString(), val.UserFullName, string.Format("Updated {0} doctor! ID: {1}. " +
-                "Set Doctor from {2} to {3} and Date from {4} to {5}!", val.PatientFullName, this.gridDoctorsRecords.SelectedCells[0].Value.ToString(),
-                val.PatientDoctor, this.cmbNameDoctors.Text, date.ToString("D"), this.dateDoctors.Value.Date.ToString("D"))))
+            else if(doctor.UpdateDoctor(val.PatientFullName, this.txtIDDoctors.Text, val.DoctorID, this.cmbNameDoctors.Text,
+                this.dateDoctors.Value.Date, generateID.ToString(), val.UserFullName, string.Format("Updated {0} Doctor!\r\nID: {1}\r\n" +
+                "Doctor: from {2} to {3}\r\nDate: from {4} to {5}", val.PatientFullName, this.gridDoctorsRecords.SelectedCells[0].Value.ToString(),
+                this.gridDoctorsRecords.SelectedCells[2].Value.ToString(), this.cmbNameDoctors.Text, date.ToString("D"), this.dateDoctors.Value.Date.ToString("D"))))
             {
                 MessageBox.Show("Doctor successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -963,8 +967,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(diagnosis.UpdateDiagnosis(val.PatientFullName, this.txtDiagnosisID.Text, this.txtDiagnosis.Text, this.dateDiagnosis.Value.Date,
-                generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} diagnosis! ID: {1}. Set Diagnosis from {2} to {3} and " +
-                "Date from {4} to {5}!", val.PatientFullName, this.txtDiagnosisID.Text, this.gridDiagnosis.SelectedCells[1].Value.ToString(),
+                generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} diagnosis!\r\nID: {1}\r\nDiagnosis from {2} to {3}\r\n" +
+                "Date from {4} to {5}", val.PatientFullName, this.txtDiagnosisID.Text, this.gridDiagnosis.SelectedCells[1].Value.ToString(),
                 this.txtDiagnosis.Text, date.ToString("D"), this.dateDiagnosis.Value.Date.ToString("D"))))
             {
                 MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1008,8 +1012,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(symptoms.UpdateSymptom(val.PatientFullName, this.txtSymptomsID.Text, this.txtSymptoms.Text, this.dateSymptoms.Value.Date,
-                generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} symptom! ID: {1}. Set symptoms from {2} to {3} and Date " +
-                "from {4} to {5}!", val.PatientFullName, this.txtSymptomsID.Text, this.gridSymptoms.SelectedCells[1].Value.ToString(),
+                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Symptom!\r\nID: {1}\r\nSymptom: from {2} to {3}\r\nDate: " +
+                "from {4} to {5}", val.PatientFullName, this.txtSymptomsID.Text, this.gridSymptoms.SelectedCells[1].Value.ToString(),
                 this.txtSymptoms.Text, date.ToString("D"), this.dateSymptoms.Value.Date.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1053,8 +1057,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(prescriptions.UpdatePrescriptions(val.PatientFullName, this.txtPrescriptionsID.Text, this.txtPrescriptions.Text,
-                this.datePrescriptions.Value.Date, generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} prescription! " +
-                "ID: {1}. Set Prescription from {2} to {3} and Date from {4} to {5}!", val.PatientFullName, this.txtPrescriptionsID.Text,
+                this.datePrescriptions.Value.Date, generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Prescription!\r\n" +
+                "ID: {1}\r\nPrescription: from {2} to {3}\r\nDate from {4} to {5}", val.PatientFullName, this.txtPrescriptionsID.Text,
                 this.gridPrescriptions.SelectedCells[1].Value.ToString(), this.txtPrescriptions.Text, date.ToString("D"),
                 this.datePrescriptions.Value.Date.ToString("D"))))
             {
@@ -1111,9 +1115,9 @@ namespace PatientInformationSystemNew.forms
             {
                 if (payment.UpdatePaymentTransaction(val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
                 this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
-                generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} payment transaction! ID: {1}. Set Receipt No. from " +
-                "{2} to {3}, Total Medical Fee from {4} to {5}, Discount from {6} to {7}, Amount from {8} to {9}, Total Amount Paid from {10} to {11} " +
-                "and Change from {12} to {13}!", val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(),
+                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Payment Transaction! ID: {1}\r\nReceipt No: from " +
+                "{2} to {3}\r\nTotal Medical Fee: from {4} to {5}\r\nDiscount: from {6} to {7}\r\nAmount: from {8} to {9}\r\n Total Amount Paid: from {10} to {11}\r\n" +
+                "Change from {12} to {13}", val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(),
                 this.gridPaymentHistory.SelectedCells[1].Value.ToString(), this.txtReceiptNo.Text, this.gridPaymentHistory.SelectedCells[2].Value.ToString(),
                 this.txtTotalMedicalFee.Text, this.gridPaymentHistory.SelectedCells[3].Value.ToString(), this.cmbDiscount.Text,
                 this.gridPaymentHistory.SelectedCells[4].Value.ToString(), this.txtAmount.Text, this.gridPaymentHistory.SelectedCells[5].Value.ToString(),
@@ -1545,6 +1549,8 @@ namespace PatientInformationSystemNew.forms
 
         private void cmbNameDoctors_SelectedIndexChanged(object sender, EventArgs e)
         {
+            doctor.GetDoctorID(this.cmbNameDoctors.Text);
+
             if(String.IsNullOrWhiteSpace(this.cmbNameDoctors.Text))
             {
                 this.btnAddDoctor.Enabled = false;

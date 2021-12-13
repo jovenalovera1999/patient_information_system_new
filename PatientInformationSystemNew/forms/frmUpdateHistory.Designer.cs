@@ -32,7 +32,7 @@ namespace PatientInformationSystemNew.forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtUser = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtEditedBy = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUpdateID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,33 +44,33 @@ namespace PatientInformationSystemNew.forms
             ((System.ComponentModel.ISupportInitialize)(this.gridUpdateHistory)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtUser
+            // txtEditedBy
             // 
-            this.txtUser.Animated = true;
-            this.txtUser.BorderRadius = 5;
-            this.txtUser.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUser.DefaultText = "";
-            this.txtUser.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.txtUser.DisabledState.FillColor = System.Drawing.Color.White;
-            this.txtUser.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.txtUser.DisabledState.Parent = this.txtUser;
-            this.txtUser.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUser.Enabled = false;
-            this.txtUser.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtUser.FocusedState.Parent = this.txtUser;
-            this.txtUser.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtUser.ForeColor = System.Drawing.Color.Black;
-            this.txtUser.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtUser.HoverState.Parent = this.txtUser;
-            this.txtUser.Location = new System.Drawing.Point(26, 163);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.PasswordChar = '\0';
-            this.txtUser.PlaceholderText = "";
-            this.txtUser.SelectedText = "";
-            this.txtUser.ShadowDecoration.Parent = this.txtUser;
-            this.txtUser.Size = new System.Drawing.Size(446, 45);
-            this.txtUser.TabIndex = 28;
+            this.txtEditedBy.Animated = true;
+            this.txtEditedBy.BorderRadius = 5;
+            this.txtEditedBy.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEditedBy.DefaultText = "";
+            this.txtEditedBy.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtEditedBy.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtEditedBy.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtEditedBy.DisabledState.Parent = this.txtEditedBy;
+            this.txtEditedBy.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEditedBy.Enabled = false;
+            this.txtEditedBy.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtEditedBy.FocusedState.Parent = this.txtEditedBy;
+            this.txtEditedBy.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtEditedBy.ForeColor = System.Drawing.Color.Black;
+            this.txtEditedBy.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtEditedBy.HoverState.Parent = this.txtEditedBy;
+            this.txtEditedBy.Location = new System.Drawing.Point(26, 163);
+            this.txtEditedBy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEditedBy.Name = "txtEditedBy";
+            this.txtEditedBy.PasswordChar = '\0';
+            this.txtEditedBy.PlaceholderText = "";
+            this.txtEditedBy.SelectedText = "";
+            this.txtEditedBy.ShadowDecoration.Parent = this.txtEditedBy;
+            this.txtEditedBy.Size = new System.Drawing.Size(446, 45);
+            this.txtEditedBy.TabIndex = 28;
             // 
             // label1
             // 
@@ -79,9 +79,9 @@ namespace PatientInformationSystemNew.forms
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(21, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 28);
+            this.label1.Size = new System.Drawing.Size(98, 28);
             this.label1.TabIndex = 27;
-            this.label1.Text = "User:";
+            this.label1.Text = "Edited By:";
             // 
             // txtUpdateID
             // 
@@ -118,9 +118,9 @@ namespace PatientInformationSystemNew.forms
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(21, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 28);
+            this.label8.Size = new System.Drawing.Size(35, 28);
             this.label8.TabIndex = 25;
-            this.label8.Text = "Update ID:";
+            this.label8.Text = "ID:";
             // 
             // txtDescription
             // 
@@ -140,7 +140,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescription.ForeColor = System.Drawing.Color.Black;
             this.txtDescription.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescription.HoverState.Parent = this.txtDescription;
-            this.txtDescription.Location = new System.Drawing.Point(26, 263);
+            this.txtDescription.Location = new System.Drawing.Point(0, 264);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -148,7 +148,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescription.PlaceholderText = "";
             this.txtDescription.SelectedText = "";
             this.txtDescription.ShadowDecoration.Parent = this.txtDescription;
-            this.txtDescription.Size = new System.Drawing.Size(1646, 134);
+            this.txtDescription.Size = new System.Drawing.Size(1822, 312);
             this.txtDescription.TabIndex = 30;
             // 
             // label2
@@ -236,7 +236,7 @@ namespace PatientInformationSystemNew.forms
             this.gridUpdateHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridUpdateHistory.EnableHeadersVisualStyles = false;
             this.gridUpdateHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridUpdateHistory.Location = new System.Drawing.Point(0, 438);
+            this.gridUpdateHistory.Location = new System.Drawing.Point(0, 623);
             this.gridUpdateHistory.Name = "gridUpdateHistory";
             this.gridUpdateHistory.ReadOnly = true;
             this.gridUpdateHistory.RowHeadersVisible = false;
@@ -244,7 +244,7 @@ namespace PatientInformationSystemNew.forms
             this.gridUpdateHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridUpdateHistory.RowTemplate.Height = 40;
             this.gridUpdateHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridUpdateHistory.Size = new System.Drawing.Size(1699, 520);
+            this.gridUpdateHistory.Size = new System.Drawing.Size(1699, 335);
             this.gridUpdateHistory.TabIndex = 33;
             this.gridUpdateHistory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridUpdateHistory.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -267,6 +267,7 @@ namespace PatientInformationSystemNew.forms
             this.gridUpdateHistory.ThemeStyle.RowsStyle.Height = 40;
             this.gridUpdateHistory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridUpdateHistory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridUpdateHistory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridUpdateHistory_CellMouseClick);
             // 
             // frmUpdateHistory
             // 
@@ -279,7 +280,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.txtEditedBy);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUpdateID);
             this.Controls.Add(this.label8);
@@ -288,6 +289,7 @@ namespace PatientInformationSystemNew.forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update History";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmUpdateHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridUpdateHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -296,7 +298,7 @@ namespace PatientInformationSystemNew.forms
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox txtUser;
+        private Guna.UI2.WinForms.Guna2TextBox txtEditedBy;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtUpdateID;
         private System.Windows.Forms.Label label8;
