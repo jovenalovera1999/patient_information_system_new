@@ -87,7 +87,7 @@ CREATE TABLE pis_db.patients (
     cellphone_number                    VARBINARY(800) DEFAULT NULL,
     telephone_number                    VARBINARY(800) DEFAULT NULL,
     email                               VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(800) DEFAULT 'For Consulting',
+    status                              VARCHAR(800) DEFAULT 'In Consultation',
     payment_status                      VARCHAR(800) DEFAULT 'Unpaid',
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)

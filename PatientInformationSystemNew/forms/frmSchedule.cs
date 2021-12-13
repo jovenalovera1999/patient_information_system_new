@@ -97,7 +97,7 @@ namespace PatientInformationSystemNew.forms
             {
                 if(val.PatientInScheduleDateCreated > DateTime.Now)
                 {
-                    if (patient.CancelPatientInScheduleWithExistingFirstAccount(val.PatientInSchedulePrimaryID, this.txtPatientID.Text))
+                    if (patient.CancelPatientInScheduleWithExistingFirstAccount(this.txtPatientID.Text))
                     {
                         MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -128,7 +128,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 else
                 {
-                    if (patient.CancelPatientInScheduleWithoutExistingFirstAccount(val.PatientInSchedulePrimaryID, this.txtPatientID.Text))
+                    if (patient.CancelPatientInScheduleWithoutExistingFirstAccount(this.txtPatientID.Text))
                     {
                         MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
