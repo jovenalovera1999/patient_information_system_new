@@ -176,7 +176,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridSymptomsRecord);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -214,7 +214,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnRemoveSymptoms.Enabled = false;
 
                 symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -251,7 +251,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnRemoveSymptoms.Enabled = false;
 
                 symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptomsRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -323,7 +323,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                diagnosis.LoadDiagnosisRecordsOfPatient(this.txtPatientID.Text, this.gridDiagnosisRecord);
+                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosisRecord);
 
                 this.btnSaveDiagnosis.Enabled = false;
                 this.txtPrescription.Focus();
@@ -355,6 +355,8 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
+
+                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptionsRecord);
 
                 this.btnSavePrescription.Enabled = false;
                 this.btnBack.Enabled = false;

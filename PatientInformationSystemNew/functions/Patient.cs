@@ -794,7 +794,7 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"UPDATE pis_db.diagnosis
-                                    SET status = 'Deleted'
+                                    SET status = 'Removed'
                                     WHERE
                                     patient_fid = @patient_fid AND status = 'In Consultation';
 
