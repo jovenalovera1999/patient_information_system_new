@@ -206,32 +206,12 @@ namespace PatientInformationSystemNew.forms
 
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(patient.GetPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
-            {
-                forms.frmDoctorsPatientProfile frmDoctorsPatientProfileNew = new forms.frmDoctorsPatientProfile();
-                frmDoctorsPatientProfileNew.TopLevel = false;
-                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmDoctorsPatientProfileNew);
-                frmDoctorsPatientProfileNew.Dock = DockStyle.Fill;
-                frmDoctorsPatientProfileNew.Show();
-                this.Close();
-            }
+            
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (patient.GetPatient(this.txtPatientID.Text))
-            {
-                forms.frmDoctorsPatientProfile frmDoctorsPatientProfileNew = new forms.frmDoctorsPatientProfile();
-                frmDoctorsPatientProfileNew.TopLevel = false;
-                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmDoctorsPatientProfileNew);
-                frmDoctorsPatientProfileNew.Dock = DockStyle.Fill;
-                frmDoctorsPatientProfileNew.Show();
-                this.Close();
-            }
+            
         }
     }
 }

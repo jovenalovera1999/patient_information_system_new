@@ -31,32 +31,6 @@ namespace PatientInformationSystemNew.forms
         functions.VitalSigns vital_signs = new functions.VitalSigns();
         functions.Doctor doctor = new functions.Doctor();
 
-        void DoctorsName()
-        {
-            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')
-                            FROM pis_db.users
-                            WHERE CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Doctor'";
-            MySqlConnection connection = new MySqlConnection(con.conString());
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
-            MySqlDataReader myReader;
-
-            try
-            {
-                connection.Open();
-                myReader = cmd.ExecuteReader();
-
-                while (myReader.Read())
-                {
-                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')");
-                    this.cmbNameDoctors.Items.Add(doctors_name);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error filling doctors name: " + ex.ToString());
-            }
-        }
-
         void AutoGenNumVitalSigns()
         {
             Random number = new Random();
@@ -67,18 +41,6 @@ namespace PatientInformationSystemNew.forms
                 generateID.Append(number.Next(10).ToString());
             }
             this.txtVitalSignsID.Text = generateID.ToString();
-        }
-
-        void AutoGenNumDoctor()
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-            this.txtIDDoctors.Text = generateID.ToString();
         }
 
         void AutoGenNumDiagnosis()
@@ -138,19 +100,16 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
             this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
             this.txtEmail.Text = val.PatientEmail;
+            this.txtDoctor.Text = val.PatientDoctor;
             this.txtFullName.Text = val.PatientFullName;
 
             vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
-            doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
             diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
             symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
             prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
             payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
 
-            DoctorsName();
-
             this.dateVitalSigns.Value = DateTime.Now.Date;
-            this.dateDoctors.Value = DateTime.Now.Date;
             this.dateDiagnosis.Value = DateTime.Now.Date;
             this.dateSymptoms.Value = DateTime.Now.Date;
             this.datePrescriptions.Value = DateTime.Now.Date;
@@ -172,18 +131,6 @@ namespace PatientInformationSystemNew.forms
             this.dateVitalSigns.Value = DateTime.Parse(this.gridVitalSigns.SelectedCells[6].Value.ToString());
 
             this.btnEditVitalSigns.Enabled = true;
-        }
-
-        private void gridDoctorsRecords_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
-            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.White;
-
-            this.txtIDDoctors.Text = this.gridDoctorsRecords.SelectedCells[0].Value.ToString();
-            this.cmbNameDoctors.Text = this.gridDoctorsRecords.SelectedCells[2].Value.ToString();
-            this.dateDoctors.Value = DateTime.Parse(this.gridDoctorsRecords.SelectedCells[3].Value.ToString());
-
-            this.btnEditDoctors.Enabled = true;
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -280,23 +227,6 @@ namespace PatientInformationSystemNew.forms
             this.btnEditVitalSigns.Enabled = false;
 
             this.txtHeight.Focus();
-        }
-
-        private void btnEditDoctors_Click(object sender, EventArgs e)
-        {
-            this.btnAddDoctor.Visible = false;
-            this.btnCancelDoctors.Visible = false;
-
-            this.cmbNameDoctors.Enabled = true;
-            this.dateDoctors.Enabled = true;
-
-            this.btnSaveDoctors.Visible = true;
-            this.btnRemoveDoctors.Visible = true;
-
-            this.btnNewDoctors.Enabled = true;
-            this.btnEditDoctors.Enabled = false;
-
-            this.cmbNameDoctors.Focus();
         }
 
         private void btnEditDiagnosis_Click(object sender, EventArgs e)
@@ -396,32 +326,6 @@ namespace PatientInformationSystemNew.forms
             this.dateVitalSigns.Enabled = true;
 
             this.txtHeight.Focus();
-        }
-
-        private void btnNewDoctors_Click(object sender, EventArgs e)
-        {
-            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-            this.txtIDDoctors.ResetText();
-            this.cmbNameDoctors.Text = null;
-            this.dateDoctors.Value = DateTime.Now.Date;
-
-            doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDoctorsRecords);
-            AutoGenNumDoctor();
-
-            this.btnAddDoctor.Visible = true;
-            this.btnCancelDoctors.Visible = true;
-
-            this.btnNewDoctors.Enabled = false;
-            this.btnEditDoctors.Enabled = false;
-            this.btnSaveDoctors.Visible = false;
-            this.btnRemoveDoctors.Visible = false;
-
-            this.cmbNameDoctors.Enabled = true;
-            this.dateDoctors.Enabled = true;
-
-            this.cmbNameDoctors.Focus();
         }
 
         private void btnNewDiagnosis_Click(object sender, EventArgs e)
@@ -533,35 +437,6 @@ namespace PatientInformationSystemNew.forms
             else
             {
                 MessageBox.Show("Failed to add vital signs!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnAddDoctor_Click(object sender, EventArgs e)
-        {
-            doctor.GetDoctorID(this.cmbNameDoctors.Text);
-
-            if(duplicate.DoctorDuplicateID(val.PatientFullName, this.txtIDDoctors.Text))
-            {
-                MessageBox.Show("Doctor ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                AutoGenNumDoctor();
-            }
-            else if(doctor.AddDoctor(val.PatientPrimaryID, val.PatientFullName, this.txtIDDoctors.Text, val.DoctorID, this.cmbNameDoctors.Text,
-                this.dateDoctors.Value.Date))
-            {
-                MessageBox.Show("Doctor successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                doctor.LoadEachPatientDoctor(val.PatientPrimaryID, this.gridDoctorsRecords);
-
-                AutoGenNumDoctor();
-                this.cmbNameDoctors.Text = null;
-                this.dateDoctors.Value = DateTime.Now.Date;
-            }
-            else
-            {
-                MessageBox.Show("Failed to add doctor", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -680,25 +555,6 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelVitalSigns.Visible = false;
 
             this.btnNewVitalSigns.Enabled = true;
-        }
-
-        private void btnCancelDoctors_Click(object sender, EventArgs e)
-        {
-            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-            doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
-
-            this.txtIDDoctors.ResetText();
-            this.cmbNameDoctors.Text = null;
-            this.dateDoctors.Value = DateTime.Now.Date;
-
-            this.cmbNameDoctors.Enabled = false;
-            this.dateDoctors.Enabled = false;
-            this.btnAddDoctor.Visible = false;
-            this.btnCancelDoctors.Visible = false;
-
-            this.btnNewDoctors.Enabled = true;
         }
 
         private void btnCancelDiagnosis_Click(object sender, EventArgs e)
@@ -820,7 +676,7 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (patient.GetPatient(this.txtPatientID.Text))
+                if (patient.GetPatient(val.PatientPrimaryID))
                 {
                     this.txtPatientID.Text = val.PatientID;
                     this.txtFirstName.Text = val.PatientFirstName;
@@ -839,7 +695,6 @@ namespace PatientInformationSystemNew.forms
                 }
 
                 vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
-                doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
                 diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
                 symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
                 prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
@@ -901,52 +756,6 @@ namespace PatientInformationSystemNew.forms
             else
             {
                 MessageBox.Show("Failed to update vital signs!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnSaveDoctors_Click(object sender, EventArgs e)
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            DateTime date = DateTime.Parse(this.gridDoctorsRecords.SelectedCells[3].Value.ToString());
-
-            doctor.GetDoctorID(this.cmbNameDoctors.Text);
-
-            if (duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(doctor.UpdateDoctor(val.PatientFullName, this.txtIDDoctors.Text, val.DoctorID, this.cmbNameDoctors.Text,
-                this.dateDoctors.Value.Date, generateID.ToString(), val.UserFullName, string.Format("Updated {0} Doctor!\r\nID: {1}\r\n" +
-                "Doctor: from {2} to {3}\r\nDate: from {4} to {5}", val.PatientFullName, this.gridDoctorsRecords.SelectedCells[0].Value.ToString(),
-                this.gridDoctorsRecords.SelectedCells[2].Value.ToString(), this.cmbNameDoctors.Text, date.ToString("D"), this.dateDoctors.Value.Date.ToString("D"))))
-            {
-                MessageBox.Show("Doctor successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
-
-                this.txtIDDoctors.ResetText();
-                this.cmbNameDoctors.Text = null;
-                this.dateDoctors.Value = DateTime.Now.Date;
-
-                this.cmbNameDoctors.Enabled = false;
-                this.dateDoctors.Enabled = false;
-
-                this.btnSaveDoctors.Visible = false;
-                this.btnRemoveDoctors.Visible = false;
-            }
-            else
-            {
-                MessageBox.Show("Failed to update doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1176,48 +985,6 @@ namespace PatientInformationSystemNew.forms
             else
             {
                 MessageBox.Show("Failed to remove vital signs!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnRemoveDoctors_Click(object sender, EventArgs e)
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(doctor.RemoveDoctor(val.PatientFullName, this.txtIDDoctors.Text, generateID.ToString(), val.UserFullName,
-                string.Format("Removed patient {0} doctor! ID: {1}. {2} has been removed!", val.PatientFullName,
-                this.gridDiagnosis.SelectedCells[0].Value.ToString(), this.gridDiagnosis.SelectedCells[1].Value.ToString())))
-            {
-                MessageBox.Show("Doctor successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDoctorsRecords.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                doctor.LoadPatientDoctor(val.PatientFullName, this.gridDoctorsRecords);
-
-                this.txtIDDoctors.ResetText();
-                this.cmbNameDoctors.Text = null;
-                this.dateDoctors.Value = DateTime.Now.Date;
-
-                this.cmbNameDoctors.Enabled = false;
-                this.dateDoctors.Enabled = false;
-
-                this.btnSaveDoctors.Visible = false;
-                this.btnRemoveDoctors.Visible = false;
-                this.btnEditDoctors.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Failed to remove doctor!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1544,22 +1311,6 @@ namespace PatientInformationSystemNew.forms
             {
                 this.btnAddVitalSigns.Enabled = true;
                 this.btnSaveVitalSigns.Enabled = true;
-            }
-        }
-
-        private void cmbNameDoctors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            doctor.GetDoctorID(this.cmbNameDoctors.Text);
-
-            if(String.IsNullOrWhiteSpace(this.cmbNameDoctors.Text))
-            {
-                this.btnAddDoctor.Enabled = false;
-                this.btnSaveDoctors.Enabled = false;
-            }
-            else
-            {
-                this.btnAddDoctor.Enabled = true;
-                this.btnSaveDoctors.Enabled = true;
             }
         }
 

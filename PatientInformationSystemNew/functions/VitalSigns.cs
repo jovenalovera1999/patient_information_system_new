@@ -14,29 +14,28 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void LoadVitalSigns(string full_name, DataGridView grid)
+        public void LoadVitalSigns(int patient_fid, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    CAST(AES_DECRYPT(vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
-                                    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Height',
-                                    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Weight',
-                                    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Temperature',
-                                    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Pulse Rate',
-                                    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
+                                    id,
+                                    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    DATE_FORMAT(date, '%a, %d %b %Y')
                                     FROM pis_db.vital_signs
-                                    WHERE 
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
+                                    WHERE patient_fid = @patient_fid AND
                                     status = 'Show'
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -44,6 +43,14 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Height";
+                        grid.Columns["CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Weight";
+                        grid.Columns["CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Temperature";
+                        grid.Columns["CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Pulse Rate";
+                        grid.Columns["CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Blood Pressure";
+                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date";
                     }
                 } 
             }
@@ -53,77 +60,31 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void LoadEachPatientVitalSigns(int patient_fid, DataGridView grid)
+        public bool AddVitalSigns(int patient_fid, string height, string weight, string temperature, 
+            string pulse_rate, string blood_pressure)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    CAST(AES_DECRYPT(vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
-                                    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Height',
-                                    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Weight',
-                                    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Temperature',
-                                    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Pulse Rate',
-                                    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Blood Pressure',
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
-                                    FROM pis_db.vital_signs
-                                    WHERE 
-                                    patient_fid = @patient_fid AND
-                                    status = 'Show'
-                                    ORDER BY date ASC;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error loading each patient vital signs: " + ex.ToString());
-            }
-        }
-
-        public bool AddPatientVitalSigns(int patient_fid, string full_name, string vital_signs_id, string height, string weight, string temperature, 
-            string pulse_rate, string blood_pressure, DateTime date)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"INSERT INTO pis_db.vital_signs(patient_fid, full_name, vital_signs_id, height, weight, temperature, pulse_rate, 
-                                    blood_pressure, date)
+                    string sql = @"INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure)
                                     VALUES(
                                     @patient_fid,
-                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
+                                    AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@vital_signs_id", vital_signs_id);
                         cmd.Parameters.AddWithValue("@height", height);
                         cmd.Parameters.AddWithValue("@weight", weight);
                         cmd.Parameters.AddWithValue("@temperature", temperature);
                         cmd.Parameters.AddWithValue("@pulse_rate", pulse_rate);
                         cmd.Parameters.AddWithValue("@blood_pressure", blood_pressure);
-                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -141,8 +102,8 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateVitalSigns(string full_name, string vital_signs_id, string height, string weight, string temperature, string pulse_rate,
-            string blood_pressure, DateTime date)
+        public bool UpdateVitalSigns(int id, string height, string weight, string temperature, string pulse_rate, string blood_pressure,
+            DateTime date)
         {
             try
             {
@@ -156,14 +117,11 @@ namespace PatientInformationSystemNew.functions
                                     pulse_rate = AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     blood_pressure = AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
-                                    WHERE
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @vital_signs_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@vital_signs_id", vital_signs_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@height", height);
                         cmd.Parameters.AddWithValue("@weight", weight);
                         cmd.Parameters.AddWithValue("@temperature", temperature);
@@ -182,12 +140,12 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error updating each patient vital signs: " + ex.ToString());
+                Console.WriteLine("Error updating vital signs: " + ex.ToString());
                 return false;
             }
         }
 
-        public bool RemoveVitalSigns(string full_name, string vital_signs_id)
+        public bool RemoveVitalSigns(int id)
         {
             try
             {
@@ -196,14 +154,11 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"UPDATE pis_db.vital_signs
                                     SET
                                     status = 'Removed'
-                                    WHERE
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(vital_signs_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @vital_signs_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@vital_signs_id", vital_signs_id);
+                        cmd.Parameters.AddWithValue("@id", id);
 
                         connection.Open();
                         MySqlDataReader dr;

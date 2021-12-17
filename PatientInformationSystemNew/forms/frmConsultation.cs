@@ -99,17 +99,8 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
             int n = this.gridDiagnosis.Rows.Add();
-            this.gridDiagnosis.Rows[n].Cells[0].Value = generateID;
-            this.gridDiagnosis.Rows[n].Cells[1].Value = this.txtDiagnosis.Text;
+            this.gridDiagnosis.Rows[n].Cells[0].Value = this.txtDiagnosis.Text;
 
             this.txtDiagnosis.ResetText();
             this.txtDiagnosis.Focus();
@@ -156,21 +147,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptoms_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if (duplicate.SymptomsIDDuplicate(this.txtPatientID.Text, generateID.ToString()))
-            {
-                MessageBox.Show("Duplicate ID detected! Please try again!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtDiagnosis.Focus();
-            }
-            else if (symptoms.AddPatientSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
-                this.txtSymptoms.Text, DateTime.Now.Date))
+            if (symptoms.AddSymptomInConsultation(val.PatientPrimaryID, this.txtSymptoms.Text))
             {
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -201,12 +178,13 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (symptoms.UpdateSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(),
-                this.txtSymptoms.Text, generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} symptom! ID: {1}. Set Symptom from " +
-                "{2} to {3}!", val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(), this.gridSymptoms.SelectedCells[1].Value.ToString(),
-                this.txtSymptoms.Text)))
+            else if (symptoms.UpdateSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()),
+                this.txtSymptoms.Text, generateID.ToString(), val.UserFullName,
+                string.Format("Updated Patient {0} Symptom! Set Symptom from {1} to {2}!", val.PatientFullName,
+                this.gridSymptoms.SelectedCells[1].Value.ToString(), this.txtSymptoms.Text)))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
@@ -239,11 +217,12 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (symptoms.RemoveSymptomInConsultation(val.PatientPrimaryID, val.PatientFullName, this.gridSymptoms.SelectedCells[0].Value.ToString(),
-                generateID.ToString(), val.UserFullName, string.Format("Removed patient {0} symptom! ID: {1}. {2} has been removed!", val.PatientFullName,
-                this.gridSymptoms.SelectedCells[0].Value.ToString(), this.gridSymptoms.SelectedCells[1].Value.ToString())))
+            else if (symptoms.RemoveSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), generateID.ToString(),
+                val.UserFullName, string.Format("Removed Patient {0} Symptom! {1} has been removed!", val.PatientFullName,
+                this.gridSymptoms.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
@@ -266,7 +245,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (this.gridDiagnosis.Rows.Count == 0)
             {
-                MessageBox.Show("Input diagnosis first before clicking diagnosis save and proceed!", "Input First", MessageBoxButtons.OK,
+                MessageBox.Show("Add diagnosis first before clicking diagnosis save and proceed!", "Input First", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 this.txtDiagnosis.Focus();
             }
@@ -276,38 +255,23 @@ namespace PatientInformationSystemNew.forms
                 {
                     try
                     {
-                        Random number = new Random();
-                        var generateID = new StringBuilder();
-                        while (generateID.Length < 5)
-                        {
-                            generateID.Append(number.Next(10).ToString());
-                        }
-
                         using (MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
                             string sql = @"UPDATE pis_db.diagnosis
                                             SET status = 'Removed'
-                                            WHERE
-                                            CONCAT(patient_fid, ' ', CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', status)
-                                            = CONCAT(@patient_fid, ' ', @diagnosis_id, ' ', 'In Consultation');
+                                            WHERE diagnosis = AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AND status = 'In Consultation';
 
-                                            INSERT INTO pis_db.diagnosis(patient_fid, full_name, diagnosis_id, diagnosis, status, date)
+                                            INSERT INTO pis_db.diagnosis(patient_fid, diagnosis, status)
                                             VALUES(
-                                            @patient_fid, 
-                                            AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            AES_ENCRYPT(@diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                            @patient_fid,
                                             AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            'In Consultation',
-                                            @date
+                                            'In Consultation'
                                             );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
                                 cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
-                                cmd.Parameters.AddWithValue("@full_name", val.PatientFullName);
-                                cmd.Parameters.AddWithValue("@diagnosis_id", this.gridDiagnosis.Rows[i].Cells[0].Value);
-                                cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[1].Value);
-                                cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
+                                cmd.Parameters.AddWithValue("@diagnosis", this.gridDiagnosis.Rows[i].Cells[0].Value);
 
                                 connection.Open();
                                 MySqlDataReader dr;
@@ -350,8 +314,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
-            else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName, generateID.ToString(), 
-                this.txtPrescription.Text, DateTime.Now.Date))
+            else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
+                this.txtPrescription.Text))
             {
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);

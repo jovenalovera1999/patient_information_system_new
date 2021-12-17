@@ -242,16 +242,8 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptom_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
             int n = this.gridAddPatient.Rows.Add();
-            this.gridAddPatient.Rows[n].Cells[0].Value = generateID;
-            this.gridAddPatient.Rows[n].Cells[1].Value = this.txtSymptoms.Text;
+            this.gridAddPatient.Rows[n].Cells[0].Value = this.txtSymptoms.Text;
             this.txtSymptoms.ResetText();
             this.txtSymptoms.Focus();
         }
@@ -271,13 +263,6 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
             if(duplicate.PatientIDDuplicate(this.txtPatientID.Text))
             {
                 MessageBox.Show("Patient ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -334,7 +319,7 @@ namespace PatientInformationSystemNew.forms
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, 
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text, 
                 this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, 
-                this.cmbDoctorName.Text, DateTime.Now.Date, generateID.ToString(), generateID.ToString()))
+                this.cmbDoctorName.Text))
             {
                 for(int i = 0; i < this.gridAddPatient.Rows.Count; i++)
                 {
@@ -343,27 +328,22 @@ namespace PatientInformationSystemNew.forms
 
                         using(MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"INSERT INTO pis_db.symptoms(patient_fid, full_name, symptoms_id, symptoms, status, date)
+                            string sql = @"INSERT INTO pis_db.symptoms(patient_fid, symptoms, status)
                                             VALUES(
                                             @patient_fid,
-                                            AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                             AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            'In Consultation',
-                                            @date
+                                            'In Consultation'
                                             );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                             {
                                 cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
-                                cmd.Parameters.AddWithValue("@full_name", val.PatientFullName);
-                                cmd.Parameters.AddWithValue("@symptoms_id", this.gridAddPatient.Rows[i].Cells[0].Value);
-                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[1].Value);
-                                cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
+                                cmd.Parameters.AddWithValue("@symptoms", this.gridAddPatient.Rows[i].Cells[0].Value);
 
                                 connection.Open();
                                 MySqlDataReader dr;
                                 dr = cmd.ExecuteReader();
+                                dr.Close();
                             }
                         }
                     }

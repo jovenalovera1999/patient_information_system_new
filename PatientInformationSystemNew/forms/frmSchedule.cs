@@ -43,11 +43,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Enabled = true;
             this.btnCancelPatient.Enabled = true;
 
-            string first_name = this.gridSchedule.SelectedCells[1].Value.ToString();
-            string middle_name = this.gridSchedule.SelectedCells[2].Value.ToString();
-            string last_name = this.gridSchedule.SelectedCells[3].Value.ToString();
+            string first_name = this.gridSchedule.SelectedCells[2].Value.ToString();
+            string middle_name = this.gridSchedule.SelectedCells[3].Value.ToString();
+            string last_name = this.gridSchedule.SelectedCells[4].Value.ToString();
 
-            this.txtPatientID.Text = this.gridSchedule.SelectedCells[0].Value.ToString();
+            this.txtPatientID.Text = this.gridSchedule.SelectedCells[1].Value.ToString();
             if(String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);
@@ -57,12 +57,12 @@ namespace PatientInformationSystemNew.forms
                 this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
 
-            patient.GetPatientIDAndDateCreated(this.gridSchedule.SelectedCells[0].Value.ToString());
+            patient.GetPatientIDAndDateCreated(this.gridSchedule.SelectedCells[1].Value.ToString());
         }
 
         private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[0].Value.ToString()))
+            if(patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;

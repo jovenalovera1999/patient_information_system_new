@@ -103,15 +103,13 @@ CREATE TABLE pis_db.number_of_patients (
 CREATE TABLE pis_db.vital_signs (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
-    full_name                           VARBINARY(800) NOT NULL,
-    vital_signs_id                      VARBINARY(800) NOT NULL,
     height                              VARBINARY(800) DEFAULT NULL,
     weight                              VARBINARY(800) NOT NULL,
     temperature                         VARBINARY(800) NOT NULL,
     pulse_rate                          VARBINARY(800) DEFAULT NULL,
     blood_pressure                      VARBINARY(800) DEFAULT NULL,
     status                              VARCHAR(55) DEFAULT 'Show',
-    date                                DATE,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
@@ -119,12 +117,9 @@ CREATE TABLE pis_db.vital_signs (
 CREATE TABLE pis_db.patient_doctor (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
-    full_name                           VARBINARY(800) NOT NULL,
-    doctor_id                           VARBINARY(800) NOT NULL,
-    user_id                             VARBINARY(800) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
     status                              VARCHAR(55) DEFAULT 'Show',
-    date                                DATE,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
@@ -132,11 +127,9 @@ CREATE TABLE pis_db.patient_doctor (
 CREATE TABLE pis_db.diagnosis (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
-    full_name                           VARBINARY(800) NOT NULL,
-    diagnosis_id                        VARBINARY(800) NOT NULL,
     diagnosis                           VARBINARY(800) DEFAULT NULL,
     status                              VARCHAR(55) DEFAULT 'Show',
-    date                                DATE,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
@@ -144,11 +137,9 @@ CREATE TABLE pis_db.diagnosis (
 CREATE TABLE pis_db.symptoms (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
-    full_name                           VARBINARY(800) NOT NULL,
-    symptoms_id                         VARBINARY(800) NOT NULL,
     symptoms                            VARBINARY(800) DEFAULT NULL,
     status                              VARCHAR(55) DEFAULT 'Show',
-    date                                DATE,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
@@ -156,11 +147,9 @@ CREATE TABLE pis_db.symptoms (
 CREATE TABLE pis_db.prescriptions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,    
     patient_fid                         INT(10) NOT NULL,
-    full_name                           VARBINARY(800) NOT NULL,
-    prescription_id                     VARBINARY(800) NOT NULL,
     prescriptions                       VARBINARY(800) DEFAULT NULL,
     status                              VARCHAR(55) DEFAULT 'Show',
-    date                                DATE,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
@@ -168,8 +157,6 @@ CREATE TABLE pis_db.prescriptions (
 CREATE TABLE pis_db.transactions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
-    full_name                           VARBINARY(800) NOT NULL,
-    transaction_id                      VARBINARY(800) NOT NULL,
     receipt_no                          VARBINARY(800) NOT NULL,
     total_medical_fee                   VARBINARY(800) NOT NULL,
     discount                            VARBINARY(800) DEFAULT NULL,
@@ -185,6 +172,7 @@ CREATE TABLE pis_db.cashier (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     transaction_fid                     INT(10) NOT NULL,
     cashier                             VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(transaction_fid) REFERENCES pis_db.transactions(id)
 );
@@ -194,7 +182,7 @@ CREATE TABLE pis_db.inventory (
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
-    expiration_date                     DATE,
+    expiration_date                     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );
@@ -204,8 +192,8 @@ CREATE TABLE pis_db.inventory_incoming (
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
-    expiration_date                     DATE,
-    arrive_date                         DATE,
+    expiration_date                     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    arrive_date                         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );

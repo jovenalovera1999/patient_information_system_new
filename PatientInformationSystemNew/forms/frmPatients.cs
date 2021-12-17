@@ -33,7 +33,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if(patient.GetPatient(this.txtPatientID.Text))
+            if(patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
             {
                 forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
                 frmPatientProfile.TopLevel = false;
@@ -75,13 +75,13 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.txtPatientID.Text = this.gridPatients.SelectedCells[0].Value.ToString();
+            this.txtPatientID.Text = this.gridPatients.SelectedCells[1].Value.ToString();
             this.btnSelect.Enabled = true;
         }
 
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(patient.GetPatient(this.gridPatients.SelectedCells[0].Value.ToString()))
+            if(patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
             {
                 forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
                 frmPatientProfile.TopLevel = false;

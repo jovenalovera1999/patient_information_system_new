@@ -92,8 +92,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSavePrescription = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.gridDiagnosis = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.clmDiagnosisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDiagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddDiagnosis = new Guna.UI2.WinForms.Guna2Button();
@@ -112,6 +110,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptomsRecord = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPrescriptionsRecord = new System.Windows.Forms.TabPage();
             this.gridPrescriptionsRecord = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clmDiagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConsultation.SuspendLayout();
             this.tabOverview.SuspendLayout();
             this.tabPrescriptions.SuspendLayout();
@@ -1136,7 +1135,6 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ColumnHeadersHeight = 40;
             this.gridDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridDiagnosis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmDiagnosisID,
             this.clmDiagnosis});
             this.gridDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1181,20 +1179,6 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridDiagnosis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDiagnosis_CellMouseClick);
-            // 
-            // clmDiagnosisID
-            // 
-            this.clmDiagnosisID.HeaderText = "ID";
-            this.clmDiagnosisID.MinimumWidth = 6;
-            this.clmDiagnosisID.Name = "clmDiagnosisID";
-            this.clmDiagnosisID.ReadOnly = true;
-            // 
-            // clmDiagnosis
-            // 
-            this.clmDiagnosis.HeaderText = "Diagnosis";
-            this.clmDiagnosis.MinimumWidth = 6;
-            this.clmDiagnosis.Name = "clmDiagnosis";
-            this.clmDiagnosis.ReadOnly = true;
             // 
             // btnAddSymptoms
             // 
@@ -1747,6 +1731,13 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPrescriptionsRecord.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // clmDiagnosis
+            // 
+            this.clmDiagnosis.HeaderText = "Diagnosis";
+            this.clmDiagnosis.MinimumWidth = 6;
+            this.clmDiagnosis.Name = "clmDiagnosis";
+            this.clmDiagnosis.ReadOnly = true;
+            // 
             // frmConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1845,7 +1836,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2DataGridView gridSymptomsRecord;
         private System.Windows.Forms.TabPage tabPrescriptionsRecord;
         private Guna.UI2.WinForms.Guna2DataGridView gridPrescriptionsRecord;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDiagnosisID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDiagnosis;
     }
 }

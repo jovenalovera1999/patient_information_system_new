@@ -14,51 +14,16 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void LoadDiagnosisRecordsOfPatient(string full_name, DataGridView grid)
+        public void LoadDiagnosis(int patient_fid, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
-                                    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Diagnosis', 
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
-                                    FROM pis_db.diagnosis 
-                                    WHERE 
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    status = 'Show'
-                                    ORDER BY date ASC;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("full_name", full_name);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error loading diagnosis records of patient: " + ex.ToString());
-            }
-        }
-
-        public void LoadEachPatientDiagnosis(int patient_fid, DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
-                                    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Diagnosis', 
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
+                    string sql = @"SELECT
+                                    id,
+                                    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+                                    DATE_FORMAT(date, '%a, %d %b %Y')
                                     FROM pis_db.diagnosis 
                                     WHERE 
                                     patient_fid = @patient_fid AND
@@ -67,7 +32,7 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("patient_fid", patient_fid);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -75,37 +40,35 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["diagnosis"].HeaderText = "Diagnosis";
+                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date";
                     }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Console.WriteLine("Error loading diagnosis records of each patient: " + ex.ToString());
+                Console.WriteLine("Error loading diagnosis: " + ex.ToString());
             }
         }
 
-        public bool AddDiagnosis(int patient_fid, string full_name, string diagnosis_id, string diagnosis, DateTime date)
+        public bool AddDiagnosis(int patient_fid, string diagnosis)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.diagnosis(patient_fid, full_name, diagnosis_id, diagnosis, date)
+                    string sql = @"INSERT INTO pis_db.diagnosis(patient_fid, diagnosis)
                                     VALUES(
                                     @patient_fid,
-                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
+                                    AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
                         cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
-                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -123,7 +86,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateDiagnosis(string full_name, string diagnosis_id, string diagnosis, DateTime date, string update_id, string user,
+        public bool UpdateDiagnosis(int id, string diagnosis, DateTime date, string update_id, string user,
             string description)
         {
             try
@@ -141,14 +104,11 @@ namespace PatientInformationSystemNew.functions
                                     SET 
                                     diagnosis = AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
-                                    WHERE   
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND 
-                                    CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
                         cmd.Parameters.AddWithValue("@date", date);
                         cmd.Parameters.AddWithValue("@update_id", update_id);
@@ -171,7 +131,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveDiagnosis(string full_name, string diagnosis_id, string update_id, string user, string description)
+        public bool RemoveDiagnosis(int id)
         {
             try
             {
