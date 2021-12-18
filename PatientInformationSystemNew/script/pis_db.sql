@@ -182,7 +182,8 @@ CREATE TABLE pis_db.inventory (
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
-    expiration_date                     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status                              VARCHAR(800) DEFAULT 'Show',
+    expiration_date                     DATETIME,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );
@@ -192,8 +193,9 @@ CREATE TABLE pis_db.inventory_incoming (
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
-    expiration_date                     TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    arrive_date                         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status                              VARCHAR(800) DEFAULT 'Show',
+    expiration_date                     DATETIME,
+    arrive_date                         DATETIME,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );

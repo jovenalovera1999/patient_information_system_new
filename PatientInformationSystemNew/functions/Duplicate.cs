@@ -382,7 +382,7 @@ namespace PatientInformationSystemNew.functions
 
         // Inventory
 
-        public bool inventorySupplyDuplicate(string supply_name)
+        public bool InventorySupplyDuplicate(string supply_name)
         {
             try
             {
@@ -390,7 +390,9 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"SELECT * 
                                     FROM pis_db.inventory_incoming
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
+                                    WHERE
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name AND
+                                    status = 'Show';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -419,7 +421,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool duplicateSupplyNameWithoutExpirationDate(string supply_name)
+        public bool DuplicateSupplyNameWithoutExpirationDate(string supply_name)
         {
             try
             {
@@ -430,7 +432,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.inventory
                                     WHERE 
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name AND
+                                    status = 'Show';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
