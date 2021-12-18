@@ -184,7 +184,7 @@ namespace PatientInformationSystemNew.forms
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (user.GetUser(this.txtMyID.Text))
+                        if (user.GetUser(val.UserPrimaryID))
                         {
                             if (val.UserProfilePicture != null)
                             {
@@ -244,7 +244,7 @@ namespace PatientInformationSystemNew.forms
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (user.GetUser(this.txtMyID.Text))
+                        if (user.GetUser(val.UserPrimaryID))
                         {
                             if (val.UserProfilePicture != null)
                             {
@@ -314,7 +314,7 @@ namespace PatientInformationSystemNew.forms
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (user.GetUser(this.txtMyID.Text))
+                        if (user.GetUser(val.UserPrimaryID))
                         {
                             if (val.UserProfilePicture != null)
                             {
@@ -379,7 +379,7 @@ namespace PatientInformationSystemNew.forms
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (user.GetUser(this.txtMyID.Text))
+                        if (user.GetUser(val.UserPrimaryID))
                         {
                             if (val.UserProfilePicture != null)
                             {
@@ -435,7 +435,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmMyProfileNew_VisibleChanged(object sender, EventArgs e)
         {
-            user.GetUser(this.txtMyID.Text);
+            user.GetUser(val.UserPrimaryID);
         }
     }
 }

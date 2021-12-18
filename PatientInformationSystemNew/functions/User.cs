@@ -232,7 +232,7 @@ namespace PatientInformationSystemNew.functions
 
         // Get User
 
-        public bool GetUser(string user_id)
+        public bool GetUser(int id)
         {
             try
             {
@@ -257,11 +257,11 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.users
-                                    WHERE CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @user_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        cmd.Parameters.AddWithValue("@id", id);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -337,8 +337,7 @@ namespace PatientInformationSystemNew.functions
                                     cellphone_number = AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     telephone_number = AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     email = AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE
-                                    id = @id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
