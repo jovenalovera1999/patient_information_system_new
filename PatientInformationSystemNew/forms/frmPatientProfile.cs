@@ -31,54 +31,6 @@ namespace PatientInformationSystemNew.forms
         functions.VitalSigns vital_signs = new functions.VitalSigns();
         functions.Doctor doctor = new functions.Doctor();
 
-        void AutoGenNumVitalSigns()
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-            this.txtVitalSignsID.Text = generateID.ToString();
-        }
-
-        void AutoGenNumDiagnosis()
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-            this.txtDiagnosisID.Text = generateID.ToString();
-        }
-
-        void AutoGenNumSymptoms()
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-            this.txtSymptomsID.Text = generateID.ToString();
-        }
-
-        void AutoGenNumPrescription()
-        {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-            this.txtPrescriptionsID.Text = generateID.ToString();
-        }
-
         private void frmPatientProfileNew_Load(object sender, EventArgs e)
         {
             for(int i = 0; i < 120; i++)
@@ -103,16 +55,16 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctor.Text = val.PatientDoctor;
             this.txtFullName.Text = val.PatientFullName;
 
-            vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
-            diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
-            symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
-            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
-            payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
+            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
 
-            this.dateVitalSigns.Value = DateTime.Now.Date;
-            this.dateDiagnosis.Value = DateTime.Now.Date;
-            this.dateSymptoms.Value = DateTime.Now.Date;
-            this.datePrescriptions.Value = DateTime.Now.Date;
+            this.dateVitalSigns.Value = DateTime.Now;
+            this.dateDiagnosis.Value = DateTime.Now;
+            this.dateSymptoms.Value = DateTime.Now;
+            this.datePrescriptions.Value = DateTime.Now;
         }
 
         // Cell Mouse Click Once
@@ -122,7 +74,6 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.txtVitalSignsID.Text = this.gridVitalSigns.SelectedCells[0].Value.ToString();
             this.txtHeight.Text = this.gridVitalSigns.SelectedCells[1].Value.ToString();
             this.txtWeight.Text = this.gridVitalSigns.SelectedCells[2].Value.ToString();
             this.txtTemperature.Text = this.gridVitalSigns.SelectedCells[3].Value.ToString();
@@ -138,7 +89,6 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.txtDiagnosisID.Text = this.gridDiagnosis.SelectedCells[0].Value.ToString();
             this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
             this.dateDiagnosis.Value = DateTime.Parse(this.gridDiagnosis.SelectedCells[2].Value.ToString());
 
@@ -150,7 +100,6 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.txtSymptomsID.Text = this.gridSymptoms.SelectedCells[0].Value.ToString();
             this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
             this.dateSymptoms.Value = DateTime.Parse(this.gridSymptoms.SelectedCells[2].Value.ToString());
 
@@ -162,7 +111,6 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            this.txtPrescriptionsID.Text = this.gridPrescriptions.SelectedCells[0].Value.ToString();
             this.txtPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
             this.datePrescriptions.Value = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
@@ -299,16 +247,14 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            this.txtVitalSignsID.ResetText();
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
             this.txtTemperature.ResetText();
             this.txtPulseRate.ResetText();
             this.txtBloodPressure.ResetText();
-            this.dateVitalSigns.Value = DateTime.Now.Date;
+            this.dateVitalSigns.Value = DateTime.Now;
 
-            vital_signs.LoadEachPatientVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            AutoGenNumVitalSigns();
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
             this.btnAddVitalSigns.Visible = true;
             this.btnCancelVitalSigns.Visible = true;
@@ -332,13 +278,10 @@ namespace PatientInformationSystemNew.forms
         {
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-            this.txtDiagnosisID.ResetText();
             this.txtDiagnosis.ResetText();
-            this.dateDiagnosis.Value = DateTime.Now.Date;
+            this.dateDiagnosis.Value = DateTime.Now;
 
-            diagnosis.LoadEachPatientDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            AutoGenNumDiagnosis();
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
             this.btnAddDiagnosis.Visible = true;
             this.btnCancelDiagnosis.Visible = true;
@@ -359,12 +302,10 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            this.txtSymptomsID.ResetText();
             this.txtSymptoms.ResetText();
-            this.dateSymptoms.Value = DateTime.Now.Date;
+            this.dateSymptoms.Value = DateTime.Now;
 
-            symptoms.LoadSymptomsRecordsOfEachPatient(val.PatientPrimaryID, this.gridSymptoms);
-            AutoGenNumSymptoms();
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
             this.btnAddSymptoms.Visible = true;
             this.btnCancelSymptoms.Visible = true;
@@ -385,11 +326,9 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            this.txtPrescriptionsID.ResetText();
             this.txtPrescriptions.ResetText();
 
-            prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
-            AutoGenNumPrescription();
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
             this.btnAddPrescriptions.Visible = true;
             this.btnCancelPrescriptions.Visible = true;
@@ -409,28 +348,22 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddVitalSigns_Click(object sender, EventArgs e)
         {
-            if (duplicate.VitalSignsIDDuplicate(val.PatientFullName, this.txtVitalSignsID.Text))
-            {
-                MessageBox.Show("Vital Signs ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                AutoGenNumVitalSigns();
-            }
-            else if(vital_signs.AddPatientVitalSigns(val.PatientPrimaryID, val.PatientFullName, this.txtVitalSignsID.Text, this.txtHeight.Text,
-                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value.Date))
+            if(vital_signs.AddVitalSigns(val.PatientPrimaryID, this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text,
+                this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value))
             {
                 MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                vital_signs.LoadEachPatientVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+                vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
-                AutoGenNumVitalSigns();
                 this.txtHeight.ResetText();
                 this.txtWeight.ResetText();
                 this.txtTemperature.ResetText();
                 this.txtPulseRate.ResetText();
                 this.txtBloodPressure.ResetText();
-                this.dateVitalSigns.Value = DateTime.Now.Date;
+                this.dateVitalSigns.Value = DateTime.Now;
 
                 this.txtHeight.Focus();
             }
@@ -442,24 +375,17 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
-            if (duplicate.DiagnosisIDDuplicate(val.PatientFullName, this.txtDiagnosisID.Text))
-            {
-                MessageBox.Show("Diagnosis ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                AutoGenNumDiagnosis();
-            }
-            else if(diagnosis.AddDiagnosis(val.PatientPrimaryID, val.PatientFullName, this.txtDiagnosisID.Text, this.txtDiagnosis.Text,
-                this.dateDiagnosis.Value.Date))
+            if(diagnosis.AddDiagnosis(val.PatientPrimaryID, this.txtDiagnosis.Text, this.dateDiagnosis.Value))
             {
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.LoadEachPatientDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
-                AutoGenNumDiagnosis();
                 this.txtDiagnosis.ResetText();
-                this.dateDiagnosis.Value = DateTime.Now.Date;
+                this.dateDiagnosis.Value = DateTime.Now;
 
                 this.txtDiagnosis.Focus();
             }
@@ -471,24 +397,17 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptoms_Click(object sender, EventArgs e)
         {
-            if(duplicate.SymptomsIDDuplicate(val.PatientFullName, this.txtSymptomsID.Text))
-            {
-                MessageBox.Show("Symptom ID is already taken! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                AutoGenNumSymptoms();
-            }
-            else if(symptoms.AddPatientSymptom(val.PatientPrimaryID, val.PatientFullName, this.txtSymptomsID.Text, this.txtSymptoms.Text,
-                this.dateSymptoms.Value.Date))
+            if(symptoms.AddSymptom(val.PatientPrimaryID, this.txtSymptoms.Text, this.dateSymptoms.Value))
             {
                 MessageBox.Show("Symptom successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.LoadSymptomsRecordsOfEachPatient(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
-                AutoGenNumSymptoms();
                 this.txtSymptoms.ResetText();
-                this.dateSymptoms.Value = DateTime.Now.Date;
+                this.dateSymptoms.Value = DateTime.Now;
 
                 this.txtSymptoms.Focus();
             }
@@ -500,25 +419,17 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddPrescriptions_Click(object sender, EventArgs e)
         {
-            if(duplicate.PrescriptionIDDuplicate(val.PatientFullName, this.txtPrescriptionsID.Text))
-            {
-                MessageBox.Show("Prescription ID is already taken! Generating a new ID! Generating a new ID!", "Already Taken", MessageBoxButtons.OK, 
-                    MessageBoxIcon.Error);
-                AutoGenNumPrescription();
-            }
-            else if(prescriptions.AddPrescription(val.PatientPrimaryID, val.PatientFullName, this.txtPrescriptionsID.Text, this.txtPrescriptions.Text,
-                this.datePrescriptions.Value.Date))
+            if(prescriptions.AddPrescription(val.PatientPrimaryID, this.txtPrescriptions.Text, this.datePrescriptions.Value))
             {
                 MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                prescriptions.LoadPrescriptionRecordsOfEachPatient(val.PatientPrimaryID, this.gridPrescriptions);
+                prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
-                AutoGenNumPrescription();
                 this.txtPrescriptions.ResetText();
-                this.datePrescriptions.Value = DateTime.Now.Date;
+                this.datePrescriptions.Value = DateTime.Now;
 
                 this.txtPrescriptions.Focus();
             }
@@ -532,18 +443,17 @@ namespace PatientInformationSystemNew.forms
 
         private void btnCancelVitalSigns_Click(object sender, EventArgs e)
         {
-            vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            this.txtVitalSignsID.ResetText();
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
             this.txtTemperature.ResetText();
             this.txtPulseRate.ResetText();
             this.txtBloodPressure.ResetText();
-            this.dateVitalSigns.Value = DateTime.Now.Date;
+            this.dateVitalSigns.Value = DateTime.Now;
 
             this.txtHeight.Enabled = false;
             this.txtWeight.Enabled = false;
@@ -562,11 +472,10 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
-            this.txtDiagnosisID.ResetText();
             this.txtDiagnosis.ResetText();
-            this.dateDiagnosis.Value = DateTime.Now.Date;
+            this.dateDiagnosis.Value = DateTime.Now;
 
             this.txtDiagnosis.Enabled = false;
             this.dateDiagnosis.Enabled = false;
@@ -581,11 +490,10 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
-            this.txtSymptomsID.ResetText();
             this.txtSymptoms.ResetText();
-            this.dateSymptoms.Value = DateTime.Now.Date;
+            this.dateSymptoms.Value = DateTime.Now;
 
             this.txtSymptoms.Enabled = false;
             this.dateSymptoms.Enabled = false;
@@ -600,11 +508,10 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
-            this.txtPrescriptionsID.ResetText();
             this.txtPrescriptions.ResetText();
-            this.datePrescriptions.Value = DateTime.Now.Date;
+            this.datePrescriptions.Value = DateTime.Now;
 
             this.txtPrescriptions.Enabled = false;
             this.datePrescriptions.Enabled = false;
@@ -663,7 +570,7 @@ namespace PatientInformationSystemNew.forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtCellphoneNumber.Focus();
             }
-            else if (patient.UpdatePatient(val.PatientPrimaryID, val.PatientPrimaryID, this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
+            else if (patient.UpdatePatient(val.PatientPrimaryID, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
                 this.txtTelephoneNumber.Text, this.txtEmail.Text, generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Personal Info!\r\n" +
                 "First Name: from {1} to {2}\r\nMiddle Name: from {3} to {4}\r\nLast Name: from {5} to {6}\r\nGender: from {7} to {8}\r\nAge: from {9} to {10}\r\n" +
@@ -692,13 +599,14 @@ namespace PatientInformationSystemNew.forms
                     this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
                     this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
                     this.txtEmail.Text = val.PatientEmail;
+                    this.txtFullName.Text = val.PatientFullName;
                 }
 
-                vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
-                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
-                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
-                payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
+                vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
+                prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
+                payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
 
                 this.txtFirstName.Enabled = false;
                 this.txtMiddleName.Enabled = false;
@@ -725,23 +633,22 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveVitalSigns_Click(object sender, EventArgs e)
         {
-            if(vital_signs.UpdateVitalSigns(val.PatientFullName, this.txtVitalSignsID.Text, this.txtHeight.Text,
-                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value.Date))
+            if(vital_signs.UpdateVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), this.txtHeight.Text,
+                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value))
             {
                 MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;  
 
-                vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+                vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
-                this.txtVitalSignsID.ResetText();
                 this.txtHeight.ResetText();
                 this.txtWeight.ResetText();
                 this.txtTemperature.ResetText();
                 this.txtPulseRate.ResetText();
                 this.txtBloodPressure.ResetText();
-                this.dateVitalSigns.Value = DateTime.Now.Date;
+                this.dateVitalSigns.Value = DateTime.Now;
 
                 this.txtHeight.Enabled = false;
                 this.txtWeight.Enabled = false;
@@ -775,23 +682,22 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(diagnosis.UpdateDiagnosis(val.PatientFullName, this.txtDiagnosisID.Text, this.txtDiagnosis.Text, this.dateDiagnosis.Value.Date,
-                generateID.ToString(), val.UserFullName, string.Format("Updated patient {0} diagnosis!\r\nID: {1}\r\nDiagnosis from {2} to {3}\r\n" +
-                "Date from {4} to {5}", val.PatientFullName, this.txtDiagnosisID.Text, this.gridDiagnosis.SelectedCells[1].Value.ToString(),
-                this.txtDiagnosis.Text, date.ToString("D"), this.dateDiagnosis.Value.Date.ToString("D"))))
+            else if(diagnosis.UpdateDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), this.txtDiagnosis.Text,
+                this.dateDiagnosis.Value, generateID.ToString(), val.UserFullName,
+                string.Format("Updated Patient {0} Diagnosis!\r\nDiagnosis: from {1} to {2}\r\n" +
+                "Date: from {3} to {4}", val.PatientFullName, this.gridDiagnosis.SelectedCells[1].Value.ToString(),
+                this.txtDiagnosis.Text, date.ToString("D"), this.dateDiagnosis.Value.ToString("D"))))
             {
                 MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
+                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
-                this.txtDiagnosisID.ResetText();
                 this.txtDiagnosis.ResetText();
-                this.dateDiagnosis.Value = DateTime.Now.Date;
+                this.dateDiagnosis.Value = DateTime.Now;
 
-                this.txtDiagnosisID.Enabled = false;
                 this.txtDiagnosis.Enabled = false;
                 this.dateDiagnosis.Enabled = false;
 
@@ -820,23 +726,21 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(symptoms.UpdateSymptom(val.PatientFullName, this.txtSymptomsID.Text, this.txtSymptoms.Text, this.dateSymptoms.Value.Date,
-                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Symptom!\r\nID: {1}\r\nSymptom: from {2} to {3}\r\nDate: " +
-                "from {4} to {5}", val.PatientFullName, this.txtSymptomsID.Text, this.gridSymptoms.SelectedCells[1].Value.ToString(),
-                this.txtSymptoms.Text, date.ToString("D"), this.dateSymptoms.Value.Date.ToString("D"))))
+            else if(symptoms.UpdateSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text, this.dateSymptoms.Value,
+                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Symptom!\r\nSymptom: from {1} to {2}\r\nDate: " +
+                "from {3} to {4}", val.PatientFullName, this.gridSymptoms.SelectedCells[1].Value.ToString(),
+                this.txtSymptoms.Text, date.ToString("D"), this.dateSymptoms.Value.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
-                this.txtSymptomsID.ResetText();
                 this.txtSymptoms.ResetText();
-                this.dateSymptoms.Value = DateTime.Now.Date;
+                this.dateSymptoms.Value = DateTime.Now;
 
-                this.txtSymptomsID.Enabled = false;
                 this.txtSymptoms.Enabled = false;
                 this.dateSymptoms.Enabled = false;
 
@@ -865,22 +769,22 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(prescriptions.UpdatePrescriptions(val.PatientFullName, this.txtPrescriptionsID.Text, this.txtPrescriptions.Text,
-                this.datePrescriptions.Value.Date, generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Prescription!\r\n" +
-                "ID: {1}\r\nPrescription: from {2} to {3}\r\nDate from {4} to {5}", val.PatientFullName, this.txtPrescriptionsID.Text,
+            else if(prescriptions.UpdatePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()),
+                this.txtPrescriptions.Text, this.datePrescriptions.Value, generateID.ToString(), val.UserFullName,
+                string.Format("Updated Patient {0} Prescription!" +
+                "\r\nPrescription: from {1} to {2}\r\nDate from {3} to {4}", val.PatientFullName,
                 this.gridPrescriptions.SelectedCells[1].Value.ToString(), this.txtPrescriptions.Text, date.ToString("D"),
-                this.datePrescriptions.Value.Date.ToString("D"))))
+                this.datePrescriptions.Value.ToString("D"))))
             {
                 MessageBox.Show("Prescription successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+                prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
-                this.txtPrescriptionsID.ResetText();
                 this.txtPrescriptions.ResetText();
-                this.datePrescriptions.Value = DateTime.Now.Date;
+                this.datePrescriptions.Value = DateTime.Now;
 
                 this.txtPrescriptions.Enabled = false;
                 this.datePrescriptions.Enabled = false;
@@ -922,17 +826,21 @@ namespace PatientInformationSystemNew.forms
             else if(MessageBox.Show("Save update payment? Be sure to transact the payment before proceeding!", "Confirmation", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (payment.UpdatePaymentTransaction(val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(), this.txtReceiptNo.Text,
+                if (payment.UpdatePaymentTransaction(int.Parse(this.gridPaymentHistory.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
                 this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
-                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Payment Transaction! ID: {1}\r\nReceipt No: from " +
-                "{2} to {3}\r\nTotal Medical Fee: from {4} to {5}\r\nDiscount: from {6} to {7}\r\nAmount: from {8} to {9}\r\n Total Amount Paid: from {10} to {11}\r\n" +
-                "Change from {12} to {13}", val.PatientFullName, this.gridPaymentHistory.SelectedCells[0].Value.ToString(),
-                this.gridPaymentHistory.SelectedCells[1].Value.ToString(), this.txtReceiptNo.Text, this.gridPaymentHistory.SelectedCells[2].Value.ToString(),
+                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Payment Transaction!\r\nReceipt No: from " +
+                "{1} to {2}\r\nTotal Medical Fee: from {3} to {4}\r\nDiscount: from {5} to {6}\r\nAmount: from {7} to {8}\r\n Total Amount Paid: from {9} to {10}\r\n" +
+                "Change from {11} to {12}", val.PatientFullName, this.gridPaymentHistory.SelectedCells[1].Value.ToString(),
+                this.txtReceiptNo.Text, this.gridPaymentHistory.SelectedCells[2].Value.ToString(),
                 this.txtTotalMedicalFee.Text, this.gridPaymentHistory.SelectedCells[3].Value.ToString(), this.cmbDiscount.Text,
-                this.gridPaymentHistory.SelectedCells[4].Value.ToString(), this.txtAmount.Text, this.gridPaymentHistory.SelectedCells[5].Value.ToString(),
-                this.txtTotalAmountPaid.Text, this.gridPaymentHistory.SelectedCells[6].Value.ToString(), this.txtChange.Text)))
+                this.gridPaymentHistory.SelectedCells[4].Value.ToString(), this.txtAmount.Text,
+                this.gridPaymentHistory.SelectedCells[5].Value.ToString(), this.txtTotalAmountPaid.Text,
+                this.gridPaymentHistory.SelectedCells[6].Value.ToString(), this.txtChange.Text)))
                 {
                     MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                    this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                     this.txtReceiptNo.Enabled = false;
                     this.txtTotalMedicalFee.Enabled = false;
@@ -941,7 +849,7 @@ namespace PatientInformationSystemNew.forms
                     this.btnTransact.Visible = false;
                     this.btnSavePayment.Enabled = false;
 
-                    payment.LoadPatientPaymentHistory(val.PatientFullName, this.gridPaymentHistory);
+                    payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
                 }
                 else
                 {
@@ -954,22 +862,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
         {
-            if(vital_signs.RemoveVitalSigns(val.PatientFullName, this.txtVitalSignsID.Text))
+            if(vital_signs.RemoveVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString())))
             {
                 MessageBox.Show("Vital signs successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                vital_signs.LoadVitalSigns(val.PatientFullName, this.gridVitalSigns);
+                vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
-                this.txtVitalSignsID.ResetText();
                 this.txtHeight.ResetText();
                 this.txtWeight.ResetText();
                 this.txtTemperature.ResetText();
                 this.txtPulseRate.ResetText();
                 this.txtBloodPressure.ResetText();
-                this.dateVitalSigns.Value = DateTime.Now.Date;
+                this.dateVitalSigns.Value = DateTime.Now;
 
                 this.txtHeight.Enabled = false;
                 this.txtWeight.Enabled = false;
@@ -1002,20 +909,19 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (diagnosis.RemoveDiagnosis(val.PatientFullName, this.txtDiagnosisID.Text, generateID.ToString(), val.UserFullName,
-                string.Format("Removed patient {0} diagnosis! ID: {1}. {2} has been removed!", val.PatientFullName,
-                this.gridDiagnosis.SelectedCells[0].Value.ToString(), this.gridDiagnosis.SelectedCells[1].Value.ToString())))
+            else if (diagnosis.RemoveDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), generateID.ToString(), val.UserFullName,
+                string.Format("Removed Patient {0} Diagnosis!\r\n{1} has been removed!", val.PatientFullName,
+                this.gridDiagnosis.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Diagnosis successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosis);
+                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
-                this.txtDiagnosisID.ResetText();
                 this.txtDiagnosis.ResetText();
-                this.dateDiagnosis.Value = DateTime.Now.Date;
+                this.dateDiagnosis.Value = DateTime.Now;
 
                 this.txtDiagnosis.Enabled = false;
                 this.dateDiagnosis.Enabled = false;
@@ -1044,20 +950,19 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(symptoms.RemoveSymptom(val.PatientFullName, this.txtSymptomsID.Text, generateID.ToString(), val.UserFullName,
-                string.Format("Removed patient {0} symptom! ID: {1}. {2} has been removed!", val.PatientFullName,
-                this.gridSymptoms.SelectedCells[0].Value.ToString(), this.gridSymptoms.SelectedCells[1].Value.ToString())))
+            else if(symptoms.RemoveSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), generateID.ToString(), val.UserFullName,
+                string.Format("Removed patient {0} Symptom!\r\n{1} has been removed!", val.PatientFullName,
+                this.gridSymptoms.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Symptom successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptoms);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
-                this.txtSymptomsID.ResetText();
                 this.txtSymptoms.ResetText();
-                this.dateSymptoms.Value = DateTime.Now.Date;
+                this.dateSymptoms.Value = DateTime.Now;
 
                 this.txtSymptoms.Enabled = false;
                 this.dateSymptoms.Enabled = false;
@@ -1086,22 +991,21 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (prescriptions.RemovePrescriptions(val.PatientFullName, this.txtPrescriptionsID.Text, generateID.ToString(), val.UserFullName,
-                string.Format("Removed patient {0} prescription! ID: {1}. {2} has been removed!", val.PatientFullName,
-                this.gridPrescriptions.SelectedCells[0].Value.ToString(), this.gridPrescriptions.SelectedCells[1].Value.ToString())))
+            else if (prescriptions.RemovePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()), generateID.ToString(), val.UserFullName,
+                string.Format("Removed Patient {0} Prescription!\r\n{1} has been removed!", val.PatientFullName,
+                this.gridPrescriptions.SelectedCells[1].Value.ToString())))
             {
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptions);
+                prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
-                this.txtPrescriptionsID.ResetText();
                 this.txtPrescriptions.ResetText();
-                this.datePrescriptions.Value = DateTime.Now.Date;
+                this.datePrescriptions.Value = DateTime.Now;
 
-                this.txtPrescriptionsID.Enabled = false;
+                this.txtPrescriptions.Enabled = false;
                 this.datePrescriptions.Enabled = false;
 
                 this.btnSavePrescriptions.Visible = false;
@@ -1342,37 +1246,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtPrescriptionsID_TextChanged(object sender, EventArgs e)
-        {
-            if(!String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
-            {
-                this.btnAddPrescriptions.Enabled = false;
-                this.btnSavePrescriptions.Enabled = false;
-                this.btnPrintPrescriptions.Enabled = false;
-            }
-            else if(!String.IsNullOrWhiteSpace(this.txtPrescriptions.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text))
-            {
-                this.btnAddPrescriptions.Enabled = false;
-                this.btnSavePrescriptions.Enabled = false;
-                this.btnPrintPrescriptions.Enabled = false;
-            }
-            else
-            {
-                this.btnAddPrescriptions.Enabled = true;
-                this.btnSavePrescriptions.Enabled = true;
-                this.btnPrintPrescriptions.Enabled = true;
-            }
-        }
-
         private void txtPrescriptions_TextChanged(object sender, EventArgs e)
         {
-            if(!String.IsNullOrWhiteSpace(this.txtPrescriptions.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text))
-            {
-                this.btnAddPrescriptions.Enabled = false;
-                this.btnSavePrescriptions.Enabled = false;
-                this.btnPrintPrescriptions.Enabled = false;
-            }
-            else if(!String.IsNullOrWhiteSpace(this.txtPrescriptionsID.Text) && String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
+            if(String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
             {
                 this.btnAddPrescriptions.Enabled = false;
                 this.btnSavePrescriptions.Enabled = false;

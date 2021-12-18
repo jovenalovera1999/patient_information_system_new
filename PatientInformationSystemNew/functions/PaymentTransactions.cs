@@ -21,14 +21,16 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Patient ID',
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'First Name', 
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Middle Name',
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Last Name',
-                                    payment_status AS 'Status' 
-                                    FROM pis_db.patients 
+                                    pis_db.patients.id,
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                                    FROM pis_db.patients
+                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE
-                                    status = 'Complete' AND
+                                    pis_db.patients.status = 'Complete' AND
                                     payment_status = 'Unpaid';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -39,6 +41,13 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Patient ID";
+                        grid.Columns["CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "First Name";
+                        grid.Columns["CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
+                        grid.Columns["CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
+                        grid.Columns["CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Doctor";
                     }
                 }
             }
@@ -48,29 +57,29 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void LoadPatientPaymentHistory(string full_name, DataGridView grid)
+        public void LoadPaymentHistory(int patient_fid, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    CAST(AES_DECRYPT(transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID',
-                                    CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Receipt No.',
-                                    CAST(AES_DECRYPT(total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Total Medical Fee',
-                                    CAST(AES_DECRYPT(discount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Discount',
-                                    CAST(AES_DECRYPT(amount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Amount',
-                                    CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Total Amount Paid',
-                                    CAST(AES_DECRYPT(`change`, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Change',
-                                    CAST(AES_DECRYPT(cashier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Cashier',
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date'
+                                    pis_db.transactions.id,
+                                    CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(discount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(amount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(`change`, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(cashier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    DATE_FORMAT(pis_db.transactions.date, '%a, %d %b %Y')
                                     FROM pis_db.transactions
                                     INNER JOIN pis_db.cashier ON pis_db.transactions.id = pis_db.cashier.id
-                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name;";
+                                    WHERE patient_fid = @patient_fid;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -78,28 +87,36 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["CAST(AES_DECRYPT(receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Receipt No.";
+                        grid.Columns["CAST(AES_DECRYPT(total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Total Medical Fee";
+                        grid.Columns["CAST(AES_DECRYPT(discount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Discount";
+                        grid.Columns["CAST(AES_DECRYPT(amount, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Amount";
+                        grid.Columns["CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Total Amount Paid";
+                        grid.Columns["CAST(AES_DECRYPT(`change`, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Change";
+                        grid.Columns["CAST(AES_DECRYPT(cashier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Cashier";
+                        grid.Columns["DATE_FORMAT(pis_db.transactions.date, '%a, %d %b %Y')"].HeaderText = "Date";
                     }
                 }
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error loading patient payment history: " + ex.ToString());
+                Console.WriteLine("Error loading payment history: " + ex.ToString());
             }
         }
 
-        public bool SavePatientPayment(int id, int patient_fid, string transaction_id, string full_name, string receipt_no, string total_medical_fee, string discount, 
-            string amount, string total_amount_paid, string change, string cashier)
+        public bool SavePatientPayment(int id, int patient_fid, string receipt_no, string total_medical_fee, string discount, string amount,
+            string total_amount_paid, string change, string cashier)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.transactions(patient_fid, full_name, transaction_id, receipt_no, total_medical_fee, discount,
-                                    amount, total_amount_paid, `change`)
+                    string sql = @"INSERT INTO pis_db.transactions(patient_fid, receipt_no, total_medical_fee, discount, amount,
+                                    total_amount_paid, `change`)
                                     VALUES(
                                     @patient_fid,
-                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@receipt_no, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@total_medical_fee, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@discount, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -111,8 +128,6 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@transaction_id", transaction_id);
                         cmd.Parameters.AddWithValue("@receipt_no", receipt_no);
                         cmd.Parameters.AddWithValue("@total_medical_fee", total_medical_fee);
                         cmd.Parameters.AddWithValue("@discount", discount);
@@ -127,8 +142,8 @@ namespace PatientInformationSystemNew.functions
                     }
 
                     sql = @"SELECT *
-                                FROM pis_db.transactions
-                                ORDER BY id DESC LIMIT 1;";
+                            FROM pis_db.transactions
+                            ORDER BY id DESC LIMIT 1;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -171,8 +186,8 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdatePaymentTransaction(string full_name, string transaction_id, string receipt_no, string total_medical_fee, 
-            string discount, string amount, string total_amount_paid, string change, string update_id, string user, string description)
+        public bool UpdatePaymentTransaction(int id, string receipt_no, string total_medical_fee, string discount, string amount,
+            string total_amount_paid, string change, string update_id, string user, string description)
         {
             try
             {
@@ -193,14 +208,11 @@ namespace PatientInformationSystemNew.functions
                                     amount = AES_ENCRYPT(@amount, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     total_amount_paid = AES_ENCRYPT(@total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     `change` = AES_ENCRYPT(@change, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(transaction_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @transaction_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@transaction_id", transaction_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@receipt_no", receipt_no);
                         cmd.Parameters.AddWithValue("@total_medical_fee", total_medical_fee);
                         cmd.Parameters.AddWithValue("@discount", discount);
@@ -222,45 +234,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error updating patient payment: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool GetPatientIDForPaymentTransaction(string patient_id)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT *
-                                    FROM pis_db.patients
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if(dt.Rows.Count == 1)
-                        {
-                            val.PatientPrimaryIDForPaymentTransaction = dt.Rows[0].Field<int>("id");
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error getting id of patient for payment transaction: " + ex.ToString());
+                Console.WriteLine("Error updating payment transaction: " + ex.ToString());
                 return false;
             }
         }

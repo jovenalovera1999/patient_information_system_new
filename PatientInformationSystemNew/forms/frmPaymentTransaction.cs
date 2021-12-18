@@ -37,11 +37,9 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            payment.GetPatientIDForPaymentTransaction(this.gridPaymentTransaction.SelectedCells[0].Value.ToString());
-
-            string first_name = this.gridPaymentTransaction.SelectedCells[1].Value.ToString();
-            string middle_name = this.gridPaymentTransaction.SelectedCells[2].Value.ToString();
-            string last_name = this.gridPaymentTransaction.SelectedCells[3].Value.ToString();
+            string first_name = this.gridPaymentTransaction.SelectedCells[2].Value.ToString();
+            string middle_name = this.gridPaymentTransaction.SelectedCells[3].Value.ToString();
+            string last_name = this.gridPaymentTransaction.SelectedCells[4].Value.ToString();
 
             if(String.IsNullOrWhiteSpace(middle_name))
             {
@@ -150,9 +148,10 @@ namespace PatientInformationSystemNew.forms
                     MessageBox.Show("Transaction ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-                else if (payment.SavePatientPayment(val.PatientPrimaryIDForPaymentTransaction, val.PatientPrimaryIDForPaymentTransaction,
-                    generateID.ToString(), this.txtFullName.Text, this.txtReceiptNo.Text, this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, 
-                    this.txtTotalAmountPaid.Text, this.txtChange.Text, val.UserFullName))
+                else if (payment.SavePatientPayment(int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()),
+                    int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
+                    this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
+                    val.UserFullName))
                 {
                     MessageBox.Show("Payment transaction successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

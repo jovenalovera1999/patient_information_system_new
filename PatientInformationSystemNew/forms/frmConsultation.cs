@@ -50,9 +50,9 @@ namespace PatientInformationSystemNew.forms
 
             symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
 
-            diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosisRecord);
-            symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
-            prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptionsRecord);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosisRecord);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -153,7 +153,7 @@ namespace PatientInformationSystemNew.forms
                 this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -192,7 +192,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnRemoveSymptoms.Enabled = false;
 
                 symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -230,7 +230,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnRemoveSymptoms.Enabled = false;
 
                 symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptomsRecordsOfPatient(val.PatientFullName, this.gridSymptomsRecord);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
 
                 this.txtSymptoms.ResetText();
                 this.txtSymptoms.Focus();
@@ -287,7 +287,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                diagnosis.LoadDiagnosisRecordsOfPatient(val.PatientFullName, this.gridDiagnosisRecord);
+                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosisRecord);
 
                 this.btnSaveDiagnosis.Enabled = false;
                 this.txtPrescription.Focus();
@@ -320,7 +320,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
                     MessageBoxIcon.Information);
 
-                prescriptions.LoadPrescriptionRecordsOfPatient(val.PatientFullName, this.gridPrescriptionsRecord);
+                prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
 
                 this.btnSavePrescription.Enabled = false;
                 this.btnBack.Enabled = false;

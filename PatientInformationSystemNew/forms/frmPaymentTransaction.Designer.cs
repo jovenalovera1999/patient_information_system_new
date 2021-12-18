@@ -381,7 +381,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridPaymentTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridPaymentTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gridPaymentTransaction.BackgroundColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPaymentTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -394,7 +394,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridPaymentTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridPaymentTransaction.ColumnHeadersHeight = 55;
+            this.gridPaymentTransaction.ColumnHeadersHeight = 40;
             this.gridPaymentTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -430,7 +430,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPaymentTransaction.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridPaymentTransaction.ThemeStyle.HeaderStyle.Height = 55;
+            this.gridPaymentTransaction.ThemeStyle.HeaderStyle.Height = 40;
             this.gridPaymentTransaction.ThemeStyle.ReadOnly = true;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;

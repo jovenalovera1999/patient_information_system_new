@@ -66,15 +66,17 @@ namespace PatientInformationSystemNew.functions
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
                     string sql = @"SELECT
-                                    id,
+                                    pis_db.patients.id,
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
-                                    DATE_FORMAT(date, '%a, %d %b %Y')
+                                    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    DATE_FORMAT(pis_db.patients.date, '%a, %d %b %Y')
                                     FROM pis_db.patients
-                                    WHERE status = 'Complete'
+                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
+                                    WHERE pis_db.patients.status = 'Complete'
                                     ORDER BY first_name DESC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -92,7 +94,8 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
                         grid.Columns["CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
                         grid.Columns["CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Gender";
-                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date Created";
+                        grid.Columns["CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Doctor";
+                        grid.Columns["DATE_FORMAT(pis_db.patients.date, '%a, %d %b %Y')"].HeaderText = "Date Created";
                     }
                 }
             }
@@ -412,7 +415,7 @@ namespace PatientInformationSystemNew.functions
 
         // Update patient
 
-        public bool UpdatePatient(int id, int patient_fid, string patient_id, string first_name, string middle_name, string last_name, 
+        public bool UpdatePatient(int id, string first_name, string middle_name, string last_name, 
             string gender, string age, string address, DateTime birthday, string cellphone_number, string telephone_number, 
             string email, string update_id, string user, string description)
         {
@@ -439,15 +442,11 @@ namespace PatientInformationSystemNew.functions
                                     cellphone_number = AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     telephone_number = AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     email = AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE
-                                    id = @id AND
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@first_name", first_name);
                         cmd.Parameters.AddWithValue("@middle_name", middle_name);
                         cmd.Parameters.AddWithValue("@last_name", last_name);
@@ -463,132 +462,6 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-                    }
-
-                    sql = @"UPDATE pis_db.vital_signs
-                            SET full_name = AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
-                            WHERE patient_fid = @patient_fid;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        if(String.IsNullOrWhiteSpace(middle_name))
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}", first_name, last_name));
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name));
-                        }
-
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-                    }
-
-                    sql = @"UPDATE pis_db.patient_doctor
-                            SET full_name = AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
-                            WHERE patient_fid = @patient_fid;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        if (String.IsNullOrWhiteSpace(middle_name))
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}", first_name, last_name));
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name));
-                        }
-
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-                    }
-
-                    sql = @"UPDATE pis_db.diagnosis
-                            SET full_name = AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
-                            WHERE patient_fid = @patient_fid;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        if (String.IsNullOrWhiteSpace(middle_name))
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}", first_name, last_name));
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name));
-                        }
-
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-                    }
-
-                    sql = @"UPDATE pis_db.symptoms
-                            SET full_name = AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
-                            WHERE patient_fid = @patient_fid;";
-
-                    using(MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        if (String.IsNullOrWhiteSpace(middle_name))
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}", first_name, last_name));
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name));
-                        }
-
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-                    }
-
-                    sql = @"UPDATE pis_db.prescriptions
-                            SET full_name = AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
-                            WHERE patient_fid = @patient_fid;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        if (String.IsNullOrWhiteSpace(middle_name))
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}", first_name, last_name));
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name));
-                        }
-
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-                    }
-
-                    sql = @"UPDATE pis_db.transactions
-                             SET full_name = AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang')
-                             WHERE patient_fid = @patient_fid;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        if (String.IsNullOrWhiteSpace(middle_name))
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}", first_name, last_name));
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@full_name", string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name));
-                        }
-
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();

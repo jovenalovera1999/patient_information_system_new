@@ -50,51 +50,16 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void LoadSymptomsRecordsOfPatient(string full_name, DataGridView grid)
+        public void LoadSymptoms(int patient_fid, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms', 
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
-                                    FROM pis_db.symptoms 
-                                    WHERE 
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    status = 'Show'
-                                    ORDER BY date ASC;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error loading symptoms records of patient: " + ex.ToString());
-            }
-        }
-
-        public void LoadSymptomsRecordsOfEachPatient(int patient_fid, DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Symptoms', 
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
+                    string sql = @"SELECT
+                                    id,
+                                    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+                                    DATE_FORMAT(date, '%a, %d %b %Y') 
                                     FROM pis_db.symptoms 
                                     WHERE 
                                     patient_fid = @patient_fid AND
@@ -111,41 +76,42 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Symptoms";
+                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date";
                     }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Console.WriteLine("Error loading symptoms records of each patient: " + ex.ToString());
+                Console.WriteLine("Error loading symptoms records of patient: " + ex.ToString());
             }
         }
 
-        public bool AddPatientSymptom(int patient_fid, string full_name, string symptoms_id, string symptoms, DateTime date)
+        public bool AddSymptom(int patient_fid, string symptoms, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.symptoms(patient_fid, full_name, symptoms_id, symptoms, date)
+                    string sql = @"INSERT INTO pis_db.symptoms(patient_fid, symptoms, date)
                                     VALUES(
-                                    @patient_fid,
-                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'), 
+                                    @patient_fid, 
+                                    AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @date
                                     )";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -192,7 +158,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateSymptom(string full_name, string symptoms_id, string symptoms, DateTime date, string update_id, string user,
+        public bool UpdateSymptom(int id, string symptoms, DateTime date, string update_id, string user,
             string description)
         {
             try
@@ -211,14 +177,11 @@ namespace PatientInformationSystemNew.functions
                                     SET 
                                     symptoms = AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
-                                    WHERE 
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND 
-                                    CAST(AES_DECRYPT(symptoms_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @symptoms_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@symptoms", symptoms);
                         cmd.Parameters.AddWithValue("@date", date);
                         cmd.Parameters.AddWithValue("@update_id", update_id);
@@ -241,8 +204,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateSymptomInConsultation(int id, string symptoms, string update_id,
-            string user, string description)
+        public bool UpdateSymptomInConsultation(int id, string symptoms, string update_id, string user, string description)
         {
             try
             {
@@ -285,7 +247,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveSymptom(string full_name, string symptoms_id, string update_id, string user, string description)
+        public bool RemoveSymptom(int id, string update_id, string user, string description)
         {
             try
             {
@@ -305,8 +267,7 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@symptoms_id", symptoms_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@update_id", update_id);
                         cmd.Parameters.AddWithValue("@user", user);
                         cmd.Parameters.AddWithValue("@description", description);
@@ -363,7 +324,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error updating symptom to removed: " + ex.ToString());
+                Console.WriteLine("Error updating symptom in consultation to removed: " + ex.ToString());
                 return false;
             }
         }

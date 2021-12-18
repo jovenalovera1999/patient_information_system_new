@@ -60,21 +60,22 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddVitalSigns(int patient_fid, string height, string weight, string temperature, 
-            string pulse_rate, string blood_pressure)
+        public bool AddVitalSigns(int patient_fid, string height, string weight, string temperature, string pulse_rate, string blood_pressure,
+            DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure)
+                    string sql = @"INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure, date)
                                     VALUES(
                                     @patient_fid,
                                     AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    @date
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -85,6 +86,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@temperature", temperature);
                         cmd.Parameters.AddWithValue("@pulse_rate", pulse_rate);
                         cmd.Parameters.AddWithValue("@blood_pressure", blood_pressure);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -97,7 +99,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error adding each patient vital signs: " + ex.ToString());
+                Console.WriteLine("Error adding vital signs: " + ex.ToString());
                 return false;
             }
         }
@@ -171,7 +173,7 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error removing vital signs: " + ex.ToString());
+                Console.WriteLine("Error updating vital signs to removed: " + ex.ToString());
                 return false;
             }
         }

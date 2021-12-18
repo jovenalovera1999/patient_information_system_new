@@ -14,52 +14,18 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void LoadPrescriptionRecordsOfPatient(string full_name, DataGridView grid)
+        public void LoadPrescriptions(int patient_fid, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
+                    string sql = @"SELECT
+                                    id,
+                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    DATE_FORMAT(date, '%a, %d %b %Y')
                                     FROM pis_db.prescriptions
-                                    WHERE CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    status = 'Show'
-                                    ORDER BY date ASC;";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        grid.DataSource = dt;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error loading prescription records of patient: " + ex.ToString());
-            }
-        }
-
-        public void LoadPrescriptionRecordsOfEachPatient(int patient_fid, DataGridView grid)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT 
-                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'ID', 
-                                    CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Prescriptions',
-                                    DATE_FORMAT(date, '%a, %d %b %Y') AS 'Date' 
-                                    FROM pis_db.prescriptions
-                                    WHERE 
+                                    WHERE
                                     patient_fid = @patient_fid AND
                                     status = 'Show'
                                     ORDER BY date ASC;";
@@ -74,15 +40,18 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Prescriptions";
+                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date";
                     }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Console.WriteLine("Error loading prescription records of each patient: " + ex.ToString());
+                Console.WriteLine("Error loading prescription records of patient: " + ex.ToString());
             }
         }
-
 
         public bool getPrescription(string patient_id, string prescription_id, DateTime date)
         {
@@ -127,52 +96,15 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool addPrescriptionFromConsultaion(string patient_id, string prescription_id, string prescriptions, DateTime date)
+        public bool AddPrescription(int patient_fid, string prescriptions, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.prescriptions(patient_id, prescription_id, prescriptions, date)
-                                    VALUES(
-                                    AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
-                                    );";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
-                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
-                        cmd.Parameters.AddWithValue("@date", date);
-
-                        connection.Open();
-                        cmd.ExecuteReader();
-
-                        return true;
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error adding a new prescription from consultation: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool AddPrescription(int patient_fid, string full_name, string prescription_id, string prescriptions, DateTime date)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"INSERT INTO pis_db.prescriptions(patient_fid, full_name, prescription_id, prescriptions, date)
+                    string sql = @"INSERT INTO pis_db.prescriptions(patient_fid, prescriptions, date)
                                     VALUES(
                                     @patient_fid,
-                                    AES_ENCRYPT(@full_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @date
                                     );";
@@ -180,14 +112,13 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
+                        dr.Close();
 
                         return true;
                     }
@@ -200,8 +131,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdatePrescriptions(string full_name, string prescription_id, string prescriptions, DateTime date, string update_id,
-            string user, string description)
+        public bool UpdatePrescriptions(int id, string prescriptions, DateTime date, string update_id, string user, string description)
         {
             try
             {
@@ -217,14 +147,11 @@ namespace PatientInformationSystemNew.functions
                                     UPDATE pis_db.prescriptions
                                     SET prescriptions = AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     date = @date
-                                    WHERE
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
                         cmd.Parameters.AddWithValue("@update_id", update_id);
@@ -242,12 +169,12 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error updating patient prescription: " + ex.ToString());
+                Console.WriteLine("Error updating prescription: " + ex.ToString());
                 return false;
             }
         }
 
-        public bool RemovePrescriptions(string full_name, string prescription_id, string update_id, string user, string description)
+        public bool RemovePrescriptions(int id, string update_id, string user, string description)
         {
             try
             {
@@ -262,14 +189,11 @@ namespace PatientInformationSystemNew.functions
 
                                     UPDATE pis_db.prescriptions
                                     SET status = 'Removed'
-                                    WHERE
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@update_id", update_id);
                         cmd.Parameters.AddWithValue("@user", user);
                         cmd.Parameters.AddWithValue("@description", description);

@@ -42,7 +42,7 @@ namespace PatientInformationSystemNew.functions
                         grid.DataSource = dt;
 
                         grid.Columns["id"].Visible = false;
-                        grid.Columns["diagnosis"].HeaderText = "Diagnosis";
+                        grid.Columns["CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Diagnosis";
                         grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date";
                     }
                 }
@@ -53,22 +53,24 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddDiagnosis(int patient_fid, string diagnosis)
+        public bool AddDiagnosis(int patient_fid, string diagnosis, DateTime date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.diagnosis(patient_fid, diagnosis)
+                    string sql = @"INSERT INTO pis_db.diagnosis(patient_fid, diagnosis, date)
                                     VALUES(
                                     @patient_fid,
-                                    AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    @date
                                     );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@diagnosis", diagnosis);
+                        cmd.Parameters.AddWithValue("@date", date);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -131,7 +133,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemoveDiagnosis(int id)
+        public bool RemoveDiagnosis(int id, string update_id, string user, string description)
         {
             try
             {
@@ -147,14 +149,11 @@ namespace PatientInformationSystemNew.functions
                                     UPDATE pis_db.diagnosis
                                     SET
                                     status = 'Removed'
-                                    WHERE
-                                    CAST(AES_DECRYPT(full_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @full_name AND
-                                    CAST(AES_DECRYPT(diagnosis_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis_id;";
+                                    WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@full_name", full_name);
-                        cmd.Parameters.AddWithValue("@diagnosis_id", diagnosis_id);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@update_id", update_id);
                         cmd.Parameters.AddWithValue("@user", user);
                         cmd.Parameters.AddWithValue("@description", description);
