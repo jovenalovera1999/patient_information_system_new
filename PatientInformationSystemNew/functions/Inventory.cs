@@ -187,13 +187,19 @@ namespace PatientInformationSystemNew.functions
         // Add
 
         public bool AddIncomingSuppliesWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date,
-            DateTime arrive_date)
+            DateTime arrive_date, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, expiration_date, arrive_date)
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, expiration_date, arrive_date)
                                     VALUES(
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -209,6 +215,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
                         cmd.Parameters.AddWithValue("@arrive_date", arrive_date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -226,13 +234,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddIncomingSuppliesWithoutExpiration(string supply_id, string supply_name, string quantity, DateTime arrive_date)
+        public bool AddIncomingSuppliesWithoutExpiration(string supply_id, string supply_name, string quantity, DateTime arrive_date, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, arrive_date)
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, arrive_date)
                                     VALUES(
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -246,6 +261,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@arrive_date", arrive_date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -263,13 +280,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddSupplyWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date)
+        public bool AddSupplyWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
                                     VALUES(
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -282,6 +306,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -299,13 +325,19 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddSupplyWithoutExpiration(string supply_id, string supply_name, string quantity)
+        public bool AddSupplyWithoutExpiration(string supply_id, string supply_name, string quantity, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity)
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    INSERT INTO pis_db.inventory(supply_id, supply_name, quantity)
                                     VALUES(
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -316,6 +348,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -336,13 +370,19 @@ namespace PatientInformationSystemNew.functions
         // Update
 
         public bool UpdateIncomingSupplyWithExpiration(int id, string supply_name, string quantity, DateTime expiration_date,
-            DateTime arrive_date)
+            DateTime arrive_date, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory_incoming
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory_incoming
                                     SET 
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -357,6 +397,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
                         cmd.Parameters.AddWithValue("@arrive_date", arrive_date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -374,13 +416,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateIncomingSupplyWithoutExpiration(int id, string supply_name, string quantity, DateTime arrive_date)
+        public bool UpdateIncomingSupplyWithoutExpiration(int id, string supply_name, string quantity, DateTime arrive_date, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory_incoming
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory_incoming
                                     SET 
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -393,6 +442,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@arrive_date", arrive_date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -410,13 +461,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SaveManageSuppliesWithExpiration(int id, string supply_name, string quantity, DateTime expiration_date)
+        public bool SaveManageSuppliesWithExpiration(int id, string supply_name, string quantity, DateTime expiration_date, string user,
+            string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory
                                     SET 
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -429,6 +487,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -446,13 +506,19 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SaveManageSuppliesWithoutExpiration(int id, string supply_name, string quantity)
+        public bool SaveManageSuppliesWithoutExpiration(int id, string supply_name, string quantity, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory
                                     SET 
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
@@ -463,6 +529,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -480,13 +548,19 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateQuantityOfSupplyFromIncomingSupply(int id, string supply_name, string quantity)
+        public bool UpdateQuantityOfSupplyFromIncomingSupply(int id, string supply_name, string quantity, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory
                                     SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
 
@@ -499,6 +573,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -516,25 +592,28 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateQuantityOfExistingSupplyWithoutExpiration(int id, string supply_name, string quantity)
+        public bool UpdateQuantityOfExistingSupplyWithoutExpiration(string supply_name, string quantity, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory
-                                    SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );  
 
-                                    UPDATE pis_db.incoming_inventory
-                                    SET status = 'Removed'
-                                    WHERE id = @id;";
+                                    UPDATE pis_db.inventory
+                                    SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -552,13 +631,19 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool ItemUsed(int id, string quantity)
+        public bool ItemUsed(int id, string quantity, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory
                                     SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE id = @id;";
 
@@ -566,6 +651,8 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -585,19 +672,27 @@ namespace PatientInformationSystemNew.functions
 
         // Delete
 
-        public bool DeleteIncomingSupply(int id)
+        public bool DeleteIncomingSupply(int id, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory_incoming
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+
+                                    UPDATE pis_db.inventory_incoming
                                     SET status = 'Removed'
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -615,19 +710,27 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool DeleteSupply(int id)
+        public bool DeleteSupply(int id, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.inventory
+                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
+   
+                                    UPDATE pis_db.inventory
                                     SET status = 'Removed'
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;

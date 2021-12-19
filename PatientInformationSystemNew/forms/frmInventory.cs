@@ -121,7 +121,18 @@ namespace PatientInformationSystemNew.forms
             else if(this.switchExpirationDate.Checked == true)
             {
                 if (inventory.AddIncomingSuppliesWithExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
-                    this.dateExpiration.Value, this.dateArrive.Value))
+                    this.dateExpiration.Value, this.dateArrive.Value, val.UserFullName,
+                    string.Format("Added incoming supply with expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: {1}\r\n" +
+                    "Quantity: {2}\r\n" +
+                    "Expiration Date: {3}\r\n" +
+                    "Arrive Date: {4}",
+                    this.txtSupplyID.Text,
+                    this.txtSupplyName.Text,
+                    this.txtSupplyQuantity.Text,
+                    this.dateExpiration.Value.ToString("D"),
+                    this.dateArrive.Value.ToString("D"))))
                 {
                     MessageBox.Show("Incoming supply successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -147,7 +158,17 @@ namespace PatientInformationSystemNew.forms
             else if(this.dateExpiration.Checked == false)
             {
                 if (inventory.AddIncomingSuppliesWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
-                    this.dateArrive.Value))
+                    this.dateArrive.Value, val.UserFullName,
+                    string.Format("Added incoming supply without expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: {1}\r\n" +
+                    "Quantity: {2}\r\n" +
+                    "Arrive Date: {3}",
+                    this.txtSupplyID.Text,
+                    this.txtSupplyName.Text,
+                    this.txtSupplyQuantity.Text,
+                    this.dateArrive.Value.ToString("D"))))
+
                 {
                     MessageBox.Show("Incoming supply successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -170,6 +191,9 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveIncomingSupplies_Click(object sender, EventArgs e)
         {
+            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+            DateTime arrive_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[6].Value.ToString());
+
             if (String.IsNullOrWhiteSpace(this.txtSupplyName.Text))
             {
                 MessageBox.Show("Supply name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -183,7 +207,18 @@ namespace PatientInformationSystemNew.forms
             else if (this.switchExpirationDate.Checked == true)
             {
                 if (inventory.UpdateIncomingSupplyWithExpiration(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()),
-                    this.txtSupplyName.Text, this.txtSupplyQuantity.Text, this.dateExpiration.Value, this.dateArrive.Value))
+                    this.txtSupplyName.Text, this.txtSupplyQuantity.Text, this.dateExpiration.Value, this.dateArrive.Value, val.UserFullName,
+                    string.Format("Updated incoming supply with expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: from ({1}) to ({2})\r\n" +
+                    "Quantity: from ({3}) to ({4})\r\n" +
+                    "Expiration Date: from ({5}) to ({6})\r\n" +
+                    "Arrive Date: from ({7}) to ({8})",
+                    this.gridIncomingSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), this.txtSupplyName.Text,
+                    this.gridIncomingSupplies.SelectedCells[3].Value.ToString(), this.txtSupplyQuantity.Text,
+                    expiration_date.ToString("D"), this.dateExpiration.Value.ToString("D"),
+                    arrive_date.ToString("D"), this.dateArrive.Value.ToString("D"))))
                 {
                     MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -220,7 +255,16 @@ namespace PatientInformationSystemNew.forms
             else if (this.dateExpiration.Checked == false)
             {
                 if (inventory.UpdateIncomingSupplyWithoutExpiration(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()),
-                    this.txtSupplyName.Text, this.txtSupplyQuantity.Text, this.dateArrive.Value))
+                    this.txtSupplyName.Text, this.txtSupplyQuantity.Text, this.dateArrive.Value, val.UserFullName,
+                    string.Format("Updated incoming supply without expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: from ({1}) to ({2})\r\n" +
+                    "Quantiy: from ({3}) to ({4})\r\n" +
+                    "Arrive Date: from ({5}) to ({6})",
+                    this.gridIncomingSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), this.txtSupplyName.Text,
+                    this.gridIncomingSupplies.SelectedCells[3].Value.ToString(), this.txtSupplyQuantity.Text,
+                    arrive_date.ToString("D"), this.dateArrive.Value.ToString("D"))))
                 {
                     MessageBox.Show("Incoming supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -335,7 +379,14 @@ namespace PatientInformationSystemNew.forms
                                 int total = (int.Parse(val.SupplyQuantity) + int.Parse(this.gridIncomingSupplies.SelectedCells[3].Value.ToString()));
 
                                 if (inventory.UpdateQuantityOfSupplyFromIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()),
-                                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), total.ToString()))
+                                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), total.ToString(), val.UserFullName,
+                                    string.Format("Updated supply quantity from incoming supplies into existing supplies in inventory!\r\n" +
+                                    "Supply Name: {0}\r\n" +
+                                    "Quantity: from ({1}) to ({2})\r\n" +
+                                    "Total Added: {3}",
+                                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                                    val.SupplyQuantity, total.ToString(),
+                                    this.gridIncomingSupplies.SelectedCells[3].Value.ToString())))
                                 {
                                     MessageBox.Show("Supply has been updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -490,7 +541,14 @@ namespace PatientInformationSystemNew.forms
                             int total = (int.Parse(val.SupplyQuantity) + int.Parse(this.gridIncomingSupplies.SelectedCells[3].Value.ToString()));
 
                             if (inventory.UpdateQuantityOfSupplyFromIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()),
-                                this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), total.ToString()))
+                                this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), total.ToString(), val.UserFullName,
+                                    string.Format("Updated supply quantity from incoming supplies into existing supplies in inventory!\r\n" +
+                                    "Supply Name: {0}\r\n" +
+                                    "Quantity: from ({1}) to ({2})\r\n" +
+                                    "Total Added: {3}",
+                                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                                    val.SupplyQuantity, total.ToString(),
+                                    this.gridIncomingSupplies.SelectedCells[3].Value.ToString())))
                             {
                                 MessageBox.Show("Supply has been updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -570,7 +628,24 @@ namespace PatientInformationSystemNew.forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(inventory.DeleteIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString())))
+            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+            DateTime arrive_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[6].Value.ToString());
+
+            if (inventory.DeleteIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
+                string.Format("{0} has been removed from incoming supplies!\r\n" +
+                "Details:\r\n" +
+                "Supply ID: {1}\r\n" +
+                "Supply Name: {2}\r\n" +
+                "Quantity: {3}\r\n" +
+                "Expiration Date: {4}\r\n" +
+                "Arrive Date: {5}",
+                this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                this.gridIncomingSupplies.SelectedCells[1].Value.ToString(),
+                this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                this.gridIncomingSupplies.SelectedCells[3].Value.ToString(),
+                expiration_date.ToString("D"),
+                arrive_date.ToString("D"))))
+
             {
                 MessageBox.Show(string.Format("{0} successfully deleted!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -657,7 +732,16 @@ namespace PatientInformationSystemNew.forms
             else if(this.switchExpirationDateManageSupplies.Checked == true)
             {
                 if(inventory.AddSupplyWithExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
-                    this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value))
+                    this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value, val.UserFullName,
+                    string.Format("Added supply in inventory with expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: {1}\r\n" +
+                    "Quantity: {2}\r\n" +
+                    "Expiration Date: {3}",
+                    this.txtSupplyIDManageSupplies.Text,
+                    this.txtSupplyNameManageSupplies.Text,
+                    this.txtSupplyQuantityManageSupplies.Text,
+                    this.dateExpirationManageSupplies.Value.ToString("D"))))
                 {
                     this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -685,10 +769,17 @@ namespace PatientInformationSystemNew.forms
                 if(duplicate.DuplicateSupplyNameWithoutExpirationDate(this.txtSupplyNameManageSupplies.Text))
                 {
                     int total_quantity_manage_supplies = (int.Parse(val.SupplyQuantity) + 
-                        int.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString()));
+                        int.Parse(this.txtSupplyQuantityManageSupplies.Text));
 
-                    if(inventory.UpdateQuantityOfExistingSupplyWithoutExpiration(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()),
-                        this.gridManageSupplies.SelectedCells[2].Value.ToString(), total_quantity_manage_supplies.ToString()))
+                    if(inventory.UpdateQuantityOfExistingSupplyWithoutExpiration(this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                        total_quantity_manage_supplies.ToString(), val.UserFullName,
+                        string.Format("Updated supply quantity in inventory!\r\n" +
+                        "Supply Name: {0}\r\n" +
+                        "Quantiy: from ({1}) to ({2})\r\n" +
+                        "Total Added: {3}",
+                        this.txtSupplyNameManageSupplies.Text,
+                        val.SupplyQuantity, total_quantity_manage_supplies.ToString(),
+                        this.txtSupplyQuantityManageSupplies.Text)))
                     {
                         MessageBox.Show("Supply has been updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -711,7 +802,14 @@ namespace PatientInformationSystemNew.forms
                     }
                 }
                 else if (inventory.AddSupplyWithoutExpiration(this.txtSupplyIDManageSupplies.Text, this.txtSupplyNameManageSupplies.Text,
-                    this.txtSupplyQuantityManageSupplies.Text))
+                    this.txtSupplyQuantityManageSupplies.Text, val.UserFullName,
+                    string.Format("Added supply in inventory without expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: {1}\r\n" +
+                    "Quantity: {2}",
+                    this.txtSupplyIDManageSupplies.Text,
+                    this.txtSupplyNameManageSupplies.Text,
+                    this.txtSupplyQuantityManageSupplies.Text)))
                 {
                     this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -769,10 +867,21 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveManageSupplies_Click(object sender, EventArgs e)
         {
-            if(this.switchExpirationDateManageSupplies.Checked == true)
+            DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString());
+
+            if (this.switchExpirationDateManageSupplies.Checked == true)
             {
                 if(inventory.SaveManageSuppliesWithExpiration(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()),
-                    this.txtSupplyNameManageSupplies.Text, this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value))
+                    this.txtSupplyNameManageSupplies.Text, this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value, val.UserFullName,
+                    string.Format("Updated supply with expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: from ({1}) to ({2})\r\n" +
+                    "Quantity: from ({3}) to ({4})\r\n" +
+                    "Expiration Date: from ({5}) to ({6})",
+                    this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[2].Value.ToString(), this.txtSupplyNameManageSupplies.Text,
+                    this.gridManageSupplies.SelectedCells[3].Value.ToString(), this.txtSupplyQuantityManageSupplies.Text,
+                    expiration_date.ToString("D"), this.dateExpirationManageSupplies.Value.ToString("D"))))
                 {
                     MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -808,7 +917,14 @@ namespace PatientInformationSystemNew.forms
             else
             {
                 if (inventory.SaveManageSuppliesWithoutExpiration(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()),
-                    this.txtSupplyNameManageSupplies.Text, this.txtSupplyQuantityManageSupplies.Text))
+                    this.txtSupplyNameManageSupplies.Text, this.txtSupplyQuantityManageSupplies.Text, val.UserFullName,
+                    string.Format("Updated supply in inventory without expiration!\r\n" +
+                    "Supply ID: {0}\r\n" +
+                    "Supply Name: from ({1}) to ({2})\r\n" +
+                    "Quantity: from ({3}) to ({4})",
+                    this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[2].Value.ToString(), this.txtSupplyNameManageSupplies.Text,
+                    this.gridManageSupplies.SelectedCells[3].Value.ToString(), this.txtSupplyQuantityManageSupplies.Text)))
                 {
                     MessageBox.Show("Supply successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -844,12 +960,25 @@ namespace PatientInformationSystemNew.forms
             int total_deduct_items = (int.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString()) - 
                 int.Parse(this.txtItemUsed.Text));
 
-            if(String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
+            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+
+            if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
             {
                 MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtItemUsed.Focus();
             }
-            else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString()))
+            else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName,
+                string.Format("{0} has beed deducted!\r\n" +
+                "Details:\r\n" +
+                "Supply ID: {1}\r\n" +
+                "Supply Name: {2}\r\n" +
+                "Quantity: from ({3}) to ({4})\r\n" +
+                "Expiration Date: {5}",
+                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[3].Value.ToString(), this.txtItemUsed.Text,
+                expiration_date.ToString("D"))))
             {
                 MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -887,7 +1016,20 @@ namespace PatientInformationSystemNew.forms
 
         private void btnDeleteManageSupplies_Click(object sender, EventArgs e)
         {
-            if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString())))
+            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+
+            if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
+                string.Format("{0} has been removed!\r\n" +
+                "Details:\r\n" +
+                "Supply ID: {1}\r\n" +
+                "Supply Name: {2}\r\n" +
+                "Quantity: {3}\r\n" +
+                "Expiration Date: {4}",
+                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[3].Value.ToString(),
+                expiration_date.ToString("D"))))
             {
                 MessageBox.Show(string.Format("{0} successfully deleted!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
