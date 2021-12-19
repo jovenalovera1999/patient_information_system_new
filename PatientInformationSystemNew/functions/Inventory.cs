@@ -30,7 +30,8 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(expiration_date, '%a, %d %b %Y'),
                                     CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')
                                     FROM pis_db.inventory
-                                    WHERE status = 'Show';";
+                                    WHERE status = 'Show'
+                                    ORDER BY CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -72,7 +73,8 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(arrive_date, '%a, %d %b %Y'),
                                     CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left')
                                     FROM pis_db.inventory_incoming
-                                    WHERE status = 'Show';";
+                                    WHERE status = 'Show'
+                                    ORDER BY CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left') ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -488,7 +490,7 @@ namespace PatientInformationSystemNew.functions
                                     SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
 
-                                    UPDATE FROM pis_db.inventory_incoming
+                                    UPDATE pis_db.inventory_incoming
                                     SET status = 'Removed'
                                     WHERE id = @id;";
 
@@ -608,7 +610,37 @@ namespace PatientInformationSystemNew.functions
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Error canceling incoming supply: " + ex.ToString());
+                Console.WriteLine("Error updating incoming supply to removed: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool DeleteSupply(int id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"UPDATE pis_db.inventory
+                                    SET status = 'Removed'
+                                    WHERE id = @id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating supply to removed: " + ex.ToString());
                 return false;
             }
         }

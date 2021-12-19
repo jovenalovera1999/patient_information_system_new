@@ -46,6 +46,16 @@ namespace PatientInformationSystemNew.forms
 
             this.dateExpiration.Value = DateTime.Now;
             this.dateArrive.Value = DateTime.Now;
+
+            for(int i = 0; i < this.gridIncomingSupplies.Rows.Count; i++)
+            {
+                if (this.gridIncomingSupplies.Rows[i].Cells[7].Value.ToString() == "0 Days Left")
+                {
+                    MessageBox.Show("One or more incoming supply/supplies will arrived today!", "Reminder", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    break;
+                }
+            }
         }
 
         private void switchExpirationDate_CheckedChanged(object sender, EventArgs e)
@@ -136,19 +146,7 @@ namespace PatientInformationSystemNew.forms
             }
             else if(this.dateExpiration.Checked == false)
             {
-                if(duplicate.InventorySupplyDuplicate(this.txtSupplyName.Text))
-                {
-                    MessageBox.Show(string.Format("{0} is already in inventory!", this.txtSupplyName.Text), "Already Exist", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    this.txtSupplyName.ResetText();
-                    this.txtSupplyQuantity.ResetText();
-
-                    this.dateArrive.Value = DateTime.Now;
-
-                    this.txtSupplyName.Focus();
-                }
-                else if (inventory.AddIncomingSuppliesWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
+                if (inventory.AddIncomingSuppliesWithoutExpiration(this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
                     this.dateArrive.Value))
                 {
                     MessageBox.Show("Incoming supply successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -487,9 +485,9 @@ namespace PatientInformationSystemNew.forms
                     }
                     else
                     {
-                        if (duplicate.DuplicateSupplyNameWithoutExpirationDate(this.gridIncomingSupplies.SelectedCells[1].Value.ToString()))
+                        if (duplicate.DuplicateSupplyNameWithoutExpirationDate(this.gridIncomingSupplies.SelectedCells[2].Value.ToString()))
                         {
-                            int total = (int.Parse(val.SupplyQuantity) + int.Parse(this.gridIncomingSupplies.SelectedCells[2].Value.ToString()));
+                            int total = (int.Parse(val.SupplyQuantity) + int.Parse(this.gridIncomingSupplies.SelectedCells[3].Value.ToString()));
 
                             if (inventory.UpdateQuantityOfSupplyFromIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()),
                                 this.gridIncomingSupplies.SelectedCells[2].Value.ToString(), total.ToString()))
@@ -574,8 +572,8 @@ namespace PatientInformationSystemNew.forms
         {
             if(inventory.DeleteIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString())))
             {
-                MessageBox.Show(string.Format("{0} successfully deleted!", this.txtSupplyName.Text), "Success", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("{0} successfully deleted!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                 this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -602,8 +600,8 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to delete {0}!", this.txtSupplyName.Text), "Failed", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("Failed to delete {0}!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -889,7 +887,40 @@ namespace PatientInformationSystemNew.forms
 
         private void btnDeleteManageSupplies_Click(object sender, EventArgs e)
         {
+            if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString())))
+            {
+                MessageBox.Show(string.Format("{0} successfully deleted!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                inventory.LoadInventory(this.gridManageSupplies);
+                inventory.LoadInventory(this.gridSupplies);
+
+                this.switchExpirationDateManageSupplies.Checked = false;
+                this.dateExpirationManageSupplies.Value = DateTime.Now;
+
+                this.btnAddManageSupplies.Visible = true;
+                this.btnAddManageSupplies.Enabled = true;
+
+                this.btnEditManageSupplies.Enabled = false;
+                this.btnSaveManageSupplies.Visible = false;
+                this.btnDeleteManageSupplies.Enabled = false;
+                this.btnDeductItem.Enabled = false;
+
+                autoGenNum();
+
+                this.txtSupplyNameManageSupplies.ResetText();
+                this.txtSupplyQuantityManageSupplies.ResetText();
+
+                this.txtSupplyNameManageSupplies.Focus();
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Failed to delete {0}!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

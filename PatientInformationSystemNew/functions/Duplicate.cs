@@ -382,45 +382,6 @@ namespace PatientInformationSystemNew.functions
 
         // Inventory
 
-        public bool InventorySupplyDuplicate(string supply_name)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT * 
-                                    FROM pis_db.inventory_incoming
-                                    WHERE
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name AND
-                                    status = 'Show';";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@supply_name", supply_name);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if(dt.Rows.Count == 1)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error detecting duplicate name of supply without expiration date: " + ex.ToString());
-                return false;
-            }
-        }
-
         public bool DuplicateSupplyNameWithoutExpirationDate(string supply_name)
         {
             try
