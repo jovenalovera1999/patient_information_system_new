@@ -11,21 +11,19 @@ using System.IO;
 
 namespace PatientInformationSystemNew.forms
 {
-    public partial class frmMyProfileNew : Form
+    public partial class frmMyProfile : Form
     {
-        public frmMyProfileNew()
+        public frmMyProfile()
         {
             InitializeComponent();
         }
 
-        components.Connections connection = new components.Connections();
+        components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
         functions.User user = new functions.User();
-        functions.Patient patient = new functions.Patient();
-        functions.Duplicate duplicate = new functions.Duplicate();
 
-        private void frmMyProfileNew_Load(object sender, EventArgs e)
+        private void frmMyProfile_Load(object sender, EventArgs e)
         {
             for (int i = 1; i < 120; i++)
             {
@@ -54,15 +52,26 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.Text = val.UserTelephoneNumber;
             this.txtEmail.Text = val.UserEmail;
             this.txtRole.Text = val.UserRole;
+        }
 
-            if (val.UserRole != "Doctor")
+        string imgLocation = "";
+        private void btnUploadPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                this.tabControlUser.TabPages.Remove(tabMyPatients);
+                imgLocation = dialog.FileName.ToString();
+                this.picProfilePicture.ImageLocation = imgLocation;
             }
-            else
-            {
-                patient.LoadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, val.UserSpecialization, this.gridPatients);
-            }
+        }
+
+        private void btnRemovePhoto_Click(object sender, EventArgs e)
+        {
+            val.UserProfilePicture = null;
+            imgLocation = null;
+            this.picProfilePicture.Image = null;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -90,41 +99,9 @@ namespace PatientInformationSystemNew.forms
             this.txtMyID.Focus();
         }
 
-        string imgLocation = "";
-        private void btnUploadPhoto_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                imgLocation = dialog.FileName.ToString();
-                this.picProfilePicture.ImageLocation = imgLocation;
-            }
-        }
-
-        private void btnRemovePhoto_Click(object sender, EventArgs e)
-        {
-            val.UserProfilePicture = null;
-            imgLocation = null;
-            this.picProfilePicture.Image = null;
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtMyID.Text))
+            if (String.IsNullOrWhiteSpace(this.txtMyID.Text))
             {
                 MessageBox.Show("User ID is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtMyID.Focus();
@@ -175,12 +152,12 @@ namespace PatientInformationSystemNew.forms
             {
                 // User already with or without profile picture
 
-                if(val.UserGender == "Male")
+                if (val.UserGender == "Male")
                 {
                     if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                         this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
                         this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                        generateID.ToString(), val.UserFullName, string.Format("{0} updated his profile!", val.UserFullName)))
+                        val.UserFullName, string.Format("Updated his profile!")))
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -240,7 +217,7 @@ namespace PatientInformationSystemNew.forms
                     if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                         this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
                         this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                        generateID.ToString(), val.UserFullName, string.Format("{0} updated her profile!", val.UserFullName)))
+                        val.UserFullName, string.Format("Updated her profile!")))
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -300,7 +277,7 @@ namespace PatientInformationSystemNew.forms
             {
                 // With new profile picture
 
-                if(val.UserGender == "Male")
+                if (val.UserGender == "Male")
                 {
                     byte[] profilePicture = null;
                     FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
@@ -309,8 +286,8 @@ namespace PatientInformationSystemNew.forms
 
                     if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                         this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
-                        this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, generateID.ToString(), val.UserFullName,
-                        string.Format("{0} updated his profile!", val.UserFullName)))
+                        this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, val.UserFullName,
+                        string.Format("Updated his profile!")))
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -374,8 +351,8 @@ namespace PatientInformationSystemNew.forms
 
                     if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
                         this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
-                        this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, generateID.ToString(), val.UserFullName,
-                        string.Format("{0} updated her profile!", val.UserFullName)))
+                        this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, val.UserFullName,
+                        string.Format("Updated her profile!")))
                     {
                         MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -433,7 +410,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void frmMyProfileNew_VisibleChanged(object sender, EventArgs e)
+        private void frmMyProfile_VisibleChanged(object sender, EventArgs e)
         {
             user.GetUser(val.UserPrimaryID);
         }

@@ -349,7 +349,14 @@ namespace PatientInformationSystemNew.forms
         private void btnAddVitalSigns_Click(object sender, EventArgs e)
         {
             if(vital_signs.AddVitalSigns(val.PatientPrimaryID, this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text,
-                this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value))
+                this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value, val.UserFullName, val.PatientFullName,
+                string.Format("Added Vital Signs!\r\n" +
+                "Height: {0}\r\n" +
+                "Weight: {1}\r\n" +
+                "Temperature: {2}\r\n" +
+                "Pulse Rate: {3}\r\n" +
+                "Blood Pressure: {4}" +
+                "Date: {5}")))
             {
                 MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -375,7 +382,12 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddDiagnosis_Click(object sender, EventArgs e)
         {
-            if(diagnosis.AddDiagnosis(val.PatientPrimaryID, this.txtDiagnosis.Text, this.dateDiagnosis.Value))
+            if(diagnosis.AddDiagnosis(val.PatientPrimaryID, this.txtDiagnosis.Text, this.dateDiagnosis.Value, val.UserFullName, val.PatientFullName,
+                string.Format("Added Diagnosis!\r\n" +
+                "Diagnosis: {0}\r\n" +
+                "Date: {1}",
+                this.txtDiagnosis.Text,
+                this.dateDiagnosis.Value.ToString("D"))))
             {
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -397,7 +409,12 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddSymptoms_Click(object sender, EventArgs e)
         {
-            if(symptoms.AddSymptom(val.PatientPrimaryID, this.txtSymptoms.Text, this.dateSymptoms.Value))
+            if(symptoms.AddSymptom(val.PatientPrimaryID, this.txtSymptoms.Text, this.dateSymptoms.Value, val.UserFullName, val.PatientFullName,
+                string.Format("Added Symptom!\r\n" +
+                "Symptom: {0}\r\n" +
+                "Date: {1}",
+                this.txtSymptoms.Text,
+                this.dateSymptoms.Value.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -419,7 +436,13 @@ namespace PatientInformationSystemNew.forms
 
         private void btnAddPrescriptions_Click(object sender, EventArgs e)
         {
-            if(prescriptions.AddPrescription(val.PatientPrimaryID, this.txtPrescriptions.Text, this.datePrescriptions.Value))
+            if(prescriptions.AddPrescription(val.PatientPrimaryID, this.txtPrescriptions.Text, this.datePrescriptions.Value, val.UserFullName, val.PatientFullName,
+                string.Format("Added Prescription!\r\n" +
+                "Prescription:\r\n\r\n" +
+                "{0}]\r\n\r\n" +
+                "Date: {1}",
+                this.txtPrescriptions.Text,
+                this.datePrescriptions.Value.ToString("D"))))
             {
                 MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -526,19 +549,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSavePersonalInfo_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
+            if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
             {
                 MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();
@@ -572,13 +583,27 @@ namespace PatientInformationSystemNew.forms
             }
             else if (patient.UpdatePatient(val.PatientPrimaryID, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
                 this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Personal Info!\r\n" +
-                "First Name: from {1} to {2}\r\nMiddle Name: from {3} to {4}\r\nLast Name: from {5} to {6}\r\nGender: from {7} to {8}\r\nAge: from {9} to {10}\r\n" +
-                "Address: from {11} to {12}\r\nBirthday: from {13} to {14}\r\nCellphone Number: from {15} to {16}\r\nTelephone Number: from {17} to {18}\r\n" +
-                "Email: from {19} to {20}!", val.PatientFullName, val.PatientFirstName, this.txtFirstName.Text, val.PatientMiddleName,
-                this.txtMiddleName.Text, val.PatientLastName, this.txtLastName.Text, val.PatientGender, this.cmbGender.Text, val.PatientAge, this.cmbAge.Text,
-                val.PatientAddress, this.txtAddress.Text, val.PatientBirthday.ToString("D"), this.dateBirthday.Value.Date.ToString("D"),
-                val.PatientCellphoneNumer, this.txtCellphoneNumber.Text, val.PatientTelephoneNumber, this.txtTelephoneNumber.Text,
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, val.UserFullName, val.PatientFullName,
+                string.Format("Updated Patient Personal Info!\r\n" +
+                "First Name: from ({0}) to ({1})\r\n" +
+                "Middle Name: from ({2}) to ({3})\r\n" +
+                "Last Name: from ({4}) to ({5})\r\n" +
+                "Gender: from ({6}) to ({7})\r\n" +
+                "Age: from ({8}) to ({9})\r\n" +
+                "Address: from ({10}) to ({11})\r\n" +
+                "Birthday: from ({12}) to ({13})\r\n" +
+                "Cellphone Number: from ({14}) to ({15})\r\n" +
+                "Telephone Number: from ({16}) to ({17})\r\n" +
+                "Email: from ({18}) to ({19})",
+                val.PatientFirstName, this.txtFirstName.Text,
+                val.PatientMiddleName, this.txtMiddleName.Text,
+                val.PatientLastName, this.txtLastName.Text,
+                val.PatientGender, this.cmbGender.Text,
+                val.PatientAge, this.cmbAge.Text,
+                val.PatientAddress, this.txtAddress.Text,
+                val.PatientBirthday.ToString("D"), this.dateBirthday.Value.Date.ToString("D"),
+                val.PatientCellphoneNumer, this.txtCellphoneNumber.Text,
+                val.PatientTelephoneNumber, this.txtTelephoneNumber.Text,
                 val.PatientEmail, this.txtEmail.Text)))
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -633,8 +658,24 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveVitalSigns_Click(object sender, EventArgs e)
         {
+            DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[6].Value.ToString());
+
             if(vital_signs.UpdateVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), this.txtHeight.Text,
-                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value))
+                this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value,
+                val.UserFullName, val.PatientFullName,
+                string.Format("Updated Vital Signs!\r\n" +
+                "Height: from ({0}) to ({1})\r\n" +
+                "Weight: from ({2}) to ({3})\r\n" +
+                "Temperature: from ({4}) to ({5})\r\n" +
+                "Pulse Rate: from ({6}) to ({7})\r\n" +
+                "Blood Pressure: from ({8}) to ({9})\r\n" +
+                "Date: from ({10}) to ({11})",
+                this.gridVitalSigns.SelectedCells[1].Value.ToString(), this.txtHeight.Text,
+                this.gridVitalSigns.SelectedCells[2].Value.ToString(), this.txtWeight.Text,
+                this.gridVitalSigns.SelectedCells[3].Value.ToString(), this.txtTemperature.Text,
+                this.gridVitalSigns.SelectedCells[4].Value.ToString(), this.txtPulseRate.Text,
+                this.gridVitalSigns.SelectedCells[5].Value.ToString(), this.txtBloodPressure.Text,
+                date.ToString("D"), this.dateVitalSigns.Value.ToString("D"))))
             {
                 MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -668,25 +709,15 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveDiagnosis_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
             DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[2].Value.ToString());
 
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(diagnosis.UpdateDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), this.txtDiagnosis.Text,
-                this.dateDiagnosis.Value, generateID.ToString(), val.UserFullName,
-                string.Format("Updated Patient {0} Diagnosis!\r\nDiagnosis: from {1} to {2}\r\n" +
-                "Date: from {3} to {4}", val.PatientFullName, this.gridDiagnosis.SelectedCells[1].Value.ToString(),
-                this.txtDiagnosis.Text, date.ToString("D"), this.dateDiagnosis.Value.ToString("D"))))
+            if(diagnosis.UpdateDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), this.txtDiagnosis.Text,
+                this.dateDiagnosis.Value, val.UserFullName, val.PatientFullName,
+                string.Format("Updated Diagnosis!\r\n" +
+                "Diagnosis: from ({0}) to ({1})\r\n" +
+                "Date: from ({2}) to ({3})",
+                this.gridDiagnosis.SelectedCells[1].Value.ToString(), this.txtDiagnosis.Text,
+                date.ToString("D"), this.dateDiagnosis.Value.ToString("D"))))
             {
                 MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -712,24 +743,15 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSymptoms_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
             DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[2].Value.ToString());
 
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(symptoms.UpdateSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text, this.dateSymptoms.Value,
-                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Symptom!\r\nSymptom: from {1} to {2}\r\nDate: " +
-                "from {3} to {4}", val.PatientFullName, this.gridSymptoms.SelectedCells[1].Value.ToString(),
-                this.txtSymptoms.Text, date.ToString("D"), this.dateSymptoms.Value.ToString("D"))))
+            if(symptoms.UpdateSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text, this.dateSymptoms.Value,
+                val.UserFullName, val.PatientFullName,
+                string.Format("Updated Patient Symptom!\r\n" +
+                "Symptom: from ({0}) to ({1})\r\n" +
+                "Date: from ({2}) to ({3})",
+                this.gridSymptoms.SelectedCells[1].Value.ToString(), this.txtSymptoms.Text,
+                date.ToString("D"), this.dateSymptoms.Value.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -755,26 +777,19 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSavePrescriptions_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
             DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
-            if (duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(prescriptions.UpdatePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()),
-                this.txtPrescriptions.Text, this.datePrescriptions.Value, generateID.ToString(), val.UserFullName,
-                string.Format("Updated Patient {0} Prescription!" +
-                "\r\nPrescription: from {1} to {2}\r\nDate from {3} to {4}", val.PatientFullName,
-                this.gridPrescriptions.SelectedCells[1].Value.ToString(), this.txtPrescriptions.Text, date.ToString("D"),
-                this.datePrescriptions.Value.ToString("D"))))
+            if(prescriptions.UpdatePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()),
+                this.txtPrescriptions.Text, this.datePrescriptions.Value, val.UserFullName, val.PatientFullName,
+                string.Format("Updated Prescription!\r\n" +
+                "Prescription:\r\n\r\n" +
+                "from\r\n\r\n" +
+                "{0}\r\n\r\n" +
+                "to\r\n\r\n" +
+                "{1}\r\n" +
+                "Date: from ({2}) to ({3})",
+                this.gridPrescriptions.SelectedCells[1].Value.ToString(), this.txtPrescriptions.Text,
+                date.ToString("D"), this.datePrescriptions.Value.ToString("D"))))
             {
                 MessageBox.Show("Prescription successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -801,19 +816,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSavePayment_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
             {
                 MessageBox.Show("Please input total medical fee first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
@@ -828,11 +831,16 @@ namespace PatientInformationSystemNew.forms
             {
                 if (payment.UpdatePaymentTransaction(int.Parse(this.gridPaymentHistory.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
                 this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
-                generateID.ToString(), val.UserFullName, string.Format("Updated Patient {0} Payment Transaction!\r\nReceipt No: from " +
-                "{1} to {2}\r\nTotal Medical Fee: from {3} to {4}\r\nDiscount: from {5} to {6}\r\nAmount: from {7} to {8}\r\n Total Amount Paid: from {9} to {10}\r\n" +
-                "Change from {11} to {12}", val.PatientFullName, this.gridPaymentHistory.SelectedCells[1].Value.ToString(),
-                this.txtReceiptNo.Text, this.gridPaymentHistory.SelectedCells[2].Value.ToString(),
-                this.txtTotalMedicalFee.Text, this.gridPaymentHistory.SelectedCells[3].Value.ToString(), this.cmbDiscount.Text,
+                val.UserFullName, val.PatientFullName, string.Format("Updated Payment Transaction!\r\n" +
+                "Receipt No: from ({0}) to ({1})\r\n" +
+                "Total Medical Fee: from ({2}) to ({3})\r\n" +
+                "Discount: from ({4}) to ({5})\r\n" +
+                "Amount: from ({6}) to ({7})\r\n" +
+                "Total Amount Paid: from ({8}) to ({9})\r\n" +
+                "Change from ({10}) to ({11})",
+                this.gridPaymentHistory.SelectedCells[1].Value.ToString(), this.txtReceiptNo.Text,
+                this.gridPaymentHistory.SelectedCells[2].Value.ToString(), this.txtTotalMedicalFee.Text,
+                this.gridPaymentHistory.SelectedCells[3].Value.ToString(), this.cmbDiscount.Text,
                 this.gridPaymentHistory.SelectedCells[4].Value.ToString(), this.txtAmount.Text,
                 this.gridPaymentHistory.SelectedCells[5].Value.ToString(), this.txtTotalAmountPaid.Text,
                 this.gridPaymentHistory.SelectedCells[6].Value.ToString(), this.txtChange.Text)))
@@ -862,7 +870,22 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
         {
-            if(vital_signs.RemoveVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString())))
+            DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[6].Value.ToString());
+
+            if(vital_signs.RemoveVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
+                string.Format("Vital Signs Removed!\r\n" +
+                "Height: {0}\r\n" +
+                "Weight: {1}\r\n" +
+                "Temperature: {2}\r\n" +
+                "Pulse Rate: {3}\r\n" +
+                "Blood Pressure: {4}\r\n" +
+                "Date: {5}",
+                this.gridVitalSigns.SelectedCells[1].Value.ToString(),
+                this.gridVitalSigns.SelectedCells[2].Value.ToString(),
+                this.gridVitalSigns.SelectedCells[3].Value.ToString(),
+                this.gridVitalSigns.SelectedCells[4].Value.ToString(),
+                this.gridVitalSigns.SelectedCells[5].Value.ToString(),
+                date.ToString("D"))))
             {
                 MessageBox.Show("Vital signs successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -897,21 +920,14 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
+            DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[2].Value.ToString());
 
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (diagnosis.RemoveDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), generateID.ToString(), val.UserFullName,
-                string.Format("Removed Patient {0} Diagnosis!\r\n{1} has been removed!", val.PatientFullName,
-                this.gridDiagnosis.SelectedCells[1].Value.ToString())))
+            if (diagnosis.RemoveDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
+                string.Format("Diagnosis Removed!\r\n" +
+                "Diagnosis: {0}\r\n" +
+                "Date: {1}",
+                this.gridDiagnosis.SelectedCells[1].Value.ToString(),
+                date.ToString("D"))))
             {
                 MessageBox.Show("Diagnosis successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -938,21 +954,14 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
+            DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[2].Value.ToString());
 
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(symptoms.RemoveSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), generateID.ToString(), val.UserFullName,
-                string.Format("Removed patient {0} Symptom!\r\n{1} has been removed!", val.PatientFullName,
-                this.gridSymptoms.SelectedCells[1].Value.ToString())))
+            if(symptoms.RemoveSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
+                string.Format("Symptom Removed!\r\n" +
+                "Symptom: {0}\r\n" +
+                "Date: {1}",
+                this.gridSymptoms.SelectedCells[1].Value.ToString(),
+                date.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -979,21 +988,15 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemovePrescriptions_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
+            DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (prescriptions.RemovePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()), generateID.ToString(), val.UserFullName,
-                string.Format("Removed Patient {0} Prescription!\r\n{1} has been removed!", val.PatientFullName,
-                this.gridPrescriptions.SelectedCells[1].Value.ToString())))
+            if (prescriptions.RemovePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
+                string.Format("Prescription Removed!\r\n" +
+                "Prescription:\r\n\r\n" +
+                "{0}\r\n\r\n" +
+                "Date: {1}",
+                this.gridPrescriptions.SelectedCells[1].Value.ToString(),
+                date.ToString("D"))))
             {
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(expiration_date, '%a, %d %b %Y'),
+                                    DATE_FORMAT(expiration_date, '%Y/%m/%d'),
                                     CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')
                                     FROM pis_db.inventory
                                     WHERE status = 'Show'
@@ -46,7 +46,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply ID";
                         grid.Columns["CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply Name";
                         grid.Columns["CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Quantity";
-                        grid.Columns["DATE_FORMAT(expiration_date, '%a, %d %b %Y')"].HeaderText = "Expire On";
+                        grid.Columns["DATE_FORMAT(expiration_date, '%Y/%m/%d')"].HeaderText = "Expire On";
                         grid.Columns["CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')"].HeaderText = "Expired In";
                     }
                 }
@@ -68,9 +68,9 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(expiration_date, '%a, %d %b %Y'),
+                                    DATE_FORMAT(expiration_date, '%Y/%m/%d'),
                                     CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left'),
-                                    DATE_FORMAT(arrive_date, '%a, %d %b %Y'),
+                                    DATE_FORMAT(arrive_date, '%Y/%m/%d'),
                                     CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left')
                                     FROM pis_db.inventory_incoming
                                     WHERE status = 'Show'
@@ -89,9 +89,9 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply ID";
                         grid.Columns["CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply Name";
                         grid.Columns["CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Quantity";
-                        grid.Columns["DATE_FORMAT(expiration_date, '%a, %d %b %Y')"].HeaderText = "Expiration Date";
+                        grid.Columns["DATE_FORMAT(expiration_date, '%Y/%m/%d')"].HeaderText = "Expiration Date";
                         grid.Columns["CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')"].HeaderText = "Expired In";
-                        grid.Columns["DATE_FORMAT(arrive_date, '%a, %d %b %Y')"].HeaderText = "Arrive On";
+                        grid.Columns["DATE_FORMAT(arrive_date, '%Y/%m/%d')"].HeaderText = "Arrive On";
                         grid.Columns["CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left')"].HeaderText = "Arrived In";
                     }
                 }

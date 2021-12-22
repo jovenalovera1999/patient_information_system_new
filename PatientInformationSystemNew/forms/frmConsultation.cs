@@ -166,22 +166,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnUpdateSymptoms_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while(generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if(duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (symptoms.UpdateSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()),
-                this.txtSymptoms.Text, generateID.ToString(), val.UserFullName,
-                string.Format("Updated Patient {0} Symptom! Set Symptom from {1} to {2}!", val.PatientFullName,
-                this.gridSymptoms.SelectedCells[1].Value.ToString(), this.txtSymptoms.Text)))
+            if (symptoms.UpdateSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -205,21 +190,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptoms_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
-
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if (duplicate.UpdateHistoryIDDuplicate(generateID.ToString()))
-            {
-                MessageBox.Show("Update ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (symptoms.RemoveSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), generateID.ToString(),
-                val.UserFullName, string.Format("Removed Patient {0} Symptom! {1} has been removed!", val.PatientFullName,
-                this.gridSymptoms.SelectedCells[1].Value.ToString())))
+            if (symptoms.RemoveSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString())))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

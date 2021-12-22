@@ -24,7 +24,7 @@ namespace PatientInformationSystemNew.functions
                                     id,
                                     CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(date, '%a, %d %b %Y %r')
+                                    DATE_FORMAT(date, '%Y/%m/%d')
                                     FROM pis_db.update_history;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -36,10 +36,10 @@ namespace PatientInformationSystemNew.functions
 
                         grid.DataSource = dt;
 
-                        grid.Columns["id"].HeaderText = "#";
+                        grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Edited By";
                         grid.Columns["CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Description";
-                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y %r')"].HeaderText = "Date";
+                        grid.Columns["DATE_FORMAT(date, '%Y/%m/%d')"].HeaderText = "Date";
                     }
                 }
             }

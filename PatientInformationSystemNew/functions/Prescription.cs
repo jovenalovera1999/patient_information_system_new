@@ -23,7 +23,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT
                                     id,
                                     CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(date, '%a, %d %b %Y')
+                                    DATE_FORMAT(date, '%Y/%m/%d')
                                     FROM pis_db.prescriptions
                                     WHERE
                                     patient_fid = @patient_fid AND
@@ -43,7 +43,7 @@ namespace PatientInformationSystemNew.functions
 
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Prescriptions";
-                        grid.Columns["DATE_FORMAT(date, '%a, %d %b %Y')"].HeaderText = "Date";
+                        grid.Columns["DATE_FORMAT(date, '%Y/%m/%d')"].HeaderText = "Date";
                     }
                 }
             }
@@ -53,56 +53,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool getPrescription(string patient_id, string prescription_id, DateTime date)
+        public bool AddPrescription(int patient_fid, string prescriptions, DateTime date, string user, string patient, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    DATE_FORMAT(date, '%m/%d/%y')
-                                    FROM pis_db.prescriptions
-                                    WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(prescription_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @prescription_id AND
-                                    date = @date;";
+                    string sql = @"INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
+                                    VALUES(
+                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@patient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    );
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@prescription_id", prescription_id);
-                        cmd.Parameters.AddWithValue("@date", date);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-
-                        if(dt.Rows.Count == 1)
-                        {
-                            val.PrescriptionDate = dt.Rows[0].Field<DateTime>("date");
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error getting prescription: " + ex.ToString());
-                return false;
-            }
-        }
-
-        public bool AddPrescription(int patient_fid, string prescriptions, DateTime date)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"INSERT INTO pis_db.prescriptions(patient_fid, prescriptions, date)
+                                    INSERT INTO pis_db.prescriptions(patient_fid, prescriptions, date)
                                     VALUES(
                                     @patient_fid,
                                     AES_ENCRYPT(@prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -114,6 +78,9 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@patient", patient);
+                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
@@ -131,16 +98,16 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdatePrescriptions(int id, string prescriptions, DateTime date, string update_id, string user, string description)
+        public bool UpdatePrescriptions(int id, string prescriptions, DateTime date, string user, string patient, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                    string sql = @"INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
                                     VALUES(
-                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@patient, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
@@ -154,8 +121,8 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
                         cmd.Parameters.AddWithValue("@date", date);
-                        cmd.Parameters.AddWithValue("@update_id", update_id);
                         cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@patient", patient);
                         cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
@@ -174,16 +141,16 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool RemovePrescriptions(int id, string update_id, string user, string description)
+        public bool RemovePrescriptions(int id, string user, string patient, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                    string sql = @"INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
                                     VALUES(
-                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@patient, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
@@ -194,8 +161,8 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
-                        cmd.Parameters.AddWithValue("@update_id", update_id);
                         cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@patient", patient);
                         cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();

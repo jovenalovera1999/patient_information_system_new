@@ -308,16 +308,15 @@ namespace PatientInformationSystemNew.functions
 
         public bool UpdateUser(int id, byte[] profile_picture, string username, string password, string first_name, string middle_name, 
             string last_name, string gender, string age, string address, DateTime birthday, string cellphone_number, string telephone_number,
-            string email, string update_id, string user, string description)
+            string email, string user, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history(update_id, user, description)
+                    string sql = @"INSERT INTO pis_db.update_history_user(user, description)
                                     VALUES
                                     (
-                                    AES_ENCRYPT(@update_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
@@ -355,7 +354,6 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
                         cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
                         cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@update_id", update_id);
                         cmd.Parameters.AddWithValue("@user", user);
                         cmd.Parameters.AddWithValue("@description", description);
 

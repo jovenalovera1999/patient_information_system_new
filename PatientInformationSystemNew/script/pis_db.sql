@@ -154,7 +154,7 @@ CREATE TABLE pis_db.prescriptions (
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
-CREATE TABLE pis_db.transactions (
+CREATE TABLE pis_db.payment_transactions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     receipt_no                          VARBINARY(800) NOT NULL,
@@ -174,7 +174,7 @@ CREATE TABLE pis_db.cashier (
     cashier                             VARBINARY(800) NOT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
-                                        FOREIGN KEY(transaction_fid) REFERENCES pis_db.transactions(id)
+                                        FOREIGN KEY(transaction_fid) REFERENCES pis_db.payment_transactions(id)
 );
 
 CREATE TABLE pis_db.inventory (
@@ -203,6 +203,7 @@ CREATE TABLE pis_db.inventory_incoming (
 CREATE TABLE pis_db.update_history_patient (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     user                                VARBINARY(800) NOT NULL,
+    patient                             VARBINARY(800) NOT NULL,
     description                         VARBINARY(800) NOT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
@@ -219,6 +220,51 @@ CREATE TABLE pis_db.update_history_inventory (
 CREATE TABLE pis_db.update_history_user (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     user                                VARBINARY(800) NOT NULL,
+    description                         VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.update_history_vital_signs (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    user                                VARBINARY(800) NOT NULL,
+    patient                             VARBINARY(800) NOT NULL,
+    description                         VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.update_history_diagnosis (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    user                                VARBINARY(800) NOT NULL,
+    patient                             VARBINARY(800) NOT NULL,
+    description                         VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.update_history_symptoms (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    user                                VARBINARY(800) NOT NULL,
+    patient                             VARBINARY(800) NOT NULL,
+    description                         VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.update_history_prescriptions (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    user                                VARBINARY(800) NOT NULL,
+    patient                             VARBINARY(800) NOT NULL,
+    description                         VARBINARY(800) NOT NULL,
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
+CREATE TABLE pis_db.update_history_payment_transactions (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    user                                VARBINARY(800) NOT NULL,
+    patient                             VARBINARY(800) NOT NULL,
     description                         VARBINARY(800) NOT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)

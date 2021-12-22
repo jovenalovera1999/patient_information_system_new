@@ -143,11 +143,11 @@ namespace PatientInformationSystemNew.forms
         private void btnProfile_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
-            forms.frmMyProfileNew frmMyProfileNew = new forms.frmMyProfileNew();
-            frmMyProfileNew.TopLevel = false;
-            this.pnlDashboardBody.Controls.Add(frmMyProfileNew);
-            frmMyProfileNew.Dock = DockStyle.Fill;
-            frmMyProfileNew.Show();
+            forms.frmMyProfile frmMyProfile = new forms.frmMyProfile();
+            frmMyProfile.TopLevel = false;
+            this.pnlDashboardBody.Controls.Add(frmMyProfile);
+            frmMyProfile.Dock = DockStyle.Fill;
+            frmMyProfile.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
