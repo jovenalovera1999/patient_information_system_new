@@ -355,8 +355,14 @@ namespace PatientInformationSystemNew.forms
                 "Weight: {1}\r\n" +
                 "Temperature: {2}\r\n" +
                 "Pulse Rate: {3}\r\n" +
-                "Blood Pressure: {4}" +
-                "Date: {5}")))
+                "Blood Pressure: {4}\r\n" +
+                "Date: {5}",
+                this.txtHeight.Text,
+                this.txtWeight.Text,
+                this.txtTemperature.Text,
+                this.txtPulseRate.Text,
+                this.txtBloodPressure.Text,
+                this.dateVitalSigns.Value.ToString("D"))))
             {
                 MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

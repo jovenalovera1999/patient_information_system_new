@@ -145,8 +145,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM pis_db.transactions
+                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+                                    FROM pis_db.payment_transactions
                                     WHERE
                                     DATE_FORMAT(date, '%M') = @month AND
                                     DATE_FORMAT(date, '%Y') = @year;";
@@ -178,8 +178,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM pis_db.transactions
+                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+                                    FROM pis_db.payment_transactions
                                     WHERE
                                     DATE_FORMAT(date, '%M') = @month AND
                                     DATE_FORMAT(date, '%d') = @day AND
@@ -212,8 +212,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM pis_db.transactions
+                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+                                    FROM pis_db.payment_transactions
                                     WHERE
                                     DATE_FORMAT(date, '%Y') = @year;";
 
@@ -243,8 +243,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'jovencutegwapo123') AS CHAR))
-                                    FROM pis_db.transactions;";
+                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+                                    FROM pis_db.payment_transactions;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

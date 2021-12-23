@@ -296,7 +296,7 @@ namespace PatientInformationSystemNew.functions
                                     INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
                                     VALUES(
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     @expiration_date);";
 

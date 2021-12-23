@@ -28,7 +28,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(birthday, '%Y/%m/%d'),
+                                    DATE_FORMAT(birthday, '%d %b %Y'),
                                     status
                                     FROM pis_db.schedule
                                     WHERE status = 'Waiting' OR status = 'Consulting';";
@@ -48,7 +48,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
                         grid.Columns["CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
                         grid.Columns["CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Gender";
-                        grid.Columns["DATE_FORMAT(birthday, '%Y/%m/%d')"].HeaderText = "Birthday";
+                        grid.Columns["DATE_FORMAT(birthday, '%d %b %Y')"].HeaderText = "Birthday";
                         grid.Columns["status"].HeaderText = "Status";
                     }
                 }
@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void LoadPatientsInPatients(DataGridView grid)
+        public void LoadPatients(DataGridView grid)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE pis_db.patients.status = 'Complete'
-                                    ORDER BY first_name DESC;";
+                                    ORDER BY first_name ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -117,7 +117,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(birthday, '%Y/%m/%d'),
+                                    DATE_FORMAT(birthday, '%d %b %Y'),
                                     status
                                     FROM pis_db.schedule
                                     WHERE 
@@ -143,7 +143,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "First Name";
                         grid.Columns["CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
                         grid.Columns["CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
-                        grid.Columns["DATE_FORMAT(birthday, '%Y/%m/%d')"].HeaderText = "Birthday";
+                        grid.Columns["DATE_FORMAT(birthday, '%d %b %Y')"].HeaderText = "Birthday";
                         grid.Columns["status"].HeaderText = "Status";
                     }
                 }
@@ -166,14 +166,14 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(birthday, '%Y/%m/%d'),
+                                    DATE_FORMAT(birthday, '%d %b %Y'),
                                     DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     = CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')') AND
-                                    status = 'Complete';";
+                                    pis_db.patients.status = 'Complete';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -193,7 +193,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "First Name";
                         grid.Columns["CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
                         grid.Columns["CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
-                        grid.Columns["DATE_FORMAT(birthday, '%Y/%m/%d')"].HeaderText = "Birthday";
+                        grid.Columns["DATE_FORMAT(birthday, '%d %b %Y')"].HeaderText = "Birthday";
                         grid.Columns["DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')"].HeaderText = "Date Created";
                     }
                 }

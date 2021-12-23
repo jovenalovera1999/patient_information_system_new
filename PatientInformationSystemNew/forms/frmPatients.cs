@@ -27,8 +27,12 @@ namespace PatientInformationSystemNew.forms
             {
                 this.btnPaymentTransaction.Visible = false;
                 this.btnAddPatient.Visible = false;
+                patient.LoadDoctorPatients(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridPatients);
             }
-            patient.LoadPatientsInPatients(this.gridPatients);
+            else
+            {
+                patient.LoadPatients(this.gridPatients);
+            }
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

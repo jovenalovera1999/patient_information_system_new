@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Microsoft.Reporting.WinForms;
 
 namespace PatientInformationSystemNew.forms
 {
@@ -21,6 +23,34 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
 
         functions.Report report = new functions.Report();
+
+        void LoadInventoryReport()
+        {
+            using(MySqlConnection connection = new MySqlConnection(con.conString()))
+            {
+                string sql = @"SELECT
+                               CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_id',
+                               CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_name',
+                               CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'quantity',
+                               DATE_FORMAT(expiration_date, '%Y/%m/%d') AS 'expiration_date'
+                               FROM pis_db.inventory
+                               WHERE status = 'Show'
+                               ORDER BY CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    dt.Clear();
+                    da.Fill(dt);
+
+                    this.rprtInventory.LocalReport.DataSources.Clear();
+                    ReportDataSource source = new ReportDataSource("DataSet1", dt);
+                    this.rprtInventory.LocalReport.DataSources.Add(source);
+                    this.rprtInventory.RefreshReport();
+                }
+            }
+        }
 
         private void frmReport_Load(object sender, EventArgs e)
         {
@@ -64,6 +94,8 @@ namespace PatientInformationSystemNew.forms
             {
                 this.lblOverallTotalSales.Text = "0";
             }
+
+            LoadInventoryReport();
         }
 
         private void dateReport_ValueChanged(object sender, EventArgs e)

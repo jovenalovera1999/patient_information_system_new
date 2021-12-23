@@ -71,6 +71,14 @@
   <ItemGroup>
     <Compile Include="components\Connections.cs" />
     <Compile Include="components\Values.cs" />
+    <Compile Include="dsInventory.cs">
+      <DependentUpon>dsInventory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsInventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsInventory.xsd</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmAddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,11 +265,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="report\rprtInventory.rdlc" />
     <EmbeddedResource Include="report\rprtPrescription.rdlc" />
     <EmbeddedResource Include="report\rprtReceipt.rdlc" />
     <EmbeddedResource Include="report\rprtReportPatientsAndSales.rdlc" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
+    </None>
+    <None Include="dsInventory.xsc">
+      <DependentUpon>dsInventory.xsd</DependentUpon>
+    </None>
+    <None Include="dsInventory.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsInventory.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsInventory.xss">
+      <DependentUpon>dsInventory.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

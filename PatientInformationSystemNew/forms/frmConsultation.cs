@@ -69,7 +69,7 @@ namespace PatientInformationSystemNew.forms
 
                 this.btnRemoveDiagnosis.Enabled = true;
 
-                this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
+                this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[0].Value.ToString();
             }
         }
 

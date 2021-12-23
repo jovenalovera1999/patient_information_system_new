@@ -126,8 +126,9 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pCashier", val.UserFullName));
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
                 this.rprtReceipt.RefreshReport();
+
+                this.btnSaveTransaction.Enabled = true;
             }
-            this.btnSaveTransaction.Enabled = true;
         }
 
         private void btnSaveTransaction_Click(object sender, EventArgs e)

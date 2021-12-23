@@ -121,7 +121,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowHeadersVisible = false;
             this.gridPatients.RowHeadersWidth = 51;
             this.gridPatients.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridPatients.RowTemplate.Height = 40;
+            this.gridPatients.RowTemplate.Height = 35;
             this.gridPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPatients.Size = new System.Drawing.Size(1830, 750);
             this.gridPatients.TabIndex = 31;
@@ -143,7 +143,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPatients.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPatients.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridPatients.ThemeStyle.RowsStyle.Height = 40;
+            this.gridPatients.ThemeStyle.RowsStyle.Height = 35;
             this.gridPatients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridPatients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridPatients.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPatients_CellMouseClick);

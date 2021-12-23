@@ -161,7 +161,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.RowHeadersVisible = false;
             this.gridSchedule.RowHeadersWidth = 51;
             this.gridSchedule.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridSchedule.RowTemplate.Height = 40;
+            this.gridSchedule.RowTemplate.Height = 35;
             this.gridSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSchedule.Size = new System.Drawing.Size(1830, 655);
             this.gridSchedule.TabIndex = 25;
@@ -183,7 +183,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSchedule.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSchedule.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSchedule.ThemeStyle.RowsStyle.Height = 40;
+            this.gridSchedule.ThemeStyle.RowsStyle.Height = 35;
             this.gridSchedule.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridSchedule.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSchedule_CellMouseClick);
