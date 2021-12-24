@@ -21,9 +21,9 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
 
-        private void frmPatient_Load(object sender, EventArgs e)
+        void LoadPatientByUserRoles()
         {
-            if(val.UserRole == "Doctor")
+            if (val.UserRole == "Doctor")
             {
                 this.btnPaymentTransaction.Visible = false;
                 this.btnAddPatient.Visible = false;
@@ -35,9 +35,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        void GetPatient()
         {
-            if(patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
+            if (patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
             {
                 forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
                 frmPatientProfile.TopLevel = false;
@@ -50,7 +50,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnPaymentTransaction_Click(object sender, EventArgs e)
+        void GoToPaymentTransaction()
         {
             forms.frmPaymentTransaction frmPaymentTransaction = new forms.frmPaymentTransaction();
             frmPaymentTransaction.TopLevel = false;
@@ -62,7 +62,7 @@ namespace PatientInformationSystemNew.forms
             this.Close();
         }
 
-        private void btnAddPatient_Click(object sender, EventArgs e)
+        void GoToAddPatient()
         {
             forms.frmAddPatient frmAddPatient = new forms.frmAddPatient();
             frmAddPatient.TopLevel = false;
@@ -74,7 +74,7 @@ namespace PatientInformationSystemNew.forms
             this.Close();
         }
 
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectPatient()
         {
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -83,19 +83,34 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Enabled = true;
         }
 
+        private void frmPatient_Load(object sender, EventArgs e)
+        {
+            LoadPatientByUserRoles();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatient();
+        }
+
+        private void btnPaymentTransaction_Click(object sender, EventArgs e)
+        {
+            GoToPaymentTransaction();
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            GoToAddPatient();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
-            {
-                forms.frmPatientProfile frmPatientProfile = new forms.frmPatientProfile();
-                frmPatientProfile.TopLevel = false;
-                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmPatientProfile);
-                frmPatientProfile.Dock = DockStyle.Fill;
-                frmPatientProfile.Show();
-                this.Close();
-            }
+            GetPatient();
         }
     }
 }

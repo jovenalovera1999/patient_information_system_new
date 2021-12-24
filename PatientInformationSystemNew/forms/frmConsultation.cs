@@ -28,7 +28,7 @@ namespace PatientInformationSystemNew.forms
         functions.Diagnosis diagnosis = new functions.Diagnosis();
         functions.Prescription prescriptions = new functions.Prescription();
 
-        private void frmConsultationNew_Load(object sender, EventArgs e)
+        void LoadPatientDetails()
         {
             this.txtPatientID.Text = val.PatientID;
             this.txtPatientID.Text = val.PatientID;
@@ -55,7 +55,7 @@ namespace PatientInformationSystemNew.forms
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
         }
 
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectDiagnosis()
         {
             if (this.txtDiagnosis.Enabled == false)
             {
@@ -73,31 +73,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtDiagnosis_TextChanged(object sender, EventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
-            {
-                this.btnAddDiagnosis.Enabled = false;
-            }
-            else
-            {
-                this.btnAddDiagnosis.Enabled = true;
-            }
-        }
-
-        private void txtSymptoms_TextChanged(object sender, EventArgs e)
-        {
-            if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
-            {
-                this.btnAddSymptoms.Enabled = false;
-            }
-            else
-            {
-                this.btnAddSymptoms.Enabled = true;
-            }
-        }
-
-        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        void AddDiagnosis()
         {
             int n = this.gridDiagnosis.Rows.Add();
             this.gridDiagnosis.Rows[n].Cells[0].Value = this.txtDiagnosis.Text;
@@ -113,7 +89,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveDiagnosis.Enabled = false;
         }
 
-        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        void RemoveDiagnosis()
         {
             foreach (DataGridViewRow row in this.gridDiagnosis.SelectedRows)
             {
@@ -124,8 +100,8 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
             this.btnRemoveDiagnosis.Enabled = false;
-            
-            if(this.gridDiagnosis.Rows.Count == 0)
+
+            if (this.gridDiagnosis.Rows.Count == 0)
             {
                 this.btnSaveDiagnosis.Enabled = false;
             }
@@ -134,85 +110,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.Focus();
         }
 
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
-
-            this.btnUpdateSymptoms.Enabled = true;
-            this.btnRemoveSymptoms.Enabled = true;
-
-            this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
-        }
-
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
-        {
-            if (symptoms.AddSymptomInConsultation(val.PatientPrimaryID, this.txtSymptoms.Text))
-            {
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
-
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Failed to add patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
-        {
-            if (symptoms.UpdateSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text))
-            {
-                MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                this.btnUpdateSymptoms.Enabled = false;
-                this.btnRemoveSymptoms.Enabled = false;
-
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
-
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Failed to update patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
-        {
-            if (symptoms.RemoveSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString())))
-            {
-                MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                this.btnUpdateSymptoms.Enabled = false;
-                this.btnRemoveSymptoms.Enabled = false;
-
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
-
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Failed to delete patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        void SaveDiagnosis()
         {
             if (this.gridDiagnosis.Rows.Count == 0)
             {
@@ -265,22 +163,92 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSavePrescription_Click(object sender, EventArgs e)
+        void SelectSymptom()
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            while (generateID.Length < 5)
+            this.btnUpdateSymptoms.Enabled = true;
+            this.btnRemoveSymptoms.Enabled = true;
+
+            this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
+        }
+
+        void AddSymptom()
+        {
+            if (symptoms.AddSymptomInConsultation(val.PatientPrimaryID, this.txtSymptoms.Text))
             {
-                generateID.Append(number.Next(10).ToString());
-            }
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
+
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void UpdateSymptom()
+        {
+            if (symptoms.UpdateSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text))
+            {
+                MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                this.btnUpdateSymptoms.Enabled = false;
+                this.btnRemoveSymptoms.Enabled = false;
+
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
+
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to update patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void RemoveSymptom()
+        {
+            if (symptoms.RemoveSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString())))
+            {
+                MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                this.btnUpdateSymptoms.Enabled = false;
+                this.btnRemoveSymptoms.Enabled = false;
+
+                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
+
+                this.txtSymptoms.ResetText();
+                this.txtSymptoms.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete patient symptom!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void SavePatientAndPrescription()
+        {
             if (String.IsNullOrWhiteSpace(this.txtPrescription.Text))
             {
                 MessageBox.Show("Please input prescription first before proceed!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtPrescription.Focus();
             }
-            else if(this.btnSaveDiagnosis.Enabled == true || !String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
+            else if (this.btnSaveDiagnosis.Enabled == true || !String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
             {
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
@@ -288,7 +256,7 @@ namespace PatientInformationSystemNew.forms
             else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
                 this.txtPrescription.Text))
             {
-                MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, 
+                MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
@@ -300,6 +268,63 @@ namespace PatientInformationSystemNew.forms
             else
             {
                 MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void PrintPrescription()
+        {
+            this.rprtPrescription.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
+            parameters.Add(new ReportParameter("pAge", this.txtAge.Text));
+            parameters.Add(new ReportParameter("pSex", this.txtGender.Text.Substring(0, 1)));
+            parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
+            parameters.Add(new ReportParameter("pDate", DateTime.Now.Date.ToString("MM/dd/yy")));
+            parameters.Add(new ReportParameter("pPrescription", this.txtPrescription.Text));
+            this.rprtPrescription.LocalReport.SetParameters(parameters);
+            this.rprtPrescription.RefreshReport();
+        }
+
+        void BackToSchedule()
+        {
+            if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, val.PatientPrimaryID))
+                {
+                    forms.frmSchedule frmSchedule = new forms.frmSchedule();
+                    frmSchedule.TopLevel = false;
+                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                    pnlDashboardBody.Controls.Add(frmSchedule);
+                    frmSchedule.Dock = DockStyle.Fill;
+                    frmSchedule.Show();
+                    this.Close();
+                }
+            }
+        }
+
+        private void txtDiagnosis_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
+            {
+                this.btnAddDiagnosis.Enabled = false;
+            }
+            else
+            {
+                this.btnAddDiagnosis.Enabled = true;
+            }
+        }
+
+        private void txtSymptoms_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            {
+                this.btnAddSymptoms.Enabled = false;
+            }
+            else
+            {
+                this.btnAddSymptoms.Enabled = true;
             }
         }
 
@@ -317,58 +342,69 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void frmConsultationNew_Load(object sender, EventArgs e)
+        {
+            LoadPatientDetails();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+            AddDiagnosis();
+        }
+
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+            RemoveDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
+        {
+            UpdateSymptom();
+        }
+
+        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        {
+            SaveDiagnosis();
+        }
+
+        private void btnSavePrescription_Click(object sender, EventArgs e)
+        {
+            SavePatientAndPrescription();
+        }
+
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            this.rprtPrescription.Clear();
-
-            ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
-            parameters.Add(new ReportParameter("pAge", this.txtAge.Text));
-            parameters.Add(new ReportParameter("pSex", this.txtGender.Text.Substring(0, 1)));
-            parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
-            parameters.Add(new ReportParameter("pDate", DateTime.Now.Date.ToString("MM/dd/yyyy")));
-            parameters.Add(new ReportParameter("pPrescription", this.txtPrescription.Text));
-
-            this.rprtPrescription.LocalReport.SetParameters(parameters);
-            this.rprtPrescription.RefreshReport();
+            PrintPrescription();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, val.PatientPrimaryID))
-                {
-                    forms.frmSchedule frmSchedule = new forms.frmSchedule();
-                    frmSchedule.TopLevel = false;
-                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                    pnlDashboardBody.Controls.Add(frmSchedule);
-                    frmSchedule.Dock = DockStyle.Fill;
-                    frmSchedule.Show();
-                    this.Close();
-                }
-            }
+            BackToSchedule();
         }
 
         private void btnAnotherBack_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, val.PatientPrimaryID))
-                {
-                    forms.frmSchedule frmSchedule = new forms.frmSchedule();
-                    frmSchedule.TopLevel = false;
-                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                    pnlDashboardBody.Controls.Add(frmSchedule);
-                    frmSchedule.Dock = DockStyle.Fill;
-                    frmSchedule.Show();
-                    this.Close();
-                }
-            }
+            BackToSchedule();
         }
     }
 }

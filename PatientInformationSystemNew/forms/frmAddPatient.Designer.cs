@@ -29,9 +29,9 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbAge = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,6 +62,7 @@ namespace PatientInformationSystemNew.forms
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gridAddPatient = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clmSymptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveSymptom = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddSymptom = new Guna.UI2.WinForms.Guna2Button();
             this.txtSymptoms = new Guna.UI2.WinForms.Guna2TextBox();
@@ -78,7 +79,6 @@ namespace PatientInformationSystemNew.forms
             this.label23 = new System.Windows.Forms.Label();
             this.txtBloodPressure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.clmSymptoms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridAddPatient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -598,34 +598,34 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.AllowUserToDeleteRows = false;
             this.gridAddPatient.AllowUserToResizeColumns = false;
             this.gridAddPatient.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridAddPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.gridAddPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.gridAddPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridAddPatient.BackgroundColor = System.Drawing.Color.White;
             this.gridAddPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridAddPatient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridAddPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.gridAddPatient.ColumnHeadersHeight = 40;
             this.gridAddPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAddPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSymptoms});
             this.gridAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAddPatient.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAddPatient.DefaultCellStyle = dataGridViewCellStyle12;
             this.gridAddPatient.EnableHeadersVisualStyles = false;
             this.gridAddPatient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridAddPatient.Location = new System.Drawing.Point(1363, 446);
@@ -660,6 +660,13 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridAddPatient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridAddPatient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridAddPatient_CellMouseClick);
+            // 
+            // clmSymptoms
+            // 
+            this.clmSymptoms.HeaderText = "Symptoms";
+            this.clmSymptoms.MinimumWidth = 6;
+            this.clmSymptoms.Name = "clmSymptoms";
+            this.clmSymptoms.ReadOnly = true;
             // 
             // btnRemoveSymptom
             // 
@@ -1004,13 +1011,6 @@ namespace PatientInformationSystemNew.forms
             this.label22.Size = new System.Drawing.Size(145, 28);
             this.label22.TabIndex = 119;
             this.label22.Text = "Blood Pressure:";
-            // 
-            // clmSymptoms
-            // 
-            this.clmSymptoms.HeaderText = "Symptoms";
-            this.clmSymptoms.MinimumWidth = 6;
-            this.clmSymptoms.Name = "clmSymptoms";
-            this.clmSymptoms.ReadOnly = true;
             // 
             // frmAddPatient
             // 

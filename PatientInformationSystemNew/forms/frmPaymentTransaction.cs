@@ -24,12 +24,17 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        private void frmPaymentTransaction_Load(object sender, EventArgs e)
+        void LoadForm()
         {
             payment.LoadPatientUnpaid(this.gridPaymentTransaction);
             this.cmbDiscount.Text = "None";
             this.btnSaveTransaction.Enabled = false;
             this.txtReceiptNo.Focus();
+        }
+
+        private void frmPaymentTransaction_Load(object sender, EventArgs e)
+        {
+            LoadForm();
         }
 
         private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -144,12 +149,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
-                if (duplicate.TransactionIDDuplicate(val.PatientFullName, generateID.ToString()))
-                {
-                    MessageBox.Show("Transaction ID is already taken! Please click again!", "Already Taken", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-                else if (payment.SavePatientPayment(int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()),
+                if (payment.SavePatientPayment(int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()),
                     int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
                     this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
                     val.UserFullName))

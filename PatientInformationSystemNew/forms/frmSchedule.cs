@@ -21,21 +21,21 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
 
-        private void frmSchedule_Load(object sender, EventArgs e)
+        void LoadForm()
         {
-            if(val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
+            if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
             {
                 this.btnSelect.Enabled = false;
                 patient.LoadPatientInSchedule(this.gridSchedule);
             }
-            else if(val.UserRole == "Doctor")
+            else if (val.UserRole == "Doctor")
             {
                 this.btnCancelPatient.Visible = false;
                 patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
             }
         }
 
-        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectPatient()
         {
             this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -48,7 +48,7 @@ namespace PatientInformationSystemNew.forms
             string last_name = this.gridSchedule.SelectedCells[4].Value.ToString();
 
             this.txtPatientID.Text = this.gridSchedule.SelectedCells[1].Value.ToString();
-            if(String.IsNullOrWhiteSpace(middle_name))
+            if (String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);
             }
@@ -60,9 +60,9 @@ namespace PatientInformationSystemNew.forms
             patient.GetPatientIDAndDateCreated(this.gridSchedule.SelectedCells[1].Value.ToString());
         }
 
-        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        void GetPatientByButton()
         {
-            if(patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+            if (patient.GetPatientFromSchedule(this.txtPatientID.Text))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;
@@ -75,9 +75,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        void GetPatientByGrid()
         {
-            if(patient.GetPatientFromSchedule(this.txtPatientID.Text))
+            if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;
@@ -90,12 +90,12 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnCancelPatient_Click(object sender, EventArgs e)
+        void CancelPatient()
         {
-            if(MessageBox.Show("Are you sure you want to cancel patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
+            if (MessageBox.Show("Are you sure you want to cancel patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(val.PatientInScheduleDateCreated > DateTime.Now)
+                if (val.PatientInScheduleDateCreated > DateTime.Now)
                 {
                     if (patient.CancelPatientInScheduleWithExistingFirstAccount(this.txtPatientID.Text))
                     {
@@ -158,6 +158,31 @@ namespace PatientInformationSystemNew.forms
                     }
                 }
             }
+        }
+
+        private void frmSchedule_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetPatientByGrid();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatientByButton();
+        }
+
+        private void btnCancelPatient_Click(object sender, EventArgs e)
+        {
+            CancelPatient();
         }
     }
 }
