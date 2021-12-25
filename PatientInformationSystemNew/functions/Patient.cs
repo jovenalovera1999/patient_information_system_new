@@ -15,7 +15,7 @@ namespace PatientInformationSystemNew.functions
         components.Values val = new components.Values();
 
         // Load patient in schedule
-        public void LoadPatientInSchedule(DataGridView grid)
+        public void LoadPatientsInSchedule(DataGridView grid)
         {
             try
             {

@@ -31,11 +31,11 @@ namespace PatientInformationSystemNew.forms
             else if(val.UserRole == "Medical Staff")
             {
                 this.btnSelect.Visible = false;
-                patient.LoadPatients(this.gridSchedule);
+                patient.LoadPatientsInSchedule(this.gridSchedule);
             }
             else
             {
-                patient.LoadPatients(this.gridSchedule);
+                patient.LoadPatientsInSchedule(this.gridSchedule);
             }
         }
 
@@ -114,7 +114,7 @@ namespace PatientInformationSystemNew.forms
 
                         if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
                         {
-                            patient.LoadPatientInSchedule(this.gridSchedule);
+                            patient.LoadPatientsInSchedule(this.gridSchedule);
                         }
                         else if (val.UserRole == "Doctor")
                         {
@@ -145,7 +145,7 @@ namespace PatientInformationSystemNew.forms
 
                         if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
                         {
-                            patient.LoadPatientInSchedule(this.gridSchedule);
+                            patient.LoadPatientsInSchedule(this.gridSchedule);
                         }
                         else if (val.UserRole == "Doctor")
                         {
