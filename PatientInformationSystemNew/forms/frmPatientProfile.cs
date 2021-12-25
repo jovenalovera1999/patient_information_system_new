@@ -31,13 +31,8 @@ namespace PatientInformationSystemNew.forms
         functions.VitalSigns vital_signs = new functions.VitalSigns();
         functions.Doctor doctor = new functions.Doctor();
 
-        private void frmPatientProfileNew_Load(object sender, EventArgs e)
+        void LoadPatientDetails()
         {
-            for(int i = 0; i < 120; i++)
-            {
-                this.cmbAge.Items.Add(i);
-            }
-
             this.txtPatientID.Text = val.PatientID;
             this.txtFirstName.Text = val.PatientFirstName;
             this.txtMiddleName.Text = val.PatientMiddleName;
@@ -54,22 +49,38 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.Text = val.PatientEmail;
             this.txtDoctor.Text = val.PatientDoctor;
             this.txtFullName.Text = val.PatientFullName;
+        }
 
-            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+        void LoadAge()
+        {
+            for (int i = 0; i < 120; i++)
+            {
+                this.cmbAge.Items.Add(i);
+            }
+        }
 
+        void SetAllDateTimeToToday()
+        {
             this.dateVitalSigns.Value = DateTime.Now;
             this.dateDiagnosis.Value = DateTime.Now;
             this.dateSymptoms.Value = DateTime.Now;
             this.datePrescriptions.Value = DateTime.Now;
         }
 
-        // Cell Mouse Click Once
+        void LoadForm()
+        {
+            LoadPatientDetails();
+            LoadAge();
+            SetAllDateTimeToToday();
 
-        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
+            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+        }
+
+        void SelectVitalSigns()
         {
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -84,7 +95,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditVitalSigns.Enabled = true;
         }
 
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectDiagnosis()
         {
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -95,7 +106,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditDiagnosis.Enabled = true;
         }
 
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectSymptom()
         {
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -106,7 +117,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditSymptoms.Enabled = true;
         }
 
-        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectPrescription()
         {
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -117,7 +128,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPrescriptions.Enabled = true;
         }
 
-        private void gridPaymentHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectPaymentHistory()
         {
             this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -134,9 +145,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrintPaymentHistory.Enabled = true;
         }
 
-        // Edit
-
-        private void btnEditPersonalInfo_Click(object sender, EventArgs e)
+        void EditPersonalInfo()
         {
             this.txtFirstName.Enabled = true;
             this.txtMiddleName.Enabled = true;
@@ -156,7 +165,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPersonalInfo.Enabled = false;
         }
 
-        private void btnEditVitalSigns_Click(object sender, EventArgs e)
+        void EditVitalSigns()
         {
             this.btnAddVitalSigns.Visible = false;
             this.btnCancelVitalSigns.Visible = false;
@@ -177,7 +186,7 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.Focus();
         }
 
-        private void btnEditDiagnosis_Click(object sender, EventArgs e)
+        void EditDiagnosis()
         {
             this.btnAddDiagnosis.Visible = false;
             this.btnCancelDiagnosis.Visible = false;
@@ -194,7 +203,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.Focus();
         }
 
-        private void btnEditSymptoms_Click(object sender, EventArgs e)
+        void EditSymptoms()
         {
             this.btnAddSymptoms.Visible = false;
             this.btnCancelSymptoms.Visible = false;
@@ -211,7 +220,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.Focus();
         }
 
-        private void btnEditPrescriptions_Click(object sender, EventArgs e)
+        void EditPrescriptions()
         {
             this.btnAddPrescriptions.Visible = false;
             this.btnCancelPrescriptions.Visible = false;
@@ -226,7 +235,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPrescriptions.Enabled = false;
         }
 
-        private void btnEditPayment_Click(object sender, EventArgs e)
+        void EditPaymentHistory()
         {
             this.txtReceiptNo.Enabled = true;
             this.txtTotalMedicalFee.Enabled = true;
@@ -240,9 +249,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Focus();
         }
 
-        // New
-
-        private void btnNewVitalSigns_Click(object sender, EventArgs e)
+        void NewVitalSigns()
         {
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -274,7 +281,7 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.Focus();
         }
 
-        private void btnNewDiagnosis_Click(object sender, EventArgs e)
+        void NewDiagnosis()
         {
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -297,7 +304,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.Focus();
         }
 
-        private void btnNewSymptoms_Click(object sender, EventArgs e)
+        void NewSymptoms()
         {
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -321,7 +328,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.Focus();
         }
 
-        private void btnNewPrescriptions_Click(object sender, EventArgs e)
+        void NewPrescriptions()
         {
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -344,11 +351,9 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptions.Focus();
         }
 
-        // Add
-
-        private void btnAddVitalSigns_Click(object sender, EventArgs e)
+        void AddVitalSigns()
         {
-            if(vital_signs.AddVitalSigns(val.PatientPrimaryID, this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text,
+            if (vital_signs.AddVitalSigns(val.PatientPrimaryID, this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text,
                 this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Added Vital Signs!\r\n" +
                 "Height: {0}\r\n" +
@@ -386,9 +391,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        void AddDiagnosis()
         {
-            if(diagnosis.AddDiagnosis(val.PatientPrimaryID, this.txtDiagnosis.Text, this.dateDiagnosis.Value, val.UserFullName, val.PatientFullName,
+            if (diagnosis.AddDiagnosis(val.PatientPrimaryID, this.txtDiagnosis.Text, this.dateDiagnosis.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Added Diagnosis!\r\n" +
                 "Diagnosis: {0}\r\n" +
                 "Date: {1}",
@@ -413,9 +418,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        void AddSymptom()
         {
-            if(symptoms.AddSymptom(val.PatientPrimaryID, this.txtSymptoms.Text, this.dateSymptoms.Value, val.UserFullName, val.PatientFullName,
+            if (symptoms.AddSymptom(val.PatientPrimaryID, this.txtSymptoms.Text, this.dateSymptoms.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Added Symptom!\r\n" +
                 "Symptom: {0}\r\n" +
                 "Date: {1}",
@@ -440,9 +445,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnAddPrescriptions_Click(object sender, EventArgs e)
+        void AddPrescription()
         {
-            if(prescriptions.AddPrescription(val.PatientPrimaryID, this.txtPrescriptions.Text, this.datePrescriptions.Value, val.UserFullName, val.PatientFullName,
+            if (prescriptions.AddPrescription(val.PatientPrimaryID, this.txtPrescriptions.Text, this.datePrescriptions.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Added Prescription!\r\n" +
                 "Prescription:\r\n\r\n" +
                 "{0}]\r\n\r\n" +
@@ -468,9 +473,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        // Cancel
-
-        private void btnCancelVitalSigns_Click(object sender, EventArgs e)
+        void CancelVitalSigns()
         {
             vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
@@ -496,7 +499,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewVitalSigns.Enabled = true;
         }
 
-        private void btnCancelDiagnosis_Click(object sender, EventArgs e)
+        void CancelDiagnosis()
         {
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -514,7 +517,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDiagnosis.Enabled = true;
         }
 
-        private void btnCancelSymptoms_Click(object sender, EventArgs e)
+        void CancelSymptoms()
         {
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -532,7 +535,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewSymptoms.Enabled = true;
         }
 
-        private void btnCancelPrescriptions_Click(object sender, EventArgs e)
+        void CancelPrescriptions()
         {
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
@@ -551,9 +554,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewPrescriptions.Enabled = true;
         }
 
-        // Save
-
-        private void btnSavePersonalInfo_Click(object sender, EventArgs e)
+        void SavePersonalInfo()
         {
             if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
             {
@@ -662,11 +663,11 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSaveVitalSigns_Click(object sender, EventArgs e)
+        void SaveVitalSigns()
         {
             DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[6].Value.ToString());
 
-            if(vital_signs.UpdateVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), this.txtHeight.Text,
+            if (vital_signs.UpdateVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), this.txtHeight.Text,
                 this.txtWeight.Text, this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.dateVitalSigns.Value,
                 val.UserFullName, val.PatientFullName,
                 string.Format("Updated Vital Signs!\r\n" +
@@ -686,7 +687,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;  
+                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
@@ -713,11 +714,11 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        void SaveDiagnosis()
         {
             DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[2].Value.ToString());
 
-            if(diagnosis.UpdateDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), this.txtDiagnosis.Text,
+            if (diagnosis.UpdateDiagnosis(int.Parse(this.gridDiagnosis.SelectedCells[0].Value.ToString()), this.txtDiagnosis.Text,
                 this.dateDiagnosis.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Updated Diagnosis!\r\n" +
                 "Diagnosis: from ({0}) to ({1})\r\n" +
@@ -747,11 +748,11 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSymptoms_Click(object sender, EventArgs e)
+        void SaveSymptom()
         {
             DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[2].Value.ToString());
 
-            if(symptoms.UpdateSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text, this.dateSymptoms.Value,
+            if (symptoms.UpdateSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text, this.dateSymptoms.Value,
                 val.UserFullName, val.PatientFullName,
                 string.Format("Updated Patient Symptom!\r\n" +
                 "Symptom: from ({0}) to ({1})\r\n" +
@@ -781,11 +782,11 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSavePrescriptions_Click(object sender, EventArgs e)
+        void SavePrescription()
         {
             DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
-            if(prescriptions.UpdatePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()),
+            if (prescriptions.UpdatePrescriptions(int.Parse(this.gridPrescriptions.SelectedCells[0].Value.ToString()),
                 this.txtPrescriptions.Text, this.datePrescriptions.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Updated Prescription!\r\n" +
                 "Prescription:\r\n\r\n" +
@@ -820,19 +821,19 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSavePayment_Click(object sender, EventArgs e)
+        void SavePaymentHistory()
         {
-            if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            if (String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
             {
                 MessageBox.Show("Please input total medical fee first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if(String.IsNullOrWhiteSpace(this.txtAmount.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtAmount.Text))
             {
                 MessageBox.Show("Please input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if(MessageBox.Show("Save update payment? Be sure to transact the payment before proceeding!", "Confirmation", 
+            else if (MessageBox.Show("Save update payment? Be sure to transact the payment before proceeding!", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (payment.UpdatePaymentTransaction(int.Parse(this.gridPaymentHistory.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
@@ -872,13 +873,11 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        // Remove
-
-        private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
+        void RemoveVitalSigns()
         {
             DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[6].Value.ToString());
 
-            if(vital_signs.RemoveVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
+            if (vital_signs.RemoveVitalSigns(int.Parse(this.gridVitalSigns.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
                 string.Format("Vital Signs Removed!\r\n" +
                 "Height: {0}\r\n" +
                 "Weight: {1}\r\n" +
@@ -924,7 +923,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        void RemoveDiagnosis()
         {
             DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[2].Value.ToString());
 
@@ -958,11 +957,11 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        void RemoveSymptom()
         {
             DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[2].Value.ToString());
 
-            if(symptoms.RemoveSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
+            if (symptoms.RemoveSymptom(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), val.UserFullName, val.PatientFullName,
                 string.Format("Symptom Removed!\r\n" +
                 "Symptom: {0}\r\n" +
                 "Date: {1}",
@@ -992,7 +991,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnRemovePrescriptions_Click(object sender, EventArgs e)
+        void RemovePrescription()
         {
             DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[2].Value.ToString());
 
@@ -1025,6 +1024,134 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Failed to remove prescription!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        void Transact()
+        {
+            double pwd = .20;
+            double senior_citizen = .20;
+            double vip = .15;
+            double discount;
+            double discounted;
+            double total;
+
+            if (String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
+            {
+                MessageBox.Show("Receipt number is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            {
+                MessageBox.Show("Input total medical fee first before transact!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtAmount.Text))
+            {
+                MessageBox.Show("Input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (this.cmbDiscount.Text == "None")
+                {
+                    total = (double.Parse(this.txtAmount.Text) - double.Parse(this.txtTotalMedicalFee.Text));
+
+                    this.txtTotalAmountPaid.Text = this.txtTotalMedicalFee.Text;
+                    this.txtChange.Text = total.ToString();
+                }
+                else if (this.cmbDiscount.Text == "PWD")
+                {
+                    discount = (double.Parse(this.txtTotalMedicalFee.Text) * pwd);
+                    discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
+                    total = (double.Parse(this.txtAmount.Text) - discounted);
+
+                    this.txtTotalAmountPaid.Text = discounted.ToString();
+                    this.txtChange.Text = total.ToString();
+                }
+                else if (this.cmbDiscount.Text == "Senior Citizen")
+                {
+                    discount = (double.Parse(this.txtTotalMedicalFee.Text) * senior_citizen);
+                    discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
+                    total = (double.Parse(this.txtAmount.Text) - discounted);
+
+                    this.txtTotalAmountPaid.Text = discounted.ToString();
+                    this.txtChange.Text = total.ToString();
+                }
+                else if (this.cmbDiscount.Text == "VIP")
+                {
+                    discount = (double.Parse(this.txtTotalMedicalFee.Text) * vip);
+                    discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
+                    total = (double.Parse(this.txtAmount.Text) - discounted);
+
+                    this.txtTotalAmountPaid.Text = discounted.ToString();
+                    this.txtChange.Text = total.ToString();
+                }
+            }
+            this.btnSavePayment.Enabled = true;
+        }
+
+        void PrintPrescription()
+        {
+            this.rprtPrescription.Clear();
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
+            parameters.Add(new ReportParameter("pAge", this.txtAge.Text));
+            parameters.Add(new ReportParameter("pSex", this.txtGender.Text.Substring(0, 1)));
+            parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
+            parameters.Add(new ReportParameter("pDate", this.datePrescriptions.Value.ToString("MM/dd/yyyy")));
+            parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
+            this.rprtPrescription.LocalReport.SetParameters(parameters);
+            this.rprtPrescription.RefreshReport();
+        }
+
+        void PrintPayment()
+        {
+            if (String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
+            {
+                MessageBox.Show("Receipt no is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtReceiptNo.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            {
+                MessageBox.Show("Total medical fee is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTotalMedicalFee.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtAmount.Text))
+            {
+                MessageBox.Show("Amount is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtAmount.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtTotalAmountPaid.Text) || String.IsNullOrWhiteSpace(this.txtChange.Text))
+            {
+                MessageBox.Show("Please transact first before printing!", "Transact First", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[8].Value.ToString());
+
+                this.rprtReceipt.Clear();
+                ReportParameterCollection parameters = new ReportParameterCollection();
+                parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
+                parameters.Add(new ReportParameter("pDate", date.ToString("MM/dd/yyyy")));
+                parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
+                parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
+                parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
+                parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
+                parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
+                parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
+                parameters.Add(new ReportParameter("pCashier", this.gridPaymentHistory.SelectedCells[7].Value.ToString()));
+                this.rprtReceipt.LocalReport.SetParameters(parameters);
+                this.rprtReceipt.RefreshReport();
+            }
+        }
+
+        void BackToPatients()
+        {
+            forms.frmPatients frmPatients = new forms.frmPatients();
+            frmPatients.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPatients);
+            frmPatients.Dock = DockStyle.Fill;
+            frmPatients.Show();
+            this.Close();
         }
 
         // Key Press
@@ -1191,7 +1318,7 @@ namespace PatientInformationSystemNew.forms
 
         private void txtWeight_TextChanged(object sender, EventArgs e)
         {
-            if(!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            if (!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
             {
                 this.btnAddVitalSigns.Enabled = false;
                 this.btnSaveVitalSigns.Enabled = false;
@@ -1229,7 +1356,7 @@ namespace PatientInformationSystemNew.forms
 
         private void txtDiagnosis_TextChanged(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
+            if (String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
             {
                 this.btnAddDiagnosis.Enabled = false;
                 this.btnSaveDiagnosis.Enabled = false;
@@ -1243,7 +1370,7 @@ namespace PatientInformationSystemNew.forms
 
         private void txtSymptoms_TextChanged(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
             {
                 this.btnAddSymptoms.Enabled = false;
                 this.btnSaveSymptoms.Enabled = false;
@@ -1257,7 +1384,7 @@ namespace PatientInformationSystemNew.forms
 
         private void txtPrescriptions_TextChanged(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
+            if (String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
             {
                 this.btnAddPrescriptions.Enabled = false;
                 this.btnSavePrescriptions.Enabled = false;
@@ -1271,222 +1398,249 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void frmPatientProfileNew_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        // Cell Mouse Click Once
+
+        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectVitalSigns();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPrescription();
+        }
+
+        private void gridPaymentHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPaymentHistory();
+        }
+
+        // Edit
+
+        private void btnEditPersonalInfo_Click(object sender, EventArgs e)
+        {
+            EditPersonalInfo();
+        }
+
+        private void btnEditVitalSigns_Click(object sender, EventArgs e)
+        {
+            EditVitalSigns();
+        }
+
+        private void btnEditDiagnosis_Click(object sender, EventArgs e)
+        {
+            EditDiagnosis();
+        }
+
+        private void btnEditSymptoms_Click(object sender, EventArgs e)
+        {
+            EditSymptoms();
+        }
+
+        private void btnEditPrescriptions_Click(object sender, EventArgs e)
+        {
+            EditPrescriptions();
+        }
+
+        private void btnEditPayment_Click(object sender, EventArgs e)
+        {
+            EditPaymentHistory();
+        }
+
+        // New
+
+        private void btnNewVitalSigns_Click(object sender, EventArgs e)
+        {
+            NewVitalSigns();
+        }
+
+        private void btnNewDiagnosis_Click(object sender, EventArgs e)
+        {
+            NewDiagnosis();
+        }
+
+        private void btnNewSymptoms_Click(object sender, EventArgs e)
+        {
+            NewSymptoms();
+        }
+
+        private void btnNewPrescriptions_Click(object sender, EventArgs e)
+        {
+            NewPrescriptions();
+        }
+
+        // Add
+
+        private void btnAddVitalSigns_Click(object sender, EventArgs e)
+        {
+            AddVitalSigns();
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+            AddDiagnosis();
+        }
+
+        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnAddPrescriptions_Click(object sender, EventArgs e)
+        {
+            AddPrescription();
+        }
+
+        // Cancel
+
+        private void btnCancelVitalSigns_Click(object sender, EventArgs e)
+        {
+            CancelVitalSigns();
+        }
+
+        private void btnCancelDiagnosis_Click(object sender, EventArgs e)
+        {
+            CancelDiagnosis();
+        }
+
+        private void btnCancelSymptoms_Click(object sender, EventArgs e)
+        {
+            CancelSymptoms();
+        }
+
+        private void btnCancelPrescriptions_Click(object sender, EventArgs e)
+        {
+            CancelPrescriptions();
+        }
+
+        // Save
+
+        private void btnSavePersonalInfo_Click(object sender, EventArgs e)
+        {
+            SavePersonalInfo();   
+        }
+
+        private void btnSaveVitalSigns_Click(object sender, EventArgs e)
+        {
+            SaveVitalSigns();
+        }
+
+        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        {
+            SaveDiagnosis();
+        }
+
+        private void btnSymptoms_Click(object sender, EventArgs e)
+        {
+            SaveSymptom();
+        }
+
+        private void btnSavePrescriptions_Click(object sender, EventArgs e)
+        {
+            SavePrescription();
+        }
+
+        private void btnSavePayment_Click(object sender, EventArgs e)
+        {
+            SavePaymentHistory();
+        }
+
+        // Remove
+
+        private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
+        {
+            RemoveVitalSigns();
+        }
+
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+            RemoveDiagnosis();
+        }
+
+        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnRemovePrescriptions_Click(object sender, EventArgs e)
+        {
+            RemovePrescription();
+        }
+
         // Transact
 
         private void btnTransact_Click(object sender, EventArgs e)
         {
-            double pwd = .20;
-            double senior_citizen = .20;
-            double vip = .15;
-            double discount;
-            double discounted;
-            double total;
-
-            if (String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
-            {
-                MessageBox.Show("Receipt number is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
-            {
-                MessageBox.Show("Input total medical fee first before transact!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtAmount.Text))
-            {
-                MessageBox.Show("Input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (this.cmbDiscount.Text == "None")
-                {
-                    total = (double.Parse(this.txtAmount.Text) - double.Parse(this.txtTotalMedicalFee.Text));
-
-                    this.txtTotalAmountPaid.Text = this.txtTotalMedicalFee.Text;
-                    this.txtChange.Text = total.ToString();
-                }
-                else if (this.cmbDiscount.Text == "PWD")
-                {
-                    discount = (double.Parse(this.txtTotalMedicalFee.Text) * pwd);
-                    discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
-                    total = (double.Parse(this.txtAmount.Text) - discounted);
-
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
-                }
-                else if (this.cmbDiscount.Text == "Senior Citizen")
-                {
-                    discount = (double.Parse(this.txtTotalMedicalFee.Text) * senior_citizen);
-                    discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
-                    total = (double.Parse(this.txtAmount.Text) - discounted);
-
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
-                }
-                else if (this.cmbDiscount.Text == "VIP")
-                {
-                    discount = (double.Parse(this.txtTotalMedicalFee.Text) * vip);
-                    discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
-                    total = (double.Parse(this.txtAmount.Text) - discounted);
-
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
-                }
-            }
-            this.btnSavePayment.Enabled = true;
+            Transact();
         }
 
         // Print
 
         private void btnPrintPrescriptions_Click(object sender, EventArgs e)
         {
-            this.rprtPrescription.Clear();
-            ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
-            parameters.Add(new ReportParameter("pAge", this.txtAge.Text));
-            parameters.Add(new ReportParameter("pSex", this.txtGender.Text.Substring(0, 1)));
-            parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
-            parameters.Add(new ReportParameter("pDate", this.datePrescriptions.Value.ToString("MM/dd/yyyy")));
-            parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
-            this.rprtPrescription.LocalReport.SetParameters(parameters);
-            this.rprtPrescription.RefreshReport();
+            PrintPrescription();
         }
 
         private void btnPrintPaymentHistory_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
-            {
-                MessageBox.Show("Receipt no is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtReceiptNo.Focus();
-            }
-            else if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
-            {
-                MessageBox.Show("Total medical fee is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtTotalMedicalFee.Focus();
-            }
-            else if(String.IsNullOrWhiteSpace(this.txtAmount.Text))
-            {
-                MessageBox.Show("Amount is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtAmount.Focus();
-            }
-            else if(String.IsNullOrWhiteSpace(this.txtTotalAmountPaid.Text) || String.IsNullOrWhiteSpace(this.txtChange.Text))
-            {
-                MessageBox.Show("Please transact first before printing!", "Transact First", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                DateTime date = DateTime.Parse(this.gridPaymentHistory.SelectedCells[8].Value.ToString());
-
-                this.rprtReceipt.Clear();
-                ReportParameterCollection parameters = new ReportParameterCollection();
-                parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
-                parameters.Add(new ReportParameter("pDate", date.ToString("MM/dd/yyyy")));
-                parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
-                parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
-                parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
-                parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
-                parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
-                parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
-                parameters.Add(new ReportParameter("pCashier", this.gridPaymentHistory.SelectedCells[7].Value.ToString()));
-                this.rprtReceipt.LocalReport.SetParameters(parameters);
-                this.rprtReceipt.RefreshReport();
-            }
+            PrintPayment();
         }
 
         // Back
 
         private void btnBackToPatientsInPeronalInfo_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsVitalSigns_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsDoctors_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsInDiagnosis_Click_1(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsInSymptoms_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsInPrintPrescription_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsInPrescriptions_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
 
         private void btnBackToPatientsInPaymentHistory_Click(object sender, EventArgs e)
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
+            BackToPatients();
         }
     }
 }

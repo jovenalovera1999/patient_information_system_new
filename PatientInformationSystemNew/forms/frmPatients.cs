@@ -21,7 +21,7 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
 
-        void LoadPatientByUserRoles()
+        void LoadForm()
         {
             if (val.UserRole == "Doctor")
             {
@@ -85,7 +85,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmPatient_Load(object sender, EventArgs e)
         {
-            LoadPatientByUserRoles();
+            LoadForm();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

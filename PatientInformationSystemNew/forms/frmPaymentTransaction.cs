@@ -32,12 +32,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Focus();
         }
 
-        private void frmPaymentTransaction_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectPatient()
         {
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -46,7 +41,7 @@ namespace PatientInformationSystemNew.forms
             string middle_name = this.gridPaymentTransaction.SelectedCells[3].Value.ToString();
             string last_name = this.gridPaymentTransaction.SelectedCells[4].Value.ToString();
 
-            if(String.IsNullOrWhiteSpace(middle_name))
+            if (String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtFullName.Text = string.Format("{0} {1}", first_name, last_name);
             }
@@ -57,7 +52,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Focus();
         }
 
-        private void btnTransact_Click(object sender, EventArgs e)
+        void Transact()
         {
             double pwd = .20;
             double senior_citizen = .20;
@@ -66,19 +61,19 @@ namespace PatientInformationSystemNew.forms
             double discounted;
             double total;
 
-            if(String.IsNullOrWhiteSpace(this.txtFullName.Text))
+            if (String.IsNullOrWhiteSpace(this.txtFullName.Text))
             {
                 MessageBox.Show("Choose patient first before transact!", "Choose First", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtReceiptNo.Text))
             {
                 MessageBox.Show("Receipt number is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtTotalMedicalFee.Text))
             {
                 MessageBox.Show("Input total medical fee first before transact!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(String.IsNullOrWhiteSpace(this.txtAmount.Text))
+            else if (String.IsNullOrWhiteSpace(this.txtAmount.Text))
             {
                 MessageBox.Show("Input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -136,7 +131,24 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnSaveTransaction_Click(object sender, EventArgs e)
+        void ResetAll()
+        {
+            this.rprtReceipt.Clear();
+
+            this.txtFullName.ResetText();
+            this.txtReceiptNo.ResetText();
+            this.txtTotalMedicalFee.ResetText();
+            this.txtAmount.ResetText();
+            this.txtTotalAmountPaid.ResetText();
+            this.txtChange.ResetText();
+
+            this.cmbDiscount.Text = "None";
+            this.btnSaveTransaction.Enabled = false;
+
+            this.txtReceiptNo.Focus();
+        }
+
+        void SaveTransaction()
         {
             Random number = new Random();
             var generateID = new StringBuilder();
@@ -160,20 +172,7 @@ namespace PatientInformationSystemNew.forms
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                     payment.LoadPatientUnpaid(this.gridPaymentTransaction);
-
-                    this.rprtReceipt.Clear();
-
-                    this.txtFullName.ResetText();
-                    this.txtReceiptNo.ResetText();
-                    this.txtTotalMedicalFee.ResetText();
-                    this.txtAmount.ResetText();
-                    this.txtTotalAmountPaid.ResetText();
-                    this.txtChange.ResetText();
-
-                    this.cmbDiscount.Text = "None";
-                    this.btnSaveTransaction.Enabled = false;
-
-                    this.txtReceiptNo.Focus();
+                    ResetAll();
                 }
                 else
                 {
@@ -182,7 +181,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        void BackToPatients()
         {
             forms.frmPatients frmPatient = new forms.frmPatients();
             frmPatient.TopLevel = false;
@@ -192,6 +191,31 @@ namespace PatientInformationSystemNew.forms
             frmPatient.Dock = DockStyle.Fill;
             frmPatient.Show();
             this.Close();
+        }
+
+        private void frmPaymentTransaction_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void btnTransact_Click(object sender, EventArgs e)
+        {
+            Transact();
+        }
+
+        private void btnSaveTransaction_Click(object sender, EventArgs e)
+        {
+            SaveTransaction();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
         }
     }
 }

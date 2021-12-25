@@ -31,7 +31,6 @@ namespace PatientInformationSystemNew.forms
         void LoadPatientDetails()
         {
             this.txtPatientID.Text = val.PatientID;
-            this.txtPatientID.Text = val.PatientID;
             this.txtFirstName.Text = val.PatientFirstName;
             this.txtMiddleName.Text = val.PatientMiddleName;
             this.txtLastName.Text = val.PatientLastName;
@@ -47,11 +46,15 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.Text = val.PatientTemperature;
             this.txtPulseRate.Text = val.PatientPulseRate;
             this.txtBloodPressure.Text = val.PatientBloodPressure;
+        }
+
+        void LoadForm()
+        {
+            LoadPatientDetails();
 
             symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-
-            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosisRecord);
             symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosisRecord);
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
         }
 
@@ -256,8 +259,7 @@ namespace PatientInformationSystemNew.forms
             else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
                 this.txtPrescription.Text))
             {
-                MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
 
@@ -344,7 +346,7 @@ namespace PatientInformationSystemNew.forms
 
         private void frmConsultationNew_Load(object sender, EventArgs e)
         {
-            LoadPatientDetails();
+            LoadForm();
         }
 
         private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

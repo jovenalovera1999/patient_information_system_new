@@ -23,15 +23,19 @@ namespace PatientInformationSystemNew.forms
 
         void LoadForm()
         {
-            if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
-            {
-                this.btnSelect.Enabled = false;
-                patient.LoadPatientInSchedule(this.gridSchedule);
-            }
-            else if (val.UserRole == "Doctor")
+            if (val.UserRole == "Doctor")
             {
                 this.btnCancelPatient.Visible = false;
                 patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
+            }
+            else if(val.UserRole == "Medical Staff")
+            {
+                this.btnSelect.Visible = false;
+                patient.LoadPatients(this.gridSchedule);
+            }
+            else
+            {
+                patient.LoadPatients(this.gridSchedule);
             }
         }
 
@@ -77,16 +81,19 @@ namespace PatientInformationSystemNew.forms
 
         void GetPatientByGrid()
         {
-            if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+            if(val.UserRole == "Doctor" || val.UserRole == "Administrator")
             {
-                forms.frmConsultation frmConsultation = new forms.frmConsultation();
-                frmConsultation.TopLevel = false;
-                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmConsultation);
-                frmConsultation.Dock = DockStyle.Fill;
-                frmConsultation.Show();
-                this.Close();
+                if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                {
+                    forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                    frmConsultation.TopLevel = false;
+                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                    pnlDashboardBody.Controls.Add(frmConsultation);
+                    frmConsultation.Dock = DockStyle.Fill;
+                    frmConsultation.Show();
+                    this.Close();
+                }
             }
         }
 

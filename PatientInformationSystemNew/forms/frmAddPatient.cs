@@ -23,12 +23,16 @@ namespace PatientInformationSystemNew.forms
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        void LoadForm()
+        void AutoGenNum()
         {
-            AutoGenNum();
-            LoadAge();
-            LoadDoctors();
-            this.dateBirthday.Value = DateTime.Now.Date;
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 11)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtPatientID.Text = generateID.ToString();
         }
 
         void LoadDoctors()
@@ -64,19 +68,16 @@ namespace PatientInformationSystemNew.forms
             {
                 this.cmbAge.Items.Add(i);
             }
-            this.btnRemoveSymptom.Enabled = false;
         }
 
-        void AutoGenNum()
+        void LoadForm()
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
+            AutoGenNum();
+            LoadAge();
+            LoadDoctors();
 
-            while (generateID.Length < 11)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-            this.txtPatientID.Text = generateID.ToString();
+            this.btnRemoveSymptom.Enabled = false;
+            this.dateBirthday.Value = DateTime.Now.Date;
         }
 
         void AddSymptom()
@@ -251,6 +252,10 @@ namespace PatientInformationSystemNew.forms
                     SaveSymptoms();
                     MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResetAll();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (patient.AddPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
