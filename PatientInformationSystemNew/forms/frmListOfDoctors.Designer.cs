@@ -36,9 +36,9 @@ namespace PatientInformationSystemNew.forms
             this.label1 = new System.Windows.Forms.Label();
             this.txtDoctorID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.gridDoctors = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnMedicalStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnSelect = new Guna.UI2.WinForms.Guna2Button();
-            this.gridDoctors = new Guna.UI2.WinForms.Guna2DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridDoctors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +120,75 @@ namespace PatientInformationSystemNew.forms
             this.label8.TabIndex = 28;
             this.label8.Text = "Doctor ID:";
             // 
+            // gridDoctors
+            // 
+            this.gridDoctors.AllowUserToAddRows = false;
+            this.gridDoctors.AllowUserToDeleteRows = false;
+            this.gridDoctors.AllowUserToResizeColumns = false;
+            this.gridDoctors.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridDoctors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridDoctors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridDoctors.BackgroundColor = System.Drawing.Color.White;
+            this.gridDoctors.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridDoctors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridDoctors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridDoctors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridDoctors.ColumnHeadersHeight = 40;
+            this.gridDoctors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridDoctors.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gridDoctors.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridDoctors.EnableHeadersVisualStyles = false;
+            this.gridDoctors.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridDoctors.Location = new System.Drawing.Point(0, 303);
+            this.gridDoctors.Name = "gridDoctors";
+            this.gridDoctors.ReadOnly = true;
+            this.gridDoctors.RowHeadersVisible = false;
+            this.gridDoctors.RowHeadersWidth = 51;
+            this.gridDoctors.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridDoctors.RowTemplate.Height = 35;
+            this.gridDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridDoctors.Size = new System.Drawing.Size(1830, 655);
+            this.gridDoctors.TabIndex = 34;
+            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.gridDoctors.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.gridDoctors.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridDoctors.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+            this.gridDoctors.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridDoctors.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridDoctors.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gridDoctors.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridDoctors.ThemeStyle.HeaderStyle.Height = 40;
+            this.gridDoctors.ThemeStyle.ReadOnly = true;
+            this.gridDoctors.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridDoctors.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridDoctors.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridDoctors.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gridDoctors.ThemeStyle.RowsStyle.Height = 35;
+            this.gridDoctors.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.gridDoctors.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridDoctors.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDoctors_CellMouseClick);
+            this.gridDoctors.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDoctors_CellMouseDoubleClick);
+            // 
             // btnMedicalStaff
             // 
             this.btnMedicalStaff.Animated = true;
@@ -182,75 +251,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.TabIndex = 32;
             this.btnSelect.Text = "Select";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // gridDoctors
-            // 
-            this.gridDoctors.AllowUserToAddRows = false;
-            this.gridDoctors.AllowUserToDeleteRows = false;
-            this.gridDoctors.AllowUserToResizeColumns = false;
-            this.gridDoctors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridDoctors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridDoctors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridDoctors.BackgroundColor = System.Drawing.Color.White;
-            this.gridDoctors.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gridDoctors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridDoctors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridDoctors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridDoctors.ColumnHeadersHeight = 40;
-            this.gridDoctors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridDoctors.DefaultCellStyle = dataGridViewCellStyle3;
-            this.gridDoctors.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridDoctors.EnableHeadersVisualStyles = false;
-            this.gridDoctors.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridDoctors.Location = new System.Drawing.Point(0, 303);
-            this.gridDoctors.Name = "gridDoctors";
-            this.gridDoctors.ReadOnly = true;
-            this.gridDoctors.RowHeadersVisible = false;
-            this.gridDoctors.RowHeadersWidth = 51;
-            this.gridDoctors.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridDoctors.RowTemplate.Height = 40;
-            this.gridDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDoctors.Size = new System.Drawing.Size(1830, 655);
-            this.gridDoctors.TabIndex = 34;
-            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gridDoctors.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gridDoctors.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gridDoctors.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridDoctors.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
-            this.gridDoctors.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridDoctors.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridDoctors.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gridDoctors.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridDoctors.ThemeStyle.HeaderStyle.Height = 40;
-            this.gridDoctors.ThemeStyle.ReadOnly = true;
-            this.gridDoctors.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gridDoctors.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridDoctors.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.gridDoctors.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridDoctors.ThemeStyle.RowsStyle.Height = 40;
-            this.gridDoctors.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridDoctors.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.gridDoctors.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDoctors_CellMouseClick);
-            this.gridDoctors.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDoctors_CellMouseDoubleClick);
             // 
             // frmListOfDoctors
             // 

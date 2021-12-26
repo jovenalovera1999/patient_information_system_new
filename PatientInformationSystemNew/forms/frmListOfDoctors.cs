@@ -47,11 +47,11 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctors.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridDoctors.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            string first_name = this.gridDoctors.SelectedCells[1].Value.ToString();
-            string middle_name = this.gridDoctors.SelectedCells[2].Value.ToString();
-            string last_name = this.gridDoctors.SelectedCells[3].Value.ToString();
+            string first_name = this.gridDoctors.SelectedCells[2].Value.ToString();
+            string middle_name = this.gridDoctors.SelectedCells[3].Value.ToString();
+            string last_name = this.gridDoctors.SelectedCells[4].Value.ToString();
 
-            this.txtDoctorID.Text = this.gridDoctors.SelectedCells[0].Value.ToString();
+            this.txtDoctorID.Text = this.gridDoctors.SelectedCells[1].Value.ToString();
             if (String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtDoctorName.Text = string.Format("{0} {1}", first_name, last_name);

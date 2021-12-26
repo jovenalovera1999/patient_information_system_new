@@ -29,7 +29,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'Specialization'
+                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.users
                                     WHERE
                                     CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Doctor'";
@@ -38,6 +38,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
+                        dt.Clear();
                         da.Fill(dt);
 
                         grid.DataSource = dt;

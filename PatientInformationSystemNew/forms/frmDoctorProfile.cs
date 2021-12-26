@@ -210,7 +210,17 @@ namespace PatientInformationSystemNew.forms
 
         void GetPatient()
         {
-            
+            if(patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
+            {
+                forms.frmDoctorsPatientProfile frmDoctorsPatientProfile = new forms.frmDoctorsPatientProfile();
+                frmDoctorsPatientProfile.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmDoctorsPatientProfile);
+                frmDoctorsPatientProfile.Dock = DockStyle.Fill;
+                frmDoctorsPatientProfile.Show();
+                this.Close();
+            }
         }
 
         private void frmDoctorProfileNew_Load(object sender, EventArgs e)
@@ -240,12 +250,12 @@ namespace PatientInformationSystemNew.forms
 
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            GetPatient();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            
+            GetPatient();
         }
     }
 }

@@ -29,7 +29,6 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.VitalSigns vital_signs = new functions.VitalSigns();
-        functions.Doctor doctor = new functions.Doctor();
 
         void LoadPatientDetails()
         {
@@ -1308,6 +1307,36 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void txtReceiptNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9 and backspace
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtTotalMedicalFee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
         // Text Changed
 
         private void txtWeight_TextChanged(object sender, EventArgs e)
@@ -1597,42 +1626,37 @@ namespace PatientInformationSystemNew.forms
 
         // Back
 
-        private void btnBackToPatientsInPeronalInfo_Click(object sender, EventArgs e)
+        private void btnBackInPeronalInfo_Click(object sender, EventArgs e)
         {
             BackToPatients();
         }
 
-        private void btnBackToPatientsVitalSigns_Click(object sender, EventArgs e)
+        private void btnBackVitalSigns_Click(object sender, EventArgs e)
         {
             BackToPatients();
         }
 
-        private void btnBackToPatientsDoctors_Click(object sender, EventArgs e)
+        private void btnBackInDiagnosis_Click_1(object sender, EventArgs e)
         {
             BackToPatients();
         }
 
-        private void btnBackToPatientsInDiagnosis_Click_1(object sender, EventArgs e)
+        private void btnBackInSymptoms_Click(object sender, EventArgs e)
         {
             BackToPatients();
         }
 
-        private void btnBackToPatientsInSymptoms_Click(object sender, EventArgs e)
+        private void btnBackInPrintPrescription_Click(object sender, EventArgs e)
         {
             BackToPatients();
         }
 
-        private void btnBackToPatientsInPrintPrescription_Click(object sender, EventArgs e)
+        private void btnBackInPrescriptions_Click(object sender, EventArgs e)
         {
             BackToPatients();
         }
 
-        private void btnBackToPatientsInPrescriptions_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackToPatientsInPaymentHistory_Click(object sender, EventArgs e)
+        private void btnBackInPaymentHistory_Click(object sender, EventArgs e)
         {
             BackToPatients();
         }
