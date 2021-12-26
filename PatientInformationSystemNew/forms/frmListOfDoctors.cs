@@ -19,16 +19,17 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.Doctor doctor = new functions.Doctor();
 
-        private void frmListOfDoctors_Load(object sender, EventArgs e)
+        void LoadForm()
         {
-            doctor.loadDoctors(this.gridDoctors);
+            doctor.LoadDoctors(this.gridDoctors);
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        void GetDoctor()
         {
-            if(doctor.GetDoctor(this.txtDoctorID.Text))
+            if (doctor.GetDoctor(int.Parse(this.gridDoctors.SelectedCells[0].Value.ToString())))
             {
                 forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
                 frmDoctorProfile.TopLevel = false;
@@ -41,12 +42,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnMedicalStaff_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridDoctors_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectDoctor()
         {
             this.gridDoctors.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridDoctors.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -56,7 +52,7 @@ namespace PatientInformationSystemNew.forms
             string last_name = this.gridDoctors.SelectedCells[3].Value.ToString();
 
             this.txtDoctorID.Text = this.gridDoctors.SelectedCells[0].Value.ToString();
-            if(String.IsNullOrWhiteSpace(middle_name))
+            if (String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtDoctorName.Text = string.Format("{0} {1}", first_name, last_name);
             }
@@ -68,19 +64,29 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Enabled = true;
         }
 
+        private void frmListOfDoctors_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetDoctor();
+        }
+
+        private void btnMedicalStaff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridDoctors_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDoctor();
+        }
+
         private void gridDoctors_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (doctor.GetDoctor(this.gridDoctors.SelectedCells[0].Value.ToString()))
-            {
-                forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
-                frmDoctorProfile.TopLevel = false;
-                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmDoctorProfile);
-                frmDoctorProfile.Dock = DockStyle.Fill;
-                frmDoctorProfile.Show();
-                this.Close();
-            }
+            GetDoctor();
         }
     }
 }

@@ -69,9 +69,9 @@ namespace PatientInformationSystemNew.forms
 
         void LoadForm()
         {
-            LoadPatientDetails();
             LoadAge();
             SetAllDateTimeToToday();
+            LoadPatientDetails();
 
             vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
             diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
@@ -554,6 +554,39 @@ namespace PatientInformationSystemNew.forms
             this.btnNewPrescriptions.Enabled = true;
         }
 
+        void GetPatient()
+        {
+            if (patient.GetPatient(val.PatientPrimaryID))
+            {
+                LoadPatientDetails();
+            }
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
+            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+        }
+
+        void DoneSaving()
+        {
+            this.txtFirstName.Enabled = false;
+            this.txtMiddleName.Enabled = false;
+            this.txtLastName.Enabled = false;
+            this.cmbGender.Visible = false;
+            this.cmbAge.Visible = false;
+            this.txtAddress.Enabled = false;
+            this.dateBirthday.Visible = false;
+            this.txtCellphoneNumber.Enabled = false;
+            this.txtTelephoneNumber.Enabled = false;
+            this.txtEmail.Enabled = false;
+            this.btnSavePersonalInfo.Enabled = false;
+
+            this.txtGender.Visible = true;
+            this.txtAge.Visible = true;
+            this.txtBirthday.Visible = true;
+            this.btnEditPersonalInfo.Enabled = true;
+        }
+
         void SavePersonalInfo()
         {
             if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
@@ -615,47 +648,8 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Patient successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (patient.GetPatient(val.PatientPrimaryID))
-                {
-                    this.txtPatientID.Text = val.PatientID;
-                    this.txtFirstName.Text = val.PatientFirstName;
-                    this.txtMiddleName.Text = val.PatientMiddleName;
-                    this.txtLastName.Text = val.PatientLastName;
-                    this.txtGender.Text = val.PatientGender;
-                    this.cmbGender.Text = val.PatientGender;
-                    this.txtAge.Text = val.PatientAge;
-                    this.cmbAge.Text = val.PatientAge;
-                    this.txtAddress.Text = val.PatientAddress;
-                    this.txtBirthday.Text = val.PatientBirthday.ToString("D");
-                    this.dateBirthday.Value = val.PatientBirthday;
-                    this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
-                    this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
-                    this.txtEmail.Text = val.PatientEmail;
-                    this.txtFullName.Text = val.PatientFullName;
-                }
-
-                vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-                prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-                payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
-
-                this.txtFirstName.Enabled = false;
-                this.txtMiddleName.Enabled = false;
-                this.txtLastName.Enabled = false;
-                this.cmbGender.Visible = false;
-                this.cmbAge.Visible = false;
-                this.txtAddress.Enabled = false;
-                this.dateBirthday.Visible = false;
-                this.txtCellphoneNumber.Enabled = false;
-                this.txtTelephoneNumber.Enabled = false;
-                this.txtEmail.Enabled = false;
-                this.btnSavePersonalInfo.Enabled = false;
-
-                this.txtGender.Visible = true;
-                this.txtAge.Visible = true;
-                this.txtBirthday.Visible = true;
-                this.btnEditPersonalInfo.Enabled = true;
+                GetPatient();
+                DoneSaving();
             }
             else
             {

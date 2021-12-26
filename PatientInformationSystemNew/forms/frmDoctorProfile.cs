@@ -24,19 +24,25 @@ namespace PatientInformationSystemNew.forms
         functions.Doctor doctor = new functions.Doctor();
         functions.Patient patient = new functions.Patient();
 
-        private void frmDoctorProfileNew_Load(object sender, EventArgs e)
+        void LoadAge()
         {
             for (int i = 0; i < 100; i++)
             {
                 this.cmbAge.Items.Add(i);
             }
+        }
 
+        void LoadProfilePicture()
+        {
             if (val.DoctorProfilePicture != null)
             {
                 MemoryStream ms = new MemoryStream(val.DoctorProfilePicture);
                 this.picProfilePicture.Image = Image.FromStream(ms);
             }
+        }
 
+        void LoadDoctorDetails()
+        {
             this.txtDoctorID.Text = val.DoctorID;
             this.txtFirstName.Text = val.DoctorFirstName;
             this.txtMiddleName.Text = val.DoctorMiddleName;
@@ -51,11 +57,17 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.Text = val.DoctorTelephoneNumber;
             this.txtEmail.Text = val.DoctorEmail;
             this.txtSpecialization.Text = val.DoctorSpecialization;
+        }
 
+        void LoadForm()
+        {
+            LoadAge();
+            LoadProfilePicture();
+            LoadDoctorDetails();
             patient.LoadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, this.txtSpecialization.Text, this.gridPatients);
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        void EditDoctor()
         {
             this.txtDoctorID.Enabled = true;
             this.txtFirstName.Enabled = true;
@@ -78,7 +90,37 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorID.Focus();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        void GetDoctor()
+        {
+            if(doctor.GetDoctor(val.DoctorPrimaryID))
+            {
+                LoadProfilePicture();
+                LoadDoctorDetails();
+            }
+        }
+
+        void DoneSaving()
+        {
+            this.txtDoctorID.Enabled = false;
+            this.txtFirstName.Enabled = false;
+            this.txtMiddleName.Enabled = false;
+            this.txtLastName.Enabled = false;
+            this.cmbGender.Visible = false;
+            this.cmbAge.Visible = false;
+            this.txtAddress.Enabled = false;
+            this.dateBirthday.Enabled = false;
+            this.txtCellphoneNumber.Enabled = false;
+            this.txtTelephoneNumber.Enabled = false;
+            this.txtEmail.Enabled = false;
+            this.txtSpecialization.Enabled = false;
+            this.btnSave.Enabled = false;
+
+            this.txtGender.Visible = true;
+            this.txtAge.Visible = true;
+            this.btnEdit.Enabled = true;
+        }
+
+        void SaveDoctor()
         {
             if (String.IsNullOrWhiteSpace(this.txtDoctorID.Text))
             {
@@ -123,46 +165,8 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Doctor has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (doctor.GetDoctor(this.txtDoctorID.Text))
-                {
-                    if (val.DoctorProfilePicture != null)
-                    {
-                        MemoryStream ms = new MemoryStream(val.DoctorProfilePicture);
-                        this.picProfilePicture.Image = Image.FromStream(ms);
-                    }
-                    this.txtDoctorID.Text = val.DoctorID;
-                    this.txtFirstName.Text = val.DoctorFirstName;
-                    this.txtMiddleName.Text = val.DoctorMiddleName;
-                    this.txtLastName.Text = val.DoctorLastName;
-                    this.txtGender.Text = val.DoctorGender;
-                    this.cmbGender.Text = val.DoctorGender;
-                    this.txtAge.Text = val.DoctorAge;
-                    this.cmbAge.Text = val.DoctorAge;
-                    this.txtAddress.Text = val.DoctorAddress;
-                    this.dateBirthday.Value = val.DoctorBirthday;
-                    this.txtCellphoneNumber.Text = val.DoctorCellphoneNumber;
-                    this.txtTelephoneNumber.Text = val.DoctorTelephoneNumber;
-                    this.txtEmail.Text = val.DoctorEmail;
-                    this.txtSpecialization.Text = val.DoctorSpecialization;
-                }
-
-                this.txtDoctorID.Enabled = false;
-                this.txtFirstName.Enabled = false;
-                this.txtMiddleName.Enabled = false;
-                this.txtLastName.Enabled = false;
-                this.cmbGender.Visible = false;
-                this.cmbAge.Visible = false;
-                this.txtAddress.Enabled = false;
-                this.dateBirthday.Enabled = false;
-                this.txtCellphoneNumber.Enabled = false;
-                this.txtTelephoneNumber.Enabled = false;
-                this.txtEmail.Enabled = false;
-                this.txtSpecialization.Enabled = false;
-                this.btnSave.Enabled = false;
-
-                this.txtGender.Visible = true;
-                this.txtAge.Visible = true;
-                this.btnEdit.Enabled = true;
+                GetDoctor();
+                DoneSaving();
             }
             else
             {
@@ -170,7 +174,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        void BackToListOfDoctors()
         {
             forms.frmListOfDoctors frmListOfDoctors = new forms.frmListOfDoctors();
             frmListOfDoctors.TopLevel = false;
@@ -182,7 +186,7 @@ namespace PatientInformationSystemNew.forms
             this.Close();
         }
 
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void SelectPatient()
         {
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -202,6 +206,36 @@ namespace PatientInformationSystemNew.forms
             }
 
             this.btnSelect.Enabled = true;
+        }
+
+        void GetPatient()
+        {
+            
+        }
+
+        private void frmDoctorProfileNew_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            EditDoctor();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveDoctor();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToListOfDoctors();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
         }
 
         private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

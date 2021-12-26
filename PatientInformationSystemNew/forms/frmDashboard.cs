@@ -24,7 +24,7 @@ namespace PatientInformationSystemNew.forms
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        private void frmDashboard_Load(object sender, EventArgs e)
+        void LoadForm()
         {
             t = new System.Timers.Timer();
             t.Interval = 1000; // Seconds
@@ -35,14 +35,14 @@ namespace PatientInformationSystemNew.forms
 
             t.Start();
 
-            if(val.UserRole == "Doctor")
+            if (val.UserRole == "Doctor")
             {
                 this.btnDoctors.Visible = false;
                 this.btnSignUp.Visible = false;
                 this.btnReport.Visible = false;
                 this.btnUpdateHistory.Visible = false;
             }
-            else if(val.UserRole == "Medical Staff")
+            else if (val.UserRole == "Medical Staff")
             {
                 this.btnDoctors.Visible = false;
                 this.btnSignUp.Visible = false;
@@ -57,20 +57,20 @@ namespace PatientInformationSystemNew.forms
             {
                 s += 1;
 
-                if(s == 60)
+                if (s == 60)
                 {
                     s = 00;
                 }
                 this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-                if(this.lblTime.Text == "12:00:00 am")
+                if (this.lblTime.Text == "12:00:00 am")
                 {
                     this.lblDate.Text = DateTime.Now.ToString("D");
                 }
             }));
         }
 
-        private void btnSchedule_Click(object sender, EventArgs e)
+        void GoToSchedule()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmSchedule frmSchedule = new forms.frmSchedule();
@@ -80,7 +80,7 @@ namespace PatientInformationSystemNew.forms
             frmSchedule.Show();
         }
 
-        private void btnPatient_Click(object sender, EventArgs e)
+        void GoToPatient()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmPatients frmPatient = new forms.frmPatients();
@@ -90,7 +90,7 @@ namespace PatientInformationSystemNew.forms
             frmPatient.Show();
         }
 
-        private void btnDoctors_Click(object sender, EventArgs e)
+        void GoToDoctors()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmListOfDoctors frmListOfDoctors = new forms.frmListOfDoctors();
@@ -100,7 +100,7 @@ namespace PatientInformationSystemNew.forms
             frmListOfDoctors.Show();
         }
 
-        private void btnInventory_Click(object sender, EventArgs e)
+        void GoToInventory()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmInventory frmInventory = new forms.frmInventory();
@@ -110,7 +110,7 @@ namespace PatientInformationSystemNew.forms
             frmInventory.Show();
         }
 
-        private void btnSignUp_Click(object sender, EventArgs e)
+        void GoToSignUp()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmSignUp frmSignUp = new forms.frmSignUp();
@@ -120,7 +120,7 @@ namespace PatientInformationSystemNew.forms
             frmSignUp.Show();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
+        void GoToReport()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmReport frmReport = new forms.frmReport();
@@ -130,7 +130,7 @@ namespace PatientInformationSystemNew.forms
             frmReport.Show();
         }
 
-        private void btnUpdateHistory_Click(object sender, EventArgs e)
+        void GoToUpdateHistory()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmUpdateHistory frmUpdateHistory = new forms.frmUpdateHistory();
@@ -140,7 +140,7 @@ namespace PatientInformationSystemNew.forms
             frmUpdateHistory.Show();
         }
 
-        private void btnProfile_Click(object sender, EventArgs e)
+        void GoToProfile()
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmMyProfile frmMyProfile = new forms.frmMyProfile();
@@ -150,9 +150,9 @@ namespace PatientInformationSystemNew.forms
             frmMyProfile.Show();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        void Logout()
         {
-            if(MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+            if (MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
                 forms.frmLogin login = new forms.frmLogin();
@@ -161,6 +161,56 @@ namespace PatientInformationSystemNew.forms
                 t.Stop();
                 this.Close();
             }
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            GoToSchedule();
+        }
+
+        private void btnPatient_Click(object sender, EventArgs e)
+        {
+            GoToPatient();
+        }
+
+        private void btnDoctors_Click(object sender, EventArgs e)
+        {
+            GoToDoctors();
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            GoToInventory();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            GoToSignUp();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            GoToReport();
+        }
+
+        private void btnUpdateHistory_Click(object sender, EventArgs e)
+        {
+            GoToUpdateHistory();
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            GoToProfile();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Logout();
         }
     }
 }
