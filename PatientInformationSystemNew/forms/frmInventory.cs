@@ -229,7 +229,6 @@ namespace PatientInformationSystemNew.forms
 
         void SaveIncomingSupply()
         {
-            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
             DateTime arrive_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[6].Value.ToString());
 
             if (String.IsNullOrWhiteSpace(this.txtSupplyName.Text))
@@ -244,6 +243,8 @@ namespace PatientInformationSystemNew.forms
             }
             else if (this.switchExpirationDate.Checked == true)
             {
+                DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+
                 if (inventory.UpdateIncomingSupplyWithExpiration(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()),
                     this.txtSupplyName.Text, this.txtSupplyQuantity.Text, this.dateExpiration.Value, this.dateArrive.Value, val.UserFullName,
                     string.Format("Updated incoming supply with expiration!\r\n" +
@@ -469,33 +470,64 @@ namespace PatientInformationSystemNew.forms
 
         void DeleteIncomingSupply()
         {
-            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
             DateTime arrive_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[6].Value.ToString());
 
-            if (inventory.DeleteIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
-                string.Format("{0} has been removed from incoming supplies!\r\n" +
-                "Details:\r\n" +
-                "Supply ID: {1}\r\n" +
-                "Supply Name: {2}\r\n" +
-                "Quantity: {3}\r\n" +
-                "Expiration Date: {4}\r\n" +
-                "Arrive Date: {5}",
-                this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
-                this.gridIncomingSupplies.SelectedCells[1].Value.ToString(),
-                this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
-                this.gridIncomingSupplies.SelectedCells[3].Value.ToString(),
-                expiration_date.ToString("D"),
-                arrive_date.ToString("D"))))
-
+            if (String.IsNullOrWhiteSpace(this.gridIncomingSupplies.SelectedCells[4].Value.ToString()))
             {
-                MessageBox.Show(string.Format("{0} successfully deleted!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetAllInIncomingSupplies();
+                if (inventory.DeleteIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
+                    string.Format("{0} has been removed from incoming supplies!\r\n" +
+                    "Details:\r\n" +
+                    "Supply ID: {1}\r\n" +
+                    "Supply Name: {2}\r\n" +
+                    "Quantity: {3}\r\n" +
+                    "Expiration Date: \r\n" +
+                    "Arrive Date: {4}",
+                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[3].Value.ToString(),
+                    arrive_date.ToString("D"))))
+
+                {
+                    MessageBox.Show(string.Format("{0} successfully deleted!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetAllInIncomingSupplies();
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Failed to delete {0}!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show(string.Format("Failed to delete {0}!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+
+                if (inventory.DeleteIncomingSupply(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
+                    string.Format("{0} has been removed from incoming supplies!\r\n" +
+                    "Details:\r\n" +
+                    "Supply ID: {1}\r\n" +
+                    "Supply Name: {2}\r\n" +
+                    "Quantity: {3}\r\n" +
+                    "Expiration Date: {4}\r\n" +
+                    "Arrive Date: {5}",
+                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridIncomingSupplies.SelectedCells[3].Value.ToString(),
+                    expiration_date.ToString("D"),
+                    arrive_date.ToString("D"))))
+
+                {
+                    MessageBox.Show(string.Format("{0} successfully deleted!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetAllInIncomingSupplies();
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Failed to delete {0}!", this.gridIncomingSupplies.SelectedCells[2].Value.ToString()), "Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -548,6 +580,7 @@ namespace PatientInformationSystemNew.forms
             ResetTextInManageSupplies();
 
             this.btnAddManageSupplies.Visible = true;
+            this.btnAddManageSupplies.Enabled = true;
 
             this.btnEditManageSupplies.Enabled = false;
             this.btnSaveManageSupplies.Visible = false;
@@ -568,7 +601,7 @@ namespace PatientInformationSystemNew.forms
                 String.IsNullOrWhiteSpace(this.txtSupplyQuantityManageSupplies.Text))
             {
                 MessageBox.Show("Supply name and quantity are required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtSupplyName.Focus();
+                this.txtSupplyNameManageSupplies.Focus();
             }
             else if (String.IsNullOrWhiteSpace(this.txtSupplyNameManageSupplies.Text))
             {
@@ -618,7 +651,7 @@ namespace PatientInformationSystemNew.forms
                     int total_quantity_manage_supplies = (int.Parse(val.SupplyQuantity) +
                         int.Parse(this.txtSupplyQuantityManageSupplies.Text));
 
-                    if (inventory.UpdateQuantityOfExistingSupplyWithoutExpiration(this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                    if (inventory.UpdateQuantityOfExistingSupplyWithoutExpiration(this.txtSupplyNameManageSupplies.Text,
                         total_quantity_manage_supplies.ToString(), val.UserFullName,
                         string.Format("Updated supply quantity in inventory!\r\n" +
                         "Supply Name: {0}\r\n" +
@@ -684,6 +717,8 @@ namespace PatientInformationSystemNew.forms
                 this.btnEditManageSupplies.Enabled = false;
 
                 this.btnSaveManageSupplies.Visible = true;
+
+                this.txtSupplyNameManageSupplies.Focus();
             }
             else
             {
@@ -706,10 +741,10 @@ namespace PatientInformationSystemNew.forms
 
         void SaveManageSupply()
         {
-            DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString());
-
             if (this.switchExpirationDateManageSupplies.Checked == true)
             {
+                DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString());
+
                 if (inventory.SaveManageSuppliesWithExpiration(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()),
                     this.txtSupplyNameManageSupplies.Text, this.txtSupplyQuantityManageSupplies.Text, this.dateExpirationManageSupplies.Value, val.UserFullName,
                     string.Format("Updated supply with expiration!\r\n" +
@@ -757,40 +792,94 @@ namespace PatientInformationSystemNew.forms
             int total_deduct_items = (int.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString()) -
                 int.Parse(this.txtItemUsed.Text));
 
-            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
-
-            if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
+            if(String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[4].Value.ToString()))
             {
-                MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtItemUsed.Focus();
-            }
-            else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName,
-                string.Format("{0} has beed deducted!\r\n" +
-                "Details:\r\n" +
-                "Supply ID: {1}\r\n" +
-                "Supply Name: {2}\r\n" +
-                "Quantity: from ({3}) to ({4})\r\n" +
-                "Expiration Date: {5}",
-                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
-                this.gridManageSupplies.SelectedCells[1].Value.ToString(),
-                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
-                this.gridManageSupplies.SelectedCells[3].Value.ToString(), this.txtItemUsed.Text,
-                expiration_date.ToString("D"))))
-            {
-                MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetAllInManageSupplies();
+                if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
+                {
+                    MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.txtItemUsed.Focus();
+                }
+                else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName,
+                    string.Format("{0} has beed deducted!\r\n" +
+                    "Details:\r\n" +
+                    "Supply ID: {1}\r\n" +
+                    "Supply Name: {2}\r\n" +
+                    "Quantity: from ({3}) to ({4})",
+                    this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[3].Value.ToString(), this.txtItemUsed.Text)))
+                {
+                    MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetAllInManageSupplies();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString());
+
+                if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
+                {
+                    MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.txtItemUsed.Focus();
+                }
+                else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName,
+                    string.Format("{0} has beed deducted!\r\n" +
+                    "Details:\r\n" +
+                    "Supply ID: {1}\r\n" +
+                    "Supply Name: {2}\r\n" +
+                    "Quantity: from ({3}) to ({4})\r\n" +
+                    "Expiration Date: {5}",
+                    this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                    this.gridManageSupplies.SelectedCells[3].Value.ToString(), this.txtItemUsed.Text,
+                    expiration_date.ToString("D"))))
+                {
+                    MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetAllInManageSupplies();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         void DeleteManageSupply()
         {
-            DateTime expiration_date = DateTime.Parse(this.gridIncomingSupplies.SelectedCells[4].Value.ToString());
+            if(String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[4].Value.ToString()))
+            {
+                if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
+                string.Format("{0} has been removed!\r\n" +
+                "Details:\r\n" +
+                "Supply ID: {1}\r\n" +
+                "Supply Name: {2}\r\n" +
+                "Quantity: {3}",
+                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                this.gridManageSupplies.SelectedCells[3].Value.ToString())))
+                {
+                    MessageBox.Show(string.Format("{0} successfully deleted!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetAllInManageSupplies();
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Failed to delete {0}!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString());
 
-            if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
+                if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
                 string.Format("{0} has been removed!\r\n" +
                 "Details:\r\n" +
                 "Supply ID: {1}\r\n" +
@@ -802,15 +891,16 @@ namespace PatientInformationSystemNew.forms
                 this.gridManageSupplies.SelectedCells[2].Value.ToString(),
                 this.gridManageSupplies.SelectedCells[3].Value.ToString(),
                 expiration_date.ToString("D"))))
-            {
-                MessageBox.Show(string.Format("{0} successfully deleted!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetAllInManageSupplies();
-            }
-            else
-            {
-                MessageBox.Show(string.Format("Failed to delete {0}!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    MessageBox.Show(string.Format("{0} successfully deleted!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResetAllInManageSupplies();
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Failed to delete {0}!", this.gridManageSupplies.SelectedCells[2].Value.ToString()), "Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
