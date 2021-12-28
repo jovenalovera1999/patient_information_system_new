@@ -136,6 +136,7 @@ namespace PatientInformationSystemNew.components
         }
 
         // Patient values
+
         public static int patient_primary_id;
         public int PatientPrimaryID
         {
@@ -267,6 +268,15 @@ namespace PatientInformationSystemNew.components
                     return string.Format("{0} {1}. {2}", patient_first_name, patient_middle_name[0], patient_last_name);
                 }
             }
+        }
+
+        // Duplicate Patient
+
+        public static int patient_existing_primary_id;
+        public int PatientExistingPrimaryID
+        {
+            get { return patient_existing_primary_id; }
+            set { patient_existing_primary_id = value; }
         }
 
         // Doctor values

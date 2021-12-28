@@ -93,13 +93,25 @@ namespace PatientInformationSystemNew.forms
             {
                 this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
-
-            patient.GetPatientFullNameAndDoctor(this.gridSchedule.SelectedCells[1].Value.ToString());
         }
 
         void GetPatientByButton()
         {
-            if (patient.GetPatientFromSchedule(this.txtPatientID.Text))
+            if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, this.gridSchedule.SelectedCells[8].Value.ToString()))
+            {
+                if(patient.GetPatientFromScheduleWithFirstAccountExisting(this.txtPatientID.Text))
+                {
+                    forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                    frmConsultation.TopLevel = false;
+                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                    pnlDashboardBody.Controls.Add(frmConsultation);
+                    frmConsultation.Dock = DockStyle.Fill;
+                    frmConsultation.Show();
+                    this.Close();
+                }
+            }
+            else if (patient.GetPatientFromSchedule(this.txtPatientID.Text))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;
@@ -116,7 +128,22 @@ namespace PatientInformationSystemNew.forms
         {
             if(val.UserRole == "Doctor" || val.UserRole == "Administrator")
             {
-                if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                if (duplicate.DuplicatePatientInGeneral(this.gridSchedule.SelectedCells[1].Value.ToString(),
+                    this.gridSchedule.SelectedCells[8].Value.ToString()))
+                {
+                    if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                    {
+                        forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                        frmConsultation.TopLevel = false;
+                        forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                        Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                        pnlDashboardBody.Controls.Add(frmConsultation);
+                        frmConsultation.Dock = DockStyle.Fill;
+                        frmConsultation.Show();
+                        this.Close();
+                    }
+                }
+                else if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
                 {
                     forms.frmConsultation frmConsultation = new forms.frmConsultation();
                     frmConsultation.TopLevel = false;
@@ -132,15 +159,21 @@ namespace PatientInformationSystemNew.forms
 
         void CancelPatient()
         {
-            if(duplicate.DuplicatePatientAndPatientDoctor(this.gridSchedule.SelectedCells[2].Value.ToString(),
-                this.gridSchedule.SelectedCells[3].Value.ToString(), this.gridSchedule.SelectedCells[4].Value.ToString(),
-                this.gridSchedule.SelectedCells[8].Value.ToString()))
+            if(MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
-            }
-            else
-            {
-
+                if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                {
+                    MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    
+                    ResetTextbox();
+                    ResetGridColor();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to cancel patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

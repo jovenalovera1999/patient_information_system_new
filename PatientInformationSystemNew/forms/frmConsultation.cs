@@ -58,6 +58,15 @@ namespace PatientInformationSystemNew.forms
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
         }
 
+        void ResetDiagnosis()
+        {
+            this.txtDiagnosis.ResetText();
+            this.txtDiagnosis.Focus();
+
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+        }
+
         void SelectDiagnosis()
         {
             if (this.txtDiagnosis.Enabled == false)
@@ -81,15 +90,11 @@ namespace PatientInformationSystemNew.forms
             int n = this.gridDiagnosis.Rows.Add();
             this.gridDiagnosis.Rows[n].Cells[0].Value = this.txtDiagnosis.Text;
 
-            this.txtDiagnosis.ResetText();
-            this.txtDiagnosis.Focus();
-
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             this.btnSaveDiagnosis.Enabled = true;
 
             this.btnRemoveDiagnosis.Enabled = false;
+
+            ResetDiagnosis();
         }
 
         void RemoveDiagnosis()
@@ -99,9 +104,6 @@ namespace PatientInformationSystemNew.forms
                 this.gridDiagnosis.Rows.Remove(row);
             }
 
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             this.btnRemoveDiagnosis.Enabled = false;
 
             if (this.gridDiagnosis.Rows.Count == 0)
@@ -109,8 +111,7 @@ namespace PatientInformationSystemNew.forms
                 this.btnSaveDiagnosis.Enabled = false;
             }
 
-            this.txtDiagnosis.ResetText();
-            this.txtDiagnosis.Focus();
+            ResetDiagnosis();
         }
 
         void SaveDiagnosis()
@@ -166,6 +167,24 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        void ResetSymptoms()
+        {
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+            this.btnUpdateSymptoms.Enabled = false;
+            this.btnRemoveSymptoms.Enabled = false;
+
+            symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
+
+            this.txtSymptoms.ResetText();
+            this.txtSymptoms.Focus();
+        }
+
         void SelectSymptom()
         {
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
@@ -181,14 +200,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (symptoms.AddSymptomInConsultation(val.PatientPrimaryID, this.txtSymptoms.Text))
             {
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
-
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
+                ResetSymptoms();
             }
             else
             {
@@ -201,18 +213,7 @@ namespace PatientInformationSystemNew.forms
             if (symptoms.UpdateSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString()), this.txtSymptoms.Text))
             {
                 MessageBox.Show("Symptom updated!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                this.btnUpdateSymptoms.Enabled = false;
-                this.btnRemoveSymptoms.Enabled = false;
-
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
-
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
+                ResetSymptoms();
             }
             else
             {
@@ -225,18 +226,7 @@ namespace PatientInformationSystemNew.forms
             if (symptoms.RemoveSymptomInConsultation(int.Parse(this.gridSymptoms.SelectedCells[0].Value.ToString())))
             {
                 MessageBox.Show("Symptom removed!", "Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                this.btnUpdateSymptoms.Enabled = false;
-                this.btnRemoveSymptoms.Enabled = false;
-
-                symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
-                symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
-
-                this.txtSymptoms.ResetText();
-                this.txtSymptoms.Focus();
+                ResetSymptoms();
             }
             else
             {
