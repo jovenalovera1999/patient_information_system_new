@@ -21,14 +21,14 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
 
-        void LoadForm()
+        void LoadFormByRole()
         {
             if (val.UserRole == "Doctor")
             {
                 this.btnCancelPatient.Visible = false;
                 patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
             }
-            else if(val.UserRole == "Medical Staff")
+            else if (val.UserRole == "Medical Staff")
             {
                 this.btnSelect.Visible = false;
                 patient.LoadPatientsInSchedule(this.gridSchedule);
@@ -37,6 +37,37 @@ namespace PatientInformationSystemNew.forms
             {
                 patient.LoadPatientsInSchedule(this.gridSchedule);
             }
+        }
+
+        void LoadForm()
+        {
+            LoadFormByRole();
+        }
+
+        void ResetGridColor()
+        {
+            this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+        }
+
+        void ResetTextbox()
+        {
+            this.txtPatientID.ResetText();
+            this.txtPatientName.ResetText();
+        }
+
+        void DisabledButtons()
+        {
+            this.btnSelect.Enabled = false;
+            this.btnCancelPatient.Enabled = false;
+        }
+
+        void ReloadForm()
+        {
+            ResetGridColor();
+            ResetTextbox();
+            DisabledButtons();
+            LoadFormByRole();
         }
 
         void SelectPatient()
@@ -108,24 +139,7 @@ namespace PatientInformationSystemNew.forms
                     {
                         MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-
-                        this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                        this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                        if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
-                        {
-                            patient.LoadPatientsInSchedule(this.gridSchedule);
-                        }
-                        else if (val.UserRole == "Doctor")
-                        {
-                            patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
-                        }
-
-                        this.txtPatientID.ResetText();
-                        this.txtPatientName.ResetText();
-
-                        this.btnSelect.Enabled = false;
-                        this.btnCancelPatient.Enabled = false;
+                        ReloadForm();
                     }
                     else
                     {
@@ -139,24 +153,7 @@ namespace PatientInformationSystemNew.forms
                     {
                         MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-
-                        this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                        this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
-                        if (val.UserRole == "Administrator" || val.UserRole == "Medical Staff")
-                        {
-                            patient.LoadPatientsInSchedule(this.gridSchedule);
-                        }
-                        else if (val.UserRole == "Doctor")
-                        {
-                            patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
-                        }
-
-                        this.txtPatientID.ResetText();
-                        this.txtPatientName.ResetText();
-
-                        this.btnSelect.Enabled = false;
-                        this.btnCancelPatient.Enabled = false;
+                        ReloadForm();
                     }
                     else
                     {
