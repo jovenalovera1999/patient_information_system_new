@@ -52,76 +52,37 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void frmReport_Load(object sender, EventArgs e)
+        void CountPatients()
         {
-            this.dateReport.Value = DateTime.Now.Date;
-
             report.countTotalPatientsInMonth(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
-            report.countTotalPatientsInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"), 
+            report.countTotalPatientsInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"),
                 this.dateReport.Value.ToString("yyyy"));
             report.countTotalPatientsInYear(this.dateReport.Value.ToString("yyyy"));
             report.countOverallTotalPatients();
 
-            report.countTotalSalesInMonth(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
-            report.countTotalSalesInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"),
-                this.dateReport.Value.ToString("yyyy"));
-            report.countTotalSalesInYear(this.dateReport.Value.ToString("yyyy"));
-            report.countOverallTotalSales();
-            
             this.lblTotalPatientsInMonth.Text = val.CountTotalPatientsInMonth;
             this.lblTotalPatientsInDay.Text = val.CountTotalPatientsInDay;
             this.lblTotalPatientsInYear.Text = val.CountTotalPatientsInYear;
             this.lblOverallTotalPatients.Text = val.CountOverallTotalPatients;
 
-            this.lblTotalSalesInMonth.Text = val.CountTotalSalesInMonth;
-            this.lblTotalSalesInDay.Text = val.CountTotalSalesInDay;
-            this.lblTotalSalesInYear.Text = val.CountTotalSalesInYear;
-            this.lblOverallTotalSales.Text = val.CountOverallTotalSales;
-
-            if(String.IsNullOrWhiteSpace(this.lblTotalSalesInMonth.Text))
-            {
-                this.lblTotalSalesInMonth.Text = "0";
-            }
-            if(String.IsNullOrWhiteSpace(this.lblTotalSalesInDay.Text))
-            {
-                this.lblTotalSalesInDay.Text = "0";
-            }
-            if(String.IsNullOrWhiteSpace(this.lblTotalSalesInYear.Text))
-            {
-                this.lblTotalSalesInYear.Text = "0";
-            }
-            if(String.IsNullOrWhiteSpace(this.lblOverallTotalSales.Text))
-            {
-                this.lblOverallTotalSales.Text = "0";
-            }
-
-            LoadInventoryReport();
         }
 
-        private void dateReport_ValueChanged(object sender, EventArgs e)
+        void CountSales()
         {
-            report.countTotalPatientsInMonth(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
-            report.countTotalPatientsInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"), 
-                this.dateReport.Value.ToString("yyyy"));
-            report.countTotalPatientsInYear(this.dateReport.Value.ToString("yyyy"));
-            report.countOverallTotalPatients();
-
             report.countTotalSalesInMonth(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
             report.countTotalSalesInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"),
                 this.dateReport.Value.ToString("yyyy"));
             report.countTotalSalesInYear(this.dateReport.Value.ToString("yyyy"));
             report.countOverallTotalSales();
 
-            this.lblTotalPatientsInMonth.Text = val.CountTotalPatientsInMonth;
-            this.lblTotalPatientsInDay.Text = val.CountTotalPatientsInDay;
-            this.lblTotalPatientsInYear.Text = val.CountTotalPatientsInYear;
-            this.lblOverallTotalPatients.Text = val.CountOverallTotalPatients;
-
             this.lblTotalSalesInMonth.Text = val.CountTotalSalesInMonth;
             this.lblTotalSalesInDay.Text = val.CountTotalSalesInDay;
             this.lblTotalSalesInYear.Text = val.CountTotalSalesInYear;
             this.lblOverallTotalSales.Text = val.CountOverallTotalSales;
+        }
 
+        void LoadNullSales()
+        {
             if (String.IsNullOrWhiteSpace(this.lblTotalSalesInMonth.Text))
             {
                 this.lblTotalSalesInMonth.Text = "0";
@@ -134,20 +95,35 @@ namespace PatientInformationSystemNew.forms
             {
                 this.lblTotalSalesInYear.Text = "0";
             }
-            if(String.IsNullOrWhiteSpace(this.lblOverallTotalSales.Text))
+            if (String.IsNullOrWhiteSpace(this.lblOverallTotalSales.Text))
             {
                 this.lblOverallTotalSales.Text = "0";
             }
+        }
 
-            foreach(var series in this.chartPatients.Series)
+        void SeriesPointsClear()
+        {
+            foreach (var series in this.chartPatients.Series)
             {
                 series.Points.Clear();
             }
-            foreach(var series in this.chartSales.Series)
+            foreach (var series in this.chartSales.Series)
             {
                 series.Points.Clear();
             }
+        }
 
+        void FormLoad()
+        {
+            this.dateReport.Value = DateTime.Now.Date;
+            CountPatients();
+            CountSales();
+            LoadNullSales();
+            LoadInventoryReport();
+        }
+
+        void LoadSeriesPoints()
+        {
             this.chartPatients.Series[0].Points.AddXY("Month", this.lblTotalPatientsInMonth.Text);
             this.chartPatients.Series[0].Points.AddXY("Day", this.lblTotalPatientsInDay.Text);
             this.chartPatients.Series[0].Points.AddXY("Year", this.lblTotalPatientsInYear.Text);
@@ -157,6 +133,19 @@ namespace PatientInformationSystemNew.forms
             this.chartSales.Series[0].Points.AddXY("Day", this.lblTotalSalesInDay.Text);
             this.chartSales.Series[0].Points.AddXY("Year", this.lblTotalSalesInYear.Text);
             this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
+        }
+
+        private void frmReport_Load(object sender, EventArgs e)
+        {
+            FormLoad();
+        }
+
+        private void dateReport_ValueChanged(object sender, EventArgs e)
+        {
+            CountPatients();
+            CountSales();
+            SeriesPointsClear();
+            LoadSeriesPoints();
         }
     }
 }

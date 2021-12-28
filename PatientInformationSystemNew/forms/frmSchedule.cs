@@ -19,7 +19,9 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.Patient patient = new functions.Patient();
+        functions.Duplicate duplicate = new functions.Duplicate();
 
         void LoadFormByRole()
         {
@@ -92,7 +94,7 @@ namespace PatientInformationSystemNew.forms
                 this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
 
-            patient.GetPatientIDAndDateCreated(this.gridSchedule.SelectedCells[1].Value.ToString());
+            patient.GetPatientFullNameAndDoctor(this.gridSchedule.SelectedCells[1].Value.ToString());
         }
 
         void GetPatientByButton()
@@ -130,37 +132,15 @@ namespace PatientInformationSystemNew.forms
 
         void CancelPatient()
         {
-            if (MessageBox.Show("Are you sure you want to cancel patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.Yes)
+            if(duplicate.DuplicatePatientAndPatientDoctor(this.gridSchedule.SelectedCells[2].Value.ToString(),
+                this.gridSchedule.SelectedCells[3].Value.ToString(), this.gridSchedule.SelectedCells[4].Value.ToString(),
+                this.gridSchedule.SelectedCells[8].Value.ToString()))
             {
-                if (val.PatientInScheduleDateCreated > DateTime.Now)
-                {
-                    if (patient.CancelPatientInScheduleWithExistingFirstAccount(this.txtPatientID.Text))
-                    {
-                        MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        ReloadForm();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    if (patient.CancelPatientInScheduleWithoutExistingFirstAccount(this.txtPatientID.Text))
-                    {
-                        MessageBox.Show("Patient successfully cancelled appointment with the doctor!", "Success", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        ReloadForm();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to cancel patient appointment with the doctor!", "Failed", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                }
+
+            }
+            else
+            {
+
             }
         }
 

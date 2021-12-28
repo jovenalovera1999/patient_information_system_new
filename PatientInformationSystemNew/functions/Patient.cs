@@ -29,7 +29,8 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     DATE_FORMAT(birthday, '%d %b %Y'),
-                                    status
+                                    status,
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.schedule
                                     WHERE status = 'Waiting' OR status = 'Consulting';";
 
@@ -50,6 +51,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Gender";
                         grid.Columns["DATE_FORMAT(birthday, '%d %b %Y')"].HeaderText = "Birthday";
                         grid.Columns["status"].HeaderText = "Status";
+                        grid.Columns["CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].Visible = false;
                     }
                 }
             }
@@ -543,74 +545,6 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool CancelPatientInScheduleWithExistingFirstAccount(string patient_id)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(con.conString()))
-                {
-                    string sql = @"SELECT *
-                                    FROM pis_db.patients
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    status = 'Complete';
-
-                                    UPDATE pis_db.schedule
-                                    SET status = 'Cancelled'
-                                    WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    status = 'Waiting';";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        if (dt.Rows.Count == 1)
-                        {
-                            val.PatientPrimaryID = dt.Rows[0].Field<int>("id");
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-
-                    sql = @"UPDATE pis_db.vital_signs
-                            SET status = 'Removed'
-                            WHERE patient_fid = @patient_fid AND status = 'In Consultation';
-
-                            UPDATE pis_db.patient_doctor
-                            SET status = 'Removed'
-                            WHERE patient_fid = @patient_fid AND status = 'In Consultation';
-
-                            UPDATE pis_db.symptoms
-                            SET status = 'Removed'
-                            WHERE patient_fid = @patient_fid AND status = 'In Consultation';";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
-
-                        connection.Open();
-                        MySqlDataReader dr;
-                        dr = cmd.ExecuteReader();
-                        dr.Close();
-
-                        return true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error updating patient in schedule to cancelled: " + ex.ToString());
-                return false;
-            }
-        }
-
         public bool BackPatientToScheduleFromConsultation(string patient_id, int patient_fid)
         {
             try
@@ -797,16 +731,21 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool GetPatientIDAndDateCreated(string patient_id)
+        public bool GetPatientFullNameAndDoctor(string patient_id)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT id, date
+                    string sql = @"SELECT 
+                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.patients
+                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    status = 'Complete';";
+                                    pis_db.patients.status = 'Complete';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -819,8 +758,10 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
-                            val.PatientInSchedulePrimaryID = dt.Rows[0].Field<int>("id");
-                            val.PatientInScheduleDateCreated = dt.Rows[0].Field<DateTime>("date");
+                            val.PatientFirstName = dt.Rows[0].Field<string>("first_name");
+                            val.PatientMiddleName = dt.Rows[0].Field<string>("middle_name");
+                            val.PatientLastName = dt.Rows[0].Field<string>("last_name");
+                            val.PatientDoctor = dt.Rows[0].Field<string>("doctor");
 
                             return true;
                         }
