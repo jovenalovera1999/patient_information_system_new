@@ -756,7 +756,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
                                     status = 'In Consultation';
 
-                                    DELETE pis_db.schedule
+                                    DELETE FROM pis_db.schedule
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
                                     status = 'Waiting';";
@@ -809,6 +809,74 @@ namespace PatientInformationSystemNew.functions
                 }
             }
             catch(Exception ex)
+            {
+                Console.WriteLine("Error updating patient in schedule to cancelled: " + ex.ToString());
+                return false;
+            }
+        }
+
+        public bool CancelPatientInScheduleWithFirstAccountExisting(string patient_id)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT *
+                                    FROM pis_db.patients
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    status = 'Complete';
+
+                                    DELETE FROM pis_db.schedule
+                                    WHERE
+                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                                    status = 'Waiting';";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count == 1)
+                        {
+                            val.PatientPrimaryID = dt.Rows[0].Field<int>("id");
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+
+                    sql = @"DELETE FROM pis_db.vital_signs
+                            WHERE patient_fid = @patient_fid AND status = 'In Consultation';
+
+                            DELETE FROM pis_db.symptoms
+                            WHERE patient_fid = @patient_fid AND status = 'In Consultation';
+
+                            DELETE FROM pis_db.duplicate_patients
+                            WHERE
+                            CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
+                            status = 'In Consultation';";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_id", patient_id);
+                        cmd.Parameters.AddWithValue("@patient_fid", val.PatientPrimaryID);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine("Error updating patient in schedule to cancelled: " + ex.ToString());
                 return false;

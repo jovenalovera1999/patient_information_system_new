@@ -157,18 +157,34 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        void CancelPatientSuccess()
+        {
+            MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+            ReloadForm();
+        }
+
         void CancelPatient()
         {
             if(MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                if(duplicate.DuplicatePatientAndPatientDoctor(this.gridSchedule.SelectedCells[2].Value.ToString(),
+                    this.gridSchedule.SelectedCells[3].Value.ToString(), this.gridSchedule.SelectedCells[4].Value.ToString(),
+                    this.gridSchedule.SelectedCells[8].Value.ToString()))
                 {
-                    MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    
-                    ResetTextbox();
-                    ResetGridColor();
+                    if(patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                    {
+                        CancelPatientSuccess();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to cancel patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                {
+                    CancelPatientSuccess();
                 }
                 else
                 {

@@ -180,9 +180,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    UPDATE pis_db.vital_signs
-                                    SET
-                                    status = 'Removed'
+                                    DELETE FROM pis_db.vital_signs
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))

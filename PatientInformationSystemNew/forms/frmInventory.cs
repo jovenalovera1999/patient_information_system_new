@@ -59,6 +59,7 @@ namespace PatientInformationSystemNew.forms
         {
             AutoGenNum();
             SetDateTimeToTodayInIncomingSupplies();
+            this.dateExpirationManageSupplies.Value = DateTime.Now;
 
             inventory.LoadInventory(this.gridSupplies);
             inventory.LoadIncomingInventory(this.gridIncomingSupplies);

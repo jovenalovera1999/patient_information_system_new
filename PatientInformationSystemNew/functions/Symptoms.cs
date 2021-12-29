@@ -257,8 +257,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    UPDATE pis_db.symptoms
-                                    SET status = 'Removed'
+                                    DELETE FROM pis_db.symptoms
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -290,8 +289,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"UPDATE pis_db.symptoms
-                                    SET status = 'Removed'
+                    string sql = @"DELETE FROM pis_db.symptoms
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))

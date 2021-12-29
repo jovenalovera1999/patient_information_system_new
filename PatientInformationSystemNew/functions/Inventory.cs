@@ -684,8 +684,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    UPDATE pis_db.inventory_incoming
-                                    SET status = 'Removed'
+                                    DELETE FROM pis_db.inventory_incoming
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -722,8 +721,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
    
-                                    UPDATE pis_db.inventory
-                                    SET status = 'Removed'
+                                    DELETE FROM pis_db.inventory
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
