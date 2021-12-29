@@ -243,9 +243,10 @@ namespace PatientInformationSystemNew.forms
             {
                 PatientRecordFound();
 
-                if (patient.AddPatientWithFirstAccountExisting(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
-                    this.cmbGender.Text, this.dateBirthday.Value.Date, this.txtHeight.Text, this.txtWeight.Text, this.txtTemperature.Text,
-                    this.txtPulseRate.Text, this.txtBloodPressure.Text, this.cmbDoctorName.Text))
+                if (patient.AddPatientWithFirstAccountExisting(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text,
+                    this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
+                    this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
+                    this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.cmbDoctorName.Text))
                 {
                     SaveSymptoms();
                     MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

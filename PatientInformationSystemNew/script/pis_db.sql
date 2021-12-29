@@ -93,6 +93,24 @@ CREATE TABLE pis_db.patients (
                                         PRIMARY KEY(id)
 );
 
+CREATE TABLE pis_db.duplicate_patients (
+    id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    patient_id                          VARBINARY(800) NOT NULL,
+    first_name                          VARBINARY(800) NOT NULL,
+    middle_name                         VARBINARY(800) DEFAULT NULL,
+    last_name                           VARBINARY(800) NOT NULL,
+    gender                              VARBINARY(800) NOT NULL,
+    age                                 VARBINARY(800) NOT NULL,
+    address                             VARBINARY(800) NOT NULL,
+    birthday                            DATE,
+    cellphone_number                    VARBINARY(800) DEFAULT NULL,
+    telephone_number                    VARBINARY(800) DEFAULT NULL,
+    email                               VARBINARY(800) DEFAULT NULL,
+    status                              VARCHAR(800) DEFAULT 'In Consultation',
+    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        PRIMARY KEY(id)
+);
+
 CREATE TABLE pis_db.number_of_patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     full_name                           VARBINARY(800) NOT NULL,

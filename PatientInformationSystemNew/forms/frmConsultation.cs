@@ -246,6 +246,24 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
+            else if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
+            {
+                if (patient.SavePatientCompleteConsultationWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
+                    this.txtPrescription.Text))
+                {
+                    MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
+
+                    this.btnSavePrescription.Enabled = false;
+                    this.btnBack.Enabled = false;
+                    this.btnAnotherBack.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
                 this.txtPrescription.Text))
             {
