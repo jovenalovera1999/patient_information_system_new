@@ -30,6 +30,246 @@ namespace PatientInformationSystemNew.forms
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.VitalSigns vital_signs = new functions.VitalSigns();
 
+        private void frmPatientProfileNew_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        // Cell Mouse Click Once
+
+        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectVitalSigns();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPrescription();
+        }
+
+        private void gridPaymentHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPaymentHistory();
+        }
+
+        // Edit
+
+        private void btnEditPersonalInfo_Click(object sender, EventArgs e)
+        {
+            EditPersonalInfo();
+        }
+
+        private void btnEditVitalSigns_Click(object sender, EventArgs e)
+        {
+            EditVitalSigns();
+        }
+
+        private void btnEditDiagnosis_Click(object sender, EventArgs e)
+        {
+            EditDiagnosis();
+        }
+
+        private void btnEditSymptoms_Click(object sender, EventArgs e)
+        {
+            EditSymptoms();
+        }
+
+        private void btnEditPrescriptions_Click(object sender, EventArgs e)
+        {
+            EditPrescriptions();
+        }
+
+        private void btnEditPayment_Click(object sender, EventArgs e)
+        {
+            EditPaymentHistory();
+        }
+
+        // New
+
+        private void btnNewVitalSigns_Click(object sender, EventArgs e)
+        {
+            NewVitalSigns();
+        }
+
+        private void btnNewDiagnosis_Click(object sender, EventArgs e)
+        {
+            NewDiagnosis();
+        }
+
+        private void btnNewSymptoms_Click(object sender, EventArgs e)
+        {
+            NewSymptoms();
+        }
+
+        private void btnNewPrescriptions_Click(object sender, EventArgs e)
+        {
+            NewPrescriptions();
+        }
+
+        // Add
+
+        private void btnAddVitalSigns_Click(object sender, EventArgs e)
+        {
+            AddVitalSigns();
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+            AddDiagnosis();
+        }
+
+        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnAddPrescriptions_Click(object sender, EventArgs e)
+        {
+            AddPrescription();
+        }
+
+        // Cancel
+
+        private void btnCancelVitalSigns_Click(object sender, EventArgs e)
+        {
+            CancelVitalSigns();
+        }
+
+        private void btnCancelDiagnosis_Click(object sender, EventArgs e)
+        {
+            CancelDiagnosis();
+        }
+
+        private void btnCancelSymptoms_Click(object sender, EventArgs e)
+        {
+            CancelSymptoms();
+        }
+
+        private void btnCancelPrescriptions_Click(object sender, EventArgs e)
+        {
+            CancelPrescriptions();
+        }
+
+        // Save
+
+        private void btnSavePersonalInfo_Click(object sender, EventArgs e)
+        {
+            SavePersonalInfo();   
+        }
+
+        private void btnSaveVitalSigns_Click(object sender, EventArgs e)
+        {
+            SaveVitalSigns();
+        }
+
+        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        {
+            SaveDiagnosis();
+        }
+
+        private void btnSymptoms_Click(object sender, EventArgs e)
+        {
+            SaveSymptom();
+        }
+
+        private void btnSavePrescriptions_Click(object sender, EventArgs e)
+        {
+            SavePrescription();
+        }
+
+        private void btnSavePayment_Click(object sender, EventArgs e)
+        {
+            SavePaymentHistory();
+        }
+
+        // Remove
+
+        private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
+        {
+            RemoveVitalSigns();
+        }
+
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+            RemoveDiagnosis();
+        }
+
+        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnRemovePrescriptions_Click(object sender, EventArgs e)
+        {
+            RemovePrescription();
+        }
+
+        // Transact
+
+        private void btnTransact_Click(object sender, EventArgs e)
+        {
+            Transact();
+        }
+
+        // Print
+
+        private void btnPrintPrescriptions_Click(object sender, EventArgs e)
+        {
+            PrintPrescription();
+        }
+
+        private void btnPrintPaymentHistory_Click(object sender, EventArgs e)
+        {
+            PrintPayment();
+        }
+
+        // Back
+
+        private void btnBackInPeronalInfo_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
+        private void btnBackVitalSigns_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
+        private void btnBackInDiagnosis_Click_1(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
+        private void btnBackInSymptoms_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
+        private void btnBackInPrintPrescription_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
+        private void btnBackInPrescriptions_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
+        private void btnBackInPaymentHistory_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
         void LoadPatientDetails()
         {
             this.txtPatientID.Text = val.PatientID;
@@ -1419,246 +1659,6 @@ namespace PatientInformationSystemNew.forms
                 this.btnSavePrescriptions.Enabled = true;
                 this.btnPrintPrescriptions.Enabled = true;
             }
-        }
-
-        private void frmPatientProfileNew_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        // Cell Mouse Click Once
-
-        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectVitalSigns();
-        }
-
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectDiagnosis();
-        }
-
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPrescription();
-        }
-
-        private void gridPaymentHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPaymentHistory();
-        }
-
-        // Edit
-
-        private void btnEditPersonalInfo_Click(object sender, EventArgs e)
-        {
-            EditPersonalInfo();
-        }
-
-        private void btnEditVitalSigns_Click(object sender, EventArgs e)
-        {
-            EditVitalSigns();
-        }
-
-        private void btnEditDiagnosis_Click(object sender, EventArgs e)
-        {
-            EditDiagnosis();
-        }
-
-        private void btnEditSymptoms_Click(object sender, EventArgs e)
-        {
-            EditSymptoms();
-        }
-
-        private void btnEditPrescriptions_Click(object sender, EventArgs e)
-        {
-            EditPrescriptions();
-        }
-
-        private void btnEditPayment_Click(object sender, EventArgs e)
-        {
-            EditPaymentHistory();
-        }
-
-        // New
-
-        private void btnNewVitalSigns_Click(object sender, EventArgs e)
-        {
-            NewVitalSigns();
-        }
-
-        private void btnNewDiagnosis_Click(object sender, EventArgs e)
-        {
-            NewDiagnosis();
-        }
-
-        private void btnNewSymptoms_Click(object sender, EventArgs e)
-        {
-            NewSymptoms();
-        }
-
-        private void btnNewPrescriptions_Click(object sender, EventArgs e)
-        {
-            NewPrescriptions();
-        }
-
-        // Add
-
-        private void btnAddVitalSigns_Click(object sender, EventArgs e)
-        {
-            AddVitalSigns();
-        }
-
-        private void btnAddDiagnosis_Click(object sender, EventArgs e)
-        {
-            AddDiagnosis();
-        }
-
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
-        {
-            AddSymptom();
-        }
-
-        private void btnAddPrescriptions_Click(object sender, EventArgs e)
-        {
-            AddPrescription();
-        }
-
-        // Cancel
-
-        private void btnCancelVitalSigns_Click(object sender, EventArgs e)
-        {
-            CancelVitalSigns();
-        }
-
-        private void btnCancelDiagnosis_Click(object sender, EventArgs e)
-        {
-            CancelDiagnosis();
-        }
-
-        private void btnCancelSymptoms_Click(object sender, EventArgs e)
-        {
-            CancelSymptoms();
-        }
-
-        private void btnCancelPrescriptions_Click(object sender, EventArgs e)
-        {
-            CancelPrescriptions();
-        }
-
-        // Save
-
-        private void btnSavePersonalInfo_Click(object sender, EventArgs e)
-        {
-            SavePersonalInfo();   
-        }
-
-        private void btnSaveVitalSigns_Click(object sender, EventArgs e)
-        {
-            SaveVitalSigns();
-        }
-
-        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
-        {
-            SaveDiagnosis();
-        }
-
-        private void btnSymptoms_Click(object sender, EventArgs e)
-        {
-            SaveSymptom();
-        }
-
-        private void btnSavePrescriptions_Click(object sender, EventArgs e)
-        {
-            SavePrescription();
-        }
-
-        private void btnSavePayment_Click(object sender, EventArgs e)
-        {
-            SavePaymentHistory();
-        }
-
-        // Remove
-
-        private void btnRemoveVitalSigns_Click(object sender, EventArgs e)
-        {
-            RemoveVitalSigns();
-        }
-
-        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
-        {
-            RemoveDiagnosis();
-        }
-
-        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
-        {
-            RemoveSymptom();
-        }
-
-        private void btnRemovePrescriptions_Click(object sender, EventArgs e)
-        {
-            RemovePrescription();
-        }
-
-        // Transact
-
-        private void btnTransact_Click(object sender, EventArgs e)
-        {
-            Transact();
-        }
-
-        // Print
-
-        private void btnPrintPrescriptions_Click(object sender, EventArgs e)
-        {
-            PrintPrescription();
-        }
-
-        private void btnPrintPaymentHistory_Click(object sender, EventArgs e)
-        {
-            PrintPayment();
-        }
-
-        // Back
-
-        private void btnBackInPeronalInfo_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackVitalSigns_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackInDiagnosis_Click_1(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackInSymptoms_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackInPrintPrescription_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackInPrescriptions_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
-        private void btnBackInPaymentHistory_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
         }
     }
 }

@@ -23,6 +23,27 @@ namespace PatientInformationSystemNew.forms
         functions.User user = new functions.User();
         functions.Duplicate duplicate = new functions.Duplicate();
 
+        private void frmSignUp_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        string imgLocation = "";
+        private void btnUploadPhoto_Click_1(object sender, EventArgs e)
+        {
+            UploadPhoto();
+        }
+
+        private void btnRemovePhoto_Click(object sender, EventArgs e)
+        {
+            RemovePhoto();
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            SaveUser();
+        }
+
         void LoadAge()
         {
             for (int i = 1; i < 80; i++)
@@ -271,27 +292,6 @@ namespace PatientInformationSystemNew.forms
                     e.Handled = true;
                 }
             }
-        }
-
-        private void frmSignUp_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        string imgLocation = "";
-        private void btnUploadPhoto_Click_1(object sender, EventArgs e)
-        {
-            UploadPhoto();
-        }
-
-        private void btnRemovePhoto_Click(object sender, EventArgs e)
-        {
-            RemovePhoto();
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            SaveUser();
         }
     }
 }

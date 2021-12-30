@@ -24,6 +24,31 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
 
+        private void frmPaymentTransaction_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void btnTransact_Click(object sender, EventArgs e)
+        {
+            Transact();
+        }
+
+        private void btnSaveTransaction_Click(object sender, EventArgs e)
+        {
+            SaveTransaction();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
+
         void LoadForm()
         {
             payment.LoadPatientUnpaid(this.gridPaymentTransaction);
@@ -191,31 +216,6 @@ namespace PatientInformationSystemNew.forms
             frmPatient.Dock = DockStyle.Fill;
             frmPatient.Show();
             this.Close();
-        }
-
-        private void frmPaymentTransaction_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void btnTransact_Click(object sender, EventArgs e)
-        {
-            Transact();
-        }
-
-        private void btnSaveTransaction_Click(object sender, EventArgs e)
-        {
-            SaveTransaction();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
         }
     }
 }

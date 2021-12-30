@@ -23,12 +23,89 @@ namespace PatientInformationSystemNew.forms
         functions.Inventory inventory = new functions.Inventory();
         functions.Duplicate duplicate = new functions.Duplicate();
 
+        private void frmInventory_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void switchExpirationDate_CheckedChanged(object sender, EventArgs e)
+        {
+            ExpirationDateEnabledInIncomingSupplies();
+        }
+
+        private void gridIncomingSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectIncomingSupply();
+        }
+
+        private void btnAddIncomingSupplies_Click(object sender, EventArgs e)
+        {
+            AddIncomingSupply();
+        }
+
+        private void btnSaveIncomingSupplies_Click(object sender, EventArgs e)
+        {
+            SaveIncomingSupply();
+        }
+
+        private void btnEditIncomingSupplies_Click(object sender, EventArgs e)
+        {
+            EditIncomingSupply();
+        }
+
+        private void btnSupplyArrived_Click(object sender, EventArgs e)
+        {
+            SupplyArrived();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteIncomingSupply();
+        }
+
+        // Manage Supplies
+
+        private void gridManageSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectManageSupply();
+        }
+
+        private void btnAddManageSupplies_Click(object sender, EventArgs e)
+        {
+            AddInManageSupply();
+        }
+
+        private void btnEditManageSupplies_Click(object sender, EventArgs e)
+        {
+            EditManageSupplies();
+        }
+
+        private void switchExpirationDateManageSupplies_CheckedChanged(object sender, EventArgs e)
+        {
+            ExpirationDateInManageSuppliesEnabled();
+        }
+
+        private void btnSaveManageSupplies_Click(object sender, EventArgs e)
+        {
+            SaveManageSupply();
+        }
+
+        private void btnDeductItem_Click(object sender, EventArgs e)
+        {
+            DeductItem();
+        }
+
+        private void btnDeleteManageSupplies_Click(object sender, EventArgs e)
+        {
+            DeleteManageSupply();
+        }
+
         void AutoGenNum()
         {
             Random number = new Random();
             var generateID = new StringBuilder();
 
-            while(generateID.Length < 8)
+            while (generateID.Length < 8)
             {
                 generateID.Append(number.Next(10).ToString());
             }
@@ -793,7 +870,7 @@ namespace PatientInformationSystemNew.forms
             int total_deduct_items = (int.Parse(this.gridManageSupplies.SelectedCells[3].Value.ToString()) -
                 int.Parse(this.txtItemUsed.Text));
 
-            if(String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[4].Value.ToString()))
+            if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[4].Value.ToString()))
             {
                 if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
                 {
@@ -853,7 +930,7 @@ namespace PatientInformationSystemNew.forms
 
         void DeleteManageSupply()
         {
-            if(String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[4].Value.ToString()))
+            if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[4].Value.ToString()))
             {
                 if (inventory.DeleteSupply(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), val.UserFullName,
                 string.Format("{0} has been removed!\r\n" +
@@ -903,83 +980,6 @@ namespace PatientInformationSystemNew.forms
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void frmInventory_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void switchExpirationDate_CheckedChanged(object sender, EventArgs e)
-        {
-            ExpirationDateEnabledInIncomingSupplies();
-        }
-
-        private void gridIncomingSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectIncomingSupply();
-        }
-
-        private void btnAddIncomingSupplies_Click(object sender, EventArgs e)
-        {
-            AddIncomingSupply();
-        }
-
-        private void btnSaveIncomingSupplies_Click(object sender, EventArgs e)
-        {
-            SaveIncomingSupply();
-        }
-
-        private void btnEditIncomingSupplies_Click(object sender, EventArgs e)
-        {
-            EditIncomingSupply();
-        }
-
-        private void btnSupplyArrived_Click(object sender, EventArgs e)
-        {
-            SupplyArrived();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DeleteIncomingSupply();
-        }
-
-        // Manage Supplies
-
-        private void gridManageSupplies_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectManageSupply();
-        }
-
-        private void btnAddManageSupplies_Click(object sender, EventArgs e)
-        {
-            AddInManageSupply();
-        }
-
-        private void btnEditManageSupplies_Click(object sender, EventArgs e)
-        {
-            EditManageSupplies();
-        }
-
-        private void switchExpirationDateManageSupplies_CheckedChanged(object sender, EventArgs e)
-        {
-            ExpirationDateInManageSuppliesEnabled();
-        }
-
-        private void btnSaveManageSupplies_Click(object sender, EventArgs e)
-        {
-            SaveManageSupply();
-        }
-
-        private void btnDeductItem_Click(object sender, EventArgs e)
-        {
-            DeductItem();
-        }
-
-        private void btnDeleteManageSupplies_Click(object sender, EventArgs e)
-        {
-            DeleteManageSupply();
         }
     }
 }

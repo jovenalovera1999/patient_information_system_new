@@ -28,6 +28,71 @@ namespace PatientInformationSystemNew.forms
         functions.Diagnosis diagnosis = new functions.Diagnosis();
         functions.Prescription prescriptions = new functions.Prescription();
 
+        private void frmConsultationNew_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+            AddDiagnosis();
+        }
+
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+            RemoveDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
+        {
+            UpdateSymptom();
+        }
+
+        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
+        {
+            SaveDiagnosis();
+        }
+
+        private void btnSavePrescription_Click(object sender, EventArgs e)
+        {
+            SavePatientAndPrescription();
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            PrintPrescription();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToSchedule();
+        }
+
+        private void btnAnotherBack_Click(object sender, EventArgs e)
+        {
+            BackToSchedule();
+        }
+
         void LoadPatientDetails()
         {
             this.txtPatientID.Text = val.PatientID;
@@ -246,7 +311,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
-            else if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
+            else if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
             {
                 if (patient.SavePatientCompleteConsultationWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
                     this.txtPrescription.Text))
@@ -350,71 +415,6 @@ namespace PatientInformationSystemNew.forms
                 this.btnGenerate.Enabled = true;
                 this.btnSavePrescription.Enabled = true;
             }
-        }
-
-        private void frmConsultationNew_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectDiagnosis();
-        }
-
-        private void btnAddDiagnosis_Click(object sender, EventArgs e)
-        {
-            AddDiagnosis();
-        }
-
-        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
-        {
-            RemoveDiagnosis();
-        }
-
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
-        {
-            AddSymptom();
-        }
-
-        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
-        {
-            UpdateSymptom();
-        }
-
-        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
-        {
-            RemoveSymptom();
-        }
-
-        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
-        {
-            SaveDiagnosis();
-        }
-
-        private void btnSavePrescription_Click(object sender, EventArgs e)
-        {
-            SavePatientAndPrescription();
-        }
-
-        private void btnGenerate_Click(object sender, EventArgs e)
-        {
-            PrintPrescription();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToSchedule();
-        }
-
-        private void btnAnotherBack_Click(object sender, EventArgs e)
-        {
-            BackToSchedule();
         }
     }
 }

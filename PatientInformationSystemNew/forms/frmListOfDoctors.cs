@@ -22,6 +22,31 @@ namespace PatientInformationSystemNew.forms
 
         functions.Doctor doctor = new functions.Doctor();
 
+        private void frmListOfDoctors_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetDoctor();
+        }
+
+        private void btnMedicalStaff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridDoctors_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDoctor();
+        }
+
+        private void gridDoctors_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetDoctor();
+        }
+
         void LoadForm()
         {
             doctor.LoadDoctors(this.gridDoctors);
@@ -62,31 +87,6 @@ namespace PatientInformationSystemNew.forms
             }
 
             this.btnSelect.Enabled = true;
-        }
-
-        private void frmListOfDoctors_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetDoctor();
-        }
-
-        private void btnMedicalStaff_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridDoctors_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectDoctor();
-        }
-
-        private void gridDoctors_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetDoctor();
         }
     }
 }

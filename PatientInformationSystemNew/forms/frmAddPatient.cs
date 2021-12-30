@@ -20,8 +20,39 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
+
+        private void frmAddPatient_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void btnAddSymptom_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnRemoveSymptom_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            AddPatient();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
+        }
 
         void AutoGenNum()
         {
@@ -294,9 +325,9 @@ namespace PatientInformationSystemNew.forms
                 return;
             }
             // Checks to make sure only 1 plus sign is allowed
-            if(e.KeyChar == 43)
+            if (e.KeyChar == 43)
             {
-                if((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
                 {
                     e.Handled = true;
                 }
@@ -441,36 +472,6 @@ namespace PatientInformationSystemNew.forms
                     e.Handled = true;
                 }
             }
-        }
-
-        private void frmAddPatient_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void btnAddSymptom_Click(object sender, EventArgs e)
-        {
-            AddSymptom();
-        }
-
-        private void btnRemoveSymptom_Click(object sender, EventArgs e)
-        {
-            RemoveSymptom();
-        }
-
-        private void btnAddPatient_Click(object sender, EventArgs e)
-        {
-            AddPatient();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
         }
     }
 }

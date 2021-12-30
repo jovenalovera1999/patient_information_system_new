@@ -23,6 +23,31 @@ namespace PatientInformationSystemNew.forms
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
 
+        private void frmSchedule_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetPatientByGrid();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatientByButton();
+        }
+
+        private void btnCancelPatient_Click(object sender, EventArgs e)
+        {
+            CancelPatient();
+        }
+
         void LoadFormByRole()
         {
             if (val.UserRole == "Doctor")
@@ -97,9 +122,9 @@ namespace PatientInformationSystemNew.forms
 
         void GetPatientByButton()
         {
-            if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, this.gridSchedule.SelectedCells[8].Value.ToString()))
+            if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, this.gridSchedule.SelectedCells[8].Value.ToString()))
             {
-                if(patient.GetPatientFromScheduleWithFirstAccountExisting(this.txtPatientID.Text))
+                if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.txtPatientID.Text))
                 {
                     forms.frmConsultation frmConsultation = new forms.frmConsultation();
                     frmConsultation.TopLevel = false;
@@ -126,7 +151,7 @@ namespace PatientInformationSystemNew.forms
 
         void GetPatientByGrid()
         {
-            if(val.UserRole == "Doctor" || val.UserRole == "Administrator")
+            if (val.UserRole == "Doctor" || val.UserRole == "Administrator")
             {
                 if (duplicate.DuplicatePatientInGeneral(this.gridSchedule.SelectedCells[1].Value.ToString(),
                     this.gridSchedule.SelectedCells[8].Value.ToString()))
@@ -166,14 +191,14 @@ namespace PatientInformationSystemNew.forms
 
         void CancelPatient()
         {
-            if(MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
+            if (MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(duplicate.DuplicatePatientAndPatientDoctor(this.gridSchedule.SelectedCells[2].Value.ToString(),
+                if (duplicate.DuplicatePatientAndPatientDoctor(this.gridSchedule.SelectedCells[2].Value.ToString(),
                     this.gridSchedule.SelectedCells[3].Value.ToString(), this.gridSchedule.SelectedCells[4].Value.ToString(),
                     this.gridSchedule.SelectedCells[8].Value.ToString()))
                 {
-                    if(patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                    if (patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
                     {
                         CancelPatientSuccess();
                     }
@@ -191,31 +216,6 @@ namespace PatientInformationSystemNew.forms
                     MessageBox.Show("Failed to cancel patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void frmSchedule_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetPatientByGrid();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetPatientByButton();
-        }
-
-        private void btnCancelPatient_Click(object sender, EventArgs e)
-        {
-            CancelPatient();
         }
     }
 }

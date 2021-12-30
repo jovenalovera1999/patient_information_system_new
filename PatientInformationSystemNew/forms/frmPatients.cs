@@ -21,6 +21,36 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.Patient patient = new functions.Patient();
 
+        private void frmPatient_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatient();
+        }
+
+        private void btnPaymentTransaction_Click(object sender, EventArgs e)
+        {
+            GoToPaymentTransaction();
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            GoToAddPatient();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetPatient();
+        }
+
         void LoadForm()
         {
             if (val.UserRole == "Doctor")
@@ -81,36 +111,6 @@ namespace PatientInformationSystemNew.forms
 
             this.txtPatientID.Text = this.gridPatients.SelectedCells[1].Value.ToString();
             this.btnSelect.Enabled = true;
-        }
-
-        private void frmPatient_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetPatient();
-        }
-
-        private void btnPaymentTransaction_Click(object sender, EventArgs e)
-        {
-            GoToPaymentTransaction();
-        }
-
-        private void btnAddPatient_Click(object sender, EventArgs e)
-        {
-            GoToAddPatient();
-        }
-
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetPatient();
         }
     }
 }

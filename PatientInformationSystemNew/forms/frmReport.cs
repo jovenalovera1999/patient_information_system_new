@@ -24,9 +24,22 @@ namespace PatientInformationSystemNew.forms
 
         functions.Report report = new functions.Report();
 
+        private void frmReport_Load(object sender, EventArgs e)
+        {
+            FormLoad();
+        }
+
+        private void dateReport_ValueChanged(object sender, EventArgs e)
+        {
+            CountPatients();
+            CountSales();
+            SeriesPointsClear();
+            LoadSeriesPoints();
+        }
+
         void LoadInventoryReport()
         {
-            using(MySqlConnection connection = new MySqlConnection(con.conString()))
+            using (MySqlConnection connection = new MySqlConnection(con.conString()))
             {
                 string sql = @"SELECT
                                CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_id',
@@ -133,19 +146,6 @@ namespace PatientInformationSystemNew.forms
             this.chartSales.Series[0].Points.AddXY("Day", this.lblTotalSalesInDay.Text);
             this.chartSales.Series[0].Points.AddXY("Year", this.lblTotalSalesInYear.Text);
             this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
-        }
-
-        private void frmReport_Load(object sender, EventArgs e)
-        {
-            FormLoad();
-        }
-
-        private void dateReport_ValueChanged(object sender, EventArgs e)
-        {
-            CountPatients();
-            CountSales();
-            SeriesPointsClear();
-            LoadSeriesPoints();
         }
     }
 }

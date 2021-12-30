@@ -24,6 +24,41 @@ namespace PatientInformationSystemNew.forms
         functions.Doctor doctor = new functions.Doctor();
         functions.Patient patient = new functions.Patient();
 
+        private void frmDoctorProfileNew_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            EditDoctor();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveDoctor();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToListOfDoctors();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetPatient();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatient();
+        }
+
         void LoadAge()
         {
             for (int i = 0; i < 100; i++)
@@ -92,7 +127,7 @@ namespace PatientInformationSystemNew.forms
 
         void GetDoctor()
         {
-            if(doctor.GetDoctor(val.DoctorPrimaryID))
+            if (doctor.GetDoctor(val.DoctorPrimaryID))
             {
                 LoadProfilePicture();
                 LoadDoctorDetails();
@@ -210,7 +245,7 @@ namespace PatientInformationSystemNew.forms
 
         void GetPatient()
         {
-            if(patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
+            if (patient.GetPatient(int.Parse(this.gridPatients.SelectedCells[0].Value.ToString())))
             {
                 forms.frmDoctorsPatientProfile frmDoctorsPatientProfile = new forms.frmDoctorsPatientProfile();
                 frmDoctorsPatientProfile.TopLevel = false;
@@ -221,41 +256,6 @@ namespace PatientInformationSystemNew.forms
                 frmDoctorsPatientProfile.Show();
                 this.Close();
             }
-        }
-
-        private void frmDoctorProfileNew_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            EditDoctor();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveDoctor();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToListOfDoctors();
-        }
-
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetPatient();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetPatient();
         }
     }
 }

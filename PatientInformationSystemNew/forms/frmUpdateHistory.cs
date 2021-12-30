@@ -24,20 +24,87 @@ namespace PatientInformationSystemNew.forms
 
         private void frmUpdateHistory_Load(object sender, EventArgs e)
         {
-            update_history.LoadUpdateHistory(this.gridUpdateHistory);
+            LoadForm();
         }
 
-        private void gridUpdateHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        void LoadForm()
         {
-            this.gridUpdateHistory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
-            this.gridUpdateHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            update_history.LoadPatientsUpdates(this.gridPatients);
+            update_history.LoadVitalSignsUpdates(this.gridVitalSigns);
+            update_history.LoadDiagnosisUpdates(this.gridDiagnosis);
+            update_history.LoadSymptomsUpdates(this.gridSymptoms);
+            update_history.LoadPrescriptionsUpdates(this.gridPrescriptions);
+            update_history.LoadPaymentTransactionsUpdates(this.gridPaymentTransactions);
+        }
 
-            DateTime date = DateTime.Parse(this.gridUpdateHistory.SelectedCells[3].Value.ToString());
+        void SelectPatient()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
 
-            this.txtUpdateID.Text = this.gridUpdateHistory.SelectedCells[0].Value.ToString();
-            this.txtEditedBy.Text = this.gridUpdateHistory.SelectedCells[1].Value.ToString();
-            this.txtDescription.Text = this.gridUpdateHistory.SelectedCells[2].Value.ToString();
-            this.txtDate.Text = date.ToString("D");
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+        }
+
+        void SelectVitalSigns()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+        }
+
+        void SelectDiagnosis()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+        }
+
+        void SelectSymptom()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+        }
+
+        void SelectPrescription()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+        }
+
+        void SelectPaymentTransaction()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+        }
+
+        void SelectSupply()
+        {
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+
+            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
+            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
         }
     }
 }
