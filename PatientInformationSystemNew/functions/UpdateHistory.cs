@@ -26,7 +26,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
-                                    FROM pis_db.update_history_patients;";
+                                    FROM pis_db.update_history_patient;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -225,6 +225,41 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Edited By";
                         grid.Columns["CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Patient";
+                        grid.Columns["CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Description";
+                        grid.Columns["CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))"].HeaderText = "Date and Time";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading payment transactions update history: " + ex.ToString());
+            }
+        }
+
+        public void LoadInventoryUpdates(DataGridView grid)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT
+                                    id,
+                                    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+                                    FROM pis_db.update_history_inventory;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        grid.DataSource = dt;
+
+                        grid.Columns["id"].Visible = false;
+                        grid.Columns["CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Edited By";
                         grid.Columns["CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Description";
                         grid.Columns["CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))"].HeaderText = "Date and Time";
                     }

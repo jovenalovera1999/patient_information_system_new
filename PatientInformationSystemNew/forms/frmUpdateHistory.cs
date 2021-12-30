@@ -27,6 +27,41 @@ namespace PatientInformationSystemNew.forms
             LoadForm();
         }
 
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectVitalSigns();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPrescription();
+        }
+
+        private void gridPaymentTransactions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPaymentTransaction();
+        }
+
+        private void gridInventory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSupply();
+        }
+
         void LoadForm()
         {
             update_history.LoadPatientsUpdates(this.gridPatients);
@@ -35,76 +70,97 @@ namespace PatientInformationSystemNew.forms
             update_history.LoadSymptomsUpdates(this.gridSymptoms);
             update_history.LoadPrescriptionsUpdates(this.gridPrescriptions);
             update_history.LoadPaymentTransactionsUpdates(this.gridPaymentTransactions);
+            update_history.LoadInventoryUpdates(this.gridInventory);
         }
 
         void SelectPatient()
         {
             DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
 
+            this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
             this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
             this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
+            this.txtDatePatients.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
             this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
         }
 
         void SelectVitalSigns()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[4].Value.ToString());
 
-            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
-            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
-            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtEditedByVitalSigns.Text = this.gridVitalSigns.SelectedCells[1].Value.ToString();
+            this.txtPatientNameVitalSigns.Text = this.gridVitalSigns.SelectedCells[2].Value.ToString();
+            this.txtDateVitalSigns.Text = date.ToString("D") + " " + date.ToString("hh:mm tt");
+            this.txtDescriptionVitalSigns.Text = this.gridVitalSigns.SelectedCells[3].Value.ToString();
         }
 
         void SelectDiagnosis()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[4].Value.ToString());
 
-            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
-            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
-            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtEditedByDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
+            this.txtPatientNameDiagnosis.Text = this.gridDiagnosis.SelectedCells[2].Value.ToString();
+            this.txtDateDiagnosis.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
+            this.txtDescriptionDiagnosis.Text = this.gridDiagnosis.SelectedCells[3].Value.ToString();
         }
 
         void SelectSymptom()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[4].Value.ToString());
 
-            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
-            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
-            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtEditedBySymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
+            this.txtPatientNameSymptoms.Text = this.gridSymptoms.SelectedCells[2].Value.ToString();
+            this.txtDateSymptoms.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
+            this.txtDescriptionSymptoms.Text = this.gridSymptoms.SelectedCells[3].Value.ToString();
         }
 
         void SelectPrescription()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[4].Value.ToString());
 
-            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
-            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
-            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtEditedByPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePrescriptions.Text = this.gridPrescriptions.SelectedCells[2].Value.ToString();
+            this.txtDatePrescriptions.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
+            this.txtDescriptionPrescriptions.Text = this.gridPrescriptions.SelectedCells[3].Value.ToString();
         }
 
         void SelectPaymentTransaction()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridPaymentTransactions.SelectedCells[4].Value.ToString());
 
-            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
-            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
-            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+            this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtEditedByPaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[1].Value.ToString();
+            this.txtPatientNamePaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[2].Value.ToString();
+            this.txtDatePaymentTransactions.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
+            this.txtDescriptionPaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[3].Value.ToString();
         }
 
         void SelectSupply()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridInventory.SelectedCells[3].Value.ToString());
 
-            this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
-            this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
-            this.txtDatePatients.Text = date.ToString("D hh:mm tt");
-            this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
+            this.gridInventory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridInventory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.txtEditedByInventory.Text = this.gridInventory.SelectedCells[1].Value.ToString();
+            this.txtDateInventory.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
+            this.txtDescriptionInventory.Text = this.gridInventory.SelectedCells[2].Value.ToString();
         }
     }
 }
