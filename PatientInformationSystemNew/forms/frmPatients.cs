@@ -19,7 +19,9 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.Patient patient = new functions.Patient();
+        functions.Search search = new functions.Search();
 
         private void frmPatient_Load(object sender, EventArgs e)
         {
@@ -63,6 +65,7 @@ namespace PatientInformationSystemNew.forms
             {
                 patient.LoadPatients(this.gridPatients);
             }
+            this.txtSearch.Focus();
         }
 
         void GetPatient()
@@ -111,6 +114,18 @@ namespace PatientInformationSystemNew.forms
 
             this.txtPatientID.Text = this.gridPatients.SelectedCells[1].Value.ToString();
             this.btnSelect.Enabled = true;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if(val.UserRole == "Doctor")
+            {
+                search.SearchPatientByDoctor(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.txtSearch.Text, this.gridPatients);
+            }
+            else
+            {
+                search.SearchPatient(this.txtSearch.Text, this.gridPatients);
+            }
         }
     }
 }

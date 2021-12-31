@@ -74,6 +74,11 @@ namespace PatientInformationSystemNew.forms
             Logout();
         }
 
+        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Stop();
+        }
+
         void LoadForm()
         {
             t = new System.Timers.Timer();
@@ -208,7 +213,6 @@ namespace PatientInformationSystemNew.forms
                 forms.frmLogin login = new forms.frmLogin();
                 login.Show();
                 this.pnlDashboardBody.Controls.Clear();
-                t.Stop();
                 this.Close();
             }
         }

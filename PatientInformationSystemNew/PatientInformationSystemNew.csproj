@@ -195,6 +195,7 @@
     <Compile Include="functions\PaymentTransactions.cs" />
     <Compile Include="functions\Prescription.cs" />
     <Compile Include="functions\Report.cs" />
+    <Compile Include="functions\Search.cs" />
     <Compile Include="functions\Symptoms.cs" />
     <Compile Include="functions\UpdateHistory.cs" />
     <Compile Include="functions\User.cs" />

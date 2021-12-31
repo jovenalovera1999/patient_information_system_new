@@ -63,7 +63,7 @@ namespace PatientInformationSystemNew.forms
             {
                 generateID.Append(number.Next(10).ToString());
             }
-            this.txtPatientID.Text = generateID.ToString();
+            this.txtPatientID.Text = string.Format("#STLDM{0}", generateID.ToString());
         }
 
         void LoadDoctors()
@@ -471,6 +471,18 @@ namespace PatientInformationSystemNew.forms
                 {
                     e.Handled = true;
                 }
+            }
+        }
+
+        private void txtSymptoms_TextChanged(object sender, EventArgs e)
+        {
+            if(String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            {
+                this.btnAddSymptom.Enabled = false;
+            }
+            else
+            {
+                this.btnAddSymptom.Enabled = true;
             }
         }
     }
