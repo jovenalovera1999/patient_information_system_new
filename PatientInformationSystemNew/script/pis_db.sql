@@ -69,7 +69,7 @@ CREATE TABLE pis_db.schedule (
     gender                              VARBINARY(800) NOT NULL,
     birthday                            DATE,
     doctor                              VARBINARY(800) NOT NULL,
-    status                              VARCHAR(800) DEFAULT 'Waiting',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Waiting', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );
@@ -87,8 +87,8 @@ CREATE TABLE pis_db.patients (
     cellphone_number                    VARBINARY(800) DEFAULT NULL,
     telephone_number                    VARBINARY(800) DEFAULT NULL,
     email                               VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(800) DEFAULT 'In Consultation',
-    payment_status                      VARCHAR(800) DEFAULT 'Unpaid',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    payment_status                      VARBINARY(800) DEFAULT AES_ENCRYPT('Unpaid', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );
@@ -106,7 +106,7 @@ CREATE TABLE pis_db.duplicate_patients (
     cellphone_number                    VARBINARY(800) DEFAULT NULL,
     telephone_number                    VARBINARY(800) DEFAULT NULL,
     email                               VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(800) DEFAULT 'In Consultation',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
 );
@@ -126,7 +126,7 @@ CREATE TABLE pis_db.vital_signs (
     temperature                         VARBINARY(800) NOT NULL,
     pulse_rate                          VARBINARY(800) DEFAULT NULL,
     blood_pressure                      VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(55) DEFAULT 'Show',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -136,7 +136,7 @@ CREATE TABLE pis_db.patient_doctor (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
-    status                              VARCHAR(55) DEFAULT 'Show',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -146,7 +146,7 @@ CREATE TABLE pis_db.diagnosis (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     diagnosis                           VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(55) DEFAULT 'Show',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang')
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -156,7 +156,7 @@ CREATE TABLE pis_db.symptoms (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     symptoms                            VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(55) DEFAULT 'Show',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -166,7 +166,7 @@ CREATE TABLE pis_db.prescriptions (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,    
     patient_fid                         INT(10) NOT NULL,
     prescriptions                       VARBINARY(800) DEFAULT NULL,
-    status                              VARCHAR(55) DEFAULT 'Show',
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -200,7 +200,6 @@ CREATE TABLE pis_db.inventory (
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
-    status                              VARCHAR(800) DEFAULT 'Show',
     expiration_date                     DATETIME,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)
@@ -211,7 +210,6 @@ CREATE TABLE pis_db.inventory_incoming (
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
-    status                              VARCHAR(800) DEFAULT 'Show',
     expiration_date                     DATETIME,
     arrive_date                         DATETIME,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

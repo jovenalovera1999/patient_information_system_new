@@ -30,8 +30,8 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE
-                                    pis_db.patients.status = 'Complete' AND
-                                    payment_status = 'Unpaid';";
+                                    CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' AND
+                                    CAST(AES_DECRYPT(payment_status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Unpaid';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

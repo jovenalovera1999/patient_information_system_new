@@ -75,12 +75,17 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSavePrescription_Click(object sender, EventArgs e)
         {
-            SavePatientAndPrescription();
+            SavePrescription();
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             PrintPrescription();
+        }
+
+        private void btnDoneConsulting_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -299,7 +304,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void SavePatientAndPrescription()
+        void SavePrescription()
         {
             if (String.IsNullOrWhiteSpace(this.txtPrescription.Text))
             {
@@ -311,34 +316,16 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please save diagnosis first!", "Save First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.btnSaveDiagnosis.Focus();
             }
-            else if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
+            else if (patient.SavePrescription(val.PatientPrimaryID, this.txtPrescription.Text))
             {
-                if (patient.SavePatientCompleteConsultationWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
-                    this.txtPrescription.Text))
-                {
-                    MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
-
-                    this.btnSavePrescription.Enabled = false;
-                    this.btnBack.Enabled = false;
-                    this.btnAnotherBack.Enabled = false;
-                }
-                else
-                {
-                    MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (patient.SavePatientCompleteConsultation(val.PatientPrimaryID, this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName,
-                this.txtPrescription.Text))
-            {
-                MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
 
-                this.btnSavePrescription.Enabled = false;
-                this.btnBack.Enabled = false;
-                this.btnAnotherBack.Enabled = false;
+                this.txtPrescription.ResetText();
+                this.txtPrescription.Focus();
+
+                this.btnDoneConsulting.Enabled = true;
             }
             else
             {
@@ -360,6 +347,55 @@ namespace PatientInformationSystemNew.forms
             this.rprtPrescription.RefreshReport();
         }
 
+        void OpenFormSchedule()
+        {
+            forms.frmSchedule frmSchedule = new forms.frmSchedule();
+            frmSchedule.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            frmDashboard.Controls.Add(frmSchedule);
+            frmSchedule.Dock = DockStyle.Fill;
+            frmSchedule.Show();
+            this.Close();
+        }
+
+        void DoneConsulting()
+        {
+            if(MessageBox.Show("Done Consulting? This form will automatically close once clicked yes!", "Confirmation", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if(this.btnSaveDiagnosis.Enabled == true)
+                {
+                    MessageBox.Show("Save diagnosis first before clicking yes!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if(this.btnSavePrescription.Enabled == true)
+                {
+                    MessageBox.Show("Save prescription first before clicking yes!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
+                {
+                    if(patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
+                    {
+                        MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OpenFormSchedule();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if(patient.DoneConsulting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
+                {
+                    MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    OpenFormSchedule();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         void BackToSchedule()
         {
             if (MessageBox.Show("Are you sure you want to go back? The changes in symptoms will be saved!", "Confirmation",
@@ -367,14 +403,7 @@ namespace PatientInformationSystemNew.forms
             {
                 if (patient.BackPatientToScheduleFromConsultation(this.txtPatientID.Text, val.PatientPrimaryID))
                 {
-                    forms.frmSchedule frmSchedule = new forms.frmSchedule();
-                    frmSchedule.TopLevel = false;
-                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                    pnlDashboardBody.Controls.Add(frmSchedule);
-                    frmSchedule.Dock = DockStyle.Fill;
-                    frmSchedule.Show();
-                    this.Close();
+                    OpenFormSchedule();
                 }
             }
         }
@@ -414,6 +443,14 @@ namespace PatientInformationSystemNew.forms
             {
                 this.btnGenerate.Enabled = true;
                 this.btnSavePrescription.Enabled = true;
+            }
+        }
+
+        private void tabConsultation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.tabConsultation.SelectedIndex == 1)
+            {
+                this.txtDiagnosis.Focus();
             }
         }
     }

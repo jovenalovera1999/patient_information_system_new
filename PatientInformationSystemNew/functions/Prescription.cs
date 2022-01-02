@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.prescriptions
                                     WHERE
                                     patient_fid = @patient_fid AND
-                                    status = 'Show'
+                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))

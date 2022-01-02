@@ -27,7 +27,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.diagnosis 
                                     WHERE 
                                     patient_fid = @patient_fid AND
-                                    status = 'Show';";
+                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

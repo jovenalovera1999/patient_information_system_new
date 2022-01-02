@@ -26,7 +26,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.symptoms
                                     WHERE
                                     patient_fid = @patient_fid AND
-                                    status = 'In Consultation';";
+                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -63,7 +63,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.symptoms 
                                     WHERE 
                                     patient_fid = @patient_fid AND
-                                    status = 'Show'
+                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
                                     ORDER BY date ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -144,7 +144,7 @@ namespace PatientInformationSystemNew.functions
                                     VALUES(
                                     @patient_fid,
                                     AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    'In Consultation'
+                                    AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
                                     )";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
