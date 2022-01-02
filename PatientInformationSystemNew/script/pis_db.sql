@@ -136,7 +136,6 @@ CREATE TABLE pis_db.patient_doctor (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     doctor                              VARBINARY(800) NOT NULL,
-    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
@@ -146,7 +145,7 @@ CREATE TABLE pis_db.diagnosis (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
     diagnosis                           VARBINARY(800) DEFAULT NULL,
-    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang')
+    status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)

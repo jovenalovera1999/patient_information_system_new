@@ -153,7 +153,7 @@ namespace PatientInformationSystemNew.forms
                                             VALUES(
                                             @patient_fid,
                                             AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            'In Consultation'
+                                            AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
                                             );";
 
                         using (MySqlCommand cmd = new MySqlCommand(sql, connection))

@@ -85,7 +85,7 @@ namespace PatientInformationSystemNew.forms
 
         private void btnDoneConsulting_Click(object sender, EventArgs e)
         {
-
+            DoneConsulting();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace PatientInformationSystemNew.forms
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
         }
 
-        void ResetDiagnosis()
+        void RefreshDiagnosis()
         {
             this.txtDiagnosis.ResetText();
             this.txtDiagnosis.Focus();
@@ -139,20 +139,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectDiagnosis()
         {
-            if (this.txtDiagnosis.Enabled == false)
-            {
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-            }
-            else
-            {
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-                this.btnRemoveDiagnosis.Enabled = true;
-
-                this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[0].Value.ToString();
-            }
+            this.btnRemoveDiagnosis.Enabled = true;
         }
 
         void AddDiagnosis()
@@ -161,10 +151,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.Rows[n].Cells[0].Value = this.txtDiagnosis.Text;
 
             this.btnSaveDiagnosis.Enabled = true;
-
-            this.btnRemoveDiagnosis.Enabled = false;
-
-            ResetDiagnosis();
+            RefreshDiagnosis();
         }
 
         void RemoveDiagnosis()
@@ -174,14 +161,17 @@ namespace PatientInformationSystemNew.forms
                 this.gridDiagnosis.Rows.Remove(row);
             }
 
-            this.btnRemoveDiagnosis.Enabled = false;
-
-            if (this.gridDiagnosis.Rows.Count == 0)
+            if(this.gridDiagnosis.Rows.Count == 0)
             {
                 this.btnSaveDiagnosis.Enabled = false;
             }
+            else
+            {
+                this.btnSaveDiagnosis.Enabled = true;
+            }
 
-            ResetDiagnosis();
+            this.btnRemoveDiagnosis.Enabled = false;
+            RefreshDiagnosis();
         }
 
         void SaveDiagnosis()
@@ -200,15 +190,17 @@ namespace PatientInformationSystemNew.forms
                     {
                         using (MySqlConnection connection = new MySqlConnection(con.conString()))
                         {
-                            string sql = @"UPDATE pis_db.diagnosis
-                                            SET status = 'Removed'
-                                            WHERE diagnosis = AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AND status = 'In Consultation';
+                            string sql = @"DELETE FROM pis_db.diagnosis
+                                            WHERE
+                                            patient_fid = @patient_fid AND
+                                            CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis AND
+                                            CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
 
                                             INSERT INTO pis_db.diagnosis(patient_fid, diagnosis, status)
                                             VALUES(
                                             @patient_fid,
                                             AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            'In Consultation'
+                                            AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
                                             );";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -230,9 +222,17 @@ namespace PatientInformationSystemNew.forms
                 }
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosisRecord);
+                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+
+                this.btnRemoveDiagnosis.Enabled = false;
+                this.btnUpdateSymptoms.Enabled = false;
+                this.btnRemoveSymptoms.Enabled = false;
                 this.btnSaveDiagnosis.Enabled = false;
+
                 this.txtPrescription.Focus();
             }
         }
@@ -263,7 +263,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdateSymptoms.Enabled = true;
             this.btnRemoveSymptoms.Enabled = true;
 
-            this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
+            this.txtSymptoms.Focus();
         }
 
         void AddSymptom()
@@ -321,10 +321,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
-
-                this.txtPrescription.ResetText();
+                
                 this.txtPrescription.Focus();
-
                 this.btnDoneConsulting.Enabled = true;
             }
             else
@@ -353,7 +351,7 @@ namespace PatientInformationSystemNew.forms
             frmSchedule.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
             Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            frmDashboard.Controls.Add(frmSchedule);
+            pnlDashboardBody.Controls.Add(frmSchedule);
             frmSchedule.Dock = DockStyle.Fill;
             frmSchedule.Show();
             this.Close();
@@ -361,18 +359,14 @@ namespace PatientInformationSystemNew.forms
 
         void DoneConsulting()
         {
-            if(MessageBox.Show("Done Consulting? This form will automatically close once clicked yes!", "Confirmation", MessageBoxButtons.YesNo,
+            if (this.btnSaveDiagnosis.Enabled == true)
+            {
+                MessageBox.Show("Save diagnosis first before clicking yes!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (MessageBox.Show("Done Consulting? This form will automatically close once clicked yes!", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(this.btnSaveDiagnosis.Enabled == true)
-                {
-                    MessageBox.Show("Save diagnosis first before clicking yes!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if(this.btnSavePrescription.Enabled == true)
-                {
-                    MessageBox.Show("Save prescription first before clicking yes!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
+                if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
                 {
                     if(patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
                     {

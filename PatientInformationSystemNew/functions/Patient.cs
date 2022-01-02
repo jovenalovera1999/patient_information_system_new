@@ -302,11 +302,10 @@ namespace PatientInformationSystemNew.functions
                             AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
                             );
 
-                            INSERT INTO pis_db.patient_doctor(patient_fid, doctor, status)
+                            INSERT INTO pis_db.patient_doctor(patient_fid, doctor)
                             VALUES(
                             @patient_fid,
-                            AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
+                            AES_ENCRYPT(@doctor, 'j0v3ncut3gw4p0per0jok3l4ang')
                             );";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -512,12 +511,6 @@ namespace PatientInformationSystemNew.functions
                                     patient_fid = @patient_fid AND
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
 
-                                    UPDATE pis_db.patient_doctor
-                                    SET status = AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE
-                                    patient_fid = @patient_fid AND
-                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
-
                                     UPDATE pis_db.diagnosis
                                     SET status = AES_ENCRYPT('Visible', 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE
@@ -537,7 +530,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
 
                                     UPDATE pis_db.patients
-                                    SET status = SET status = AES_ENCRYPT('Complete', 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    SET status = AES_ENCRYPT('Complete', 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND 
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
@@ -944,7 +937,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
 
                                     UPDATE pis_db.schedule 
-                                    SET status = 'Waiting'
+                                    SET status = AES_ENCRYPT('Waiting', 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Consulting';";
@@ -1003,8 +996,7 @@ namespace PatientInformationSystemNew.functions
                                     WHERE 
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
                                     CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation' AND
-                                    CAST(AES_DECRYPT(pis_db.vital_signs.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation' AND
-                                    CAST(AES_DECRYPT(patient_doctor.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
+                                    CAST(AES_DECRYPT(pis_db.vital_signs.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
 
                                     UPDATE pis_db.schedule SET status = AES_ENCRYPT('Consulting', 'j0v3ncut3gw4p0per0jok3l4ang') 
                                     WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
@@ -1149,8 +1141,7 @@ namespace PatientInformationSystemNew.functions
 
                     sql = @"SELECT CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                             FROM pis_db.patient_doctor
-                            WHERE patient_fid = @patient_fid AND
-                            CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'";
+                            WHERE patient_fid = @patient_fid;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
