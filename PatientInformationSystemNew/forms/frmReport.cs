@@ -91,6 +91,8 @@ namespace PatientInformationSystemNew.forms
             this.lblTotalSalesInDay.Text = val.CountTotalSalesInDay;
             this.lblTotalSalesInYear.Text = val.CountTotalSalesInYear;
             this.lblOverallTotalSales.Text = val.CountOverallTotalSales;
+
+            LoadNullSales();
         }
 
         void LoadNullSales()
@@ -130,7 +132,6 @@ namespace PatientInformationSystemNew.forms
             this.dateReport.Value = DateTime.Now.Date;
             CountPatients();
             CountSales();
-            LoadNullSales();
             LoadInventoryReport();
         }
 

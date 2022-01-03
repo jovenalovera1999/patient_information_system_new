@@ -308,6 +308,12 @@ namespace PatientInformationSystemNew.forms
 
         void LoadForm()
         {
+            if(val.UserRole == "Doctor")
+            {
+                this.lblDoctor.Visible = false;
+                this.txtDoctor.Visible = false;
+            }
+
             LoadAge();
             SetAllDateTimeToToday();
             LoadPatientDetails();

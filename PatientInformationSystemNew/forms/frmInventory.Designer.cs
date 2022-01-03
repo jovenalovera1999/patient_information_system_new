@@ -119,6 +119,7 @@ namespace PatientInformationSystemNew.forms
             this.tabControlInventory.TabIndex = 3;
             this.tabControlInventory.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.tabControlInventory.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.VerticalRight;
+            this.tabControlInventory.SelectedIndexChanged += new System.EventHandler(this.tabControlInventory_SelectedIndexChanged);
             // 
             // tabSupplies
             // 

@@ -981,5 +981,17 @@ namespace PatientInformationSystemNew.forms
                 }
             }
         }
+
+        private void tabControlInventory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.tabControlInventory.SelectedIndex == 1)
+            {
+                this.txtSupplyName.Focus();
+            }
+            else
+            {
+                this.txtSupplyNameManageSupplies.Focus();
+            }
+        }
     }
 }

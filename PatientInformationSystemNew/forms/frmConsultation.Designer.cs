@@ -1154,7 +1154,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.RowHeadersVisible = false;
             this.gridDiagnosis.RowHeadersWidth = 51;
             this.gridDiagnosis.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridDiagnosis.RowTemplate.Height = 40;
+            this.gridDiagnosis.RowTemplate.Height = 35;
             this.gridDiagnosis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDiagnosis.Size = new System.Drawing.Size(446, 690);
             this.gridDiagnosis.TabIndex = 159;
@@ -1176,7 +1176,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridDiagnosis.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDiagnosis.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridDiagnosis.ThemeStyle.RowsStyle.Height = 40;
+            this.gridDiagnosis.ThemeStyle.RowsStyle.Height = 35;
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridDiagnosis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDiagnosis_CellMouseClick);
@@ -1370,7 +1370,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ReadOnly = true;
             this.gridSymptoms.RowHeadersVisible = false;
             this.gridSymptoms.RowHeadersWidth = 51;
-            this.gridSymptoms.RowTemplate.Height = 40;
+            this.gridSymptoms.RowTemplate.Height = 35;
             this.gridSymptoms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSymptoms.Size = new System.Drawing.Size(446, 690);
             this.gridSymptoms.TabIndex = 153;
@@ -1392,7 +1392,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSymptoms.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptoms.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridSymptoms.ThemeStyle.RowsStyle.Height = 40;
+            this.gridSymptoms.ThemeStyle.RowsStyle.Height = 35;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSymptoms_CellMouseClick);

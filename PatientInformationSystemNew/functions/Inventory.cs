@@ -115,8 +115,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     @expiration_date);
 
-                                    UPDATE pis_db.inventory_incoming
-                                    SET status = 'Removed'
+                                    DELETE FROM pis_db.inventory_incoming
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -155,8 +154,7 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'));
 
-                                    UPDATE pis_db.inventory_incoming
-                                    SET status = 'Removed'
+                                    DELETE FROM pis_db.inventory_incoming
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -562,8 +560,7 @@ namespace PatientInformationSystemNew.functions
                                     SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
 
-                                    UPDATE pis_db.inventory_incoming
-                                    SET status = 'Removed'
+                                    DELETE FROM pis_db.inventory_incoming
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
