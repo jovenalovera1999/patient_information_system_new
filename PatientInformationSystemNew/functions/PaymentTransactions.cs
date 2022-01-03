@@ -162,7 +162,7 @@ namespace PatientInformationSystemNew.functions
                             );
 
                             UPDATE pis_db.patients
-                            SET payment_status = 'Paid' 
+                            SET payment_status = AES_ENCRYPT('Paid', 'j0v3ncut3gw4p0per0jok3l4ang') 
                             WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))

@@ -31,8 +31,11 @@ namespace PatientInformationSystemNew.functions
                                     DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
-                                    WHERE pis_db.patients.status = 'Complete' AND
-                                    first_name LIKE @keyword OR middle_name LIKE @keyword OR last_name LIKE @keyword OR doctor LIKE @keyword
+                                    WHERE
+                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword OR
+                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword OR
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword OR
+                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword
                                     ORDER BY first_name ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -82,8 +85,9 @@ namespace PatientInformationSystemNew.functions
                                     WHERE
                                     CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     = CONCAT('Dr.', ' ', @doctor_first_name, ' ', @doctor_last_name, ' ', '(',@specialization,')') AND
-                                    pis_db.patients.status = 'Complete' AND first_name LIKE @keyword OR middle_name LIKE @keyword OR
-                                    last_name LIKE @keyword;";
+                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword OR
+                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword OR
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE @keyword";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

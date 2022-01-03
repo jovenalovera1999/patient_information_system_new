@@ -47,7 +47,6 @@ namespace PatientInformationSystemNew.forms
                                CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'quantity',
                                DATE_FORMAT(expiration_date, '%Y/%m/%d') AS 'expiration_date'
                                FROM pis_db.inventory
-                               WHERE status = 'Show'
                                ORDER BY CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, connection))
