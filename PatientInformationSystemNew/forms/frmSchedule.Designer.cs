@@ -53,7 +53,6 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtPatientID.DisabledState.Parent = this.txtPatientID;
             this.txtPatientID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPatientID.Enabled = false;
             this.txtPatientID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.FocusedState.Parent = this.txtPatientID;
             this.txtPatientID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -65,10 +64,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.PasswordChar = '\0';
             this.txtPatientID.PlaceholderText = "";
+            this.txtPatientID.ReadOnly = true;
             this.txtPatientID.SelectedText = "";
             this.txtPatientID.ShadowDecoration.Parent = this.txtPatientID;
             this.txtPatientID.Size = new System.Drawing.Size(446, 45);
             this.txtPatientID.TabIndex = 22;
+            this.txtPatientID.TabStop = false;
             // 
             // label8
             // 
@@ -92,7 +93,6 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientName.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtPatientName.DisabledState.Parent = this.txtPatientName;
             this.txtPatientName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPatientName.Enabled = false;
             this.txtPatientName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientName.FocusedState.Parent = this.txtPatientName;
             this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -104,10 +104,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.PasswordChar = '\0';
             this.txtPatientName.PlaceholderText = "";
+            this.txtPatientName.ReadOnly = true;
             this.txtPatientName.SelectedText = "";
             this.txtPatientName.ShadowDecoration.Parent = this.txtPatientName;
             this.txtPatientName.Size = new System.Drawing.Size(446, 45);
             this.txtPatientName.TabIndex = 24;
+            this.txtPatientName.TabStop = false;
             // 
             // label1
             // 
@@ -165,6 +167,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSchedule.Size = new System.Drawing.Size(1830, 655);
             this.gridSchedule.TabIndex = 25;
+            this.gridSchedule.TabStop = false;
             this.gridSchedule.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridSchedule.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridSchedule.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -218,6 +221,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPatient.ShadowDecoration.Parent = this.btnCancelPatient;
             this.btnCancelPatient.Size = new System.Drawing.Size(196, 54);
             this.btnCancelPatient.TabIndex = 27;
+            this.btnCancelPatient.TabStop = false;
             this.btnCancelPatient.Text = "Cancel Patient";
             this.btnCancelPatient.Click += new System.EventHandler(this.btnCancelPatient_Click);
             // 
@@ -250,6 +254,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;
             this.btnSelect.Size = new System.Drawing.Size(128, 54);
             this.btnSelect.TabIndex = 26;
+            this.btnSelect.TabStop = false;
             this.btnSelect.Text = "Select";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 

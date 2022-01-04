@@ -107,7 +107,7 @@ namespace PatientInformationSystemNew.forms
             this.txtGender.Text = val.PatientGender;
             this.txtAge.Text = val.PatientAge;
             this.txtAddress.Text = val.PatientAddress;
-            this.dateBirthday.Value = val.PatientBirthday;
+            this.txtBirthday.Text = val.PatientBirthday.ToString("D");
             this.txtCellphoneNumber.Text = val.PatientCellphoneNumer;
             this.txtTelephoneNumber.Text = val.PatientTelephoneNumber;
             this.txtEmail.Text = val.PatientEmail;

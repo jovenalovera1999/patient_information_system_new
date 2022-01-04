@@ -29,21 +29,21 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlPatient = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPersonalInfo = new System.Windows.Forms.TabPage();
             this.lblDoctor = new System.Windows.Forms.Label();
@@ -267,7 +267,7 @@ namespace PatientInformationSystemNew.forms
             this.lblDoctor.AutoSize = true;
             this.lblDoctor.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDoctor.ForeColor = System.Drawing.Color.White;
-            this.lblDoctor.Location = new System.Drawing.Point(894, 410);
+            this.lblDoctor.Location = new System.Drawing.Point(894, 369);
             this.lblDoctor.Name = "lblDoctor";
             this.lblDoctor.Size = new System.Drawing.Size(124, 46);
             this.lblDoctor.TabIndex = 164;
@@ -284,22 +284,23 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctor.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtDoctor.DisabledState.Parent = this.txtDoctor;
             this.txtDoctor.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDoctor.Enabled = false;
             this.txtDoctor.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctor.FocusedState.Parent = this.txtDoctor;
             this.txtDoctor.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtDoctor.ForeColor = System.Drawing.Color.Black;
             this.txtDoctor.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctor.HoverState.Parent = this.txtDoctor;
-            this.txtDoctor.Location = new System.Drawing.Point(902, 469);
+            this.txtDoctor.Location = new System.Drawing.Point(902, 428);
             this.txtDoctor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDoctor.Name = "txtDoctor";
             this.txtDoctor.PasswordChar = '\0';
             this.txtDoctor.PlaceholderText = "";
+            this.txtDoctor.ReadOnly = true;
             this.txtDoctor.SelectedText = "";
             this.txtDoctor.ShadowDecoration.Parent = this.txtDoctor;
             this.txtDoctor.Size = new System.Drawing.Size(446, 45);
             this.txtDoctor.TabIndex = 11;
+            this.txtDoctor.TabStop = false;
             // 
             // txtBirthday
             // 
@@ -312,7 +313,6 @@ namespace PatientInformationSystemNew.forms
             this.txtBirthday.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtBirthday.DisabledState.Parent = this.txtBirthday;
             this.txtBirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.Enabled = false;
             this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtBirthday.FocusedState.Parent = this.txtBirthday;
             this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -324,10 +324,12 @@ namespace PatientInformationSystemNew.forms
             this.txtBirthday.Name = "txtBirthday";
             this.txtBirthday.PasswordChar = '\0';
             this.txtBirthday.PlaceholderText = "";
+            this.txtBirthday.ReadOnly = true;
             this.txtBirthday.SelectedText = "";
             this.txtBirthday.ShadowDecoration.Parent = this.txtBirthday;
             this.txtBirthday.Size = new System.Drawing.Size(446, 45);
             this.txtBirthday.TabIndex = 161;
+            this.txtBirthday.TabStop = false;
             // 
             // txtAge
             // 
@@ -340,7 +342,6 @@ namespace PatientInformationSystemNew.forms
             this.txtAge.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtAge.DisabledState.Parent = this.txtAge;
             this.txtAge.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAge.Enabled = false;
             this.txtAge.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtAge.FocusedState.Parent = this.txtAge;
             this.txtAge.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -352,10 +353,12 @@ namespace PatientInformationSystemNew.forms
             this.txtAge.Name = "txtAge";
             this.txtAge.PasswordChar = '\0';
             this.txtAge.PlaceholderText = "";
+            this.txtAge.ReadOnly = true;
             this.txtAge.SelectedText = "";
             this.txtAge.ShadowDecoration.Parent = this.txtAge;
             this.txtAge.Size = new System.Drawing.Size(130, 45);
             this.txtAge.TabIndex = 160;
+            this.txtAge.TabStop = false;
             // 
             // txtGender
             // 
@@ -368,7 +371,6 @@ namespace PatientInformationSystemNew.forms
             this.txtGender.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtGender.DisabledState.Parent = this.txtGender;
             this.txtGender.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtGender.Enabled = false;
             this.txtGender.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtGender.FocusedState.Parent = this.txtGender;
             this.txtGender.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -380,10 +382,12 @@ namespace PatientInformationSystemNew.forms
             this.txtGender.Name = "txtGender";
             this.txtGender.PasswordChar = '\0';
             this.txtGender.PlaceholderText = "";
+            this.txtGender.ReadOnly = true;
             this.txtGender.SelectedText = "";
             this.txtGender.ShadowDecoration.Parent = this.txtGender;
             this.txtGender.Size = new System.Drawing.Size(130, 45);
             this.txtGender.TabIndex = 159;
+            this.txtGender.TabStop = false;
             // 
             // btnBackInPeronalInfo
             // 
@@ -413,6 +417,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBackInPeronalInfo.ShadowDecoration.Parent = this.btnBackInPeronalInfo;
             this.btnBackInPeronalInfo.Size = new System.Drawing.Size(131, 62);
             this.btnBackInPeronalInfo.TabIndex = 158;
+            this.btnBackInPeronalInfo.TabStop = false;
             this.btnBackInPeronalInfo.Text = "Back";
             this.btnBackInPeronalInfo.Click += new System.EventHandler(this.btnBackInPeronalInfo_Click);
             // 
@@ -445,6 +450,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSavePersonalInfo.ShadowDecoration.Parent = this.btnSavePersonalInfo;
             this.btnSavePersonalInfo.Size = new System.Drawing.Size(131, 62);
             this.btnSavePersonalInfo.TabIndex = 17;
+            this.btnSavePersonalInfo.TabStop = false;
             this.btnSavePersonalInfo.Text = "Save";
             this.btnSavePersonalInfo.Click += new System.EventHandler(this.btnSavePersonalInfo_Click);
             // 
@@ -476,6 +482,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPersonalInfo.ShadowDecoration.Parent = this.btnEditPersonalInfo;
             this.btnEditPersonalInfo.Size = new System.Drawing.Size(131, 62);
             this.btnEditPersonalInfo.TabIndex = 16;
+            this.btnEditPersonalInfo.TabStop = false;
             this.btnEditPersonalInfo.Text = "Edit";
             this.btnEditPersonalInfo.Click += new System.EventHandler(this.btnEditPersonalInfo_Click);
             // 
@@ -500,6 +507,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbAge.ShadowDecoration.Parent = this.cmbAge;
             this.cmbAge.Size = new System.Drawing.Size(130, 36);
             this.cmbAge.TabIndex = 5;
+            this.cmbAge.TabStop = false;
             // 
             // cmbGender
             // 
@@ -525,6 +533,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbGender.ShadowDecoration.Parent = this.cmbGender;
             this.cmbGender.Size = new System.Drawing.Size(130, 36);
             this.cmbGender.TabIndex = 4;
+            this.cmbGender.TabStop = false;
             // 
             // label23
             // 
@@ -548,7 +557,6 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtPatientID.DisabledState.Parent = this.txtPatientID;
             this.txtPatientID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPatientID.Enabled = false;
             this.txtPatientID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.FocusedState.Parent = this.txtPatientID;
             this.txtPatientID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -560,10 +568,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.PasswordChar = '\0';
             this.txtPatientID.PlaceholderText = "";
+            this.txtPatientID.ReadOnly = true;
             this.txtPatientID.SelectedText = "";
             this.txtPatientID.ShadowDecoration.Parent = this.txtPatientID;
             this.txtPatientID.Size = new System.Drawing.Size(396, 45);
             this.txtPatientID.TabIndex = 0;
+            this.txtPatientID.TabStop = false;
             // 
             // label21
             // 
@@ -598,6 +608,7 @@ namespace PatientInformationSystemNew.forms
             this.dateBirthday.ShadowDecoration.Parent = this.dateBirthday;
             this.dateBirthday.Size = new System.Drawing.Size(446, 45);
             this.dateBirthday.TabIndex = 7;
+            this.dateBirthday.TabStop = false;
             this.dateBirthday.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
             this.dateBirthday.Visible = false;
             // 
@@ -612,7 +623,6 @@ namespace PatientInformationSystemNew.forms
             this.txtLastName.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.DisabledState.Parent = this.txtLastName;
             this.txtLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLastName.Enabled = false;
             this.txtLastName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtLastName.FocusedState.Parent = this.txtLastName;
             this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -624,10 +634,12 @@ namespace PatientInformationSystemNew.forms
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PasswordChar = '\0';
             this.txtLastName.PlaceholderText = "";
+            this.txtLastName.ReadOnly = true;
             this.txtLastName.SelectedText = "";
             this.txtLastName.ShadowDecoration.Parent = this.txtLastName;
             this.txtLastName.Size = new System.Drawing.Size(446, 45);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.TabStop = false;
             // 
             // label20
             // 
@@ -651,7 +663,6 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.DisabledState.Parent = this.txtEmail;
             this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmail.Enabled = false;
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtEmail.FocusedState.Parent = this.txtEmail;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -663,10 +674,12 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.SelectedText = "";
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(446, 45);
             this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabStop = false;
             // 
             // label15
             // 
@@ -690,7 +703,6 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtTelephoneNumber.DisabledState.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTelephoneNumber.Enabled = false;
             this.txtTelephoneNumber.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtTelephoneNumber.FocusedState.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -702,10 +714,12 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.Name = "txtTelephoneNumber";
             this.txtTelephoneNumber.PasswordChar = '\0';
             this.txtTelephoneNumber.PlaceholderText = "";
+            this.txtTelephoneNumber.ReadOnly = true;
             this.txtTelephoneNumber.SelectedText = "";
             this.txtTelephoneNumber.ShadowDecoration.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtTelephoneNumber.TabIndex = 9;
+            this.txtTelephoneNumber.TabStop = false;
             this.txtTelephoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephoneNumber_KeyPress);
             // 
             // label12
@@ -730,7 +744,6 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtCellphoneNumber.DisabledState.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCellphoneNumber.Enabled = false;
             this.txtCellphoneNumber.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtCellphoneNumber.FocusedState.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -742,10 +755,12 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.Name = "txtCellphoneNumber";
             this.txtCellphoneNumber.PasswordChar = '\0';
             this.txtCellphoneNumber.PlaceholderText = "";
+            this.txtCellphoneNumber.ReadOnly = true;
             this.txtCellphoneNumber.SelectedText = "";
             this.txtCellphoneNumber.ShadowDecoration.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Size = new System.Drawing.Size(446, 45);
             this.txtCellphoneNumber.TabIndex = 8;
+            this.txtCellphoneNumber.TabStop = false;
             this.txtCellphoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellphoneNumber_KeyPress);
             // 
             // label13
@@ -781,7 +796,6 @@ namespace PatientInformationSystemNew.forms
             this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.DisabledState.Parent = this.txtAddress;
             this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAddress.Enabled = false;
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtAddress.FocusedState.Parent = this.txtAddress;
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -793,10 +807,12 @@ namespace PatientInformationSystemNew.forms
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
+            this.txtAddress.ReadOnly = true;
             this.txtAddress.SelectedText = "";
             this.txtAddress.ShadowDecoration.Parent = this.txtAddress;
             this.txtAddress.Size = new System.Drawing.Size(446, 45);
             this.txtAddress.TabIndex = 6;
+            this.txtAddress.TabStop = false;
             // 
             // label1
             // 
@@ -842,7 +858,6 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddleName.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtMiddleName.DisabledState.Parent = this.txtMiddleName;
             this.txtMiddleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMiddleName.Enabled = false;
             this.txtMiddleName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtMiddleName.FocusedState.Parent = this.txtMiddleName;
             this.txtMiddleName.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -854,10 +869,12 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.PasswordChar = '\0';
             this.txtMiddleName.PlaceholderText = "";
+            this.txtMiddleName.ReadOnly = true;
             this.txtMiddleName.SelectedText = "";
             this.txtMiddleName.ShadowDecoration.Parent = this.txtMiddleName;
             this.txtMiddleName.Size = new System.Drawing.Size(446, 45);
             this.txtMiddleName.TabIndex = 2;
+            this.txtMiddleName.TabStop = false;
             // 
             // label7
             // 
@@ -881,7 +898,6 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstName.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.DisabledState.Parent = this.txtFirstName;
             this.txtFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFirstName.Enabled = false;
             this.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtFirstName.FocusedState.Parent = this.txtFirstName;
             this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -893,10 +909,12 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.ReadOnly = true;
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.ShadowDecoration.Parent = this.txtFirstName;
             this.txtFirstName.Size = new System.Drawing.Size(446, 45);
             this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.TabStop = false;
             // 
             // label8
             // 
@@ -977,6 +995,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelVitalSigns.ShadowDecoration.Parent = this.btnCancelVitalSigns;
             this.btnCancelVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnCancelVitalSigns.TabIndex = 8;
+            this.btnCancelVitalSigns.TabStop = false;
             this.btnCancelVitalSigns.Text = "Cancel";
             this.btnCancelVitalSigns.Visible = false;
             this.btnCancelVitalSigns.Click += new System.EventHandler(this.btnCancelVitalSigns_Click);
@@ -992,7 +1011,6 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtBloodPressure.DisabledState.Parent = this.txtBloodPressure;
             this.txtBloodPressure.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBloodPressure.Enabled = false;
             this.txtBloodPressure.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtBloodPressure.FocusedState.Parent = this.txtBloodPressure;
             this.txtBloodPressure.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1004,10 +1022,12 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.Name = "txtBloodPressure";
             this.txtBloodPressure.PasswordChar = '\0';
             this.txtBloodPressure.PlaceholderText = "";
+            this.txtBloodPressure.ReadOnly = true;
             this.txtBloodPressure.SelectedText = "";
             this.txtBloodPressure.ShadowDecoration.Parent = this.txtBloodPressure;
             this.txtBloodPressure.Size = new System.Drawing.Size(446, 45);
             this.txtBloodPressure.TabIndex = 4;
+            this.txtBloodPressure.TabStop = false;
             this.txtBloodPressure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBloodPressure_KeyPress);
             // 
             // label43
@@ -1032,7 +1052,6 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtPulseRate.DisabledState.Parent = this.txtPulseRate;
             this.txtPulseRate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPulseRate.Enabled = false;
             this.txtPulseRate.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPulseRate.FocusedState.Parent = this.txtPulseRate;
             this.txtPulseRate.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1044,10 +1063,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.Name = "txtPulseRate";
             this.txtPulseRate.PasswordChar = '\0';
             this.txtPulseRate.PlaceholderText = "";
+            this.txtPulseRate.ReadOnly = true;
             this.txtPulseRate.SelectedText = "";
             this.txtPulseRate.ShadowDecoration.Parent = this.txtPulseRate;
             this.txtPulseRate.Size = new System.Drawing.Size(446, 45);
             this.txtPulseRate.TabIndex = 3;
+            this.txtPulseRate.TabStop = false;
             this.txtPulseRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPulseRate_KeyPress);
             // 
             // label42
@@ -1072,7 +1093,6 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtTemperature.DisabledState.Parent = this.txtTemperature;
             this.txtTemperature.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTemperature.Enabled = false;
             this.txtTemperature.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtTemperature.FocusedState.Parent = this.txtTemperature;
             this.txtTemperature.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1084,10 +1104,12 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.Name = "txtTemperature";
             this.txtTemperature.PasswordChar = '\0';
             this.txtTemperature.PlaceholderText = "";
+            this.txtTemperature.ReadOnly = true;
             this.txtTemperature.SelectedText = "";
             this.txtTemperature.ShadowDecoration.Parent = this.txtTemperature;
             this.txtTemperature.Size = new System.Drawing.Size(446, 45);
             this.txtTemperature.TabIndex = 2;
+            this.txtTemperature.TabStop = false;
             this.txtTemperature.TextChanged += new System.EventHandler(this.txtTemperature_TextChanged);
             this.txtTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTemperature_KeyPress);
             // 
@@ -1113,7 +1135,6 @@ namespace PatientInformationSystemNew.forms
             this.txtWeight.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtWeight.DisabledState.Parent = this.txtWeight;
             this.txtWeight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWeight.Enabled = false;
             this.txtWeight.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtWeight.FocusedState.Parent = this.txtWeight;
             this.txtWeight.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1125,10 +1146,12 @@ namespace PatientInformationSystemNew.forms
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.PasswordChar = '\0';
             this.txtWeight.PlaceholderText = "";
+            this.txtWeight.ReadOnly = true;
             this.txtWeight.SelectedText = "";
             this.txtWeight.ShadowDecoration.Parent = this.txtWeight;
             this.txtWeight.Size = new System.Drawing.Size(446, 45);
             this.txtWeight.TabIndex = 1;
+            this.txtWeight.TabStop = false;
             this.txtWeight.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
             this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
             // 
@@ -1170,6 +1193,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewVitalSigns.ShadowDecoration.Parent = this.btnNewVitalSigns;
             this.btnNewVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnNewVitalSigns.TabIndex = 12;
+            this.btnNewVitalSigns.TabStop = false;
             this.btnNewVitalSigns.Text = "New";
             this.btnNewVitalSigns.Click += new System.EventHandler(this.btnNewVitalSigns_Click);
             // 
@@ -1200,6 +1224,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveVitalSigns.ShadowDecoration.Parent = this.btnRemoveVitalSigns;
             this.btnRemoveVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnRemoveVitalSigns.TabIndex = 11;
+            this.btnRemoveVitalSigns.TabStop = false;
             this.btnRemoveVitalSigns.Text = "Remove";
             this.btnRemoveVitalSigns.Visible = false;
             this.btnRemoveVitalSigns.Click += new System.EventHandler(this.btnRemoveVitalSigns_Click);
@@ -1232,6 +1257,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveVitalSigns.ShadowDecoration.Parent = this.btnSaveVitalSigns;
             this.btnSaveVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnSaveVitalSigns.TabIndex = 7;
+            this.btnSaveVitalSigns.TabStop = false;
             this.btnSaveVitalSigns.Text = "Save";
             this.btnSaveVitalSigns.Visible = false;
             this.btnSaveVitalSigns.Click += new System.EventHandler(this.btnSaveVitalSigns_Click);
@@ -1270,6 +1296,7 @@ namespace PatientInformationSystemNew.forms
             this.dateVitalSigns.ShadowDecoration.Parent = this.dateVitalSigns;
             this.dateVitalSigns.Size = new System.Drawing.Size(446, 45);
             this.dateVitalSigns.TabIndex = 5;
+            this.dateVitalSigns.TabStop = false;
             this.dateVitalSigns.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label34
@@ -1294,7 +1321,6 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtHeight.DisabledState.Parent = this.txtHeight;
             this.txtHeight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHeight.Enabled = false;
             this.txtHeight.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtHeight.FocusedState.Parent = this.txtHeight;
             this.txtHeight.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1306,10 +1332,12 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.PasswordChar = '\0';
             this.txtHeight.PlaceholderText = "";
+            this.txtHeight.ReadOnly = true;
             this.txtHeight.SelectedText = "";
             this.txtHeight.ShadowDecoration.Parent = this.txtHeight;
             this.txtHeight.Size = new System.Drawing.Size(446, 45);
             this.txtHeight.TabIndex = 0;
+            this.txtHeight.TabStop = false;
             this.txtHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeight_KeyPress);
             // 
             // label35
@@ -1351,6 +1379,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddVitalSigns.ShadowDecoration.Parent = this.btnAddVitalSigns;
             this.btnAddVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnAddVitalSigns.TabIndex = 10;
+            this.btnAddVitalSigns.TabStop = false;
             this.btnAddVitalSigns.Text = "Add";
             this.btnAddVitalSigns.Visible = false;
             this.btnAddVitalSigns.Click += new System.EventHandler(this.btnAddVitalSigns_Click);
@@ -1361,31 +1390,31 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.AllowUserToDeleteRows = false;
             this.gridVitalSigns.AllowUserToResizeColumns = false;
             this.gridVitalSigns.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridVitalSigns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.gridVitalSigns.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.gridVitalSigns.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridVitalSigns.BackgroundColor = System.Drawing.Color.White;
             this.gridVitalSigns.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridVitalSigns.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridVitalSigns.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridVitalSigns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridVitalSigns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.gridVitalSigns.ColumnHeadersHeight = 40;
             this.gridVitalSigns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridVitalSigns.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridVitalSigns.DefaultCellStyle = dataGridViewCellStyle18;
             this.gridVitalSigns.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridVitalSigns.EnableHeadersVisualStyles = false;
             this.gridVitalSigns.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -1399,6 +1428,7 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridVitalSigns.Size = new System.Drawing.Size(1682, 555);
             this.gridVitalSigns.TabIndex = 272;
+            this.gridVitalSigns.TabStop = false;
             this.gridVitalSigns.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridVitalSigns.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridVitalSigns.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -1451,6 +1481,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditVitalSigns.ShadowDecoration.Parent = this.btnEditVitalSigns;
             this.btnEditVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnEditVitalSigns.TabIndex = 13;
+            this.btnEditVitalSigns.TabStop = false;
             this.btnEditVitalSigns.Text = "Edit";
             this.btnEditVitalSigns.Click += new System.EventHandler(this.btnEditVitalSigns_Click);
             // 
@@ -1482,6 +1513,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBackVitalSigns.ShadowDecoration.Parent = this.btnBackVitalSigns;
             this.btnBackVitalSigns.Size = new System.Drawing.Size(131, 62);
             this.btnBackVitalSigns.TabIndex = 14;
+            this.btnBackVitalSigns.TabStop = false;
             this.btnBackVitalSigns.Text = "Back";
             this.btnBackVitalSigns.Click += new System.EventHandler(this.btnBackVitalSigns_Click);
             // 
@@ -1534,6 +1566,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelDiagnosis.ShadowDecoration.Parent = this.btnCancelDiagnosis;
             this.btnCancelDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnCancelDiagnosis.TabIndex = 339;
+            this.btnCancelDiagnosis.TabStop = false;
             this.btnCancelDiagnosis.Text = "Cancel";
             this.btnCancelDiagnosis.Visible = false;
             this.btnCancelDiagnosis.Click += new System.EventHandler(this.btnCancelDiagnosis_Click);
@@ -1565,6 +1598,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewDiagnosis.ShadowDecoration.Parent = this.btnNewDiagnosis;
             this.btnNewDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnNewDiagnosis.TabIndex = 323;
+            this.btnNewDiagnosis.TabStop = false;
             this.btnNewDiagnosis.Text = "New";
             this.btnNewDiagnosis.Click += new System.EventHandler(this.btnNewDiagnosis_Click);
             // 
@@ -1595,6 +1629,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveDiagnosis.ShadowDecoration.Parent = this.btnRemoveDiagnosis;
             this.btnRemoveDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnRemoveDiagnosis.TabIndex = 322;
+            this.btnRemoveDiagnosis.TabStop = false;
             this.btnRemoveDiagnosis.Text = "Remove";
             this.btnRemoveDiagnosis.Visible = false;
             this.btnRemoveDiagnosis.Click += new System.EventHandler(this.btnRemoveDiagnosis_Click);
@@ -1627,6 +1662,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveDiagnosis.ShadowDecoration.Parent = this.btnSaveDiagnosis;
             this.btnSaveDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnSaveDiagnosis.TabIndex = 321;
+            this.btnSaveDiagnosis.TabStop = false;
             this.btnSaveDiagnosis.Text = "Save";
             this.btnSaveDiagnosis.Visible = false;
             this.btnSaveDiagnosis.Click += new System.EventHandler(this.btnSaveDiagnosis_Click);
@@ -1665,6 +1701,7 @@ namespace PatientInformationSystemNew.forms
             this.dateDiagnosis.ShadowDecoration.Parent = this.dateDiagnosis;
             this.dateDiagnosis.Size = new System.Drawing.Size(446, 45);
             this.dateDiagnosis.TabIndex = 1;
+            this.dateDiagnosis.TabStop = false;
             this.dateDiagnosis.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label18
@@ -1689,7 +1726,6 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtDiagnosis.DisabledState.Parent = this.txtDiagnosis;
             this.txtDiagnosis.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDiagnosis.Enabled = false;
             this.txtDiagnosis.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtDiagnosis.FocusedState.Parent = this.txtDiagnosis;
             this.txtDiagnosis.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1701,10 +1737,12 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.Name = "txtDiagnosis";
             this.txtDiagnosis.PasswordChar = '\0';
             this.txtDiagnosis.PlaceholderText = "";
+            this.txtDiagnosis.ReadOnly = true;
             this.txtDiagnosis.SelectedText = "";
             this.txtDiagnosis.ShadowDecoration.Parent = this.txtDiagnosis;
             this.txtDiagnosis.Size = new System.Drawing.Size(446, 45);
             this.txtDiagnosis.TabIndex = 0;
+            this.txtDiagnosis.TabStop = false;
             this.txtDiagnosis.TextChanged += new System.EventHandler(this.txtDiagnosis_TextChanged);
             // 
             // label25
@@ -1746,6 +1784,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddDiagnosis.ShadowDecoration.Parent = this.btnAddDiagnosis;
             this.btnAddDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnAddDiagnosis.TabIndex = 8;
+            this.btnAddDiagnosis.TabStop = false;
             this.btnAddDiagnosis.Text = "Add";
             this.btnAddDiagnosis.Visible = false;
             this.btnAddDiagnosis.Click += new System.EventHandler(this.btnAddDiagnosis_Click);
@@ -1756,32 +1795,32 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.AllowUserToDeleteRows = false;
             this.gridDiagnosis.AllowUserToResizeColumns = false;
             this.gridDiagnosis.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.gridDiagnosis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.gridDiagnosis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.gridDiagnosis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDiagnosis.BackgroundColor = System.Drawing.Color.White;
             this.gridDiagnosis.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridDiagnosis.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridDiagnosis.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridDiagnosis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.gridDiagnosis.ColumnHeadersHeight = 40;
             this.gridDiagnosis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridDiagnosis.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridDiagnosis.DefaultCellStyle = dataGridViewCellStyle21;
             this.gridDiagnosis.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridDiagnosis.EnableHeadersVisualStyles = false;
             this.gridDiagnosis.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -1794,6 +1833,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDiagnosis.Size = new System.Drawing.Size(1682, 555);
             this.gridDiagnosis.TabIndex = 303;
+            this.gridDiagnosis.TabStop = false;
             this.gridDiagnosis.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridDiagnosis.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridDiagnosis.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -1846,6 +1886,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditDiagnosis.ShadowDecoration.Parent = this.btnEditDiagnosis;
             this.btnEditDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnEditDiagnosis.TabIndex = 320;
+            this.btnEditDiagnosis.TabStop = false;
             this.btnEditDiagnosis.Text = "Edit";
             this.btnEditDiagnosis.Click += new System.EventHandler(this.btnEditDiagnosis_Click);
             // 
@@ -1877,6 +1918,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBackInDiagnosis.ShadowDecoration.Parent = this.btnBackInDiagnosis;
             this.btnBackInDiagnosis.Size = new System.Drawing.Size(131, 62);
             this.btnBackInDiagnosis.TabIndex = 319;
+            this.btnBackInDiagnosis.TabStop = false;
             this.btnBackInDiagnosis.Text = "Back";
             this.btnBackInDiagnosis.Click += new System.EventHandler(this.btnBackInDiagnosis_Click_1);
             // 
@@ -1929,6 +1971,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelSymptoms.ShadowDecoration.Parent = this.btnCancelSymptoms;
             this.btnCancelSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnCancelSymptoms.TabIndex = 339;
+            this.btnCancelSymptoms.TabStop = false;
             this.btnCancelSymptoms.Text = "Cancel";
             this.btnCancelSymptoms.Visible = false;
             this.btnCancelSymptoms.Click += new System.EventHandler(this.btnCancelSymptoms_Click);
@@ -1960,6 +2003,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewSymptoms.ShadowDecoration.Parent = this.btnNewSymptoms;
             this.btnNewSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnNewSymptoms.TabIndex = 334;
+            this.btnNewSymptoms.TabStop = false;
             this.btnNewSymptoms.Text = "New";
             this.btnNewSymptoms.Click += new System.EventHandler(this.btnNewSymptoms_Click);
             // 
@@ -1990,6 +2034,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveSymptoms.ShadowDecoration.Parent = this.btnRemoveSymptoms;
             this.btnRemoveSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnRemoveSymptoms.TabIndex = 333;
+            this.btnRemoveSymptoms.TabStop = false;
             this.btnRemoveSymptoms.Text = "Remove";
             this.btnRemoveSymptoms.Visible = false;
             this.btnRemoveSymptoms.Click += new System.EventHandler(this.btnRemoveSymptoms_Click);
@@ -2022,6 +2067,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveSymptoms.ShadowDecoration.Parent = this.btnSaveSymptoms;
             this.btnSaveSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnSaveSymptoms.TabIndex = 332;
+            this.btnSaveSymptoms.TabStop = false;
             this.btnSaveSymptoms.Text = "Save";
             this.btnSaveSymptoms.Visible = false;
             this.btnSaveSymptoms.Click += new System.EventHandler(this.btnSymptoms_Click);
@@ -2060,6 +2106,7 @@ namespace PatientInformationSystemNew.forms
             this.dateSymptoms.ShadowDecoration.Parent = this.dateSymptoms;
             this.dateSymptoms.Size = new System.Drawing.Size(446, 45);
             this.dateSymptoms.TabIndex = 1;
+            this.dateSymptoms.TabStop = false;
             this.dateSymptoms.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label4
@@ -2084,7 +2131,6 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtSymptoms.DisabledState.Parent = this.txtSymptoms;
             this.txtSymptoms.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSymptoms.Enabled = false;
             this.txtSymptoms.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtSymptoms.FocusedState.Parent = this.txtSymptoms;
             this.txtSymptoms.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2096,10 +2142,12 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.Name = "txtSymptoms";
             this.txtSymptoms.PasswordChar = '\0';
             this.txtSymptoms.PlaceholderText = "";
+            this.txtSymptoms.ReadOnly = true;
             this.txtSymptoms.SelectedText = "";
             this.txtSymptoms.ShadowDecoration.Parent = this.txtSymptoms;
             this.txtSymptoms.Size = new System.Drawing.Size(446, 45);
             this.txtSymptoms.TabIndex = 0;
+            this.txtSymptoms.TabStop = false;
             this.txtSymptoms.TextChanged += new System.EventHandler(this.txtSymptoms_TextChanged);
             // 
             // label5
@@ -2141,6 +2189,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddSymptoms.ShadowDecoration.Parent = this.btnAddSymptoms;
             this.btnAddSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnAddSymptoms.TabIndex = 327;
+            this.btnAddSymptoms.TabStop = false;
             this.btnAddSymptoms.Text = "Add";
             this.btnAddSymptoms.Visible = false;
             this.btnAddSymptoms.Click += new System.EventHandler(this.btnAddSymptoms_Click);
@@ -2151,32 +2200,32 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.AllowUserToDeleteRows = false;
             this.gridSymptoms.AllowUserToResizeColumns = false;
             this.gridSymptoms.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.gridSymptoms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.gridSymptoms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.gridSymptoms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridSymptoms.BackgroundColor = System.Drawing.Color.White;
             this.gridSymptoms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSymptoms.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridSymptoms.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSymptoms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.gridSymptoms.ColumnHeadersHeight = 40;
             this.gridSymptoms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSymptoms.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSymptoms.DefaultCellStyle = dataGridViewCellStyle24;
             this.gridSymptoms.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridSymptoms.EnableHeadersVisualStyles = false;
             this.gridSymptoms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2189,6 +2238,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridSymptoms.Size = new System.Drawing.Size(1682, 555);
             this.gridSymptoms.TabIndex = 323;
+            this.gridSymptoms.TabStop = false;
             this.gridSymptoms.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridSymptoms.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridSymptoms.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -2241,6 +2291,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditSymptoms.ShadowDecoration.Parent = this.btnEditSymptoms;
             this.btnEditSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnEditSymptoms.TabIndex = 335;
+            this.btnEditSymptoms.TabStop = false;
             this.btnEditSymptoms.Text = "Edit";
             this.btnEditSymptoms.Click += new System.EventHandler(this.btnEditSymptoms_Click);
             // 
@@ -2272,6 +2323,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBackInSymptoms.ShadowDecoration.Parent = this.btnBackInSymptoms;
             this.btnBackInSymptoms.Size = new System.Drawing.Size(131, 62);
             this.btnBackInSymptoms.TabIndex = 9;
+            this.btnBackInSymptoms.TabStop = false;
             this.btnBackInSymptoms.Text = "Back";
             this.btnBackInSymptoms.Click += new System.EventHandler(this.btnBackInSymptoms_Click);
             // 
@@ -2328,6 +2380,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrintPrescriptions.ShadowDecoration.Parent = this.btnPrintPrescriptions;
             this.btnPrintPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnPrintPrescriptions.TabIndex = 368;
+            this.btnPrintPrescriptions.TabStop = false;
             this.btnPrintPrescriptions.Text = "Print";
             this.btnPrintPrescriptions.Click += new System.EventHandler(this.btnPrintPrescriptions_Click);
             // 
@@ -2338,6 +2391,7 @@ namespace PatientInformationSystemNew.forms
             this.rprtPrescription.Name = "rprtPrescription";
             this.rprtPrescription.Size = new System.Drawing.Size(453, 566);
             this.rprtPrescription.TabIndex = 367;
+            this.rprtPrescription.TabStop = false;
             this.rprtPrescription.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
             // btnCancelPrescriptions
@@ -2367,6 +2421,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPrescriptions.ShadowDecoration.Parent = this.btnCancelPrescriptions;
             this.btnCancelPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnCancelPrescriptions.TabIndex = 366;
+            this.btnCancelPrescriptions.TabStop = false;
             this.btnCancelPrescriptions.Text = "Cancel";
             this.btnCancelPrescriptions.Visible = false;
             this.btnCancelPrescriptions.Click += new System.EventHandler(this.btnCancelPrescriptions_Click);
@@ -2398,6 +2453,7 @@ namespace PatientInformationSystemNew.forms
             this.btnNewPrescriptions.ShadowDecoration.Parent = this.btnNewPrescriptions;
             this.btnNewPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnNewPrescriptions.TabIndex = 364;
+            this.btnNewPrescriptions.TabStop = false;
             this.btnNewPrescriptions.Text = "New";
             this.btnNewPrescriptions.Click += new System.EventHandler(this.btnNewPrescriptions_Click);
             // 
@@ -2428,6 +2484,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePrescriptions.ShadowDecoration.Parent = this.btnRemovePrescriptions;
             this.btnRemovePrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnRemovePrescriptions.TabIndex = 363;
+            this.btnRemovePrescriptions.TabStop = false;
             this.btnRemovePrescriptions.Text = "Remove";
             this.btnRemovePrescriptions.Visible = false;
             this.btnRemovePrescriptions.Click += new System.EventHandler(this.btnRemovePrescriptions_Click);
@@ -2460,6 +2517,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSavePrescriptions.ShadowDecoration.Parent = this.btnSavePrescriptions;
             this.btnSavePrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnSavePrescriptions.TabIndex = 362;
+            this.btnSavePrescriptions.TabStop = false;
             this.btnSavePrescriptions.Text = "Save";
             this.btnSavePrescriptions.Visible = false;
             this.btnSavePrescriptions.Click += new System.EventHandler(this.btnSavePrescriptions_Click);
@@ -2498,6 +2556,7 @@ namespace PatientInformationSystemNew.forms
             this.datePrescriptions.ShadowDecoration.Parent = this.datePrescriptions;
             this.datePrescriptions.Size = new System.Drawing.Size(446, 45);
             this.datePrescriptions.TabIndex = 1;
+            this.datePrescriptions.TabStop = false;
             this.datePrescriptions.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label17
@@ -2522,7 +2581,6 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptions.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtPrescriptions.DisabledState.Parent = this.txtPrescriptions;
             this.txtPrescriptions.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPrescriptions.Enabled = false;
             this.txtPrescriptions.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPrescriptions.FocusedState.Parent = this.txtPrescriptions;
             this.txtPrescriptions.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2535,10 +2593,12 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptions.Name = "txtPrescriptions";
             this.txtPrescriptions.PasswordChar = '\0';
             this.txtPrescriptions.PlaceholderText = "";
+            this.txtPrescriptions.ReadOnly = true;
             this.txtPrescriptions.SelectedText = "";
             this.txtPrescriptions.ShadowDecoration.Parent = this.txtPrescriptions;
             this.txtPrescriptions.Size = new System.Drawing.Size(441, 373);
             this.txtPrescriptions.TabIndex = 0;
+            this.txtPrescriptions.TabStop = false;
             this.txtPrescriptions.TextChanged += new System.EventHandler(this.txtPrescriptions_TextChanged);
             // 
             // label22
@@ -2580,6 +2640,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPrescriptions.ShadowDecoration.Parent = this.btnAddPrescriptions;
             this.btnAddPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnAddPrescriptions.TabIndex = 357;
+            this.btnAddPrescriptions.TabStop = false;
             this.btnAddPrescriptions.Text = "Add";
             this.btnAddPrescriptions.Visible = false;
             this.btnAddPrescriptions.Click += new System.EventHandler(this.btnAddPrescriptions_Click);
@@ -2590,32 +2651,32 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.AllowUserToDeleteRows = false;
             this.gridPrescriptions.AllowUserToResizeColumns = false;
             this.gridPrescriptions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.gridPrescriptions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            this.gridPrescriptions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.gridPrescriptions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPrescriptions.BackgroundColor = System.Drawing.Color.White;
             this.gridPrescriptions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPrescriptions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPrescriptions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPrescriptions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPrescriptions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.gridPrescriptions.ColumnHeadersHeight = 40;
             this.gridPrescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPrescriptions.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPrescriptions.DefaultCellStyle = dataGridViewCellStyle27;
             this.gridPrescriptions.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPrescriptions.EnableHeadersVisualStyles = false;
             this.gridPrescriptions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -2628,6 +2689,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPrescriptions.Size = new System.Drawing.Size(1682, 336);
             this.gridPrescriptions.TabIndex = 324;
+            this.gridPrescriptions.TabStop = false;
             this.gridPrescriptions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPrescriptions.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridPrescriptions.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -2680,6 +2742,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPrescriptions.ShadowDecoration.Parent = this.btnEditPrescriptions;
             this.btnEditPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnEditPrescriptions.TabIndex = 365;
+            this.btnEditPrescriptions.TabStop = false;
             this.btnEditPrescriptions.Text = "Edit";
             this.btnEditPrescriptions.Click += new System.EventHandler(this.btnEditPrescriptions_Click);
             // 
@@ -2711,6 +2774,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBackInPrescriptions.ShadowDecoration.Parent = this.btnBackInPrescriptions;
             this.btnBackInPrescriptions.Size = new System.Drawing.Size(131, 62);
             this.btnBackInPrescriptions.TabIndex = 353;
+            this.btnBackInPrescriptions.TabStop = false;
             this.btnBackInPrescriptions.Text = "Back";
             this.btnBackInPrescriptions.Click += new System.EventHandler(this.btnBackInPrescriptions_Click);
             // 
@@ -2775,6 +2839,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPrintPaymentHistory.ShadowDecoration.Parent = this.btnPrintPaymentHistory;
             this.btnPrintPaymentHistory.Size = new System.Drawing.Size(131, 62);
             this.btnPrintPaymentHistory.TabIndex = 374;
+            this.btnPrintPaymentHistory.TabStop = false;
             this.btnPrintPaymentHistory.Text = "Print";
             this.btnPrintPaymentHistory.Click += new System.EventHandler(this.btnPrintPaymentHistory_Click);
             // 
@@ -2807,6 +2872,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSavePayment.ShadowDecoration.Parent = this.btnSavePayment;
             this.btnSavePayment.Size = new System.Drawing.Size(131, 62);
             this.btnSavePayment.TabIndex = 373;
+            this.btnSavePayment.TabStop = false;
             this.btnSavePayment.Text = "Save";
             this.btnSavePayment.Click += new System.EventHandler(this.btnSavePayment_Click);
             // 
@@ -2839,6 +2905,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEditPayment.ShadowDecoration.Parent = this.btnEditPayment;
             this.btnEditPayment.Size = new System.Drawing.Size(131, 62);
             this.btnEditPayment.TabIndex = 8;
+            this.btnEditPayment.TabStop = false;
             this.btnEditPayment.Text = "Edit";
             this.btnEditPayment.Click += new System.EventHandler(this.btnEditPayment_Click);
             // 
@@ -2849,6 +2916,7 @@ namespace PatientInformationSystemNew.forms
             this.rprtReceipt.Name = "rprtReceipt";
             this.rprtReceipt.Size = new System.Drawing.Size(453, 566);
             this.rprtReceipt.TabIndex = 372;
+            this.rprtReceipt.TabStop = false;
             this.rprtReceipt.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
             // txtChange
@@ -2862,7 +2930,6 @@ namespace PatientInformationSystemNew.forms
             this.txtChange.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtChange.DisabledState.Parent = this.txtChange;
             this.txtChange.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChange.Enabled = false;
             this.txtChange.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtChange.FocusedState.Parent = this.txtChange;
             this.txtChange.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2874,10 +2941,12 @@ namespace PatientInformationSystemNew.forms
             this.txtChange.Name = "txtChange";
             this.txtChange.PasswordChar = '\0';
             this.txtChange.PlaceholderText = "";
+            this.txtChange.ReadOnly = true;
             this.txtChange.SelectedText = "";
             this.txtChange.ShadowDecoration.Parent = this.txtChange;
             this.txtChange.Size = new System.Drawing.Size(446, 45);
             this.txtChange.TabIndex = 6;
+            this.txtChange.TabStop = false;
             // 
             // label47
             // 
@@ -2901,7 +2970,6 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalAmountPaid.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtTotalAmountPaid.DisabledState.Parent = this.txtTotalAmountPaid;
             this.txtTotalAmountPaid.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTotalAmountPaid.Enabled = false;
             this.txtTotalAmountPaid.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtTotalAmountPaid.FocusedState.Parent = this.txtTotalAmountPaid;
             this.txtTotalAmountPaid.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2913,10 +2981,12 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalAmountPaid.Name = "txtTotalAmountPaid";
             this.txtTotalAmountPaid.PasswordChar = '\0';
             this.txtTotalAmountPaid.PlaceholderText = "";
+            this.txtTotalAmountPaid.ReadOnly = true;
             this.txtTotalAmountPaid.SelectedText = "";
             this.txtTotalAmountPaid.ShadowDecoration.Parent = this.txtTotalAmountPaid;
             this.txtTotalAmountPaid.Size = new System.Drawing.Size(446, 45);
             this.txtTotalAmountPaid.TabIndex = 5;
+            this.txtTotalAmountPaid.TabStop = false;
             // 
             // label48
             // 
@@ -2940,7 +3010,6 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtAmount.DisabledState.Parent = this.txtAmount;
             this.txtAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAmount.Enabled = false;
             this.txtAmount.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtAmount.FocusedState.Parent = this.txtAmount;
             this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2952,10 +3021,12 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
             this.txtAmount.PlaceholderText = "";
+            this.txtAmount.ReadOnly = true;
             this.txtAmount.SelectedText = "";
             this.txtAmount.ShadowDecoration.Parent = this.txtAmount;
             this.txtAmount.Size = new System.Drawing.Size(446, 45);
             this.txtAmount.TabIndex = 4;
+            this.txtAmount.TabStop = false;
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label49
@@ -2980,7 +3051,6 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtReceiptNo.DisabledState.Parent = this.txtReceiptNo;
             this.txtReceiptNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtReceiptNo.Enabled = false;
             this.txtReceiptNo.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtReceiptNo.FocusedState.Parent = this.txtReceiptNo;
             this.txtReceiptNo.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -2992,10 +3062,12 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Name = "txtReceiptNo";
             this.txtReceiptNo.PasswordChar = '\0';
             this.txtReceiptNo.PlaceholderText = "";
+            this.txtReceiptNo.ReadOnly = true;
             this.txtReceiptNo.SelectedText = "";
             this.txtReceiptNo.ShadowDecoration.Parent = this.txtReceiptNo;
             this.txtReceiptNo.Size = new System.Drawing.Size(446, 45);
             this.txtReceiptNo.TabIndex = 1;
+            this.txtReceiptNo.TabStop = false;
             this.txtReceiptNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReceiptNo_KeyPress);
             // 
             // label28
@@ -3036,6 +3108,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbDiscount.ShadowDecoration.Parent = this.cmbDiscount;
             this.cmbDiscount.Size = new System.Drawing.Size(446, 36);
             this.cmbDiscount.TabIndex = 3;
+            this.cmbDiscount.TabStop = false;
             // 
             // label29
             // 
@@ -3059,7 +3132,6 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalMedicalFee.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtTotalMedicalFee.DisabledState.Parent = this.txtTotalMedicalFee;
             this.txtTotalMedicalFee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTotalMedicalFee.Enabled = false;
             this.txtTotalMedicalFee.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtTotalMedicalFee.FocusedState.Parent = this.txtTotalMedicalFee;
             this.txtTotalMedicalFee.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -3071,10 +3143,12 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalMedicalFee.Name = "txtTotalMedicalFee";
             this.txtTotalMedicalFee.PasswordChar = '\0';
             this.txtTotalMedicalFee.PlaceholderText = "";
+            this.txtTotalMedicalFee.ReadOnly = true;
             this.txtTotalMedicalFee.SelectedText = "";
             this.txtTotalMedicalFee.ShadowDecoration.Parent = this.txtTotalMedicalFee;
             this.txtTotalMedicalFee.Size = new System.Drawing.Size(446, 45);
             this.txtTotalMedicalFee.TabIndex = 2;
+            this.txtTotalMedicalFee.TabStop = false;
             this.txtTotalMedicalFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalMedicalFee_KeyPress);
             // 
             // label30
@@ -3110,7 +3184,6 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtFullName.DisabledState.Parent = this.txtFullName;
             this.txtFullName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFullName.Enabled = false;
             this.txtFullName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtFullName.FocusedState.Parent = this.txtFullName;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -3122,10 +3195,12 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.PasswordChar = '\0';
             this.txtFullName.PlaceholderText = "";
+            this.txtFullName.ReadOnly = true;
             this.txtFullName.SelectedText = "";
             this.txtFullName.ShadowDecoration.Parent = this.txtFullName;
             this.txtFullName.Size = new System.Drawing.Size(446, 45);
             this.txtFullName.TabIndex = 0;
+            this.txtFullName.TabStop = false;
             // 
             // label26
             // 
@@ -3155,32 +3230,32 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory.AllowUserToDeleteRows = false;
             this.gridPaymentHistory.AllowUserToResizeColumns = false;
             this.gridPaymentHistory.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.gridPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            this.gridPaymentHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
             this.gridPaymentHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPaymentHistory.BackgroundColor = System.Drawing.Color.White;
             this.gridPaymentHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPaymentHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPaymentHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPaymentHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.gridPaymentHistory.ColumnHeadersHeight = 40;
             this.gridPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPaymentHistory.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPaymentHistory.DefaultCellStyle = dataGridViewCellStyle30;
             this.gridPaymentHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPaymentHistory.EnableHeadersVisualStyles = false;
             this.gridPaymentHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -3193,6 +3268,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPaymentHistory.Size = new System.Drawing.Size(1682, 336);
             this.gridPaymentHistory.TabIndex = 325;
+            this.gridPaymentHistory.TabStop = false;
             this.gridPaymentHistory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPaymentHistory.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridPaymentHistory.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -3244,6 +3320,7 @@ namespace PatientInformationSystemNew.forms
             this.btnTransact.ShadowDecoration.Parent = this.btnTransact;
             this.btnTransact.Size = new System.Drawing.Size(446, 45);
             this.btnTransact.TabIndex = 7;
+            this.btnTransact.TabStop = false;
             this.btnTransact.Text = "Transact";
             this.btnTransact.Visible = false;
             this.btnTransact.Click += new System.EventHandler(this.btnTransact_Click);
@@ -3276,6 +3353,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBackInPaymentHistory.ShadowDecoration.Parent = this.btnBackInPaymentHistory;
             this.btnBackInPaymentHistory.Size = new System.Drawing.Size(131, 62);
             this.btnBackInPaymentHistory.TabIndex = 9;
+            this.btnBackInPaymentHistory.TabStop = false;
             this.btnBackInPaymentHistory.Text = "Back";
             this.btnBackInPaymentHistory.Click += new System.EventHandler(this.btnBackInPaymentHistory_Click);
             // 

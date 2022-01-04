@@ -84,6 +84,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAge.Text = val.UserAge;
             this.cmbAge.Text = val.UserAge;
             this.txtAddress.Text = val.UserAddress;
+            this.txtBirthday.Text = val.UserBirthday.ToString("D");
             this.dateBirthday.Value = val.UserBirthday;
             this.txtCellphoneNumber.Text = val.UserCellphoneNumber;
             this.txtTelephoneNumber.Text = val.UserTelephoneNumber;
@@ -119,50 +120,84 @@ namespace PatientInformationSystemNew.forms
 
         void EditUser()
         {
-            this.txtUsername.Enabled = true;
-            this.txtPassword.Enabled = true;
-            this.txtFirstName.Enabled = true;
-            this.txtMiddleName.Enabled = true;
-            this.txtLastName.Enabled = true;
+            this.txtMyID.ReadOnly = false;
+            this.txtUsername.ReadOnly = false;
+            this.txtPassword.ReadOnly = false;
+            this.txtFirstName.ReadOnly = false;
+            this.txtMiddleName.ReadOnly = false;
+            this.txtLastName.ReadOnly = false;
+            this.txtGender.Visible = false;
+            this.txtAge.Visible = false;
+            this.txtAddress.ReadOnly = false;
+            this.txtBirthday.Visible = false;
+            this.txtCellphoneNumber.ReadOnly = false;
+            this.txtTelephoneNumber.ReadOnly = false;
+            this.txtEmail.ReadOnly = false;
+            this.btnEdit.Enabled = false;
+
             this.cmbGender.Visible = true;
             this.cmbAge.Visible = true;
-            this.txtAddress.Enabled = true;
-            this.dateBirthday.Enabled = true;
-            this.txtCellphoneNumber.Enabled = true;
-            this.txtTelephoneNumber.Enabled = true;
-            this.txtEmail.Enabled = true;
+            this.dateBirthday.Visible = true;
             this.btnUploadPhoto.Visible = true;
             this.btnRemovePhoto.Visible = true;
             this.btnSave.Enabled = true;
 
-            this.txtGender.Visible = false;
-            this.txtAge.Visible = false;
-            this.btnEdit.Enabled = false;
+            this.txtMyID.TabStop = true;
+            this.txtUsername.TabStop = true;
+            this.txtPassword.TabStop = true;
+            this.txtFirstName.TabStop = true;
+            this.txtMiddleName.TabStop = true;
+            this.txtLastName.TabStop = true;
+            this.cmbGender.TabStop = true;
+            this.cmbAge.TabStop = true;
+            this.txtAddress.TabStop = true;
+            this.dateBirthday.TabStop = true;
+            this.txtCellphoneNumber.TabStop = true;
+            this.txtTelephoneNumber.TabStop = true;
+            this.txtEmail.TabStop = true;
 
             this.txtMyID.Focus();
         }
 
         void DoneSaving()
         {
-            this.txtUsername.Enabled = false;
-            this.txtPassword.Enabled = false;
-            this.txtFirstName.Enabled = false;
-            this.txtMiddleName.Enabled = false;
-            this.txtLastName.Enabled = false;
+            this.txtMyID.ReadOnly = true;
+            this.txtUsername.ReadOnly = true;
+            this.txtPassword.ReadOnly = true;
+            this.txtFirstName.ReadOnly = true;
+            this.txtMiddleName.ReadOnly = true;
+            this.txtLastName.ReadOnly = true;
+            this.txtGender.Visible = true;
+            this.txtAge.Visible = true;
+            this.txtAddress.ReadOnly = true;
+            this.txtBirthday.Visible = true;
+            this.txtCellphoneNumber.ReadOnly = true;
+            this.txtTelephoneNumber.ReadOnly = true;
+            this.txtEmail.ReadOnly = true;
+            this.btnEdit.Enabled = true;
+
             this.cmbGender.Visible = false;
             this.cmbAge.Visible = false;
-            this.txtAddress.Enabled = false;
-            this.dateBirthday.Enabled = false;
-            this.txtCellphoneNumber.Enabled = false;
-            this.txtTelephoneNumber.Enabled = false;
-            this.txtEmail.Enabled = false;
+            this.dateBirthday.Visible = false;
             this.btnUploadPhoto.Visible = false;
             this.btnRemovePhoto.Visible = false;
             this.btnSave.Enabled = false;
 
-            this.txtGender.Visible = true;
-            this.txtAge.Visible = true;
-            this.btnEdit.Enabled = true;
+            this.txtMyID.TabStop = false;
+            this.txtUsername.TabStop = false;
+            this.txtPassword.TabStop = false;
+            this.txtFirstName.TabStop = false;
+            this.txtMiddleName.TabStop = false;
+            this.txtLastName.TabStop = false;
+            this.cmbGender.TabStop = false;
+            this.cmbAge.TabStop = false;
+            this.txtAddress.TabStop = false;
+            this.dateBirthday.TabStop = false;
+            this.txtCellphoneNumber.TabStop = false;
+            this.txtTelephoneNumber.TabStop = false;
+            this.txtEmail.TabStop = false;
+
+            this.btnEdit.Focus();
         }
 
         void GetUser()

@@ -26,6 +26,7 @@ namespace PatientInformationSystemNew.forms
         functions.Prescription prescriptions = new functions.Prescription();
         functions.Patient patient = new functions.Patient();
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
+        functions.Duplicate duplicate = new functions.Duplicate();
         functions.VitalSigns vital_signs = new functions.VitalSigns();
 
         private void frmDoctorsPatientProfile_Load(object sender, EventArgs e)
@@ -235,32 +236,37 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBackInPeronalInfo_Click(object sender, EventArgs e)
         {
-            BackToDoctorProfile();
+            BackToPatients();
         }
 
         private void btnBackVitalSigns_Click(object sender, EventArgs e)
         {
-            BackToDoctorProfile();
+            BackToPatients();
         }
 
-        private void btnBackInDiagnosis_Click(object sender, EventArgs e)
+        private void btnBackInDiagnosis_Click_1(object sender, EventArgs e)
         {
-            BackToDoctorProfile();
+            BackToPatients();
         }
 
         private void btnBackInSymptoms_Click(object sender, EventArgs e)
         {
-            BackToDoctorProfile();
+            BackToPatients();
+        }
+
+        private void btnBackInPrintPrescription_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
         }
 
         private void btnBackInPrescriptions_Click(object sender, EventArgs e)
         {
-            BackToDoctorProfile();
+            BackToPatients();
         }
 
         private void btnBackInPaymentHistory_Click(object sender, EventArgs e)
         {
-            BackToDoctorProfile();
+            BackToPatients();
         }
 
         void LoadPatientDetails()
@@ -379,22 +385,33 @@ namespace PatientInformationSystemNew.forms
 
         void EditPersonalInfo()
         {
-            this.txtFirstName.Enabled = true;
-            this.txtMiddleName.Enabled = true;
-            this.txtLastName.Enabled = true;
-            this.cmbGender.Visible = true;
-            this.cmbAge.Visible = true;
-            this.txtAddress.Enabled = true;
-            this.dateBirthday.Visible = true;
-            this.txtCellphoneNumber.Enabled = true;
-            this.txtTelephoneNumber.Enabled = true;
-            this.txtEmail.Enabled = true;
-            this.btnSavePersonalInfo.Enabled = true;
-
+            this.txtFirstName.ReadOnly = false;
+            this.txtMiddleName.ReadOnly = false;
+            this.txtLastName.ReadOnly = false;
             this.txtGender.Visible = false;
             this.txtAge.Visible = false;
+            this.txtAddress.ReadOnly = false;
             this.txtBirthday.Visible = false;
+            this.txtCellphoneNumber.ReadOnly = false;
+            this.txtTelephoneNumber.ReadOnly = false;
+            this.txtEmail.ReadOnly = false;
             this.btnEditPersonalInfo.Enabled = false;
+
+            this.cmbGender.Visible = true;
+            this.cmbAge.Visible = true;
+            this.dateBirthday.Visible = true;
+            this.btnSavePersonalInfo.Enabled = true;
+
+            this.txtFirstName.TabStop = true;
+            this.txtMiddleName.TabStop = true;
+            this.txtLastName.TabStop = true;
+            this.cmbGender.TabStop = true;
+            this.cmbAge.TabStop = true;
+            this.txtAddress.TabStop = true;
+            this.dateBirthday.TabStop = true;
+            this.txtCellphoneNumber.TabStop = true;
+            this.txtTelephoneNumber.TabStop = true;
+            this.txtEmail.TabStop = true;
         }
 
         void EditVitalSigns()
@@ -402,12 +419,19 @@ namespace PatientInformationSystemNew.forms
             this.btnAddVitalSigns.Visible = false;
             this.btnCancelVitalSigns.Visible = false;
 
-            this.txtHeight.Enabled = true;
-            this.txtWeight.Enabled = true;
-            this.txtTemperature.Enabled = true;
-            this.txtPulseRate.Enabled = true;
-            this.txtBloodPressure.Enabled = true;
+            this.txtHeight.ReadOnly = false;
+            this.txtWeight.ReadOnly = false;
+            this.txtTemperature.ReadOnly = false;
+            this.txtPulseRate.ReadOnly = false;
+            this.txtBloodPressure.ReadOnly = false;
             this.dateVitalSigns.Enabled = true;
+
+            this.txtHeight.TabStop = true;
+            this.txtWeight.TabStop = true;
+            this.txtTemperature.TabStop = true;
+            this.txtPulseRate.TabStop = true;
+            this.txtBloodPressure.TabStop = true;
+            this.dateVitalSigns.TabStop = true;
 
             this.btnSaveVitalSigns.Visible = true;
             this.btnRemoveVitalSigns.Visible = true;
@@ -423,8 +447,11 @@ namespace PatientInformationSystemNew.forms
             this.btnAddDiagnosis.Visible = false;
             this.btnCancelDiagnosis.Visible = false;
 
-            this.txtDiagnosis.Enabled = true;
+            this.txtDiagnosis.ReadOnly = false;
             this.dateDiagnosis.Enabled = true;
+
+            this.txtDiagnosis.TabStop = true;
+            this.dateDiagnosis.TabStop = true;
 
             this.btnSaveDiagnosis.Visible = true;
             this.btnRemoveDiagnosis.Visible = true;
@@ -440,8 +467,11 @@ namespace PatientInformationSystemNew.forms
             this.btnAddSymptoms.Visible = false;
             this.btnCancelSymptoms.Visible = false;
 
-            this.txtSymptoms.Enabled = true;
+            this.txtSymptoms.ReadOnly = false;
             this.dateSymptoms.Enabled = true;
+
+            this.txtSymptoms.TabStop = true;
+            this.dateSymptoms.TabStop = true;
 
             this.btnSaveSymptoms.Visible = true;
             this.btnRemoveSymptoms.Visible = true;
@@ -457,8 +487,11 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPrescriptions.Visible = false;
             this.btnCancelPrescriptions.Visible = false;
 
-            this.txtPrescriptions.Enabled = true;
+            this.txtPrescriptions.ReadOnly = false;
             this.datePrescriptions.Enabled = true;
+
+            this.txtPrescriptions.TabStop = true;
+            this.datePrescriptions.TabStop = true;
 
             this.btnSavePrescriptions.Visible = true;
             this.btnRemovePrescriptions.Visible = true;
@@ -469,14 +502,19 @@ namespace PatientInformationSystemNew.forms
 
         void EditPaymentHistory()
         {
-            this.txtReceiptNo.Enabled = true;
-            this.txtTotalMedicalFee.Enabled = true;
+            this.txtReceiptNo.ReadOnly = false;
+            this.txtTotalMedicalFee.ReadOnly = false;
             this.cmbDiscount.Enabled = true;
-            this.txtAmount.Enabled = true;
+            this.txtAmount.ReadOnly = false;
             this.btnTransact.Visible = true;
-            this.btnSavePayment.Enabled = true;
 
+            this.btnSavePayment.Enabled = true;
             this.btnEditPayment.Enabled = false;
+
+            this.txtReceiptNo.TabStop = true;
+            this.txtTotalMedicalFee.TabStop = true;
+            this.cmbDiscount.TabStop = true;
+            this.txtAmount.TabStop = true;
 
             this.txtReceiptNo.Focus();
         }
@@ -503,12 +541,19 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveVitalSigns.Visible = false;
             this.btnRemoveVitalSigns.Visible = false;
 
-            this.txtHeight.Enabled = true;
-            this.txtWeight.Enabled = true;
-            this.txtTemperature.Enabled = true;
-            this.txtPulseRate.Enabled = true;
-            this.txtBloodPressure.Enabled = true;
+            this.txtHeight.ReadOnly = false;
+            this.txtWeight.ReadOnly = false;
+            this.txtTemperature.ReadOnly = false;
+            this.txtPulseRate.ReadOnly = false;
+            this.txtBloodPressure.ReadOnly = false;
             this.dateVitalSigns.Enabled = true;
+
+            this.txtHeight.TabStop = true;
+            this.txtWeight.TabStop = true;
+            this.txtTemperature.TabStop = true;
+            this.txtPulseRate.TabStop = true;
+            this.txtBloodPressure.TabStop = true;
+            this.dateVitalSigns.TabStop = true;
 
             this.txtHeight.Focus();
         }
@@ -530,8 +575,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveDiagnosis.Visible = false;
             this.btnRemoveDiagnosis.Visible = false;
 
-            this.txtDiagnosis.Enabled = true;
+            this.txtDiagnosis.ReadOnly = false;
             this.dateDiagnosis.Enabled = true;
+
+            this.txtDiagnosis.TabStop = true;
+            this.dateDiagnosis.TabStop = true;
 
             this.txtDiagnosis.Focus();
         }
@@ -554,8 +602,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveSymptoms.Visible = false;
             this.btnRemoveSymptoms.Visible = false;
 
-            this.txtSymptoms.Enabled = true;
+            this.txtSymptoms.ReadOnly = false;
             this.dateSymptoms.Enabled = true;
+
+            this.txtSymptoms.TabStop = true;
+            this.dateSymptoms.TabStop = true;
 
             this.txtSymptoms.Focus();
         }
@@ -577,8 +628,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSavePrescriptions.Visible = false;
             this.btnRemovePrescriptions.Visible = false;
 
-            this.txtPrescriptions.Enabled = true;
+            this.txtPrescriptions.ReadOnly = false;
             this.datePrescriptions.Enabled = true;
+
+            this.txtPrescriptions.TabStop = true;
+            this.datePrescriptions.TabStop = true;
 
             this.txtPrescriptions.Focus();
         }
@@ -719,15 +773,22 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.ResetText();
             this.dateVitalSigns.Value = DateTime.Now;
 
-            this.txtHeight.Enabled = false;
-            this.txtWeight.Enabled = false;
-            this.txtTemperature.Enabled = false;
-            this.txtPulseRate.Enabled = false;
-            this.txtBloodPressure.Enabled = false;
+            this.txtHeight.ReadOnly = true;
+            this.txtWeight.ReadOnly = true;
+            this.txtTemperature.ReadOnly = true;
+            this.txtPulseRate.ReadOnly = true;
+            this.txtBloodPressure.ReadOnly = true;
             this.dateVitalSigns.Enabled = false;
+
+            this.txtHeight.TabStop = false;
+            this.txtWeight.TabStop = false;
+            this.txtTemperature.TabStop = false;
+            this.txtPulseRate.TabStop = false;
+            this.txtBloodPressure.TabStop = false;
+            this.dateVitalSigns.TabStop = false;
+
             this.btnAddVitalSigns.Visible = false;
             this.btnCancelVitalSigns.Visible = false;
-
             this.btnNewVitalSigns.Enabled = true;
         }
 
@@ -741,11 +802,14 @@ namespace PatientInformationSystemNew.forms
             this.txtDiagnosis.ResetText();
             this.dateDiagnosis.Value = DateTime.Now;
 
-            this.txtDiagnosis.Enabled = false;
+            this.txtDiagnosis.ReadOnly = true;
             this.dateDiagnosis.Enabled = false;
+
+            this.txtDiagnosis.TabStop = false;
+            this.dateDiagnosis.TabStop = false;
+
             this.btnAddDiagnosis.Visible = false;
             this.btnCancelDiagnosis.Visible = false;
-
             this.btnNewDiagnosis.Enabled = true;
         }
 
@@ -759,11 +823,14 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.ResetText();
             this.dateSymptoms.Value = DateTime.Now;
 
-            this.txtSymptoms.Enabled = false;
+            this.txtSymptoms.ReadOnly = true;
             this.dateSymptoms.Enabled = false;
+
+            this.txtSymptoms.TabStop = false;
+            this.dateSymptoms.TabStop = false;
+
             this.btnAddSymptoms.Visible = false;
             this.btnCancelSymptoms.Visible = false;
-
             this.btnNewSymptoms.Enabled = true;
         }
 
@@ -777,12 +844,15 @@ namespace PatientInformationSystemNew.forms
             this.txtPrescriptions.ResetText();
             this.datePrescriptions.Value = DateTime.Now;
 
-            this.txtPrescriptions.Enabled = false;
+            this.txtPrescriptions.ReadOnly = true;
             this.datePrescriptions.Enabled = false;
+
+            this.txtPrescriptions.TabStop = false;
+            this.datePrescriptions.TabStop = false;
+
             this.btnAddPrescriptions.Visible = false;
             this.btnCancelPrescriptions.Visible = false;
             this.btnPrintPrescriptions.Enabled = false;
-
             this.btnNewPrescriptions.Enabled = true;
         }
 
@@ -801,22 +871,35 @@ namespace PatientInformationSystemNew.forms
 
         void DoneSaving()
         {
-            this.txtFirstName.Enabled = false;
-            this.txtMiddleName.Enabled = false;
-            this.txtLastName.Enabled = false;
-            this.cmbGender.Visible = false;
-            this.cmbAge.Visible = false;
-            this.txtAddress.Enabled = false;
-            this.dateBirthday.Visible = false;
-            this.txtCellphoneNumber.Enabled = false;
-            this.txtTelephoneNumber.Enabled = false;
-            this.txtEmail.Enabled = false;
-            this.btnSavePersonalInfo.Enabled = false;
-
+            this.txtFirstName.ReadOnly = true;
+            this.txtMiddleName.ReadOnly = true;
+            this.txtLastName.ReadOnly = true;
             this.txtGender.Visible = true;
             this.txtAge.Visible = true;
+            this.txtAddress.ReadOnly = true;
             this.txtBirthday.Visible = true;
+            this.txtCellphoneNumber.ReadOnly = true;
+            this.txtTelephoneNumber.ReadOnly = true;
+            this.txtEmail.ReadOnly = true;
             this.btnEditPersonalInfo.Enabled = true;
+
+            this.cmbGender.Visible = false;
+            this.cmbAge.Visible = false;
+            this.dateBirthday.Visible = false;
+            this.btnSavePersonalInfo.Enabled = false;
+
+            this.txtFirstName.TabStop = false;
+            this.txtMiddleName.TabStop = false;
+            this.txtLastName.TabStop = false;
+            this.cmbGender.TabStop = false;
+            this.cmbAge.TabStop = false;
+            this.txtAddress.TabStop = false;
+            this.dateBirthday.TabStop = false;
+            this.txtCellphoneNumber.TabStop = false;
+            this.txtTelephoneNumber.TabStop = false;
+            this.txtEmail.TabStop = false;
+
+            this.btnEditPersonalInfo.Focus();
         }
 
         void SavePersonalInfo()
@@ -924,15 +1007,24 @@ namespace PatientInformationSystemNew.forms
                 this.txtBloodPressure.ResetText();
                 this.dateVitalSigns.Value = DateTime.Now;
 
-                this.txtHeight.Enabled = false;
-                this.txtWeight.Enabled = false;
-                this.txtTemperature.Enabled = false;
-                this.txtPulseRate.Enabled = false;
-                this.txtBloodPressure.Enabled = false;
+                this.txtHeight.ReadOnly = true;
+                this.txtWeight.ReadOnly = true;
+                this.txtTemperature.ReadOnly = true;
+                this.txtPulseRate.ReadOnly = true;
+                this.txtBloodPressure.ReadOnly = true;
                 this.dateVitalSigns.Enabled = false;
+
+                this.txtHeight.TabStop = false;
+                this.txtWeight.TabStop = false;
+                this.txtTemperature.TabStop = false;
+                this.txtPulseRate.TabStop = false;
+                this.txtBloodPressure.TabStop = false;
+                this.dateVitalSigns.TabStop = false;
 
                 this.btnSaveVitalSigns.Visible = false;
                 this.btnRemoveVitalSigns.Visible = false;
+
+                this.btnEditVitalSigns.Focus();
             }
             else
             {
@@ -962,11 +1054,16 @@ namespace PatientInformationSystemNew.forms
                 this.txtDiagnosis.ResetText();
                 this.dateDiagnosis.Value = DateTime.Now;
 
-                this.txtDiagnosis.Enabled = false;
+                this.txtDiagnosis.ReadOnly = true;
                 this.dateDiagnosis.Enabled = false;
+
+                this.txtDiagnosis.TabStop = false;
+                this.dateDiagnosis.TabStop = false;
 
                 this.btnSaveDiagnosis.Visible = false;
                 this.btnRemoveDiagnosis.Visible = false;
+
+                this.btnEditDiagnosis.Focus();
             }
             else
             {
@@ -996,11 +1093,16 @@ namespace PatientInformationSystemNew.forms
                 this.txtSymptoms.ResetText();
                 this.dateSymptoms.Value = DateTime.Now;
 
-                this.txtSymptoms.Enabled = false;
+                this.txtSymptoms.ReadOnly = true;
                 this.dateSymptoms.Enabled = false;
+
+                this.txtSymptoms.TabStop = false;
+                this.dateSymptoms.TabStop = false;
 
                 this.btnSaveSymptoms.Visible = false;
                 this.btnRemoveSymptoms.Visible = false;
+
+                this.btnEditSymptoms.Focus();
             }
             else
             {
@@ -1034,12 +1136,17 @@ namespace PatientInformationSystemNew.forms
                 this.txtPrescriptions.ResetText();
                 this.datePrescriptions.Value = DateTime.Now;
 
-                this.txtPrescriptions.Enabled = false;
+                this.txtPrescriptions.ReadOnly = true;
                 this.datePrescriptions.Enabled = false;
+
+                this.txtPrescriptions.TabStop = false;
+                this.datePrescriptions.TabStop = false;
 
                 this.btnSavePrescriptions.Visible = false;
                 this.btnRemovePrescriptions.Visible = false;
                 this.btnPrintPrescriptions.Enabled = false;
+
+                this.btnEditPrescriptions.Focus();
             }
             else
             {
@@ -1083,14 +1190,21 @@ namespace PatientInformationSystemNew.forms
                     this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.White;
                     this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
-                    this.txtReceiptNo.Enabled = false;
-                    this.txtTotalMedicalFee.Enabled = false;
+                    this.txtReceiptNo.ReadOnly = true;
+                    this.txtTotalMedicalFee.ReadOnly = true;
                     this.cmbDiscount.Enabled = false;
-                    this.txtAmount.Enabled = false;
+                    this.txtAmount.ReadOnly = true;
                     this.btnTransact.Visible = false;
                     this.btnSavePayment.Enabled = false;
 
+                    this.txtReceiptNo.TabStop = false;
+                    this.txtTotalMedicalFee.TabStop = false;
+                    this.cmbDiscount.TabStop = false;
+                    this.txtAmount.TabStop = false;
+
                     payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+
+                    this.btnEditPrescriptions.Focus();
                 }
                 else
                 {
@@ -1132,16 +1246,25 @@ namespace PatientInformationSystemNew.forms
                 this.txtBloodPressure.ResetText();
                 this.dateVitalSigns.Value = DateTime.Now;
 
-                this.txtHeight.Enabled = false;
-                this.txtWeight.Enabled = false;
-                this.txtTemperature.Enabled = false;
-                this.txtPulseRate.Enabled = false;
-                this.txtBloodPressure.Enabled = false;
+                this.txtHeight.ReadOnly = true;
+                this.txtWeight.ReadOnly = true;
+                this.txtTemperature.ReadOnly = true;
+                this.txtPulseRate.ReadOnly = true;
+                this.txtBloodPressure.ReadOnly = true;
                 this.dateVitalSigns.Enabled = false;
+
+                this.txtHeight.TabStop = false;
+                this.txtWeight.TabStop = false;
+                this.txtTemperature.TabStop = false;
+                this.txtPulseRate.TabStop = false;
+                this.txtBloodPressure.TabStop = false;
+                this.dateVitalSigns.TabStop = false;
 
                 this.btnSaveVitalSigns.Visible = false;
                 this.btnRemoveVitalSigns.Visible = false;
                 this.btnEditVitalSigns.Enabled = false;
+
+                this.btnNewVitalSigns.Focus();
             }
             else
             {
@@ -1170,12 +1293,17 @@ namespace PatientInformationSystemNew.forms
                 this.txtDiagnosis.ResetText();
                 this.dateDiagnosis.Value = DateTime.Now;
 
-                this.txtDiagnosis.Enabled = false;
+                this.txtDiagnosis.ReadOnly = true;
                 this.dateDiagnosis.Enabled = false;
+
+                this.txtDiagnosis.TabStop = false;
+                this.dateDiagnosis.TabStop = false;
 
                 this.btnSaveDiagnosis.Visible = false;
                 this.btnRemoveDiagnosis.Visible = false;
                 this.btnEditDiagnosis.Enabled = false;
+
+                this.btnNewDiagnosis.Focus();
             }
             else
             {
@@ -1204,12 +1332,17 @@ namespace PatientInformationSystemNew.forms
                 this.txtSymptoms.ResetText();
                 this.dateSymptoms.Value = DateTime.Now;
 
-                this.txtSymptoms.Enabled = false;
+                this.txtSymptoms.ReadOnly = true;
                 this.dateSymptoms.Enabled = false;
+
+                this.txtSymptoms.TabStop = false;
+                this.dateSymptoms.TabStop = false;
 
                 this.btnSaveSymptoms.Visible = false;
                 this.btnRemoveSymptoms.Visible = false;
                 this.btnEditSymptoms.Enabled = false;
+
+                this.btnNewSymptoms.Focus();
             }
             else
             {
@@ -1239,12 +1372,17 @@ namespace PatientInformationSystemNew.forms
                 this.txtPrescriptions.ResetText();
                 this.datePrescriptions.Value = DateTime.Now;
 
-                this.txtPrescriptions.Enabled = false;
+                this.txtPrescriptions.ReadOnly = true;
                 this.datePrescriptions.Enabled = false;
+
+                this.txtPrescriptions.TabStop = false;
+                this.datePrescriptions.TabStop = false;
 
                 this.btnSavePrescriptions.Visible = false;
                 this.btnRemovePrescriptions.Visible = false;
                 this.btnEditPrescriptions.Enabled = false;
+
+                this.btnNewPrescriptions.Focus();
             }
             else
             {
@@ -1368,16 +1506,290 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void BackToDoctorProfile()
+        void BackToPatients()
         {
-            forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
-            frmDoctorProfile.TopLevel = false;
+            forms.frmPatients frmPatients = new forms.frmPatients();
+            frmPatients.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
             Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmDoctorProfile);
-            frmDoctorProfile.Dock = DockStyle.Fill;
-            frmDoctorProfile.Show();
+            pnlDashboardBody.Controls.Add(frmPatients);
+            frmPatients.Dock = DockStyle.Fill;
+            frmPatients.Show();
             this.Close();
+        }
+
+        // Key Press
+
+        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtPulseRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtBloodPressure_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtReceiptNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9 and backspace
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtTotalMedicalFee_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        // Text Changed
+
+        private void txtWeight_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else if (!String.IsNullOrWhiteSpace(this.txtTemperature.Text) && String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else
+            {
+                this.btnAddVitalSigns.Enabled = true;
+                this.btnSaveVitalSigns.Enabled = true;
+            }
+        }
+
+        private void txtTemperature_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(this.txtTemperature.Text) && String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else if (!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                this.btnAddVitalSigns.Enabled = false;
+                this.btnSaveVitalSigns.Enabled = false;
+            }
+            else
+            {
+                this.btnAddVitalSigns.Enabled = true;
+                this.btnSaveVitalSigns.Enabled = true;
+            }
+        }
+
+        private void txtDiagnosis_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
+            {
+                this.btnAddDiagnosis.Enabled = false;
+                this.btnSaveDiagnosis.Enabled = false;
+            }
+            else
+            {
+                this.btnAddDiagnosis.Enabled = true;
+                this.btnSaveDiagnosis.Enabled = true;
+            }
+        }
+
+        private void txtSymptoms_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            {
+                this.btnAddSymptoms.Enabled = false;
+                this.btnSaveSymptoms.Enabled = false;
+            }
+            else
+            {
+                this.btnAddSymptoms.Enabled = true;
+                this.btnSaveSymptoms.Enabled = true;
+            }
+        }
+
+        private void txtPrescriptions_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
+            {
+                this.btnAddPrescriptions.Enabled = false;
+                this.btnSavePrescriptions.Enabled = false;
+                this.btnPrintPrescriptions.Enabled = false;
+            }
+            else
+            {
+                this.btnAddPrescriptions.Enabled = true;
+                this.btnSavePrescriptions.Enabled = true;
+                this.btnPrintPrescriptions.Enabled = true;
+            }
         }
     }
 }

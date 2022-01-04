@@ -87,6 +87,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAge.Text = val.DoctorAge;
             this.cmbAge.Text = val.DoctorAge;
             this.txtAddress.Text = val.DoctorAddress;
+            this.txtBirthday.Text = val.DoctorBirthday.ToString("D");
             this.dateBirthday.Value = val.DoctorBirthday;
             this.txtCellphoneNumber.Text = val.DoctorCellphoneNumber;
             this.txtTelephoneNumber.Text = val.DoctorTelephoneNumber;
@@ -104,23 +105,35 @@ namespace PatientInformationSystemNew.forms
 
         void EditDoctor()
         {
-            this.txtDoctorID.Enabled = true;
-            this.txtFirstName.Enabled = true;
-            this.txtMiddleName.Enabled = true;
-            this.txtLastName.Enabled = true;
-            this.cmbGender.Visible = true;
-            this.cmbAge.Visible = true;
-            this.txtAddress.Enabled = true;
-            this.dateBirthday.Enabled = true;
-            this.txtCellphoneNumber.Enabled = true;
-            this.txtTelephoneNumber.Enabled = true;
-            this.txtEmail.Enabled = true;
-            this.txtSpecialization.Enabled = true;
-            this.btnSave.Enabled = true;
-
+            this.txtDoctorID.ReadOnly = false;
+            this.txtFirstName.ReadOnly = false;
+            this.txtMiddleName.ReadOnly = false;
+            this.txtLastName.ReadOnly = false;
             this.txtGender.Visible = false;
             this.txtAge.Visible = false;
+            this.txtAddress.ReadOnly = false;
+            this.txtBirthday.Visible = false;
+            this.txtCellphoneNumber.ReadOnly = false;
+            this.txtTelephoneNumber.ReadOnly = false;
+            this.txtEmail.ReadOnly = false;
             this.btnEdit.Enabled = false;
+
+            this.cmbGender.Visible = true;
+            this.cmbAge.Visible = true;
+            this.dateBirthday.Visible = true;
+            this.btnSave.Enabled = true;
+
+            this.txtDoctorID.TabStop = true;
+            this.txtFirstName.TabStop = true;
+            this.txtMiddleName.TabStop = true;
+            this.txtLastName.TabStop = true;
+            this.cmbGender.TabStop = true;
+            this.cmbAge.TabStop = true;
+            this.txtAddress.TabStop = true;
+            this.dateBirthday.TabStop = true;
+            this.txtCellphoneNumber.TabStop = true;
+            this.txtTelephoneNumber.TabStop = true;
+            this.txtEmail.TabStop = true;
 
             this.txtDoctorID.Focus();
         }
@@ -136,23 +149,37 @@ namespace PatientInformationSystemNew.forms
 
         void DoneSaving()
         {
-            this.txtDoctorID.Enabled = false;
-            this.txtFirstName.Enabled = false;
-            this.txtMiddleName.Enabled = false;
-            this.txtLastName.Enabled = false;
-            this.cmbGender.Visible = false;
-            this.cmbAge.Visible = false;
-            this.txtAddress.Enabled = false;
-            this.dateBirthday.Enabled = false;
-            this.txtCellphoneNumber.Enabled = false;
-            this.txtTelephoneNumber.Enabled = false;
-            this.txtEmail.Enabled = false;
-            this.txtSpecialization.Enabled = false;
-            this.btnSave.Enabled = false;
-
+            this.txtDoctorID.ReadOnly = true;
+            this.txtFirstName.ReadOnly = true;
+            this.txtMiddleName.ReadOnly = true;
+            this.txtLastName.ReadOnly = true;
             this.txtGender.Visible = true;
             this.txtAge.Visible = true;
+            this.txtAddress.ReadOnly = true;
+            this.txtBirthday.Visible = true;
+            this.txtCellphoneNumber.ReadOnly = true;
+            this.txtTelephoneNumber.ReadOnly = true;
+            this.txtEmail.ReadOnly = true;
             this.btnEdit.Enabled = true;
+
+            this.cmbGender.Visible = false;
+            this.cmbAge.Visible = false;
+            this.dateBirthday.Visible = false;
+            this.btnSave.Enabled = false;
+
+            this.txtDoctorID.TabStop = false;
+            this.txtFirstName.TabStop = false;
+            this.txtMiddleName.TabStop = false;
+            this.txtLastName.TabStop = false;
+            this.cmbGender.TabStop = false;
+            this.cmbAge.TabStop = false;
+            this.txtAddress.TabStop = false;
+            this.dateBirthday.TabStop = false;
+            this.txtCellphoneNumber.TabStop = false;
+            this.txtTelephoneNumber.TabStop = false;
+            this.txtEmail.TabStop = false;
+
+            this.btnEdit.Focus();
         }
 
         void SaveDoctor()

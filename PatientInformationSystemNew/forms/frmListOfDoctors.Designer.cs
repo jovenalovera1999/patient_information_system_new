@@ -53,7 +53,6 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorName.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtDoctorName.DisabledState.Parent = this.txtDoctorName;
             this.txtDoctorName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDoctorName.Enabled = false;
             this.txtDoctorName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctorName.FocusedState.Parent = this.txtDoctorName;
             this.txtDoctorName.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -65,10 +64,12 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorName.Name = "txtDoctorName";
             this.txtDoctorName.PasswordChar = '\0';
             this.txtDoctorName.PlaceholderText = "";
+            this.txtDoctorName.ReadOnly = true;
             this.txtDoctorName.SelectedText = "";
             this.txtDoctorName.ShadowDecoration.Parent = this.txtDoctorName;
             this.txtDoctorName.Size = new System.Drawing.Size(446, 45);
             this.txtDoctorName.TabIndex = 31;
+            this.txtDoctorName.TabStop = false;
             // 
             // label1
             // 
@@ -92,7 +93,6 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorID.DisabledState.ForeColor = System.Drawing.Color.Black;
             this.txtDoctorID.DisabledState.Parent = this.txtDoctorID;
             this.txtDoctorID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDoctorID.Enabled = false;
             this.txtDoctorID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctorID.FocusedState.Parent = this.txtDoctorID;
             this.txtDoctorID.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -104,10 +104,12 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorID.Name = "txtDoctorID";
             this.txtDoctorID.PasswordChar = '\0';
             this.txtDoctorID.PlaceholderText = "";
+            this.txtDoctorID.ReadOnly = true;
             this.txtDoctorID.SelectedText = "";
             this.txtDoctorID.ShadowDecoration.Parent = this.txtDoctorID;
             this.txtDoctorID.Size = new System.Drawing.Size(446, 45);
             this.txtDoctorID.TabIndex = 29;
+            this.txtDoctorID.TabStop = false;
             // 
             // label8
             // 
@@ -165,6 +167,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDoctors.Size = new System.Drawing.Size(1830, 655);
             this.gridDoctors.TabIndex = 34;
+            this.gridDoctors.TabStop = false;
             this.gridDoctors.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridDoctors.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridDoctors.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -217,6 +220,7 @@ namespace PatientInformationSystemNew.forms
             this.btnMedicalStaff.ShadowDecoration.Parent = this.btnMedicalStaff;
             this.btnMedicalStaff.Size = new System.Drawing.Size(196, 54);
             this.btnMedicalStaff.TabIndex = 33;
+            this.btnMedicalStaff.TabStop = false;
             this.btnMedicalStaff.Text = "Medical Staff";
             this.btnMedicalStaff.Click += new System.EventHandler(this.btnMedicalStaff_Click);
             // 
@@ -249,6 +253,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;
             this.btnSelect.Size = new System.Drawing.Size(128, 54);
             this.btnSelect.TabIndex = 32;
+            this.btnSelect.TabStop = false;
             this.btnSelect.Text = "Select";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 

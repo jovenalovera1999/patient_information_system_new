@@ -146,10 +146,11 @@ namespace PatientInformationSystemNew.functions
                                     gender = AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     age = AES_ENCRYPT(@age, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     address = AES_ENCRYPT(@address, 'j0v3ncut3gw4p0per0jok3l4ang'),
+                                    birthday = @birthday,
                                     cellphone_number = AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     telephone_number = AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     email = AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    specialization = AES_ENCRPT(@specialization, 'j0v3ncut3gw4p0per0jok3l4ang')
+                                    specialization = AES_ENCRYPT(@specialization, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE id = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -162,6 +163,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@gender", gender);
                         cmd.Parameters.AddWithValue("@age", age);
                         cmd.Parameters.AddWithValue("@address", address);
+                        cmd.Parameters.AddWithValue("@birthday", birthday);
                         cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
                         cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
                         cmd.Parameters.AddWithValue("@email", email);
