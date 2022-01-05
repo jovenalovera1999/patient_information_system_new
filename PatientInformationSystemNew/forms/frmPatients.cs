@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.forms
             {
                 this.btnPaymentTransaction.Visible = false;
                 this.btnAddPatient.Visible = false;
-                patient.LoadDoctorPatients(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridPatients);
+                patient.LoadDoctorPatients(val.UserPrimaryID, this.gridPatients);
             }
             else
             {

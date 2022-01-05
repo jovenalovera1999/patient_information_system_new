@@ -23,6 +23,7 @@ namespace PatientInformationSystemNew.forms
 
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
+        functions.Doctor doctor = new functions.Doctor();
 
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
@@ -217,6 +218,8 @@ namespace PatientInformationSystemNew.forms
 
         void AddPatient()
         {
+            doctor.GetDoctorPrimaryID(this.cmbDoctorName.Text);
+
             if (duplicate.PatientIDDuplicate(this.txtPatientID.Text))
             {
                 MessageBox.Show("Patient ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -269,8 +272,8 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtFirstName.Focus();
             }
-            else if (duplicate.DuplicatePatientAndPatientDoctor(this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
-                this.cmbDoctorName.Text))
+            else if (duplicate.DuplicatePatientAndPatientDoctor(val.DoctorPrimaryID, this.txtFirstName.Text, this.txtMiddleName.Text,
+                this.txtLastName.Text))
             {
                 PatientRecordFound();
 

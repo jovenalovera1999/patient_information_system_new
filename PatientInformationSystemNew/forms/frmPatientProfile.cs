@@ -1213,7 +1213,7 @@ namespace PatientInformationSystemNew.forms
 
                     payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
 
-                    this.btnEditPrescriptions.Focus();
+                    this.btnBackInPaymentHistory.Focus();
                 }
                 else
                 {

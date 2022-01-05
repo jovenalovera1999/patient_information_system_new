@@ -130,6 +130,47 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public bool GetDoctorPrimaryID(string doctor)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"SELECT id
+                                    FROM pis_db.users
+                                    WHERE
+                                    CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', 
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',
+                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') = @doctor;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@doctor", doctor);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if(dt.Rows.Count == 1)
+                        {
+                            val.DoctorPrimaryID = dt.Rows[0].Field<int>("id");
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error getting doctor primary id: " + ex.ToString());
+                return false;
+            }
+        }
+
         public bool UpdateDoctorProfile(int id, string user_id, string first_name, string middle_name, string last_name, string gender, string age,
             string address, DateTime birthday, string cellphone_number, string telephone_number, string email, string specialization)
         {

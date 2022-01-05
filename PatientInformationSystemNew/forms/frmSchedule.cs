@@ -53,7 +53,7 @@ namespace PatientInformationSystemNew.forms
             if (val.UserRole == "Doctor")
             {
                 this.btnCancelPatient.Visible = false;
-                patient.LoadDoctorPatientsInSchedule(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.gridSchedule);
+                patient.LoadDoctorPatientsInSchedule(val.UserPrimaryID, this.gridSchedule);
             }
             else if (val.UserRole == "Medical Staff")
             {
@@ -105,11 +105,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Enabled = true;
             this.btnCancelPatient.Enabled = true;
 
-            string first_name = this.gridSchedule.SelectedCells[2].Value.ToString();
-            string middle_name = this.gridSchedule.SelectedCells[3].Value.ToString();
-            string last_name = this.gridSchedule.SelectedCells[4].Value.ToString();
+            string first_name = this.gridSchedule.SelectedCells[3].Value.ToString();
+            string middle_name = this.gridSchedule.SelectedCells[4].Value.ToString();
+            string last_name = this.gridSchedule.SelectedCells[5].Value.ToString();
 
-            this.txtPatientID.Text = this.gridSchedule.SelectedCells[1].Value.ToString();
+            this.txtPatientID.Text = this.gridSchedule.SelectedCells[2].Value.ToString();
             if (String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);
@@ -122,7 +122,7 @@ namespace PatientInformationSystemNew.forms
 
         void GetPatientByButton()
         {
-            if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, this.gridSchedule.SelectedCells[8].Value.ToString()))
+            if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
             {
                 if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.txtPatientID.Text))
                 {
@@ -153,10 +153,9 @@ namespace PatientInformationSystemNew.forms
         {
             if (val.UserRole == "Doctor" || val.UserRole == "Administrator")
             {
-                if (duplicate.DuplicatePatientInGeneral(this.gridSchedule.SelectedCells[1].Value.ToString(),
-                    this.gridSchedule.SelectedCells[8].Value.ToString()))
+                if (duplicate.DuplicatePatientInGeneral(this.gridSchedule.SelectedCells[2].Value.ToString()))
                 {
-                    if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                    if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[2].Value.ToString()))
                     {
                         forms.frmConsultation frmConsultation = new forms.frmConsultation();
                         frmConsultation.TopLevel = false;
@@ -168,7 +167,7 @@ namespace PatientInformationSystemNew.forms
                         this.Close();
                     }
                 }
-                else if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                else if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[2].Value.ToString()))
                 {
                     forms.frmConsultation frmConsultation = new forms.frmConsultation();
                     frmConsultation.TopLevel = false;
@@ -194,9 +193,9 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (duplicate.DuplicatePatientAndPatientDoctor(this.gridSchedule.SelectedCells[2].Value.ToString(),
-                    this.gridSchedule.SelectedCells[3].Value.ToString(), this.gridSchedule.SelectedCells[4].Value.ToString(),
-                    this.gridSchedule.SelectedCells[8].Value.ToString()))
+                if (duplicate.DuplicatePatientAndPatientDoctor(int.Parse(this.gridSchedule.SelectedCells[1].Value.ToString()),
+                    this.gridSchedule.SelectedCells[2].Value.ToString(), this.gridSchedule.SelectedCells[3].Value.ToString(),
+                    this.gridSchedule.SelectedCells[4].Value.ToString()))
                 {
                     if (patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
                     {

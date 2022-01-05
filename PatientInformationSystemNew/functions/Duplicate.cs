@@ -128,7 +128,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool DuplicatePatientAndPatientDoctor(string first_name, string middle_name, string last_name, string doctor)
+        public bool DuplicatePatientAndPatientDoctor(int doctor_fid, string first_name, string middle_name, string last_name)
         {
             try
             {
@@ -138,23 +138,21 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.patients
-                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE
+                                    doctor_fid = @doctor_fid AND
                                     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @first_name AND
                                     CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @middle_name AND
                                     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @last_name AND
-                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor AND
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@first_name", first_name);
                         cmd.Parameters.AddWithValue("@middle_name", middle_name);
                         cmd.Parameters.AddWithValue("@last_name", last_name);
-                        cmd.Parameters.AddWithValue("@doctor", doctor);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -167,7 +165,35 @@ namespace PatientInformationSystemNew.functions
                             val.PatientFirstName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientMiddleName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
-                            val.PatientDoctor = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+
+                    sql = @"SELECT
+                            CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                            CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                            CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+                            FROM pis_db.users
+                            WHERE id = @id;";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", doctor_fid);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count == 1)
+                        {
+                            val.DoctorFirstName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            val.DoctorLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            val.DoctorSpecialization = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            val.PatientDoctor = string.Format("Dr. {0} {1} ({2})", val.DoctorFirstName, val.DoctorLastName, val.DoctorSpecialization);
 
                             return true;
                         }
@@ -185,7 +211,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool DuplicatePatientInGeneral(string patient_id, string doctor)
+        public bool DuplicatePatientInGeneral(string patient_id)
         {
             try
             {
@@ -193,16 +219,13 @@ namespace PatientInformationSystemNew.functions
                 {
                     string sql = @"SELECT *
                                     FROM pis_db.patients
-                                    INNER JOIN pis_db.patient_doctor ON pis_db.patients.id = pis_db.patient_doctor.id
                                     WHERE
                                     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(doctor, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @doctor AND
                                     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete';";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
-                        cmd.Parameters.AddWithValue("@doctor", doctor);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

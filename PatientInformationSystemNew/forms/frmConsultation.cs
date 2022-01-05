@@ -336,7 +336,7 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Done Consulting? This form will automatically close once clicked yes!", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text, val.PatientDoctor))
+                if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
                 {
                     if(patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
                     {

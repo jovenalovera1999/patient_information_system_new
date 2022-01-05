@@ -29,7 +29,7 @@ telephone_number, email, role)
 VALUES(
     AES_ENCRYPT('99999999999', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('admin', 'j0v3ncut3gw4p0per0jok3l4ang'),
-    AES_ENCRYPT('admin', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('143161096', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Joven Joshua', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Celiz', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Alovera', 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -62,20 +62,22 @@ VALUES(
 
 CREATE TABLE pis_db.schedule (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    doctor_fid                          INT(10) NOT NULL,
     patient_id                          VARBINARY(800) NOT NULL,
     first_name                          VARBINARY(800) NOT NULL,    
     middle_name                         VARBINARY(800) DEFAULT NULL,
     last_name                           VARBINARY(800) NOT NULL,
     gender                              VARBINARY(800) NOT NULL,
     birthday                            DATE,
-    doctor                              VARBINARY(800) NOT NULL,
     status                              VARBINARY(800) DEFAULT AES_ENCRYPT('Waiting', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(doctor_fid) REFERENCES pis_db.users(id)
 );
 
 CREATE TABLE pis_db.patients (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    doctor_fid                          INT(10) NOT NULL,
     patient_id                          VARBINARY(800) NOT NULL,
     first_name                          VARBINARY(800) NOT NULL,
     middle_name                         VARBINARY(800) DEFAULT NULL,
@@ -90,7 +92,8 @@ CREATE TABLE pis_db.patients (
     status                              VARBINARY(800) DEFAULT AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang'),
     payment_status                      VARBINARY(800) DEFAULT AES_ENCRYPT('Unpaid', 'j0v3ncut3gw4p0per0jok3l4ang'),
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(doctor_fid) REFERENCES pis_db.users(id)
 );
 
 CREATE TABLE pis_db.duplicate_patients (

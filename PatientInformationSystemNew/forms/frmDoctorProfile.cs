@@ -100,7 +100,7 @@ namespace PatientInformationSystemNew.forms
             LoadAge();
             LoadProfilePicture();
             LoadDoctorDetails();
-            patient.LoadDoctorPatients(this.txtFirstName.Text, this.txtLastName.Text, this.txtSpecialization.Text, this.gridPatients);
+            patient.LoadDoctorPatients(val.DoctorPrimaryID, this.gridPatients);
         }
 
         void EditDoctor()
