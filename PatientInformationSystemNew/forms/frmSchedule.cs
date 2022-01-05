@@ -124,7 +124,7 @@ namespace PatientInformationSystemNew.forms
         {
             if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
             {
-                if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.txtPatientID.Text))
+                if (patient.GetPatientFromScheduleWithFirstAccountExisting(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
                 {
                     forms.frmConsultation frmConsultation = new forms.frmConsultation();
                     frmConsultation.TopLevel = false;
@@ -136,7 +136,7 @@ namespace PatientInformationSystemNew.forms
                     this.Close();
                 }
             }
-            else if (patient.GetPatientFromSchedule(this.txtPatientID.Text))
+            else if (patient.GetPatientFromSchedule(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
             {
                 forms.frmConsultation frmConsultation = new forms.frmConsultation();
                 frmConsultation.TopLevel = false;
@@ -155,7 +155,7 @@ namespace PatientInformationSystemNew.forms
             {
                 if (duplicate.DuplicatePatientInGeneral(this.gridSchedule.SelectedCells[2].Value.ToString()))
                 {
-                    if (patient.GetPatientFromScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[2].Value.ToString()))
+                    if (patient.GetPatientFromScheduleWithFirstAccountExisting(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
                     {
                         forms.frmConsultation frmConsultation = new forms.frmConsultation();
                         frmConsultation.TopLevel = false;
@@ -167,7 +167,7 @@ namespace PatientInformationSystemNew.forms
                         this.Close();
                     }
                 }
-                else if (patient.GetPatientFromSchedule(this.gridSchedule.SelectedCells[2].Value.ToString()))
+                else if (patient.GetPatientFromSchedule(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
                 {
                     forms.frmConsultation frmConsultation = new forms.frmConsultation();
                     frmConsultation.TopLevel = false;
@@ -194,10 +194,10 @@ namespace PatientInformationSystemNew.forms
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (duplicate.DuplicatePatientAndPatientDoctor(int.Parse(this.gridSchedule.SelectedCells[1].Value.ToString()),
-                    this.gridSchedule.SelectedCells[2].Value.ToString(), this.gridSchedule.SelectedCells[3].Value.ToString(),
-                    this.gridSchedule.SelectedCells[4].Value.ToString()))
+                    this.gridSchedule.SelectedCells[3].Value.ToString(), this.gridSchedule.SelectedCells[4].Value.ToString(),
+                    this.gridSchedule.SelectedCells[5].Value.ToString()))
                 {
-                    if (patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                    if (patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[2].Value.ToString()))
                     {
                         CancelPatientSuccess();
                     }
@@ -206,7 +206,7 @@ namespace PatientInformationSystemNew.forms
                         MessageBox.Show("Failed to cancel patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[1].Value.ToString()))
+                else if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[2].Value.ToString()))
                 {
                     CancelPatientSuccess();
                 }
