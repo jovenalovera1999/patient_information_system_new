@@ -84,6 +84,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalAmountPaid.ShadowDecoration.Parent = this.txtTotalAmountPaid;
             this.txtTotalAmountPaid.Size = new System.Drawing.Size(446, 45);
             this.txtTotalAmountPaid.TabIndex = 153;
+            this.txtTotalAmountPaid.TabStop = false;
             // 
             // label2
             // 
@@ -248,6 +249,7 @@ namespace PatientInformationSystemNew.forms
             this.txtChange.ShadowDecoration.Parent = this.txtChange;
             this.txtChange.Size = new System.Drawing.Size(446, 45);
             this.txtChange.TabIndex = 158;
+            this.txtChange.TabStop = false;
             // 
             // label12
             // 
@@ -288,6 +290,7 @@ namespace PatientInformationSystemNew.forms
             this.btnTransact.ShadowDecoration.Parent = this.btnTransact;
             this.btnTransact.Size = new System.Drawing.Size(446, 45);
             this.btnTransact.TabIndex = 4;
+            this.btnTransact.TabStop = false;
             this.btnTransact.Text = "Transact";
             this.btnTransact.Click += new System.EventHandler(this.btnTransact_Click);
             // 
@@ -298,6 +301,7 @@ namespace PatientInformationSystemNew.forms
             this.rprtReceipt.Name = "rprtReceipt";
             this.rprtReceipt.Size = new System.Drawing.Size(453, 595);
             this.rprtReceipt.TabIndex = 159;
+            this.rprtReceipt.TabStop = false;
             this.rprtReceipt.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
             // btnBack
@@ -328,6 +332,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(131, 62);
             this.btnBack.TabIndex = 6;
+            this.btnBack.TabStop = false;
             this.btnBack.Text = "Back";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -359,6 +364,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveTransaction.ShadowDecoration.Parent = this.btnSaveTransaction;
             this.btnSaveTransaction.Size = new System.Drawing.Size(226, 62);
             this.btnSaveTransaction.TabIndex = 5;
+            this.btnSaveTransaction.TabStop = false;
             this.btnSaveTransaction.Text = "Save Transaction";
             this.btnSaveTransaction.Click += new System.EventHandler(this.btnSaveTransaction_Click);
             // 
@@ -418,6 +424,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPaymentTransaction.Size = new System.Drawing.Size(878, 958);
             this.gridPaymentTransaction.TabIndex = 7;
+            this.gridPaymentTransaction.TabStop = false;
             this.gridPaymentTransaction.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.gridPaymentTransaction.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -506,6 +513,7 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName.ShadowDecoration.Parent = this.txtFullName;
             this.txtFullName.Size = new System.Drawing.Size(446, 45);
             this.txtFullName.TabIndex = 165;
+            this.txtFullName.TabStop = false;
             // 
             // label6
             // 

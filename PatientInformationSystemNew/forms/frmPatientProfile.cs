@@ -419,6 +419,8 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.TabStop = true;
             this.txtTelephoneNumber.TabStop = true;
             this.txtEmail.TabStop = true;
+
+            this.txtFirstName.Focus();
         }
 
         void EditVitalSigns()

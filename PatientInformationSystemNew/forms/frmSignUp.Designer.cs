@@ -658,6 +658,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCreate.ShadowDecoration.Parent = this.btnCreate;
             this.btnCreate.Size = new System.Drawing.Size(131, 62);
             this.btnCreate.TabIndex = 41;
+            this.btnCreate.TabStop = false;
             this.btnCreate.Text = "Create";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -773,6 +774,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.ShadowDecoration.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Size = new System.Drawing.Size(112, 105);
             this.btnRemovePhoto.TabIndex = 221;
+            this.btnRemovePhoto.TabStop = false;
             this.btnRemovePhoto.Text = "Remove Photo";
             this.btnRemovePhoto.Click += new System.EventHandler(this.btnRemovePhoto_Click);
             // 
@@ -804,6 +806,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.ShadowDecoration.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Size = new System.Drawing.Size(106, 105);
             this.btnUploadPhoto.TabIndex = 220;
+            this.btnUploadPhoto.TabStop = false;
             this.btnUploadPhoto.Text = "Upload Photo";
             this.btnUploadPhoto.Click += new System.EventHandler(this.btnUploadPhoto_Click_1);
             // 
