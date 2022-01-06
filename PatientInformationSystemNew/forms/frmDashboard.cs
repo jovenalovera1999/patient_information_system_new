@@ -76,8 +76,8 @@ namespace PatientInformationSystemNew.forms
 
         private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            t.Stop();
             t.Dispose();
+            t.Stop();
         }
 
         void LoadForm()
