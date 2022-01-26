@@ -61,8 +61,9 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardHeader.Controls.Add(this.guna2CirclePictureBox1);
             this.pnlDashboardHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDashboardHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlDashboardHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlDashboardHeader.Name = "pnlDashboardHeader";
-            this.pnlDashboardHeader.Size = new System.Drawing.Size(1920, 122);
+            this.pnlDashboardHeader.Size = new System.Drawing.Size(1920, 99);
             this.pnlDashboardHeader.TabIndex = 0;
             // 
             // lblTime
@@ -70,9 +71,10 @@ namespace PatientInformationSystemNew.forms
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(1746, 19);
+            this.lblTime.Location = new System.Drawing.Point(1693, 15);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(264, 57);
+            this.lblTime.Size = new System.Drawing.Size(216, 46);
             this.lblTime.TabIndex = 7;
             this.lblTime.Text = "12:00:00 am";
             // 
@@ -81,9 +83,10 @@ namespace PatientInformationSystemNew.forms
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(1751, 76);
+            this.lblDate.Location = new System.Drawing.Point(1696, 62);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(263, 28);
+            this.lblDate.Size = new System.Drawing.Size(210, 21);
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "Monday, 11 November 2021";
             // 
@@ -92,9 +95,10 @@ namespace PatientInformationSystemNew.forms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(146, 64);
+            this.label3.Location = new System.Drawing.Point(110, 52);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 28);
+            this.label3.Size = new System.Drawing.Size(86, 21);
             this.label3.TabIndex = 6;
             this.label3.Text = "Dashboard";
             // 
@@ -103,9 +107,10 @@ namespace PatientInformationSystemNew.forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(145, 19);
+            this.label2.Location = new System.Drawing.Point(109, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(247, 35);
+            this.label2.Size = new System.Drawing.Size(194, 28);
             this.label2.TabIndex = 4;
             this.label2.Text = "St. Louise de Marillac";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -116,10 +121,11 @@ namespace PatientInformationSystemNew.forms
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(130, 122);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(98, 99);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -136,9 +142,10 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardLeftSide.Controls.Add(this.btnPatient);
             this.pnlDashboardLeftSide.Controls.Add(this.btnSchedule);
             this.pnlDashboardLeftSide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlDashboardLeftSide.Location = new System.Drawing.Point(0, 122);
+            this.pnlDashboardLeftSide.Location = new System.Drawing.Point(0, 99);
+            this.pnlDashboardLeftSide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlDashboardLeftSide.Name = "pnlDashboardLeftSide";
-            this.pnlDashboardLeftSide.Size = new System.Drawing.Size(221, 958);
+            this.pnlDashboardLeftSide.Size = new System.Drawing.Size(166, 981);
             this.pnlDashboardLeftSide.TabIndex = 1;
             // 
             // btnUpdateHistory
@@ -164,10 +171,11 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdateHistory.HoverState.Parent = this.btnUpdateHistory;
             this.btnUpdateHistory.Image = global::PatientInformationSystemNew.Properties.Resources.update_history_icon;
             this.btnUpdateHistory.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnUpdateHistory.Location = new System.Drawing.Point(0, 324);
+            this.btnUpdateHistory.Location = new System.Drawing.Point(0, 264);
+            this.btnUpdateHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdateHistory.Name = "btnUpdateHistory";
             this.btnUpdateHistory.ShadowDecoration.Parent = this.btnUpdateHistory;
-            this.btnUpdateHistory.Size = new System.Drawing.Size(221, 54);
+            this.btnUpdateHistory.Size = new System.Drawing.Size(166, 44);
             this.btnUpdateHistory.TabIndex = 18;
             this.btnUpdateHistory.Text = "Update History";
             this.btnUpdateHistory.Click += new System.EventHandler(this.btnUpdateHistory_Click);
@@ -195,10 +203,11 @@ namespace PatientInformationSystemNew.forms
             this.btnReport.HoverState.Parent = this.btnReport;
             this.btnReport.Image = global::PatientInformationSystemNew.Properties.Resources.report_icon;
             this.btnReport.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnReport.Location = new System.Drawing.Point(0, 270);
+            this.btnReport.Location = new System.Drawing.Point(0, 220);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReport.Name = "btnReport";
             this.btnReport.ShadowDecoration.Parent = this.btnReport;
-            this.btnReport.Size = new System.Drawing.Size(221, 54);
+            this.btnReport.Size = new System.Drawing.Size(166, 44);
             this.btnReport.TabIndex = 17;
             this.btnReport.Text = "Report";
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
@@ -226,10 +235,11 @@ namespace PatientInformationSystemNew.forms
             this.btnProfile.HoverState.Parent = this.btnProfile;
             this.btnProfile.Image = global::PatientInformationSystemNew.Properties.Resources.profile_icon;
             this.btnProfile.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnProfile.Location = new System.Drawing.Point(0, 850);
+            this.btnProfile.Location = new System.Drawing.Point(0, 893);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.ShadowDecoration.Parent = this.btnProfile;
-            this.btnProfile.Size = new System.Drawing.Size(221, 54);
+            this.btnProfile.Size = new System.Drawing.Size(166, 44);
             this.btnProfile.TabIndex = 16;
             this.btnProfile.Text = "Profile";
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
@@ -257,10 +267,11 @@ namespace PatientInformationSystemNew.forms
             this.btnLogout.HoverState.Parent = this.btnLogout;
             this.btnLogout.Image = global::PatientInformationSystemNew.Properties.Resources.logout_icon;
             this.btnLogout.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLogout.Location = new System.Drawing.Point(0, 904);
+            this.btnLogout.Location = new System.Drawing.Point(0, 937);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
-            this.btnLogout.Size = new System.Drawing.Size(221, 54);
+            this.btnLogout.Size = new System.Drawing.Size(166, 44);
             this.btnLogout.TabIndex = 15;
             this.btnLogout.Text = "Logout";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -288,10 +299,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSignUp.HoverState.Parent = this.btnSignUp;
             this.btnSignUp.Image = global::PatientInformationSystemNew.Properties.Resources.sign_up_icon;
             this.btnSignUp.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSignUp.Location = new System.Drawing.Point(0, 216);
+            this.btnSignUp.Location = new System.Drawing.Point(0, 176);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.ShadowDecoration.Parent = this.btnSignUp;
-            this.btnSignUp.Size = new System.Drawing.Size(221, 54);
+            this.btnSignUp.Size = new System.Drawing.Size(166, 44);
             this.btnSignUp.TabIndex = 14;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
@@ -319,10 +331,11 @@ namespace PatientInformationSystemNew.forms
             this.btnInventory.HoverState.Parent = this.btnInventory;
             this.btnInventory.Image = global::PatientInformationSystemNew.Properties.Resources.inventory_icon;
             this.btnInventory.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnInventory.Location = new System.Drawing.Point(0, 162);
+            this.btnInventory.Location = new System.Drawing.Point(0, 132);
+            this.btnInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.ShadowDecoration.Parent = this.btnInventory;
-            this.btnInventory.Size = new System.Drawing.Size(221, 54);
+            this.btnInventory.Size = new System.Drawing.Size(166, 44);
             this.btnInventory.TabIndex = 13;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
@@ -350,10 +363,11 @@ namespace PatientInformationSystemNew.forms
             this.btnDoctors.HoverState.Parent = this.btnDoctors;
             this.btnDoctors.Image = global::PatientInformationSystemNew.Properties.Resources.doctor_icon;
             this.btnDoctors.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDoctors.Location = new System.Drawing.Point(0, 108);
+            this.btnDoctors.Location = new System.Drawing.Point(0, 88);
+            this.btnDoctors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDoctors.Name = "btnDoctors";
             this.btnDoctors.ShadowDecoration.Parent = this.btnDoctors;
-            this.btnDoctors.Size = new System.Drawing.Size(221, 54);
+            this.btnDoctors.Size = new System.Drawing.Size(166, 44);
             this.btnDoctors.TabIndex = 12;
             this.btnDoctors.Text = "Doctors";
             this.btnDoctors.Click += new System.EventHandler(this.btnDoctors_Click);
@@ -381,10 +395,11 @@ namespace PatientInformationSystemNew.forms
             this.btnPatient.HoverState.Parent = this.btnPatient;
             this.btnPatient.Image = global::PatientInformationSystemNew.Properties.Resources.patient_icon;
             this.btnPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPatient.Location = new System.Drawing.Point(0, 54);
+            this.btnPatient.Location = new System.Drawing.Point(0, 44);
+            this.btnPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPatient.Name = "btnPatient";
             this.btnPatient.ShadowDecoration.Parent = this.btnPatient;
-            this.btnPatient.Size = new System.Drawing.Size(221, 54);
+            this.btnPatient.Size = new System.Drawing.Size(166, 44);
             this.btnPatient.TabIndex = 11;
             this.btnPatient.Text = "Patient";
             this.btnPatient.Click += new System.EventHandler(this.btnPatient_Click);
@@ -413,9 +428,10 @@ namespace PatientInformationSystemNew.forms
             this.btnSchedule.Image = global::PatientInformationSystemNew.Properties.Resources.schedule_icon;
             this.btnSchedule.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSchedule.Location = new System.Drawing.Point(0, 0);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.ShadowDecoration.Parent = this.btnSchedule;
-            this.btnSchedule.Size = new System.Drawing.Size(221, 54);
+            this.btnSchedule.Size = new System.Drawing.Size(166, 44);
             this.btnSchedule.TabIndex = 10;
             this.btnSchedule.Text = "Schedule";
             this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
@@ -424,14 +440,15 @@ namespace PatientInformationSystemNew.forms
             // 
             this.pnlDashboardBody.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnlDashboardBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDashboardBody.Location = new System.Drawing.Point(221, 122);
+            this.pnlDashboardBody.Location = new System.Drawing.Point(166, 99);
+            this.pnlDashboardBody.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlDashboardBody.Name = "pnlDashboardBody";
-            this.pnlDashboardBody.Size = new System.Drawing.Size(1699, 958);
+            this.pnlDashboardBody.Size = new System.Drawing.Size(1754, 981);
             this.pnlDashboardBody.TabIndex = 2;
             // 
             // frmDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
@@ -439,6 +456,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.pnlDashboardLeftSide);
             this.Controls.Add(this.pnlDashboardHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
