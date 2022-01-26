@@ -99,7 +99,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPatient()
         {
-            this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.btnSelect.Enabled = true;

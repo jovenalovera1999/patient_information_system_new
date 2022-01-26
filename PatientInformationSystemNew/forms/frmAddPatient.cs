@@ -135,7 +135,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectSymptom()
         {
-            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.btnRemoveSymptom.Enabled = true;

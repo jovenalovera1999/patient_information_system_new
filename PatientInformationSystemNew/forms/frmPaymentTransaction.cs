@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPatient()
         {
-            this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             string first_name = this.gridPaymentTransaction.SelectedCells[2].Value.ToString();

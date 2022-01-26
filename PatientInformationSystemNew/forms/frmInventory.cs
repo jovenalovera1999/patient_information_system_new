@@ -159,7 +159,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectIncomingSupply()
         {
-            this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridIncomingSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtSupplyID.Text = this.gridIncomingSupplies.SelectedCells[1].Value.ToString();
@@ -611,7 +611,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectManageSupply()
         {
-            this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridManageSupplies.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridManageSupplies.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtSupplyIDManageSupplies.Text = this.gridManageSupplies.SelectedCells[1].Value.ToString();

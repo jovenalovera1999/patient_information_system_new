@@ -69,7 +69,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectDoctor()
         {
-            this.gridDoctors.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDoctors.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridDoctors.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             string first_name = this.gridDoctors.SelectedCells[2].Value.ToString();

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabControlReport = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPatientsAndSales = new System.Windows.Forms.TabPage();
             this.lblOverallTotalSales = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.rprtInventory = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.tabControlReport.SuspendLayout();
             this.tabPatientsAndSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
@@ -101,6 +102,7 @@
             // tabPatientsAndSales
             // 
             this.tabPatientsAndSales.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPatientsAndSales.Controls.Add(this.btnPrint);
             this.tabPatientsAndSales.Controls.Add(this.lblOverallTotalSales);
             this.tabPatientsAndSales.Controls.Add(this.label6);
             this.tabPatientsAndSales.Controls.Add(this.lblOverallTotalPatients);
@@ -175,10 +177,12 @@
             // 
             // rprtPatientsSales
             // 
+            this.rprtPatientsSales.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtReportPatientsAndSales.rdlc";
             this.rprtPatientsSales.Location = new System.Drawing.Point(893, 74);
             this.rprtPatientsSales.Name = "rprtPatientsSales";
             this.rprtPatientsSales.Size = new System.Drawing.Size(683, 855);
             this.rprtPatientsSales.TabIndex = 287;
+            this.rprtPatientsSales.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
             // dateReport
             // 
@@ -207,21 +211,21 @@
             // 
             // chartSales
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea3);
+            chartArea15.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea15);
             this.chartSales.Location = new System.Drawing.Point(390, 542);
             this.chartSales.Name = "chartSales";
-            series3.ChartArea = "ChartArea1";
-            series3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            series3.Name = "Sales";
-            this.chartSales.Series.Add(series3);
+            series15.ChartArea = "ChartArea1";
+            series15.Font = new System.Drawing.Font("Segoe UI", 11F);
+            series15.Name = "Sales";
+            this.chartSales.Series.Add(series15);
             this.chartSales.Size = new System.Drawing.Size(488, 387);
             this.chartSales.TabIndex = 283;
             this.chartSales.Text = "chart6";
-            title3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title3.Name = "chartSales";
-            title3.Text = "Sales Chart";
-            this.chartSales.Titles.Add(title3);
+            title15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title15.Name = "chartSales";
+            title15.Text = "Sales Chart";
+            this.chartSales.Titles.Add(title15);
             // 
             // lblTotalSalesInYear
             // 
@@ -291,20 +295,20 @@
             // 
             // chartPatients
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartPatients.ChartAreas.Add(chartArea4);
+            chartArea16.Name = "ChartArea1";
+            this.chartPatients.ChartAreas.Add(chartArea16);
             this.chartPatients.Location = new System.Drawing.Point(390, 74);
             this.chartPatients.Name = "chartPatients";
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Patients";
-            this.chartPatients.Series.Add(series4);
+            series16.ChartArea = "ChartArea1";
+            series16.Name = "Patients";
+            this.chartPatients.Series.Add(series16);
             this.chartPatients.Size = new System.Drawing.Size(488, 387);
             this.chartPatients.TabIndex = 274;
             this.chartPatients.Text = "chart1";
-            title4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title4.Name = "chartPatients";
-            title4.Text = "Patients Chart";
-            this.chartPatients.Titles.Add(title4);
+            title16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title16.Name = "chartPatients";
+            title16.Text = "Patients Chart";
+            this.chartPatients.Titles.Add(title16);
             // 
             // lblTotalPatientsInYear
             // 
@@ -392,6 +396,38 @@
             this.rprtInventory.TabIndex = 0;
             this.rprtInventory.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Animated = true;
+            this.btnPrint.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrint.BorderColor = System.Drawing.Color.Transparent;
+            this.btnPrint.BorderRadius = 5;
+            this.btnPrint.BorderThickness = 1;
+            this.btnPrint.CheckedState.Parent = this.btnPrint;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.CustomImages.Parent = this.btnPrint;
+            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrint.DisabledState.Parent = this.btnPrint;
+            this.btnPrint.FillColor = System.Drawing.Color.Blue;
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnPrint.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnPrint.HoverState.Parent = this.btnPrint;
+            this.btnPrint.Image = global::PatientInformationSystemNew.Properties.Resources.generate_icon;
+            this.btnPrint.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPrint.Location = new System.Drawing.Point(1449, 17);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.ShadowDecoration.Parent = this.btnPrint;
+            this.btnPrint.Size = new System.Drawing.Size(127, 45);
+            this.btnPrint.TabIndex = 292;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -440,5 +476,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblOverallTotalPatients;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button btnPrint;
     }
 }

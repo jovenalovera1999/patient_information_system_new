@@ -70,7 +70,7 @@ namespace PatientInformationSystemNew.forms
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(1733, 19);
+            this.lblTime.Location = new System.Drawing.Point(1746, 19);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(264, 57);
             this.lblTime.TabIndex = 7;
@@ -81,7 +81,7 @@ namespace PatientInformationSystemNew.forms
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(1738, 76);
+            this.lblDate.Location = new System.Drawing.Point(1751, 76);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(263, 28);
             this.lblDate.TabIndex = 8;

@@ -37,6 +37,22 @@ namespace PatientInformationSystemNew.forms
             LoadSeriesPoints();
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pDateReviewed", DateTime.Now.ToString("D")));
+            parameters.Add(new ReportParameter("pTotalPatientsInMonth", this.lblTotalPatientsInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalPatientsInDay", this.lblTotalPatientsInDay.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalPatientsInYear", this.lblTotalPatientsInYear.Text.ToString()));
+            parameters.Add(new ReportParameter("pOverallTotalPatients", this.lblOverallTotalPatients.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInMonth", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInDay", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text.ToString()));
+            this.rprtPatientsSales.LocalReport.SetParameters(parameters);
+            this.rprtPatientsSales.RefreshReport();
+        }
+
         void LoadInventoryReport()
         {
             using (MySqlConnection connection = new MySqlConnection(con.conString()))

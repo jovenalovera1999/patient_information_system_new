@@ -327,7 +327,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectVitalSigns()
         {
-            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtHeight.Text = this.gridVitalSigns.SelectedCells[1].Value.ToString();
@@ -342,7 +342,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectDiagnosis()
         {
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
@@ -353,7 +353,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectSymptom()
         {
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtSymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
@@ -364,7 +364,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPrescription()
         {
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
@@ -375,7 +375,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPaymentHistory()
         {
-            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtReceiptNo.Text = this.gridPaymentHistory.SelectedCells[1].Value.ToString();

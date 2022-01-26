@@ -77,7 +77,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
 
-            this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
@@ -90,7 +90,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[4].Value.ToString());
 
-            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedByVitalSigns.Text = this.gridVitalSigns.SelectedCells[1].Value.ToString();
@@ -103,7 +103,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[4].Value.ToString());
 
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedByDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
@@ -116,7 +116,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[4].Value.ToString());
 
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedBySymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
@@ -129,7 +129,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[4].Value.ToString());
 
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedByPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
@@ -142,7 +142,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridPaymentTransactions.SelectedCells[4].Value.ToString());
 
-            this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedByPaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[1].Value.ToString();
@@ -155,7 +155,7 @@ namespace PatientInformationSystemNew.forms
         {
             DateTime date = DateTime.Parse(this.gridInventory.SelectedCells[3].Value.ToString());
 
-            this.gridInventory.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridInventory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridInventory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtEditedByInventory.Text = this.gridInventory.SelectedCells[1].Value.ToString();

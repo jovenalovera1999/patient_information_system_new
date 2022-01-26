@@ -139,7 +139,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectDiagnosis()
         {
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.btnRemoveDiagnosis.Enabled = true;
@@ -223,7 +223,7 @@ namespace PatientInformationSystemNew.forms
 
         void SelectSymptom()
         {
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.Blue;
+            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.btnUpdateSymptoms.Enabled = true;
