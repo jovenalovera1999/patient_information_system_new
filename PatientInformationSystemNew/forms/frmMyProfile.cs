@@ -23,37 +23,6 @@ namespace PatientInformationSystemNew.forms
 
         functions.User user = new functions.User();
 
-        private void frmMyProfile_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        string imgLocation = "";
-        private void btnUploadPhoto_Click(object sender, EventArgs e)
-        {
-            UploadPhoto();
-        }
-
-        private void btnRemovePhoto_Click(object sender, EventArgs e)
-        {
-            RemovePhoto();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            EditUser();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveUser();
-        }
-
-        private void frmMyProfile_VisibleChanged(object sender, EventArgs e)
-        {
-            user.GetUser(val.UserPrimaryID);
-        }
-
         void LoadAge()
         {
             for (int i = 1; i < 120; i++)
@@ -354,6 +323,37 @@ namespace PatientInformationSystemNew.forms
                 // With new profile picture
                 UpdateUserWithNewProfilePicture();
             }
+        }
+
+        private void frmMyProfile_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        string imgLocation = "";
+        private void btnUploadPhoto_Click(object sender, EventArgs e)
+        {
+            UploadPhoto();
+        }
+
+        private void btnRemovePhoto_Click(object sender, EventArgs e)
+        {
+            RemovePhoto();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            EditUser();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveUser();
+        }
+
+        private void frmMyProfile_VisibleChanged(object sender, EventArgs e)
+        {
+            user.GetUser(val.UserPrimaryID);
         }
     }
 }

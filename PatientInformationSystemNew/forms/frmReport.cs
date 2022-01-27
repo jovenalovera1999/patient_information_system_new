@@ -24,35 +24,6 @@ namespace PatientInformationSystemNew.forms
 
         functions.Report report = new functions.Report();
 
-        private void frmReport_Load(object sender, EventArgs e)
-        {
-            FormLoad();
-        }
-
-        private void dateReport_ValueChanged(object sender, EventArgs e)
-        {
-            CountPatients();
-            CountSales();
-            SeriesPointsClear();
-            LoadSeriesPoints();
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("pDateReviewed", DateTime.Now.ToString("D")));
-            parameters.Add(new ReportParameter("pTotalPatientsInMonth", this.lblTotalPatientsInMonth.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalPatientsInDay", this.lblTotalPatientsInDay.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalPatientsInYear", this.lblTotalPatientsInYear.Text.ToString()));
-            parameters.Add(new ReportParameter("pOverallTotalPatients", this.lblOverallTotalPatients.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalSalesInMonth", this.lblTotalSalesInMonth.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalSalesInDay", this.lblTotalSalesInMonth.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInMonth.Text.ToString()));
-            parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text.ToString()));
-            this.rprtPatientsSales.LocalReport.SetParameters(parameters);
-            this.rprtPatientsSales.RefreshReport();
-        }
-
         void LoadInventoryReport()
         {
             using (MySqlConnection connection = new MySqlConnection(con.conString()))
@@ -162,6 +133,40 @@ namespace PatientInformationSystemNew.forms
             this.chartSales.Series[0].Points.AddXY("Day", this.lblTotalSalesInDay.Text);
             this.chartSales.Series[0].Points.AddXY("Year", this.lblTotalSalesInYear.Text);
             this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
+        }
+
+        void PrintPatientsAndSales()
+        {
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("pDateReviewed", DateTime.Now.ToString("D")));
+            parameters.Add(new ReportParameter("pTotalPatientsInMonth", this.lblTotalPatientsInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalPatientsInDay", this.lblTotalPatientsInDay.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalPatientsInYear", this.lblTotalPatientsInYear.Text.ToString()));
+            parameters.Add(new ReportParameter("pOverallTotalPatients", this.lblOverallTotalPatients.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInMonth", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInDay", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text.ToString()));
+            this.rprtPatientsSales.LocalReport.SetParameters(parameters);
+            this.rprtPatientsSales.RefreshReport();
+        }
+
+        private void frmReport_Load(object sender, EventArgs e)
+        {
+            FormLoad();
+        }
+
+        private void dateReport_ValueChanged(object sender, EventArgs e)
+        {
+            CountPatients();
+            CountSales();
+            SeriesPointsClear();
+            LoadSeriesPoints();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            PrintPatientsAndSales();
         }
     }
 }

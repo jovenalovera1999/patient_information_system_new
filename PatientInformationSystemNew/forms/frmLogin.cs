@@ -19,22 +19,8 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
+
         functions.User login = new functions.User();
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            this.txtUsername.Focus();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            LoginUser();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            ExitApp();
-        }
 
         void LoginUser()
         {
@@ -78,6 +64,21 @@ namespace PatientInformationSystemNew.forms
         {
             Application.OpenForms["frmLogin"].Close();
             this.Close();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            this.txtUsername.Focus();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            LoginUser();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            ExitApp();
         }
     }
 }

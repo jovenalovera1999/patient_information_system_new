@@ -23,31 +23,6 @@ namespace PatientInformationSystemNew.forms
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        private void frmSchedule_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetPatientByGrid();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetPatientByButton();
-        }
-
-        private void btnCancelPatient_Click(object sender, EventArgs e)
-        {
-            CancelPatient();
-        }
-
         void LoadFormByRole()
         {
             if (val.UserRole == "Doctor")
@@ -215,6 +190,31 @@ namespace PatientInformationSystemNew.forms
                     MessageBox.Show("Failed to cancel patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void frmSchedule_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetPatientByGrid();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatientByButton();
+        }
+
+        private void btnCancelPatient_Click(object sender, EventArgs e)
+        {
+            CancelPatient();
         }
     }
 }

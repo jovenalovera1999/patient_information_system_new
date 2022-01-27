@@ -25,36 +25,6 @@ namespace PatientInformationSystemNew.forms
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.Doctor doctor = new functions.Doctor();
 
-        private void frmAddPatient_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void btnAddSymptom_Click(object sender, EventArgs e)
-        {
-            AddSymptom();
-        }
-
-        private void btnRemoveSymptom_Click(object sender, EventArgs e)
-        {
-            RemoveSymptom();
-        }
-
-        private void btnAddPatient_Click(object sender, EventArgs e)
-        {
-            AddPatient();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
-        }
-
         void AutoGenNum()
         {
             Random number = new Random();
@@ -479,7 +449,7 @@ namespace PatientInformationSystemNew.forms
 
         private void txtSymptoms_TextChanged(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
+            if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
             {
                 this.btnAddSymptom.Enabled = false;
             }
@@ -487,6 +457,36 @@ namespace PatientInformationSystemNew.forms
             {
                 this.btnAddSymptom.Enabled = true;
             }
+        }
+
+        private void frmAddPatient_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void btnAddSymptom_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnRemoveSymptom_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            AddPatient();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToPatients();
         }
     }
 }

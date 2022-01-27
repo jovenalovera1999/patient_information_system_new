@@ -22,46 +22,6 @@ namespace PatientInformationSystemNew.forms
 
         functions.UpdateHistory update_history = new functions.UpdateHistory();
 
-        private void frmUpdateHistory_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectVitalSigns();
-        }
-
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectDiagnosis();
-        }
-
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPrescription();
-        }
-
-        private void gridPaymentTransactions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPaymentTransaction();
-        }
-
-        private void gridInventory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSupply();
-        }
-
         void LoadForm()
         {
             update_history.LoadPatientsUpdates(this.gridPatients);
@@ -161,6 +121,46 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByInventory.Text = this.gridInventory.SelectedCells[1].Value.ToString();
             this.txtDateInventory.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
             this.txtDescriptionInventory.Text = this.gridInventory.SelectedCells[2].Value.ToString();
+        }
+
+        private void frmUpdateHistory_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectVitalSigns();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPrescription();
+        }
+
+        private void gridPaymentTransactions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPaymentTransaction();
+        }
+
+        private void gridInventory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSupply();
         }
     }
 }

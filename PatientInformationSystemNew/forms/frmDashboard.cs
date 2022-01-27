@@ -24,60 +24,23 @@ namespace PatientInformationSystemNew.forms
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        private void frmDashboard_Load(object sender, EventArgs e)
+        private void OnTimeEvent(object sender, ElapsedEventArgs e)
         {
-            LoadForm();
-        }
+            Invoke(new Action(() =>
+            {
+                s += 1;
 
-        private void btnSchedule_Click(object sender, EventArgs e)
-        {
-            GoToSchedule();
-        }
+                if (s == 60)
+                {
+                    s = 00;
+                }
+                this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
 
-        private void btnPatient_Click(object sender, EventArgs e)
-        {
-            GoToPatient();
-        }
-
-        private void btnDoctors_Click(object sender, EventArgs e)
-        {
-            GoToDoctors();
-        }
-
-        private void btnInventory_Click(object sender, EventArgs e)
-        {
-            GoToInventory();
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-            GoToSignUp();
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            GoToReport();
-        }
-
-        private void btnUpdateHistory_Click(object sender, EventArgs e)
-        {
-            GoToUpdateHistory();
-        }
-
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-            GoToProfile();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Logout();
-        }
-
-        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            t.Dispose();
-            t.Stop();
+                if (this.lblTime.Text == "12:00:00 am")
+                {
+                    this.lblDate.Text = DateTime.Now.ToString("D");
+                }
+            }));
         }
 
         void LoadForm()
@@ -105,25 +68,6 @@ namespace PatientInformationSystemNew.forms
                 this.btnReport.Visible = false;
                 this.btnUpdateHistory.Visible = false;
             }
-        }
-
-        private void OnTimeEvent(object sender, ElapsedEventArgs e)
-        {
-            Invoke(new Action(() =>
-            {
-                s += 1;
-
-                if (s == 60)
-                {
-                    s = 00;
-                }
-                this.lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
-
-                if (this.lblTime.Text == "12:00:00 am")
-                {
-                    this.lblDate.Text = DateTime.Now.ToString("D");
-                }
-            }));
         }
 
         void GoToSchedule()
@@ -216,6 +160,62 @@ namespace PatientInformationSystemNew.forms
                 this.pnlDashboardBody.Controls.Clear();
                 this.Close();
             }
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            GoToSchedule();
+        }
+
+        private void btnPatient_Click(object sender, EventArgs e)
+        {
+            GoToPatient();
+        }
+
+        private void btnDoctors_Click(object sender, EventArgs e)
+        {
+            GoToDoctors();
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            GoToInventory();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            GoToSignUp();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            GoToReport();
+        }
+
+        private void btnUpdateHistory_Click(object sender, EventArgs e)
+        {
+            GoToUpdateHistory();
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            GoToProfile();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
+
+        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Dispose();
+            t.Stop();
         }
     }
 }

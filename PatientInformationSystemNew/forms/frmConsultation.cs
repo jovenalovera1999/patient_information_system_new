@@ -28,76 +28,6 @@ namespace PatientInformationSystemNew.forms
         functions.Diagnosis diagnosis = new functions.Diagnosis();
         functions.Prescription prescriptions = new functions.Prescription();
 
-        private void frmConsultationNew_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectDiagnosis();
-        }
-
-        private void btnAddDiagnosis_Click(object sender, EventArgs e)
-        {
-            AddDiagnosis();
-        }
-
-        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
-        {
-            RemoveDiagnosis();
-        }
-
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void btnAddSymptoms_Click(object sender, EventArgs e)
-        {
-            AddSymptom();
-        }
-
-        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
-        {
-            UpdateSymptom();
-        }
-
-        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
-        {
-            RemoveSymptom();
-        }
-
-        private void btnSaveDiagnosis_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnSavePrescription_Click(object sender, EventArgs e)
-        {
-            SavePrescription();
-        }
-
-        private void btnGenerate_Click(object sender, EventArgs e)
-        {
-            PrintPrescription();
-        }
-
-        private void btnDoneConsulting_Click(object sender, EventArgs e)
-        {
-            DoneConsulting();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToSchedule();
-        }
-
-        private void btnAnotherBack_Click(object sender, EventArgs e)
-        {
-            BackToSchedule();
-        }
-
         void LoadPatientDetails()
         {
             this.txtPatientID.Text = val.PatientID;
@@ -282,7 +212,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
-                
+
                 this.txtPrescription.Focus();
                 this.btnDoneConsulting.Enabled = true;
 
@@ -336,9 +266,9 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Done Consulting? This form will automatically close once clicked yes!", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
+                if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
                 {
-                    if(patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
+                    if (patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
                     {
                         SaveDiagnosis();
                         MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -349,7 +279,7 @@ namespace PatientInformationSystemNew.forms
                         MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else if(patient.DoneConsulting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
+                else if (patient.DoneConsulting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
                 {
                     SaveDiagnosis();
                     MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -414,10 +344,75 @@ namespace PatientInformationSystemNew.forms
 
         private void tabConsultation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(this.tabConsultation.SelectedIndex == 1)
+            if (this.tabConsultation.SelectedIndex == 1)
             {
                 this.txtDiagnosis.Focus();
             }
+        }
+
+        private void frmConsultationNew_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectDiagnosis();
+        }
+
+        private void btnAddDiagnosis_Click(object sender, EventArgs e)
+        {
+            AddDiagnosis();
+        }
+
+        private void btnRemoveDiagnosis_Click(object sender, EventArgs e)
+        {
+            RemoveDiagnosis();
+        }
+
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectSymptom();
+        }
+
+        private void btnAddSymptoms_Click(object sender, EventArgs e)
+        {
+            AddSymptom();
+        }
+
+        private void btnUpdateSymptoms_Click(object sender, EventArgs e)
+        {
+            UpdateSymptom();
+        }
+
+        private void btnRemoveSymptoms_Click(object sender, EventArgs e)
+        {
+            RemoveSymptom();
+        }
+
+        private void btnSavePrescription_Click(object sender, EventArgs e)
+        {
+            SavePrescription();
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            PrintPrescription();
+        }
+
+        private void btnDoneConsulting_Click(object sender, EventArgs e)
+        {
+            DoneConsulting();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            BackToSchedule();
+        }
+
+        private void btnAnotherBack_Click(object sender, EventArgs e)
+        {
+            BackToSchedule();
         }
     }
 }

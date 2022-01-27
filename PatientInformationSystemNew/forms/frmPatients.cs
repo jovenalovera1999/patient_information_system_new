@@ -23,36 +23,6 @@ namespace PatientInformationSystemNew.forms
         functions.Patient patient = new functions.Patient();
         functions.Search search = new functions.Search();
 
-        private void frmPatient_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetPatient();
-        }
-
-        private void btnPaymentTransaction_Click(object sender, EventArgs e)
-        {
-            GoToPaymentTransaction();
-        }
-
-        private void btnAddPatient_Click(object sender, EventArgs e)
-        {
-            GoToAddPatient();
-        }
-
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetPatient();
-        }
-
         void LoadForm()
         {
             if (val.UserRole == "Doctor")
@@ -118,7 +88,7 @@ namespace PatientInformationSystemNew.forms
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if(val.UserRole == "Doctor")
+            if (val.UserRole == "Doctor")
             {
                 search.SearchPatientByDoctor(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.txtSearch.Text, this.gridPatients);
             }
@@ -126,6 +96,36 @@ namespace PatientInformationSystemNew.forms
             {
                 search.SearchPatient(this.txtSearch.Text, this.gridPatients);
             }
+        }
+
+        private void frmPatient_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            GetPatient();
+        }
+
+        private void btnPaymentTransaction_Click(object sender, EventArgs e)
+        {
+            GoToPaymentTransaction();
+        }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            GoToAddPatient();
+        }
+
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SelectPatient();
+        }
+
+        private void gridPatients_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetPatient();
         }
     }
 }
