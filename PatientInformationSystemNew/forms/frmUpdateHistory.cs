@@ -35,10 +35,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPatient()
         {
-            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
-
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridPatients.SelectedCells[4].Value.ToString());
 
             this.txtEditedByPatients.Text = this.gridPatients.SelectedCells[1].Value.ToString();
             this.txtPatientNamePatients.Text = this.gridPatients.SelectedCells[2].Value.ToString();
@@ -48,10 +48,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectVitalSigns()
         {
-            DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[4].Value.ToString());
-
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridVitalSigns.SelectedCells[4].Value.ToString());
 
             this.txtEditedByVitalSigns.Text = this.gridVitalSigns.SelectedCells[1].Value.ToString();
             this.txtPatientNameVitalSigns.Text = this.gridVitalSigns.SelectedCells[2].Value.ToString();
@@ -61,10 +61,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectDiagnosis()
         {
-            DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[4].Value.ToString());
-
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridDiagnosis.SelectedCells[4].Value.ToString());
 
             this.txtEditedByDiagnosis.Text = this.gridDiagnosis.SelectedCells[1].Value.ToString();
             this.txtPatientNameDiagnosis.Text = this.gridDiagnosis.SelectedCells[2].Value.ToString();
@@ -74,10 +74,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectSymptom()
         {
-            DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[4].Value.ToString());
-
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridSymptoms.SelectedCells[4].Value.ToString());
 
             this.txtEditedBySymptoms.Text = this.gridSymptoms.SelectedCells[1].Value.ToString();
             this.txtPatientNameSymptoms.Text = this.gridSymptoms.SelectedCells[2].Value.ToString();
@@ -87,10 +87,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPrescription()
         {
-            DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[4].Value.ToString());
-
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridPrescriptions.SelectedCells[4].Value.ToString());
 
             this.txtEditedByPrescriptions.Text = this.gridPrescriptions.SelectedCells[1].Value.ToString();
             this.txtPatientNamePrescriptions.Text = this.gridPrescriptions.SelectedCells[2].Value.ToString();
@@ -100,10 +100,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPaymentTransaction()
         {
-            DateTime date = DateTime.Parse(this.gridPaymentTransactions.SelectedCells[4].Value.ToString());
-
             this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridPaymentTransactions.SelectedCells[4].Value.ToString());
 
             this.txtEditedByPaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[1].Value.ToString();
             this.txtPatientNamePaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[2].Value.ToString();
@@ -113,10 +113,10 @@ namespace PatientInformationSystemNew.forms
 
         void SelectSupply()
         {
-            DateTime date = DateTime.Parse(this.gridInventory.SelectedCells[3].Value.ToString());
-
             this.gridInventory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridInventory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            DateTime date = DateTime.Parse(this.gridInventory.SelectedCells[3].Value.ToString());
 
             this.txtEditedByInventory.Text = this.gridInventory.SelectedCells[1].Value.ToString();
             this.txtDateInventory.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));

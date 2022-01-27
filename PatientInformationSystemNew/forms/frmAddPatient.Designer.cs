@@ -678,8 +678,8 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridAddPatient.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridAddPatient.ThemeStyle.RowsStyle.Height = 35;
-            this.gridAddPatient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridAddPatient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridAddPatient.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridAddPatient.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridAddPatient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridAddPatient_CellMouseClick);
             // 
             // clmSymptoms

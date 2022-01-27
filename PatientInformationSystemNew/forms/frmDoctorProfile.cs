@@ -66,7 +66,6 @@ namespace PatientInformationSystemNew.forms
             LoadProfilePicture();
             LoadDoctorDetails();
             patient.LoadDoctorPatients(val.DoctorPrimaryID, this.gridPatients);
-            this.gridPatients.ClearSelection();
         }
 
         void EditDoctor()
@@ -110,6 +109,7 @@ namespace PatientInformationSystemNew.forms
             {
                 LoadProfilePicture();
                 LoadDoctorDetails();
+                patient.LoadDoctorPatients(val.DoctorPrimaryID, this.gridPatients);
             }
         }
 

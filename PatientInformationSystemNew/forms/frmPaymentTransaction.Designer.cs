@@ -54,8 +54,6 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblTotalSalesToday = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridPaymentTransaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +76,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalAmountPaid.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTotalAmountPaid.HoverState.Parent = this.txtTotalAmountPaid;
             this.txtTotalAmountPaid.Location = new System.Drawing.Point(789, 534);
+            this.txtTotalAmountPaid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalAmountPaid.Name = "txtTotalAmountPaid";
             this.txtTotalAmountPaid.PasswordChar = '\0';
             this.txtTotalAmountPaid.PlaceholderText = "";
@@ -117,6 +116,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtAmount.HoverState.Parent = this.txtAmount;
             this.txtAmount.Location = new System.Drawing.Point(789, 454);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
             this.txtAmount.PlaceholderText = "";
@@ -155,6 +155,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalMedicalFee.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTotalMedicalFee.HoverState.Parent = this.txtTotalMedicalFee;
             this.txtTotalMedicalFee.Location = new System.Drawing.Point(789, 293);
+            this.txtTotalMedicalFee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalMedicalFee.Name = "txtTotalMedicalFee";
             this.txtTotalMedicalFee.PasswordChar = '\0';
             this.txtTotalMedicalFee.PlaceholderText = "";
@@ -209,7 +210,7 @@ namespace PatientInformationSystemNew.forms
             "VIP"});
             this.cmbDiscount.ItemsAppearance.Parent = this.cmbDiscount;
             this.cmbDiscount.Location = new System.Drawing.Point(789, 374);
-            this.cmbDiscount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDiscount.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDiscount.Name = "cmbDiscount";
             this.cmbDiscount.ShadowDecoration.Parent = this.cmbDiscount;
             this.cmbDiscount.Size = new System.Drawing.Size(392, 36);
@@ -246,6 +247,7 @@ namespace PatientInformationSystemNew.forms
             this.txtChange.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtChange.HoverState.Parent = this.txtChange;
             this.txtChange.Location = new System.Drawing.Point(789, 617);
+            this.txtChange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtChange.Name = "txtChange";
             this.txtChange.PasswordChar = '\0';
             this.txtChange.PlaceholderText = "";
@@ -291,7 +293,7 @@ namespace PatientInformationSystemNew.forms
             this.btnTransact.Image = global::PatientInformationSystemNew.Properties.Resources.transact_icon;
             this.btnTransact.ImageSize = new System.Drawing.Size(30, 30);
             this.btnTransact.Location = new System.Drawing.Point(789, 667);
-            this.btnTransact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTransact.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransact.Name = "btnTransact";
             this.btnTransact.ShadowDecoration.Parent = this.btnTransact;
             this.btnTransact.Size = new System.Drawing.Size(392, 37);
@@ -304,7 +306,7 @@ namespace PatientInformationSystemNew.forms
             // 
             this.rprtReceipt.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtReceipt.rdlc";
             this.rprtReceipt.Location = new System.Drawing.Point(1186, 87);
-            this.rprtReceipt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rprtReceipt.Margin = new System.Windows.Forms.Padding(2);
             this.rprtReceipt.Name = "rprtReceipt";
             this.rprtReceipt.Size = new System.Drawing.Size(428, 617);
             this.rprtReceipt.TabIndex = 159;
@@ -335,7 +337,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
             this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
             this.btnBack.Location = new System.Drawing.Point(1573, 920);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(170, 50);
@@ -368,7 +370,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveTransaction.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnSaveTransaction.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSaveTransaction.Location = new System.Drawing.Point(1399, 920);
-            this.btnSaveTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveTransaction.Name = "btnSaveTransaction";
             this.btnSaveTransaction.ShadowDecoration.Parent = this.btnSaveTransaction;
             this.btnSaveTransaction.Size = new System.Drawing.Size(170, 50);
@@ -425,7 +427,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.EnableHeadersVisualStyles = false;
             this.gridPaymentTransaction.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridPaymentTransaction.Location = new System.Drawing.Point(0, 0);
-            this.gridPaymentTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridPaymentTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.gridPaymentTransaction.Name = "gridPaymentTransaction";
             this.gridPaymentTransaction.ReadOnly = true;
             this.gridPaymentTransaction.RowHeadersVisible = false;
@@ -455,8 +457,8 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridPaymentTransaction.ThemeStyle.RowsStyle.Height = 35;
-            this.gridPaymentTransaction.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridPaymentTransaction.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridPaymentTransaction.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridPaymentTransaction.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPaymentTransaction_CellMouseClick);
             // 
             // txtReceiptNo
@@ -477,6 +479,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtReceiptNo.HoverState.Parent = this.txtReceiptNo;
             this.txtReceiptNo.Location = new System.Drawing.Point(789, 213);
+            this.txtReceiptNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtReceiptNo.Name = "txtReceiptNo";
             this.txtReceiptNo.PasswordChar = '\0';
             this.txtReceiptNo.PlaceholderText = "";
@@ -515,6 +518,7 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtFullName.HoverState.Parent = this.txtFullName;
             this.txtFullName.Location = new System.Drawing.Point(789, 87);
+            this.txtFullName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.PasswordChar = '\0';
             this.txtFullName.PlaceholderText = "";
@@ -549,38 +553,12 @@ namespace PatientInformationSystemNew.forms
             this.label7.TabIndex = 166;
             this.label7.Text = "Patient Name";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1180, 715);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(224, 37);
-            this.label8.TabIndex = 168;
-            this.label8.Text = "Total Sales Today:";
-            // 
-            // lblTotalSalesToday
-            // 
-            this.lblTotalSalesToday.AutoSize = true;
-            this.lblTotalSalesToday.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSalesToday.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesToday.Location = new System.Drawing.Point(1408, 715);
-            this.lblTotalSalesToday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTotalSalesToday.Name = "lblTotalSalesToday";
-            this.lblTotalSalesToday.Size = new System.Drawing.Size(32, 37);
-            this.lblTotalSalesToday.TabIndex = 169;
-            this.lblTotalSalesToday.Text = "0";
-            // 
             // frmPaymentTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1754, 981);
-            this.Controls.Add(this.lblTotalSalesToday);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -604,7 +582,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPaymentTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment Transaction";
@@ -639,7 +617,5 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox txtFullName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblTotalSalesToday;
     }
 }

@@ -36,6 +36,7 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+                        grid.ClearSelection();
 
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Edited By";
@@ -63,7 +64,7 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
-                                    FROM pis_db.update_history_patient;";
+                                    FROM pis_db.update_history_vital_signs;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

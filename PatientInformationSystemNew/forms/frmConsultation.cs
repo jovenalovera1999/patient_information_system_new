@@ -48,34 +48,26 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.Text = val.PatientBloodPressure;
         }
 
-        void ClearSelection()
+        void LoadFromSymptomsToPrescription()
         {
-            this.gridOverviewSymptoms.ClearSelection();
-            this.gridDiagnosis.ClearSelection();
-            this.gridSymptoms.ClearSelection();
-            this.gridDiagnosisRecord.ClearSelection();
-            this.gridSymptomsRecord.ClearSelection();
-            this.gridPrescriptionsRecord.ClearSelection();
-        }
-
-        void LoadForm()
-        {
-            LoadPatientDetails();
-
             symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridOverviewSymptoms);
             symptoms.LoadSymptomsInConsultation(val.PatientPrimaryID, this.gridSymptoms);
             symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptomsRecord);
             diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosisRecord);
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptionsRecord);
-            ClearSelection();
+        }
+
+        void LoadForm()
+        {
+            LoadPatientDetails();
+            LoadFromSymptomsToPrescription();
         }
 
         void ResetDiagnosis()
         {
+            this.gridDiagnosis.ClearSelection();
             this.txtDiagnosis.ResetText();
             this.txtDiagnosis.Focus();
-
-            this.gridDiagnosis.ClearSelection();
         }
 
         void SelectDiagnosis()
@@ -146,8 +138,6 @@ namespace PatientInformationSystemNew.forms
 
         void ResetSymptoms()
         {
-            this.gridSymptoms.ClearSelection();
-
             this.btnUpdateSymptoms.Enabled = false;
             this.btnRemoveSymptoms.Enabled = false;
 

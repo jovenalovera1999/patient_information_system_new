@@ -60,6 +60,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctorName.HoverState.Parent = this.txtDoctorName;
             this.txtDoctorName.Location = new System.Drawing.Point(20, 128);
+            this.txtDoctorName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDoctorName.Name = "txtDoctorName";
             this.txtDoctorName.PasswordChar = '\0';
             this.txtDoctorName.PlaceholderText = "";
@@ -100,6 +101,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctorID.HoverState.Parent = this.txtDoctorID;
             this.txtDoctorID.Location = new System.Drawing.Point(20, 48);
+            this.txtDoctorID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDoctorID.Name = "txtDoctorID";
             this.txtDoctorID.PasswordChar = '\0';
             this.txtDoctorID.PlaceholderText = "";
@@ -158,7 +160,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctors.EnableHeadersVisualStyles = false;
             this.gridDoctors.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridDoctors.Location = new System.Drawing.Point(0, 232);
-            this.gridDoctors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridDoctors.Margin = new System.Windows.Forms.Padding(2);
             this.gridDoctors.Name = "gridDoctors";
             this.gridDoctors.ReadOnly = true;
             this.gridDoctors.RowHeadersVisible = false;
@@ -188,8 +190,8 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctors.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDoctors.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridDoctors.ThemeStyle.RowsStyle.Height = 35;
-            this.gridDoctors.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridDoctors.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridDoctors.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridDoctors.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridDoctors.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDoctors_CellMouseClick);
             this.gridDoctors.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDoctors_CellMouseDoubleClick);
             // 
@@ -217,7 +219,7 @@ namespace PatientInformationSystemNew.forms
             this.btnMedicalStaff.Image = global::PatientInformationSystemNew.Properties.Resources.medical_staff_icon;
             this.btnMedicalStaff.ImageSize = new System.Drawing.Size(30, 30);
             this.btnMedicalStaff.Location = new System.Drawing.Point(159, 178);
-            this.btnMedicalStaff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMedicalStaff.Margin = new System.Windows.Forms.Padding(2);
             this.btnMedicalStaff.Name = "btnMedicalStaff";
             this.btnMedicalStaff.ShadowDecoration.Parent = this.btnMedicalStaff;
             this.btnMedicalStaff.Size = new System.Drawing.Size(135, 50);
@@ -251,7 +253,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Image = global::PatientInformationSystemNew.Properties.Resources.select_icon;
             this.btnSelect.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSelect.Location = new System.Drawing.Point(20, 178);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;
             this.btnSelect.Size = new System.Drawing.Size(135, 50);
@@ -274,7 +276,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.txtDoctorID);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmListOfDoctors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List of Doctors";

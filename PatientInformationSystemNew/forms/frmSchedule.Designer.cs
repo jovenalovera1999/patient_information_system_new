@@ -60,6 +60,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.HoverState.Parent = this.txtPatientID;
             this.txtPatientID.Location = new System.Drawing.Point(15, 42);
+            this.txtPatientID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.PasswordChar = '\0';
             this.txtPatientID.PlaceholderText = "";
@@ -100,6 +101,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientName.HoverState.Parent = this.txtPatientName;
             this.txtPatientName.Location = new System.Drawing.Point(15, 122);
+            this.txtPatientName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.PasswordChar = '\0';
             this.txtPatientName.PlaceholderText = "";
@@ -158,7 +160,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.EnableHeadersVisualStyles = false;
             this.gridSchedule.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridSchedule.Location = new System.Drawing.Point(0, 220);
-            this.gridSchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridSchedule.Margin = new System.Windows.Forms.Padding(2);
             this.gridSchedule.Name = "gridSchedule";
             this.gridSchedule.ReadOnly = true;
             this.gridSchedule.RowHeadersVisible = false;
@@ -188,8 +190,8 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSchedule.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridSchedule.ThemeStyle.RowsStyle.Height = 35;
-            this.gridSchedule.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridSchedule.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridSchedule.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridSchedule.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridSchedule.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSchedule_CellMouseClick);
             this.gridSchedule.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSchedule_CellMouseDoubleClick);
             // 
@@ -218,7 +220,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPatient.Image = global::PatientInformationSystemNew.Properties.Resources.cancel_icon;
             this.btnCancelPatient.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCancelPatient.Location = new System.Drawing.Point(166, 172);
-            this.btnCancelPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelPatient.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelPatient.Name = "btnCancelPatient";
             this.btnCancelPatient.ShadowDecoration.Parent = this.btnCancelPatient;
             this.btnCancelPatient.Size = new System.Drawing.Size(147, 44);
@@ -252,7 +254,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Image = global::PatientInformationSystemNew.Properties.Resources.select_icon;
             this.btnSelect.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSelect.Location = new System.Drawing.Point(15, 172);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;
             this.btnSelect.Size = new System.Drawing.Size(147, 44);
@@ -275,7 +277,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.txtPatientID);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule";

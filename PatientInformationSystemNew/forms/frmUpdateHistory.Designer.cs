@@ -151,7 +151,7 @@ namespace PatientInformationSystemNew.forms
             this.tabControlUpdateHistory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlUpdateHistory.ItemSize = new System.Drawing.Size(140, 50);
             this.tabControlUpdateHistory.Location = new System.Drawing.Point(0, 0);
-            this.tabControlUpdateHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControlUpdateHistory.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlUpdateHistory.Name = "tabControlUpdateHistory";
             this.tabControlUpdateHistory.SelectedIndex = 0;
             this.tabControlUpdateHistory.Size = new System.Drawing.Size(1754, 981);
@@ -188,7 +188,7 @@ namespace PatientInformationSystemNew.forms
             this.tabPatients.Controls.Add(this.txtEditedByPatients);
             this.tabPatients.Controls.Add(this.label8);
             this.tabPatients.Location = new System.Drawing.Point(4, 4);
-            this.tabPatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPatients.Margin = new System.Windows.Forms.Padding(2);
             this.tabPatients.Name = "tabPatients";
             this.tabPatients.Size = new System.Drawing.Size(1606, 973);
             this.tabPatients.TabIndex = 1;
@@ -230,7 +230,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.EnableHeadersVisualStyles = false;
             this.gridPatients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridPatients.Location = new System.Drawing.Point(0, 400);
-            this.gridPatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridPatients.Margin = new System.Windows.Forms.Padding(2);
             this.gridPatients.Name = "gridPatients";
             this.gridPatients.ReadOnly = true;
             this.gridPatients.RowHeadersVisible = false;
@@ -260,8 +260,8 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPatients.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridPatients.ThemeStyle.RowsStyle.Height = 35;
-            this.gridPatients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridPatients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridPatients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridPatients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridPatients.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPatients_CellMouseClick);
             // 
             // txtDescriptionPatients
@@ -282,6 +282,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionPatients.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionPatients.HoverState.Parent = this.txtDescriptionPatients;
             this.txtDescriptionPatients.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionPatients.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionPatients.Multiline = true;
             this.txtDescriptionPatients.Name = "txtDescriptionPatients";
             this.txtDescriptionPatients.PasswordChar = '\0';
@@ -323,6 +324,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDatePatients.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDatePatients.HoverState.Parent = this.txtDatePatients;
             this.txtDatePatients.Location = new System.Drawing.Point(806, 38);
+            this.txtDatePatients.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDatePatients.Name = "txtDatePatients";
             this.txtDatePatients.PasswordChar = '\0';
             this.txtDatePatients.PlaceholderText = "";
@@ -363,6 +365,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientNamePatients.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientNamePatients.HoverState.Parent = this.txtPatientNamePatients;
             this.txtPatientNamePatients.Location = new System.Drawing.Point(408, 38);
+            this.txtPatientNamePatients.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientNamePatients.Name = "txtPatientNamePatients";
             this.txtPatientNamePatients.PasswordChar = '\0';
             this.txtPatientNamePatients.PlaceholderText = "";
@@ -403,6 +406,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByPatients.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedByPatients.HoverState.Parent = this.txtEditedByPatients;
             this.txtEditedByPatients.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedByPatients.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedByPatients.Name = "txtEditedByPatients";
             this.txtEditedByPatients.PasswordChar = '\0';
             this.txtEditedByPatients.PlaceholderText = "";
@@ -438,7 +442,7 @@ namespace PatientInformationSystemNew.forms
             this.tabVitalSigns.Controls.Add(this.txtEditedByVitalSigns);
             this.tabVitalSigns.Controls.Add(this.label6);
             this.tabVitalSigns.Location = new System.Drawing.Point(4, 4);
-            this.tabVitalSigns.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabVitalSigns.Margin = new System.Windows.Forms.Padding(2);
             this.tabVitalSigns.Name = "tabVitalSigns";
             this.tabVitalSigns.Size = new System.Drawing.Size(1606, 973);
             this.tabVitalSigns.TabIndex = 2;
@@ -480,7 +484,7 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.EnableHeadersVisualStyles = false;
             this.gridVitalSigns.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridVitalSigns.Location = new System.Drawing.Point(0, 400);
-            this.gridVitalSigns.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridVitalSigns.Margin = new System.Windows.Forms.Padding(2);
             this.gridVitalSigns.Name = "gridVitalSigns";
             this.gridVitalSigns.ReadOnly = true;
             this.gridVitalSigns.RowHeadersVisible = false;
@@ -510,8 +514,8 @@ namespace PatientInformationSystemNew.forms
             this.gridVitalSigns.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridVitalSigns.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridVitalSigns.ThemeStyle.RowsStyle.Height = 35;
-            this.gridVitalSigns.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridVitalSigns.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridVitalSigns.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridVitalSigns.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridVitalSigns.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridVitalSigns_CellMouseClick);
             // 
             // txtDescriptionVitalSigns
@@ -532,6 +536,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionVitalSigns.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionVitalSigns.HoverState.Parent = this.txtDescriptionVitalSigns;
             this.txtDescriptionVitalSigns.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionVitalSigns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionVitalSigns.Multiline = true;
             this.txtDescriptionVitalSigns.Name = "txtDescriptionVitalSigns";
             this.txtDescriptionVitalSigns.PasswordChar = '\0';
@@ -573,6 +578,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDateVitalSigns.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDateVitalSigns.HoverState.Parent = this.txtDateVitalSigns;
             this.txtDateVitalSigns.Location = new System.Drawing.Point(806, 38);
+            this.txtDateVitalSigns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDateVitalSigns.Name = "txtDateVitalSigns";
             this.txtDateVitalSigns.PasswordChar = '\0';
             this.txtDateVitalSigns.PlaceholderText = "";
@@ -613,6 +619,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientNameVitalSigns.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientNameVitalSigns.HoverState.Parent = this.txtPatientNameVitalSigns;
             this.txtPatientNameVitalSigns.Location = new System.Drawing.Point(408, 38);
+            this.txtPatientNameVitalSigns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientNameVitalSigns.Name = "txtPatientNameVitalSigns";
             this.txtPatientNameVitalSigns.PasswordChar = '\0';
             this.txtPatientNameVitalSigns.PlaceholderText = "";
@@ -653,6 +660,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByVitalSigns.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedByVitalSigns.HoverState.Parent = this.txtEditedByVitalSigns;
             this.txtEditedByVitalSigns.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedByVitalSigns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedByVitalSigns.Name = "txtEditedByVitalSigns";
             this.txtEditedByVitalSigns.PasswordChar = '\0';
             this.txtEditedByVitalSigns.PlaceholderText = "";
@@ -688,7 +696,7 @@ namespace PatientInformationSystemNew.forms
             this.tabDiagnosis.Controls.Add(this.txtEditedByDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label12);
             this.tabDiagnosis.Location = new System.Drawing.Point(4, 4);
-            this.tabDiagnosis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabDiagnosis.Margin = new System.Windows.Forms.Padding(2);
             this.tabDiagnosis.Name = "tabDiagnosis";
             this.tabDiagnosis.Size = new System.Drawing.Size(1606, 973);
             this.tabDiagnosis.TabIndex = 3;
@@ -730,7 +738,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.EnableHeadersVisualStyles = false;
             this.gridDiagnosis.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridDiagnosis.Location = new System.Drawing.Point(0, 400);
-            this.gridDiagnosis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridDiagnosis.Margin = new System.Windows.Forms.Padding(2);
             this.gridDiagnosis.Name = "gridDiagnosis";
             this.gridDiagnosis.ReadOnly = true;
             this.gridDiagnosis.RowHeadersVisible = false;
@@ -760,8 +768,8 @@ namespace PatientInformationSystemNew.forms
             this.gridDiagnosis.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridDiagnosis.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridDiagnosis.ThemeStyle.RowsStyle.Height = 35;
-            this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridDiagnosis.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridDiagnosis.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDiagnosis_CellMouseClick);
             // 
             // txtDescriptionDiagnosis
@@ -782,6 +790,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionDiagnosis.HoverState.Parent = this.txtDescriptionDiagnosis;
             this.txtDescriptionDiagnosis.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionDiagnosis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionDiagnosis.Multiline = true;
             this.txtDescriptionDiagnosis.Name = "txtDescriptionDiagnosis";
             this.txtDescriptionDiagnosis.PasswordChar = '\0';
@@ -823,6 +832,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDateDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDateDiagnosis.HoverState.Parent = this.txtDateDiagnosis;
             this.txtDateDiagnosis.Location = new System.Drawing.Point(806, 38);
+            this.txtDateDiagnosis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDateDiagnosis.Name = "txtDateDiagnosis";
             this.txtDateDiagnosis.PasswordChar = '\0';
             this.txtDateDiagnosis.PlaceholderText = "";
@@ -863,6 +873,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientNameDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientNameDiagnosis.HoverState.Parent = this.txtPatientNameDiagnosis;
             this.txtPatientNameDiagnosis.Location = new System.Drawing.Point(408, 38);
+            this.txtPatientNameDiagnosis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientNameDiagnosis.Name = "txtPatientNameDiagnosis";
             this.txtPatientNameDiagnosis.PasswordChar = '\0';
             this.txtPatientNameDiagnosis.PlaceholderText = "";
@@ -903,6 +914,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByDiagnosis.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedByDiagnosis.HoverState.Parent = this.txtEditedByDiagnosis;
             this.txtEditedByDiagnosis.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedByDiagnosis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedByDiagnosis.Name = "txtEditedByDiagnosis";
             this.txtEditedByDiagnosis.PasswordChar = '\0';
             this.txtEditedByDiagnosis.PlaceholderText = "";
@@ -938,7 +950,7 @@ namespace PatientInformationSystemNew.forms
             this.tabSymptoms.Controls.Add(this.txtEditedBySymptoms);
             this.tabSymptoms.Controls.Add(this.label16);
             this.tabSymptoms.Location = new System.Drawing.Point(4, 4);
-            this.tabSymptoms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabSymptoms.Margin = new System.Windows.Forms.Padding(2);
             this.tabSymptoms.Name = "tabSymptoms";
             this.tabSymptoms.Size = new System.Drawing.Size(1606, 973);
             this.tabSymptoms.TabIndex = 4;
@@ -980,7 +992,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.EnableHeadersVisualStyles = false;
             this.gridSymptoms.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridSymptoms.Location = new System.Drawing.Point(0, 400);
-            this.gridSymptoms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridSymptoms.Margin = new System.Windows.Forms.Padding(2);
             this.gridSymptoms.Name = "gridSymptoms";
             this.gridSymptoms.ReadOnly = true;
             this.gridSymptoms.RowHeadersVisible = false;
@@ -1010,8 +1022,8 @@ namespace PatientInformationSystemNew.forms
             this.gridSymptoms.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridSymptoms.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridSymptoms.ThemeStyle.RowsStyle.Height = 35;
-            this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridSymptoms.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridSymptoms.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridSymptoms.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridSymptoms_CellMouseClick);
             // 
             // txtDescriptionSymptoms
@@ -1032,6 +1044,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionSymptoms.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionSymptoms.HoverState.Parent = this.txtDescriptionSymptoms;
             this.txtDescriptionSymptoms.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionSymptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionSymptoms.Multiline = true;
             this.txtDescriptionSymptoms.Name = "txtDescriptionSymptoms";
             this.txtDescriptionSymptoms.PasswordChar = '\0';
@@ -1073,6 +1086,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDateSymptoms.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDateSymptoms.HoverState.Parent = this.txtDateSymptoms;
             this.txtDateSymptoms.Location = new System.Drawing.Point(806, 38);
+            this.txtDateSymptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDateSymptoms.Name = "txtDateSymptoms";
             this.txtDateSymptoms.PasswordChar = '\0';
             this.txtDateSymptoms.PlaceholderText = "";
@@ -1113,6 +1127,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientNameSymptoms.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientNameSymptoms.HoverState.Parent = this.txtPatientNameSymptoms;
             this.txtPatientNameSymptoms.Location = new System.Drawing.Point(408, 38);
+            this.txtPatientNameSymptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientNameSymptoms.Name = "txtPatientNameSymptoms";
             this.txtPatientNameSymptoms.PasswordChar = '\0';
             this.txtPatientNameSymptoms.PlaceholderText = "";
@@ -1153,6 +1168,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedBySymptoms.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedBySymptoms.HoverState.Parent = this.txtEditedBySymptoms;
             this.txtEditedBySymptoms.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedBySymptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedBySymptoms.Name = "txtEditedBySymptoms";
             this.txtEditedBySymptoms.PasswordChar = '\0';
             this.txtEditedBySymptoms.PlaceholderText = "";
@@ -1188,7 +1204,7 @@ namespace PatientInformationSystemNew.forms
             this.tabPrescriptions.Controls.Add(this.txtEditedByPrescriptions);
             this.tabPrescriptions.Controls.Add(this.label20);
             this.tabPrescriptions.Location = new System.Drawing.Point(4, 4);
-            this.tabPrescriptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPrescriptions.Margin = new System.Windows.Forms.Padding(2);
             this.tabPrescriptions.Name = "tabPrescriptions";
             this.tabPrescriptions.Size = new System.Drawing.Size(1606, 973);
             this.tabPrescriptions.TabIndex = 5;
@@ -1230,7 +1246,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.EnableHeadersVisualStyles = false;
             this.gridPrescriptions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridPrescriptions.Location = new System.Drawing.Point(0, 400);
-            this.gridPrescriptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridPrescriptions.Margin = new System.Windows.Forms.Padding(2);
             this.gridPrescriptions.Name = "gridPrescriptions";
             this.gridPrescriptions.ReadOnly = true;
             this.gridPrescriptions.RowHeadersVisible = false;
@@ -1260,8 +1276,8 @@ namespace PatientInformationSystemNew.forms
             this.gridPrescriptions.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPrescriptions.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridPrescriptions.ThemeStyle.RowsStyle.Height = 35;
-            this.gridPrescriptions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridPrescriptions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridPrescriptions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridPrescriptions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridPrescriptions.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPrescriptions_CellMouseClick);
             // 
             // txtDescriptionPrescriptions
@@ -1282,6 +1298,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionPrescriptions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionPrescriptions.HoverState.Parent = this.txtDescriptionPrescriptions;
             this.txtDescriptionPrescriptions.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionPrescriptions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionPrescriptions.Multiline = true;
             this.txtDescriptionPrescriptions.Name = "txtDescriptionPrescriptions";
             this.txtDescriptionPrescriptions.PasswordChar = '\0';
@@ -1323,6 +1340,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDatePrescriptions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDatePrescriptions.HoverState.Parent = this.txtDatePrescriptions;
             this.txtDatePrescriptions.Location = new System.Drawing.Point(806, 38);
+            this.txtDatePrescriptions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDatePrescriptions.Name = "txtDatePrescriptions";
             this.txtDatePrescriptions.PasswordChar = '\0';
             this.txtDatePrescriptions.PlaceholderText = "";
@@ -1363,6 +1381,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientNamePrescriptions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientNamePrescriptions.HoverState.Parent = this.txtPatientNamePrescriptions;
             this.txtPatientNamePrescriptions.Location = new System.Drawing.Point(408, 38);
+            this.txtPatientNamePrescriptions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientNamePrescriptions.Name = "txtPatientNamePrescriptions";
             this.txtPatientNamePrescriptions.PasswordChar = '\0';
             this.txtPatientNamePrescriptions.PlaceholderText = "";
@@ -1403,6 +1422,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByPrescriptions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedByPrescriptions.HoverState.Parent = this.txtEditedByPrescriptions;
             this.txtEditedByPrescriptions.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedByPrescriptions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedByPrescriptions.Name = "txtEditedByPrescriptions";
             this.txtEditedByPrescriptions.PasswordChar = '\0';
             this.txtEditedByPrescriptions.PlaceholderText = "";
@@ -1438,7 +1458,7 @@ namespace PatientInformationSystemNew.forms
             this.tabPaymentTransactions.Controls.Add(this.txtEditedByPaymentTransactions);
             this.tabPaymentTransactions.Controls.Add(this.label24);
             this.tabPaymentTransactions.Location = new System.Drawing.Point(4, 4);
-            this.tabPaymentTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPaymentTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.tabPaymentTransactions.Name = "tabPaymentTransactions";
             this.tabPaymentTransactions.Size = new System.Drawing.Size(1606, 973);
             this.tabPaymentTransactions.TabIndex = 6;
@@ -1480,7 +1500,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransactions.EnableHeadersVisualStyles = false;
             this.gridPaymentTransactions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridPaymentTransactions.Location = new System.Drawing.Point(0, 400);
-            this.gridPaymentTransactions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridPaymentTransactions.Margin = new System.Windows.Forms.Padding(2);
             this.gridPaymentTransactions.Name = "gridPaymentTransactions";
             this.gridPaymentTransactions.ReadOnly = true;
             this.gridPaymentTransactions.RowHeadersVisible = false;
@@ -1510,8 +1530,8 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransactions.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridPaymentTransactions.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridPaymentTransactions.ThemeStyle.RowsStyle.Height = 35;
-            this.gridPaymentTransactions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridPaymentTransactions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridPaymentTransactions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridPaymentTransactions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridPaymentTransactions.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPaymentTransactions_CellMouseClick);
             // 
             // txtDescriptionPaymentTransactions
@@ -1532,6 +1552,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionPaymentTransactions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionPaymentTransactions.HoverState.Parent = this.txtDescriptionPaymentTransactions;
             this.txtDescriptionPaymentTransactions.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionPaymentTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionPaymentTransactions.Multiline = true;
             this.txtDescriptionPaymentTransactions.Name = "txtDescriptionPaymentTransactions";
             this.txtDescriptionPaymentTransactions.PasswordChar = '\0';
@@ -1573,6 +1594,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDatePaymentTransactions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDatePaymentTransactions.HoverState.Parent = this.txtDatePaymentTransactions;
             this.txtDatePaymentTransactions.Location = new System.Drawing.Point(806, 38);
+            this.txtDatePaymentTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDatePaymentTransactions.Name = "txtDatePaymentTransactions";
             this.txtDatePaymentTransactions.PasswordChar = '\0';
             this.txtDatePaymentTransactions.PlaceholderText = "";
@@ -1613,6 +1635,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientNamePaymentTransactions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientNamePaymentTransactions.HoverState.Parent = this.txtPatientNamePaymentTransactions;
             this.txtPatientNamePaymentTransactions.Location = new System.Drawing.Point(408, 38);
+            this.txtPatientNamePaymentTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientNamePaymentTransactions.Name = "txtPatientNamePaymentTransactions";
             this.txtPatientNamePaymentTransactions.PasswordChar = '\0';
             this.txtPatientNamePaymentTransactions.PlaceholderText = "";
@@ -1653,6 +1676,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByPaymentTransactions.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedByPaymentTransactions.HoverState.Parent = this.txtEditedByPaymentTransactions;
             this.txtEditedByPaymentTransactions.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedByPaymentTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedByPaymentTransactions.Name = "txtEditedByPaymentTransactions";
             this.txtEditedByPaymentTransactions.PasswordChar = '\0';
             this.txtEditedByPaymentTransactions.PlaceholderText = "";
@@ -1686,7 +1710,7 @@ namespace PatientInformationSystemNew.forms
             this.tabInventory.Controls.Add(this.txtEditedByInventory);
             this.tabInventory.Controls.Add(this.label28);
             this.tabInventory.Location = new System.Drawing.Point(4, 4);
-            this.tabInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabInventory.Margin = new System.Windows.Forms.Padding(2);
             this.tabInventory.Name = "tabInventory";
             this.tabInventory.Size = new System.Drawing.Size(1606, 973);
             this.tabInventory.TabIndex = 7;
@@ -1728,7 +1752,7 @@ namespace PatientInformationSystemNew.forms
             this.gridInventory.EnableHeadersVisualStyles = false;
             this.gridInventory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridInventory.Location = new System.Drawing.Point(0, 400);
-            this.gridInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridInventory.Margin = new System.Windows.Forms.Padding(2);
             this.gridInventory.Name = "gridInventory";
             this.gridInventory.ReadOnly = true;
             this.gridInventory.RowHeadersVisible = false;
@@ -1758,8 +1782,8 @@ namespace PatientInformationSystemNew.forms
             this.gridInventory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.gridInventory.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gridInventory.ThemeStyle.RowsStyle.Height = 35;
-            this.gridInventory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
-            this.gridInventory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gridInventory.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridInventory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridInventory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridInventory_CellMouseClick);
             // 
             // txtDescriptionInventory
@@ -1780,6 +1804,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionInventory.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDescriptionInventory.HoverState.Parent = this.txtDescriptionInventory;
             this.txtDescriptionInventory.Location = new System.Drawing.Point(10, 118);
+            this.txtDescriptionInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescriptionInventory.Multiline = true;
             this.txtDescriptionInventory.Name = "txtDescriptionInventory";
             this.txtDescriptionInventory.PasswordChar = '\0';
@@ -1821,6 +1846,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDateInventory.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDateInventory.HoverState.Parent = this.txtDateInventory;
             this.txtDateInventory.Location = new System.Drawing.Point(408, 38);
+            this.txtDateInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDateInventory.Name = "txtDateInventory";
             this.txtDateInventory.PasswordChar = '\0';
             this.txtDateInventory.PlaceholderText = "";
@@ -1861,6 +1887,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEditedByInventory.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEditedByInventory.HoverState.Parent = this.txtEditedByInventory;
             this.txtEditedByInventory.Location = new System.Drawing.Point(10, 38);
+            this.txtEditedByInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEditedByInventory.Name = "txtEditedByInventory";
             this.txtEditedByInventory.PasswordChar = '\0';
             this.txtEditedByInventory.PlaceholderText = "";
@@ -1891,7 +1918,7 @@ namespace PatientInformationSystemNew.forms
             this.ClientSize = new System.Drawing.Size(1754, 981);
             this.Controls.Add(this.tabControlUpdateHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUpdateHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update History";

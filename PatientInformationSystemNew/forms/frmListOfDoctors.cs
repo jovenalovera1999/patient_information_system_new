@@ -25,7 +25,6 @@ namespace PatientInformationSystemNew.forms
         void LoadForm()
         {
             doctor.LoadDoctors(this.gridDoctors);
-            this.gridDoctors.ClearSelection();
         }
 
         void GetDoctor()

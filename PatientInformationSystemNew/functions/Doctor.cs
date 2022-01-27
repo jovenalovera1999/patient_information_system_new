@@ -42,6 +42,7 @@ namespace PatientInformationSystemNew.functions
                         da.Fill(dt);
 
                         grid.DataSource = dt;
+                        grid.ClearSelection();
 
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Doctor ID";

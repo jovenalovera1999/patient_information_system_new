@@ -65,13 +65,13 @@ namespace PatientInformationSystemNew.forms
             this.datePrescriptions.Value = DateTime.Now;
         }
 
-        void ClearSelection()
+        void LoadFromVitalSignsToPaymentHistory()
         {
-            this.gridVitalSigns.ClearSelection();
-            this.gridSymptoms.ClearSelection();
-            this.gridDiagnosis.ClearSelection();
-            this.gridPrescriptions.ClearSelection();
-            this.gridPaymentHistory.ClearSelection();
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
+            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
         }
 
         void LoadForm()
@@ -79,13 +79,7 @@ namespace PatientInformationSystemNew.forms
             LoadAge();
             SetAllDateTimeToToday();
             LoadPatientDetails();
-
-            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
-            ClearSelection();
+            LoadFromVitalSignsToPaymentHistory();
         }
 
         void SelectVitalSigns()
@@ -138,8 +132,8 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPaymentHistory()
         {
-            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
-            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
+            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtReceiptNo.Text = this.gridPaymentHistory.SelectedCells[1].Value.ToString();
             this.txtTotalMedicalFee.Text = this.gridPaymentHistory.SelectedCells[2].Value.ToString();
@@ -291,8 +285,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewVitalSigns()
         {
-            this.gridVitalSigns.ClearSelection();
-
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
             this.txtTemperature.ResetText();
@@ -329,8 +321,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewDiagnosis()
         {
-            this.gridDiagnosis.ClearSelection();
-
             this.txtDiagnosis.ResetText();
             this.dateDiagnosis.Value = DateTime.Now;
 
@@ -355,8 +345,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewSymptoms()
         {
-            this.gridSymptoms.ClearSelection();
-
             this.txtSymptoms.ResetText();
             this.dateSymptoms.Value = DateTime.Now;
 
@@ -381,8 +369,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewPrescriptions()
         {
-            this.gridPrescriptions.ClearSelection();
-
             this.txtPrescriptions.ResetText();
 
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
@@ -425,7 +411,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-                this.gridVitalSigns.ClearSelection();
 
                 this.txtHeight.ResetText();
                 this.txtWeight.ResetText();
@@ -454,7 +439,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-                this.gridDiagnosis.ClearSelection();
 
                 this.txtDiagnosis.ResetText();
                 this.dateDiagnosis.Value = DateTime.Now;
@@ -479,7 +463,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Symptom successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-                this.gridSymptoms.ClearSelection();
 
                 this.txtSymptoms.ResetText();
                 this.dateSymptoms.Value = DateTime.Now;
@@ -505,7 +488,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-                this.gridPrescriptions.ClearSelection();
 
                 this.txtPrescriptions.ResetText();
                 this.datePrescriptions.Value = DateTime.Now;
@@ -521,7 +503,6 @@ namespace PatientInformationSystemNew.forms
         void CancelVitalSigns()
         {
             vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            this.gridVitalSigns.ClearSelection();
 
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
@@ -552,7 +533,6 @@ namespace PatientInformationSystemNew.forms
         void CancelDiagnosis()
         {
             diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            this.gridDiagnosis.ClearSelection();
 
             this.txtDiagnosis.ResetText();
             this.dateDiagnosis.Value = DateTime.Now;
@@ -571,7 +551,6 @@ namespace PatientInformationSystemNew.forms
         void CancelSymptoms()
         {
             symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-            this.gridSymptoms.ClearSelection();
 
             this.txtSymptoms.ResetText();
             this.dateSymptoms.Value = DateTime.Now;
@@ -590,7 +569,6 @@ namespace PatientInformationSystemNew.forms
         void CancelPrescriptions()
         {
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-            this.gridPrescriptions.ClearSelection();
 
             this.txtPrescriptions.ResetText();
             this.datePrescriptions.Value = DateTime.Now;
@@ -612,13 +590,8 @@ namespace PatientInformationSystemNew.forms
             if (patient.GetPatient(val.PatientPrimaryID))
             {
                 LoadPatientDetails();
+                LoadFromVitalSignsToPaymentHistory();
             }
-            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
-            ClearSelection();
         }
 
         void DoneSaving()
@@ -748,7 +721,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-                this.gridVitalSigns.ClearSelection();
 
                 this.txtHeight.ResetText();
                 this.txtWeight.ResetText();
@@ -797,7 +769,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-                this.gridDiagnosis.ClearSelection();
 
                 this.txtDiagnosis.ResetText();
                 this.dateDiagnosis.Value = DateTime.Now;
@@ -834,7 +805,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-                this.gridSymptoms.ClearSelection();
 
                 this.txtSymptoms.ResetText();
                 this.dateSymptoms.Value = DateTime.Now;
@@ -875,7 +845,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Prescription successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-                this.gridPrescriptions.ClearSelection();
 
                 this.txtPrescriptions.ResetText();
                 this.datePrescriptions.Value = DateTime.Now;
@@ -931,6 +900,8 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+
                     this.txtReceiptNo.ReadOnly = true;
                     this.txtTotalMedicalFee.ReadOnly = true;
                     this.cmbDiscount.Enabled = false;
@@ -942,9 +913,6 @@ namespace PatientInformationSystemNew.forms
                     this.txtTotalMedicalFee.TabStop = false;
                     this.cmbDiscount.TabStop = false;
                     this.txtAmount.TabStop = false;
-
-                    payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
-                    this.gridPaymentHistory.ClearSelection();
 
                     this.btnEditPrescriptions.Focus();
                 }
@@ -977,7 +945,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Vital signs successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-                this.gridVitalSigns.ClearSelection();
 
                 this.txtHeight.ResetText();
                 this.txtWeight.ResetText();
@@ -1026,7 +993,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Diagnosis successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-                this.gridDiagnosis.ClearSelection();
 
                 this.txtDiagnosis.ResetText();
                 this.dateDiagnosis.Value = DateTime.Now;
@@ -1063,7 +1029,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Symptom successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-                this.gridSymptoms.ClearSelection();
 
                 this.txtSymptoms.ResetText();
                 this.dateSymptoms.Value = DateTime.Now;
@@ -1101,7 +1066,6 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-                this.gridPrescriptions.ClearSelection();
 
                 this.txtPrescriptions.ResetText();
                 this.datePrescriptions.Value = DateTime.Now;

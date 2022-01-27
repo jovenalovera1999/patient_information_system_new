@@ -29,7 +29,6 @@ namespace PatientInformationSystemNew.forms
             payment.LoadPatientUnpaid(this.gridPaymentTransaction);
             this.cmbDiscount.Text = "None";
             this.btnSaveTransaction.Enabled = false;
-            this.lblTotalSalesToday.Text = val.CountTotalSalesInDay.ToString();
             this.txtReceiptNo.Focus();
         }
 
@@ -173,7 +172,6 @@ namespace PatientInformationSystemNew.forms
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                     payment.LoadPatientUnpaid(this.gridPaymentTransaction);
-                    this.lblTotalSalesToday.Text = val.CountTotalSalesInDay.ToString();
                     ResetAll();
                 }
                 else

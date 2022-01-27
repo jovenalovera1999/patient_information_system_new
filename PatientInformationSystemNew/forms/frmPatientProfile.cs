@@ -66,6 +66,15 @@ namespace PatientInformationSystemNew.forms
             this.datePrescriptions.Value = DateTime.Now;
         }
 
+        void LoadFromVitalSignsToPaymentHistory()
+        {
+            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
+            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
+            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
+            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
+            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+        }
+
         void LoadForm()
         {
             if (val.UserRole == "Doctor")
@@ -77,12 +86,7 @@ namespace PatientInformationSystemNew.forms
             LoadAge();
             SetAllDateTimeToToday();
             LoadPatientDetails();
-
-            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
+            LoadFromVitalSignsToPaymentHistory();
         }
 
         void SelectVitalSigns()
@@ -290,9 +294,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewVitalSigns()
         {
-            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
             this.txtTemperature.ResetText();
@@ -329,8 +330,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewDiagnosis()
         {
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
             this.txtDiagnosis.ResetText();
             this.dateDiagnosis.Value = DateTime.Now;
 
@@ -355,9 +354,6 @@ namespace PatientInformationSystemNew.forms
 
         void NewSymptoms()
         {
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             this.txtSymptoms.ResetText();
             this.dateSymptoms.Value = DateTime.Now;
 
@@ -382,11 +378,7 @@ namespace PatientInformationSystemNew.forms
 
         void NewPrescriptions()
         {
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             this.txtPrescriptions.ResetText();
-
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
             this.btnAddPrescriptions.Visible = true;
@@ -426,9 +418,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Vital signs successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
                 this.txtHeight.ResetText();
@@ -457,9 +446,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Diagnosis successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
                 diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
                 this.txtDiagnosis.ResetText();
@@ -483,9 +469,6 @@ namespace PatientInformationSystemNew.forms
                 this.dateSymptoms.Value.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
@@ -512,9 +495,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Prescription successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
                 this.txtPrescriptions.ResetText();
@@ -531,9 +511,6 @@ namespace PatientInformationSystemNew.forms
         void CancelVitalSigns()
         {
             vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-
-            this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
             this.txtHeight.ResetText();
             this.txtWeight.ResetText();
@@ -563,9 +540,6 @@ namespace PatientInformationSystemNew.forms
 
         void CancelDiagnosis()
         {
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
             this.txtDiagnosis.ResetText();
@@ -584,9 +558,6 @@ namespace PatientInformationSystemNew.forms
 
         void CancelSymptoms()
         {
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
             this.txtSymptoms.ResetText();
@@ -605,9 +576,6 @@ namespace PatientInformationSystemNew.forms
 
         void CancelPrescriptions()
         {
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
             prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
             this.txtPrescriptions.ResetText();
@@ -630,12 +598,8 @@ namespace PatientInformationSystemNew.forms
             if (patient.GetPatient(val.PatientPrimaryID))
             {
                 LoadPatientDetails();
+                LoadFromVitalSignsToPaymentHistory();
             }
-            vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
-            diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
-            symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
-            prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
-            payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
         }
 
         void DoneSaving()
@@ -764,9 +728,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Vital signs successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
                 this.txtHeight.ResetText();
@@ -815,9 +776,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Diagnosis successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
                 diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
                 this.txtDiagnosis.ResetText();
@@ -853,9 +811,6 @@ namespace PatientInformationSystemNew.forms
                 date.ToString("D"), this.dateSymptoms.Value.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
@@ -896,9 +851,6 @@ namespace PatientInformationSystemNew.forms
                 date.ToString("D"), this.datePrescriptions.Value.ToString("D"))))
             {
                 MessageBox.Show("Prescription successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 
@@ -956,8 +908,7 @@ namespace PatientInformationSystemNew.forms
                 {
                     MessageBox.Show("Payment successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                    this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+                    payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
 
                     this.txtReceiptNo.ReadOnly = true;
                     this.txtTotalMedicalFee.ReadOnly = true;
@@ -970,8 +921,6 @@ namespace PatientInformationSystemNew.forms
                     this.txtTotalMedicalFee.TabStop = false;
                     this.cmbDiscount.TabStop = false;
                     this.txtAmount.TabStop = false;
-
-                    payment.LoadPaymentHistory(val.PatientPrimaryID, this.gridPaymentHistory);
 
                     this.btnBackInPaymentHistory.Focus();
                 }
@@ -1002,9 +951,6 @@ namespace PatientInformationSystemNew.forms
                 date.ToString("D"))))
             {
                 MessageBox.Show("Vital signs successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 vital_signs.LoadVitalSigns(val.PatientPrimaryID, this.gridVitalSigns);
 
@@ -1054,9 +1000,6 @@ namespace PatientInformationSystemNew.forms
             {
                 MessageBox.Show("Diagnosis successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-
                 diagnosis.LoadDiagnosis(val.PatientPrimaryID, this.gridDiagnosis);
 
                 this.txtDiagnosis.ResetText();
@@ -1092,9 +1035,6 @@ namespace PatientInformationSystemNew.forms
                 date.ToString("D"))))
             {
                 MessageBox.Show("Symptom successfully removed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 symptoms.LoadSymptoms(val.PatientPrimaryID, this.gridSymptoms);
 
@@ -1132,9 +1072,6 @@ namespace PatientInformationSystemNew.forms
                 date.ToString("D"))))
             {
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-                this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                 prescriptions.LoadPrescriptions(val.PatientPrimaryID, this.gridPrescriptions);
 

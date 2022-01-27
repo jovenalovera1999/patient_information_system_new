@@ -46,12 +46,6 @@ namespace PatientInformationSystemNew.forms
             LoadFormByRole();
         }
 
-        void ResetGridColor()
-        {
-            this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
-        }
-
         void ResetTextbox()
         {
             this.txtPatientID.ResetText();
@@ -66,7 +60,6 @@ namespace PatientInformationSystemNew.forms
 
         void ReloadForm()
         {
-            ResetGridColor();
             ResetTextbox();
             DisabledButtons();
             LoadFormByRole();
@@ -156,13 +149,6 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void CancelPatientSuccess()
-        {
-            MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-            ReloadForm();
-        }
-
         void CancelPatient()
         {
             if (MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
@@ -174,7 +160,8 @@ namespace PatientInformationSystemNew.forms
                 {
                     if (patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[2].Value.ToString()))
                     {
-                        CancelPatientSuccess();
+                        MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ReloadForm();
                     }
                     else
                     {
@@ -183,7 +170,8 @@ namespace PatientInformationSystemNew.forms
                 }
                 else if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[2].Value.ToString()))
                 {
-                    CancelPatientSuccess();
+                    MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReloadForm();
                 }
                 else
                 {
