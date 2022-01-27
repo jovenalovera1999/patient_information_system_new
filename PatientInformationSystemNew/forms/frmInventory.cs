@@ -993,5 +993,35 @@ namespace PatientInformationSystemNew.forms
                 this.txtSupplyNameManageSupplies.Focus();
             }
         }
+
+        private void txtItemUsed_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9
+            if ((e.KeyChar < 48 || e.KeyChar > 57))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtSupplyQuantityManageSupplies_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9
+            if ((e.KeyChar < 48 || e.KeyChar > 57))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtSupplyQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9
+            if ((e.KeyChar < 48 || e.KeyChar > 57))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

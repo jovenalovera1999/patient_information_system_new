@@ -29,7 +29,7 @@ telephone_number, email, role)
 VALUES(
     AES_ENCRYPT('99999999999', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('admin', 'j0v3ncut3gw4p0per0jok3l4ang'),
-    AES_ENCRYPT('143161096', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('admin', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Joven Joshua', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Celiz', 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT('Alovera', 'j0v3ncut3gw4p0per0jok3l4ang'),

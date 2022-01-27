@@ -60,15 +60,14 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.ForeColor = System.Drawing.Color.Black;
             this.txtPatientID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.HoverState.Parent = this.txtPatientID;
-            this.txtPatientID.Location = new System.Drawing.Point(26, 60);
-            this.txtPatientID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPatientID.Location = new System.Drawing.Point(15, 43);
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.PasswordChar = '\0';
             this.txtPatientID.PlaceholderText = "";
             this.txtPatientID.ReadOnly = true;
             this.txtPatientID.SelectedText = "";
             this.txtPatientID.ShadowDecoration.Parent = this.txtPatientID;
-            this.txtPatientID.Size = new System.Drawing.Size(446, 45);
+            this.txtPatientID.Size = new System.Drawing.Size(392, 37);
             this.txtPatientID.TabIndex = 24;
             this.txtPatientID.TabStop = false;
             // 
@@ -77,9 +76,10 @@ namespace PatientInformationSystemNew.forms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(21, 19);
+            this.label8.Location = new System.Drawing.Point(11, 9);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 28);
+            this.label8.Size = new System.Drawing.Size(79, 21);
             this.label8.TabIndex = 23;
             this.label8.Text = "Patient ID:";
             // 
@@ -118,7 +118,8 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPatients.EnableHeadersVisualStyles = false;
             this.gridPatients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridPatients.Location = new System.Drawing.Point(0, 208);
+            this.gridPatients.Location = new System.Drawing.Point(0, 140);
+            this.gridPatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridPatients.Name = "gridPatients";
             this.gridPatients.ReadOnly = true;
             this.gridPatients.RowHeadersVisible = false;
@@ -126,7 +127,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridPatients.RowTemplate.Height = 35;
             this.gridPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPatients.Size = new System.Drawing.Size(1830, 750);
+            this.gridPatients.Size = new System.Drawing.Size(1754, 841);
             this.gridPatients.TabIndex = 31;
             this.gridPatients.TabStop = false;
             this.gridPatients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -176,10 +177,11 @@ namespace PatientInformationSystemNew.forms
             this.btnPaymentTransaction.HoverState.Parent = this.btnPaymentTransaction;
             this.btnPaymentTransaction.Image = global::PatientInformationSystemNew.Properties.Resources.payment_icon;
             this.btnPaymentTransaction.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPaymentTransaction.Location = new System.Drawing.Point(169, 121);
+            this.btnPaymentTransaction.Location = new System.Drawing.Point(203, 92);
+            this.btnPaymentTransaction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPaymentTransaction.Name = "btnPaymentTransaction";
             this.btnPaymentTransaction.ShadowDecoration.Parent = this.btnPaymentTransaction;
-            this.btnPaymentTransaction.Size = new System.Drawing.Size(246, 54);
+            this.btnPaymentTransaction.Size = new System.Drawing.Size(184, 44);
             this.btnPaymentTransaction.TabIndex = 30;
             this.btnPaymentTransaction.TabStop = false;
             this.btnPaymentTransaction.Text = "Payment Transaction";
@@ -208,10 +210,11 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPatient.HoverState.Parent = this.btnAddPatient;
             this.btnAddPatient.Image = global::PatientInformationSystemNew.Properties.Resources.patient_icon;
             this.btnAddPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAddPatient.Location = new System.Drawing.Point(431, 121);
+            this.btnAddPatient.Location = new System.Drawing.Point(391, 92);
+            this.btnAddPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.ShadowDecoration.Parent = this.btnAddPatient;
-            this.btnAddPatient.Size = new System.Drawing.Size(182, 54);
+            this.btnAddPatient.Size = new System.Drawing.Size(184, 44);
             this.btnAddPatient.TabIndex = 29;
             this.btnAddPatient.TabStop = false;
             this.btnAddPatient.Text = "Add Patient";
@@ -241,10 +244,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.HoverState.Parent = this.btnSelect;
             this.btnSelect.Image = global::PatientInformationSystemNew.Properties.Resources.select_icon;
             this.btnSelect.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSelect.Location = new System.Drawing.Point(26, 121);
+            this.btnSelect.Location = new System.Drawing.Point(15, 92);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;
-            this.btnSelect.Size = new System.Drawing.Size(128, 54);
+            this.btnSelect.Size = new System.Drawing.Size(184, 44);
             this.btnSelect.TabIndex = 28;
             this.btnSelect.TabStop = false;
             this.btnSelect.Text = "Select";
@@ -267,14 +271,13 @@ namespace PatientInformationSystemNew.forms
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtSearch.HoverState.Parent = this.txtSearch;
-            this.txtSearch.Location = new System.Drawing.Point(1362, 60);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Location = new System.Drawing.Point(1350, 43);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectedText = "";
             this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
-            this.txtSearch.Size = new System.Drawing.Size(446, 45);
+            this.txtSearch.Size = new System.Drawing.Size(392, 37);
             this.txtSearch.TabIndex = 33;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -284,18 +287,19 @@ namespace PatientInformationSystemNew.forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1734, 19);
+            this.label1.Location = new System.Drawing.Point(1682, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 28);
+            this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 32;
             this.label1.Text = "Search:";
             // 
             // frmPatients
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1830, 958);
+            this.ClientSize = new System.Drawing.Size(1754, 981);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridPatients);
@@ -305,6 +309,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.txtPatientID);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmPatients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patient";
