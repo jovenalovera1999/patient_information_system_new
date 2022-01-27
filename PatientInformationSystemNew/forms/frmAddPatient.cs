@@ -80,12 +80,14 @@ namespace PatientInformationSystemNew.forms
 
             this.btnRemoveSymptom.Enabled = false;
             this.dateBirthday.Value = DateTime.Now.Date;
+            this.gridAddPatient.ClearSelection();
         }
 
         void AddSymptom()
         {
             int n = this.gridAddPatient.Rows.Add();
             this.gridAddPatient.Rows[n].Cells[0].Value = this.txtSymptoms.Text;
+            this.gridAddPatient.ClearSelection();
             this.txtSymptoms.ResetText();
             this.txtSymptoms.Focus();
         }
@@ -96,8 +98,7 @@ namespace PatientInformationSystemNew.forms
             {
                 this.gridAddPatient.Rows.Remove(row);
             }
-            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.White;
-            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+            this.gridAddPatient.ClearSelection();
             this.txtSymptoms.ResetText();
             this.txtSymptoms.Focus();
             this.btnRemoveSymptom.Enabled = false;
@@ -165,6 +166,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.ResetText();
             this.cmbDoctorName.Text = null;
             this.gridAddPatient.Rows.Clear();
+            this.gridAddPatient.ClearSelection();
             AutoGenNum();
             this.txtFirstName.Focus();
         }

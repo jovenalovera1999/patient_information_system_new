@@ -29,9 +29,9 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbAge = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbGender = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbAge.ItemHeight = 30;
             this.cmbAge.ItemsAppearance.Parent = this.cmbAge;
             this.cmbAge.Location = new System.Drawing.Point(414, 416);
-            this.cmbAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbAge.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAge.Name = "cmbAge";
             this.cmbAge.ShadowDecoration.Parent = this.cmbAge;
             this.cmbAge.Size = new System.Drawing.Size(98, 36);
@@ -125,7 +125,7 @@ namespace PatientInformationSystemNew.forms
             "Female"});
             this.cmbGender.ItemsAppearance.Parent = this.cmbGender;
             this.cmbGender.Location = new System.Drawing.Point(414, 335);
-            this.cmbGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGender.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.ShadowDecoration.Parent = this.cmbGender;
             this.cmbGender.Size = new System.Drawing.Size(98, 36);
@@ -173,6 +173,7 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddleName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtMiddleName.HoverState.Parent = this.txtMiddleName;
             this.txtMiddleName.Location = new System.Drawing.Point(414, 174);
+            this.txtMiddleName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.PasswordChar = '\0';
             this.txtMiddleName.PlaceholderText = "";
@@ -211,6 +212,7 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtFirstName.HoverState.Parent = this.txtFirstName;
             this.txtFirstName.Location = new System.Drawing.Point(414, 93);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.PlaceholderText = "";
@@ -261,6 +263,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtAddress.HoverState.Parent = this.txtAddress;
             this.txtAddress.Location = new System.Drawing.Point(414, 496);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
@@ -299,6 +302,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEmail.HoverState.Parent = this.txtEmail;
             this.txtEmail.Location = new System.Drawing.Point(812, 254);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "";
@@ -337,6 +341,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTelephoneNumber.HoverState.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Location = new System.Drawing.Point(812, 175);
+            this.txtTelephoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTelephoneNumber.Name = "txtTelephoneNumber";
             this.txtTelephoneNumber.PasswordChar = '\0';
             this.txtTelephoneNumber.PlaceholderText = "";
@@ -376,6 +381,7 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtCellphoneNumber.HoverState.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Location = new System.Drawing.Point(812, 93);
+            this.txtCellphoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCellphoneNumber.Name = "txtCellphoneNumber";
             this.txtCellphoneNumber.PasswordChar = '\0';
             this.txtCellphoneNumber.PlaceholderText = "";
@@ -427,6 +433,7 @@ namespace PatientInformationSystemNew.forms
             this.txtWeight.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtWeight.HoverState.Parent = this.txtWeight;
             this.txtWeight.Location = new System.Drawing.Point(812, 462);
+            this.txtWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.PasswordChar = '\0';
             this.txtWeight.PlaceholderText = "";
@@ -466,6 +473,7 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtHeight.HoverState.Parent = this.txtHeight;
             this.txtHeight.Location = new System.Drawing.Point(812, 381);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.PasswordChar = '\0';
             this.txtHeight.PlaceholderText = "";
@@ -517,6 +525,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTemperature.HoverState.Parent = this.txtTemperature;
             this.txtTemperature.Location = new System.Drawing.Point(812, 543);
+            this.txtTemperature.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTemperature.Name = "txtTemperature";
             this.txtTemperature.PasswordChar = '\0';
             this.txtTemperature.PlaceholderText = "";
@@ -556,6 +565,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPulseRate.HoverState.Parent = this.txtPulseRate;
             this.txtPulseRate.Location = new System.Drawing.Point(812, 624);
+            this.txtPulseRate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPulseRate.Name = "txtPulseRate";
             this.txtPulseRate.PasswordChar = '\0';
             this.txtPulseRate.PlaceholderText = "";
@@ -607,38 +617,38 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.AllowUserToDeleteRows = false;
             this.gridAddPatient.AllowUserToResizeColumns = false;
             this.gridAddPatient.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.gridAddPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridAddPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridAddPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridAddPatient.BackgroundColor = System.Drawing.Color.White;
             this.gridAddPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridAddPatient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridAddPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAddPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridAddPatient.ColumnHeadersHeight = 40;
             this.gridAddPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridAddPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmSymptoms});
             this.gridAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAddPatient.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAddPatient.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridAddPatient.EnableHeadersVisualStyles = false;
             this.gridAddPatient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridAddPatient.Location = new System.Drawing.Point(1209, 350);
-            this.gridAddPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridAddPatient.Margin = new System.Windows.Forms.Padding(2);
             this.gridAddPatient.Name = "gridAddPatient";
             this.gridAddPatient.ReadOnly = true;
             this.gridAddPatient.RowHeadersVisible = false;
@@ -702,7 +712,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveSymptom.HoverState.Parent = this.btnRemoveSymptom;
             this.btnRemoveSymptom.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRemoveSymptom.Location = new System.Drawing.Point(1375, 302);
-            this.btnRemoveSymptom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveSymptom.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveSymptom.Name = "btnRemoveSymptom";
             this.btnRemoveSymptom.ShadowDecoration.Parent = this.btnRemoveSymptom;
             this.btnRemoveSymptom.Size = new System.Drawing.Size(112, 44);
@@ -735,7 +745,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddSymptom.HoverState.Parent = this.btnAddSymptom;
             this.btnAddSymptom.ImageSize = new System.Drawing.Size(30, 30);
             this.btnAddSymptom.Location = new System.Drawing.Point(1491, 302);
-            this.btnAddSymptom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddSymptom.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddSymptom.Name = "btnAddSymptom";
             this.btnAddSymptom.ShadowDecoration.Parent = this.btnAddSymptom;
             this.btnAddSymptom.Size = new System.Drawing.Size(110, 44);
@@ -762,6 +772,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSymptoms.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtSymptoms.HoverState.Parent = this.txtSymptoms;
             this.txtSymptoms.Location = new System.Drawing.Point(1209, 254);
+            this.txtSymptoms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSymptoms.Name = "txtSymptoms";
             this.txtSymptoms.PasswordChar = '\0';
             this.txtSymptoms.PlaceholderText = "";
@@ -813,6 +824,7 @@ namespace PatientInformationSystemNew.forms
             this.txtLastName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtLastName.HoverState.Parent = this.txtLastName;
             this.txtLastName.Location = new System.Drawing.Point(414, 254);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PasswordChar = '\0';
             this.txtLastName.PlaceholderText = "";
@@ -850,7 +862,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbDoctorName.ItemHeight = 30;
             this.cmbDoctorName.ItemsAppearance.Parent = this.cmbDoctorName;
             this.cmbDoctorName.Location = new System.Drawing.Point(1209, 93);
-            this.cmbDoctorName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDoctorName.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDoctorName.Name = "cmbDoctorName";
             this.cmbDoctorName.ShadowDecoration.Parent = this.cmbDoctorName;
             this.cmbDoctorName.Size = new System.Drawing.Size(392, 36);
@@ -880,7 +892,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
             this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
             this.btnBack.Location = new System.Drawing.Point(1608, 920);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(135, 50);
@@ -913,7 +925,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPatient.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnAddPatient.ImageSize = new System.Drawing.Size(30, 30);
             this.btnAddPatient.Location = new System.Drawing.Point(1469, 920);
-            this.btnAddPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddPatient.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.ShadowDecoration.Parent = this.btnAddPatient;
             this.btnAddPatient.Size = new System.Drawing.Size(135, 50);
@@ -938,7 +950,7 @@ namespace PatientInformationSystemNew.forms
             this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
             this.dateBirthday.HoverState.Parent = this.dateBirthday;
             this.dateBirthday.Location = new System.Drawing.Point(414, 576);
-            this.dateBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateBirthday.Name = "dateBirthday";
@@ -977,6 +989,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.HoverState.Parent = this.txtPatientID;
             this.txtPatientID.Location = new System.Drawing.Point(16, 93);
+            this.txtPatientID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPatientID.Name = "txtPatientID";
             this.txtPatientID.PasswordChar = '\0';
             this.txtPatientID.PlaceholderText = "";
@@ -1017,6 +1030,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtBloodPressure.HoverState.Parent = this.txtBloodPressure;
             this.txtBloodPressure.Location = new System.Drawing.Point(812, 705);
+            this.txtBloodPressure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBloodPressure.Name = "txtBloodPressure";
             this.txtBloodPressure.PasswordChar = '\0';
             this.txtBloodPressure.PlaceholderText = "";
@@ -1091,7 +1105,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddPatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Patient";
