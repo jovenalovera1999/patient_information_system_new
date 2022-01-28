@@ -306,7 +306,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSpecialization.ForeColor = System.Drawing.Color.Black;
             this.txtSpecialization.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtSpecialization.HoverState.Parent = this.txtSpecialization;
-            this.txtSpecialization.Location = new System.Drawing.Point(1012, 339);
+            this.txtSpecialization.Location = new System.Drawing.Point(1012, 406);
             this.txtSpecialization.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.PasswordChar = '\0';
@@ -334,7 +334,7 @@ namespace PatientInformationSystemNew.forms
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(1006, 293);
+            this.label20.Location = new System.Drawing.Point(1006, 360);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(181, 37);

@@ -90,6 +90,7 @@ namespace PatientInformationSystemNew.forms
             this.txtUserID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtUserID.HoverState.Parent = this.txtUserID;
             this.txtUserID.Location = new System.Drawing.Point(199, 89);
+            this.txtUserID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.PasswordChar = '\0';
             this.txtUserID.PlaceholderText = "";
@@ -127,7 +128,8 @@ namespace PatientInformationSystemNew.forms
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtUsername.HoverState.Parent = this.txtUsername;
-            this.txtUsername.Location = new System.Drawing.Point(199, 215);
+            this.txtUsername.Location = new System.Drawing.Point(199, 250);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "";
@@ -141,7 +143,7 @@ namespace PatientInformationSystemNew.forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(195, 181);
+            this.label1.Location = new System.Drawing.Point(195, 216);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 21);
@@ -165,7 +167,8 @@ namespace PatientInformationSystemNew.forms
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPassword.HoverState.Parent = this.txtPassword;
-            this.txtPassword.Location = new System.Drawing.Point(199, 296);
+            this.txtPassword.Location = new System.Drawing.Point(199, 328);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "";
@@ -179,7 +182,7 @@ namespace PatientInformationSystemNew.forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(195, 263);
+            this.label2.Location = new System.Drawing.Point(195, 295);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 21);
@@ -203,7 +206,7 @@ namespace PatientInformationSystemNew.forms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(193, 137);
+            this.label5.Location = new System.Drawing.Point(193, 172);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 37);
@@ -240,6 +243,7 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddlename.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtMiddlename.HoverState.Parent = this.txtMiddlename;
             this.txtMiddlename.Location = new System.Drawing.Point(597, 170);
+            this.txtMiddlename.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMiddlename.Name = "txtMiddlename";
             this.txtMiddlename.PasswordChar = '\0';
             this.txtMiddlename.PlaceholderText = "";
@@ -278,6 +282,7 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstname.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtFirstname.HoverState.Parent = this.txtFirstname;
             this.txtFirstname.Location = new System.Drawing.Point(597, 89);
+            this.txtFirstname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.PasswordChar = '\0';
             this.txtFirstname.PlaceholderText = "";
@@ -342,7 +347,7 @@ namespace PatientInformationSystemNew.forms
             "Female"});
             this.cmbGender.ItemsAppearance.Parent = this.cmbGender;
             this.cmbGender.Location = new System.Drawing.Point(597, 328);
-            this.cmbGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGender.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.ShadowDecoration.Parent = this.cmbGender;
             this.cmbGender.Size = new System.Drawing.Size(98, 36);
@@ -365,7 +370,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbAge.ItemHeight = 30;
             this.cmbAge.ItemsAppearance.Parent = this.cmbAge;
             this.cmbAge.Location = new System.Drawing.Point(597, 410);
-            this.cmbAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbAge.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAge.Name = "cmbAge";
             this.cmbAge.ShadowDecoration.Parent = this.cmbAge;
             this.cmbAge.Size = new System.Drawing.Size(98, 36);
@@ -389,6 +394,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtAddress.HoverState.Parent = this.txtAddress;
             this.txtAddress.Location = new System.Drawing.Point(597, 491);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
@@ -427,6 +433,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTelephoneNumber.HoverState.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Location = new System.Drawing.Point(995, 170);
+            this.txtTelephoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTelephoneNumber.Name = "txtTelephoneNumber";
             this.txtTelephoneNumber.PasswordChar = '\0';
             this.txtTelephoneNumber.PlaceholderText = "";
@@ -466,6 +473,7 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtCellphoneNumber.HoverState.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Location = new System.Drawing.Point(995, 89);
+            this.txtCellphoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCellphoneNumber.Name = "txtCellphoneNumber";
             this.txtCellphoneNumber.PasswordChar = '\0';
             this.txtCellphoneNumber.PlaceholderText = "";
@@ -517,6 +525,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEmail.HoverState.Parent = this.txtEmail;
             this.txtEmail.Location = new System.Drawing.Point(995, 250);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "";
@@ -570,7 +579,7 @@ namespace PatientInformationSystemNew.forms
             "Medical Staff"});
             this.cmbRole.ItemsAppearance.Parent = this.cmbRole;
             this.cmbRole.Location = new System.Drawing.Point(1393, 89);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.ShadowDecoration.Parent = this.cmbRole;
             this.cmbRole.Size = new System.Drawing.Size(350, 36);
@@ -606,6 +615,7 @@ namespace PatientInformationSystemNew.forms
             this.txtLastname.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtLastname.HoverState.Parent = this.txtLastname;
             this.txtLastname.Location = new System.Drawing.Point(597, 250);
+            this.txtLastname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.PasswordChar = '\0';
             this.txtLastname.PlaceholderText = "";
@@ -634,7 +644,7 @@ namespace PatientInformationSystemNew.forms
             this.picProfilePicture.FillColor = System.Drawing.Color.Transparent;
             this.picProfilePicture.ImageRotate = 0F;
             this.picProfilePicture.Location = new System.Drawing.Point(11, 11);
-            this.picProfilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.picProfilePicture.Name = "picProfilePicture";
             this.picProfilePicture.ShadowDecoration.Parent = this.picProfilePicture;
             this.picProfilePicture.Size = new System.Drawing.Size(178, 184);
@@ -666,7 +676,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCreate.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnCreate.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCreate.Location = new System.Drawing.Point(1608, 920);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.ShadowDecoration.Parent = this.btnCreate;
             this.btnCreate.Size = new System.Drawing.Size(135, 50);
@@ -693,6 +703,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSpecialization.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtSpecialization.HoverState.Parent = this.txtSpecialization;
             this.txtSpecialization.Location = new System.Drawing.Point(1393, 250);
+            this.txtSpecialization.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.PasswordChar = '\0';
             this.txtSpecialization.PlaceholderText = "";
@@ -741,7 +752,7 @@ namespace PatientInformationSystemNew.forms
             this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
             this.dateBirthday.HoverState.Parent = this.dateBirthday;
             this.dateBirthday.Location = new System.Drawing.Point(597, 570);
-            this.dateBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateBirthday.Name = "dateBirthday";
@@ -786,7 +797,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.Image = global::PatientInformationSystemNew.Properties.Resources.delete_icon;
             this.btnRemovePhoto.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRemovePhoto.Location = new System.Drawing.Point(102, 200);
-            this.btnRemovePhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemovePhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemovePhoto.Name = "btnRemovePhoto";
             this.btnRemovePhoto.ShadowDecoration.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Size = new System.Drawing.Size(87, 85);
@@ -819,7 +830,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.Image = global::PatientInformationSystemNew.Properties.Resources.upload_photo_icon;
             this.btnUploadPhoto.ImageSize = new System.Drawing.Size(30, 30);
             this.btnUploadPhoto.Location = new System.Drawing.Point(11, 199);
-            this.btnUploadPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUploadPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnUploadPhoto.Name = "btnUploadPhoto";
             this.btnUploadPhoto.ShadowDecoration.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Size = new System.Drawing.Size(87, 85);
@@ -875,7 +886,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";

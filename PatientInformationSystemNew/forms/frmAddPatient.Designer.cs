@@ -432,7 +432,7 @@ namespace PatientInformationSystemNew.forms
             this.txtWeight.ForeColor = System.Drawing.Color.Black;
             this.txtWeight.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtWeight.HoverState.Parent = this.txtWeight;
-            this.txtWeight.Location = new System.Drawing.Point(812, 462);
+            this.txtWeight.Location = new System.Drawing.Point(812, 497);
             this.txtWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.PasswordChar = '\0';
@@ -448,7 +448,7 @@ namespace PatientInformationSystemNew.forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(808, 429);
+            this.label2.Location = new System.Drawing.Point(808, 464);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 21);
@@ -472,7 +472,7 @@ namespace PatientInformationSystemNew.forms
             this.txtHeight.ForeColor = System.Drawing.Color.Black;
             this.txtHeight.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtHeight.HoverState.Parent = this.txtHeight;
-            this.txtHeight.Location = new System.Drawing.Point(812, 381);
+            this.txtHeight.Location = new System.Drawing.Point(812, 416);
             this.txtHeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.PasswordChar = '\0';
@@ -488,7 +488,7 @@ namespace PatientInformationSystemNew.forms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(808, 348);
+            this.label3.Location = new System.Drawing.Point(808, 383);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 21);
@@ -500,7 +500,7 @@ namespace PatientInformationSystemNew.forms
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(806, 302);
+            this.label4.Location = new System.Drawing.Point(806, 337);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 37);
@@ -524,7 +524,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTemperature.ForeColor = System.Drawing.Color.Black;
             this.txtTemperature.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTemperature.HoverState.Parent = this.txtTemperature;
-            this.txtTemperature.Location = new System.Drawing.Point(812, 543);
+            this.txtTemperature.Location = new System.Drawing.Point(812, 578);
             this.txtTemperature.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTemperature.Name = "txtTemperature";
             this.txtTemperature.PasswordChar = '\0';
@@ -540,7 +540,7 @@ namespace PatientInformationSystemNew.forms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(808, 509);
+            this.label5.Location = new System.Drawing.Point(808, 544);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 21);
@@ -564,7 +564,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPulseRate.ForeColor = System.Drawing.Color.Black;
             this.txtPulseRate.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPulseRate.HoverState.Parent = this.txtPulseRate;
-            this.txtPulseRate.Location = new System.Drawing.Point(812, 624);
+            this.txtPulseRate.Location = new System.Drawing.Point(812, 659);
             this.txtPulseRate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPulseRate.Name = "txtPulseRate";
             this.txtPulseRate.PasswordChar = '\0';
@@ -580,7 +580,7 @@ namespace PatientInformationSystemNew.forms
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(808, 591);
+            this.label11.Location = new System.Drawing.Point(808, 626);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 21);
@@ -656,7 +656,7 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridAddPatient.RowTemplate.Height = 35;
             this.gridAddPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridAddPatient.Size = new System.Drawing.Size(392, 392);
+            this.gridAddPatient.Size = new System.Drawing.Size(392, 427);
             this.gridAddPatient.TabIndex = 20;
             this.gridAddPatient.TabStop = false;
             this.gridAddPatient.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -1029,7 +1029,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBloodPressure.ForeColor = System.Drawing.Color.Black;
             this.txtBloodPressure.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtBloodPressure.HoverState.Parent = this.txtBloodPressure;
-            this.txtBloodPressure.Location = new System.Drawing.Point(812, 705);
+            this.txtBloodPressure.Location = new System.Drawing.Point(812, 740);
             this.txtBloodPressure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBloodPressure.Name = "txtBloodPressure";
             this.txtBloodPressure.PasswordChar = '\0';
@@ -1045,7 +1045,7 @@ namespace PatientInformationSystemNew.forms
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(808, 672);
+            this.label22.Location = new System.Drawing.Point(808, 707);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(117, 21);

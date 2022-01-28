@@ -240,6 +240,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
             parameters.Add(new ReportParameter("pDate", DateTime.Now.Date.ToString("MM/dd/yy")));
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescription.Text));
+            parameters.Add(new ReportParameter("pMedicalPersonnelID", val.UserID));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
         }

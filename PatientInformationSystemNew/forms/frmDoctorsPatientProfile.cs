@@ -176,6 +176,8 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.TabStop = true;
             this.txtTelephoneNumber.TabStop = true;
             this.txtEmail.TabStop = true;
+
+            this.txtFirstName.Focus();
         }
 
         void EditVitalSigns()
@@ -1204,15 +1206,17 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void BackToPatients()
+        void BackToDoctorProfile()
         {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
+            forms.frmDoctorProfile frmDoctorProfile = new forms.frmDoctorProfile();
+            frmDoctorProfile.TopLevel = false;
             forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
             Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
+            pnlDashboardBody.Controls.Add(frmDoctorProfile);
+            frmDoctorProfile.Dock = DockStyle.Fill;
+            frmDoctorProfile.Show();
+            TabControl tabControlDoctor = (TabControl)frmDoctorProfile.Controls["tabControlDoctor"];
+            tabControlDoctor.SelectedIndex = 1;
             this.Close();
         }
 
@@ -1697,37 +1701,37 @@ namespace PatientInformationSystemNew.forms
 
         private void btnBackInPeronalInfo_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
 
         private void btnBackVitalSigns_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
 
         private void btnBackInDiagnosis_Click_1(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
 
         private void btnBackInSymptoms_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
 
         private void btnBackInPrintPrescription_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
 
         private void btnBackInPrescriptions_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
 
         private void btnBackInPaymentHistory_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            BackToDoctorProfile();
         }
     }
 }

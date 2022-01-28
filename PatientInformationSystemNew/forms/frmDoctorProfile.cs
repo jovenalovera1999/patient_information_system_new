@@ -219,11 +219,11 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            string first_name = this.gridPatients.SelectedCells[1].Value.ToString();
-            string middle_name = this.gridPatients.SelectedCells[2].Value.ToString();
-            string last_name = this.gridPatients.SelectedCells[3].Value.ToString();
+            string first_name = this.gridPatients.SelectedCells[2].Value.ToString();
+            string middle_name = this.gridPatients.SelectedCells[3].Value.ToString();
+            string last_name = this.gridPatients.SelectedCells[4].Value.ToString();
 
-            this.txtPatientID.Text = this.gridPatients.SelectedCells[0].Value.ToString();
+            this.txtPatientID.Text = this.gridPatients.SelectedCells[1].Value.ToString();
             if (String.IsNullOrWhiteSpace(middle_name))
             {
                 this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);

@@ -29,9 +29,9 @@ namespace PatientInformationSystemNew.forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalAmountPaid = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAmount = new Guna.UI2.WinForms.Guna2TextBox();
@@ -75,7 +75,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalAmountPaid.ForeColor = System.Drawing.Color.Black;
             this.txtTotalAmountPaid.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTotalAmountPaid.HoverState.Parent = this.txtTotalAmountPaid;
-            this.txtTotalAmountPaid.Location = new System.Drawing.Point(789, 534);
+            this.txtTotalAmountPaid.Location = new System.Drawing.Point(918, 534);
             this.txtTotalAmountPaid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalAmountPaid.Name = "txtTotalAmountPaid";
             this.txtTotalAmountPaid.PasswordChar = '\0';
@@ -91,7 +91,7 @@ namespace PatientInformationSystemNew.forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(785, 500);
+            this.label2.Location = new System.Drawing.Point(914, 500);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 21);
@@ -115,7 +115,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.ForeColor = System.Drawing.Color.Black;
             this.txtAmount.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtAmount.HoverState.Parent = this.txtAmount;
-            this.txtAmount.Location = new System.Drawing.Point(789, 454);
+            this.txtAmount.Location = new System.Drawing.Point(918, 454);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.PasswordChar = '\0';
@@ -130,7 +130,7 @@ namespace PatientInformationSystemNew.forms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(785, 419);
+            this.label3.Location = new System.Drawing.Point(914, 419);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 21);
@@ -154,7 +154,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalMedicalFee.ForeColor = System.Drawing.Color.Black;
             this.txtTotalMedicalFee.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTotalMedicalFee.HoverState.Parent = this.txtTotalMedicalFee;
-            this.txtTotalMedicalFee.Location = new System.Drawing.Point(789, 293);
+            this.txtTotalMedicalFee.Location = new System.Drawing.Point(918, 293);
             this.txtTotalMedicalFee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalMedicalFee.Name = "txtTotalMedicalFee";
             this.txtTotalMedicalFee.PasswordChar = '\0';
@@ -169,7 +169,7 @@ namespace PatientInformationSystemNew.forms
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(785, 260);
+            this.label4.Location = new System.Drawing.Point(914, 260);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 21);
@@ -181,7 +181,7 @@ namespace PatientInformationSystemNew.forms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(783, 135);
+            this.label5.Location = new System.Drawing.Point(912, 135);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(265, 37);
@@ -209,7 +209,7 @@ namespace PatientInformationSystemNew.forms
             "Senior Citizen",
             "VIP"});
             this.cmbDiscount.ItemsAppearance.Parent = this.cmbDiscount;
-            this.cmbDiscount.Location = new System.Drawing.Point(789, 374);
+            this.cmbDiscount.Location = new System.Drawing.Point(918, 374);
             this.cmbDiscount.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDiscount.Name = "cmbDiscount";
             this.cmbDiscount.ShadowDecoration.Parent = this.cmbDiscount;
@@ -221,7 +221,7 @@ namespace PatientInformationSystemNew.forms
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(785, 340);
+            this.label11.Location = new System.Drawing.Point(914, 340);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 21);
@@ -246,7 +246,7 @@ namespace PatientInformationSystemNew.forms
             this.txtChange.ForeColor = System.Drawing.Color.Black;
             this.txtChange.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtChange.HoverState.Parent = this.txtChange;
-            this.txtChange.Location = new System.Drawing.Point(789, 617);
+            this.txtChange.Location = new System.Drawing.Point(918, 617);
             this.txtChange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtChange.Name = "txtChange";
             this.txtChange.PasswordChar = '\0';
@@ -262,7 +262,7 @@ namespace PatientInformationSystemNew.forms
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(785, 582);
+            this.label12.Location = new System.Drawing.Point(914, 582);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(66, 21);
@@ -292,7 +292,7 @@ namespace PatientInformationSystemNew.forms
             this.btnTransact.HoverState.Parent = this.btnTransact;
             this.btnTransact.Image = global::PatientInformationSystemNew.Properties.Resources.transact_icon;
             this.btnTransact.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTransact.Location = new System.Drawing.Point(789, 667);
+            this.btnTransact.Location = new System.Drawing.Point(918, 667);
             this.btnTransact.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransact.Name = "btnTransact";
             this.btnTransact.ShadowDecoration.Parent = this.btnTransact;
@@ -305,7 +305,7 @@ namespace PatientInformationSystemNew.forms
             // rprtReceipt
             // 
             this.rprtReceipt.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtReceipt.rdlc";
-            this.rprtReceipt.Location = new System.Drawing.Point(1186, 87);
+            this.rprtReceipt.Location = new System.Drawing.Point(1315, 87);
             this.rprtReceipt.Margin = new System.Windows.Forms.Padding(2);
             this.rprtReceipt.Name = "rprtReceipt";
             this.rprtReceipt.Size = new System.Drawing.Size(428, 617);
@@ -384,7 +384,7 @@ namespace PatientInformationSystemNew.forms
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(1180, 9);
+            this.label13.Location = new System.Drawing.Point(1309, 9);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(166, 37);
@@ -397,32 +397,32 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.AllowUserToDeleteRows = false;
             this.gridPaymentTransaction.AllowUserToResizeColumns = false;
             this.gridPaymentTransaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.gridPaymentTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.gridPaymentTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridPaymentTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridPaymentTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridPaymentTransaction.BackgroundColor = System.Drawing.Color.White;
             this.gridPaymentTransaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPaymentTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridPaymentTransaction.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPaymentTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPaymentTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridPaymentTransaction.ColumnHeadersHeight = 40;
             this.gridPaymentTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPaymentTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPaymentTransaction.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPaymentTransaction.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridPaymentTransaction.Dock = System.Windows.Forms.DockStyle.Left;
             this.gridPaymentTransaction.EnableHeadersVisualStyles = false;
             this.gridPaymentTransaction.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -435,7 +435,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentTransaction.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridPaymentTransaction.RowTemplate.Height = 35;
             this.gridPaymentTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPaymentTransaction.Size = new System.Drawing.Size(779, 981);
+            this.gridPaymentTransaction.Size = new System.Drawing.Size(908, 981);
             this.gridPaymentTransaction.TabIndex = 7;
             this.gridPaymentTransaction.TabStop = false;
             this.gridPaymentTransaction.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -478,7 +478,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.ForeColor = System.Drawing.Color.Black;
             this.txtReceiptNo.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtReceiptNo.HoverState.Parent = this.txtReceiptNo;
-            this.txtReceiptNo.Location = new System.Drawing.Point(789, 213);
+            this.txtReceiptNo.Location = new System.Drawing.Point(918, 213);
             this.txtReceiptNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtReceiptNo.Name = "txtReceiptNo";
             this.txtReceiptNo.PasswordChar = '\0';
@@ -493,7 +493,7 @@ namespace PatientInformationSystemNew.forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(785, 179);
+            this.label1.Location = new System.Drawing.Point(914, 179);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 21);
@@ -517,7 +517,7 @@ namespace PatientInformationSystemNew.forms
             this.txtFullName.ForeColor = System.Drawing.Color.Black;
             this.txtFullName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtFullName.HoverState.Parent = this.txtFullName;
-            this.txtFullName.Location = new System.Drawing.Point(789, 87);
+            this.txtFullName.Location = new System.Drawing.Point(918, 87);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.PasswordChar = '\0';
@@ -534,7 +534,7 @@ namespace PatientInformationSystemNew.forms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(785, 53);
+            this.label6.Location = new System.Drawing.Point(914, 53);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 21);
@@ -546,7 +546,7 @@ namespace PatientInformationSystemNew.forms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(783, 9);
+            this.label7.Location = new System.Drawing.Point(912, 9);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 37);

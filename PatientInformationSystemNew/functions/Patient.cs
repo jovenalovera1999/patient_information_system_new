@@ -82,7 +82,7 @@ namespace PatientInformationSystemNew.functions
                                     FROM pis_db.patients
                                     INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
                                     WHERE CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
-                                    ORDER BY pis_db.users.first_name ASC;";
+                                    ORDER BY pis_db.patients.first_name ASC;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
