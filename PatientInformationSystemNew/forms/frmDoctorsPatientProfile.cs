@@ -28,6 +28,7 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.VitalSigns vital_signs = new functions.VitalSigns();
+        functions.Doctor doctor = new functions.Doctor();
 
         void LoadPatientDetails()
         {
@@ -132,8 +133,8 @@ namespace PatientInformationSystemNew.forms
 
         void SelectPaymentHistory()
         {
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
-            this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
+            this.gridPaymentHistory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
             this.txtReceiptNo.Text = this.gridPaymentHistory.SelectedCells[1].Value.ToString();
             this.txtTotalMedicalFee.Text = this.gridPaymentHistory.SelectedCells[2].Value.ToString();
@@ -274,7 +275,6 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.ReadOnly = false;
             this.btnTransact.Visible = true;
 
-            this.btnSavePayment.Enabled = true;
             this.btnEditPayment.Enabled = false;
 
             this.txtReceiptNo.TabStop = true;
@@ -881,8 +881,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if (MessageBox.Show("Save update payment? Be sure to transact the payment before proceeding!", "Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else if (MessageBox.Show("Save update payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (payment.UpdatePaymentTransaction(int.Parse(this.gridPaymentHistory.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
                 this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
@@ -1117,8 +1116,8 @@ namespace PatientInformationSystemNew.forms
                 {
                     total = (double.Parse(this.txtAmount.Text) - double.Parse(this.txtTotalMedicalFee.Text));
 
-                    this.txtTotalAmountPaid.Text = this.txtTotalMedicalFee.Text;
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = double.Parse(this.txtTotalMedicalFee.Text).ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "PWD")
                 {
@@ -1126,8 +1125,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "Senior Citizen")
                 {
@@ -1135,8 +1134,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "VIP")
                 {
@@ -1144,8 +1143,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
             }
             this.btnSavePayment.Enabled = true;
@@ -1153,6 +1152,8 @@ namespace PatientInformationSystemNew.forms
 
         void PrintPrescription()
         {
+            doctor.GetDoctorID(val.PatientDoctorPrimaryID);
+
             this.rprtPrescription.Clear();
             ReportParameterCollection parameters = new ReportParameterCollection();
             parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
@@ -1161,6 +1162,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
             parameters.Add(new ReportParameter("pDate", this.datePrescriptions.Value.ToString("MM/dd/yyyy")));
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
+            parameters.Add(new ReportParameter("pMedicalPersonnelID", val.DoctorID));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
         }
@@ -1222,164 +1224,6 @@ namespace PatientInformationSystemNew.forms
 
         // Key Press
 
-        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 plus sign is allowed
-            if (e.KeyChar == 43)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 open parenthesis is allowed
-            if (e.KeyChar == 40)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 close parenthesis is allowed
-            if (e.KeyChar == 41)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 plus sign is allowed
-            if (e.KeyChar == 43)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 open parenthesis is allowed
-            if (e.KeyChar == 40)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 close parenthesis is allowed
-            if (e.KeyChar == 41)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 decimal is allowed
-            if (e.KeyChar == 46)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 decimal is allowed
-            if (e.KeyChar == 46)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtTemperature_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 decimal is allowed
-            if (e.KeyChar == 46)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtPulseRate_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 decimal is allowed
-            if (e.KeyChar == 46)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtBloodPressure_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 decimal is allowed
-            if (e.KeyChar == 46)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
         private void txtReceiptNo_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allows 0-9 and backspace
@@ -1410,9 +1254,161 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        // Key Press
+
+        private void txtCellphoneNumber_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTelephoneNumber_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtPulseRate_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtBloodPressure_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtReceiptNo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9 and backspace
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtTotalMedicalFee_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtAmount_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         // Text Changed
 
-        private void txtWeight_TextChanged(object sender, EventArgs e)
+        private void txtWeight_TextChanged_1(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(this.txtWeight.Text) && String.IsNullOrWhiteSpace(this.txtTemperature.Text))
             {
@@ -1431,7 +1427,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtTemperature_TextChanged(object sender, EventArgs e)
+        private void txtTemperature_TextChanged_1(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(this.txtTemperature.Text) && String.IsNullOrWhiteSpace(this.txtWeight.Text))
             {
@@ -1450,7 +1446,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtDiagnosis_TextChanged(object sender, EventArgs e)
+        private void txtDiagnosis_TextChanged_1(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(this.txtDiagnosis.Text))
             {
@@ -1464,7 +1460,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtSymptoms_TextChanged(object sender, EventArgs e)
+        private void txtSymptoms_TextChanged_1(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))
             {
@@ -1478,7 +1474,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void txtPrescriptions_TextChanged(object sender, EventArgs e)
+        private void txtPrescriptions_TextChanged_1(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(this.txtPrescriptions.Text))
             {
@@ -1732,6 +1728,38 @@ namespace PatientInformationSystemNew.forms
         private void btnBackInPaymentHistory_Click(object sender, EventArgs e)
         {
             BackToDoctorProfile();
+        }
+
+        private void txtReceiptNo_TextChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
+        }
+
+        private void txtTotalMedicalFee_TextChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
+        }
+
+        private void cmbDiscount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
         }
     }
 }

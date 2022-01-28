@@ -449,6 +449,14 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void txtSymptoms_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                AddSymptom();
+            }
+        }
+
         private void txtSymptoms_TextChanged(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(this.txtSymptoms.Text))

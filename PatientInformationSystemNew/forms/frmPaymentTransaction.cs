@@ -83,8 +83,8 @@ namespace PatientInformationSystemNew.forms
                 {
                     total = (double.Parse(this.txtAmount.Text) - double.Parse(this.txtTotalMedicalFee.Text));
 
-                    this.txtTotalAmountPaid.Text = this.txtTotalMedicalFee.Text;
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = double.Parse(this.txtTotalMedicalFee.Text).ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "PWD")
                 {
@@ -92,8 +92,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "Senior Citizen")
                 {
@@ -101,8 +101,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "VIP")
                 {
@@ -110,8 +110,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 this.rprtReceipt.Clear();
                 ReportParameterCollection parameters = new ReportParameterCollection();

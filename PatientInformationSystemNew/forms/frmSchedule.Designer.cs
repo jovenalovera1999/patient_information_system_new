@@ -159,7 +159,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridSchedule.EnableHeadersVisualStyles = false;
             this.gridSchedule.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridSchedule.Location = new System.Drawing.Point(0, 220);
+            this.gridSchedule.Location = new System.Drawing.Point(0, 213);
             this.gridSchedule.Margin = new System.Windows.Forms.Padding(2);
             this.gridSchedule.Name = "gridSchedule";
             this.gridSchedule.ReadOnly = true;
@@ -168,7 +168,7 @@ namespace PatientInformationSystemNew.forms
             this.gridSchedule.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridSchedule.RowTemplate.Height = 35;
             this.gridSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridSchedule.Size = new System.Drawing.Size(1754, 761);
+            this.gridSchedule.Size = new System.Drawing.Size(1754, 768);
             this.gridSchedule.TabIndex = 25;
             this.gridSchedule.TabStop = false;
             this.gridSchedule.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -219,7 +219,7 @@ namespace PatientInformationSystemNew.forms
             this.btnCancelPatient.HoverState.Parent = this.btnCancelPatient;
             this.btnCancelPatient.Image = global::PatientInformationSystemNew.Properties.Resources.cancel_icon;
             this.btnCancelPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelPatient.Location = new System.Drawing.Point(166, 172);
+            this.btnCancelPatient.Location = new System.Drawing.Point(166, 165);
             this.btnCancelPatient.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelPatient.Name = "btnCancelPatient";
             this.btnCancelPatient.ShadowDecoration.Parent = this.btnCancelPatient;
@@ -253,7 +253,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.HoverState.Parent = this.btnSelect;
             this.btnSelect.Image = global::PatientInformationSystemNew.Properties.Resources.select_icon;
             this.btnSelect.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSelect.Location = new System.Drawing.Point(15, 172);
+            this.btnSelect.Location = new System.Drawing.Point(15, 165);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;

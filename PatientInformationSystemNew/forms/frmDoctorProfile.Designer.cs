@@ -949,7 +949,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridPatients.EnableHeadersVisualStyles = false;
             this.gridPatients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridPatients.Location = new System.Drawing.Point(0, 221);
+            this.gridPatients.Location = new System.Drawing.Point(0, 222);
             this.gridPatients.Margin = new System.Windows.Forms.Padding(2);
             this.gridPatients.Name = "gridPatients";
             this.gridPatients.ReadOnly = true;
@@ -958,7 +958,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridPatients.RowTemplate.Height = 35;
             this.gridPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridPatients.Size = new System.Drawing.Size(1606, 752);
+            this.gridPatients.Size = new System.Drawing.Size(1606, 751);
             this.gridPatients.TabIndex = 55;
             this.gridPatients.TabStop = false;
             this.gridPatients.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -1009,7 +1009,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.HoverState.Parent = this.btnSelect;
             this.btnSelect.Image = global::PatientInformationSystemNew.Properties.Resources.select_icon;
             this.btnSelect.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSelect.Location = new System.Drawing.Point(17, 167);
+            this.btnSelect.Location = new System.Drawing.Point(17, 168);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;

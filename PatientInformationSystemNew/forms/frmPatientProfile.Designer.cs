@@ -3115,6 +3115,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.Size = new System.Drawing.Size(392, 37);
             this.txtAmount.TabIndex = 4;
             this.txtAmount.TabStop = false;
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label49
@@ -3157,6 +3158,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Size = new System.Drawing.Size(392, 37);
             this.txtReceiptNo.TabIndex = 1;
             this.txtReceiptNo.TabStop = false;
+            this.txtReceiptNo.TextChanged += new System.EventHandler(this.txtReceiptNo_TextChanged);
             this.txtReceiptNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReceiptNo_KeyPress);
             // 
             // label28
@@ -3200,6 +3202,7 @@ namespace PatientInformationSystemNew.forms
             this.cmbDiscount.Size = new System.Drawing.Size(392, 36);
             this.cmbDiscount.TabIndex = 3;
             this.cmbDiscount.TabStop = false;
+            this.cmbDiscount.SelectedIndexChanged += new System.EventHandler(this.cmbDiscount_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -3241,6 +3244,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalMedicalFee.Size = new System.Drawing.Size(392, 37);
             this.txtTotalMedicalFee.TabIndex = 2;
             this.txtTotalMedicalFee.TabStop = false;
+            this.txtTotalMedicalFee.TextChanged += new System.EventHandler(this.txtTotalMedicalFee_TextChanged);
             this.txtTotalMedicalFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalMedicalFee_KeyPress);
             // 
             // label30

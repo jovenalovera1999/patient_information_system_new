@@ -82,7 +82,21 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
+            string first_name = this.gridPatients.SelectedCells[2].Value.ToString();
+            string middle_name = this.gridPatients.SelectedCells[3].Value.ToString();
+            string last_name = this.gridPatients.SelectedCells[4].Value.ToString();
+
             this.txtPatientID.Text = this.gridPatients.SelectedCells[1].Value.ToString();
+
+            if(String.IsNullOrWhiteSpace(middle_name))
+            {
+                this.txtPatientName.Text = string.Format("{0} {1}", first_name, last_name);
+            }
+            else
+            {
+                this.txtPatientName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
+            }
+
             this.btnSelect.Enabled = true;
         }
 
@@ -90,7 +104,14 @@ namespace PatientInformationSystemNew.forms
         {
             if (val.UserRole == "Doctor")
             {
-                search.SearchPatientByDoctor(val.UserFirstName, val.UserLastName, val.UserSpecialization, this.txtSearch.Text, this.gridPatients);
+                if(String.IsNullOrWhiteSpace(this.txtSearch.Text))
+                {
+                    patient.LoadDoctorPatients(val.UserPrimaryID, this.gridPatients);
+                }
+                else
+                {
+                    search.SearchPatientByDoctor(val.UserPrimaryID, this.txtSearch.Text, this.gridPatients);
+                }
             }
             else
             {

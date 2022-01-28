@@ -49,9 +49,10 @@ namespace PatientInformationSystemNew.forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(56, 224);
+            this.label1.Location = new System.Drawing.Point(42, 182);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 35);
+            this.label1.Size = new System.Drawing.Size(247, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Patient Information System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -61,9 +62,10 @@ namespace PatientInformationSystemNew.forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(95, 180);
+            this.label2.Location = new System.Drawing.Point(71, 146);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(247, 35);
+            this.label2.Size = new System.Drawing.Size(194, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "St. Louise de Marillac";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -73,9 +75,10 @@ namespace PatientInformationSystemNew.forms
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(19, 292);
+            this.label3.Location = new System.Drawing.Point(14, 237);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 28);
+            this.label3.Size = new System.Drawing.Size(84, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Username:";
             // 
@@ -96,15 +99,15 @@ namespace PatientInformationSystemNew.forms
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtUsername.HoverState.Parent = this.txtUsername;
-            this.txtUsername.Location = new System.Drawing.Point(24, 333);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Location = new System.Drawing.Point(18, 271);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.SelectedText = "";
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
-            this.txtUsername.Size = new System.Drawing.Size(405, 45);
+            this.txtUsername.Size = new System.Drawing.Size(304, 37);
             this.txtUsername.TabIndex = 0;
+            this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
             // 
             // txtPassword
             // 
@@ -123,24 +126,25 @@ namespace PatientInformationSystemNew.forms
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPassword.HoverState.Parent = this.txtPassword;
-            this.txtPassword.Location = new System.Drawing.Point(24, 433);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Location = new System.Drawing.Point(18, 352);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
             this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
-            this.txtPassword.Size = new System.Drawing.Size(405, 45);
+            this.txtPassword.Size = new System.Drawing.Size(304, 37);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(19, 392);
+            this.label4.Location = new System.Drawing.Point(14, 318);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 28);
+            this.label4.Size = new System.Drawing.Size(79, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "Password:";
             // 
@@ -149,9 +153,10 @@ namespace PatientInformationSystemNew.forms
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(19, 577);
+            this.label5.Location = new System.Drawing.Point(14, 469);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(350, 28);
+            this.label5.Size = new System.Drawing.Size(278, 21);
             this.label5.TabIndex = 11;
             this.label5.Text = "Developed by: Joven Joshua C. Alovera";
             // 
@@ -160,9 +165,10 @@ namespace PatientInformationSystemNew.forms
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(19, 614);
+            this.label6.Location = new System.Drawing.Point(14, 499);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(231, 28);
+            this.label6.Size = new System.Drawing.Size(187, 21);
             this.label6.TabIndex = 12;
             this.label6.Text = "All Rights Reserved. 2021";
             // 
@@ -189,10 +195,11 @@ namespace PatientInformationSystemNew.forms
             this.btnExit.HoverState.Parent = this.btnExit;
             this.btnExit.Image = global::PatientInformationSystemNew.Properties.Resources.exit_icon;
             this.btnExit.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnExit.Location = new System.Drawing.Point(246, 494);
+            this.btnExit.Location = new System.Drawing.Point(184, 401);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
             this.btnExit.ShadowDecoration.Parent = this.btnExit;
-            this.btnExit.Size = new System.Drawing.Size(123, 54);
+            this.btnExit.Size = new System.Drawing.Size(92, 44);
             this.btnExit.TabIndex = 3;
             this.btnExit.TabStop = false;
             this.btnExit.Text = "Exit";
@@ -221,10 +228,11 @@ namespace PatientInformationSystemNew.forms
             this.btnLogin.HoverState.Parent = this.btnLogin;
             this.btnLogin.Image = global::PatientInformationSystemNew.Properties.Resources.login_icon;
             this.btnLogin.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLogin.Location = new System.Drawing.Point(62, 494);
+            this.btnLogin.Location = new System.Drawing.Point(46, 401);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.ShadowDecoration.Parent = this.btnLogin;
-            this.btnLogin.Size = new System.Drawing.Size(123, 54);
+            this.btnLogin.Size = new System.Drawing.Size(92, 44);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.TabStop = false;
             this.btnLogin.Text = "Login";
@@ -234,21 +242,22 @@ namespace PatientInformationSystemNew.forms
             // 
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(143, 21);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(107, 17);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(143, 143);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(107, 116);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(455, 661);
+            this.ClientSize = new System.Drawing.Size(341, 537);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnExit);
@@ -261,6 +270,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2CirclePictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

@@ -281,7 +281,6 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.ReadOnly = false;
             this.btnTransact.Visible = true;
 
-            this.btnSavePayment.Enabled = true;
             this.btnEditPayment.Enabled = false;
 
             this.txtReceiptNo.TabStop = true;
@@ -887,8 +886,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input amount first!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtTotalMedicalFee.Focus();
             }
-            else if (MessageBox.Show("Save update payment? Be sure to transact the payment before proceeding!", "Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else if (MessageBox.Show("Save update payment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (payment.UpdatePaymentTransaction(int.Parse(this.gridPaymentHistory.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
                 this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
@@ -1123,8 +1121,8 @@ namespace PatientInformationSystemNew.forms
                 {
                     total = (double.Parse(this.txtAmount.Text) - double.Parse(this.txtTotalMedicalFee.Text));
 
-                    this.txtTotalAmountPaid.Text = this.txtTotalMedicalFee.Text;
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = double.Parse(this.txtTotalMedicalFee.Text).ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "PWD")
                 {
@@ -1132,8 +1130,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "Senior Citizen")
                 {
@@ -1141,8 +1139,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
                 else if (this.cmbDiscount.Text == "VIP")
                 {
@@ -1150,8 +1148,8 @@ namespace PatientInformationSystemNew.forms
                     discounted = (double.Parse(this.txtTotalMedicalFee.Text) - discount);
                     total = (double.Parse(this.txtAmount.Text) - discounted);
 
-                    this.txtTotalAmountPaid.Text = discounted.ToString();
-                    this.txtChange.Text = total.ToString();
+                    this.txtTotalAmountPaid.Text = discounted.ToString("0.00");
+                    this.txtChange.Text = total.ToString("0.00");
                 }
             }
             this.btnSavePayment.Enabled = true;
@@ -1495,6 +1493,38 @@ namespace PatientInformationSystemNew.forms
                 this.btnAddPrescriptions.Enabled = true;
                 this.btnSavePrescriptions.Enabled = true;
                 this.btnPrintPrescriptions.Enabled = true;
+            }
+        }
+
+        private void txtReceiptNo_TextChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
+        }
+
+        private void txtTotalMedicalFee_TextChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
+        }
+
+        private void cmbDiscount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
+            }
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (this.btnSavePayment.Enabled == true)
+            {
+                this.btnSavePayment.Enabled = false;
             }
         }
 

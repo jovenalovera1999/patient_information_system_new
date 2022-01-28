@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorName.ForeColor = System.Drawing.Color.Black;
             this.txtDoctorName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctorName.HoverState.Parent = this.txtDoctorName;
-            this.txtDoctorName.Location = new System.Drawing.Point(20, 128);
+            this.txtDoctorName.Location = new System.Drawing.Point(15, 122);
             this.txtDoctorName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDoctorName.Name = "txtDoctorName";
             this.txtDoctorName.PasswordChar = '\0';
@@ -76,7 +76,7 @@ namespace PatientInformationSystemNew.forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 95);
+            this.label1.Location = new System.Drawing.Point(11, 89);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 21);
@@ -100,7 +100,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDoctorID.ForeColor = System.Drawing.Color.Black;
             this.txtDoctorID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDoctorID.HoverState.Parent = this.txtDoctorID;
-            this.txtDoctorID.Location = new System.Drawing.Point(20, 48);
+            this.txtDoctorID.Location = new System.Drawing.Point(15, 42);
             this.txtDoctorID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDoctorID.Name = "txtDoctorID";
             this.txtDoctorID.PasswordChar = '\0';
@@ -117,7 +117,7 @@ namespace PatientInformationSystemNew.forms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(16, 15);
+            this.label8.Location = new System.Drawing.Point(11, 9);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 21);
@@ -159,7 +159,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctors.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridDoctors.EnableHeadersVisualStyles = false;
             this.gridDoctors.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gridDoctors.Location = new System.Drawing.Point(0, 232);
+            this.gridDoctors.Location = new System.Drawing.Point(0, 219);
             this.gridDoctors.Margin = new System.Windows.Forms.Padding(2);
             this.gridDoctors.Name = "gridDoctors";
             this.gridDoctors.ReadOnly = true;
@@ -168,7 +168,7 @@ namespace PatientInformationSystemNew.forms
             this.gridDoctors.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridDoctors.RowTemplate.Height = 35;
             this.gridDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDoctors.Size = new System.Drawing.Size(1754, 749);
+            this.gridDoctors.Size = new System.Drawing.Size(1754, 762);
             this.gridDoctors.TabIndex = 34;
             this.gridDoctors.TabStop = false;
             this.gridDoctors.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -218,7 +218,7 @@ namespace PatientInformationSystemNew.forms
             this.btnMedicalStaff.HoverState.Parent = this.btnMedicalStaff;
             this.btnMedicalStaff.Image = global::PatientInformationSystemNew.Properties.Resources.medical_staff_icon;
             this.btnMedicalStaff.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnMedicalStaff.Location = new System.Drawing.Point(159, 178);
+            this.btnMedicalStaff.Location = new System.Drawing.Point(154, 165);
             this.btnMedicalStaff.Margin = new System.Windows.Forms.Padding(2);
             this.btnMedicalStaff.Name = "btnMedicalStaff";
             this.btnMedicalStaff.ShadowDecoration.Parent = this.btnMedicalStaff;
@@ -252,7 +252,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.HoverState.Parent = this.btnSelect;
             this.btnSelect.Image = global::PatientInformationSystemNew.Properties.Resources.select_icon;
             this.btnSelect.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSelect.Location = new System.Drawing.Point(20, 178);
+            this.btnSelect.Location = new System.Drawing.Point(15, 165);
             this.btnSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;

@@ -299,6 +299,8 @@ namespace PatientInformationSystemNew.forms
                 }
             }
         }
+        
+        // Text Changed
 
         private void txtDiagnosis_TextChanged(object sender, EventArgs e)
         {
@@ -343,6 +345,24 @@ namespace PatientInformationSystemNew.forms
             if (this.tabConsultation.SelectedIndex == 1)
             {
                 this.txtDiagnosis.Focus();
+            }
+        }
+
+        // Key Press
+
+        private void txtDiagnosis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                AddDiagnosis();
+            }
+        }
+
+        private void txtSymptoms_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                AddSymptom();
             }
         }
 

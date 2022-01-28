@@ -292,7 +292,7 @@ namespace PatientInformationSystemNew.forms
             this.btnTransact.HoverState.Parent = this.btnTransact;
             this.btnTransact.Image = global::PatientInformationSystemNew.Properties.Resources.transact_icon;
             this.btnTransact.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTransact.Location = new System.Drawing.Point(918, 667);
+            this.btnTransact.Location = new System.Drawing.Point(918, 660);
             this.btnTransact.Margin = new System.Windows.Forms.Padding(2);
             this.btnTransact.Name = "btnTransact";
             this.btnTransact.ShadowDecoration.Parent = this.btnTransact;

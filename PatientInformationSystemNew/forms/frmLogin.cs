@@ -66,6 +66,22 @@ namespace PatientInformationSystemNew.forms
             this.Close();
         }
 
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                LoginUser();
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                LoginUser();
+            }
+        }
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.txtUsername.Focus();

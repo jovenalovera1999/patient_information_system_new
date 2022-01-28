@@ -33,6 +33,7 @@ namespace PatientInformationSystemNew.forms
             else if (val.UserRole == "Medical Staff")
             {
                 this.btnSelect.Visible = false;
+                this.btnCancelPatient.Location = new Point(15, 172);
                 patient.LoadPatientsInSchedule(this.gridSchedule);
             }
             else
