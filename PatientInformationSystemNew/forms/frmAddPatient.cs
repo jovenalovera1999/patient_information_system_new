@@ -137,6 +137,7 @@ namespace PatientInformationSystemNew.forms
                             MySqlDataReader dr;
                             dr = cmd.ExecuteReader();
                             dr.Close();
+                            connection.Close();
                         }
                     }
                 }

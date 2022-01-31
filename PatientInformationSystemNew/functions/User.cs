@@ -23,26 +23,8 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.users(user_id, profile_picture, username, password, first_name, middle_name, 
-                                    last_name, gender, age, address, birthday, cellphone_number, telephone_number, email, role, specialization)
-                                    VALUES(
-                                    AES_ENCRYPT(@user_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @profile_picture,
-                                    AES_ENCRYPT(@username, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@password, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@age, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@address, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @birthday,
-                                    AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@role, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@specialization, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );";
+                    string sql = @"CALL sign_up(@user_id, @profile_picture, @username, @password, @first_name, @middle_name, @last_name, @gender, @age, @address, @birthday, @cellphone_number,
+                                    @telephone_number, @email, @role, @specialization);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -67,6 +49,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
@@ -87,27 +70,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    id,
-                                    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    profile_picture,
-                                    CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(password, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(age, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(address, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    birthday,
-                                    CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    FROM pis_db.users
-                                    WHERE CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @username AND 
-                                    CAST(AES_DECRYPT(password, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @password;";
+                    string sql = @"CALL user_authentication(@username, @password);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -138,6 +101,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.UserRole = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.UserSpecialization = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            connection.Close();
 
                             return true;
                         }
@@ -162,27 +126,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    id,
-                                    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    profile_picture,
-                                    CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(password, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(age, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(address, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    birthday,
-                                    CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    FROM pis_db.users
-                                    WHERE CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @username AND 
-                                    CAST(AES_DECRYPT(password, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @password;";
+                    string sql = @"CALL user_authentication_for_admin_only(@username, @password);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -213,6 +157,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.UserRole = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.UserSpecialization = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            connection.Close();
 
                             return true;
                         }
@@ -238,26 +183,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT 
-                                    id,
-                                    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    profile_picture,
-                                    CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(password, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(age, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(address, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    birthday,
-                                    CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    FROM pis_db.users
-                                    WHERE id = @id;";
+                    string sql = @"CALL get_user(@id);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -287,6 +213,7 @@ namespace PatientInformationSystemNew.functions
                             val.UserEmail = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.UserRole = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.UserSpecialization = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            connection.Close();
 
                             return true;
                         }
@@ -308,35 +235,14 @@ namespace PatientInformationSystemNew.functions
 
         public bool UpdateUser(int id, byte[] profile_picture, string username, string password, string first_name, string middle_name, 
             string last_name, string gender, string age, string address, DateTime birthday, string cellphone_number, string telephone_number,
-            string email, string user, string description)
+            string email)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history_user(user, description)
-                                    VALUES
-                                    (
-                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    UPDATE pis_db.users
-                                    SET 
-                                    profile_picture = @profile_picture,
-                                    username = AES_ENCRYPT(@username, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    password = AES_ENCRYPT(@password, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    first_name = AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    middle_name = AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    last_name = AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    gender = AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    age = AES_ENCRYPT(@age, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    address = AES_ENCRYPT(@address, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    birthday = @birthday,
-                                    cellphone_number = AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    telephone_number = AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    email = AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE id = @id;";
+                    string sql = @"CALL update_user(@id, @profile_picture, @username, @password, @first_name, @middle_name, @last_name, @gender, @age, @address, @birthday, @cellphone_number,
+                                    @telephone_number, @email);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -354,13 +260,12 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@cellphone_number", cellphone_number);
                         cmd.Parameters.AddWithValue("@telephone_number", telephone_number);
                         cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@user", user);
-                        cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }

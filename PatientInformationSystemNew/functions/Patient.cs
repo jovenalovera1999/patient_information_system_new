@@ -220,12 +220,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT id
-                                    FROM pis_db.users
-                                    WHERE
-                                    CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', 
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',
-                                    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') = @doctor;";
+                    string sql = @"CALL get_doctor_primary_id_for_add_patient(@doctor);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -246,33 +241,7 @@ namespace PatientInformationSystemNew.functions
                         }
                     }
                     
-                    sql = @"INSERT INTO pis_db.patients(doctor_fid, patient_id, first_name, middle_name, last_name, gender, age, address, birthday,
-                            cellphone_number, telephone_number, email)
-                            VALUES(
-                            @doctor_fid,
-                            AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@age, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@address, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            @birthday, 
-                            AES_ENCRYPT(@cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@email, 'j0v3ncut3gw4p0per0jok3l4ang')
-                            );
-
-                            INSERT INTO pis_db.schedule(doctor_fid, patient_id, first_name, middle_name, last_name, gender, birthday)
-                            VALUES(
-                            @doctor_fid,
-                            AES_ENCRYPT(@patient_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            AES_ENCRYPT(@first_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            AES_ENCRYPT(@middle_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            AES_ENCRYPT(@last_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            AES_ENCRYPT(@gender, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            @birthday
-                            );";
+                    sql = @"CALL add_patient(@doctor_fid, @patient_id, @first_name, @middle_name, @last_name, @gender, @age, @address, @birthday, @cellphone_number, @telephone_number, @email);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -295,8 +264,7 @@ namespace PatientInformationSystemNew.functions
                         dr.Close();
                     }
 
-                    sql = @"SELECT id
-                            FROM pis_db.patients ORDER BY id DESC LIMIT 1;";
+                    sql = @"CALL get_patient_primary_id_in_add_patient();";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -308,16 +276,7 @@ namespace PatientInformationSystemNew.functions
                         val.PatientPrimaryID = dt.Rows[0].Field<int>("id");
                     }
 
-                    sql = @"INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure, status)
-                            VALUES(
-                            @patient_fid,
-                            AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                            AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                            AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
-                            );";
+                    sql = @"CALL add_vital_signs_in_add_patient(@patient_fid, @height, @weight, @temperature, @pulse_rate, @blood_pressure);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -331,6 +290,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
