@@ -121,12 +121,7 @@ namespace PatientInformationSystemNew.forms
 
                     using (MySqlConnection connection = new MySqlConnection(con.conString()))
                     {
-                        string sql = @"INSERT INTO pis_db.symptoms(patient_fid, symptoms, status)
-                                            VALUES(
-                                            @patient_fid,
-                                            AES_ENCRYPT(@symptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                            AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
-                                            );";
+                        string sql = @"CALL save_symptoms_in_add_patient(@patient_fid, @symptoms);";
 
                         using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                         {

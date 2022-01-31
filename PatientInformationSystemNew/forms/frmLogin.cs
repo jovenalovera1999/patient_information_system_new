@@ -45,6 +45,12 @@ namespace PatientInformationSystemNew.forms
                 frmDashboard.Show();
                 this.Hide();
             }
+            else if(login.UserAuthenticationForAdministratorOnly(this.txtUsername.Text, this.txtPassword.Text))
+            {
+                forms.frmDashboard frmDashboard = new forms.frmDashboard();
+                frmDashboard.Show();
+                this.Hide();
+            }
             else
             {
                 MessageBox.Show("Incorrect username or password! Please try again!", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Error);
