@@ -135,15 +135,6 @@ CREATE TABLE pis_db.vital_signs (
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 
-CREATE TABLE pis_db.patient_doctor (
-    id                                  INT(10) NOT NULL AUTO_INCREMENT,
-    patient_fid                         INT(10) NOT NULL,
-    doctor                              VARBINARY(800) NOT NULL,
-    date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        PRIMARY KEY(id),
-                                        FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
-);
-
 CREATE TABLE pis_db.diagnosis (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     patient_fid                         INT(10) NOT NULL,
@@ -199,6 +190,7 @@ CREATE TABLE pis_db.cashier (
 
 CREATE TABLE pis_db.inventory (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    supplier                            VARBINARY(800) NOT NULL,
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,
@@ -209,6 +201,7 @@ CREATE TABLE pis_db.inventory (
 
 CREATE TABLE pis_db.inventory_incoming (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
+    supplier                            VARBINARY(800) NOT NULL,
     supply_id                           VARBINARY(800) NOT NULL,
     supply_name                         VARBINARY(800) NOT NULL,
     quantity                            VARBINARY(800) NOT NULL,

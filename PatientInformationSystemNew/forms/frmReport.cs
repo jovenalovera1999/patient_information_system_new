@@ -86,19 +86,19 @@ namespace PatientInformationSystemNew.forms
         {
             if (String.IsNullOrWhiteSpace(this.lblTotalSalesInMonth.Text))
             {
-                this.lblTotalSalesInMonth.Text = "0";
+                this.lblTotalSalesInMonth.Text = "0.00";
             }
             if (String.IsNullOrWhiteSpace(this.lblTotalSalesInDay.Text))
             {
-                this.lblTotalSalesInDay.Text = "0";
+                this.lblTotalSalesInDay.Text = "0.00";
             }
             if (String.IsNullOrWhiteSpace(this.lblTotalSalesInYear.Text))
             {
-                this.lblTotalSalesInYear.Text = "0";
+                this.lblTotalSalesInYear.Text = "0.00";
             }
             if (String.IsNullOrWhiteSpace(this.lblOverallTotalSales.Text))
             {
-                this.lblOverallTotalSales.Text = "0";
+                this.lblOverallTotalSales.Text = "0.00";
             }
         }
 

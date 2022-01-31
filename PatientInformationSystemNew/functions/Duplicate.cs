@@ -252,7 +252,7 @@ namespace PatientInformationSystemNew.functions
 
         // Inventory
 
-        public bool DuplicateSupplyNameWithoutExpirationDate(string supply_name)
+        public bool DuplicateSupplyNameWithoutExpirationDate(string supplier, string supply_name)
         {
             try
             {
@@ -262,12 +262,13 @@ namespace PatientInformationSystemNew.functions
                                     CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
                                     FROM pis_db.inventory
-                                    WHERE 
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name AND
-                                    status = 'Show';";
+                                    WHERE
+                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supplier AND
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);

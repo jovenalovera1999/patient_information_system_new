@@ -25,6 +25,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT
                                     id,
                                     CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     DATE_FORMAT(expiration_date, '%Y/%m/%d'),
@@ -44,6 +45,7 @@ namespace PatientInformationSystemNew.functions
 
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply ID";
+                        grid.Columns["CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supplier";
                         grid.Columns["CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply Name";
                         grid.Columns["CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Quantity";
                         grid.Columns["DATE_FORMAT(expiration_date, '%Y/%m/%d')"].HeaderText = "Expire On";
@@ -66,6 +68,7 @@ namespace PatientInformationSystemNew.functions
                     string sql = @"SELECT
                                     id,
                                     CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
                                     DATE_FORMAT(expiration_date, '%Y/%m/%d'),
@@ -87,6 +90,7 @@ namespace PatientInformationSystemNew.functions
 
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply ID";
+                        grid.Columns["CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supplier";
                         grid.Columns["CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Supply Name";
                         grid.Columns["CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Quantity";
                         grid.Columns["DATE_FORMAT(expiration_date, '%Y/%m/%d')"].HeaderText = "Expiration Date";
@@ -104,14 +108,15 @@ namespace PatientInformationSystemNew.functions
 
         // Transfer
 
-        public bool SupplyArrivedWithExpiration(int id, string supply_id, string supply_name, string quantity, DateTime expiration_date)
+        public bool SupplyArrivedWithExpiration(int id, string supplier, string supply_id, string supply_name, string quantity, DateTime expiration_date)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
+                    string sql = @"INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity, expiration_date)
                                     VALUES(
+                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'), 
@@ -123,6 +128,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
@@ -144,14 +150,15 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SupplyArrivedWithoutExpiration(int id, string supply_id, string supply_name, string quantity)
+        public bool SupplyArrivedWithoutExpiration(int id, string supplier, string supply_id, string supply_name, string quantity)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory(supply_id, supply_name, quantity)
+                    string sql = @"INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity)
                                     VALUES(
+                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'));
@@ -162,6 +169,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
@@ -184,7 +192,7 @@ namespace PatientInformationSystemNew.functions
 
         // Add
 
-        public bool AddIncomingSuppliesWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date,
+        public bool AddIncomingSuppliesWithExpiration(string supplier, string supply_id, string supply_name, string quantity, DateTime expiration_date,
             DateTime arrive_date, string user, string description)
         {
             try
@@ -197,8 +205,9 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, expiration_date, arrive_date)
+                                    INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, expiration_date, arrive_date)
                                     VALUES(
+                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -208,6 +217,7 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
@@ -232,7 +242,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddIncomingSuppliesWithoutExpiration(string supply_id, string supply_name, string quantity, DateTime arrive_date, string user,
+        public bool AddIncomingSuppliesWithoutExpiration(string supplier, string supply_id, string supply_name, string quantity, DateTime arrive_date, string user,
             string description)
         {
             try
@@ -245,8 +255,9 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    INSERT INTO pis_db.inventory_incoming(supply_id, supply_name, quantity, arrive_date)
+                                    INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, arrive_date)
                                     VALUES(
+                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -255,6 +266,7 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
@@ -278,7 +290,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddSupplyWithExpiration(string supply_id, string supply_name, string quantity, DateTime expiration_date, string user,
+        public bool AddSupplyWithExpiration(string supplier, string supply_id, string supply_name, string quantity, DateTime expiration_date, string user,
             string description)
         {
             try
@@ -291,8 +303,9 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    INSERT INTO pis_db.inventory(supply_id, supply_name, quantity, expiration_date)
+                                    INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity, expiration_date)
                                     VALUES(
+                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -300,6 +313,7 @@ namespace PatientInformationSystemNew.functions
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
@@ -323,7 +337,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool AddSupplyWithoutExpiration(string supply_id, string supply_name, string quantity, string user, string description)
+        public bool AddSupplyWithoutExpiration(string supplier, string supply_id, string supply_name, string quantity, string user, string description)
         {
             try
             {
@@ -335,14 +349,16 @@ namespace PatientInformationSystemNew.functions
                                     AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     );
 
-                                    INSERT INTO pis_db.inventory(supply_id, supply_name, quantity)
+                                    INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity)
                                     VALUES(
+                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'));";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_id", supply_id);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
@@ -367,7 +383,7 @@ namespace PatientInformationSystemNew.functions
 
         // Update
 
-        public bool UpdateIncomingSupplyWithExpiration(int id, string supply_name, string quantity, DateTime expiration_date,
+        public bool UpdateIncomingSupplyWithExpiration(int id, string supplier, string supply_name, string quantity, DateTime expiration_date,
             DateTime arrive_date, string user, string description)
         {
             try
@@ -381,7 +397,8 @@ namespace PatientInformationSystemNew.functions
                                     );
 
                                     UPDATE pis_db.inventory_incoming
-                                    SET 
+                                    SET
+                                    supplier = AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     expiration_date = @expiration_date,
@@ -391,6 +408,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
@@ -414,7 +432,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateIncomingSupplyWithoutExpiration(int id, string supply_name, string quantity, DateTime arrive_date, string user,
+        public bool UpdateIncomingSupplyWithoutExpiration(int id, string supplier, string supply_name, string quantity, DateTime arrive_date, string user,
             string description)
         {
             try
@@ -428,7 +446,8 @@ namespace PatientInformationSystemNew.functions
                                     );
 
                                     UPDATE pis_db.inventory_incoming
-                                    SET 
+                                    SET
+                                    supplier = AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     arrive_date = @arrive_date
@@ -437,6 +456,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@arrive_date", arrive_date);
@@ -459,7 +479,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SaveManageSuppliesWithExpiration(int id, string supply_name, string quantity, DateTime expiration_date, string user,
+        public bool SaveManageSuppliesWithExpiration(int id, string supplier, string supply_name, string quantity, DateTime expiration_date, string user,
             string description)
         {
             try
@@ -473,7 +493,8 @@ namespace PatientInformationSystemNew.functions
                                     );
 
                                     UPDATE pis_db.inventory
-                                    SET 
+                                    SET
+                                    supplier = AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     expiration_date = @expiration_date
@@ -482,6 +503,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@expiration_date", expiration_date);
@@ -504,7 +526,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SaveManageSuppliesWithoutExpiration(int id, string supply_name, string quantity, string user, string description)
+        public bool SaveManageSuppliesWithoutExpiration(int id, string supplier, string supply_name, string quantity, string user, string description)
         {
             try
             {
@@ -517,7 +539,8 @@ namespace PatientInformationSystemNew.functions
                                     );
 
                                     UPDATE pis_db.inventory
-                                    SET 
+                                    SET
+                                    supplier = AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     supply_name = AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
                                     quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
                                     WHERE id = @id;";
@@ -525,6 +548,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@user", user);
@@ -546,7 +570,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateQuantityOfSupplyFromIncomingSupply(int id, string supply_name, string quantity, string user, string description)
+        public bool UpdateQuantityOfSupplyFromIncomingSupply(int id, string supplier, string supply_name, string quantity, string user, string description)
         {
             try
             {
@@ -560,7 +584,9 @@ namespace PatientInformationSystemNew.functions
 
                                     UPDATE pis_db.inventory
                                     SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
+                                    WHERE
+                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supplier AND
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;
 
                                     DELETE FROM pis_db.inventory_incoming
                                     WHERE id = @id;";
@@ -568,6 +594,7 @@ namespace PatientInformationSystemNew.functions
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@user", user);
@@ -589,7 +616,7 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool UpdateQuantityOfExistingSupplyWithoutExpiration(string supply_name, string quantity, string user, string description)
+        public bool UpdateQuantityOfExistingSupplyWithoutExpiration(string supplier, string supply_name, string quantity, string user, string description)
         {
             try
             {
@@ -603,10 +630,13 @@ namespace PatientInformationSystemNew.functions
 
                                     UPDATE pis_db.inventory
                                     SET quantity = AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    WHERE CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
+                                    WHERE
+                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supplier AND
+                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@user", user);

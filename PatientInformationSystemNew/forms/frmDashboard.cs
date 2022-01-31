@@ -155,6 +155,8 @@ namespace PatientInformationSystemNew.forms
             if (MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
+                t.Dispose();
+                t.Stop();
                 forms.frmLogin login = new forms.frmLogin();
                 login.Show();
                 this.pnlDashboardBody.Controls.Clear();
@@ -210,12 +212,6 @@ namespace PatientInformationSystemNew.forms
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Logout();
-        }
-
-        private void frmDashboard_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            t.Dispose();
-            t.Stop();
         }
     }
 }
