@@ -1,4 +1,4 @@
-CREATE PROCEDURE `sign_up` (pUserID VARBINARY(800), pProfilePicture BLOB, pUsername VARBINARY(800), pPassword VARBINARY(800), pFirstName VARBINARY(800),
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sign_up`(pUserID VARBINARY(800), pProfilePicture BLOB, pUsername VARBINARY(800), pPassword VARBINARY(800), pFirstName VARBINARY(800),
 pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800), pAge VARBINARY(800), pAddress VARBINARY(800), pBirthday DATE, pCellphoneNumber VARBINARY(800),
 pTelephoneNumber VARBINARY(800), pEmail VARBINARY(800), pRole VARBINARY(800), pSpecialization VARBINARY(800))
 BEGIN

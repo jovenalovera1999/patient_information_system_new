@@ -1,4 +1,4 @@
-CREATE PROCEDURE `user_authentication_for_admin_only` (pUsername VARBINARY(800), pPassword VARBINARY(800))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `user_authentication_for_admin_only`(pUsername VARBINARY(800), pPassword VARBINARY(800))
 BEGIN
 	SELECT
     id,
