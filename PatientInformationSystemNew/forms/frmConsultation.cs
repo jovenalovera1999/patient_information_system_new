@@ -105,17 +105,7 @@ namespace PatientInformationSystemNew.forms
                 {
                     using (MySqlConnection connection = new MySqlConnection(con.conString()))
                     {
-                        string sql = @"DELETE FROM pis_db.diagnosis
-                                       WHERE
-                                       patient_fid = @patient_fid AND
-                                       CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @diagnosis AND
-                                       CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
-
-                                       INSERT INTO pis_db.diagnosis(patient_fid, diagnosis)
-                                       VALUES(
-                                       @patient_fid,
-                                       AES_ENCRYPT(@diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                       );";
+                        string sql = @"CALL save_diagnosis_in_consultation(@patient_fid, @diagnosis);";
 
                         using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                         {
@@ -126,6 +116,7 @@ namespace PatientInformationSystemNew.forms
                             MySqlDataReader dr;
                             dr = cmd.ExecuteReader();
                             dr.Close();
+                            connection.Close();
                         }
                     }
                 }
@@ -205,7 +196,7 @@ namespace PatientInformationSystemNew.forms
                 MessageBox.Show("Please input prescription first before proceed!", "Input First", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtPrescription.Focus();
             }
-            else if (patient.SavePrescription(val.PatientPrimaryID, this.txtPrescription.Text))
+            else if (prescriptions.SavePrescription(val.PatientPrimaryID, this.txtPrescription.Text))
             {
                 MessageBox.Show("Prescription successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

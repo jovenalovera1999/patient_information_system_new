@@ -54,6 +54,36 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
+        public bool SavePrescription(int patient_fid, string prescriptions)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(con.conString()))
+                {
+                    string sql = @"CALL save_prescription(@patient_fid, @prescriptions);";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@prescriptions", prescriptions);
+
+                        connection.Open();
+                        MySqlDataReader dr;
+                        dr = cmd.ExecuteReader();
+                        dr.Close();
+                        connection.Close();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving prescription: " + ex.ToString());
+                return false;
+            }
+        }
+
         public bool AddPrescription(int patient_fid, string prescriptions, DateTime date, string user, string patient, string description)
         {
             try
