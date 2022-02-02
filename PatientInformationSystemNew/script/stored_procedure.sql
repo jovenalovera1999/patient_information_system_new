@@ -3,7 +3,7 @@ DROP procedure IF EXISTS `add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_patient`(pDoctorFID INT(10), pPatientID VARBINARY(800), pFirstName VARBINARY(800), pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800),
+CREATE PROCEDURE `add_patient`(pDoctorFID INT(10), pPatientID VARBINARY(800), pFirstName VARBINARY(800), pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800),
 pAge VARBINARY(800), pAddress VARBINARY(800), pBirthday DATE, pCellphoneNumber VARBINARY(800), pTelephoneNumber VARBINARY(800), pEmail VARBINARY(800))
 BEGIN
 	INSERT INTO pis_db.patients(doctor_fid, patient_id, first_name, middle_name, last_name, gender, age, address, birthday,
@@ -40,13 +40,9 @@ DELIMITER ;
 USE `pis_db`;
 DROP procedure IF EXISTS `add_vital_signs_in_add_patient`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`add_vital_signs_in_add_patient`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_vital_signs_in_add_patient`(pPatientFID INT(10), pHeight VARBINARY(800), pWeight VARBINARY(800), pTemperature VARBINARY(800), pPulseRate VARBINARY(800),
+CREATE PROCEDURE `add_vital_signs_in_add_patient`(pPatientFID INT(10), pHeight VARBINARY(800), pWeight VARBINARY(800), pTemperature VARBINARY(800), pPulseRate VARBINARY(800),
 pBloodPressure VARBINARY(800))
 BEGIN
 	INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure, status)
@@ -62,18 +58,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `back_patient_to_schedule_from_consultation`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`back_patient_to_schedule_from_consultation`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `back_patient_to_schedule_from_consultation`(pPatientID VARBINARY(800), pPatientFID INT(10))
+CREATE PROCEDURE `back_patient_to_schedule_from_consultation`(pPatientID VARBINARY(800), pPatientFID INT(10))
 BEGIN
 	DELETE FROM pis_db.prescriptions
     WHERE
@@ -88,18 +79,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `delete_duplicate_patient_vital_signs_symptoms`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`delete_duplicate_patient_vital_signs_symptoms`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_duplicate_patient_vital_signs_symptoms`(pPatientID VARBINARY(800), pPatientFID INT(10))
+CREATE PROCEDURE `delete_duplicate_patient_vital_signs_symptoms`(pPatientID VARBINARY(800), pPatientFID INT(10))
 BEGIN
 	DELETE FROM pis_db.vital_signs
     WHERE patient_fid = pPatientFID AND
@@ -116,18 +102,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `delete_patient_vital_signs_symptoms`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`delete_patient_vital_signs_symptoms`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_patient_vital_signs_symptoms`(pPatientID VARBINARY(800), pPatientFID INT(10))
+CREATE PROCEDURE `delete_patient_vital_signs_symptoms`(pPatientID VARBINARY(800), pPatientFID INT(10))
 BEGIN
 	DELETE FROM pis_db.vital_signs
     WHERE patient_fid = pPatientFID AND
@@ -144,18 +125,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `done_consulting`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`done_consulting`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `done_consulting`(pPatientID VARBINARY(800), pPatientFID INT(10), pFullName VARBINARY(800))
+CREATE PROCEDURE `done_consulting`(pPatientID VARBINARY(800), pPatientFID INT(10), pFullName VARBINARY(800))
 BEGIN
 	INSERT INTO pis_db.number_of_patients(full_name)
     VALUES(
@@ -192,18 +168,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_doctor_primary_id_for_add_patient`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_doctor_primary_id_for_add_patient`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_doctor_primary_id_for_add_patient`(pDoctor VARBINARY(800))
+CREATE PROCEDURE `get_doctor_primary_id_for_add_patient`(pDoctor VARBINARY(800))
 BEGIN
 	SELECT id
     FROM pis_db.users
@@ -214,18 +185,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_in_schedule`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient_in_schedule`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(800))
+CREATE PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(800))
 BEGIN
 	SELECT
 	pis_db.patients.id,
@@ -255,18 +221,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_id_in_schedule`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient_id_in_schedule`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient_id_in_schedule`(pID INT(10))
+CREATE PROCEDURE `get_patient_id_in_schedule`(pID INT(10))
 BEGIN
 	SELECT CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
     FROM pis_db.schedule
@@ -274,18 +235,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_in_schedule`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient_in_schedule`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(800))
+CREATE PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(800))
 BEGIN
 	SELECT
 	pis_db.patients.id,
@@ -315,18 +271,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_primary_id_and_delete_patient_in_schedule`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient_primary_id_and_delete_patient_in_schedule`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient_primary_id_and_delete_patient_in_schedule`(pPatientID VARBINARY(800))
+CREATE PROCEDURE `get_patient_primary_id_and_delete_patient_in_schedule`(pPatientID VARBINARY(800))
 BEGIN
 	SELECT *
     FROM pis_db.patients
@@ -341,18 +292,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_primary_id_complete_and_delete_patient_in_schedule`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient_primary_id_complete_and_delete_patient_in_schedule`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient_primary_id_complete_and_delete_patient_in_schedule`(pPatientID VARBINARY(800))
+CREATE PROCEDURE `get_patient_primary_id_complete_and_delete_patient_in_schedule`(pPatientID VARBINARY(800))
 BEGIN
 	SELECT *
     FROM pis_db.patients
@@ -367,36 +313,26 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_primary_id_in_add_patient`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient_primary_id_in_add_patient`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient_primary_id_in_add_patient`()
+CREATE PROCEDURE `get_patient_primary_id_in_add_patient`()
 BEGIN
 	SELECT id
     FROM pis_db.patients ORDER BY id DESC LIMIT 1;
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_user`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_user`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_user`(pID INT(10))
+CREATE PROCEDURE `get_user`(pID INT(10))
 BEGIN
 	SELECT 
     id,
@@ -421,18 +357,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `load_doctor_patients`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`load_doctor_patients`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `load_doctor_patients`(pDoctorFID INT(10))
+CREATE PROCEDURE `load_doctor_patients`(pDoctorFID INT(10))
 BEGIN
 	SELECT
     id,
@@ -450,18 +381,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `load_doctor_patients_in_schedule`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`load_doctor_patients_in_schedule`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `load_doctor_patients_in_schedule`(pDoctorFID INT(10))
+CREATE PROCEDURE `load_doctor_patients_in_schedule`(pDoctorFID INT(10))
 BEGIN
 	SELECT
     id,
@@ -481,8 +407,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
-
 
 USE `pis_db`;
 DROP procedure IF EXISTS `pis_db`.`load_patient_in_schedule`;
@@ -490,7 +414,7 @@ DROP procedure IF EXISTS `pis_db`.`load_patient_in_schedule`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `load_patient_in_schedule`()
+CREATE PROCEDURE `load_patient_in_schedule`()
 BEGIN
 	SELECT
 	id,
@@ -509,18 +433,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `load_patients`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`load_patients`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `load_patients`()
+CREATE PROCEDURE `load_patients`()
 BEGIN
 	SELECT
     pis_db.patients.id,
@@ -538,18 +457,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `load_symptoms_in_consultation`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`load_symptoms_in_consultation`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `load_symptoms_in_consultation`(pPatientFID INT(10))
+CREATE PROCEDURE `load_symptoms_in_consultation`(pPatientFID INT(10))
 BEGIN
 	SELECT
     id,
@@ -561,36 +475,26 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `remove_symptom_in_consultation`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`remove_symptom_in_consultation`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `remove_symptom_in_consultation`(pID INT(10))
+CREATE PROCEDURE `remove_symptom_in_consultation`(pID INT(10))
 BEGIN
 	DELETE FROM pis_db.symptoms
     WHERE id = pID;
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `save_diagnosis_in_consultation`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`save_diagnosis_in_consultation`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `save_diagnosis_in_consultation`(pPatientFID INT(10), pDiagnosis VARBINARY(800))
+CREATE PROCEDURE `save_diagnosis_in_consultation`(pPatientFID INT(10), pDiagnosis VARBINARY(800))
 BEGIN
 	DELETE FROM pis_db.diagnosis
 	WHERE
@@ -606,18 +510,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `save_prescription`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`save_prescription`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `save_prescription`(pPatientFID INT(10), pPrescriptions VARBINARY(800))
+CREATE PROCEDURE `save_prescription`(pPatientFID INT(10), pPrescriptions VARBINARY(800))
 BEGIN
 	INSERT INTO pis_db.prescriptions(patient_fid, prescriptions, status)
     VALUES(
@@ -627,18 +526,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `save_symptoms_in_add_patient`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`save_symptoms_in_add_patient`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `save_symptoms_in_add_patient`(pPatientFID INT(10), pSymptoms VARBINARY(800))
+CREATE PROCEDURE `save_symptoms_in_add_patient`(pPatientFID INT(10), pSymptoms VARBINARY(800))
 BEGIN
 	INSERT INTO pis_db.symptoms(patient_fid, symptoms, status)
     VALUES(
@@ -649,18 +543,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `sign_up`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`sign_up`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sign_up`(pUserID VARBINARY(800), pProfilePicture BLOB, pUsername VARBINARY(800), pPassword VARBINARY(800), pFirstName VARBINARY(800),
+CREATE PROCEDURE `sign_up`(pUserID VARBINARY(800), pProfilePicture BLOB, pUsername VARBINARY(800), pPassword VARBINARY(800), pFirstName VARBINARY(800),
 pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800), pAge VARBINARY(800), pAddress VARBINARY(800), pBirthday DATE, pCellphoneNumber VARBINARY(800),
 pTelephoneNumber VARBINARY(800), pEmail VARBINARY(800), pRole VARBINARY(800), pSpecialization VARBINARY(800))
 BEGIN
@@ -687,18 +576,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `update_patient`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`update_patient`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_patient`(pID INT(10), pFirstName VARBINARY(800), pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800), pAge VARBINARY(800),
+CREATE PROCEDURE `update_patient`(pID INT(10), pFirstName VARBINARY(800), pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800), pAge VARBINARY(800),
 pAddress VARBINARY(800), pBirthday DATE, pCellphoneNumber VARBINARY(800), pTelephoneNumber VARBINARY(800), pEmail VARBINARY(800), pUser VARBINARY(800), pPatient VARBINARY(800),
 pDescription VARBINARY(800))
 BEGIN
@@ -725,18 +609,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `update_patient_in_schedule_to_consulting`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`update_patient_in_schedule_to_consulting`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_patient_in_schedule_to_consulting`(pID INT(10))
+CREATE PROCEDURE `update_patient_in_schedule_to_consulting`(pID INT(10))
 BEGIN
 	UPDATE pis_db.schedule
     SET status = AES_ENCRYPT('Consulting', 'j0v3ncut3gw4p0per0jok3l4ang')
@@ -744,18 +623,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `update_symptom_in_consultation`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`update_symptom_in_consultation`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_symptom_in_consultation`(pID INT(10), pSymptoms VARBINARY(800))
+CREATE PROCEDURE `update_symptom_in_consultation`(pID INT(10), pSymptoms VARBINARY(800))
 BEGIN
 	UPDATE pis_db.symptoms 
     SET 
@@ -764,18 +638,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `update_user`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`update_user`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_user`(pID INT(10), pProfilePicture BLOB, pUsername VARBINARY(800), pPassword VARBINARY(800), pFirstName VARBINARY(800), pMiddleName VARBINARY(800),
+CREATE PROCEDURE `update_user`(pID INT(10), pProfilePicture BLOB, pUsername VARBINARY(800), pPassword VARBINARY(800), pFirstName VARBINARY(800), pMiddleName VARBINARY(800),
 pLastName VARBINARY(800), pGender VARBINARY(800), pAge VARBINARY(800), pAddress VARBINARY(800), pBirthday DATE, pCellphoneNumber VARBINARY(800), pTelephoneNumber VARBINARY(800),
 pEmail VARBINARY(800))
 BEGIN
@@ -798,18 +667,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `user_authentication`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`user_authentication`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `user_authentication`(pUsername VARBINARY(800), pPassword VARBINARY(800))
+CREATE PROCEDURE `user_authentication`(pUsername VARBINARY(800), pPassword VARBINARY(800))
 BEGIN
 	SELECT
     id,
@@ -835,18 +699,13 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `user_authentication_for_admin_only`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`user_authentication_for_admin_only`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `user_authentication_for_admin_only`(pUsername VARBINARY(800), pPassword VARBINARY(800))
+CREATE PROCEDURE `user_authentication_for_admin_only`(pUsername VARBINARY(800), pPassword VARBINARY(800))
 BEGIN
 	SELECT
     id,
@@ -872,7 +731,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `add_patient_duplicate`;
@@ -1061,14 +919,12 @@ END$$
 
 DELIMITER ;
 
-
 USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`get_patient`;
-;
+DROP procedure IF EXISTS `get_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_patient`(pID INT(10))
+CREATE PROCEDURE `get_patient`(pID INT(10))
 BEGIN
 	SELECT 
     id,
@@ -1089,7 +945,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `get_patient_doctor`;
@@ -1134,13 +989,9 @@ DELIMITER ;
 USE `pis_db`;
 DROP procedure IF EXISTS `load_payment_history`;
 
-USE `pis_db`;
-DROP procedure IF EXISTS `pis_db`.`load_payment_history`;
-;
-
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `load_payment_history`(pPatientFID INT(10))
+CREATE PROCEDURE `load_payment_history`(pPatientFID INT(10))
 BEGIN
 	SELECT
     pis_db.payment_transactions.id,
@@ -1158,7 +1009,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-;
 
 USE `pis_db`;
 DROP procedure IF EXISTS `save_payment`;
@@ -1240,6 +1090,399 @@ BEGIN
     amount = AES_ENCRYPT(pAmount, 'j0v3ncut3gw4p0per0jok3l4ang'),
     total_amount_paid = AES_ENCRYPT(pTotal_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang'),
     `change` = AES_ENCRYPT(pChange, 'j0v3ncut3gw4p0per0jok3l4ang')
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_diagnosis`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_diagnosis` (pPatientFID INT(10))
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(diagnosis, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+    DATE_FORMAT(date, '%Y/%m/%d')
+    FROM pis_db.diagnosis 
+    WHERE 
+    patient_fid = pPatientFID AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible';
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `add_diagnosis`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_diagnosis` (pPatientFID INT(10), pDiagnosis VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800),
+pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_diagnosis(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    INSERT INTO pis_db.diagnosis(patient_fid, diagnosis, date)
+    VALUES(
+	pPatientFID,
+    AES_ENCRYPT(pDiagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    pDate
+	);
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_diagnosis`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_diagnosis` (pID INT(10), pDiagnosis VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800),
+pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_diagnosis(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.diagnosis 
+    SET 
+    diagnosis = AES_ENCRYPT(pDiagnosis, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    date = pDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `remove_diagnosis`;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `pis_db`.`remove_diagnosis`;
+;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `remove_diagnosis`(pID INT(10), pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_diagnosis(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+	DELETE FROM pis_db.diagnosis
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_symptoms`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_symptoms` (pPatientFID INT(10))
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+    DATE_FORMAT(date, '%Y/%m/%d') 
+    FROM pis_db.symptoms 
+    WHERE 
+    patient_fid = pPatient_fid AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
+    ORDER BY date ASC;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `add_symptom`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_symptom` (pPatientFID INT(10), pSymptoms VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800),
+pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_symptoms(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    INSERT INTO pis_db.symptoms(patient_fid, symptoms, date)
+    VALUES(
+	pPatientFID, 
+    AES_ENCRYPT(pSymptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    pDate
+    );
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `add_symptom_in_consultation`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_symptom_in_consultation` (pPatientFID INT(10), pSymptoms VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.symptoms(patient_fid, symptoms, status)
+    VALUES(
+    pPatientFID,
+    AES_ENCRYPT(pSymptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT('In Consultation', 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_symptom`;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `pis_db`.`update_symptom`;
+;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_symptom`(pID INT(10), pSymptoms VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_symptoms(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.symptoms 
+    SET 
+    symptoms = AES_ENCRYPT(pSymptoms, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    date = pDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `remove_symptom`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `remove_symptom` (pID INT(10), pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_symptoms(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+	DELETE FROM pis_db.symptoms
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_prescriptions`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_prescriptions` (pPatientFID INT(10))
+BEGIN
+	SELECT
+    id,
+	CAST(AES_DECRYPT(prescriptions, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    DATE_FORMAT(date, '%Y/%m/%d')
+    FROM pis_db.prescriptions
+    WHERE
+    patient_fid = pPatientFID AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
+    ORDER BY date ASC;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `add_prescription`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_prescription` (pID INT(10), pPrescriptions VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800),
+pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    INSERT INTO pis_db.prescriptions(patient_fid, prescriptions, date)
+    VALUES(
+    pPatientFID,
+    AES_ENCRYPT(pPrescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    pDate
+    );
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_prescription`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_prescription` (pID INT(10), pPrescriptions VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800),
+pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.prescriptions
+    SET prescriptions = AES_ENCRYPT(pPrescriptions, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    date = pDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `remove_prescription`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `remove_prescription` (pID INT(10), pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+	AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+	DELETE FROM pis_db.prescriptions
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_vital_signs`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_vital_signs` (pPatientFID INT(10))
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    DATE_FORMAT(date, '%Y/%m/%d')
+	FROM pis_db.vital_signs
+	WHERE patient_fid = pPatientFID AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
+    ORDER BY date ASC;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `add_vital_signs`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_vital_signs` (pPatientFID INT(10), pHeight VARBINARY(800), pWeight VARBINARY(800), pTemperature VARBINARY(800),
+pPulseRate VARBINARY(800), pBloodPressure VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure, date)
+    VALUES(
+    pPatientFID,
+    AES_ENCRYPT(pHeight, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pWeight, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pTemperature, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPulseRate, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pBloodPressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    pDate
+	);
+END$$
+
+DELIMITER ;
+
+
+USE `pis_db`;
+DROP procedure IF EXISTS `pis_db`.`update_vital_signs`;
+;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_vital_signs`(pID INT(10), pHeight VARBINARY(800), pWeight VARBINARY(800), pTemperature VARBINARY(800), pPulseRate VARBINARY(800),
+pBloodPressure VARBINARY(800), pDate TIMESTAMP, pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.vital_signs
+    SET
+    height = AES_ENCRYPT(pHeight, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    weight = AES_ENCRYPT(pWeight, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    temperature = AES_ENCRYPT(pTemperature, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    pulse_rate = AES_ENCRYPT(pPulseRate, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    blood_pressure = AES_ENCRYPT(pBloodPressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
+	date = pDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `remove_vital_signs`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `remove_vital_signs` (pID INT(10), pUser VARBINARY(800), pPatient VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
+	VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pPatient, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    DELETE FROM pis_db.vital_signs
     WHERE id = pID;
 END$$
 

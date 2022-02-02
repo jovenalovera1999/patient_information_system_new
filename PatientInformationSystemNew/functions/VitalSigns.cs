@@ -20,18 +20,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    id,
-                                    CAST(AES_DECRYPT(height, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(weight, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(temperature, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(date, '%Y/%m/%d')
-                                    FROM pis_db.vital_signs
-                                    WHERE patient_fid = @patient_fid AND
-                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
-                                    ORDER BY date ASC;";
+                    string sql = @"CALL load_vital_signs(@patient_fid);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -52,6 +41,8 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Pulse Rate";
                         grid.Columns["CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Blood Pressure";
                         grid.Columns["DATE_FORMAT(date, '%Y/%m/%d')"].HeaderText = "Date";
+
+                        connection.Close();
                     }
                 } 
             }
@@ -68,23 +59,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
-                                    VALUES(
-                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@patient, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure, date)
-                                    VALUES(
-                                    @patient_fid,
-                                    AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @date
-                                    );";
+                    string sql = @"CALL add_vital_signs(@patient_fid, @height, @weight, @temperature, @pulse_rate, @blood_pressure, @date, @user, @patient, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -103,6 +78,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
@@ -122,22 +98,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
-                                    VALUES(
-                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@patient, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    UPDATE pis_db.vital_signs
-                                    SET
-                                    height = AES_ENCRYPT(@height, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    weight = AES_ENCRYPT(@weight, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    temperature = AES_ENCRYPT(@temperature, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    pulse_rate = AES_ENCRYPT(@pulse_rate, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    blood_pressure = AES_ENCRYPT(@blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    date = @date
-                                    WHERE id = @id;";
+                    string sql = @"CALL update_vital_signs(@id, @height, @weight, @temperature, @pulse_rate, @blood_pressure, @date, @user, @patient, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -156,6 +117,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
@@ -174,15 +136,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
-                                    VALUES(
-                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@patient, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    DELETE FROM pis_db.vital_signs
-                                    WHERE id = @id;";
+                    string sql = @"CALL remove_vital_signs(@id, @user, @patient, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -195,6 +149,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
