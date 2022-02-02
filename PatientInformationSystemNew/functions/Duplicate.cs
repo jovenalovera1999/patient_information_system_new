@@ -21,9 +21,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT *
-                                    FROM pis_db.users
-                                    WHERE CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @user_id;";
+                    string sql = @"CALL duplicate_user_id(@user_id);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -36,10 +34,12 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
+                            connection.Close();
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -58,9 +58,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT * 
-                                    FROM pis_db.users 
-                                    WHERE CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @username;";
+                    string sql = @"CALL duplicate_username(@username);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -73,10 +71,12 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
+                            connection.Close();
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -97,9 +97,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT *
-                                    FROM pis_db.patients
-                                    WHERE CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id;";
+                    string sql = @"CALL duplicate_patient_id(@patient_id);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -112,10 +110,12 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
+                            connection.Close();
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -134,18 +134,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    FROM pis_db.patients
-                                    WHERE
-                                    doctor_fid = @doctor_fid AND
-                                    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @first_name AND
-                                    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @middle_name AND
-                                    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @last_name AND
-                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'";
+                    string sql = @"CALL duplicate_patient_complete(@doctor_fid, @first_name, @middle_name, @last_name);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -168,16 +157,12 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
 
-                    sql = @"SELECT
-                            CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                            CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                            CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                            FROM pis_db.users
-                            WHERE id = @id;";
+                    sql = @"CALL duplicate_patient_complete_doctor(@id);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -194,11 +179,13 @@ namespace PatientInformationSystemNew.functions
                             val.DoctorLastName = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.DoctorSpecialization = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
                             val.PatientDoctor = string.Format("Dr. {0} {1} ({2})", val.DoctorFirstName, val.DoctorLastName, val.DoctorSpecialization);
+                            connection.Close();
 
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -217,11 +204,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT *
-                                    FROM pis_db.patients
-                                    WHERE
-                                    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @patient_id AND
-                                    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete';";
+                    string sql = @"CALL duplicate_patient_in_general(@patient_id);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -234,10 +217,12 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
+                            connection.Close();
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -258,13 +243,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
-                                    FROM pis_db.inventory
-                                    WHERE
-                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supplier AND
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @supply_name;";
+                    string sql = @"CALL duplicate_supply_name_without_expiration(@supplier, @supply_name);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -279,10 +258,13 @@ namespace PatientInformationSystemNew.functions
                         if (dt.Rows.Count == 1)
                         {
                             val.SupplyQuantity = dt.Rows[0].Field<string>("CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)");
+                            connection.Close();
+
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -303,9 +285,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT *
-                                    FROM pis_db.update_history
-                                    WHERE CAST(AES_DECRYPT(update_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = @update_id;";
+                    string sql = @"CALL duplicate_update_history_id(@update_id);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -318,10 +298,12 @@ namespace PatientInformationSystemNew.functions
 
                         if(dt.Rows.Count == 1)
                         {
+                            connection.Close();
                             return true;
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }

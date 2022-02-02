@@ -22,16 +22,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    id,
-                                    CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(expiration_date, '%Y/%m/%d'),
-                                    CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')
-                                    FROM pis_db.inventory
-                                    ORDER BY CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;";
+                    string sql = @"CALL load_inventory();";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -50,6 +41,8 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Quantity";
                         grid.Columns["DATE_FORMAT(expiration_date, '%Y/%m/%d')"].HeaderText = "Expire On";
                         grid.Columns["CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')"].HeaderText = "Expired In";
+
+                        connection.Close();
                     }
                 }
             }
@@ -65,18 +58,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT
-                                    id,
-                                    CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
-                                    DATE_FORMAT(expiration_date, '%Y/%m/%d'),
-                                    CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left'),
-                                    DATE_FORMAT(arrive_date, '%Y/%m/%d'),
-                                    CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left')
-                                    FROM pis_db.inventory_incoming
-                                    ORDER BY CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left') ASC;";
+                    string sql = @"CALL load_incoming_inventory();";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -97,6 +79,8 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CONCAT(DATEDIFF(expiration_date, NOW()), ' Days Left')"].HeaderText = "Expired In";
                         grid.Columns["DATE_FORMAT(arrive_date, '%Y/%m/%d')"].HeaderText = "Arrive On";
                         grid.Columns["CONCAT(DATEDIFF(arrive_date, NOW()), ' Days Left')"].HeaderText = "Arrived In";
+
+                        connection.Close();
                     }
                 }
             }
@@ -114,16 +98,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity, expiration_date)
-                                    VALUES(
-                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    @expiration_date);
-
-                                    DELETE FROM pis_db.inventory_incoming
-                                    WHERE id = @id;";
+                    string sql = @"CALL supply_arrived_with_expiration(@id, @supplier, @supply_id, @supply_name, @quantity, @expiration_date);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -138,6 +113,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
@@ -156,15 +132,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity)
-                                    VALUES(
-                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'), 
-                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'));
-
-                                    DELETE FROM pis_db.inventory_incoming
-                                    WHERE id = @id;";
+                    string sql = @"CALL supply_arrived_without_expiration(@id, @supplier, @supply_id, @supply_name, @quantity);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -178,6 +146,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
@@ -199,21 +168,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
-                                    VALUES(
-                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, expiration_date, arrive_date)
-                                    VALUES(
-                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @expiration_date,
-                                    @arrive_date
-                                    );";
+                    string sql = @"CALL add_incoming_supplies_with_expiration(@supplier, @supply_id, @supply_name, @quantity, @expiration_date, @arrive_date, @user, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -230,6 +185,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }
@@ -249,20 +205,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"INSERT INTO pis_db.update_history_inventory(user, description)
-                                    VALUES(
-                                    AES_ENCRYPT(@user, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@description, 'j0v3ncut3gw4p0per0jok3l4ang')
-                                    );
-
-                                    INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, arrive_date)
-                                    VALUES(
-                                    AES_ENCRYPT(@supplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@supply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@supply_name, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    AES_ENCRYPT(@quantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
-                                    @arrive_date
-                                    );";
+                    string sql = @"CALL add_incoming_supplies_without_expiration(@supplier, @supply_id, @supply_name, @quantity, @arrive_date, @user, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -278,6 +221,7 @@ namespace PatientInformationSystemNew.functions
                         MySqlDataReader dr;
                         dr = cmd.ExecuteReader();
                         dr.Close();
+                        connection.Close();
 
                         return true;
                     }

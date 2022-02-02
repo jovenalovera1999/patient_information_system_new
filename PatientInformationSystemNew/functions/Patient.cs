@@ -194,6 +194,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -285,6 +286,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -330,6 +332,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -518,6 +521,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -569,6 +573,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -652,6 +657,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -690,6 +696,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -740,6 +747,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -761,6 +769,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -791,6 +800,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -816,6 +826,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -878,6 +889,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }
@@ -905,6 +917,7 @@ namespace PatientInformationSystemNew.functions
                         }
                         else
                         {
+                            connection.Close();
                             return false;
                         }
                     }

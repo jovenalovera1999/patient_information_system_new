@@ -29,6 +29,7 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
         functions.VitalSigns vital_signs = new functions.VitalSigns();
+        functions.Doctor doctor = new functions.Doctor();
 
         void LoadPatientDetails()
         {
@@ -487,7 +488,7 @@ namespace PatientInformationSystemNew.forms
             if (prescriptions.AddPrescription(val.PatientPrimaryID, this.txtPrescriptions.Text, this.datePrescriptions.Value, val.UserFullName, val.PatientFullName,
                 string.Format("Added Prescription!\r\n" +
                 "Prescription:\r\n\r\n" +
-                "{0}]\r\n\r\n" +
+                "{0}\r\n\r\n" +
                 "Date: {1}",
                 this.txtPrescriptions.Text,
                 this.datePrescriptions.Value.ToString("D"))))
@@ -1157,6 +1158,8 @@ namespace PatientInformationSystemNew.forms
 
         void PrintPrescription()
         {
+            doctor.GetDoctorID(val.PatientDoctorPrimaryID);
+
             this.rprtPrescription.Clear();
             ReportParameterCollection parameters = new ReportParameterCollection();
             parameters.Add(new ReportParameter("pFullName", val.PatientFullName));
@@ -1165,6 +1168,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pAddress", this.txtAddress.Text));
             parameters.Add(new ReportParameter("pDate", this.datePrescriptions.Value.ToString("MM/dd/yyyy")));
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
+            parameters.Add(new ReportParameter("pMedicalPersonnelID", val.DoctorID));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
             this.rprtPrescription.RefreshReport();
         }
