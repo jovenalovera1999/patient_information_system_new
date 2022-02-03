@@ -1788,7 +1788,7 @@ BEGIN
     INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, expiration_date, arrive_date)
     VALUES(
     AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
-    AES_ENCRYPT(pSupply_id, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pSupplyID, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
 	pExpirationDate,
