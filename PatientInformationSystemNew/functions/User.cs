@@ -77,6 +77,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", password);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -134,6 +135,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", password);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -191,6 +193,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@id", id);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();

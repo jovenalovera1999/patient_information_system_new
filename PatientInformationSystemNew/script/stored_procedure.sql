@@ -1838,3 +1838,566 @@ END$$
 
 DELIMITER ;
 
+USE `pis_db`;
+DROP procedure IF EXISTS `add_supply_with_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_supply_with_expiration` (pSupplier VARBINARY(800), pSupplyID VARBINARY(800), pSupplyName VARBINARY(800),
+pQuantity VARBINARY(800), pExpirationDate DATETIME, pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+	AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity, expiration_date)
+    VALUES(
+    AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pSupplyID, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    pExpirationDate);
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `add_supply_without_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `add_supply_without_expiration` (pSupplier VARBINARY(800), pSupplyID VARBINARY(800), pSupplyName VARBINARY(800),
+pQuantity VARBINARY(800), pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+	);
+
+	INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity)
+    VALUES(
+    AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pSupplyID, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'));
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_incoming_supply_with_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_incoming_supply_with_expiration` (pID INT(10), pSupplier VARBINARY(800), pSupplyName VARBINARY(800),
+pQuantity VARBINARY(800), pExpirationDate DATETIME, pArriveDate DATETIME, pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.inventory_incoming
+    SET
+    supplier = AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    supply_name = AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    expiration_date = pExpirationDate,
+    arrive_date = pArriveDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_incoming_supply_without_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_incoming_supply_without_expiration` (pID INT(10), pSupplier VARBINARY(800), pSupplyName VARBINARY(800),
+pQuantity VARBINARY(800), pArriveDate DATETIME, pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.inventory_incoming
+    SET
+    supplier = AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    supply_name = AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    arrive_date = pArriveDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `save_manage_supplies_with_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `save_manage_supplies_with_expiration` (pID INT(10), pSupplier VARBINARY(800), pSupplyName VARBINARY(800), pQuantity VARBINARY(800),
+pExpirationDate DATETIME, pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.inventory
+    SET
+    supplier = AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    supply_name = AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    expiration_date = pExpirationDate
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `save_manage_supplies_without_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `save_manage_supplies_without_expiration` (pID INT(10), pSupplier VARBINARY(800), pSupplyName VARBINARY(800), pQuantity VARBINARY(800),
+pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+	AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.inventory
+    SET
+    supplier = AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    supply_name = AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_quantity_of_supply_from_incoming_supply`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_quantity_of_supply_from_incoming_supply` (pID INT(10), pSupplier VARBINARY(800), pSupplyName VARBINARY(800),
+pQuantity VARBINARY(800), pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.inventory
+    SET quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+    WHERE
+    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplier AND
+    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplyName;
+
+    DELETE FROM pis_db.inventory_incoming
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_quantity_of_existing_supply_without_expiration`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_quantity_of_existing_supply_without_expiration` (pSupplier VARBINARY(800), pSupplyName VARBINARY(800),
+pQuantity VARBINARY(800), pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );  
+
+    UPDATE pis_db.inventory
+    SET quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+    WHERE
+    CAST(AES_DECRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplier AND
+    CAST(AES_DECRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplyName;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `item_used`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `item_used` (pID INT(10), pQuantity VARBINARY(800), pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+    UPDATE pis_db.inventory
+    SET quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang')
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `delete_incoming_supply`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `delete_incoming_supply` (pID INT(10), pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+    );
+
+	DELETE FROM pis_db.inventory_incoming
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `delete_supply`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `delete_supply` (pID INT(10), pUser VARBINARY(800), pDescription VARBINARY(800))
+BEGIN
+	INSERT INTO pis_db.update_history_inventory(user, description)
+    VALUES(
+    AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
+	);
+   
+    DELETE FROM pis_db.inventory
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `search_patient`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `search_patient` (pKeyword VARBINARY(800))
+BEGIN
+	SELECT
+    pis_db.patients.id,
+    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+    CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pis_db.patients.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pis_db.patients.gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT('Dr.', ' ', CAST(AES_DECRYPT(pis_db.users.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(pis_db.users.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(', CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') AS 'Doctor',
+    DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')
+    FROM pis_db.patients
+    INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
+    WHERE
+    CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword OR
+    CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword OR
+    CAST(AES_DECRYPT(pis_db.patients.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword OR
+    CONCAT('Dr.', ' ', CAST(AES_DECRYPT(pis_db.users.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(pis_db.users.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(', CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') LIKE pKeyword AND
+    CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
+    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `search_patient_by_doctor`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT(10), pKeyword VARBINARY(800))
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    DATE_FORMAT(date, '%Y/%m/%d')
+	FROM pis_db.patients
+    WHERE
+    doctor_fid = pDoctorFID AND
+    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
+    doctor_fid = pDoctorFID AND
+    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
+    doctor_fid = pDoctorFID AND
+    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
+    ORDER BY CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_total_patients_in_month`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_total_patients_in_month` (pMonth VARCHAR(55), pYear VARCHAR(55))
+BEGIN
+	SELECT COUNT(*)
+    FROM pis_db.number_of_patients
+    WHERE
+    DATE_FORMAT(date, '%M') = pMonth AND
+    DATE_FORMAT(date, '%Y') = pYear;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_total_patients_in_day`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_total_patients_in_day` (pMonth VARCHAR(55), pDay VARCHAR(55), pYear VARCHAR(55))
+BEGIN
+	SELECT COUNT(*)
+    FROM pis_db.number_of_patients
+    WHERE
+    DATE_FORMAT(date, '%M') = pMonth AND
+    DATE_FORMAT(date, '%d') = pDay AND
+    DATE_FORMAT(date, '%Y') = pYear;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_total_patients_in_year`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_total_patients_in_year` (pYear VARCHAR(55))
+BEGIN
+	SELECT COUNT(*)
+    FROM pis_db.number_of_patients
+    WHERE
+    DATE_FORMAT(date, '%Y') = pYear;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_overall_total_patients`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_overall_total_patients` ()
+BEGIN
+	SELECT COUNT(*)
+    FROM pis_db.number_of_patients;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_total_sales_in_month`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_total_sales_in_month` (pMonth VARCHAR(55), pYear VARCHAR(55))
+BEGIN
+	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+    FROM pis_db.payment_transactions
+    WHERE
+    DATE_FORMAT(date, '%M') = pMonth AND
+    DATE_FORMAT(date, '%Y') = pYear;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_total_sales_in_day`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_total_sales_in_day` (pMonth VARCHAR(55), pDay VARCHAR(55), pYear VARCHAR(55))
+BEGIN
+	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+    FROM pis_db.payment_transactions
+	WHERE
+    DATE_FORMAT(date, '%M') = pMonth AND
+    DATE_FORMAT(date, '%d') = pDay AND
+    DATE_FORMAT(date, '%Y') = pYear;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_total_sales_in_year`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_total_sales_in_year` (pYear VARCHAR(55))
+BEGIN
+	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+    FROM pis_db.payment_transactions
+    WHERE
+    DATE_FORMAT(date, '%Y') = pYear;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `count_overall_total_sales`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `count_overall_total_sales` ()
+BEGIN
+	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
+    FROM pis_db.payment_transactions;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_patient_updates`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_patient_updates` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+	CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_patient;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_vital_signs_updates`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_vital_signs_updates` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_vital_signs;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_diagnosis_updates`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_diagnosis_updates` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_diagnosis;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_symptoms_update`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_symptoms_update` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+	CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_symptoms;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_prescriptions_updates`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_prescriptions_updates` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_prescriptions;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_payment_transaction_updates`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_payment_transaction_updates` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(patient, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_payment_transactions;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_inventory_updates`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_inventory_updates` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+	CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
+    FROM pis_db.update_history_inventory;
+END$$
+
+DELIMITER ;
+

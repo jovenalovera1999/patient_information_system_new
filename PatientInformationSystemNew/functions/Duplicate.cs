@@ -27,6 +27,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@user_id", user_id);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -64,6 +65,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@username", username);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -103,6 +105,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -143,6 +146,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@middle_name", middle_name);
                         cmd.Parameters.AddWithValue("@last_name", last_name);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -210,6 +214,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -250,6 +255,7 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@supplier", supplier);
                         cmd.Parameters.AddWithValue("@supply_name", supply_name);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -291,6 +297,7 @@ namespace PatientInformationSystemNew.functions
                     {
                         cmd.Parameters.AddWithValue("@update_id", update_id);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();

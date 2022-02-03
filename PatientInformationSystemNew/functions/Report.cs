@@ -19,24 +19,21 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT COUNT(*)
-                                    FROM pis_db.number_of_patients
-                                    WHERE
-                                    DATE_FORMAT(date, '%M') = @month AND
-                                    DATE_FORMAT(date, '%Y') = @year;";
+                    string sql = @"CALL count_total_patients_in_month(@month, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@month", month);
                         cmd.Parameters.AddWithValue("@year", year);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountTotalPatientsInMonth = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -52,12 +49,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT COUNT(*)
-                                    FROM pis_db.number_of_patients
-                                    WHERE
-                                    DATE_FORMAT(date, '%M') = @month AND
-                                    DATE_FORMAT(date, '%d') = @day AND
-                                    DATE_FORMAT(date, '%Y') = @year;";
+                    string sql = @"CALL count_total_patients_in_day(@month, @day, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -65,13 +57,14 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@day", day);
                         cmd.Parameters.AddWithValue("@year", year);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountTotalPatientsInDay = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -87,22 +80,20 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT COUNT(*)
-                                    FROM pis_db.number_of_patients
-                                    WHERE
-                                    DATE_FORMAT(date, '%Y') = @year;";
+                    string sql = @"CALL count_total_patients_in_year(@year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
-                    {;
+                    {
                         cmd.Parameters.AddWithValue("@year", year);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountTotalPatientsInYear = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -118,18 +109,18 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT COUNT(*)
-                                    FROM pis_db.number_of_patients;";
+                    string sql = @"CALL count_overall_total_patients();";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountOverallTotalPatients = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -145,24 +136,21 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-                                    FROM pis_db.payment_transactions
-                                    WHERE
-                                    DATE_FORMAT(date, '%M') = @month AND
-                                    DATE_FORMAT(date, '%Y') = @year;";
+                    string sql = @"CALL count_total_sales_in_month(@month, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@month", month);
                         cmd.Parameters.AddWithValue("@year", year);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountTotalSalesInMonth = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -178,12 +166,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-                                    FROM pis_db.payment_transactions
-                                    WHERE
-                                    DATE_FORMAT(date, '%M') = @month AND
-                                    DATE_FORMAT(date, '%d') = @day AND
-                                    DATE_FORMAT(date, '%Y') = @year;";
+                    string sql = @"CALL count_total_sales_in_day(@month, @day, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -191,13 +174,14 @@ namespace PatientInformationSystemNew.functions
                         cmd.Parameters.AddWithValue("@day", day);
                         cmd.Parameters.AddWithValue("@year", year);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountTotalSalesInDay = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -212,22 +196,20 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-                                    FROM pis_db.payment_transactions
-                                    WHERE
-                                    DATE_FORMAT(date, '%Y') = @year;";
+                    string sql = @"CALL count_total_sales_in_year(@year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@year", year);
 
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountTotalSalesInYear = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
@@ -243,18 +225,18 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-                                    FROM pis_db.payment_transactions;";
+                    string sql = @"CALL count_overall_total_sales();";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         dt.Clear();
                         da.Fill(dt);
 
-                        connection.Open();
                         val.CountOverallTotalSales = cmd.ExecuteScalar().ToString();
+                        connection.Close();
                     }
                 }
             }
