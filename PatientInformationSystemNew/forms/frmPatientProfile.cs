@@ -308,6 +308,7 @@ namespace PatientInformationSystemNew.forms
 
             this.btnNewVitalSigns.Enabled = false;
             this.btnEditVitalSigns.Enabled = false;
+            this.btnAddVitalSigns.Enabled = false;
             this.btnSaveVitalSigns.Visible = false;
             this.btnRemoveVitalSigns.Visible = false;
 

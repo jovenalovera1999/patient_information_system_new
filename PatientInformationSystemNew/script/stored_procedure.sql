@@ -453,7 +453,7 @@ BEGIN
     FROM pis_db.patients
     INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
     WHERE CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
-    ORDER BY pis_db.patients.first_name ASC;
+    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
 END$$
 
 DELIMITER ;
@@ -2030,8 +2030,8 @@ BEGIN
     UPDATE pis_db.inventory
     SET quantity = AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang')
     WHERE
-    CAST(AES_DECRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplier AND
-    CAST(AES_DECRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplyName;
+    CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplier AND
+    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pSupplyName;
 END$$
 
 DELIMITER ;
@@ -2099,7 +2099,7 @@ DROP procedure IF EXISTS `search_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `search_patient` (pKeyword VARBINARY(800))
+CREATE PROCEDURE `search_patient` (pKeyword VARCHAR(800))
 BEGIN
 	SELECT
     pis_db.patients.id,
@@ -2113,9 +2113,12 @@ BEGIN
     FROM pis_db.patients
     INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
     WHERE
-    CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword OR
-    CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword OR
-    CAST(AES_DECRYPT(pis_db.patients.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword OR
+    CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
+    CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
+    CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
+    CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
+    CAST(AES_DECRYPT(pis_db.patients.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
+    CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
     CONCAT('Dr.', ' ', CAST(AES_DECRYPT(pis_db.users.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(pis_db.users.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(', CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') LIKE pKeyword AND
     CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
     ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
@@ -2397,6 +2400,35 @@ BEGIN
 	CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
     CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
     FROM pis_db.update_history_inventory;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `get_doctor`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `get_doctor` (pID INT(10))
+BEGIN
+	SELECT
+    id,
+    profile_picture,
+    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(age, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(address, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    birthday,
+    CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+    FROM pis_db.users
+    WHERE id = pID;
 END$$
 
 DELIMITER ;
