@@ -39,9 +39,7 @@ namespace PatientInformationSystemNew.forms
 
         void LoadDoctors()
         {
-            string sql = @"SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')
-                            FROM pis_db.users
-                            WHERE CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Doctor'";
+            string sql = @"CALL load_select_doctors();";
 
             MySqlConnection connection = new MySqlConnection(con.conString());
             MySqlCommand cmd = new MySqlCommand(sql, connection);
@@ -57,6 +55,7 @@ namespace PatientInformationSystemNew.forms
                     string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')");
                     this.cmbDoctorName.Items.Add(doctors_name);
                 }
+                connection.Close();
             }
             catch (Exception ex)
             {

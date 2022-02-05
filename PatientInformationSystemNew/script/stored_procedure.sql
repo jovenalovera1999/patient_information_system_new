@@ -774,7 +774,7 @@ DROP procedure IF EXISTS `get_patient_primary_id_complete_for_add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_primary_id_complete_for_add_patient` (pDoctorFID INT(10), pPatient_id VARBINARY(800))
+CREATE PROCEDURE `get_patient_primary_id_complete_for_add_patient` (pDoctorFID INT(10), pPatientID VARBINARY(800))
 BEGIN
 	SELECT
     id
@@ -2429,6 +2429,20 @@ BEGIN
     CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
     FROM pis_db.users
     WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_select_doctors`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_select_doctors` ()
+BEGIN
+	SELECT CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')
+    FROM pis_db.users
+    WHERE CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Doctor';
 END$$
 
 DELIMITER ;
