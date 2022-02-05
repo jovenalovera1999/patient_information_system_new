@@ -407,7 +407,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"done_consulting_with_first_account_existing(@patient_id, @patient_fid, @full_name);";
+                    string sql = @"CALL done_consulting_with_first_account_existing(@patient_id, @patient_fid, @full_name);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {

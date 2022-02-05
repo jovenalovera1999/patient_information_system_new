@@ -792,7 +792,7 @@ DROP procedure IF EXISTS `done_consulting_with_first_account_existing`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `done_consulting_with_first_account_existing` (pPatientID VARBINARY(800), pPatientFID VARBINARY(800), pFullName VARBINARY(800))
+CREATE PROCEDURE `done_consulting_with_first_account_existing` (pPatientID VARBINARY(800), pPatientFID INT(10), pFullName VARBINARY(800))
 BEGIN
 	INSERT INTO pis_db.number_of_patients(full_name)
     VALUES(
@@ -913,7 +913,7 @@ BEGIN
     CAST(AES_DECRYPT(blood_pressure, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
     FROM pis_db.vital_signs
     WHERE
-    patient_fid = pPatientID AND
+    patient_fid = pPatientFID AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
 END$$
 
