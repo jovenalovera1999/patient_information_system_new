@@ -451,9 +451,9 @@ namespace PatientInformationSystemNew.forms
             this.label2.Location = new System.Drawing.Point(808, 464);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 21);
+            this.label2.Size = new System.Drawing.Size(89, 21);
             this.label2.TabIndex = 50;
-            this.label2.Text = "Weight:";
+            this.label2.Text = "Weight (lb):";
             // 
             // txtHeight
             // 
@@ -491,9 +491,9 @@ namespace PatientInformationSystemNew.forms
             this.label3.Location = new System.Drawing.Point(808, 383);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 21);
+            this.label3.Size = new System.Drawing.Size(94, 21);
             this.label3.TabIndex = 48;
-            this.label3.Text = "Height:";
+            this.label3.Text = "Height (cm):";
             // 
             // label4
             // 
@@ -1049,9 +1049,9 @@ namespace PatientInformationSystemNew.forms
             this.label22.Location = new System.Drawing.Point(808, 707);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(117, 21);
+            this.label22.Size = new System.Drawing.Size(249, 21);
             this.label22.TabIndex = 119;
-            this.label22.Text = "Blood Pressure:";
+            this.label22.Text = "Blood Pressure (Systolic/Diastolic):";
             // 
             // frmAddPatient
             // 

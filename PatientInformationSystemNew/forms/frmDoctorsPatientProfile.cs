@@ -1324,6 +1324,60 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        private void txtHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, decimal and slash
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46 && e.KeyChar != 47))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 slash is allowed
+            if (e.KeyChar == 47)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+            // Checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void txtPulseRate_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             // Allows 0-9, backspace, and decimal
@@ -1344,14 +1398,14 @@ namespace PatientInformationSystemNew.forms
 
         private void txtBloodPressure_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            // Allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            // Allows 0-9, backspace, decimal and slash
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46 && e.KeyChar != 47))
             {
                 e.Handled = true;
                 return;
             }
-            // Checks to make sure only 1 decimal is allowed
-            if (e.KeyChar == 46)
+            // Checks to make sure only 1 slash is allowed
+            if (e.KeyChar == 47)
             {
                 if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
                 {

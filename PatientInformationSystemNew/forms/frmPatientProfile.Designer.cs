@@ -1063,9 +1063,9 @@ namespace PatientInformationSystemNew.forms
             this.label43.Location = new System.Drawing.Point(407, 131);
             this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(117, 21);
+            this.label43.Size = new System.Drawing.Size(249, 21);
             this.label43.TabIndex = 344;
-            this.label43.Text = "Blood Pressure:";
+            this.label43.Text = "Blood Pressure (Systolic/Diastolic):";
             // 
             // txtPulseRate
             // 
@@ -1191,9 +1191,9 @@ namespace PatientInformationSystemNew.forms
             this.label40.Location = new System.Drawing.Point(9, 131);
             this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(62, 21);
+            this.label40.Size = new System.Drawing.Size(89, 21);
             this.label40.TabIndex = 338;
-            this.label40.Text = "Weight:";
+            this.label40.Text = "Weight (lb):";
             // 
             // btnNewVitalSigns
             // 
@@ -1383,9 +1383,9 @@ namespace PatientInformationSystemNew.forms
             this.label35.Location = new System.Drawing.Point(9, 50);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(59, 21);
+            this.label35.Size = new System.Drawing.Size(94, 21);
             this.label35.TabIndex = 328;
-            this.label35.Text = "Height:";
+            this.label35.Text = "Height (cm):";
             // 
             // btnAddVitalSigns
             // 
