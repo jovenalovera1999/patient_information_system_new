@@ -76,7 +76,14 @@ namespace PatientInformationSystemNew.forms
 
         private void btnMedicalStaff_Click(object sender, EventArgs e)
         {
-
+            forms.frmListOfMedicalStaff frmListOfMedicalStaff = new forms.frmListOfMedicalStaff();
+            frmListOfMedicalStaff.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmListOfMedicalStaff);
+            frmListOfMedicalStaff.Dock = DockStyle.Fill;
+            frmListOfMedicalStaff.Show();
+            this.Close();
         }
 
         private void gridDoctors_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

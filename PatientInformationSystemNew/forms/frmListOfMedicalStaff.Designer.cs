@@ -32,29 +32,29 @@ namespace PatientInformationSystemNew.forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.gridMedicalStaff = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.txtMedicalStaffName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtMedicalStaffID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnCancelPatient = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSelect = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMedicalStaff)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2DataGridView1
+            // gridMedicalStaff
             // 
-            this.guna2DataGridView1.AllowUserToAddRows = false;
-            this.guna2DataGridView1.AllowUserToDeleteRows = false;
-            this.guna2DataGridView1.AllowUserToResizeColumns = false;
-            this.guna2DataGridView1.AllowUserToResizeRows = false;
+            this.gridMedicalStaff.AllowUserToAddRows = false;
+            this.gridMedicalStaff.AllowUserToDeleteRows = false;
+            this.gridMedicalStaff.AllowUserToResizeColumns = false;
+            this.gridMedicalStaff.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridMedicalStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridMedicalStaff.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridMedicalStaff.BackgroundColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridMedicalStaff.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridMedicalStaff.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F);
@@ -62,9 +62,10 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.guna2DataGridView1.ColumnHeadersHeight = 40;
-            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridMedicalStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridMedicalStaff.ColumnHeadersHeight = 40;
+            this.gridMedicalStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridMedicalStaff.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -72,70 +73,73 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2DataGridView1.EnableHeadersVisualStyles = false;
-            this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(0, 219);
-            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2DataGridView1.Name = "guna2DataGridView1";
-            this.guna2DataGridView1.ReadOnly = true;
-            this.guna2DataGridView1.RowHeadersVisible = false;
-            this.guna2DataGridView1.RowHeadersWidth = 51;
-            this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.guna2DataGridView1.RowTemplate.Height = 35;
-            this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1754, 762);
-            this.guna2DataGridView1.TabIndex = 41;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 40;
-            this.guna2DataGridView1.ThemeStyle.ReadOnly = true;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 35;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gridMedicalStaff.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridMedicalStaff.EnableHeadersVisualStyles = false;
+            this.gridMedicalStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridMedicalStaff.Location = new System.Drawing.Point(0, 219);
+            this.gridMedicalStaff.Margin = new System.Windows.Forms.Padding(2);
+            this.gridMedicalStaff.Name = "gridMedicalStaff";
+            this.gridMedicalStaff.ReadOnly = true;
+            this.gridMedicalStaff.RowHeadersVisible = false;
+            this.gridMedicalStaff.RowHeadersWidth = 51;
+            this.gridMedicalStaff.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridMedicalStaff.RowTemplate.Height = 35;
+            this.gridMedicalStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridMedicalStaff.Size = new System.Drawing.Size(1754, 762);
+            this.gridMedicalStaff.TabIndex = 41;
+            this.gridMedicalStaff.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.gridMedicalStaff.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.gridMedicalStaff.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.gridMedicalStaff.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.gridMedicalStaff.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.Height = 40;
+            this.gridMedicalStaff.ThemeStyle.ReadOnly = true;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.Height = 35;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.gridMedicalStaff.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridMedicalStaff_CellMouseClick);
+            this.gridMedicalStaff.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridMedicalStaff_CellMouseDoubleClick);
             // 
-            // guna2TextBox1
+            // txtMedicalStaffName
             // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.Enabled = false;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(15, 122);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(392, 37);
-            this.guna2TextBox1.TabIndex = 38;
+            this.txtMedicalStaffName.Animated = true;
+            this.txtMedicalStaffName.BorderRadius = 5;
+            this.txtMedicalStaffName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMedicalStaffName.DefaultText = "";
+            this.txtMedicalStaffName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtMedicalStaffName.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtMedicalStaffName.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtMedicalStaffName.DisabledState.Parent = this.txtMedicalStaffName;
+            this.txtMedicalStaffName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMedicalStaffName.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtMedicalStaffName.FocusedState.Parent = this.txtMedicalStaffName;
+            this.txtMedicalStaffName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtMedicalStaffName.ForeColor = System.Drawing.Color.Black;
+            this.txtMedicalStaffName.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtMedicalStaffName.HoverState.Parent = this.txtMedicalStaffName;
+            this.txtMedicalStaffName.Location = new System.Drawing.Point(15, 122);
+            this.txtMedicalStaffName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMedicalStaffName.Name = "txtMedicalStaffName";
+            this.txtMedicalStaffName.PasswordChar = '\0';
+            this.txtMedicalStaffName.PlaceholderText = "";
+            this.txtMedicalStaffName.ReadOnly = true;
+            this.txtMedicalStaffName.SelectedText = "";
+            this.txtMedicalStaffName.ShadowDecoration.Parent = this.txtMedicalStaffName;
+            this.txtMedicalStaffName.Size = new System.Drawing.Size(392, 37);
+            this.txtMedicalStaffName.TabIndex = 1;
+            this.txtMedicalStaffName.TabStop = false;
             // 
             // label1
             // 
@@ -149,33 +153,34 @@ namespace PatientInformationSystemNew.forms
             this.label1.TabIndex = 37;
             this.label1.Text = "Medical Staff Name:";
             // 
-            // guna2TextBox4
+            // txtMedicalStaffID
             // 
-            this.guna2TextBox4.Animated = true;
-            this.guna2TextBox4.BorderRadius = 5;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.White;
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.Enabled = false;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(15, 42);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Size = new System.Drawing.Size(392, 37);
-            this.guna2TextBox4.TabIndex = 36;
+            this.txtMedicalStaffID.Animated = true;
+            this.txtMedicalStaffID.BorderRadius = 5;
+            this.txtMedicalStaffID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMedicalStaffID.DefaultText = "";
+            this.txtMedicalStaffID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtMedicalStaffID.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtMedicalStaffID.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtMedicalStaffID.DisabledState.Parent = this.txtMedicalStaffID;
+            this.txtMedicalStaffID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMedicalStaffID.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtMedicalStaffID.FocusedState.Parent = this.txtMedicalStaffID;
+            this.txtMedicalStaffID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtMedicalStaffID.ForeColor = System.Drawing.Color.Black;
+            this.txtMedicalStaffID.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtMedicalStaffID.HoverState.Parent = this.txtMedicalStaffID;
+            this.txtMedicalStaffID.Location = new System.Drawing.Point(15, 42);
+            this.txtMedicalStaffID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMedicalStaffID.Name = "txtMedicalStaffID";
+            this.txtMedicalStaffID.PasswordChar = '\0';
+            this.txtMedicalStaffID.PlaceholderText = "";
+            this.txtMedicalStaffID.ReadOnly = true;
+            this.txtMedicalStaffID.SelectedText = "";
+            this.txtMedicalStaffID.ShadowDecoration.Parent = this.txtMedicalStaffID;
+            this.txtMedicalStaffID.Size = new System.Drawing.Size(392, 37);
+            this.txtMedicalStaffID.TabIndex = 0;
+            this.txtMedicalStaffID.TabStop = false;
             // 
             // label8
             // 
@@ -189,36 +194,38 @@ namespace PatientInformationSystemNew.forms
             this.label8.TabIndex = 35;
             this.label8.Text = "Medical Staff ID:";
             // 
-            // btnCancelPatient
+            // btnBack
             // 
-            this.btnCancelPatient.Animated = true;
-            this.btnCancelPatient.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCancelPatient.BorderColor = System.Drawing.Color.Transparent;
-            this.btnCancelPatient.BorderRadius = 5;
-            this.btnCancelPatient.BorderThickness = 1;
-            this.btnCancelPatient.CheckedState.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelPatient.CustomImages.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancelPatient.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCancelPatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCancelPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCancelPatient.DisabledState.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.FillColor = System.Drawing.Color.Red;
-            this.btnCancelPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnCancelPatient.ForeColor = System.Drawing.Color.White;
-            this.btnCancelPatient.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnCancelPatient.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnCancelPatient.HoverState.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
-            this.btnCancelPatient.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCancelPatient.Location = new System.Drawing.Point(154, 165);
-            this.btnCancelPatient.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCancelPatient.Name = "btnCancelPatient";
-            this.btnCancelPatient.ShadowDecoration.Parent = this.btnCancelPatient;
-            this.btnCancelPatient.Size = new System.Drawing.Size(135, 50);
-            this.btnCancelPatient.TabIndex = 40;
-            this.btnCancelPatient.Text = "Back";
+            this.btnBack.Animated = true;
+            this.btnBack.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBack.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderRadius = 5;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBack.DisabledState.Parent = this.btnBack;
+            this.btnBack.FillColor = System.Drawing.Color.Red;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PatientInformationSystemNew.Properties.Resources.back_icon;
+            this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBack.Location = new System.Drawing.Point(154, 165);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(135, 50);
+            this.btnBack.TabIndex = 40;
+            this.btnBack.TabStop = false;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSelect
             // 
@@ -249,7 +256,9 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.ShadowDecoration.Parent = this.btnSelect;
             this.btnSelect.Size = new System.Drawing.Size(135, 50);
             this.btnSelect.TabIndex = 39;
+            this.btnSelect.TabStop = false;
             this.btnSelect.Text = "Select";
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // frmListOfMedicalStaff
             // 
@@ -257,12 +266,12 @@ namespace PatientInformationSystemNew.forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1754, 981);
-            this.Controls.Add(this.guna2DataGridView1);
-            this.Controls.Add(this.btnCancelPatient);
+            this.Controls.Add(this.gridMedicalStaff);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.txtMedicalStaffName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2TextBox4);
+            this.Controls.Add(this.txtMedicalStaffID);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -270,7 +279,8 @@ namespace PatientInformationSystemNew.forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "List of Medical Staff";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmListOfMedicalStaff_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridMedicalStaff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,12 +288,12 @@ namespace PatientInformationSystemNew.forms
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private Guna.UI2.WinForms.Guna2Button btnCancelPatient;
+        private Guna.UI2.WinForms.Guna2DataGridView gridMedicalStaff;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Button btnSelect;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtMedicalStaffName;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox txtMedicalStaffID;
         private System.Windows.Forms.Label label8;
     }
 }

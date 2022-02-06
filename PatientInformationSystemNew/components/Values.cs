@@ -372,6 +372,113 @@ namespace PatientInformationSystemNew.components
             set { doctor_specialization = value; }
         }
 
+        // Medical Staff Values
+
+        public static int medical_staff_primary_id;
+        public int MedicalStaffPrimaryID
+        {
+            get { return medical_staff_primary_id; }
+            set { medical_staff_primary_id = value; }
+        }
+
+        public static byte[] medical_staff_profile_picture;
+        public byte[] MedicalStaffProfilePicture
+        {
+            get { return medical_staff_profile_picture; }
+            set { medical_staff_profile_picture = value; }
+        }
+
+        public static string medical_staff_id;
+        public string MedicalStaffID
+        {
+            get { return medical_staff_id; }
+            set { medical_staff_id = value; }
+        }
+
+        public static string medical_staff_username;
+        public string MedicalStaffUsername
+        {
+            get { return medical_staff_username; }
+            set { medical_staff_username = value; }
+        }
+
+        public static string medical_staff_password;
+        public string MedicalStaffPassword
+        {
+            get { return medical_staff_password; }
+            set { medical_staff_password = value; }
+        }
+
+        public static string medical_staff_first_name;
+        public string MedicalStaffFirstName
+        {
+            get { return medical_staff_first_name; }
+            set { medical_staff_first_name = value; }
+        }
+
+        public static string medical_staff_middle_name;
+        public string MedicalStaffMiddleName
+        {
+            get { return medical_staff_middle_name; }
+            set { medical_staff_middle_name = value; }
+        }
+
+        public static string medical_staff_last_name;
+        public string MedicalStaffLastName
+        {
+            get { return medical_staff_last_name; }
+            set { medical_staff_last_name = value; }
+        }
+
+        public static string medical_staff_gender;
+        public string MedicalStaffGender
+        {
+            get { return medical_staff_gender; }
+            set { medical_staff_gender = value; }
+        }
+
+        public static string medical_staff_age;
+        public string MedicalStaffAge
+        {
+            get { return medical_staff_age; }
+            set { medical_staff_age = value; }
+        }
+
+        public static string medical_staff_address;
+        public string MedicalStaffAddress
+        {
+            get { return medical_staff_address; }
+            set { medical_staff_address = value; }
+        }
+
+        public static DateTime medical_staff_birthday;
+        public DateTime MedicalStaffBirthday
+        {
+            get { return medical_staff_birthday; }
+            set { medical_staff_birthday = value; }
+        }
+
+        public static string medical_staff_cellphone_number;
+        public string MedicalStaffCellphoneNumber
+        {
+            get { return medical_staff_cellphone_number; }
+            set { medical_staff_cellphone_number = value; }
+        }
+
+        public static string medical_staff_telephone_number;
+        public string MedicalStaffTelephoneNumber
+        {
+            get { return medical_staff_telephone_number; }
+            set { medical_staff_telephone_number = value; }
+        }
+
+        public static string medical_staff_email;
+        public string MedicalStaffEmail
+        {
+            get { return medical_staff_email; }
+            set { medical_staff_email = value; }
+        }
+
         // Prescription date
         public static DateTime prescription_date;
         public DateTime PrescriptionDate

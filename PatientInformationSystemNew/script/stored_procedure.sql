@@ -2447,3 +2447,79 @@ END$$
 
 DELIMITER ;
 
+USE `pis_db`;
+DROP procedure IF EXISTS `load_medical_staff`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_medical_staff` ()
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+    FROM pis_db.users
+    WHERE
+    CAST(AES_DECRYPT(role, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Medical Staff';
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `get_medical_staff`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `get_medical_staff` (pID INT(10))
+BEGIN
+	SELECT
+	id,
+    profile_picture,
+    CAST(AES_DECRYPT(user_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(username, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(password, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(age, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(address, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    birthday,
+    CAST(AES_DECRYPT(cellphone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(telephone_number, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(email, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)
+    FROM pis_db.users
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `update_medical_staff`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `update_medical_staff` (pID INT(10), pUserID VARBINARY(800),
+pFirstName VARBINARY(800), pMiddleName VARBINARY(800), pLastName VARBINARY(800), pGender VARBINARY(800), pAge VARBINARY(800),
+pAddress VARBINARY(800), pBirthday DATE, pCellphoneNumber VARBINARY(800), pTelephoneNumber VARBINARY(800), pEmail VARBINARY(800))
+BEGIN
+	UPDATE pis_db.users
+	SET
+    user_id = AES_ENCRYPT(pUserID, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    first_name = AES_ENCRYPT(pFirstName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    middle_name = AES_ENCRYPT(pMiddleName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    last_name = AES_ENCRYPT(pLastName, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    gender = AES_ENCRYPT(pGender, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    age = AES_ENCRYPT(pAge, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    address = AES_ENCRYPT(pAddress, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    birthday = pBirthday,
+    cellphone_number = AES_ENCRYPT(pCellphoneNumber, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    telephone_number = AES_ENCRYPT(pTelephoneNumber, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    email = AES_ENCRYPT(pEmail, 'j0v3ncut3gw4p0per0jok3l4ang')
+    WHERE id = pID;
+END$$
+
+DELIMITER ;
+
