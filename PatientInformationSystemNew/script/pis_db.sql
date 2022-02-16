@@ -223,6 +223,7 @@ CREATE TABLE pis_db.update_history_patient (
 CREATE TABLE pis_db.update_history_inventory (
     id                                  INT(10) NOT NULL AUTO_INCREMENT,
     user                                VARBINARY(800) NOT NULL,
+    issued_to                           VARBINARY(800) NOT NULL,
     description                         VARBINARY(800) NOT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id)

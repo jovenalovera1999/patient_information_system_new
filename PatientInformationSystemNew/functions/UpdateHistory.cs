@@ -239,6 +239,7 @@ namespace PatientInformationSystemNew.functions
 
                         grid.Columns["id"].Visible = false;
                         grid.Columns["CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Edited By";
+                        grid.Columns["CAST(AES_DECRYPT(issued_to, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Issued To";
                         grid.Columns["CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Description";
                         grid.Columns["CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))"].HeaderText = "Date and Time";
 

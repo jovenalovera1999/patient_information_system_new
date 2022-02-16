@@ -243,7 +243,7 @@ namespace PatientInformationSystemNew.functions
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL add_supply_with_expiration(@supplier, @supply_id, @supply_name, @quantity, @expriation_date, @user, @description);";
+                    string sql = @"CALL add_supply_with_expiration(@supplier, @supply_id, @supply_name, @quantity, @expiration_date, @user, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
@@ -518,19 +518,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool ItemUsed(int id, string quantity, string user, string description)
+        public bool ItemUsed(int id, string quantity, string user, string issued_to, string description)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL item_used(@id, @quantity, @user, @description);";
+                    string sql = @"CALL item_used(@id, @quantity, @user, @issued_to, @description);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
                         cmd.Parameters.AddWithValue("@user", user);
+                        cmd.Parameters.AddWithValue("@issued_to", issued_to);
                         cmd.Parameters.AddWithValue("@description", description);
 
                         connection.Open();

@@ -119,6 +119,8 @@ namespace PatientInformationSystemNew.forms
             this.label26 = new System.Windows.Forms.Label();
             this.txtEditedByInventory = new Guna.UI2.WinForms.Guna2TextBox();
             this.label28 = new System.Windows.Forms.Label();
+            this.txtIssuedTo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblIssuedTo = new System.Windows.Forms.Label();
             this.tabControlUpdateHistory.SuspendLayout();
             this.tabPatients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPatients)).BeginInit();
@@ -1702,6 +1704,8 @@ namespace PatientInformationSystemNew.forms
             // tabInventory
             // 
             this.tabInventory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabInventory.Controls.Add(this.txtIssuedTo);
+            this.tabInventory.Controls.Add(this.lblIssuedTo);
             this.tabInventory.Controls.Add(this.gridInventory);
             this.tabInventory.Controls.Add(this.txtDescriptionInventory);
             this.tabInventory.Controls.Add(this.label25);
@@ -1845,7 +1849,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDateInventory.ForeColor = System.Drawing.Color.Black;
             this.txtDateInventory.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtDateInventory.HoverState.Parent = this.txtDateInventory;
-            this.txtDateInventory.Location = new System.Drawing.Point(408, 38);
+            this.txtDateInventory.Location = new System.Drawing.Point(806, 38);
             this.txtDateInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDateInventory.Name = "txtDateInventory";
             this.txtDateInventory.PasswordChar = '\0';
@@ -1862,7 +1866,7 @@ namespace PatientInformationSystemNew.forms
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(404, 5);
+            this.label26.Location = new System.Drawing.Point(802, 5);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(45, 21);
@@ -1909,6 +1913,47 @@ namespace PatientInformationSystemNew.forms
             this.label28.Size = new System.Drawing.Size(77, 21);
             this.label28.TabIndex = 124;
             this.label28.Text = "Edited By:";
+            // 
+            // txtIssuedTo
+            // 
+            this.txtIssuedTo.Animated = true;
+            this.txtIssuedTo.BorderRadius = 5;
+            this.txtIssuedTo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIssuedTo.DefaultText = "";
+            this.txtIssuedTo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.txtIssuedTo.DisabledState.FillColor = System.Drawing.Color.White;
+            this.txtIssuedTo.DisabledState.ForeColor = System.Drawing.Color.Black;
+            this.txtIssuedTo.DisabledState.Parent = this.txtIssuedTo;
+            this.txtIssuedTo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIssuedTo.FocusedState.BorderColor = System.Drawing.Color.Blue;
+            this.txtIssuedTo.FocusedState.Parent = this.txtIssuedTo;
+            this.txtIssuedTo.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtIssuedTo.ForeColor = System.Drawing.Color.Black;
+            this.txtIssuedTo.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.txtIssuedTo.HoverState.Parent = this.txtIssuedTo;
+            this.txtIssuedTo.Location = new System.Drawing.Point(408, 38);
+            this.txtIssuedTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtIssuedTo.Name = "txtIssuedTo";
+            this.txtIssuedTo.PasswordChar = '\0';
+            this.txtIssuedTo.PlaceholderText = "";
+            this.txtIssuedTo.ReadOnly = true;
+            this.txtIssuedTo.SelectedText = "";
+            this.txtIssuedTo.ShadowDecoration.Parent = this.txtIssuedTo;
+            this.txtIssuedTo.Size = new System.Drawing.Size(392, 37);
+            this.txtIssuedTo.TabIndex = 131;
+            this.txtIssuedTo.TabStop = false;
+            // 
+            // lblIssuedTo
+            // 
+            this.lblIssuedTo.AutoSize = true;
+            this.lblIssuedTo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssuedTo.ForeColor = System.Drawing.Color.White;
+            this.lblIssuedTo.Location = new System.Drawing.Point(404, 5);
+            this.lblIssuedTo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblIssuedTo.Name = "lblIssuedTo";
+            this.lblIssuedTo.Size = new System.Drawing.Size(76, 21);
+            this.lblIssuedTo.TabIndex = 132;
+            this.lblIssuedTo.Text = "Issued To:";
             // 
             // frmUpdateHistory
             // 
@@ -2021,5 +2066,7 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label26;
         private Guna.UI2.WinForms.Guna2TextBox txtEditedByInventory;
         private System.Windows.Forms.Label label28;
+        private Guna.UI2.WinForms.Guna2TextBox txtIssuedTo;
+        private System.Windows.Forms.Label lblIssuedTo;
     }
 }

@@ -116,11 +116,12 @@ namespace PatientInformationSystemNew.forms
             this.gridInventory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridInventory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
-            DateTime date = DateTime.Parse(this.gridInventory.SelectedCells[3].Value.ToString());
+            DateTime date = DateTime.Parse(this.gridInventory.SelectedCells[4].Value.ToString());
 
             this.txtEditedByInventory.Text = this.gridInventory.SelectedCells[1].Value.ToString();
+            this.txtIssuedTo.Text = this.gridInventory.SelectedCells[2].Value.ToString();
             this.txtDateInventory.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
-            this.txtDescriptionInventory.Text = this.gridInventory.SelectedCells[2].Value.ToString();
+            this.txtDescriptionInventory.Text = this.gridInventory.SelectedCells[3].Value.ToString();
         }
 
         private void frmUpdateHistory_Load(object sender, EventArgs e)

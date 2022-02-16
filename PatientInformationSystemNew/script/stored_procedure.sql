@@ -2041,11 +2041,12 @@ DROP procedure IF EXISTS `item_used`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `item_used` (pID INT(10), pQuantity VARBINARY(800), pUser VARBINARY(800), pDescription VARBINARY(800))
+CREATE PROCEDURE `item_used` (pID INT(10), pQuantity VARBINARY(800), pUser VARBINARY(800), pIssuedTo VARBINARY(800), pDescription VARBINARY(800))
 BEGIN
-	INSERT INTO pis_db.update_history_inventory(user, description)
+	INSERT INTO pis_db.update_history_inventory(user, issued_to, description)
     VALUES(
     AES_ENCRYPT(pUser, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    AES_ENCRYPT(pIssuedTo, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
     );
 
@@ -2397,6 +2398,7 @@ BEGIN
 	SELECT
     id,
     CAST(AES_DECRYPT(user, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(issued_to, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
 	CAST(AES_DECRYPT(description, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
     CONCAT(DATE_FORMAT(date, '%Y/%m/%d'), ' ', TIME_FORMAT(date, '%h:%i %p'))
     FROM pis_db.update_history_inventory;

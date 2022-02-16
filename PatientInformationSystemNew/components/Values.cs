@@ -13,6 +13,7 @@ namespace PatientInformationSystemNew.components
         public string server_name = "localhost";
         public string server_user = "root";
         public string server_pass = "";
+        public string server_port = "3307";
         public string db_name = "pis_db";
 
         // User values
