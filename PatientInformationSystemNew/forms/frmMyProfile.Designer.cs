@@ -88,7 +88,7 @@ namespace PatientInformationSystemNew.forms
             // txtPassword
             // 
             this.txtPassword.Animated = true;
-            this.txtPassword.BorderRadius = 5;
+            this.txtPassword.BorderRadius = 3;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.DefaultText = "";
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -98,7 +98,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPassword.FocusedState.Parent = this.txtPassword;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPassword.HoverState.Parent = this.txtPassword;
@@ -129,7 +129,7 @@ namespace PatientInformationSystemNew.forms
             // txtUsername
             // 
             this.txtUsername.Animated = true;
-            this.txtUsername.BorderRadius = 5;
+            this.txtUsername.BorderRadius = 3;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsername.DefaultText = "";
             this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -139,7 +139,7 @@ namespace PatientInformationSystemNew.forms
             this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtUsername.FocusedState.Parent = this.txtUsername;
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtUsername.HoverState.Parent = this.txtUsername;
@@ -172,7 +172,6 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.Animated = true;
             this.btnRemovePhoto.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnRemovePhoto.BorderColor = System.Drawing.Color.Transparent;
-            this.btnRemovePhoto.BorderRadius = 5;
             this.btnRemovePhoto.BorderThickness = 1;
             this.btnRemovePhoto.CheckedState.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -183,7 +182,7 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRemovePhoto.DisabledState.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.FillColor = System.Drawing.Color.Red;
-            this.btnRemovePhoto.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnRemovePhoto.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnRemovePhoto.ForeColor = System.Drawing.Color.White;
             this.btnRemovePhoto.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnRemovePhoto.HoverState.FillColor = System.Drawing.Color.Red;
@@ -206,7 +205,6 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.Animated = true;
             this.btnUploadPhoto.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnUploadPhoto.BorderColor = System.Drawing.Color.Transparent;
-            this.btnUploadPhoto.BorderRadius = 5;
             this.btnUploadPhoto.BorderThickness = 1;
             this.btnUploadPhoto.CheckedState.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -217,7 +215,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnUploadPhoto.DisabledState.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.FillColor = System.Drawing.Color.Lime;
-            this.btnUploadPhoto.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnUploadPhoto.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnUploadPhoto.ForeColor = System.Drawing.Color.White;
             this.btnUploadPhoto.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnUploadPhoto.HoverState.FillColor = System.Drawing.Color.Lime;
@@ -238,7 +236,7 @@ namespace PatientInformationSystemNew.forms
             // txtAge
             // 
             this.txtAge.Animated = true;
-            this.txtAge.BorderRadius = 5;
+            this.txtAge.BorderRadius = 3;
             this.txtAge.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAge.DefaultText = "";
             this.txtAge.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -248,7 +246,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAge.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAge.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtAge.FocusedState.Parent = this.txtAge;
-            this.txtAge.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAge.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtAge.ForeColor = System.Drawing.Color.Black;
             this.txtAge.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtAge.HoverState.Parent = this.txtAge;
@@ -267,7 +265,7 @@ namespace PatientInformationSystemNew.forms
             // txtGender
             // 
             this.txtGender.Animated = true;
-            this.txtGender.BorderRadius = 5;
+            this.txtGender.BorderRadius = 3;
             this.txtGender.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGender.DefaultText = "";
             this.txtGender.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -277,7 +275,7 @@ namespace PatientInformationSystemNew.forms
             this.txtGender.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtGender.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtGender.FocusedState.Parent = this.txtGender;
-            this.txtGender.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtGender.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtGender.ForeColor = System.Drawing.Color.Black;
             this.txtGender.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtGender.HoverState.Parent = this.txtGender;
@@ -309,11 +307,12 @@ namespace PatientInformationSystemNew.forms
             // 
             this.dateBirthday.Animated = true;
             this.dateBirthday.BorderColor = System.Drawing.Color.Transparent;
-            this.dateBirthday.BorderRadius = 5;
+            this.dateBirthday.BorderRadius = 3;
             this.dateBirthday.BorderThickness = 1;
             this.dateBirthday.CheckedState.Parent = this.dateBirthday;
+            this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateBirthday.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dateBirthday.ForeColor = System.Drawing.Color.White;
             this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateBirthday.HoverState.BorderColor = System.Drawing.Color.White;
@@ -333,7 +332,7 @@ namespace PatientInformationSystemNew.forms
             // txtRole
             // 
             this.txtRole.Animated = true;
-            this.txtRole.BorderRadius = 5;
+            this.txtRole.BorderRadius = 3;
             this.txtRole.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtRole.DefaultText = "";
             this.txtRole.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -343,7 +342,7 @@ namespace PatientInformationSystemNew.forms
             this.txtRole.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtRole.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtRole.FocusedState.Parent = this.txtRole;
-            this.txtRole.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtRole.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtRole.ForeColor = System.Drawing.Color.Black;
             this.txtRole.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtRole.HoverState.Parent = this.txtRole;
@@ -385,7 +384,7 @@ namespace PatientInformationSystemNew.forms
             // txtLastName
             // 
             this.txtLastName.Animated = true;
-            this.txtLastName.BorderRadius = 5;
+            this.txtLastName.BorderRadius = 3;
             this.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLastName.DefaultText = "";
             this.txtLastName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -395,7 +394,7 @@ namespace PatientInformationSystemNew.forms
             this.txtLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLastName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtLastName.FocusedState.Parent = this.txtLastName;
-            this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtLastName.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtLastName.HoverState.Parent = this.txtLastName;
@@ -426,7 +425,7 @@ namespace PatientInformationSystemNew.forms
             // txtEmail
             // 
             this.txtEmail.Animated = true;
-            this.txtEmail.BorderRadius = 5;
+            this.txtEmail.BorderRadius = 3;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -436,7 +435,7 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtEmail.FocusedState.Parent = this.txtEmail;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtEmail.HoverState.Parent = this.txtEmail;
@@ -467,7 +466,7 @@ namespace PatientInformationSystemNew.forms
             // txtTelephoneNumber
             // 
             this.txtTelephoneNumber.Animated = true;
-            this.txtTelephoneNumber.BorderRadius = 5;
+            this.txtTelephoneNumber.BorderRadius = 3;
             this.txtTelephoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTelephoneNumber.DefaultText = "";
             this.txtTelephoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -477,7 +476,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTelephoneNumber.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtTelephoneNumber.FocusedState.Parent = this.txtTelephoneNumber;
-            this.txtTelephoneNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtTelephoneNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTelephoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtTelephoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtTelephoneNumber.HoverState.Parent = this.txtTelephoneNumber;
@@ -508,7 +507,7 @@ namespace PatientInformationSystemNew.forms
             // txtCellphoneNumber
             // 
             this.txtCellphoneNumber.Animated = true;
-            this.txtCellphoneNumber.BorderRadius = 5;
+            this.txtCellphoneNumber.BorderRadius = 3;
             this.txtCellphoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCellphoneNumber.DefaultText = "";
             this.txtCellphoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -518,7 +517,7 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCellphoneNumber.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtCellphoneNumber.FocusedState.Parent = this.txtCellphoneNumber;
-            this.txtCellphoneNumber.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtCellphoneNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCellphoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtCellphoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtCellphoneNumber.HoverState.Parent = this.txtCellphoneNumber;
@@ -561,7 +560,7 @@ namespace PatientInformationSystemNew.forms
             // txtAddress
             // 
             this.txtAddress.Animated = true;
-            this.txtAddress.BorderRadius = 5;
+            this.txtAddress.BorderRadius = 3;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
             this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -571,7 +570,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtAddress.FocusedState.Parent = this.txtAddress;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtAddress.HoverState.Parent = this.txtAddress;
@@ -602,14 +601,14 @@ namespace PatientInformationSystemNew.forms
             // cmbAge
             // 
             this.cmbAge.BackColor = System.Drawing.Color.Transparent;
-            this.cmbAge.BorderRadius = 5;
+            this.cmbAge.BorderRadius = 3;
             this.cmbAge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbAge.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAge.FocusedColor = System.Drawing.Color.Blue;
             this.cmbAge.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.cmbAge.FocusedState.Parent = this.cmbAge;
-            this.cmbAge.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cmbAge.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAge.ForeColor = System.Drawing.Color.Black;
             this.cmbAge.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.cmbAge.HoverState.Parent = this.cmbAge;
@@ -627,14 +626,14 @@ namespace PatientInformationSystemNew.forms
             // cmbGender
             // 
             this.cmbGender.BackColor = System.Drawing.Color.Transparent;
-            this.cmbGender.BorderRadius = 5;
+            this.cmbGender.BorderRadius = 3;
             this.cmbGender.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FocusedColor = System.Drawing.Color.Blue;
             this.cmbGender.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.cmbGender.FocusedState.Parent = this.cmbGender;
-            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbGender.ForeColor = System.Drawing.Color.Black;
             this.cmbGender.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.cmbGender.HoverState.Parent = this.cmbGender;
@@ -679,7 +678,7 @@ namespace PatientInformationSystemNew.forms
             // txtMiddleName
             // 
             this.txtMiddleName.Animated = true;
-            this.txtMiddleName.BorderRadius = 5;
+            this.txtMiddleName.BorderRadius = 3;
             this.txtMiddleName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMiddleName.DefaultText = "";
             this.txtMiddleName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -689,7 +688,7 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddleName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMiddleName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtMiddleName.FocusedState.Parent = this.txtMiddleName;
-            this.txtMiddleName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtMiddleName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMiddleName.ForeColor = System.Drawing.Color.Black;
             this.txtMiddleName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtMiddleName.HoverState.Parent = this.txtMiddleName;
@@ -720,7 +719,7 @@ namespace PatientInformationSystemNew.forms
             // txtFirstName
             // 
             this.txtFirstName.Animated = true;
-            this.txtFirstName.BorderRadius = 5;
+            this.txtFirstName.BorderRadius = 3;
             this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFirstName.DefaultText = "";
             this.txtFirstName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -730,7 +729,7 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtFirstName.FocusedState.Parent = this.txtFirstName;
-            this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtFirstName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtFirstName.HoverState.Parent = this.txtFirstName;
@@ -801,7 +800,7 @@ namespace PatientInformationSystemNew.forms
             // txtMyID
             // 
             this.txtMyID.Animated = true;
-            this.txtMyID.BorderRadius = 5;
+            this.txtMyID.BorderRadius = 3;
             this.txtMyID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMyID.DefaultText = "";
             this.txtMyID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -811,7 +810,7 @@ namespace PatientInformationSystemNew.forms
             this.txtMyID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMyID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtMyID.FocusedState.Parent = this.txtMyID;
-            this.txtMyID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtMyID.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMyID.ForeColor = System.Drawing.Color.Black;
             this.txtMyID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtMyID.HoverState.Parent = this.txtMyID;
@@ -844,7 +843,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSave.Animated = true;
             this.btnSave.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSave.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSave.BorderRadius = 5;
             this.btnSave.BorderThickness = 1;
             this.btnSave.CheckedState.Parent = this.btnSave;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -856,7 +854,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSave.DisabledState.Parent = this.btnSave;
             this.btnSave.Enabled = false;
             this.btnSave.FillColor = System.Drawing.Color.Lime;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnSave.HoverState.FillColor = System.Drawing.Color.Lime;
@@ -878,7 +876,6 @@ namespace PatientInformationSystemNew.forms
             this.btnEdit.Animated = true;
             this.btnEdit.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEdit.BorderColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BorderRadius = 5;
             this.btnEdit.BorderThickness = 1;
             this.btnEdit.CheckedState.Parent = this.btnEdit;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -889,7 +886,7 @@ namespace PatientInformationSystemNew.forms
             this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEdit.DisabledState.Parent = this.btnEdit;
             this.btnEdit.FillColor = System.Drawing.Color.Blue;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnEdit.HoverState.FillColor = System.Drawing.Color.Blue;
@@ -909,7 +906,7 @@ namespace PatientInformationSystemNew.forms
             // txtBirthday
             // 
             this.txtBirthday.Animated = true;
-            this.txtBirthday.BorderRadius = 5;
+            this.txtBirthday.BorderRadius = 3;
             this.txtBirthday.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBirthday.DefaultText = "";
             this.txtBirthday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -919,7 +916,7 @@ namespace PatientInformationSystemNew.forms
             this.txtBirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtBirthday.FocusedState.Parent = this.txtBirthday;
-            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtBirthday.ForeColor = System.Drawing.Color.Black;
             this.txtBirthday.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtBirthday.HoverState.Parent = this.txtBirthday;

@@ -48,7 +48,7 @@ namespace PatientInformationSystemNew.forms
             // txtPatientID
             // 
             this.txtPatientID.Animated = true;
-            this.txtPatientID.BorderRadius = 5;
+            this.txtPatientID.BorderRadius = 3;
             this.txtPatientID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPatientID.DefaultText = "";
             this.txtPatientID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -58,7 +58,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPatientID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.FocusedState.Parent = this.txtPatientID;
-            this.txtPatientID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPatientID.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPatientID.ForeColor = System.Drawing.Color.Black;
             this.txtPatientID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientID.HoverState.Parent = this.txtPatientID;
@@ -107,7 +107,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridPatients.ColumnHeadersHeight = 40;
+            this.gridPatients.ColumnHeadersHeight = 36;
             this.gridPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPatients.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -128,7 +128,7 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.RowHeadersVisible = false;
             this.gridPatients.RowHeadersWidth = 51;
             this.gridPatients.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridPatients.RowTemplate.Height = 35;
+            this.gridPatients.RowTemplate.Height = 36;
             this.gridPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPatients.Size = new System.Drawing.Size(1754, 763);
             this.gridPatients.TabIndex = 31;
@@ -142,16 +142,16 @@ namespace PatientInformationSystemNew.forms
             this.gridPatients.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridPatients.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
             this.gridPatients.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridPatients.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridPatients.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gridPatients.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridPatients.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridPatients.ThemeStyle.HeaderStyle.Height = 40;
+            this.gridPatients.ThemeStyle.HeaderStyle.Height = 36;
             this.gridPatients.ThemeStyle.ReadOnly = true;
             this.gridPatients.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridPatients.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridPatients.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridPatients.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gridPatients.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridPatients.ThemeStyle.RowsStyle.Height = 35;
+            this.gridPatients.ThemeStyle.RowsStyle.Height = 36;
             this.gridPatients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             this.gridPatients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridPatients.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridPatients_CellMouseClick);
@@ -162,7 +162,6 @@ namespace PatientInformationSystemNew.forms
             this.btnPaymentTransaction.Animated = true;
             this.btnPaymentTransaction.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPaymentTransaction.BorderColor = System.Drawing.Color.Transparent;
-            this.btnPaymentTransaction.BorderRadius = 5;
             this.btnPaymentTransaction.BorderThickness = 1;
             this.btnPaymentTransaction.CheckedState.Parent = this.btnPaymentTransaction;
             this.btnPaymentTransaction.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -173,7 +172,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPaymentTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPaymentTransaction.DisabledState.Parent = this.btnPaymentTransaction;
             this.btnPaymentTransaction.FillColor = System.Drawing.Color.Blue;
-            this.btnPaymentTransaction.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnPaymentTransaction.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnPaymentTransaction.ForeColor = System.Drawing.Color.White;
             this.btnPaymentTransaction.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnPaymentTransaction.HoverState.FillColor = System.Drawing.Color.Blue;
@@ -195,7 +194,6 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPatient.Animated = true;
             this.btnAddPatient.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnAddPatient.BorderColor = System.Drawing.Color.Transparent;
-            this.btnAddPatient.BorderRadius = 5;
             this.btnAddPatient.BorderThickness = 1;
             this.btnAddPatient.CheckedState.Parent = this.btnAddPatient;
             this.btnAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -206,7 +204,7 @@ namespace PatientInformationSystemNew.forms
             this.btnAddPatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddPatient.DisabledState.Parent = this.btnAddPatient;
             this.btnAddPatient.FillColor = System.Drawing.Color.Lime;
-            this.btnAddPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAddPatient.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnAddPatient.ForeColor = System.Drawing.Color.White;
             this.btnAddPatient.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnAddPatient.HoverState.FillColor = System.Drawing.Color.Lime;
@@ -228,7 +226,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Animated = true;
             this.btnSelect.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSelect.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSelect.BorderRadius = 5;
             this.btnSelect.BorderThickness = 1;
             this.btnSelect.CheckedState.Parent = this.btnSelect;
             this.btnSelect.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -240,7 +237,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.DisabledState.Parent = this.btnSelect;
             this.btnSelect.Enabled = false;
             this.btnSelect.FillColor = System.Drawing.Color.Lime;
-            this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSelect.ForeColor = System.Drawing.Color.White;
             this.btnSelect.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnSelect.HoverState.FillColor = System.Drawing.Color.Lime;
@@ -260,7 +257,7 @@ namespace PatientInformationSystemNew.forms
             // txtSearch
             // 
             this.txtSearch.Animated = true;
-            this.txtSearch.BorderRadius = 5;
+            this.txtSearch.BorderRadius = 3;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.DefaultText = "";
             this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -270,7 +267,7 @@ namespace PatientInformationSystemNew.forms
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtSearch.FocusedState.Parent = this.txtSearch;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtSearch.HoverState.Parent = this.txtSearch;
@@ -301,7 +298,7 @@ namespace PatientInformationSystemNew.forms
             // txtPatientName
             // 
             this.txtPatientName.Animated = true;
-            this.txtPatientName.BorderRadius = 5;
+            this.txtPatientName.BorderRadius = 3;
             this.txtPatientName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPatientName.DefaultText = "";
             this.txtPatientName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -311,7 +308,7 @@ namespace PatientInformationSystemNew.forms
             this.txtPatientName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPatientName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientName.FocusedState.Parent = this.txtPatientName;
-            this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPatientName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPatientName.ForeColor = System.Drawing.Color.Black;
             this.txtPatientName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtPatientName.HoverState.Parent = this.txtPatientName;

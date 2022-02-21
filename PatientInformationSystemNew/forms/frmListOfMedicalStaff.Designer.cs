@@ -63,7 +63,7 @@ namespace PatientInformationSystemNew.forms
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridMedicalStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gridMedicalStaff.ColumnHeadersHeight = 40;
+            this.gridMedicalStaff.ColumnHeadersHeight = 36;
             this.gridMedicalStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridMedicalStaff.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -84,7 +84,7 @@ namespace PatientInformationSystemNew.forms
             this.gridMedicalStaff.RowHeadersVisible = false;
             this.gridMedicalStaff.RowHeadersWidth = 51;
             this.gridMedicalStaff.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridMedicalStaff.RowTemplate.Height = 35;
+            this.gridMedicalStaff.RowTemplate.Height = 36;
             this.gridMedicalStaff.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridMedicalStaff.Size = new System.Drawing.Size(1754, 762);
             this.gridMedicalStaff.TabIndex = 41;
@@ -97,16 +97,16 @@ namespace PatientInformationSystemNew.forms
             this.gridMedicalStaff.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridMedicalStaff.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Blue;
             this.gridMedicalStaff.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gridMedicalStaff.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gridMedicalStaff.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.gridMedicalStaff.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridMedicalStaff.ThemeStyle.HeaderStyle.Height = 40;
+            this.gridMedicalStaff.ThemeStyle.HeaderStyle.Height = 36;
             this.gridMedicalStaff.ThemeStyle.ReadOnly = true;
             this.gridMedicalStaff.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridMedicalStaff.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gridMedicalStaff.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gridMedicalStaff.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gridMedicalStaff.ThemeStyle.RowsStyle.Height = 35;
+            this.gridMedicalStaff.ThemeStyle.RowsStyle.Height = 36;
             this.gridMedicalStaff.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             this.gridMedicalStaff.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.gridMedicalStaff.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridMedicalStaff_CellMouseClick);
@@ -115,7 +115,7 @@ namespace PatientInformationSystemNew.forms
             // txtMedicalStaffName
             // 
             this.txtMedicalStaffName.Animated = true;
-            this.txtMedicalStaffName.BorderRadius = 5;
+            this.txtMedicalStaffName.BorderRadius = 3;
             this.txtMedicalStaffName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMedicalStaffName.DefaultText = "";
             this.txtMedicalStaffName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -125,7 +125,7 @@ namespace PatientInformationSystemNew.forms
             this.txtMedicalStaffName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMedicalStaffName.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtMedicalStaffName.FocusedState.Parent = this.txtMedicalStaffName;
-            this.txtMedicalStaffName.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtMedicalStaffName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMedicalStaffName.ForeColor = System.Drawing.Color.Black;
             this.txtMedicalStaffName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtMedicalStaffName.HoverState.Parent = this.txtMedicalStaffName;
@@ -156,7 +156,7 @@ namespace PatientInformationSystemNew.forms
             // txtMedicalStaffID
             // 
             this.txtMedicalStaffID.Animated = true;
-            this.txtMedicalStaffID.BorderRadius = 5;
+            this.txtMedicalStaffID.BorderRadius = 3;
             this.txtMedicalStaffID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMedicalStaffID.DefaultText = "";
             this.txtMedicalStaffID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
@@ -166,7 +166,7 @@ namespace PatientInformationSystemNew.forms
             this.txtMedicalStaffID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMedicalStaffID.FocusedState.BorderColor = System.Drawing.Color.Blue;
             this.txtMedicalStaffID.FocusedState.Parent = this.txtMedicalStaffID;
-            this.txtMedicalStaffID.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtMedicalStaffID.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMedicalStaffID.ForeColor = System.Drawing.Color.Black;
             this.txtMedicalStaffID.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.txtMedicalStaffID.HoverState.Parent = this.txtMedicalStaffID;
@@ -199,7 +199,6 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.Animated = true;
             this.btnBack.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBack.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBack.BorderRadius = 5;
             this.btnBack.BorderThickness = 1;
             this.btnBack.CheckedState.Parent = this.btnBack;
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -210,7 +209,7 @@ namespace PatientInformationSystemNew.forms
             this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnBack.DisabledState.Parent = this.btnBack;
             this.btnBack.FillColor = System.Drawing.Color.Red;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnBack.HoverState.FillColor = System.Drawing.Color.Red;
@@ -232,7 +231,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.Animated = true;
             this.btnSelect.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSelect.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSelect.BorderRadius = 5;
             this.btnSelect.BorderThickness = 1;
             this.btnSelect.CheckedState.Parent = this.btnSelect;
             this.btnSelect.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -243,7 +241,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSelect.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSelect.DisabledState.Parent = this.btnSelect;
             this.btnSelect.FillColor = System.Drawing.Color.Lime;
-            this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSelect.ForeColor = System.Drawing.Color.White;
             this.btnSelect.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnSelect.HoverState.FillColor = System.Drawing.Color.Lime;

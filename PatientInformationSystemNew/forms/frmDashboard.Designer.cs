@@ -61,7 +61,7 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardHeader.Controls.Add(this.guna2CirclePictureBox1);
             this.pnlDashboardHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDashboardHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlDashboardHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDashboardHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDashboardHeader.Name = "pnlDashboardHeader";
             this.pnlDashboardHeader.Size = new System.Drawing.Size(1920, 99);
             this.pnlDashboardHeader.TabIndex = 0;
@@ -69,48 +69,48 @@ namespace PatientInformationSystemNew.forms
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(1693, 15);
+            this.lblTime.Location = new System.Drawing.Point(1719, 9);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(216, 46);
+            this.lblTime.Size = new System.Drawing.Size(174, 37);
             this.lblTime.TabIndex = 7;
             this.lblTime.Text = "12:00:00 am";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(1696, 62);
+            this.lblDate.Location = new System.Drawing.Point(1722, 46);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(210, 21);
+            this.lblDate.Size = new System.Drawing.Size(187, 19);
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "Monday, 11 November 2021";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(110, 52);
+            this.label3.Location = new System.Drawing.Point(105, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 21);
+            this.label3.Size = new System.Drawing.Size(76, 19);
             this.label3.TabIndex = 6;
             this.label3.Text = "Dashboard";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(109, 15);
+            this.label2.Location = new System.Drawing.Point(102, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 28);
+            this.label2.Size = new System.Drawing.Size(266, 37);
             this.label2.TabIndex = 4;
             this.label2.Text = "St. Louise de Marillac";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -121,7 +121,7 @@ namespace PatientInformationSystemNew.forms
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
@@ -143,7 +143,7 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardLeftSide.Controls.Add(this.btnSchedule);
             this.pnlDashboardLeftSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlDashboardLeftSide.Location = new System.Drawing.Point(0, 99);
-            this.pnlDashboardLeftSide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDashboardLeftSide.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDashboardLeftSide.Name = "pnlDashboardLeftSide";
             this.pnlDashboardLeftSide.Size = new System.Drawing.Size(166, 981);
             this.pnlDashboardLeftSide.TabIndex = 1;
@@ -164,7 +164,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdateHistory.DisabledState.Parent = this.btnUpdateHistory;
             this.btnUpdateHistory.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUpdateHistory.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdateHistory.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnUpdateHistory.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnUpdateHistory.ForeColor = System.Drawing.Color.White;
             this.btnUpdateHistory.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnUpdateHistory.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -172,7 +172,7 @@ namespace PatientInformationSystemNew.forms
             this.btnUpdateHistory.Image = global::PatientInformationSystemNew.Properties.Resources.update_history_icon;
             this.btnUpdateHistory.ImageSize = new System.Drawing.Size(30, 30);
             this.btnUpdateHistory.Location = new System.Drawing.Point(0, 264);
-            this.btnUpdateHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateHistory.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateHistory.Name = "btnUpdateHistory";
             this.btnUpdateHistory.ShadowDecoration.Parent = this.btnUpdateHistory;
             this.btnUpdateHistory.Size = new System.Drawing.Size(166, 44);
@@ -196,7 +196,7 @@ namespace PatientInformationSystemNew.forms
             this.btnReport.DisabledState.Parent = this.btnReport;
             this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReport.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnReport.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -204,7 +204,7 @@ namespace PatientInformationSystemNew.forms
             this.btnReport.Image = global::PatientInformationSystemNew.Properties.Resources.report_icon;
             this.btnReport.ImageSize = new System.Drawing.Size(30, 30);
             this.btnReport.Location = new System.Drawing.Point(0, 220);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnReport.Name = "btnReport";
             this.btnReport.ShadowDecoration.Parent = this.btnReport;
             this.btnReport.Size = new System.Drawing.Size(166, 44);
@@ -228,7 +228,7 @@ namespace PatientInformationSystemNew.forms
             this.btnProfile.DisabledState.Parent = this.btnProfile;
             this.btnProfile.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnProfile.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnProfile.ForeColor = System.Drawing.Color.White;
             this.btnProfile.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnProfile.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -236,7 +236,7 @@ namespace PatientInformationSystemNew.forms
             this.btnProfile.Image = global::PatientInformationSystemNew.Properties.Resources.profile_icon;
             this.btnProfile.ImageSize = new System.Drawing.Size(30, 30);
             this.btnProfile.Location = new System.Drawing.Point(0, 893);
-            this.btnProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.ShadowDecoration.Parent = this.btnProfile;
             this.btnProfile.Size = new System.Drawing.Size(166, 44);
@@ -260,7 +260,7 @@ namespace PatientInformationSystemNew.forms
             this.btnLogout.DisabledState.Parent = this.btnLogout;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogout.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnLogout.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -268,7 +268,7 @@ namespace PatientInformationSystemNew.forms
             this.btnLogout.Image = global::PatientInformationSystemNew.Properties.Resources.logout_icon;
             this.btnLogout.ImageSize = new System.Drawing.Size(30, 30);
             this.btnLogout.Location = new System.Drawing.Point(0, 937);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
             this.btnLogout.Size = new System.Drawing.Size(166, 44);
@@ -292,7 +292,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSignUp.DisabledState.Parent = this.btnSignUp;
             this.btnSignUp.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSignUp.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSignUp.ForeColor = System.Drawing.Color.White;
             this.btnSignUp.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnSignUp.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -300,7 +300,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSignUp.Image = global::PatientInformationSystemNew.Properties.Resources.sign_up_icon;
             this.btnSignUp.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSignUp.Location = new System.Drawing.Point(0, 176);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.ShadowDecoration.Parent = this.btnSignUp;
             this.btnSignUp.Size = new System.Drawing.Size(166, 44);
@@ -324,7 +324,7 @@ namespace PatientInformationSystemNew.forms
             this.btnInventory.DisabledState.Parent = this.btnInventory;
             this.btnInventory.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInventory.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnInventory.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnInventory.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnInventory.ForeColor = System.Drawing.Color.White;
             this.btnInventory.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnInventory.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -332,7 +332,7 @@ namespace PatientInformationSystemNew.forms
             this.btnInventory.Image = global::PatientInformationSystemNew.Properties.Resources.inventory_icon;
             this.btnInventory.ImageSize = new System.Drawing.Size(30, 30);
             this.btnInventory.Location = new System.Drawing.Point(0, 132);
-            this.btnInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInventory.Margin = new System.Windows.Forms.Padding(2);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.ShadowDecoration.Parent = this.btnInventory;
             this.btnInventory.Size = new System.Drawing.Size(166, 44);
@@ -356,7 +356,7 @@ namespace PatientInformationSystemNew.forms
             this.btnDoctors.DisabledState.Parent = this.btnDoctors;
             this.btnDoctors.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDoctors.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnDoctors.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnDoctors.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnDoctors.ForeColor = System.Drawing.Color.White;
             this.btnDoctors.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnDoctors.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -364,7 +364,7 @@ namespace PatientInformationSystemNew.forms
             this.btnDoctors.Image = global::PatientInformationSystemNew.Properties.Resources.doctor_icon;
             this.btnDoctors.ImageSize = new System.Drawing.Size(30, 30);
             this.btnDoctors.Location = new System.Drawing.Point(0, 88);
-            this.btnDoctors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDoctors.Margin = new System.Windows.Forms.Padding(2);
             this.btnDoctors.Name = "btnDoctors";
             this.btnDoctors.ShadowDecoration.Parent = this.btnDoctors;
             this.btnDoctors.Size = new System.Drawing.Size(166, 44);
@@ -388,7 +388,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPatient.DisabledState.Parent = this.btnPatient;
             this.btnPatient.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPatient.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnPatient.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnPatient.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnPatient.ForeColor = System.Drawing.Color.White;
             this.btnPatient.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnPatient.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -396,7 +396,7 @@ namespace PatientInformationSystemNew.forms
             this.btnPatient.Image = global::PatientInformationSystemNew.Properties.Resources.patient_icon;
             this.btnPatient.ImageSize = new System.Drawing.Size(30, 30);
             this.btnPatient.Location = new System.Drawing.Point(0, 44);
-            this.btnPatient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPatient.Margin = new System.Windows.Forms.Padding(2);
             this.btnPatient.Name = "btnPatient";
             this.btnPatient.ShadowDecoration.Parent = this.btnPatient;
             this.btnPatient.Size = new System.Drawing.Size(166, 44);
@@ -420,7 +420,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSchedule.DisabledState.Parent = this.btnSchedule;
             this.btnSchedule.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSchedule.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnSchedule.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSchedule.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSchedule.ForeColor = System.Drawing.Color.White;
             this.btnSchedule.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnSchedule.HoverState.FillColor = System.Drawing.Color.DodgerBlue;
@@ -428,7 +428,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSchedule.Image = global::PatientInformationSystemNew.Properties.Resources.schedule_icon;
             this.btnSchedule.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSchedule.Location = new System.Drawing.Point(0, 0);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(2);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.ShadowDecoration.Parent = this.btnSchedule;
             this.btnSchedule.Size = new System.Drawing.Size(166, 44);
@@ -441,7 +441,7 @@ namespace PatientInformationSystemNew.forms
             this.pnlDashboardBody.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnlDashboardBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDashboardBody.Location = new System.Drawing.Point(166, 99);
-            this.pnlDashboardBody.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlDashboardBody.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDashboardBody.Name = "pnlDashboardBody";
             this.pnlDashboardBody.Size = new System.Drawing.Size(1754, 981);
             this.pnlDashboardBody.TabIndex = 2;
@@ -456,7 +456,7 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.pnlDashboardLeftSide);
             this.Controls.Add(this.pnlDashboardHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

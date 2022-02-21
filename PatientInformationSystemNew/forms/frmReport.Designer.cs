@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabControlReport = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPatientsAndSales = new System.Windows.Forms.TabPage();
             this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
@@ -76,7 +76,7 @@
             this.tabControlReport.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlReport.ItemSize = new System.Drawing.Size(140, 50);
             this.tabControlReport.Location = new System.Drawing.Point(0, 0);
-            this.tabControlReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControlReport.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlReport.Name = "tabControlReport";
             this.tabControlReport.SelectedIndex = 0;
             this.tabControlReport.Size = new System.Drawing.Size(1754, 981);
@@ -126,9 +126,9 @@
             this.tabPatientsAndSales.Controls.Add(this.label20);
             this.tabPatientsAndSales.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabPatientsAndSales.Location = new System.Drawing.Point(4, 4);
-            this.tabPatientsAndSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPatientsAndSales.Margin = new System.Windows.Forms.Padding(2);
             this.tabPatientsAndSales.Name = "tabPatientsAndSales";
-            this.tabPatientsAndSales.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPatientsAndSales.Padding = new System.Windows.Forms.Padding(2);
             this.tabPatientsAndSales.Size = new System.Drawing.Size(1606, 973);
             this.tabPatientsAndSales.TabIndex = 0;
             this.tabPatientsAndSales.Text = "Patients and Sales";
@@ -138,7 +138,6 @@
             this.btnPrint.Animated = true;
             this.btnPrint.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPrint.BorderColor = System.Drawing.Color.Transparent;
-            this.btnPrint.BorderRadius = 5;
             this.btnPrint.BorderThickness = 1;
             this.btnPrint.CheckedState.Parent = this.btnPrint;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -149,7 +148,7 @@
             this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPrint.DisabledState.Parent = this.btnPrint;
             this.btnPrint.FillColor = System.Drawing.Color.Blue;
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnPrint.HoverState.FillColor = System.Drawing.Color.Blue;
@@ -157,7 +156,7 @@
             this.btnPrint.Image = global::PatientInformationSystemNew.Properties.Resources.generate_icon;
             this.btnPrint.ImageSize = new System.Drawing.Size(30, 30);
             this.btnPrint.Location = new System.Drawing.Point(1467, 916);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.ShadowDecoration.Parent = this.btnPrint;
             this.btnPrint.Size = new System.Drawing.Size(135, 50);
@@ -218,7 +217,7 @@
             // 
             this.rprtPatientsSales.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtReportPatientsAndSales.rdlc";
             this.rprtPatientsSales.Location = new System.Drawing.Point(779, 53);
-            this.rprtPatientsSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rprtPatientsSales.Margin = new System.Windows.Forms.Padding(2);
             this.rprtPatientsSales.Name = "rprtPatientsSales";
             this.rprtPatientsSales.Size = new System.Drawing.Size(513, 695);
             this.rprtPatientsSales.TabIndex = 287;
@@ -228,19 +227,19 @@
             // 
             this.dateReport.Animated = true;
             this.dateReport.BorderColor = System.Drawing.Color.Transparent;
-            this.dateReport.BorderRadius = 5;
+            this.dateReport.BorderRadius = 3;
             this.dateReport.BorderThickness = 1;
             this.dateReport.CheckedState.Parent = this.dateReport;
             this.dateReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateReport.FillColor = System.Drawing.Color.Blue;
-            this.dateReport.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dateReport.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dateReport.ForeColor = System.Drawing.Color.White;
             this.dateReport.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateReport.HoverState.BorderColor = System.Drawing.Color.White;
             this.dateReport.HoverState.FillColor = System.Drawing.Color.Blue;
             this.dateReport.HoverState.Parent = this.dateReport;
             this.dateReport.Location = new System.Drawing.Point(7, 7);
-            this.dateReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateReport.Margin = new System.Windows.Forms.Padding(2);
             this.dateReport.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateReport.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateReport.Name = "dateReport";
@@ -252,22 +251,22 @@
             // 
             // chartSales
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea1);
             this.chartSales.Location = new System.Drawing.Point(409, 433);
-            this.chartSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartSales.Margin = new System.Windows.Forms.Padding(2);
             this.chartSales.Name = "chartSales";
-            series7.ChartArea = "ChartArea1";
-            series7.Font = new System.Drawing.Font("Segoe UI", 11F);
-            series7.Name = "Sales";
-            this.chartSales.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            series1.Name = "Sales";
+            this.chartSales.Series.Add(series1);
             this.chartSales.Size = new System.Drawing.Size(366, 314);
             this.chartSales.TabIndex = 283;
             this.chartSales.Text = "chart6";
-            title7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title7.Name = "chartSales";
-            title7.Text = "Sales Chart";
-            this.chartSales.Titles.Add(title7);
+            title1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title1.Name = "chartSales";
+            title1.Text = "Sales Chart";
+            this.chartSales.Titles.Add(title1);
             // 
             // lblTotalSalesInYear
             // 
@@ -343,21 +342,21 @@
             // 
             // chartPatients
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartPatients.ChartAreas.Add(chartArea8);
+            chartArea2.Name = "ChartArea1";
+            this.chartPatients.ChartAreas.Add(chartArea2);
             this.chartPatients.Location = new System.Drawing.Point(409, 53);
-            this.chartPatients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartPatients.Margin = new System.Windows.Forms.Padding(2);
             this.chartPatients.Name = "chartPatients";
-            series8.ChartArea = "ChartArea1";
-            series8.Name = "Patients";
-            this.chartPatients.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Patients";
+            this.chartPatients.Series.Add(series2);
             this.chartPatients.Size = new System.Drawing.Size(366, 314);
             this.chartPatients.TabIndex = 274;
             this.chartPatients.Text = "chart1";
-            title8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title8.Name = "chartPatients";
-            title8.Text = "Patients Chart";
-            this.chartPatients.Titles.Add(title8);
+            title2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title2.Name = "chartPatients";
+            title2.Text = "Patients Chart";
+            this.chartPatients.Titles.Add(title2);
             // 
             // lblTotalPatientsInYear
             // 
@@ -436,7 +435,7 @@
             this.tabInventory.BackColor = System.Drawing.Color.DodgerBlue;
             this.tabInventory.Controls.Add(this.rprtInventory);
             this.tabInventory.Location = new System.Drawing.Point(4, 4);
-            this.tabInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabInventory.Margin = new System.Windows.Forms.Padding(2);
             this.tabInventory.Name = "tabInventory";
             this.tabInventory.Size = new System.Drawing.Size(1606, 973);
             this.tabInventory.TabIndex = 2;
@@ -447,7 +446,7 @@
             this.rprtInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rprtInventory.LocalReport.ReportEmbeddedResource = "PatientInformationSystemNew.report.rprtInventory.rdlc";
             this.rprtInventory.Location = new System.Drawing.Point(0, 0);
-            this.rprtInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rprtInventory.Margin = new System.Windows.Forms.Padding(2);
             this.rprtInventory.Name = "rprtInventory";
             this.rprtInventory.Size = new System.Drawing.Size(1606, 973);
             this.rprtInventory.TabIndex = 0;
@@ -461,7 +460,7 @@
             this.ClientSize = new System.Drawing.Size(1754, 981);
             this.Controls.Add(this.tabControlReport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Summary Report";
