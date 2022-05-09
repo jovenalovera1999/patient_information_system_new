@@ -19,10 +19,9 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.UpdateHistory update_history = new functions.UpdateHistory();
 
-        void LoadForm()
+        private void frmUpdateHistory_Load(object sender, EventArgs e)
         {
             update_history.LoadPatientsUpdates(this.gridPatients);
             update_history.LoadVitalSignsUpdates(this.gridVitalSigns);
@@ -33,7 +32,7 @@ namespace PatientInformationSystemNew.forms
             update_history.LoadInventoryUpdates(this.gridInventory);
         }
 
-        void SelectPatient()
+        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridPatients.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPatients.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -46,7 +45,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionPatients.Text = this.gridPatients.SelectedCells[3].Value.ToString();
         }
 
-        void SelectVitalSigns()
+        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridVitalSigns.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -59,7 +58,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionVitalSigns.Text = this.gridVitalSigns.SelectedCells[3].Value.ToString();
         }
 
-        void SelectDiagnosis()
+        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridDiagnosis.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -72,7 +71,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionDiagnosis.Text = this.gridDiagnosis.SelectedCells[3].Value.ToString();
         }
 
-        void SelectSymptom()
+        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridSymptoms.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSymptoms.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -85,7 +84,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionSymptoms.Text = this.gridSymptoms.SelectedCells[3].Value.ToString();
         }
 
-        void SelectPrescription()
+        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPrescriptions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -98,7 +97,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionPrescriptions.Text = this.gridPrescriptions.SelectedCells[3].Value.ToString();
         }
 
-        void SelectPaymentTransaction()
+        private void gridPaymentTransactions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentTransactions.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -111,7 +110,7 @@ namespace PatientInformationSystemNew.forms
             this.txtDescriptionPaymentTransactions.Text = this.gridPaymentTransactions.SelectedCells[3].Value.ToString();
         }
 
-        void SelectSupply()
+        private void gridInventory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridInventory.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridInventory.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -122,46 +121,6 @@ namespace PatientInformationSystemNew.forms
             this.txtIssuedTo.Text = this.gridInventory.SelectedCells[2].Value.ToString();
             this.txtDateInventory.Text = string.Format("{0} {1}", date.ToString("D"), date.ToString("hh:mm tt"));
             this.txtDescriptionInventory.Text = this.gridInventory.SelectedCells[3].Value.ToString();
-        }
-
-        private void frmUpdateHistory_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridPatients_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridVitalSigns_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectVitalSigns();
-        }
-
-        private void gridDiagnosis_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectDiagnosis();
-        }
-
-        private void gridSymptoms_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSymptom();
-        }
-
-        private void gridPrescriptions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPrescription();
-        }
-
-        private void gridPaymentTransactions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPaymentTransaction();
-        }
-
-        private void gridInventory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectSupply();
         }
     }
 }

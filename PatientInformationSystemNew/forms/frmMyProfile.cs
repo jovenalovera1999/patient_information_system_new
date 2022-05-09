@@ -20,16 +20,7 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.User user = new functions.User();
-
-        void LoadAge()
-        {
-            for (int i = 1; i < 120; i++)
-            {
-                this.cmbAge.Items.Add(i);
-            }
-        }
 
         void LoadProfilePicture()
         {
@@ -61,74 +52,7 @@ namespace PatientInformationSystemNew.forms
             this.txtRole.Text = val.UserRole;
         }
 
-        void LoadForm()
-        {
-            LoadAge();
-            LoadProfilePicture();
-            LoadUserDetails();
-        }
-
-        void UploadPhoto()
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                imgLocation = dialog.FileName.ToString();
-                this.picProfilePicture.ImageLocation = imgLocation;
-            }
-        }
-
-        void RemovePhoto()
-        {
-            val.UserProfilePicture = null;
-            imgLocation = null;
-            this.picProfilePicture.Image = null;
-        }
-
-        void EditUser()
-        {
-            this.txtMyID.ReadOnly = false;
-            this.txtUsername.ReadOnly = false;
-            this.txtPassword.ReadOnly = false;
-            this.txtFirstName.ReadOnly = false;
-            this.txtMiddleName.ReadOnly = false;
-            this.txtLastName.ReadOnly = false;
-            this.txtGender.Visible = false;
-            this.txtAge.Visible = false;
-            this.txtAddress.ReadOnly = false;
-            this.txtBirthday.Visible = false;
-            this.txtCellphoneNumber.ReadOnly = false;
-            this.txtTelephoneNumber.ReadOnly = false;
-            this.txtEmail.ReadOnly = false;
-            this.btnEdit.Enabled = false;
-
-            this.cmbGender.Visible = true;
-            this.cmbAge.Visible = true;
-            this.dateBirthday.Visible = true;
-            this.btnUploadPhoto.Visible = true;
-            this.btnRemovePhoto.Visible = true;
-            this.btnSave.Enabled = true;
-
-            this.txtMyID.TabStop = true;
-            this.txtUsername.TabStop = true;
-            this.txtPassword.TabStop = true;
-            this.txtFirstName.TabStop = true;
-            this.txtMiddleName.TabStop = true;
-            this.txtLastName.TabStop = true;
-            this.cmbGender.TabStop = true;
-            this.cmbAge.TabStop = true;
-            this.txtAddress.TabStop = true;
-            this.dateBirthday.TabStop = true;
-            this.txtCellphoneNumber.TabStop = true;
-            this.txtTelephoneNumber.TabStop = true;
-            this.txtEmail.TabStop = true;
-
-            this.txtMyID.Focus();
-        }
-
-        void DoneSaving()
+        void Reset()
         {
             this.txtMyID.ReadOnly = true;
             this.txtUsername.ReadOnly = true;
@@ -178,89 +102,79 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void UpdateUserAlreadyWithOrWithoutProfilePicture()
+        private void frmMyProfile_Load(object sender, EventArgs e)
         {
-            if (val.UserGender == "Male")
+            for (int i = 1; i < 120; i++)
             {
-                if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
-                    this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
-                {
-                    MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    GetUser();
-                    DoneSaving();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                this.cmbAge.Items.Add(i);
             }
-            else
-            {
-                if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
-                    this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
-                {
-                    MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    GetUser();
-                    DoneSaving();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            LoadProfilePicture();
+            LoadUserDetails();
+        }
+
+        string imgLocation = "";
+        private void btnUploadPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                imgLocation = dialog.FileName.ToString();
+                this.picProfilePicture.ImageLocation = imgLocation;
             }
         }
 
-        void UpdateUserWithNewProfilePicture()
+        private void btnRemovePhoto_Click(object sender, EventArgs e)
         {
-            if (val.UserGender == "Male")
-            {
-                byte[] profilePicture = null;
-                FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                profilePicture = br.ReadBytes((int)fs.Length);
-
-                if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
-                    this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
-                {
-                    MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    GetUser();
-                    DoneSaving();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                byte[] profilePicture = null;
-                FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                profilePicture = br.ReadBytes((int)fs.Length);
-
-                if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
-                    this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
-                    this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
-                {
-                    MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    GetUser();
-                    DoneSaving();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            val.UserProfilePicture = null;
+            imgLocation = null;
+            this.picProfilePicture.Image = null;
         }
 
-        void SaveUser()
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            this.txtMyID.ReadOnly = false;
+            this.txtUsername.ReadOnly = false;
+            this.txtPassword.ReadOnly = false;
+            this.txtFirstName.ReadOnly = false;
+            this.txtMiddleName.ReadOnly = false;
+            this.txtLastName.ReadOnly = false;
+            this.txtGender.Visible = false;
+            this.txtAge.Visible = false;
+            this.txtAddress.ReadOnly = false;
+            this.txtBirthday.Visible = false;
+            this.txtCellphoneNumber.ReadOnly = false;
+            this.txtTelephoneNumber.ReadOnly = false;
+            this.txtEmail.ReadOnly = false;
+            this.btnEdit.Enabled = false;
+
+            this.cmbGender.Visible = true;
+            this.cmbAge.Visible = true;
+            this.dateBirthday.Visible = true;
+            this.btnUploadPhoto.Visible = true;
+            this.btnRemovePhoto.Visible = true;
+            this.btnSave.Enabled = true;
+
+            this.txtMyID.TabStop = true;
+            this.txtUsername.TabStop = true;
+            this.txtPassword.TabStop = true;
+            this.txtFirstName.TabStop = true;
+            this.txtMiddleName.TabStop = true;
+            this.txtLastName.TabStop = true;
+            this.cmbGender.TabStop = true;
+            this.cmbAge.TabStop = true;
+            this.txtAddress.TabStop = true;
+            this.dateBirthday.TabStop = true;
+            this.txtCellphoneNumber.TabStop = true;
+            this.txtTelephoneNumber.TabStop = true;
+            this.txtEmail.TabStop = true;
+
+            this.txtMyID.Focus();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(this.txtMyID.Text))
             {
@@ -312,39 +226,85 @@ namespace PatientInformationSystemNew.forms
             else if (String.IsNullOrWhiteSpace(imgLocation))
             {
                 // User already with or without profile picture
-                UpdateUserAlreadyWithOrWithoutProfilePicture();
+                if (val.UserGender == "Male")
+                {
+                    if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                        this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
+                        this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
+                    {
+                        MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        GetUser();
+                        Reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    if (user.UpdateUser(val.UserPrimaryID, val.UserProfilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                        this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
+                        this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
+                    {
+                        MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        GetUser();
+                        Reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else if (!String.IsNullOrWhiteSpace(imgLocation))
             {
                 // With new profile picture
-                UpdateUserWithNewProfilePicture();
+                if (val.UserGender == "Male")
+                {
+                    byte[] profilePicture = null;
+                    FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    profilePicture = br.ReadBytes((int)fs.Length);
+
+                    if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                        this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
+                        this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
+                    {
+                        MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        GetUser();
+                        Reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    byte[] profilePicture = null;
+                    FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fs);
+                    profilePicture = br.ReadBytes((int)fs.Length);
+
+                    if (user.UpdateUser(val.UserPrimaryID, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstName.Text,
+                        this.txtMiddleName.Text, this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
+                        this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text))
+                    {
+                        MessageBox.Show("Your profile has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        GetUser();
+                        Reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update your profile!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-        }
-
-        private void frmMyProfile_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        string imgLocation = "";
-        private void btnUploadPhoto_Click(object sender, EventArgs e)
-        {
-            UploadPhoto();
-        }
-
-        private void btnRemovePhoto_Click(object sender, EventArgs e)
-        {
-            RemovePhoto();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            EditUser();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveUser();
         }
 
         private void frmMyProfile_VisibleChanged(object sender, EventArgs e)

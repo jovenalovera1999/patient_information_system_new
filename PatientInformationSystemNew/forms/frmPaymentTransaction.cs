@@ -20,11 +20,10 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        void LoadForm()
+        private void frmPaymentTransaction_Load(object sender, EventArgs e)
         {
             payment.LoadPatientUnpaid(this.gridPaymentTransaction);
             this.cmbDiscount.Text = "None";
@@ -32,7 +31,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Focus();
         }
 
-        void SelectPatient()
+        private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -52,7 +51,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.Focus();
         }
 
-        void Transact()
+        private void btnTransact_Click(object sender, EventArgs e)
         {
             double pwd = .20;
             double senior_citizen = .20;
@@ -131,24 +130,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void ResetAll()
-        {
-            this.rprtReceipt.Clear();
-
-            this.txtFullName.ResetText();
-            this.txtReceiptNo.ResetText();
-            this.txtTotalMedicalFee.ResetText();
-            this.txtAmount.ResetText();
-            this.txtTotalAmountPaid.ResetText();
-            this.txtChange.ResetText();
-
-            this.cmbDiscount.Text = "None";
-            this.btnSaveTransaction.Enabled = false;
-
-            this.txtReceiptNo.Focus();
-        }
-
-        void SaveTransaction()
+        private void btnSaveTransaction_Click(object sender, EventArgs e)
         {
             Random number = new Random();
             var generateID = new StringBuilder();
@@ -172,7 +154,20 @@ namespace PatientInformationSystemNew.forms
                     this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
                     payment.LoadPatientUnpaid(this.gridPaymentTransaction);
-                    ResetAll();
+
+                    this.rprtReceipt.Clear();
+
+                    this.txtFullName.ResetText();
+                    this.txtReceiptNo.ResetText();
+                    this.txtTotalMedicalFee.ResetText();
+                    this.txtAmount.ResetText();
+                    this.txtTotalAmountPaid.ResetText();
+                    this.txtChange.ResetText();
+
+                    this.cmbDiscount.Text = "None";
+                    this.btnSaveTransaction.Enabled = false;
+
+                    this.txtReceiptNo.Focus();
                 }
                 else
                 {
@@ -181,7 +176,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void BackToPatients()
+        private void btnBack_Click(object sender, EventArgs e)
         {
             forms.frmPatients frmPatient = new forms.frmPatients();
             frmPatient.TopLevel = false;
@@ -191,31 +186,6 @@ namespace PatientInformationSystemNew.forms
             frmPatient.Dock = DockStyle.Fill;
             frmPatient.Show();
             this.Close();
-        }
-
-        private void frmPaymentTransaction_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void btnTransact_Click(object sender, EventArgs e)
-        {
-            Transact();
-        }
-
-        private void btnSaveTransaction_Click(object sender, EventArgs e)
-        {
-            SaveTransaction();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            BackToPatients();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace PatientInformationSystemNew.forms
             }));
         }
 
-        void LoadForm()
+        private void frmDashboard_Load(object sender, EventArgs e)
         {
             t = new System.Timers.Timer();
             t.Interval = 1000; // Seconds
@@ -70,7 +70,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void GoToSchedule()
+        private void btnSchedule_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmSchedule frmSchedule = new forms.frmSchedule();
@@ -80,7 +80,7 @@ namespace PatientInformationSystemNew.forms
             frmSchedule.Show();
         }
 
-        void GoToPatient()
+        private void btnPatient_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmPatients frmPatient = new forms.frmPatients();
@@ -90,7 +90,7 @@ namespace PatientInformationSystemNew.forms
             frmPatient.Show();
         }
 
-        void GoToDoctors()
+        private void btnDoctors_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmListOfDoctors frmListOfDoctors = new forms.frmListOfDoctors();
@@ -100,7 +100,7 @@ namespace PatientInformationSystemNew.forms
             frmListOfDoctors.Show();
         }
 
-        void GoToInventory()
+        private void btnInventory_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmInventory frmInventory = new forms.frmInventory();
@@ -110,7 +110,7 @@ namespace PatientInformationSystemNew.forms
             frmInventory.Show();
         }
 
-        void GoToSignUp()
+        private void btnSignUp_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmSignUp frmSignUp = new forms.frmSignUp();
@@ -120,7 +120,7 @@ namespace PatientInformationSystemNew.forms
             frmSignUp.Show();
         }
 
-        void GoToReport()
+        private void btnReport_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmReport frmReport = new forms.frmReport();
@@ -130,7 +130,7 @@ namespace PatientInformationSystemNew.forms
             frmReport.Show();
         }
 
-        void GoToUpdateHistory()
+        private void btnUpdateHistory_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmUpdateHistory frmUpdateHistory = new forms.frmUpdateHistory();
@@ -140,7 +140,7 @@ namespace PatientInformationSystemNew.forms
             frmUpdateHistory.Show();
         }
 
-        void GoToProfile()
+        private void btnProfile_Click(object sender, EventArgs e)
         {
             this.pnlDashboardBody.Controls.Clear();
             forms.frmMyProfile frmMyProfile = new forms.frmMyProfile();
@@ -150,7 +150,7 @@ namespace PatientInformationSystemNew.forms
             frmMyProfile.Show();
         }
 
-        void Logout()
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
@@ -162,56 +162,6 @@ namespace PatientInformationSystemNew.forms
                 this.pnlDashboardBody.Controls.Clear();
                 this.Close();
             }
-        }
-
-        private void frmDashboard_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void btnSchedule_Click(object sender, EventArgs e)
-        {
-            GoToSchedule();
-        }
-
-        private void btnPatient_Click(object sender, EventArgs e)
-        {
-            GoToPatient();
-        }
-
-        private void btnDoctors_Click(object sender, EventArgs e)
-        {
-            GoToDoctors();
-        }
-
-        private void btnInventory_Click(object sender, EventArgs e)
-        {
-            GoToInventory();
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-            GoToSignUp();
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            GoToReport();
-        }
-
-        private void btnUpdateHistory_Click(object sender, EventArgs e)
-        {
-            GoToUpdateHistory();
-        }
-
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-            GoToProfile();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Logout();
         }
     }
 }

@@ -23,40 +23,7 @@ namespace PatientInformationSystemNew.forms
         functions.User user = new functions.User();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        void LoadAge()
-        {
-            for (int i = 1; i < 80; i++)
-            {
-                this.cmbAge.Items.Add(i);
-            }
-        }
-
-        void LoadForm()
-        {
-            LoadAge();
-            this.dateBirthday.Value = DateTime.Now.Date;
-        }
-
-        void UploadPhoto()
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                imgLocation = dialog.FileName.ToString();
-                this.picProfilePicture.ImageLocation = imgLocation;
-            }
-        }
-
-        void RemovePhoto()
-        {
-            imgLocation = null;
-            this.picProfilePicture.ImageLocation = null;
-            this.picProfilePicture.Image = null;
-        }
-
-        void ResetAll()
+        void Reset()
         {
             this.txtUserID.ResetText();
             this.txtUsername.ResetText();
@@ -82,43 +49,104 @@ namespace PatientInformationSystemNew.forms
             this.txtUserID.Focus();
         }
 
-        void SaveUserWithoutProfilePicture()
+        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (user.SignUp(this.txtUserID.Text, null, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text, this.txtMiddlename.Text,
-                this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
-                this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.cmbRole.Text, this.txtSpecialization.Text))
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
             {
-                MessageBox.Show("User account has been successfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetAll();
+                e.Handled = true;
+                return;
             }
-            else
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
             {
-                MessageBox.Show("Failed to create user account!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
             }
         }
 
-        void SaveUserWithProfilePicture()
+        private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            byte[] profilePicture = null;
-            FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
-            profilePicture = br.ReadBytes((int)fs.Length);
-
-            if (user.SignUp(this.txtUserID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text,
-                this.txtMiddlename.Text, this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
-                this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
-                this.cmbRole.Text, this.txtSpecialization.Text))
+            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
             {
-                MessageBox.Show("User account has been successfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetAll();
+                e.Handled = true;
+                return;
             }
-            else
+            // Checks to make sure only 1 plus sign is allowed
+            if (e.KeyChar == 43)
             {
-                MessageBox.Show("Failed to create user account!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 open parenthesis is allowed
+            if (e.KeyChar == 40)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            // Checks to make sure only 1 close parenthesis is allowed
+            if (e.KeyChar == 41)
+            {
+                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                {
+                    e.Handled = true;
+                }
             }
         }
 
-        void SaveUser()
+        private void frmSignUp_Load(object sender, EventArgs e)
+        {
+            for (int i = 1; i < 80; i++)
+            {
+                this.cmbAge.Items.Add(i);
+            }
+            this.dateBirthday.Value = DateTime.Now.Date;
+        }
+
+        string imgLocation = "";
+        private void btnUploadPhoto_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "All files(*.*)|*.*|PNG files(*.png)|*.png|JPG files(*.jpg)|*.jpg";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                imgLocation = dialog.FileName.ToString();
+                this.picProfilePicture.ImageLocation = imgLocation;
+            }
+        }
+
+        private void btnRemovePhoto_Click(object sender, EventArgs e)
+        {
+            imgLocation = null;
+            this.picProfilePicture.ImageLocation = null;
+            this.picProfilePicture.Image = null;
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             if (duplicate.UserIDDuplicate(this.txtUserID.Text))
             {
@@ -197,101 +225,38 @@ namespace PatientInformationSystemNew.forms
             }
             else if (String.IsNullOrWhiteSpace(imgLocation))
             {
-                SaveUserWithoutProfilePicture();
+                if (user.SignUp(this.txtUserID.Text, null, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text, this.txtMiddlename.Text,
+                this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
+                this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.cmbRole.Text, this.txtSpecialization.Text))
+                {
+                    MessageBox.Show("User account has been successfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to create user account!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (!String.IsNullOrWhiteSpace(imgLocation))
             {
-                SaveUserWithProfilePicture();
-            }
-        }
+                byte[] profilePicture = null;
+                FileStream fs = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                profilePicture = br.ReadBytes((int)fs.Length);
 
-        private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 plus sign is allowed
-            if (e.KeyChar == 43)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
+                if (user.SignUp(this.txtUserID.Text, profilePicture, this.txtUsername.Text, this.txtPassword.Text, this.txtFirstname.Text,
+                    this.txtMiddlename.Text, this.txtLastname.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text,
+                    this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text,
+                    this.cmbRole.Text, this.txtSpecialization.Text))
                 {
-                    e.Handled = true;
+                    MessageBox.Show("User account has been successfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to create user account!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            // Checks to make sure only 1 open parenthesis is allowed
-            if (e.KeyChar == 40)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 close parenthesis is allowed
-            if (e.KeyChar == 41)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void txtTelephoneNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allows 0-9, backspace, plus sign, open and close parenthesis, and space
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 43 && e.KeyChar != 40 && e.KeyChar != 41 && e.KeyChar != 32))
-            {
-                e.Handled = true;
-                return;
-            }
-            // Checks to make sure only 1 plus sign is allowed
-            if (e.KeyChar == 43)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 open parenthesis is allowed
-            if (e.KeyChar == 40)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-            // Checks to make sure only 1 close parenthesis is allowed
-            if (e.KeyChar == 41)
-            {
-                if ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf(e.KeyChar) != -1)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void frmSignUp_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        string imgLocation = "";
-        private void btnUploadPhoto_Click_1(object sender, EventArgs e)
-        {
-            UploadPhoto();
-        }
-
-        private void btnRemovePhoto_Click(object sender, EventArgs e)
-        {
-            RemovePhoto();
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            SaveUser();
         }
     }
 }
