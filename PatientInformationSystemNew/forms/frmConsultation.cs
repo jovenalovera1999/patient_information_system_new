@@ -334,7 +334,7 @@ namespace PatientInformationSystemNew.forms
             {
                 if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
                 {
-                    if (patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
+                    if (patient.DoneConsultingWithFirstAccountExisting(this.txtPatientID.Text, val.PatientPrimaryID, val.UserPrimaryID, val.PatientFullName))
                     {
                         SaveDiagnosis();
                         MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -345,7 +345,7 @@ namespace PatientInformationSystemNew.forms
                         MessageBox.Show("Failed to save patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else if (patient.DoneConsulting(this.txtPatientID.Text, val.PatientPrimaryID, val.PatientFullName))
+                else if (patient.DoneConsulting(this.txtPatientID.Text, val.PatientPrimaryID, val.UserPrimaryID, val.PatientFullName))
                 {
                     SaveDiagnosis();
                     MessageBox.Show("Patient successfully saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
