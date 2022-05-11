@@ -22,21 +22,43 @@ namespace PatientInformationSystemNew.forms
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
         functions.Report report = new functions.Report();
+        functions.Doctor doctor = new functions.Doctor();
+
+        void LoadDoctors()
+        {
+            string sql = @"CALL load_select_doctors();";
+
+            MySqlConnection connection = new MySqlConnection(con.conString());
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataReader myReader;
+
+            try
+            {
+                connection.Open();
+                myReader = cmd.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string doctors_name = myReader.GetString("CONCAT('Dr.', ' ', CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(',CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ')')");
+                    this.cmbDoctorName.Items.Add(doctors_name);
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error filling doctors name: " + ex.ToString());
+            }
+        }
 
         void LoadInventoryReport()
         {
             using (MySqlConnection connection = new MySqlConnection(con.conString()))
             {
-                string sql = @"SELECT
-                               CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_id',
-                               CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_name',
-                               CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'quantity',
-                               DATE_FORMAT(expiration_date, '%Y/%m/%d') AS 'expiration_date'
-                               FROM pis_db.inventory
-                               ORDER BY CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;";
+                string sql = @"CALL load_inventory_report();";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                 {
+                    connection.Open();
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     dt.Clear();
@@ -46,17 +68,20 @@ namespace PatientInformationSystemNew.forms
                     ReportDataSource source = new ReportDataSource("DataSet1", dt);
                     this.rprtInventory.LocalReport.DataSources.Add(source);
                     this.rprtInventory.RefreshReport();
+                    connection.Close();
                 }
             }
         }
 
         void CountPatients()
         {
-            report.countTotalPatientsInMonth(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
-            report.countTotalPatientsInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"),
+            doctor.GetDoctorPrimaryID(this.cmbDoctorName.Text);
+
+            report.countTotalPatientsInMonth(val.DoctorPrimaryID, this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
+            report.countTotalPatientsInDay(val.DoctorPrimaryID, this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"),
                 this.dateReport.Value.ToString("yyyy"));
-            report.countTotalPatientsInYear(this.dateReport.Value.ToString("yyyy"));
-            report.countOverallTotalPatients();
+            report.countTotalPatientsInYear(val.DoctorPrimaryID, this.dateReport.Value.ToString("yyyy"));
+            report.countOverallTotalPatients(val.DoctorPrimaryID);
 
             this.lblTotalPatientsInMonth.Text = val.CountTotalPatientsInMonth;
             this.lblTotalPatientsInDay.Text = val.CountTotalPatientsInDay;
@@ -67,11 +92,13 @@ namespace PatientInformationSystemNew.forms
 
         void CountSales()
         {
-            report.countTotalSalesInMonth(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("yyyy"));
-            report.countTotalSalesInDay(this.dateReport.Value.ToString("MMMM"), this.dateReport.Value.ToString("dd"),
-                this.dateReport.Value.ToString("yyyy"));
-            report.countTotalSalesInYear(this.dateReport.Value.ToString("yyyy"));
-            report.countOverallTotalSales();
+            doctor.GetDoctorPrimaryID(this.cmbDoctorName.Text);
+
+            report.countTotalSalesInMonth(val.DoctorPrimaryID, this.dateReport.Value.ToString("MM"), this.dateReport.Value.ToString("yy"));
+            report.countTotalSalesInDay(val.DoctorPrimaryID, this.dateReport.Value.ToString("MM"), this.dateReport.Value.ToString("dd"),
+                this.dateReport.Value.ToString("yy"));
+            report.countTotalSalesInYear(val.DoctorPrimaryID, this.dateReport.Value.ToString("yy"));
+            report.countOverallTotalSales(val.DoctorPrimaryID);
 
             this.lblTotalSalesInMonth.Text = val.CountTotalSalesInMonth;
             this.lblTotalSalesInDay.Text = val.CountTotalSalesInDay;
@@ -96,19 +123,8 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        private void frmReport_Load(object sender, EventArgs e)
+        void LoadCharts()
         {
-            this.dateReport.Value = DateTime.Now.Date;
-            CountPatients();
-            CountSales();
-            LoadInventoryReport();
-        }
-
-        private void dateReport_ValueChanged(object sender, EventArgs e)
-        {
-            CountPatients();
-            CountSales();
-
             foreach (var series in this.chartPatients.Series)
             {
                 series.Points.Clear();
@@ -127,6 +143,27 @@ namespace PatientInformationSystemNew.forms
             this.chartSales.Series[0].Points.AddXY("Day", this.lblTotalSalesInDay.Text);
             this.chartSales.Series[0].Points.AddXY("Year", this.lblTotalSalesInYear.Text);
             this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
+        }
+
+        private void frmReport_Load(object sender, EventArgs e)
+        {
+            this.dateReport.Value = DateTime.Now.Date;
+            LoadDoctors();
+            LoadInventoryReport();
+        }
+
+        private void cmbDoctorName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CountPatients();
+            CountSales();
+            LoadCharts();
+        }
+
+        private void dateReport_ValueChanged(object sender, EventArgs e)
+        {
+            CountPatients();
+            CountSales();
+            LoadCharts();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

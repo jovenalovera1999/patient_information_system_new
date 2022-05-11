@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabControlReport = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPatientsAndSales = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbDoctorName = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
@@ -61,7 +62,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.rprtInventory = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControlReport.SuspendLayout();
             this.tabPatientsAndSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
@@ -139,6 +139,18 @@
             this.tabPatientsAndSales.TabIndex = 0;
             this.tabPatientsAndSales.Text = "Patients and Sales";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(7, 73);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 28);
+            this.label4.TabIndex = 295;
+            this.label4.Text = "Date:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -169,6 +181,7 @@
             this.cmbDoctorName.Name = "cmbDoctorName";
             this.cmbDoctorName.Size = new System.Drawing.Size(392, 36);
             this.cmbDoctorName.TabIndex = 293;
+            this.cmbDoctorName.SelectedIndexChanged += new System.EventHandler(this.cmbDoctorName_SelectedIndexChanged);
             // 
             // btnPrint
             // 
@@ -281,22 +294,22 @@
             // 
             // chartSales
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea1);
             this.chartSales.Location = new System.Drawing.Point(224, 585);
             this.chartSales.Margin = new System.Windows.Forms.Padding(2);
             this.chartSales.Name = "chartSales";
-            series5.ChartArea = "ChartArea1";
-            series5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            series5.Name = "Sales";
-            this.chartSales.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            series1.Name = "Sales";
+            this.chartSales.Series.Add(series1);
             this.chartSales.Size = new System.Drawing.Size(366, 314);
             this.chartSales.TabIndex = 283;
             this.chartSales.Text = "chart6";
-            title5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title5.Name = "chartSales";
-            title5.Text = "Sales Chart";
-            this.chartSales.Titles.Add(title5);
+            title1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title1.Name = "chartSales";
+            title1.Text = "Sales Chart";
+            this.chartSales.Titles.Add(title1);
             // 
             // lblTotalSalesInYear
             // 
@@ -372,21 +385,21 @@
             // 
             // chartPatients
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartPatients.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chartPatients.ChartAreas.Add(chartArea2);
             this.chartPatients.Location = new System.Drawing.Point(224, 205);
             this.chartPatients.Margin = new System.Windows.Forms.Padding(2);
             this.chartPatients.Name = "chartPatients";
-            series6.ChartArea = "ChartArea1";
-            series6.Name = "Patients";
-            this.chartPatients.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Patients";
+            this.chartPatients.Series.Add(series2);
             this.chartPatients.Size = new System.Drawing.Size(366, 314);
             this.chartPatients.TabIndex = 274;
             this.chartPatients.Text = "chart1";
-            title6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title6.Name = "chartPatients";
-            title6.Text = "Patients Chart";
-            this.chartPatients.Titles.Add(title6);
+            title2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title2.Name = "chartPatients";
+            title2.Text = "Patients Chart";
+            this.chartPatients.Titles.Add(title2);
             // 
             // lblTotalPatientsInYear
             // 
@@ -481,18 +494,6 @@
             this.rprtInventory.Size = new System.Drawing.Size(1606, 973);
             this.rprtInventory.TabIndex = 0;
             this.rprtInventory.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(7, 73);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 28);
-            this.label4.TabIndex = 295;
-            this.label4.Text = "Date:";
             // 
             // frmReport
             // 

@@ -2165,11 +2165,12 @@ DROP procedure IF EXISTS `count_total_patients_in_month`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_total_patients_in_month` (pMonth VARCHAR(55), pYear VARCHAR(55))
+CREATE PROCEDURE `count_total_patients_in_month` (pDoctorFID INT, pMonth VARCHAR(255), pYear VARCHAR(255))
 BEGIN
 	SELECT COUNT(*)
     FROM pis_db.number_of_patients
     WHERE
+    doctor_fid = pDoctorFID AND
     DATE_FORMAT(date, '%M') = pMonth AND
     DATE_FORMAT(date, '%Y') = pYear;
 END$$
@@ -2181,11 +2182,12 @@ DROP procedure IF EXISTS `count_total_patients_in_day`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_total_patients_in_day` (pMonth VARCHAR(55), pDay VARCHAR(55), pYear VARCHAR(55))
+CREATE PROCEDURE `count_total_patients_in_day` (pDoctorFID INT, pMonth VARCHAR(255), pDay VARCHAR(255), pYear VARCHAR(255))
 BEGIN
 	SELECT COUNT(*)
     FROM pis_db.number_of_patients
     WHERE
+    doctor_fid = pDoctorFID AND
     DATE_FORMAT(date, '%M') = pMonth AND
     DATE_FORMAT(date, '%d') = pDay AND
     DATE_FORMAT(date, '%Y') = pYear;
@@ -2198,11 +2200,12 @@ DROP procedure IF EXISTS `count_total_patients_in_year`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_total_patients_in_year` (pYear VARCHAR(55))
+CREATE PROCEDURE `count_total_patients_in_year` (pDoctorFID INT, pYear VARCHAR(255))
 BEGIN
 	SELECT COUNT(*)
     FROM pis_db.number_of_patients
     WHERE
+    doctor_fid = pDoctorFID AND
     DATE_FORMAT(date, '%Y') = pYear;
 END$$
 
@@ -2213,10 +2216,11 @@ DROP procedure IF EXISTS `count_overall_total_patients`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_overall_total_patients` ()
+CREATE PROCEDURE `count_overall_total_patients` (pDoctorFID INT)
 BEGIN
 	SELECT COUNT(*)
-    FROM pis_db.number_of_patients;
+    FROM pis_db.number_of_patients
+    WHERE doctor_fid = pDoctorFID;
 END$$
 
 DELIMITER ;
@@ -2226,13 +2230,18 @@ DROP procedure IF EXISTS `count_total_sales_in_month`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_total_sales_in_month` (pMonth VARCHAR(55), pYear VARCHAR(55))
+CREATE PROCEDURE `count_total_sales_in_month` (pDoctorFID INT, pMonth VARCHAR(255), pYear VARCHAR(255))
 BEGIN
-	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-    FROM pis_db.payment_transactions
+	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
+    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
     WHERE
-    DATE_FORMAT(date, '%M') = pMonth AND
-    DATE_FORMAT(date, '%Y') = pYear;
+    doctor_fid = pDoctorFID AND
+    DATE_FORMAT(pis_db.payment_transactions.date, '%m') = pMonth AND
+    DATE_FORMAT(pis_db.payment_transactions.date, '%y') = pYear;
+
+    -- SELECT 
+    -- FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
+    -- FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id WHERE doctor_fid = 2 AND DATE_FORMAT(pis_db.payment_transactions.date, '%y') = '22';
 END$$
 
 DELIMITER ;
@@ -2242,14 +2251,15 @@ DROP procedure IF EXISTS `count_total_sales_in_day`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_total_sales_in_day` (pMonth VARCHAR(55), pDay VARCHAR(55), pYear VARCHAR(55))
+CREATE PROCEDURE `count_total_sales_in_day` (pDoctorFID INT, pMonth VARCHAR(255), pDay VARCHAR(255), pYear VARCHAR(255))
 BEGIN
-	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-    FROM pis_db.payment_transactions
+	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
+    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
 	WHERE
-    DATE_FORMAT(date, '%M') = pMonth AND
-    DATE_FORMAT(date, '%d') = pDay AND
-    DATE_FORMAT(date, '%Y') = pYear;
+    doctor_fid = pDoctorFID AND
+    DATE_FORMAT(pis_db.payment_transactions.date, '%m') = pMonth AND
+    DATE_FORMAT(pis_db.payment_transactions.date, '%d') = pDay AND
+    DATE_FORMAT(pis_db.payment_transactions.date, '%y') = pYear;
 END$$
 
 DELIMITER ;
@@ -2259,12 +2269,13 @@ DROP procedure IF EXISTS `count_total_sales_in_year`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_total_sales_in_year` (pYear VARCHAR(55))
+CREATE PROCEDURE `count_total_sales_in_year` (pDoctorFID INT, pYear VARCHAR(255))
 BEGIN
-	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-    FROM pis_db.payment_transactions
+	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
+    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
     WHERE
-    DATE_FORMAT(date, '%Y') = pYear;
+    doctor_fid = pDoctorFID AND
+    DATE_FORMAT(pis_db.payment_transactions.date, '%y') = pYear;
 END$$
 
 DELIMITER ;
@@ -2274,10 +2285,11 @@ DROP procedure IF EXISTS `count_overall_total_sales`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `count_overall_total_sales` ()
+CREATE PROCEDURE `count_overall_total_sales` (pDoctorFID INT)
 BEGIN
-	SELECT SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR))
-    FROM pis_db.payment_transactions;
+	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
+    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
+    WHERE doctor_fid = pDoctorFID;
 END$$
 
 DELIMITER ;
@@ -2527,3 +2539,14 @@ END$$
 
 DELIMITER ;
 
+USE `pis_db`;
+DROP procedure IF EXISTS `load_inventory_report`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_inventory_report` ()
+BEGIN
+	SELECT supply_id, supply_name, quantity, expiration_date FROM pis_db.inventory;
+END$$
+
+DELIMITER ;

@@ -13,16 +13,17 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void countTotalPatientsInMonth(string month, string year)
+        public void countTotalPatientsInMonth(int doctor_fid, string month, string year)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_total_patients_in_month(@month, @year);";
+                    string sql = @"CALL count_total_patients_in_month(@doctor_fid, @month, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@month", month);
                         cmd.Parameters.AddWithValue("@year", year);
 
@@ -43,16 +44,17 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void countTotalPatientsInDay(string month, string day, string year)
+        public void countTotalPatientsInDay(int doctor_fid, string month, string day, string year)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_total_patients_in_day(@month, @day, @year);";
+                    string sql = @"CALL count_total_patients_in_day(@doctor_fid, @month, @day, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@month", month);
                         cmd.Parameters.AddWithValue("@day", day);
                         cmd.Parameters.AddWithValue("@year", year);
@@ -74,16 +76,17 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void countTotalPatientsInYear(string year)
+        public void countTotalPatientsInYear(int doctor_fid, string year)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_total_patients_in_year(@year);";
+                    string sql = @"CALL count_total_patients_in_year(@doctor_fid, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@year", year);
 
                         connection.Open();
@@ -103,16 +106,18 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void countOverallTotalPatients()
+        public void countOverallTotalPatients(int doctor_fid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_overall_total_patients();";
+                    string sql = @"CALL count_overall_total_patients(@doctor_fid);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
+
                         connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
@@ -130,16 +135,17 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void countTotalSalesInMonth(string month, string year)
+        public void countTotalSalesInMonth(int doctor_fid, string month, string year)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_total_sales_in_month(@month, @year);";
+                    string sql = @"CALL count_total_sales_in_month(@doctor_fid, @month, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@month", month);
                         cmd.Parameters.AddWithValue("@year", year);
 
@@ -160,16 +166,17 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void countTotalSalesInDay(string month, string day, string year)
+        public void countTotalSalesInDay(int doctor_fid, string month, string day, string year)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_total_sales_in_day(@month, @day, @year);";
+                    string sql = @"CALL count_total_sales_in_day(@doctor_fid, @month, @day, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@month", month);
                         cmd.Parameters.AddWithValue("@day", day);
                         cmd.Parameters.AddWithValue("@year", year);
@@ -190,16 +197,17 @@ namespace PatientInformationSystemNew.functions
                 Console.WriteLine("Error counting total sales in day: " + ex.ToString());
             }
         }
-        public void countTotalSalesInYear(string year)
+        public void countTotalSalesInYear(int doctor_fid, string year)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_total_sales_in_year(@year);";
+                    string sql = @"CALL count_total_sales_in_year(@doctor_fid, @year);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@year", year);
 
                         connection.Open();
@@ -219,16 +227,18 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void countOverallTotalSales()
+        public void countOverallTotalSales(int doctor_fid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL count_overall_total_sales();";
+                    string sql = @"CALL count_overall_total_sales(@doctor_fid);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
+
                         connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

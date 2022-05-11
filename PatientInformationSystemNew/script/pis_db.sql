@@ -116,9 +116,11 @@ CREATE TABLE pis_db.duplicate_patients (
 
 CREATE TABLE pis_db.number_of_patients (
     id                                  INT NOT NULL AUTO_INCREMENT,
+    doctor_fid                          INT NOT NULL,
     full_name                           VARBINARY(255) NOT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                        PRIMARY KEY(id)
+                                        PRIMARY KEY(id),
+                                        FOREIGN KEY(doctor_fid) REFERENCES pis_db.users(id)
 );
 
 CREATE TABLE pis_db.vital_signs (
