@@ -3083,7 +3083,7 @@ namespace PatientInformationSystemNew.forms
             this.txtAmount.TabIndex = 4;
             this.txtAmount.TabStop = false;
             this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
-            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress_1);
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // label49
             // 
@@ -3126,7 +3126,7 @@ namespace PatientInformationSystemNew.forms
             this.txtReceiptNo.TabIndex = 1;
             this.txtReceiptNo.TabStop = false;
             this.txtReceiptNo.TextChanged += new System.EventHandler(this.txtReceiptNo_TextChanged);
-            this.txtReceiptNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReceiptNo_KeyPress_1);
+            this.txtReceiptNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtReceiptNo_KeyPress);
             // 
             // label28
             // 
@@ -3212,7 +3212,7 @@ namespace PatientInformationSystemNew.forms
             this.txtTotalMedicalFee.TabIndex = 2;
             this.txtTotalMedicalFee.TabStop = false;
             this.txtTotalMedicalFee.TextChanged += new System.EventHandler(this.txtTotalMedicalFee_TextChanged);
-            this.txtTotalMedicalFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalMedicalFee_KeyPress_1);
+            this.txtTotalMedicalFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalMedicalFee_KeyPress);
             // 
             // label30
             // 

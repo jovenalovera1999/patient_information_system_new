@@ -19,11 +19,10 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.Patient patient = new functions.Patient();
         functions.Duplicate duplicate = new functions.Duplicate();
 
-        void LoadFormByRole()
+        void LoadByRole()
         {
             if (val.UserRole == "Doctor")
             {
@@ -42,31 +41,21 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void LoadForm()
-        {
-            LoadFormByRole();
-        }
-
-        void ResetTextbox()
+        void Reset()
         {
             this.txtPatientID.ResetText();
             this.txtPatientName.ResetText();
-        }
-
-        void DisabledButtons()
-        {
             this.btnSelect.Enabled = false;
             this.btnCancelPatient.Enabled = false;
+            LoadByRole();
         }
 
-        void ReloadForm()
+        private void frmSchedule_Load(object sender, EventArgs e)
         {
-            ResetTextbox();
-            DisabledButtons();
-            LoadFormByRole();
+            LoadByRole();
         }
 
-        void SelectPatient()
+        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.gridSchedule.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridSchedule.RowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -89,36 +78,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void GetPatientByButton()
-        {
-            if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
-            {
-                if (patient.GetPatientFromScheduleWithFirstAccountExisting(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
-                {
-                    forms.frmConsultation frmConsultation = new forms.frmConsultation();
-                    frmConsultation.TopLevel = false;
-                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                    pnlDashboardBody.Controls.Add(frmConsultation);
-                    frmConsultation.Dock = DockStyle.Fill;
-                    frmConsultation.Show();
-                    this.Close();
-                }
-            }
-            else if (patient.GetPatientFromSchedule(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
-            {
-                forms.frmConsultation frmConsultation = new forms.frmConsultation();
-                frmConsultation.TopLevel = false;
-                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-                pnlDashboardBody.Controls.Add(frmConsultation);
-                frmConsultation.Dock = DockStyle.Fill;
-                frmConsultation.Show();
-                this.Close();
-            }
-        }
-
-        void GetPatientByGrid()
+        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (val.UserRole == "Doctor" || val.UserRole == "Administrator")
             {
@@ -150,7 +110,36 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void CancelPatient()
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if (duplicate.DuplicatePatientInGeneral(this.txtPatientID.Text))
+            {
+                if (patient.GetPatientFromScheduleWithFirstAccountExisting(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
+                {
+                    forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                    frmConsultation.TopLevel = false;
+                    forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                    Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                    pnlDashboardBody.Controls.Add(frmConsultation);
+                    frmConsultation.Dock = DockStyle.Fill;
+                    frmConsultation.Show();
+                    this.Close();
+                }
+            }
+            else if (patient.GetPatientFromSchedule(int.Parse(this.gridSchedule.SelectedCells[0].Value.ToString())))
+            {
+                forms.frmConsultation frmConsultation = new forms.frmConsultation();
+                frmConsultation.TopLevel = false;
+                forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+                Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+                pnlDashboardBody.Controls.Add(frmConsultation);
+                frmConsultation.Dock = DockStyle.Fill;
+                frmConsultation.Show();
+                this.Close();
+            }
+        }
+
+        private void btnCancelPatient_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want cancel this patient appointment with the doctor?", "Confirmation", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
@@ -162,7 +151,7 @@ namespace PatientInformationSystemNew.forms
                     if (patient.CancelPatientInScheduleWithFirstAccountExisting(this.gridSchedule.SelectedCells[2].Value.ToString()))
                     {
                         MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ReloadForm();
+                        Reset();
                     }
                     else
                     {
@@ -172,38 +161,13 @@ namespace PatientInformationSystemNew.forms
                 else if (patient.CancelPatientInSchedule(this.gridSchedule.SelectedCells[2].Value.ToString()))
                 {
                     MessageBox.Show("Patient appointment with the doctor successfully cancelled!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ReloadForm();
+                    Reset();
                 }
                 else
                 {
                     MessageBox.Show("Failed to cancel patient!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void frmSchedule_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            SelectPatient();
-        }
-
-        private void gridSchedule_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            GetPatientByGrid();
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            GetPatientByButton();
-        }
-
-        private void btnCancelPatient_Click(object sender, EventArgs e)
-        {
-            CancelPatient();
         }
     }
 }

@@ -370,18 +370,19 @@ namespace PatientInformationSystemNew.functions
 
         // Save patient
 
-        public bool DoneConsulting(string patient_id, int patient_fid, string full_name)
+        public bool DoneConsulting(string patient_id, int patient_fid, int doctor_fid, string full_name)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL done_consulting(@patient_id, @patient_fid, @full_name)";
+                    string sql = @"CALL done_consulting(@patient_id, @patient_fid, @doctor_fid, @full_name)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@full_name", full_name);
 
                         connection.Open();
@@ -401,18 +402,19 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool DoneConsultingWithFirstAccountExisting(string patient_id, int patient_fid, string full_name)
+        public bool DoneConsultingWithFirstAccountExisting(string patient_id, int patient_fid, int doctor_fid, string full_name)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL done_consulting_with_first_account_existing(@patient_id, @patient_fid, @full_name);";
+                    string sql = @"CALL done_consulting_with_first_account_existing(@patient_id, @patient_fid, @doctor_fid, @full_name);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@patient_id", patient_id);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@full_name", full_name);
 
                         connection.Open();

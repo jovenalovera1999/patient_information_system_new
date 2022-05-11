@@ -21,7 +21,6 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.Report report = new functions.Report();
 
         void LoadInventoryReport()
@@ -79,11 +78,6 @@ namespace PatientInformationSystemNew.forms
             this.lblTotalSalesInYear.Text = val.CountTotalSalesInYear;
             this.lblOverallTotalSales.Text = val.CountOverallTotalSales;
 
-            LoadNullSales();
-        }
-
-        void LoadNullSales()
-        {
             if (String.IsNullOrWhiteSpace(this.lblTotalSalesInMonth.Text))
             {
                 this.lblTotalSalesInMonth.Text = "0.00";
@@ -102,8 +96,19 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void SeriesPointsClear()
+        private void frmReport_Load(object sender, EventArgs e)
         {
+            this.dateReport.Value = DateTime.Now.Date;
+            CountPatients();
+            CountSales();
+            LoadInventoryReport();
+        }
+
+        private void dateReport_ValueChanged(object sender, EventArgs e)
+        {
+            CountPatients();
+            CountSales();
+
             foreach (var series in this.chartPatients.Series)
             {
                 series.Points.Clear();
@@ -112,18 +117,7 @@ namespace PatientInformationSystemNew.forms
             {
                 series.Points.Clear();
             }
-        }
 
-        void FormLoad()
-        {
-            this.dateReport.Value = DateTime.Now.Date;
-            CountPatients();
-            CountSales();
-            LoadInventoryReport();
-        }
-
-        void LoadSeriesPoints()
-        {
             this.chartPatients.Series[0].Points.AddXY("Month", this.lblTotalPatientsInMonth.Text);
             this.chartPatients.Series[0].Points.AddXY("Day", this.lblTotalPatientsInDay.Text);
             this.chartPatients.Series[0].Points.AddXY("Year", this.lblTotalPatientsInYear.Text);
@@ -135,7 +129,7 @@ namespace PatientInformationSystemNew.forms
             this.chartSales.Series[0].Points.AddXY("Overall", this.lblOverallTotalSales.Text);
         }
 
-        void PrintPatientsAndSales()
+        private void btnPrint_Click(object sender, EventArgs e)
         {
             ReportParameterCollection parameters = new ReportParameterCollection();
             parameters.Add(new ReportParameter("pDateReviewed", DateTime.Now.ToString("D")));
@@ -149,24 +143,6 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text.ToString()));
             this.rprtPatientsSales.LocalReport.SetParameters(parameters);
             this.rprtPatientsSales.RefreshReport();
-        }
-
-        private void frmReport_Load(object sender, EventArgs e)
-        {
-            FormLoad();
-        }
-
-        private void dateReport_ValueChanged(object sender, EventArgs e)
-        {
-            CountPatients();
-            CountSales();
-            SeriesPointsClear();
-            LoadSeriesPoints();
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            PrintPatientsAndSales();
         }
     }
 }

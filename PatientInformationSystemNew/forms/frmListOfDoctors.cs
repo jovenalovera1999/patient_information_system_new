@@ -19,13 +19,7 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.Doctor doctor = new functions.Doctor();
-
-        void LoadForm()
-        {
-            doctor.LoadDoctors(this.gridDoctors);
-        }
 
         void GetDoctor()
         {
@@ -42,31 +36,9 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void SelectDoctor()
-        {
-            this.gridDoctors.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
-            this.gridDoctors.RowsDefaultCellStyle.SelectionForeColor = Color.White;
-
-            string first_name = this.gridDoctors.SelectedCells[2].Value.ToString();
-            string middle_name = this.gridDoctors.SelectedCells[3].Value.ToString();
-            string last_name = this.gridDoctors.SelectedCells[4].Value.ToString();
-
-            this.txtDoctorID.Text = this.gridDoctors.SelectedCells[1].Value.ToString();
-            if (String.IsNullOrWhiteSpace(middle_name))
-            {
-                this.txtDoctorName.Text = string.Format("{0} {1}", first_name, last_name);
-            }
-            else
-            {
-                this.txtDoctorName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
-            }
-
-            this.btnSelect.Enabled = true;
-        }
-
         private void frmListOfDoctors_Load(object sender, EventArgs e)
         {
-            LoadForm();
+            doctor.LoadDoctors(this.gridDoctors);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -88,7 +60,24 @@ namespace PatientInformationSystemNew.forms
 
         private void gridDoctors_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            SelectDoctor();
+            this.gridDoctors.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
+            this.gridDoctors.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            string first_name = this.gridDoctors.SelectedCells[2].Value.ToString();
+            string middle_name = this.gridDoctors.SelectedCells[3].Value.ToString();
+            string last_name = this.gridDoctors.SelectedCells[4].Value.ToString();
+
+            this.txtDoctorID.Text = this.gridDoctors.SelectedCells[1].Value.ToString();
+            if (String.IsNullOrWhiteSpace(middle_name))
+            {
+                this.txtDoctorName.Text = string.Format("{0} {1}", first_name, last_name);
+            }
+            else
+            {
+                this.txtDoctorName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
+            }
+
+            this.btnSelect.Enabled = true;
         }
 
         private void gridDoctors_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

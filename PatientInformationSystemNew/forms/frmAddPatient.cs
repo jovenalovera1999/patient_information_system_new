@@ -63,25 +63,6 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void LoadAge()
-        {
-            for (int i = 0; i < 120; i++)
-            {
-                this.cmbAge.Items.Add(i);
-            }
-        }
-
-        void LoadForm()
-        {
-            AutoGenNum();
-            LoadAge();
-            LoadDoctors();
-
-            this.btnRemoveSymptom.Enabled = false;
-            this.dateBirthday.Value = DateTime.Now.Date;
-            this.gridAddPatient.ClearSelection();
-        }
-
         void AddSymptom()
         {
             int n = this.gridAddPatient.Rows.Add();
@@ -89,26 +70,6 @@ namespace PatientInformationSystemNew.forms
             this.gridAddPatient.ClearSelection();
             this.txtSymptoms.ResetText();
             this.txtSymptoms.Focus();
-        }
-
-        void RemoveSymptom()
-        {
-            foreach (DataGridViewRow row in this.gridAddPatient.SelectedRows)
-            {
-                this.gridAddPatient.Rows.Remove(row);
-            }
-            this.gridAddPatient.ClearSelection();
-            this.txtSymptoms.ResetText();
-            this.txtSymptoms.Focus();
-            this.btnRemoveSymptom.Enabled = false;
-        }
-
-        void SelectSymptom()
-        {
-            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
-            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.White;
-
-            this.btnRemoveSymptom.Enabled = true;
         }
 
         void SaveSymptoms()
@@ -142,7 +103,7 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void ResetAll()
+        void Reset()
         {
             this.txtFirstName.ResetText();
             this.txtMiddleName.ResetText();
@@ -181,109 +142,6 @@ namespace PatientInformationSystemNew.forms
                 val.PatientDoctor), "Record Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.txtPatientID.Text = val.PatientID;
-        }
-
-        void AddPatient()
-        {
-            doctor.GetDoctorPrimaryID(this.cmbDoctorName.Text);
-
-            if (duplicate.PatientIDDuplicate(this.txtPatientID.Text))
-            {
-                MessageBox.Show("Patient ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                AutoGenNum();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
-            {
-                MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtFirstName.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtLastName.Text))
-            {
-                MessageBox.Show("Last Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtLastName.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.cmbGender.Text))
-            {
-                MessageBox.Show("Gender is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.cmbGender.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.cmbAge.Text))
-            {
-                MessageBox.Show("Age is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.cmbAge.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtAddress.Text))
-            {
-                MessageBox.Show("Address is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtAddress.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) &&
-                String.IsNullOrWhiteSpace(this.txtEmail.Text))
-            {
-                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtCellphoneNumber.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
-            {
-                MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtWeight.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
-            {
-                MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtTemperature.Focus();
-            }
-            else if (String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
-            {
-                MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtFirstName.Focus();
-            }
-            else if (duplicate.DuplicatePatientAndPatientDoctor(val.DoctorPrimaryID, this.txtFirstName.Text, this.txtMiddleName.Text,
-                this.txtLastName.Text))
-            {
-                PatientRecordFound();
-
-                if (patient.AddPatientWithFirstAccountExisting(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text,
-                    this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
-                    this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
-                    this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.cmbDoctorName.Text))
-                {
-                    SaveSymptoms();
-                    MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetAll();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else if (patient.AddPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
-                this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
-                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
-                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text,
-                this.cmbDoctorName.Text))
-            {
-                SaveSymptoms();
-                MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetAll();
-            }
-            else
-            {
-                MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        void BackToPatients()
-        {
-            forms.frmPatients frmPatients = new forms.frmPatients();
-            frmPatients.TopLevel = false;
-            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
-            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
-            pnlDashboardBody.Controls.Add(frmPatients);
-            frmPatients.Dock = DockStyle.Fill;
-            frmPatients.Show();
-            this.Close();
         }
 
         private void txtCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)
@@ -466,12 +324,25 @@ namespace PatientInformationSystemNew.forms
 
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
-            LoadForm();
+            AutoGenNum();
+            LoadDoctors();
+
+            for (int i = 0; i < 120; i++)
+            {
+                this.cmbAge.Items.Add(i);
+            }
+
+            this.btnRemoveSymptom.Enabled = false;
+            this.dateBirthday.Value = DateTime.Now.Date;
+            this.gridAddPatient.ClearSelection();
         }
 
         private void gridAddPatient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            SelectSymptom();
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
+            this.gridAddPatient.RowsDefaultCellStyle.SelectionForeColor = Color.White;
+
+            this.btnRemoveSymptom.Enabled = true;
         }
 
         private void btnAddSymptom_Click(object sender, EventArgs e)
@@ -481,17 +352,118 @@ namespace PatientInformationSystemNew.forms
 
         private void btnRemoveSymptom_Click(object sender, EventArgs e)
         {
-            RemoveSymptom();
+            foreach (DataGridViewRow row in this.gridAddPatient.SelectedRows)
+            {
+                this.gridAddPatient.Rows.Remove(row);
+            }
+
+            this.gridAddPatient.ClearSelection();
+            this.txtSymptoms.ResetText();
+            this.txtSymptoms.Focus();
+            this.btnRemoveSymptom.Enabled = false;
         }
 
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            AddPatient();
+            doctor.GetDoctorPrimaryID(this.cmbDoctorName.Text);
+
+            if (duplicate.PatientIDDuplicate(this.txtPatientID.Text))
+            {
+                MessageBox.Show("Patient ID is already taken!", "Already Taken", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AutoGenNum();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtFirstName.Text))
+            {
+                MessageBox.Show("First Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtFirstName.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtLastName.Text))
+            {
+                MessageBox.Show("Last Name is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtLastName.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.cmbGender.Text))
+            {
+                MessageBox.Show("Gender is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.cmbGender.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.cmbAge.Text))
+            {
+                MessageBox.Show("Age is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.cmbAge.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtAddress.Text))
+            {
+                MessageBox.Show("Address is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtAddress.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtCellphoneNumber.Text) && String.IsNullOrWhiteSpace(this.txtTelephoneNumber.Text) &&
+                String.IsNullOrWhiteSpace(this.txtEmail.Text))
+            {
+                MessageBox.Show("Contact information are required! Please input atleast one contact information", "Required",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtCellphoneNumber.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtWeight.Text))
+            {
+                MessageBox.Show("Weight is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtWeight.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.txtTemperature.Text))
+            {
+                MessageBox.Show("Temperature is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTemperature.Focus();
+            }
+            else if (String.IsNullOrWhiteSpace(this.cmbDoctorName.Text))
+            {
+                MessageBox.Show("Doctor is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtFirstName.Focus();
+            }
+            else if (duplicate.DuplicatePatientAndPatientDoctor(val.DoctorPrimaryID, this.txtFirstName.Text, this.txtMiddleName.Text,
+                this.txtLastName.Text))
+            {
+                PatientRecordFound();
+
+                if (patient.AddPatientWithFirstAccountExisting(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text,
+                    this.txtLastName.Text, this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date,
+                    this.txtCellphoneNumber.Text, this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
+                    this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text, this.cmbDoctorName.Text))
+                {
+                    SaveSymptoms();
+                    MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (patient.AddPatient(this.txtPatientID.Text, this.txtFirstName.Text, this.txtMiddleName.Text, this.txtLastName.Text,
+                this.cmbGender.Text, this.cmbAge.Text, this.txtAddress.Text, this.dateBirthday.Value.Date, this.txtCellphoneNumber.Text,
+                this.txtTelephoneNumber.Text, this.txtEmail.Text, this.txtHeight.Text, this.txtWeight.Text,
+                this.txtTemperature.Text, this.txtPulseRate.Text, this.txtBloodPressure.Text,
+                this.cmbDoctorName.Text))
+            {
+                SaveSymptoms();
+                MessageBox.Show("Patient successfully added to schedule!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reset();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add patient to schedule!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            BackToPatients();
+            forms.frmPatients frmPatients = new forms.frmPatients();
+            frmPatients.TopLevel = false;
+            forms.frmDashboard frmDashboard = (forms.frmDashboard)Application.OpenForms["frmDashboard"];
+            Panel pnlDashboardBody = (Panel)frmDashboard.Controls["pnlDashboardBody"];
+            pnlDashboardBody.Controls.Add(frmPatients);
+            frmPatients.Dock = DockStyle.Fill;
+            frmPatients.Show();
+            this.Close();
         }
     }
 }

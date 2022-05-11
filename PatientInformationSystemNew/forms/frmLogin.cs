@@ -19,10 +19,9 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.User login = new functions.User();
 
-        void LoginUser()
+        void Login()
         {
             if (String.IsNullOrWhiteSpace(this.txtUsername.Text) && String.IsNullOrWhiteSpace(this.txtPassword.Text))
             {
@@ -60,25 +59,19 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
-        void ExitApp()
-        {
-            Application.OpenForms["frmLogin"].Close();
-            this.Close();
-        }
-
         private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)13)
+            if(e.KeyChar == 13)
             {
-                LoginUser();
+                Login();
             }
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)
+            if (e.KeyChar == 13)
             {
-                LoginUser();
+                Login();
             }
         }
 
@@ -89,12 +82,13 @@ namespace PatientInformationSystemNew.forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            LoginUser();
+            Login();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            ExitApp();
+            Application.OpenForms["frmLogin"].Close();
+            this.Close();
         }
     }
 }

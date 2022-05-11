@@ -131,10 +131,11 @@ DROP procedure IF EXISTS `done_consulting`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `done_consulting`(pPatientID VARBINARY(255), pPatientFID INT, pFullName VARBINARY(255))
+CREATE PROCEDURE `done_consulting`(pPatientID VARBINARY(255), pPatientFID INT, pDoctorFID INT, pFullName VARBINARY(255))
 BEGIN
-	INSERT INTO pis_db.number_of_patients(full_name)
+	INSERT INTO pis_db.number_of_patients(doctor_fid, full_name)
     VALUES(
+    pDoctorFID,
     AES_ENCRYPT(pFullName, 'j0v3ncut3gw4p0per0jok3l4ang')
     );
 
@@ -792,10 +793,11 @@ DROP procedure IF EXISTS `done_consulting_with_first_account_existing`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `done_consulting_with_first_account_existing` (pPatientID VARBINARY(255), pPatientFID INT, pFullName VARBINARY(255))
+CREATE PROCEDURE `done_consulting_with_first_account_existing` (pPatientID VARBINARY(255), pPatientFID INT, pDoctorFID INT, pFullName VARBINARY(255))
 BEGIN
-	INSERT INTO pis_db.number_of_patients(full_name)
+	INSERT INTO pis_db.number_of_patients(doctor_fid, full_name)
     VALUES(
+    pDoctorFID,
     AES_ENCRYPT(pFullName, 'j0v3ncut3gw4p0per0jok3l4ang')
     );
 
