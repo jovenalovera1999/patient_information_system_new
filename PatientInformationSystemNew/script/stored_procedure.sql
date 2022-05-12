@@ -1538,7 +1538,7 @@ pEmail VARBINARY(255), pSpecialization VARBINARY(255))
 BEGIN
 	UPDATE pis_db.users
     SET
-	user_id = AES_ENCRYPT(pUserUD, 'j0v3ncut3gw4p0per0jok3l4ang'),
+	user_id = AES_ENCRYPT(pUserID, 'j0v3ncut3gw4p0per0jok3l4ang'),
     first_name = AES_ENCRYPT(pFirstName, 'j0v3ncut3gw4p0per0jok3l4ang'),
     middle_name = AES_ENCRYPT(pMiddleName, 'j0v3ncut3gw4p0per0jok3l4ang'),
     last_name = AES_ENCRYPT(pLastName, 'j0v3ncut3gw4p0per0jok3l4ang'),
