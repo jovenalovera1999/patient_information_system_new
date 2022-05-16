@@ -324,6 +324,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescription.Text));
             parameters.Add(new ReportParameter("pMedicalPersonnelID", val.UserID));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
+            this.rprtPrescription.SetDisplayMode(DisplayMode.PrintLayout);
             this.rprtPrescription.RefreshReport();
         }
 

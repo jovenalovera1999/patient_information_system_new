@@ -30,11 +30,11 @@ namespace PatientInformationSystemNew.forms
             Random number = new Random();
             var generateID = new StringBuilder();
 
-            while (generateID.Length < 11)
+            while (generateID.Length < 6)
             {
                 generateID.Append(number.Next(10).ToString());
             }
-            this.txtPatientID.Text = string.Format("#STLDM{0}", generateID.ToString());
+            this.txtPatientID.Text = string.Format("P-{0}", generateID.ToString());
         }
 
         void LoadDoctors()

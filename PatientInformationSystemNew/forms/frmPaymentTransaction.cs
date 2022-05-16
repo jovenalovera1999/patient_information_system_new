@@ -138,6 +138,7 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pChange", string.Format("{0:n}", double.Parse(this.txtChange.Text))));
                 parameters.Add(new ReportParameter("pCashier", val.UserFullName));
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
+                rprtReceipt.SetDisplayMode(DisplayMode.PrintLayout);
                 this.rprtReceipt.RefreshReport();
 
                 this.btnSaveTransaction.Enabled = true;

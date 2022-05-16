@@ -81,33 +81,29 @@ namespace PatientInformationSystemNew.forms
             this.txtUserID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtUserID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtUserID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUserID.DisabledState.Parent = this.txtUserID;
             this.txtUserID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUserID.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtUserID.FocusedState.Parent = this.txtUserID;
-            this.txtUserID.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtUserID.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtUserID.ForeColor = System.Drawing.Color.Black;
             this.txtUserID.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtUserID.HoverState.Parent = this.txtUserID;
             this.txtUserID.Location = new System.Drawing.Point(199, 89);
             this.txtUserID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.PasswordChar = '\0';
             this.txtUserID.PlaceholderText = "";
             this.txtUserID.SelectedText = "";
-            this.txtUserID.ShadowDecoration.Parent = this.txtUserID;
             this.txtUserID.Size = new System.Drawing.Size(392, 37);
             this.txtUserID.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(202, 55);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 21);
+            this.label3.Size = new System.Drawing.Size(81, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Input ID:";
             // 
@@ -120,33 +116,29 @@ namespace PatientInformationSystemNew.forms
             this.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUsername.DisabledState.Parent = this.txtUsername;
             this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtUsername.FocusedState.Parent = this.txtUsername;
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtUsername.HoverState.Parent = this.txtUsername;
             this.txtUsername.Location = new System.Drawing.Point(199, 250);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.SelectedText = "";
-            this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(392, 37);
             this.txtUsername.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(195, 216);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 21);
+            this.label1.Size = new System.Drawing.Size(95, 25);
             this.label1.TabIndex = 10;
             this.label1.Text = "Username:";
             // 
@@ -159,33 +151,29 @@ namespace PatientInformationSystemNew.forms
             this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPassword.DisabledState.Parent = this.txtPassword;
             this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtPassword.FocusedState.Parent = this.txtPassword;
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtPassword.HoverState.Parent = this.txtPassword;
             this.txtPassword.Location = new System.Drawing.Point(199, 328);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
-            this.txtPassword.ShadowDecoration.Parent = this.txtPassword;
             this.txtPassword.Size = new System.Drawing.Size(392, 37);
             this.txtPassword.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(195, 295);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 21);
+            this.label2.Size = new System.Drawing.Size(91, 25);
             this.label2.TabIndex = 12;
             this.label2.Text = "Password:";
             // 
@@ -234,33 +222,29 @@ namespace PatientInformationSystemNew.forms
             this.txtMiddlename.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtMiddlename.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtMiddlename.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMiddlename.DisabledState.Parent = this.txtMiddlename;
             this.txtMiddlename.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMiddlename.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtMiddlename.FocusedState.Parent = this.txtMiddlename;
-            this.txtMiddlename.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtMiddlename.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtMiddlename.ForeColor = System.Drawing.Color.Black;
             this.txtMiddlename.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtMiddlename.HoverState.Parent = this.txtMiddlename;
             this.txtMiddlename.Location = new System.Drawing.Point(597, 170);
             this.txtMiddlename.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMiddlename.Name = "txtMiddlename";
             this.txtMiddlename.PasswordChar = '\0';
             this.txtMiddlename.PlaceholderText = "";
             this.txtMiddlename.SelectedText = "";
-            this.txtMiddlename.ShadowDecoration.Parent = this.txtMiddlename;
             this.txtMiddlename.Size = new System.Drawing.Size(392, 37);
             this.txtMiddlename.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(593, 137);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 21);
+            this.label7.Size = new System.Drawing.Size(123, 25);
             this.label7.TabIndex = 21;
             this.label7.Text = "Middle Name:";
             // 
@@ -273,57 +257,53 @@ namespace PatientInformationSystemNew.forms
             this.txtFirstname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtFirstname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtFirstname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtFirstname.DisabledState.Parent = this.txtFirstname;
             this.txtFirstname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFirstname.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtFirstname.FocusedState.Parent = this.txtFirstname;
-            this.txtFirstname.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtFirstname.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtFirstname.ForeColor = System.Drawing.Color.Black;
             this.txtFirstname.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtFirstname.HoverState.Parent = this.txtFirstname;
             this.txtFirstname.Location = new System.Drawing.Point(597, 89);
             this.txtFirstname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.PasswordChar = '\0';
             this.txtFirstname.PlaceholderText = "";
             this.txtFirstname.SelectedText = "";
-            this.txtFirstname.ShadowDecoration.Parent = this.txtFirstname;
             this.txtFirstname.Size = new System.Drawing.Size(392, 37);
             this.txtFirstname.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(593, 55);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 21);
+            this.label8.Size = new System.Drawing.Size(101, 25);
             this.label8.TabIndex = 19;
             this.label8.Text = "First Name:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(593, 377);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 21);
+            this.label9.Size = new System.Drawing.Size(48, 25);
             this.label9.TabIndex = 25;
             this.label9.Text = "Age:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(593, 296);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 21);
+            this.label10.Size = new System.Drawing.Size(73, 25);
             this.label10.TabIndex = 23;
             this.label10.Text = "Gender:";
             // 
@@ -336,20 +316,16 @@ namespace PatientInformationSystemNew.forms
             this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FocusedColor = System.Drawing.Color.Blue;
             this.cmbGender.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbGender.FocusedState.Parent = this.cmbGender;
-            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbGender.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbGender.ForeColor = System.Drawing.Color.Black;
             this.cmbGender.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbGender.HoverState.Parent = this.cmbGender;
             this.cmbGender.ItemHeight = 30;
             this.cmbGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cmbGender.ItemsAppearance.Parent = this.cmbGender;
             this.cmbGender.Location = new System.Drawing.Point(597, 328);
             this.cmbGender.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.ShadowDecoration.Parent = this.cmbGender;
             this.cmbGender.Size = new System.Drawing.Size(98, 36);
             this.cmbGender.TabIndex = 6;
             // 
@@ -362,17 +338,13 @@ namespace PatientInformationSystemNew.forms
             this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAge.FocusedColor = System.Drawing.Color.Blue;
             this.cmbAge.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbAge.FocusedState.Parent = this.cmbAge;
-            this.cmbAge.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbAge.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbAge.ForeColor = System.Drawing.Color.Black;
             this.cmbAge.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbAge.HoverState.Parent = this.cmbAge;
             this.cmbAge.ItemHeight = 30;
-            this.cmbAge.ItemsAppearance.Parent = this.cmbAge;
             this.cmbAge.Location = new System.Drawing.Point(597, 410);
             this.cmbAge.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAge.Name = "cmbAge";
-            this.cmbAge.ShadowDecoration.Parent = this.cmbAge;
             this.cmbAge.Size = new System.Drawing.Size(98, 36);
             this.cmbAge.TabIndex = 7;
             // 
@@ -385,33 +357,29 @@ namespace PatientInformationSystemNew.forms
             this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtAddress.DisabledState.Parent = this.txtAddress;
             this.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtAddress.FocusedState.Parent = this.txtAddress;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtAddress.HoverState.Parent = this.txtAddress;
             this.txtAddress.Location = new System.Drawing.Point(597, 491);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.ShadowDecoration.Parent = this.txtAddress;
             this.txtAddress.Size = new System.Drawing.Size(392, 37);
             this.txtAddress.TabIndex = 8;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(593, 458);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 21);
+            this.label11.Size = new System.Drawing.Size(81, 25);
             this.label11.TabIndex = 29;
             this.label11.Text = "Address:";
             // 
@@ -424,21 +392,17 @@ namespace PatientInformationSystemNew.forms
             this.txtTelephoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtTelephoneNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtTelephoneNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTelephoneNumber.DisabledState.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTelephoneNumber.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtTelephoneNumber.FocusedState.Parent = this.txtTelephoneNumber;
-            this.txtTelephoneNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTelephoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtTelephoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtTelephoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtTelephoneNumber.HoverState.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Location = new System.Drawing.Point(995, 170);
             this.txtTelephoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTelephoneNumber.Name = "txtTelephoneNumber";
             this.txtTelephoneNumber.PasswordChar = '\0';
             this.txtTelephoneNumber.PlaceholderText = "";
             this.txtTelephoneNumber.SelectedText = "";
-            this.txtTelephoneNumber.ShadowDecoration.Parent = this.txtTelephoneNumber;
             this.txtTelephoneNumber.Size = new System.Drawing.Size(392, 37);
             this.txtTelephoneNumber.TabIndex = 11;
             this.txtTelephoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelephoneNumber_KeyPress);
@@ -446,12 +410,12 @@ namespace PatientInformationSystemNew.forms
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(992, 137);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(145, 21);
+            this.label12.Size = new System.Drawing.Size(166, 25);
             this.label12.TabIndex = 34;
             this.label12.Text = "Telephone Number:";
             // 
@@ -464,21 +428,17 @@ namespace PatientInformationSystemNew.forms
             this.txtCellphoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtCellphoneNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCellphoneNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCellphoneNumber.DisabledState.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCellphoneNumber.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtCellphoneNumber.FocusedState.Parent = this.txtCellphoneNumber;
-            this.txtCellphoneNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCellphoneNumber.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtCellphoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtCellphoneNumber.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtCellphoneNumber.HoverState.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Location = new System.Drawing.Point(995, 89);
             this.txtCellphoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCellphoneNumber.Name = "txtCellphoneNumber";
             this.txtCellphoneNumber.PasswordChar = '\0';
             this.txtCellphoneNumber.PlaceholderText = "";
             this.txtCellphoneNumber.SelectedText = "";
-            this.txtCellphoneNumber.ShadowDecoration.Parent = this.txtCellphoneNumber;
             this.txtCellphoneNumber.Size = new System.Drawing.Size(392, 37);
             this.txtCellphoneNumber.TabIndex = 10;
             this.txtCellphoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellphoneNumber_KeyPress);
@@ -486,12 +446,12 @@ namespace PatientInformationSystemNew.forms
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(992, 55);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(145, 21);
+            this.label13.Size = new System.Drawing.Size(165, 25);
             this.label13.TabIndex = 32;
             this.label13.Text = "Cellphone Number:";
             // 
@@ -516,33 +476,29 @@ namespace PatientInformationSystemNew.forms
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEmail.DisabledState.Parent = this.txtEmail;
             this.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtEmail.FocusedState.Parent = this.txtEmail;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtEmail.HoverState.Parent = this.txtEmail;
             this.txtEmail.Location = new System.Drawing.Point(995, 250);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
-            this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(392, 37);
             this.txtEmail.TabIndex = 12;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(992, 216);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 21);
+            this.label15.Size = new System.Drawing.Size(58, 25);
             this.label15.TabIndex = 36;
             this.label15.Text = "Email:";
             // 
@@ -567,33 +523,29 @@ namespace PatientInformationSystemNew.forms
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.FocusedColor = System.Drawing.Color.Blue;
             this.cmbRole.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbRole.FocusedState.Parent = this.cmbRole;
-            this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbRole.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbRole.ForeColor = System.Drawing.Color.Black;
             this.cmbRole.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbRole.HoverState.Parent = this.cmbRole;
             this.cmbRole.ItemHeight = 30;
             this.cmbRole.Items.AddRange(new object[] {
             "Administrator",
             "Doctor",
             "Medical Staff"});
-            this.cmbRole.ItemsAppearance.Parent = this.cmbRole;
             this.cmbRole.Location = new System.Drawing.Point(1393, 89);
             this.cmbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRole.Name = "cmbRole";
-            this.cmbRole.ShadowDecoration.Parent = this.cmbRole;
             this.cmbRole.Size = new System.Drawing.Size(350, 36);
             this.cmbRole.TabIndex = 13;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(1389, 56);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 21);
+            this.label17.Size = new System.Drawing.Size(101, 25);
             this.label17.TabIndex = 40;
             this.label17.Text = "Select Role:";
             // 
@@ -606,33 +558,29 @@ namespace PatientInformationSystemNew.forms
             this.txtLastname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtLastname.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtLastname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLastname.DisabledState.Parent = this.txtLastname;
             this.txtLastname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLastname.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtLastname.FocusedState.Parent = this.txtLastname;
-            this.txtLastname.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtLastname.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtLastname.ForeColor = System.Drawing.Color.Black;
             this.txtLastname.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtLastname.HoverState.Parent = this.txtLastname;
             this.txtLastname.Location = new System.Drawing.Point(597, 250);
             this.txtLastname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.PasswordChar = '\0';
             this.txtLastname.PlaceholderText = "";
             this.txtLastname.SelectedText = "";
-            this.txtLastname.ShadowDecoration.Parent = this.txtLastname;
             this.txtLastname.Size = new System.Drawing.Size(392, 37);
             this.txtLastname.TabIndex = 5;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(593, 216);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(87, 21);
+            this.label18.Size = new System.Drawing.Size(99, 25);
             this.label18.TabIndex = 43;
             this.label18.Text = "Last Name:";
             // 
@@ -646,7 +594,6 @@ namespace PatientInformationSystemNew.forms
             this.picProfilePicture.Location = new System.Drawing.Point(11, 11);
             this.picProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.picProfilePicture.Name = "picProfilePicture";
-            this.picProfilePicture.ShadowDecoration.Parent = this.picProfilePicture;
             this.picProfilePicture.Size = new System.Drawing.Size(178, 184);
             this.picProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProfilePicture.TabIndex = 208;
@@ -658,26 +605,21 @@ namespace PatientInformationSystemNew.forms
             this.btnCreate.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCreate.BorderColor = System.Drawing.Color.Transparent;
             this.btnCreate.BorderThickness = 1;
-            this.btnCreate.CheckedState.Parent = this.btnCreate;
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreate.CustomImages.Parent = this.btnCreate;
             this.btnCreate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCreate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCreate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCreate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCreate.DisabledState.Parent = this.btnCreate;
             this.btnCreate.FillColor = System.Drawing.Color.Lime;
-            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnCreate.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnCreate.ForeColor = System.Drawing.Color.White;
             this.btnCreate.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnCreate.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnCreate.HoverState.Parent = this.btnCreate;
             this.btnCreate.Image = global::PatientInformationSystemNew.Properties.Resources.save_icon;
             this.btnCreate.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCreate.Location = new System.Drawing.Point(1608, 920);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.ShadowDecoration.Parent = this.btnCreate;
             this.btnCreate.Size = new System.Drawing.Size(135, 50);
             this.btnCreate.TabIndex = 41;
             this.btnCreate.TabStop = false;
@@ -693,33 +635,29 @@ namespace PatientInformationSystemNew.forms
             this.txtSpecialization.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtSpecialization.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtSpecialization.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSpecialization.DisabledState.Parent = this.txtSpecialization;
             this.txtSpecialization.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSpecialization.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.txtSpecialization.FocusedState.Parent = this.txtSpecialization;
-            this.txtSpecialization.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtSpecialization.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtSpecialization.ForeColor = System.Drawing.Color.Black;
             this.txtSpecialization.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.txtSpecialization.HoverState.Parent = this.txtSpecialization;
             this.txtSpecialization.Location = new System.Drawing.Point(1393, 250);
             this.txtSpecialization.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.PasswordChar = '\0';
             this.txtSpecialization.PlaceholderText = "";
             this.txtSpecialization.SelectedText = "";
-            this.txtSpecialization.ShadowDecoration.Parent = this.txtSpecialization;
             this.txtSpecialization.Size = new System.Drawing.Size(350, 37);
             this.txtSpecialization.TabIndex = 14;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(1390, 217);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(257, 21);
+            this.label19.Size = new System.Drawing.Size(297, 25);
             this.label19.TabIndex = 212;
             this.label19.Text = "Input Specialization for Doctor only:";
             // 
@@ -741,21 +679,19 @@ namespace PatientInformationSystemNew.forms
             this.dateBirthday.BorderColor = System.Drawing.Color.Transparent;
             this.dateBirthday.BorderRadius = 3;
             this.dateBirthday.BorderThickness = 1;
-            this.dateBirthday.CheckedState.Parent = this.dateBirthday;
+            this.dateBirthday.Checked = true;
             this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateBirthday.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.dateBirthday.ForeColor = System.Drawing.Color.White;
             this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateBirthday.HoverState.BorderColor = System.Drawing.Color.White;
             this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.HoverState.Parent = this.dateBirthday;
             this.dateBirthday.Location = new System.Drawing.Point(597, 570);
             this.dateBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateBirthday.Name = "dateBirthday";
-            this.dateBirthday.ShadowDecoration.Parent = this.dateBirthday;
             this.dateBirthday.Size = new System.Drawing.Size(392, 37);
             this.dateBirthday.TabIndex = 9;
             this.dateBirthday.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
@@ -763,12 +699,12 @@ namespace PatientInformationSystemNew.forms
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(593, 538);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(71, 21);
+            this.label21.Size = new System.Drawing.Size(81, 25);
             this.label21.TabIndex = 215;
             this.label21.Text = "Birthday:";
             // 
@@ -778,26 +714,21 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePhoto.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnRemovePhoto.BorderColor = System.Drawing.Color.Transparent;
             this.btnRemovePhoto.BorderThickness = 1;
-            this.btnRemovePhoto.CheckedState.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRemovePhoto.CustomImages.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRemovePhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRemovePhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRemovePhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRemovePhoto.DisabledState.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.FillColor = System.Drawing.Color.Red;
-            this.btnRemovePhoto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnRemovePhoto.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnRemovePhoto.ForeColor = System.Drawing.Color.White;
             this.btnRemovePhoto.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnRemovePhoto.HoverState.FillColor = System.Drawing.Color.Red;
-            this.btnRemovePhoto.HoverState.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Image = global::PatientInformationSystemNew.Properties.Resources.delete_icon;
             this.btnRemovePhoto.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRemovePhoto.Location = new System.Drawing.Point(102, 200);
             this.btnRemovePhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemovePhoto.Name = "btnRemovePhoto";
-            this.btnRemovePhoto.ShadowDecoration.Parent = this.btnRemovePhoto;
             this.btnRemovePhoto.Size = new System.Drawing.Size(87, 85);
             this.btnRemovePhoto.TabIndex = 221;
             this.btnRemovePhoto.TabStop = false;
@@ -810,26 +741,21 @@ namespace PatientInformationSystemNew.forms
             this.btnUploadPhoto.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnUploadPhoto.BorderColor = System.Drawing.Color.Transparent;
             this.btnUploadPhoto.BorderThickness = 1;
-            this.btnUploadPhoto.CheckedState.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUploadPhoto.CustomImages.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadPhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUploadPhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUploadPhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUploadPhoto.DisabledState.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.FillColor = System.Drawing.Color.Lime;
-            this.btnUploadPhoto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnUploadPhoto.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnUploadPhoto.ForeColor = System.Drawing.Color.White;
             this.btnUploadPhoto.HoverState.BorderColor = System.Drawing.Color.White;
             this.btnUploadPhoto.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnUploadPhoto.HoverState.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Image = global::PatientInformationSystemNew.Properties.Resources.upload_photo_icon;
             this.btnUploadPhoto.ImageSize = new System.Drawing.Size(30, 30);
             this.btnUploadPhoto.Location = new System.Drawing.Point(11, 199);
             this.btnUploadPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnUploadPhoto.Name = "btnUploadPhoto";
-            this.btnUploadPhoto.ShadowDecoration.Parent = this.btnUploadPhoto;
             this.btnUploadPhoto.Size = new System.Drawing.Size(87, 85);
             this.btnUploadPhoto.TabIndex = 220;
             this.btnUploadPhoto.TabStop = false;

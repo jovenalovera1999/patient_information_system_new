@@ -1540,6 +1540,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pPrescription", this.txtPrescriptions.Text));
             parameters.Add(new ReportParameter("pMedicalPersonnelID", val.DoctorID));
             this.rprtPrescription.LocalReport.SetParameters(parameters);
+            rprtPrescription.SetDisplayMode(DisplayMode.PrintLayout);
             this.rprtPrescription.RefreshReport();
         }
 
@@ -1580,6 +1581,7 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
                 parameters.Add(new ReportParameter("pCashier", this.gridPaymentHistory.SelectedCells[7].Value.ToString()));
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
+                rprtReceipt.SetDisplayMode(DisplayMode.PrintLayout);
                 this.rprtReceipt.RefreshReport();
             }
         }

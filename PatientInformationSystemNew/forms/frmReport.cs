@@ -67,6 +67,7 @@ namespace PatientInformationSystemNew.forms
                     this.rprtInventory.LocalReport.DataSources.Clear();
                     ReportDataSource source = new ReportDataSource("DataSet1", dt);
                     this.rprtInventory.LocalReport.DataSources.Add(source);
+                    rprtInventory.SetDisplayMode(DisplayMode.PrintLayout);
                     this.rprtInventory.RefreshReport();
                     connection.Close();
                 }
@@ -180,6 +181,7 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInMonth.Text.ToString()));
             parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text.ToString()));
             this.rprtPatientsSales.LocalReport.SetParameters(parameters);
+            rprtPatientsSales.SetDisplayMode(DisplayMode.PrintLayout);
             this.rprtPatientsSales.RefreshReport();
         }
     }

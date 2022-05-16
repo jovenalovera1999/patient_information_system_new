@@ -142,24 +142,24 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(7, 73);
+            this.label4.Location = new System.Drawing.Point(7, 88);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 28);
+            this.label4.Size = new System.Drawing.Size(53, 25);
             this.label4.TabIndex = 295;
             this.label4.Text = "Date:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(7, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 28);
+            this.label1.Size = new System.Drawing.Size(71, 25);
             this.label1.TabIndex = 294;
             this.label1.Text = "Doctor:";
             // 
@@ -172,11 +172,11 @@
             this.cmbDoctorName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDoctorName.FocusedColor = System.Drawing.Color.Blue;
             this.cmbDoctorName.FocusedState.BorderColor = System.Drawing.Color.Blue;
-            this.cmbDoctorName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbDoctorName.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cmbDoctorName.ForeColor = System.Drawing.Color.Black;
             this.cmbDoctorName.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.cmbDoctorName.ItemHeight = 30;
-            this.cmbDoctorName.Location = new System.Drawing.Point(12, 35);
+            this.cmbDoctorName.Location = new System.Drawing.Point(12, 41);
             this.cmbDoctorName.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDoctorName.Name = "cmbDoctorName";
             this.cmbDoctorName.Size = new System.Drawing.Size(392, 36);
@@ -277,12 +277,12 @@
             this.dateReport.Checked = true;
             this.dateReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateReport.FillColor = System.Drawing.Color.Blue;
-            this.dateReport.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dateReport.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.dateReport.ForeColor = System.Drawing.Color.White;
             this.dateReport.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateReport.HoverState.BorderColor = System.Drawing.Color.White;
             this.dateReport.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateReport.Location = new System.Drawing.Point(12, 103);
+            this.dateReport.Location = new System.Drawing.Point(12, 124);
             this.dateReport.Margin = new System.Windows.Forms.Padding(2);
             this.dateReport.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateReport.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
