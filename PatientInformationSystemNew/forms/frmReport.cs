@@ -170,6 +170,7 @@ namespace PatientInformationSystemNew.forms
         {
             ReportParameterCollection parameters = new ReportParameterCollection();
             parameters.Add(new ReportParameter("pDateReviewed", DateTime.Now.ToString("D")));
+            parameters.Add(new ReportParameter("pDoctor", this.cmbDoctorName.Text));
             parameters.Add(new ReportParameter("pTotalPatientsInMonth", this.lblTotalPatientsInMonth.Text.ToString()));
             parameters.Add(new ReportParameter("pTotalPatientsInDay", this.lblTotalPatientsInDay.Text.ToString()));
             parameters.Add(new ReportParameter("pTotalPatientsInYear", this.lblTotalPatientsInYear.Text.ToString()));

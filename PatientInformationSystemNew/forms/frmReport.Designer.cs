@@ -264,7 +264,7 @@
             this.rprtPatientsSales.Location = new System.Drawing.Point(594, 205);
             this.rprtPatientsSales.Margin = new System.Windows.Forms.Padding(2);
             this.rprtPatientsSales.Name = "rprtPatientsSales";
-            this.rprtPatientsSales.Size = new System.Drawing.Size(513, 695);
+            this.rprtPatientsSales.Size = new System.Drawing.Size(1008, 695);
             this.rprtPatientsSales.TabIndex = 287;
             this.rprtPatientsSales.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 

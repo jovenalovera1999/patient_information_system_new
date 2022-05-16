@@ -23,16 +23,30 @@ namespace PatientInformationSystemNew.forms
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
 
+        void AutoGenNum()
+        {
+            Random number = new Random();
+            var generateID = new StringBuilder();
+
+            while (generateID.Length < 6)
+            {
+                generateID.Append(number.Next(10).ToString());
+            }
+            this.txtReceiptNo.Text = generateID.ToString();
+        }
+
         private void frmPaymentTransaction_Load(object sender, EventArgs e)
         {
             payment.LoadPatientUnpaid(this.gridPaymentTransaction);
             this.cmbDiscount.Text = "None";
             this.btnSaveTransaction.Enabled = false;
-            this.txtReceiptNo.Focus();
+            txtTotalMedicalFee.Focus();
         }
 
         private void gridPaymentTransaction_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            AutoGenNum();
+
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionBackColor = Color.CornflowerBlue;
             this.gridPaymentTransaction.RowsDefaultCellStyle.SelectionForeColor = Color.White;
 
@@ -48,7 +62,7 @@ namespace PatientInformationSystemNew.forms
             {
                 this.txtFullName.Text = string.Format("{0} {1}. {2}", first_name, middle_name[0], last_name);
             }
-            this.txtReceiptNo.Focus();
+            txtTotalMedicalFee.Focus();
         }
 
         private void btnTransact_Click(object sender, EventArgs e)
@@ -117,11 +131,11 @@ namespace PatientInformationSystemNew.forms
                 parameters.Add(new ReportParameter("pName", this.txtFullName.Text));
                 parameters.Add(new ReportParameter("pReceiptNo", this.txtReceiptNo.Text));
                 parameters.Add(new ReportParameter("pDate", DateTime.Now.ToString("MM/dd/yy")));
-                parameters.Add(new ReportParameter("pTotalMedicalFee", this.txtTotalMedicalFee.Text));
+                parameters.Add(new ReportParameter("pTotalMedicalFee", string.Format("{0:n}", double.Parse(this.txtTotalMedicalFee.Text))));
                 parameters.Add(new ReportParameter("pDiscount", this.cmbDiscount.Text));
-                parameters.Add(new ReportParameter("pAmount", this.txtAmount.Text));
-                parameters.Add(new ReportParameter("pTotalAmountPaid", this.txtTotalAmountPaid.Text));
-                parameters.Add(new ReportParameter("pChange", this.txtChange.Text));
+                parameters.Add(new ReportParameter("pAmount", string.Format("{0:n}", double.Parse(this.txtAmount.Text))));
+                parameters.Add(new ReportParameter("pTotalAmountPaid", string.Format("{0:n}", double.Parse(this.txtTotalAmountPaid.Text))));
+                parameters.Add(new ReportParameter("pChange", string.Format("{0:n}", double.Parse(this.txtChange.Text))));
                 parameters.Add(new ReportParameter("pCashier", val.UserFullName));
                 this.rprtReceipt.LocalReport.SetParameters(parameters);
                 this.rprtReceipt.RefreshReport();
@@ -132,16 +146,9 @@ namespace PatientInformationSystemNew.forms
 
         private void btnSaveTransaction_Click(object sender, EventArgs e)
         {
-            Random number = new Random();
-            var generateID = new StringBuilder();
+            AutoGenNum();
 
-            while (generateID.Length < 5)
-            {
-                generateID.Append(number.Next(10).ToString());
-            }
-
-            if (MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                == DialogResult.Yes)
+            if (MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (payment.SavePatientPayment(int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()),
                     int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
@@ -163,11 +170,13 @@ namespace PatientInformationSystemNew.forms
                     this.txtAmount.ResetText();
                     this.txtTotalAmountPaid.ResetText();
                     this.txtChange.ResetText();
+                    this.txtTotalAmountPaid.Text = "";
+                    this.txtChange.Text = "";
 
                     this.cmbDiscount.Text = "None";
                     this.btnSaveTransaction.Enabled = false;
 
-                    this.txtReceiptNo.Focus();
+                    this.txtTotalMedicalFee.Focus();
                 }
                 else
                 {
