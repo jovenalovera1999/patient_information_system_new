@@ -28,7 +28,7 @@ namespace PatientInformationSystemNew.forms
             Random number = new Random();
             var generateID = new StringBuilder();
 
-            while (generateID.Length < 8)
+            while (generateID.Length < 6)
             {
                 generateID.Append(number.Next(10).ToString());
             }
@@ -259,7 +259,7 @@ namespace PatientInformationSystemNew.forms
                     MessageBox.Show("Failed to add incoming supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (this.dateExpiration.Checked == false)
+            else
             {
                 if (inventory.AddIncomingSuppliesWithoutExpiration(this.txtSupplier.Text, this.txtSupplyID.Text, this.txtSupplyName.Text, this.txtSupplyQuantity.Text,
                     this.dateArrive.Value, val.UserFullName,

@@ -3,8 +3,8 @@ DROP procedure IF EXISTS `add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_patient`(pDoctorFID INT, pPatientID VARBINARY(255), pFirstName VARBINARY(255), pMiddleName VARBINARY(255), pLastName VARBINARY(255), pGender VARBINARY(255),
-pAge VARBINARY(255), pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255), pEmail VARBINARY(255))
+CREATE PROCEDURE `add_patient`(pDoctorFID INT, pPatientID VARBINARY(855), pFirstName VARBINARY(855), pMiddleName VARBINARY(855), pLastName VARBINARY(855), pGender VARBINARY(855),
+pAge VARBINARY(855), pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855), pEmail VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.patients(doctor_fid, patient_id, first_name, middle_name, last_name, gender, age, address, birthday,
     cellphone_number, telephone_number, email)
@@ -42,8 +42,8 @@ DROP procedure IF EXISTS `add_vital_signs_in_add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_vital_signs_in_add_patient`(pPatientFID INT, pHeight VARBINARY(255), pWeight VARBINARY(255), pTemperature VARBINARY(255), pPulseRate VARBINARY(255),
-pBloodPressure VARBINARY(255))
+CREATE PROCEDURE `add_vital_signs_in_add_patient`(pPatientFID INT, pHeight VARBINARY(855), pWeight VARBINARY(855), pTemperature VARBINARY(855), pPulseRate VARBINARY(855),
+pBloodPressure VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.vital_signs(patient_fid, height, weight, temperature, pulse_rate, blood_pressure, status)
     VALUES(
@@ -64,7 +64,7 @@ DROP procedure IF EXISTS `back_patient_to_schedule_from_consultation`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `back_patient_to_schedule_from_consultation`(pPatientID VARBINARY(255), pPatientFID INT)
+CREATE PROCEDURE `back_patient_to_schedule_from_consultation`(pPatientID VARBINARY(855), pPatientFID INT)
 BEGIN
 	DELETE FROM pis_db.prescriptions
     WHERE
@@ -85,7 +85,7 @@ DROP procedure IF EXISTS `delete_duplicate_patient_vital_signs_symptoms`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `delete_duplicate_patient_vital_signs_symptoms`(pPatientID VARBINARY(255), pPatientFID INT)
+CREATE PROCEDURE `delete_duplicate_patient_vital_signs_symptoms`(pPatientID VARBINARY(855), pPatientFID INT)
 BEGIN
 	DELETE FROM pis_db.vital_signs
     WHERE patient_fid = pPatientFID AND
@@ -108,7 +108,7 @@ DROP procedure IF EXISTS `delete_patient_vital_signs_symptoms`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `delete_patient_vital_signs_symptoms`(pPatientID VARBINARY(255), pPatientFID INT)
+CREATE PROCEDURE `delete_patient_vital_signs_symptoms`(pPatientID VARBINARY(855), pPatientFID INT)
 BEGIN
 	DELETE FROM pis_db.vital_signs
     WHERE patient_fid = pPatientFID AND
@@ -131,7 +131,7 @@ DROP procedure IF EXISTS `done_consulting`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `done_consulting`(pPatientID VARBINARY(255), pPatientFID INT, pDoctorFID INT, pFullName VARBINARY(255))
+CREATE PROCEDURE `done_consulting`(pPatientID VARBINARY(855), pPatientFID INT, pDoctorFID INT, pFullName VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.number_of_patients(doctor_fid, full_name)
     VALUES(
@@ -175,7 +175,7 @@ DROP procedure IF EXISTS `get_doctor_primary_id_for_add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_doctor_primary_id_for_add_patient`(pDoctor VARBINARY(255))
+CREATE PROCEDURE `get_doctor_primary_id_for_add_patient`(pDoctor VARBINARY(855))
 BEGIN
 	SELECT id
     FROM pis_db.users
@@ -192,7 +192,7 @@ DROP procedure IF EXISTS `get_patient_in_schedule`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(855))
 BEGIN
 	SELECT
 	pis_db.patients.id,
@@ -242,7 +242,7 @@ DROP procedure IF EXISTS `get_patient_in_schedule`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_in_schedule`(pPatientID VARBINARY(855))
 BEGIN
 	SELECT
 	pis_db.patients.id,
@@ -278,7 +278,7 @@ DROP procedure IF EXISTS `get_patient_primary_id_and_delete_patient_in_schedule`
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_primary_id_and_delete_patient_in_schedule`(pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_primary_id_and_delete_patient_in_schedule`(pPatientID VARBINARY(855))
 BEGIN
 	SELECT *
     FROM pis_db.patients
@@ -299,7 +299,7 @@ DROP procedure IF EXISTS `get_patient_primary_id_complete_and_delete_patient_in_
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_primary_id_complete_and_delete_patient_in_schedule`(pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_primary_id_complete_and_delete_patient_in_schedule`(pPatientID VARBINARY(855))
 BEGIN
 	SELECT *
     FROM pis_db.patients
@@ -495,7 +495,7 @@ DROP procedure IF EXISTS `save_diagnosis_in_consultation`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_diagnosis_in_consultation`(pPatientFID INT, pDiagnosis VARBINARY(255))
+CREATE PROCEDURE `save_diagnosis_in_consultation`(pPatientFID INT, pDiagnosis VARBINARY(855))
 BEGIN
 	DELETE FROM pis_db.diagnosis
 	WHERE
@@ -517,7 +517,7 @@ DROP procedure IF EXISTS `save_prescription`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_prescription`(pPatientFID INT, pPrescriptions VARBINARY(255))
+CREATE PROCEDURE `save_prescription`(pPatientFID INT, pPrescriptions VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.prescriptions(patient_fid, prescriptions, status)
     VALUES(
@@ -533,7 +533,7 @@ DROP procedure IF EXISTS `save_symptoms_in_add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_symptoms_in_add_patient`(pPatientFID INT, pSymptoms VARBINARY(255))
+CREATE PROCEDURE `save_symptoms_in_add_patient`(pPatientFID INT, pSymptoms VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.symptoms(patient_fid, symptoms, status)
     VALUES(
@@ -550,9 +550,9 @@ DROP procedure IF EXISTS `sign_up`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `sign_up`(pUserID VARBINARY(255), pProfilePicture BLOB, pUsername VARBINARY(255), pPassword VARBINARY(255), pFirstName VARBINARY(255),
-pMiddleName VARBINARY(255), pLastName VARBINARY(255), pGender VARBINARY(255), pAge VARBINARY(255), pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255),
-pTelephoneNumber VARBINARY(255), pEmail VARBINARY(255), pRole VARBINARY(255), pSpecialization VARBINARY(255))
+CREATE PROCEDURE `sign_up`(pUserID VARBINARY(855), pProfilePicture BLOB, pUsername VARBINARY(855), pPassword VARBINARY(855), pFirstName VARBINARY(855),
+pMiddleName VARBINARY(855), pLastName VARBINARY(855), pGender VARBINARY(855), pAge VARBINARY(855), pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855),
+pTelephoneNumber VARBINARY(855), pEmail VARBINARY(855), pRole VARBINARY(855), pSpecialization VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.users(user_id, profile_picture, username, password, first_name, middle_name, 
     last_name, gender, age, address, birthday, cellphone_number, telephone_number, email, role, specialization)
@@ -583,9 +583,9 @@ DROP procedure IF EXISTS `update_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_patient`(pID INT, pFirstName VARBINARY(255), pMiddleName VARBINARY(255), pLastName VARBINARY(255), pGender VARBINARY(255), pAge VARBINARY(255),
-pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255), pEmail VARBINARY(255), pUser VARBINARY(255), pPatient VARBINARY(255),
-pDescription VARBINARY(255))
+CREATE PROCEDURE `update_patient`(pID INT, pFirstName VARBINARY(855), pMiddleName VARBINARY(855), pLastName VARBINARY(855), pGender VARBINARY(855), pAge VARBINARY(855),
+pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855), pEmail VARBINARY(855), pUser VARBINARY(855), pPatient VARBINARY(855),
+pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_patient(user, patient, description)
     VALUES(
@@ -630,7 +630,7 @@ DROP procedure IF EXISTS `update_symptom_in_consultation`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_symptom_in_consultation`(pID INT, pSymptoms VARBINARY(255))
+CREATE PROCEDURE `update_symptom_in_consultation`(pID INT, pSymptoms VARBINARY(855))
 BEGIN
 	UPDATE pis_db.symptoms 
     SET 
@@ -645,9 +645,9 @@ DROP procedure IF EXISTS `update_user`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_user`(pID INT, pProfilePicture BLOB, pUsername VARBINARY(255), pPassword VARBINARY(255), pFirstName VARBINARY(255), pMiddleName VARBINARY(255),
-pLastName VARBINARY(255), pGender VARBINARY(255), pAge VARBINARY(255), pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255),
-pEmail VARBINARY(255))
+CREATE PROCEDURE `update_user`(pID INT, pProfilePicture BLOB, pUsername VARBINARY(855), pPassword VARBINARY(855), pFirstName VARBINARY(855), pMiddleName VARBINARY(855),
+pLastName VARBINARY(855), pGender VARBINARY(855), pAge VARBINARY(855), pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855),
+pEmail VARBINARY(855))
 BEGIN
 	UPDATE pis_db.users
         SET 
@@ -674,7 +674,7 @@ DROP procedure IF EXISTS `user_authentication`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `user_authentication`(pUsername VARBINARY(255), pPassword VARBINARY(255))
+CREATE PROCEDURE `user_authentication`(pUsername VARBINARY(855), pPassword VARBINARY(855))
 BEGIN
 	SELECT
     id,
@@ -706,7 +706,7 @@ DROP procedure IF EXISTS `user_authentication_for_admin_only`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `user_authentication_for_admin_only`(pUsername VARBINARY(255), pPassword VARBINARY(255))
+CREATE PROCEDURE `user_authentication_for_admin_only`(pUsername VARBINARY(855), pPassword VARBINARY(855))
 BEGIN
 	SELECT
     id,
@@ -738,8 +738,8 @@ DROP procedure IF EXISTS `add_patient_duplicate`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_patient_duplicate` (pDoctorFID INT, pPatientID VARBINARY(255), pFirstName VARBINARY(255), pMiddleName VARBINARY(255), pLastName VARBINARY(255), pGender VARBINARY(255),
-pAge VARBINARY(255), pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255), pEmail VARBINARY(255))
+CREATE PROCEDURE `add_patient_duplicate` (pDoctorFID INT, pPatientID VARBINARY(855), pFirstName VARBINARY(855), pMiddleName VARBINARY(855), pLastName VARBINARY(855), pGender VARBINARY(855),
+pAge VARBINARY(855), pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855), pEmail VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.duplicate_patients(patient_id, first_name, middle_name, last_name, gender, age, address, birthday, cellphone_number, telephone_number, email)
     VALUES(
@@ -775,7 +775,7 @@ DROP procedure IF EXISTS `get_patient_primary_id_complete_for_add_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_primary_id_complete_for_add_patient` (pDoctorFID INT, pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_primary_id_complete_for_add_patient` (pDoctorFID INT, pPatientID VARBINARY(855))
 BEGIN
 	SELECT
     id
@@ -793,7 +793,7 @@ DROP procedure IF EXISTS `done_consulting_with_first_account_existing`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `done_consulting_with_first_account_existing` (pPatientID VARBINARY(255), pPatientFID INT, pDoctorFID INT, pFullName VARBINARY(255))
+CREATE PROCEDURE `done_consulting_with_first_account_existing` (pPatientID VARBINARY(855), pPatientFID INT, pDoctorFID INT, pFullName VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.number_of_patients(doctor_fid, full_name)
     VALUES(
@@ -831,9 +831,9 @@ DROP procedure IF EXISTS `update_existing_first_account_delete_duplicate`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_existing_first_account_delete_duplicate` (pPatientID VARBINARY(255), pFirstName VARBINARY(255), pMiddleName VARBINARY(255), pLastName VARBINARY(255),
-pGender VARBINARY(255), pAge VARBINARY(255), pAddress VARBINARY(255), pBirthday VARBINARY(255), pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255),
-pEmail VARBINARY(255))
+CREATE PROCEDURE `update_existing_first_account_delete_duplicate` (pPatientID VARBINARY(855), pFirstName VARBINARY(855), pMiddleName VARBINARY(855), pLastName VARBINARY(855),
+pGender VARBINARY(855), pAge VARBINARY(855), pAddress VARBINARY(855), pBirthday VARBINARY(855), pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855),
+pEmail VARBINARY(855))
 BEGIN
 	UPDATE pis_db.patients
     SET
@@ -865,7 +865,7 @@ DROP procedure IF EXISTS `get_patient_primary_id_from_patients`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_primary_id_from_patients` (pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_primary_id_from_patients` (pPatientID VARBINARY(855))
 BEGIN
 	SELECT id
     FROM pis_db.patients
@@ -879,7 +879,7 @@ DROP procedure IF EXISTS `get_patient_first_account_existing_for_consulting`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_patient_first_account_existing_for_consulting` (pPatientID VARBINARY(255))
+CREATE PROCEDURE `get_patient_first_account_existing_for_consulting` (pPatientID VARBINARY(855))
 BEGIN
 	SELECT
     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
@@ -1017,8 +1017,8 @@ DROP procedure IF EXISTS `save_payment`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_payment` (pPatientFID INT, pReceiptNo VARBINARY(255), pTotalMedicalFee VARBINARY(255), pDiscount VARBINARY(255),
-pAmount VARBINARY(255), pTotalAmountPaid VARBINARY(255), pChange VARBINARY(255))
+CREATE PROCEDURE `save_payment` (pPatientFID INT, pReceiptNo VARBINARY(855), pTotalMedicalFee VARBINARY(855), pDiscount VARBINARY(855),
+pAmount VARBINARY(855), pTotalAmountPaid VARBINARY(855), pChange VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.payment_transactions(patient_fid, receipt_no, total_medical_fee, discount, amount,
     total_amount_paid, `change`)
@@ -1054,7 +1054,7 @@ DROP procedure IF EXISTS `save_cashier_and_update_payment_status`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_cashier_and_update_payment_status` (pID INT, pTransactionFID INT, pCashier VARBINARY(255))
+CREATE PROCEDURE `save_cashier_and_update_payment_status` (pID INT, pTransactionFID INT, pCashier VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.cashier(transaction_fid, cashier)
     VALUES(
@@ -1074,8 +1074,8 @@ DROP procedure IF EXISTS `update_payment_transaction`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_payment_transaction`(pID INT, pReceiptNo VARBINARY(255), pTotalMedicalFee VARBINARY(255), pDiscount VARBINARY(255),
-pAmount VARBINARY(255), pTotalAmountPaid VARBINARY(255), pChange VARBINARY(255), pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_payment_transaction`(pID INT, pReceiptNo VARBINARY(855), pTotalMedicalFee VARBINARY(855), pDiscount VARBINARY(855),
+pAmount VARBINARY(855), pTotalAmountPaid VARBINARY(855), pChange VARBINARY(855), pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_payment_transactions(user, patient, description)
     VALUES(
@@ -1121,8 +1121,8 @@ DROP procedure IF EXISTS `add_diagnosis`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_diagnosis` (pPatientFID INT, pDiagnosis VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255),
-pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `add_diagnosis` (pPatientFID INT, pDiagnosis VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855),
+pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_diagnosis(user, patient, description)
     VALUES(
@@ -1146,8 +1146,8 @@ DROP procedure IF EXISTS `update_diagnosis`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_diagnosis` (pID INT, pDiagnosis VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255),
-pDescription VARBINARY(255))
+CREATE PROCEDURE `update_diagnosis` (pID INT, pDiagnosis VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855),
+pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_diagnosis(user, patient, description)
     VALUES(
@@ -1174,7 +1174,7 @@ DROP procedure IF EXISTS `pis_db`.`remove_diagnosis`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `remove_diagnosis`(pID INT, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `remove_diagnosis`(pID INT, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_diagnosis(user, patient, description)
     VALUES(
@@ -1214,8 +1214,8 @@ DROP procedure IF EXISTS `add_symptom`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_symptom` (pPatientFID INT, pSymptoms VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255),
-pDescription VARBINARY(255))
+CREATE PROCEDURE `add_symptom` (pPatientFID INT, pSymptoms VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855),
+pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_symptoms(user, patient, description)
     VALUES(
@@ -1239,7 +1239,7 @@ DROP procedure IF EXISTS `add_symptom_in_consultation`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_symptom_in_consultation` (pPatientFID INT, pSymptoms VARBINARY(255))
+CREATE PROCEDURE `add_symptom_in_consultation` (pPatientFID INT, pSymptoms VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.symptoms(patient_fid, symptoms, status)
     VALUES(
@@ -1260,7 +1260,7 @@ DROP procedure IF EXISTS `pis_db`.`update_symptom`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_symptom`(pID INT, pSymptoms VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `update_symptom`(pID INT, pSymptoms VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_symptoms(user, patient, description)
     VALUES(
@@ -1284,7 +1284,7 @@ DROP procedure IF EXISTS `remove_symptom`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `remove_symptom` (pID INT, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `remove_symptom` (pID INT, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_symptoms(user, patient, description)
     VALUES(
@@ -1324,8 +1324,8 @@ DROP procedure IF EXISTS `add_prescription`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_prescription`(pPatientFID INT, pPrescriptions VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255),
-pDescription VARBINARY(255))
+CREATE PROCEDURE `add_prescription`(pPatientFID INT, pPrescriptions VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855),
+pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
     VALUES(
@@ -1349,8 +1349,8 @@ DROP procedure IF EXISTS `update_prescription`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_prescription` (pID INT, pPrescriptions VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255),
-pDescription VARBINARY(255))
+CREATE PROCEDURE `update_prescription` (pID INT, pPrescriptions VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855),
+pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
     VALUES(
@@ -1372,7 +1372,7 @@ DROP procedure IF EXISTS `remove_prescription`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `remove_prescription` (pID INT, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `remove_prescription` (pID INT, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_prescriptions(user, patient, description)
     VALUES(
@@ -1415,8 +1415,8 @@ DROP procedure IF EXISTS `add_vital_signs`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_vital_signs` (pPatientFID INT, pHeight VARBINARY(255), pWeight VARBINARY(255), pTemperature VARBINARY(255),
-pPulseRate VARBINARY(255), pBloodPressure VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `add_vital_signs` (pPatientFID INT, pHeight VARBINARY(855), pWeight VARBINARY(855), pTemperature VARBINARY(855),
+pPulseRate VARBINARY(855), pBloodPressure VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
     VALUES(
@@ -1446,8 +1446,8 @@ DROP procedure IF EXISTS `pis_db`.`update_vital_signs`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_vital_signs`(pID INT, pHeight VARBINARY(255), pWeight VARBINARY(255), pTemperature VARBINARY(255), pPulseRate VARBINARY(255),
-pBloodPressure VARBINARY(255), pDate TIMESTAMP, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_vital_signs`(pID INT, pHeight VARBINARY(855), pWeight VARBINARY(855), pTemperature VARBINARY(855), pPulseRate VARBINARY(855),
+pBloodPressure VARBINARY(855), pDate TIMESTAMP, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
     VALUES(
@@ -1474,7 +1474,7 @@ DROP procedure IF EXISTS `remove_vital_signs`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `remove_vital_signs` (pID INT, pUser VARBINARY(255), pPatient VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `remove_vital_signs` (pID INT, pUser VARBINARY(855), pPatient VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_vital_signs(user, patient, description)
 	VALUES(
@@ -1515,7 +1515,7 @@ DROP procedure IF EXISTS `get_doctor_primary_id`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `get_doctor_primary_id` (pDoctor VARBINARY(255))
+CREATE PROCEDURE `get_doctor_primary_id` (pDoctor VARBINARY(855))
 BEGIN
 	SELECT id
     FROM pis_db.users
@@ -1532,9 +1532,9 @@ DROP procedure IF EXISTS `update_doctor`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_doctor` (pID INT, pUserID VARBINARY(255), pFirstName VARBINARY(255), pMiddleName VARBINARY(255), pLastName VARBINARY(255), 
-pGender VARBINARY(255), pAge VARBINARY(255), pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255), 
-pEmail VARBINARY(255), pSpecialization VARBINARY(255))
+CREATE PROCEDURE `update_doctor` (pID INT, pUserID VARBINARY(855), pFirstName VARBINARY(855), pMiddleName VARBINARY(855), pLastName VARBINARY(855), 
+pGender VARBINARY(855), pAge VARBINARY(855), pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855), 
+pEmail VARBINARY(855), pSpecialization VARBINARY(855))
 BEGIN
 	UPDATE pis_db.users
     SET
@@ -1560,7 +1560,7 @@ DROP procedure IF EXISTS `duplicate_user_id`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_user_id` (pUserID VARBINARY(255))
+CREATE PROCEDURE `duplicate_user_id` (pUserID VARBINARY(855))
 BEGIN
 	SELECT *
     FROM pis_db.users
@@ -1574,7 +1574,7 @@ DROP procedure IF EXISTS `duplicate_username`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_username` (pUsername VARBINARY(255))
+CREATE PROCEDURE `duplicate_username` (pUsername VARBINARY(855))
 BEGIN
 	SELECT * 
     FROM pis_db.users 
@@ -1588,7 +1588,7 @@ DROP procedure IF EXISTS `duplicate_patient_id`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_patient_id` (pPatientID VARBINARY(255))
+CREATE PROCEDURE `duplicate_patient_id` (pPatientID VARBINARY(855))
 BEGIN
 	SELECT *
     FROM pis_db.patients
@@ -1602,8 +1602,8 @@ DROP procedure IF EXISTS `duplicate_patient_complete`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_patient_complete` (pDoctorFID INT, pFirstName VARBINARY(255), pMiddleName VARBINARY(255),
-pLastName VARBINARY(255))
+CREATE PROCEDURE `duplicate_patient_complete` (pDoctorFID INT, pFirstName VARBINARY(855), pMiddleName VARBINARY(855),
+pLastName VARBINARY(855))
 BEGIN
 	SELECT
     CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
@@ -1643,7 +1643,7 @@ DROP procedure IF EXISTS `duplicate_patient_in_general`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_patient_in_general` (pPatientID VARBINARY(255))
+CREATE PROCEDURE `duplicate_patient_in_general` (pPatientID VARBINARY(855))
 BEGIN
 	SELECT *
     FROM pis_db.patients
@@ -1659,7 +1659,7 @@ DROP procedure IF EXISTS `duplicate_supply_name_without_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_supply_name_without_expiration` (pSupplier VARBINARY(255), pSupplyName VARBINARY(255))
+CREATE PROCEDURE `duplicate_supply_name_without_expiration` (pSupplier VARBINARY(855), pSupplyName VARBINARY(855))
 BEGIN
 	SELECT
     CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
@@ -1677,7 +1677,7 @@ DROP procedure IF EXISTS `duplicate_update_history_id`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `duplicate_update_history_id` (pUpdateID VARBINARY(255))
+CREATE PROCEDURE `duplicate_update_history_id` (pUpdateID VARBINARY(855))
 BEGIN
 	SELECT *
     FROM pis_db.update_history
@@ -1735,8 +1735,8 @@ DROP procedure IF EXISTS `supply_arrived_with_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `supply_arrived_with_expiration` (pID INT, pSupplier VARBINARY(255), pSupplyID VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pExpirationDate DATETIME)
+CREATE PROCEDURE `supply_arrived_with_expiration` (pID INT, pSupplier VARBINARY(855), pSupplyID VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pExpirationDate DATETIME)
 BEGIN
 	INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity, expiration_date)
     VALUES(
@@ -1757,8 +1757,8 @@ DROP procedure IF EXISTS `supply_arrived_without_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `supply_arrived_without_expiration` (pID INT, pSupplier VARBINARY(255), pSupplyID VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255))
+CREATE PROCEDURE `supply_arrived_without_expiration` (pID INT, pSupplier VARBINARY(855), pSupplyID VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.inventory(supplier, supply_id, supply_name, quantity)
     VALUES(
@@ -1778,8 +1778,8 @@ DROP procedure IF EXISTS `add_incoming_supplies_with_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_incoming_supplies_with_expiration` (pSupplier VARBINARY(255), pSupplyID VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pExpirationDate DATETIME, pArriveDate DATETIME, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `add_incoming_supplies_with_expiration` (pSupplier VARBINARY(855), pSupplyID VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pExpirationDate DATETIME, pArriveDate DATETIME, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1805,8 +1805,8 @@ DROP procedure IF EXISTS `add_incoming_supplies_without_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_incoming_supplies_without_expiration` (pSupplier VARBINARY(255), pSupplyID VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pArriveDate DATETIME, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `add_incoming_supplies_without_expiration` (pSupplier VARBINARY(855), pSupplyID VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pArriveDate DATETIME, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1814,12 +1814,13 @@ BEGIN
     AES_ENCRYPT(pDescription, 'j0v3ncut3gw4p0per0jok3l4ang')
     );
 
-    INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, arrive_date)
+    INSERT INTO pis_db.inventory_incoming(supplier, supply_id, supply_name, quantity, expiration_date, arrive_date)
     VALUES(
     AES_ENCRYPT(pSupplier, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pSupplyID, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pSupplyName, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pQuantity, 'j0v3ncut3gw4p0per0jok3l4ang'),
+    null,
     pArriveDate
     );
 END$$
@@ -1845,8 +1846,8 @@ DROP procedure IF EXISTS `add_supply_with_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_supply_with_expiration` (pSupplier VARBINARY(255), pSupplyID VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pExpirationDate DATETIME, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `add_supply_with_expiration` (pSupplier VARBINARY(855), pSupplyID VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pExpirationDate DATETIME, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1870,8 +1871,8 @@ DROP procedure IF EXISTS `add_supply_without_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `add_supply_without_expiration` (pSupplier VARBINARY(255), pSupplyID VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `add_supply_without_expiration` (pSupplier VARBINARY(855), pSupplyID VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1894,8 +1895,8 @@ DROP procedure IF EXISTS `update_incoming_supply_with_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_incoming_supply_with_expiration` (pID INT, pSupplier VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pExpirationDate DATETIME, pArriveDate DATETIME, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `update_incoming_supply_with_expiration` (pID INT, pSupplier VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pExpirationDate DATETIME, pArriveDate DATETIME, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1920,8 +1921,8 @@ DROP procedure IF EXISTS `update_incoming_supply_without_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_incoming_supply_without_expiration` (pID INT, pSupplier VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pArriveDate DATETIME, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `update_incoming_supply_without_expiration` (pID INT, pSupplier VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pArriveDate DATETIME, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1945,8 +1946,8 @@ DROP procedure IF EXISTS `save_manage_supplies_with_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_manage_supplies_with_expiration` (pID INT, pSupplier VARBINARY(255), pSupplyName VARBINARY(255), pQuantity VARBINARY(255),
-pExpirationDate DATETIME, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `save_manage_supplies_with_expiration` (pID INT, pSupplier VARBINARY(855), pSupplyName VARBINARY(855), pQuantity VARBINARY(855),
+pExpirationDate DATETIME, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1970,8 +1971,8 @@ DROP procedure IF EXISTS `save_manage_supplies_without_expiration`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_manage_supplies_without_expiration` (pID INT, pSupplier VARBINARY(255), pSupplyName VARBINARY(255), pQuantity VARBINARY(255),
-pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `save_manage_supplies_without_expiration` (pID INT, pSupplier VARBINARY(855), pSupplyName VARBINARY(855), pQuantity VARBINARY(855),
+pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -1994,8 +1995,8 @@ DROP procedure IF EXISTS `update_quantity_of_supply_from_incoming_supply`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_quantity_of_supply_from_incoming_supply` (pID INT, pSupplier VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `update_quantity_of_supply_from_incoming_supply` (pID INT, pSupplier VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -2020,8 +2021,8 @@ DROP procedure IF EXISTS `update_quantity_of_existing_supply_without_expiration`
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_quantity_of_existing_supply_without_expiration` (pSupplier VARBINARY(255), pSupplyName VARBINARY(255),
-pQuantity VARBINARY(255), pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `update_quantity_of_existing_supply_without_expiration` (pSupplier VARBINARY(855), pSupplyName VARBINARY(855),
+pQuantity VARBINARY(855), pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -2043,7 +2044,7 @@ DROP procedure IF EXISTS `item_used`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `item_used` (pID INT, pQuantity VARBINARY(255), pUser VARBINARY(255), pIssuedTo VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `item_used` (pID INT, pQuantity VARBINARY(855), pUser VARBINARY(855), pIssuedTo VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, issued_to, description)
     VALUES(
@@ -2064,7 +2065,7 @@ DROP procedure IF EXISTS `delete_incoming_supply`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `delete_incoming_supply` (pID INT, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `delete_incoming_supply` (pID INT, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -2083,7 +2084,7 @@ DROP procedure IF EXISTS `delete_supply`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `delete_supply` (pID INT, pUser VARBINARY(255), pDescription VARBINARY(255))
+CREATE PROCEDURE `delete_supply` (pID INT, pUser VARBINARY(855), pDescription VARBINARY(855))
 BEGIN
 	INSERT INTO pis_db.update_history_inventory(user, description)
     VALUES(
@@ -2134,7 +2135,7 @@ DROP procedure IF EXISTS `search_patient_by_doctor`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT, pKeyword VARBINARY(255))
+CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT, pKeyword VARBINARY(855))
 BEGIN
 	SELECT
     id,
@@ -2517,9 +2518,9 @@ DROP procedure IF EXISTS `update_medical_staff`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `update_medical_staff` (pID INT, pUserID VARBINARY(255),
-pFirstName VARBINARY(255), pMiddleName VARBINARY(255), pLastName VARBINARY(255), pGender VARBINARY(255), pAge VARBINARY(255),
-pAddress VARBINARY(255), pBirthday DATE, pCellphoneNumber VARBINARY(255), pTelephoneNumber VARBINARY(255), pEmail VARBINARY(255))
+CREATE PROCEDURE `update_medical_staff` (pID INT, pUserID VARBINARY(855),
+pFirstName VARBINARY(855), pMiddleName VARBINARY(855), pLastName VARBINARY(855), pGender VARBINARY(855), pAge VARBINARY(855),
+pAddress VARBINARY(855), pBirthday DATE, pCellphoneNumber VARBINARY(855), pTelephoneNumber VARBINARY(855), pEmail VARBINARY(855))
 BEGIN
 	UPDATE pis_db.users
 	SET

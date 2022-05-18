@@ -177,8 +177,8 @@ namespace PatientInformationSystemNew.forms
             parameters.Add(new ReportParameter("pTotalPatientsInYear", this.lblTotalPatientsInYear.Text.ToString()));
             parameters.Add(new ReportParameter("pOverallTotalPatients", this.lblOverallTotalPatients.Text.ToString()));
             parameters.Add(new ReportParameter("pTotalSalesInMonth", this.lblTotalSalesInMonth.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalSalesInDay", this.lblTotalSalesInMonth.Text.ToString()));
-            parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInMonth.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInDay", this.lblTotalSalesInDay.Text.ToString()));
+            parameters.Add(new ReportParameter("pTotalSalesInYear", this.lblTotalSalesInYear.Text.ToString()));
             parameters.Add(new ReportParameter("pOverallTotalSales", this.lblOverallTotalSales.Text.ToString()));
             this.rprtPatientsSales.LocalReport.SetParameters(parameters);
             rprtPatientsSales.SetDisplayMode(DisplayMode.PrintLayout);
