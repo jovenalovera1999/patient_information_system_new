@@ -866,74 +866,77 @@ namespace PatientInformationSystemNew.forms
 
         private void btnDeductItem_Click(object sender, EventArgs e)
         {
-            int total_deduct_items = (int.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString()) -
-                int.Parse(this.txtItemUsed.Text));
-
-            if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[5].Value.ToString()))
+            if(String.IsNullOrWhiteSpace(txtItemUsed.Text))
             {
-                if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
-                {
-                    MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.txtItemUsed.Focus();
-                }
-                else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName, this.txtIssuedTo.Text,
-                    string.Format("{0} has beed deducted!\r\n" +
-                    "Details:\r\n" +
-                    "Issued to: {5}\r\n" +
-                    "Supply ID: {1}\r\n" +
-                    "Supplier: {2}\r\n" +
-                    "Supply Name: {3}\r\n" +
-                    "Total Item Deducted: {4}\r\n" +
-                    "Expiration date: None",
-                    this.gridManageSupplies.SelectedCells[3].Value.ToString(),
-                    this.gridManageSupplies.SelectedCells[1].Value.ToString(),
-                    this.gridManageSupplies.SelectedCells[2].Value.ToString(),
-                    this.gridManageSupplies.SelectedCells[3].Value.ToString(),
-                    this.txtItemUsed.Text,
-                    this.txtIssuedTo.Text)))
-                {
-                    MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetManageSupplies();
-                    this.txtIssuedTo.ResetText();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtItemUsed.Focus();
+            }
+            else if(String.IsNullOrWhiteSpace(txtIssuedTo.Text))
+            {
+                MessageBox.Show("Issued to is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtIssuedTo.Focus();
             }
             else
             {
-                DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[5].Value.ToString());
+                int total_deduct_items = (int.Parse(this.gridManageSupplies.SelectedCells[4].Value.ToString()) -
+                int.Parse(this.txtItemUsed.Text));
 
-                if (String.IsNullOrWhiteSpace(this.txtItemUsed.Text))
+                if (String.IsNullOrWhiteSpace(this.gridManageSupplies.SelectedCells[5].Value.ToString()))
                 {
-                    MessageBox.Show("Item used is required!", "Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.txtItemUsed.Focus();
-                }
-                else if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName, this.txtIssuedTo.Text,
-                    string.Format("{0} has beed deducted!\r\n" +
-                    "Details:\r\n" +
-                    "Issued to: {6}\r\n" +
-                    "Supply ID: {1}\r\n" +
-                    "Supplier: {2}\r\n" +
-                    "Supply Name: {3}\r\n" +
-                    "Total Item Deducted: {4}\r\n" +
-                    "Expiration Date: {5}",
-                    this.gridManageSupplies.SelectedCells[3].Value.ToString(),
-                    this.gridManageSupplies.SelectedCells[1].Value.ToString(),
-                    this.gridManageSupplies.SelectedCells[2].Value.ToString(),
-                    this.gridManageSupplies.SelectedCells[3].Value.ToString(),
-                    this.txtItemUsed.Text,
-                    expiration_date.ToString("D"),
-                    this.txtIssuedTo.Text)))
-                {
-                    MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ResetManageSupplies();
-                    this.txtIssuedTo.ResetText();
+                    if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName, this.txtIssuedTo.Text,
+                        string.Format("{0} has beed deducted!\r\n" +
+                        "Details:\r\n" +
+                        "Issued to: {5}\r\n" +
+                        "Supply ID: {1}\r\n" +
+                        "Supplier: {2}\r\n" +
+                        "Supply Name: {3}\r\n" +
+                        "Total Item Deducted: {4}\r\n" +
+                        "Expiration date: None",
+                        this.gridManageSupplies.SelectedCells[3].Value.ToString(),
+                        this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                        this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                        this.gridManageSupplies.SelectedCells[3].Value.ToString(),
+                        this.txtItemUsed.Text,
+                        this.txtIssuedTo.Text)))
+                    {
+                        MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ResetManageSupplies();
+                        this.txtIssuedTo.ResetText();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DateTime expiration_date = DateTime.Parse(this.gridManageSupplies.SelectedCells[5].Value.ToString());
+
+                    if (inventory.ItemUsed(int.Parse(this.gridManageSupplies.SelectedCells[0].Value.ToString()), total_deduct_items.ToString(), val.UserFullName, this.txtIssuedTo.Text,
+                        string.Format("{0} has beed deducted!\r\n" +
+                        "Details:\r\n" +
+                        "Issued to: {6}\r\n" +
+                        "Supply ID: {1}\r\n" +
+                        "Supplier: {2}\r\n" +
+                        "Supply Name: {3}\r\n" +
+                        "Total Item Deducted: {4}\r\n" +
+                        "Expiration Date: {5}",
+                        this.gridManageSupplies.SelectedCells[3].Value.ToString(),
+                        this.gridManageSupplies.SelectedCells[1].Value.ToString(),
+                        this.gridManageSupplies.SelectedCells[2].Value.ToString(),
+                        this.gridManageSupplies.SelectedCells[3].Value.ToString(),
+                        this.txtItemUsed.Text,
+                        expiration_date.ToString("D"),
+                        this.txtIssuedTo.Text)))
+                    {
+                        MessageBox.Show("Selected item has been deducted!", "Deducted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ResetManageSupplies();
+                        this.txtIssuedTo.ResetText();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to deduct selected item!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
