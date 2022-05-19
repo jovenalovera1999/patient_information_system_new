@@ -88,7 +88,6 @@ namespace PatientInformationSystemNew.forms
             this.lblTotalPatientsInDay.Text = val.CountTotalPatientsInDay;
             this.lblTotalPatientsInYear.Text = val.CountTotalPatientsInYear;
             this.lblOverallTotalPatients.Text = val.CountOverallTotalPatients;
-
         }
 
         void CountSales()

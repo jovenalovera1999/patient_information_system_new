@@ -90,17 +90,18 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public bool SavePatientPayment(int id, int patient_fid, string receipt_no, string total_medical_fee, string discount, string amount,
+        public bool SavePatientPayment(int id, int doctor_fid, int patient_fid, string receipt_no, string total_medical_fee, string discount, string amount,
             string total_amount_paid, string change, string cashier)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL save_payment(@patient_fid, @receipt_no, @total_medical_fee, @discount, @amount, @total_amount_paid, @change);";
+                    string sql = @"CALL save_payment(@doctor_fid, @patient_fid, @receipt_no, @total_medical_fee, @discount, @amount, @total_amount_paid, @change);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
+                        cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@patient_fid", patient_fid);
                         cmd.Parameters.AddWithValue("@receipt_no", receipt_no);
                         cmd.Parameters.AddWithValue("@total_medical_fee", total_medical_fee);

@@ -169,6 +169,7 @@ CREATE TABLE pis_db.prescriptions (
 
 CREATE TABLE pis_db.payment_transactions (
     id                                  INT NOT NULL AUTO_INCREMENT,
+    doctor_fid                          INT NOT NULL,
     patient_fid                         INT NOT NULL,
     receipt_no                          VARBINARY(855) NOT NULL,
     total_medical_fee                   VARBINARY(855) NOT NULL,
@@ -178,6 +179,7 @@ CREATE TABLE pis_db.payment_transactions (
     `change`                            VARBINARY(855) DEFAULT NULL,
     date                                TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         PRIMARY KEY(id),
+                                        FOREIGN KEY(doctor_fid) REFERENCES pis_db.users(id),
                                         FOREIGN KEY(patient_fid) REFERENCES pis_db.patients(id)
 );
 

@@ -1017,12 +1017,13 @@ DROP procedure IF EXISTS `save_payment`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `save_payment` (pPatientFID INT, pReceiptNo VARBINARY(855), pTotalMedicalFee VARBINARY(855), pDiscount VARBINARY(855),
+CREATE PROCEDURE `save_payment` (pDoctorFID INT, pPatientFID INT, pReceiptNo VARBINARY(855), pTotalMedicalFee VARBINARY(855), pDiscount VARBINARY(855),
 pAmount VARBINARY(855), pTotalAmountPaid VARBINARY(855), pChange VARBINARY(855))
 BEGIN
-	INSERT INTO pis_db.payment_transactions(patient_fid, receipt_no, total_medical_fee, discount, amount,
+	INSERT INTO pis_db.payment_transactions(doctor_fid, patient_fid, receipt_no, total_medical_fee, discount, amount,
     total_amount_paid, `change`)
     VALUES(
+    pDoctorFID,
     pPatientFID,
     AES_ENCRYPT(pReceiptNo, 'j0v3ncut3gw4p0per0jok3l4ang'),
     AES_ENCRYPT(pTotalMedicalFee, 'j0v3ncut3gw4p0per0jok3l4ang'),
@@ -2234,11 +2235,11 @@ USE `pis_db`$$
 CREATE PROCEDURE `count_total_sales_in_month` (pDoctorFID INT, pMonth VARCHAR(255), pYear VARCHAR(255))
 BEGIN
 	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
-    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
+    FROM pis_db.payment_transactions
     WHERE
     doctor_fid = pDoctorFID AND
-    DATE_FORMAT(pis_db.payment_transactions.date, '%m') = pMonth AND
-    DATE_FORMAT(pis_db.payment_transactions.date, '%y') = pYear;
+    DATE_FORMAT(date, '%m') = pMonth AND
+    DATE_FORMAT(date, '%y') = pYear;
 
     -- SELECT 
     -- FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
@@ -2255,12 +2256,12 @@ USE `pis_db`$$
 CREATE PROCEDURE `count_total_sales_in_day` (pDoctorFID INT, pMonth VARCHAR(255), pDay VARCHAR(255), pYear VARCHAR(255))
 BEGIN
 	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
-    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
+    FROM pis_db.payment_transactions
 	WHERE
     doctor_fid = pDoctorFID AND
-    DATE_FORMAT(pis_db.payment_transactions.date, '%m') = pMonth AND
-    DATE_FORMAT(pis_db.payment_transactions.date, '%d') = pDay AND
-    DATE_FORMAT(pis_db.payment_transactions.date, '%y') = pYear;
+    DATE_FORMAT(date, '%m') = pMonth AND
+    DATE_FORMAT(date, '%d') = pDay AND
+    DATE_FORMAT(date, '%y') = pYear;
 END$$
 
 DELIMITER ;
@@ -2273,10 +2274,10 @@ USE `pis_db`$$
 CREATE PROCEDURE `count_total_sales_in_year` (pDoctorFID INT, pYear VARCHAR(255))
 BEGIN
 	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
-    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
+    FROM pis_db.payment_transactions
     WHERE
     doctor_fid = pDoctorFID AND
-    DATE_FORMAT(pis_db.payment_transactions.date, '%y') = pYear;
+    DATE_FORMAT(date, '%y') = pYear;
 END$$
 
 DELIMITER ;
@@ -2289,7 +2290,7 @@ USE `pis_db`$$
 CREATE PROCEDURE `count_overall_total_sales` (pDoctorFID INT)
 BEGIN
 	SELECT FORMAT(SUM(CAST(AES_DECRYPT(total_amount_paid, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)), 2)
-    FROM pis_db.patients INNER JOIN pis_db.payment_transactions ON pis_db.patients.id = pis_db.payment_transactions.id
+    FROM pis_db.payment_transactions
     WHERE doctor_fid = pDoctorFID;
 END$$
 

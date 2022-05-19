@@ -22,6 +22,7 @@ namespace PatientInformationSystemNew.forms
         components.Values val = new components.Values();
         functions.PaymentTransactions payment = new functions.PaymentTransactions();
         functions.Duplicate duplicate = new functions.Duplicate();
+        functions.Doctor doctor = new functions.Doctor();
 
         void AutoGenNum()
         {
@@ -151,7 +152,8 @@ namespace PatientInformationSystemNew.forms
 
             if (MessageBox.Show("Save payment transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (payment.SavePatientPayment(int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()),
+                doctor.GetDoctorPrimaryID(gridPaymentTransaction.SelectedCells[5].Value.ToString());
+                if (payment.SavePatientPayment(int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()), val.DoctorPrimaryID,
                     int.Parse(this.gridPaymentTransaction.SelectedCells[0].Value.ToString()), this.txtReceiptNo.Text,
                     this.txtTotalMedicalFee.Text, this.cmbDiscount.Text, this.txtAmount.Text, this.txtTotalAmountPaid.Text, this.txtChange.Text,
                     val.UserFullName))
