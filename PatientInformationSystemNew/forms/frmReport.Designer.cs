@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabControlReport = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPatientsAndSales = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +45,6 @@
             this.lblOverallTotalPatients = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.rprtPatientsSales = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dateReport = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.chartSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblTotalSalesInYear = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabInventory = new System.Windows.Forms.TabPage();
             this.rprtInventory = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dateReport = new Bunifu.Framework.UI.BunifuDatepicker();
             this.tabControlReport.SuspendLayout();
             this.tabPatientsAndSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
@@ -106,6 +106,7 @@
             // tabPatientsAndSales
             // 
             this.tabPatientsAndSales.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPatientsAndSales.Controls.Add(this.dateReport);
             this.tabPatientsAndSales.Controls.Add(this.label4);
             this.tabPatientsAndSales.Controls.Add(this.label1);
             this.tabPatientsAndSales.Controls.Add(this.cmbDoctorName);
@@ -115,7 +116,6 @@
             this.tabPatientsAndSales.Controls.Add(this.lblOverallTotalPatients);
             this.tabPatientsAndSales.Controls.Add(this.label2);
             this.tabPatientsAndSales.Controls.Add(this.rprtPatientsSales);
-            this.tabPatientsAndSales.Controls.Add(this.dateReport);
             this.tabPatientsAndSales.Controls.Add(this.chartSales);
             this.tabPatientsAndSales.Controls.Add(this.lblTotalSalesInYear);
             this.tabPatientsAndSales.Controls.Add(this.label7);
@@ -181,6 +181,7 @@
             this.cmbDoctorName.Name = "cmbDoctorName";
             this.cmbDoctorName.Size = new System.Drawing.Size(392, 36);
             this.cmbDoctorName.TabIndex = 293;
+            this.cmbDoctorName.TabStop = false;
             this.cmbDoctorName.SelectedIndexChanged += new System.EventHandler(this.cmbDoctorName_SelectedIndexChanged);
             // 
             // btnPrint
@@ -268,48 +269,24 @@
             this.rprtPatientsSales.TabIndex = 287;
             this.rprtPatientsSales.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
-            // dateReport
-            // 
-            this.dateReport.Animated = true;
-            this.dateReport.BorderColor = System.Drawing.Color.Transparent;
-            this.dateReport.BorderRadius = 3;
-            this.dateReport.BorderThickness = 1;
-            this.dateReport.Checked = true;
-            this.dateReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateReport.FillColor = System.Drawing.Color.Blue;
-            this.dateReport.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateReport.ForeColor = System.Drawing.Color.White;
-            this.dateReport.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateReport.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateReport.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateReport.Location = new System.Drawing.Point(12, 124);
-            this.dateReport.Margin = new System.Windows.Forms.Padding(2);
-            this.dateReport.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateReport.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateReport.Name = "dateReport";
-            this.dateReport.Size = new System.Drawing.Size(392, 37);
-            this.dateReport.TabIndex = 286;
-            this.dateReport.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
-            this.dateReport.ValueChanged += new System.EventHandler(this.dateReport_ValueChanged);
-            // 
             // chartSales
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea3);
             this.chartSales.Location = new System.Drawing.Point(224, 585);
             this.chartSales.Margin = new System.Windows.Forms.Padding(2);
             this.chartSales.Name = "chartSales";
-            series1.ChartArea = "ChartArea1";
-            series1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            series1.Name = "Sales";
-            this.chartSales.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            series3.Name = "Sales";
+            this.chartSales.Series.Add(series3);
             this.chartSales.Size = new System.Drawing.Size(366, 314);
             this.chartSales.TabIndex = 283;
             this.chartSales.Text = "chart6";
-            title1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title1.Name = "chartSales";
-            title1.Text = "Sales Chart";
-            this.chartSales.Titles.Add(title1);
+            title3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title3.Name = "chartSales";
+            title3.Text = "Sales Chart";
+            this.chartSales.Titles.Add(title3);
             // 
             // lblTotalSalesInYear
             // 
@@ -385,21 +362,21 @@
             // 
             // chartPatients
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartPatients.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.chartPatients.ChartAreas.Add(chartArea4);
             this.chartPatients.Location = new System.Drawing.Point(224, 205);
             this.chartPatients.Margin = new System.Windows.Forms.Padding(2);
             this.chartPatients.Name = "chartPatients";
-            series2.ChartArea = "ChartArea1";
-            series2.Name = "Patients";
-            this.chartPatients.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Name = "Patients";
+            this.chartPatients.Series.Add(series4);
             this.chartPatients.Size = new System.Drawing.Size(366, 314);
             this.chartPatients.TabIndex = 274;
             this.chartPatients.Text = "chart1";
-            title2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            title2.Name = "chartPatients";
-            title2.Text = "Patients Chart";
-            this.chartPatients.Titles.Add(title2);
+            title4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            title4.Name = "chartPatients";
+            title4.Text = "Patients Chart";
+            this.chartPatients.Titles.Add(title4);
             // 
             // lblTotalPatientsInYear
             // 
@@ -495,6 +472,24 @@
             this.rprtInventory.TabIndex = 0;
             this.rprtInventory.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
             // 
+            // dateReport
+            // 
+            this.dateReport.BackColor = System.Drawing.Color.Blue;
+            this.dateReport.BorderRadius = 3;
+            this.dateReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateReport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateReport.ForeColor = System.Drawing.Color.White;
+            this.dateReport.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateReport.FormatCustom = null;
+            this.dateReport.Location = new System.Drawing.Point(12, 127);
+            this.dateReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateReport.Name = "dateReport";
+            this.dateReport.Size = new System.Drawing.Size(392, 37);
+            this.dateReport.TabIndex = 296;
+            this.dateReport.TabStop = false;
+            this.dateReport.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            this.dateReport.onValueChanged += new System.EventHandler(this.dateReport_onValueChanged);
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,7 +532,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblTotalSalesInMonth;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateReport;
         private Microsoft.Reporting.WinForms.ReportViewer rprtPatientsSales;
         private Microsoft.Reporting.WinForms.ReportViewer rprtInventory;
         private System.Windows.Forms.Label lblOverallTotalSales;
@@ -548,5 +542,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cmbDoctorName;
         private System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuDatepicker dateReport;
     }
 }

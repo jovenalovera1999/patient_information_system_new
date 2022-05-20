@@ -48,13 +48,11 @@ namespace PatientInformationSystemNew.forms
             this.btnSupplyArrived = new Guna.UI2.WinForms.Guna2Button();
             this.btnDeleteIncomingSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateArrive = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnAddIncomingSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveIncomingSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditIncomingSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.switchExpirationDate = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label21 = new System.Windows.Forms.Label();
-            this.dateExpiration = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtSupplyQuantity = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSupplyName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -77,7 +75,6 @@ namespace PatientInformationSystemNew.forms
             this.btnSaveManageSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditManageSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateExpirationManageSupplies = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtSupplyQuantityManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSupplyNameManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
@@ -85,6 +82,9 @@ namespace PatientInformationSystemNew.forms
             this.txtSupplyIDManageSupplies = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gridManageSupplies = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dateExpiration = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dateArrive = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dateExpirationManageSupplies = new Bunifu.Framework.UI.BunifuDatepicker();
             this.tabControlInventory.SuspendLayout();
             this.tabSupplies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSupplies)).BeginInit();
@@ -212,19 +212,19 @@ namespace PatientInformationSystemNew.forms
             // tabIncomingSupplies
             // 
             this.tabIncomingSupplies.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabIncomingSupplies.Controls.Add(this.dateArrive);
+            this.tabIncomingSupplies.Controls.Add(this.dateExpiration);
             this.tabIncomingSupplies.Controls.Add(this.label24);
             this.tabIncomingSupplies.Controls.Add(this.txtSupplier);
             this.tabIncomingSupplies.Controls.Add(this.label10);
             this.tabIncomingSupplies.Controls.Add(this.btnSupplyArrived);
             this.tabIncomingSupplies.Controls.Add(this.btnDeleteIncomingSupplies);
             this.tabIncomingSupplies.Controls.Add(this.label7);
-            this.tabIncomingSupplies.Controls.Add(this.dateArrive);
             this.tabIncomingSupplies.Controls.Add(this.btnAddIncomingSupplies);
             this.tabIncomingSupplies.Controls.Add(this.btnSaveIncomingSupplies);
             this.tabIncomingSupplies.Controls.Add(this.btnEditIncomingSupplies);
             this.tabIncomingSupplies.Controls.Add(this.switchExpirationDate);
             this.tabIncomingSupplies.Controls.Add(this.label21);
-            this.tabIncomingSupplies.Controls.Add(this.dateExpiration);
             this.tabIncomingSupplies.Controls.Add(this.txtSupplyQuantity);
             this.tabIncomingSupplies.Controls.Add(this.label2);
             this.tabIncomingSupplies.Controls.Add(this.txtSupplyName);
@@ -347,35 +347,12 @@ namespace PatientInformationSystemNew.forms
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(407, 136);
+            this.label7.Location = new System.Drawing.Point(409, 136);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 25);
             this.label7.TabIndex = 164;
             this.label7.Text = "Arrive Date:";
-            // 
-            // dateArrive
-            // 
-            this.dateArrive.Animated = true;
-            this.dateArrive.BorderColor = System.Drawing.Color.Transparent;
-            this.dateArrive.BorderRadius = 3;
-            this.dateArrive.BorderThickness = 1;
-            this.dateArrive.Checked = true;
-            this.dateArrive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateArrive.FillColor = System.Drawing.Color.Blue;
-            this.dateArrive.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateArrive.ForeColor = System.Drawing.Color.White;
-            this.dateArrive.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateArrive.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateArrive.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateArrive.Location = new System.Drawing.Point(411, 169);
-            this.dateArrive.Margin = new System.Windows.Forms.Padding(2);
-            this.dateArrive.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateArrive.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateArrive.Name = "dateArrive";
-            this.dateArrive.Size = new System.Drawing.Size(392, 37);
-            this.dateArrive.TabIndex = 6;
-            this.dateArrive.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
             // 
             // btnAddIncomingSupplies
             // 
@@ -467,7 +444,7 @@ namespace PatientInformationSystemNew.forms
             this.switchExpirationDate.CheckedState.FillColor = System.Drawing.Color.Lime;
             this.switchExpirationDate.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.switchExpirationDate.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.switchExpirationDate.Location = new System.Drawing.Point(547, 53);
+            this.switchExpirationDate.Location = new System.Drawing.Point(549, 53);
             this.switchExpirationDate.Margin = new System.Windows.Forms.Padding(2);
             this.switchExpirationDate.Name = "switchExpirationDate";
             this.switchExpirationDate.Size = new System.Drawing.Size(38, 23);
@@ -484,36 +461,12 @@ namespace PatientInformationSystemNew.forms
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(407, 51);
+            this.label21.Location = new System.Drawing.Point(409, 51);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(136, 25);
             this.label21.TabIndex = 116;
             this.label21.Text = "Expiration Date:";
-            // 
-            // dateExpiration
-            // 
-            this.dateExpiration.Animated = true;
-            this.dateExpiration.BorderColor = System.Drawing.Color.Transparent;
-            this.dateExpiration.BorderRadius = 3;
-            this.dateExpiration.BorderThickness = 1;
-            this.dateExpiration.Checked = true;
-            this.dateExpiration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateExpiration.Enabled = false;
-            this.dateExpiration.FillColor = System.Drawing.Color.Blue;
-            this.dateExpiration.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateExpiration.ForeColor = System.Drawing.Color.White;
-            this.dateExpiration.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateExpiration.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateExpiration.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateExpiration.Location = new System.Drawing.Point(411, 85);
-            this.dateExpiration.Margin = new System.Windows.Forms.Padding(2);
-            this.dateExpiration.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateExpiration.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateExpiration.Name = "dateExpiration";
-            this.dateExpiration.Size = new System.Drawing.Size(392, 37);
-            this.dateExpiration.TabIndex = 5;
-            this.dateExpiration.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
             // 
             // txtSupplyQuantity
             // 
@@ -696,6 +649,7 @@ namespace PatientInformationSystemNew.forms
             // tabManageSupplies
             // 
             this.tabManageSupplies.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabManageSupplies.Controls.Add(this.dateExpirationManageSupplies);
             this.tabManageSupplies.Controls.Add(this.txtIssuedTo);
             this.tabManageSupplies.Controls.Add(this.label13);
             this.tabManageSupplies.Controls.Add(this.txtSupplierManageSupplies);
@@ -710,7 +664,6 @@ namespace PatientInformationSystemNew.forms
             this.tabManageSupplies.Controls.Add(this.btnSaveManageSupplies);
             this.tabManageSupplies.Controls.Add(this.btnEditManageSupplies);
             this.tabManageSupplies.Controls.Add(this.label3);
-            this.tabManageSupplies.Controls.Add(this.dateExpirationManageSupplies);
             this.tabManageSupplies.Controls.Add(this.txtSupplyQuantityManageSupplies);
             this.tabManageSupplies.Controls.Add(this.label4);
             this.tabManageSupplies.Controls.Add(this.txtSupplyNameManageSupplies);
@@ -1015,30 +968,6 @@ namespace PatientInformationSystemNew.forms
             this.label3.TabIndex = 170;
             this.label3.Text = "Expiration Date:";
             // 
-            // dateExpirationManageSupplies
-            // 
-            this.dateExpirationManageSupplies.Animated = true;
-            this.dateExpirationManageSupplies.BorderColor = System.Drawing.Color.Transparent;
-            this.dateExpirationManageSupplies.BorderRadius = 3;
-            this.dateExpirationManageSupplies.BorderThickness = 1;
-            this.dateExpirationManageSupplies.Checked = true;
-            this.dateExpirationManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateExpirationManageSupplies.Enabled = false;
-            this.dateExpirationManageSupplies.FillColor = System.Drawing.Color.Blue;
-            this.dateExpirationManageSupplies.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateExpirationManageSupplies.ForeColor = System.Drawing.Color.White;
-            this.dateExpirationManageSupplies.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateExpirationManageSupplies.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateExpirationManageSupplies.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateExpirationManageSupplies.Location = new System.Drawing.Point(411, 85);
-            this.dateExpirationManageSupplies.Margin = new System.Windows.Forms.Padding(2);
-            this.dateExpirationManageSupplies.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateExpirationManageSupplies.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateExpirationManageSupplies.Name = "dateExpirationManageSupplies";
-            this.dateExpirationManageSupplies.Size = new System.Drawing.Size(392, 37);
-            this.dateExpirationManageSupplies.TabIndex = 4;
-            this.dateExpirationManageSupplies.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
-            // 
             // txtSupplyQuantityManageSupplies
             // 
             this.txtSupplyQuantityManageSupplies.Animated = true;
@@ -1217,6 +1146,54 @@ namespace PatientInformationSystemNew.forms
             this.gridManageSupplies.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.gridManageSupplies.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridManageSupplies_CellMouseClick);
             // 
+            // dateExpiration
+            // 
+            this.dateExpiration.BackColor = System.Drawing.Color.Blue;
+            this.dateExpiration.BorderRadius = 3;
+            this.dateExpiration.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateExpiration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateExpiration.ForeColor = System.Drawing.Color.White;
+            this.dateExpiration.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateExpiration.FormatCustom = null;
+            this.dateExpiration.Location = new System.Drawing.Point(413, 85);
+            this.dateExpiration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateExpiration.Name = "dateExpiration";
+            this.dateExpiration.Size = new System.Drawing.Size(392, 37);
+            this.dateExpiration.TabIndex = 5;
+            this.dateExpiration.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
+            // dateArrive
+            // 
+            this.dateArrive.BackColor = System.Drawing.Color.Blue;
+            this.dateArrive.BorderRadius = 3;
+            this.dateArrive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateArrive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateArrive.ForeColor = System.Drawing.Color.White;
+            this.dateArrive.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateArrive.FormatCustom = null;
+            this.dateArrive.Location = new System.Drawing.Point(413, 169);
+            this.dateArrive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateArrive.Name = "dateArrive";
+            this.dateArrive.Size = new System.Drawing.Size(392, 37);
+            this.dateArrive.TabIndex = 6;
+            this.dateArrive.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
+            // dateExpirationManageSupplies
+            // 
+            this.dateExpirationManageSupplies.BackColor = System.Drawing.Color.Blue;
+            this.dateExpirationManageSupplies.BorderRadius = 3;
+            this.dateExpirationManageSupplies.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateExpirationManageSupplies.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateExpirationManageSupplies.ForeColor = System.Drawing.Color.White;
+            this.dateExpirationManageSupplies.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateExpirationManageSupplies.FormatCustom = null;
+            this.dateExpirationManageSupplies.Location = new System.Drawing.Point(412, 85);
+            this.dateExpirationManageSupplies.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateExpirationManageSupplies.Name = "dateExpirationManageSupplies";
+            this.dateExpirationManageSupplies.Size = new System.Drawing.Size(392, 37);
+            this.dateExpirationManageSupplies.TabIndex = 4;
+            this.dateExpirationManageSupplies.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1259,7 +1236,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox txtSupplyQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label21;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateExpiration;
         private Guna.UI2.WinForms.Guna2ToggleSwitch switchExpirationDate;
         private Guna.UI2.WinForms.Guna2Button btnSaveIncomingSupplies;
         private Guna.UI2.WinForms.Guna2Button btnEditIncomingSupplies;
@@ -1270,7 +1246,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnSaveManageSupplies;
         private Guna.UI2.WinForms.Guna2Button btnEditManageSupplies;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateExpirationManageSupplies;
         private Guna.UI2.WinForms.Guna2TextBox txtSupplyQuantityManageSupplies;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtSupplyNameManageSupplies;
@@ -1278,7 +1253,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox txtSupplyIDManageSupplies;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateArrive;
         private Guna.UI2.WinForms.Guna2Button btnDeleteIncomingSupplies;
         private Guna.UI2.WinForms.Guna2Button btnSupplyArrived;
         private Guna.UI2.WinForms.Guna2ToggleSwitch switchExpirationDateManageSupplies;
@@ -1293,5 +1267,8 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txtIssuedTo;
         private System.Windows.Forms.Label label13;
+        private Bunifu.Framework.UI.BunifuDatepicker dateExpiration;
+        private Bunifu.Framework.UI.BunifuDatepicker dateArrive;
+        private Bunifu.Framework.UI.BunifuDatepicker dateExpirationManageSupplies;
     }
 }

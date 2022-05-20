@@ -338,7 +338,7 @@ namespace PatientInformationSystemNew.forms
                     MessageBox.Show("Failed to update incoming supply!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (this.dateExpiration.Checked == false)
+            else if (this.switchExpirationDate.Checked == false)
             {
                 if (inventory.UpdateIncomingSupplyWithoutExpiration(int.Parse(this.gridIncomingSupplies.SelectedCells[0].Value.ToString()), this.txtSupplier.Text,
                     this.txtSupplyName.Text, this.txtSupplyQuantity.Text, this.dateArrive.Value, val.UserFullName,

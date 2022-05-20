@@ -59,7 +59,6 @@ namespace PatientInformationSystemNew.forms
             this.label23 = new System.Windows.Forms.Label();
             this.txtPatientID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.dateBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
@@ -92,7 +91,6 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveVitalSigns = new Guna.UI2.WinForms.Guna2Button();
             this.label24 = new System.Windows.Forms.Label();
-            this.dateVitalSigns = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label34 = new System.Windows.Forms.Label();
             this.txtHeight = new Guna.UI2.WinForms.Guna2TextBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -106,7 +104,6 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveDiagnosis = new Guna.UI2.WinForms.Guna2Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.dateDiagnosis = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.txtDiagnosis = new Guna.UI2.WinForms.Guna2TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -120,7 +117,6 @@ namespace PatientInformationSystemNew.forms
             this.btnRemoveSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveSymptoms = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateSymptoms = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSymptoms = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -136,7 +132,6 @@ namespace PatientInformationSystemNew.forms
             this.btnRemovePrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.btnSavePrescriptions = new Guna.UI2.WinForms.Guna2Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.datePrescriptions = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.txtPrescriptions = new Guna.UI2.WinForms.Guna2TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -168,6 +163,11 @@ namespace PatientInformationSystemNew.forms
             this.gridPaymentHistory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnTransact = new Guna.UI2.WinForms.Guna2Button();
             this.btnBackInPaymentHistory = new Guna.UI2.WinForms.Guna2Button();
+            this.dateBirthday = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dateVitalSigns = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dateDiagnosis = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.dateSymptoms = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.datePrescriptions = new Bunifu.Framework.UI.BunifuDatepicker();
             this.tabControlPatient.SuspendLayout();
             this.tabPersonalInfo.SuspendLayout();
             this.tabVitalSigns.SuspendLayout();
@@ -224,6 +224,7 @@ namespace PatientInformationSystemNew.forms
             // tabPersonalInfo
             // 
             this.tabPersonalInfo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPersonalInfo.Controls.Add(this.dateBirthday);
             this.tabPersonalInfo.Controls.Add(this.lblDoctor);
             this.tabPersonalInfo.Controls.Add(this.txtDoctor);
             this.tabPersonalInfo.Controls.Add(this.txtBirthday);
@@ -237,7 +238,6 @@ namespace PatientInformationSystemNew.forms
             this.tabPersonalInfo.Controls.Add(this.label23);
             this.tabPersonalInfo.Controls.Add(this.txtPatientID);
             this.tabPersonalInfo.Controls.Add(this.label21);
-            this.tabPersonalInfo.Controls.Add(this.dateBirthday);
             this.tabPersonalInfo.Controls.Add(this.txtLastName);
             this.tabPersonalInfo.Controls.Add(this.label20);
             this.tabPersonalInfo.Controls.Add(this.txtEmail);
@@ -551,31 +551,6 @@ namespace PatientInformationSystemNew.forms
             this.label21.TabIndex = 155;
             this.label21.Text = "Birthday:";
             // 
-            // dateBirthday
-            // 
-            this.dateBirthday.Animated = true;
-            this.dateBirthday.BorderColor = System.Drawing.Color.Transparent;
-            this.dateBirthday.BorderRadius = 5;
-            this.dateBirthday.BorderThickness = 1;
-            this.dateBirthday.Checked = true;
-            this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateBirthday.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateBirthday.ForeColor = System.Drawing.Color.White;
-            this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateBirthday.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Location = new System.Drawing.Point(411, 567);
-            this.dateBirthday.Margin = new System.Windows.Forms.Padding(2);
-            this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateBirthday.Name = "dateBirthday";
-            this.dateBirthday.Size = new System.Drawing.Size(392, 37);
-            this.dateBirthday.TabIndex = 7;
-            this.dateBirthday.TabStop = false;
-            this.dateBirthday.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
-            this.dateBirthday.Visible = false;
-            // 
             // txtLastName
             // 
             this.txtLastName.Animated = true;
@@ -888,6 +863,7 @@ namespace PatientInformationSystemNew.forms
             // tabVitalSigns
             // 
             this.tabVitalSigns.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabVitalSigns.Controls.Add(this.dateVitalSigns);
             this.tabVitalSigns.Controls.Add(this.btnCancelVitalSigns);
             this.tabVitalSigns.Controls.Add(this.txtBloodPressure);
             this.tabVitalSigns.Controls.Add(this.label43);
@@ -901,7 +877,6 @@ namespace PatientInformationSystemNew.forms
             this.tabVitalSigns.Controls.Add(this.btnRemoveVitalSigns);
             this.tabVitalSigns.Controls.Add(this.btnSaveVitalSigns);
             this.tabVitalSigns.Controls.Add(this.label24);
-            this.tabVitalSigns.Controls.Add(this.dateVitalSigns);
             this.tabVitalSigns.Controls.Add(this.label34);
             this.tabVitalSigns.Controls.Add(this.txtHeight);
             this.tabVitalSigns.Controls.Add(this.label35);
@@ -1190,31 +1165,6 @@ namespace PatientInformationSystemNew.forms
             this.label24.TabIndex = 331;
             this.label24.Text = "Edit Vital Signs";
             // 
-            // dateVitalSigns
-            // 
-            this.dateVitalSigns.Animated = true;
-            this.dateVitalSigns.BorderColor = System.Drawing.Color.Transparent;
-            this.dateVitalSigns.BorderRadius = 3;
-            this.dateVitalSigns.BorderThickness = 1;
-            this.dateVitalSigns.Checked = true;
-            this.dateVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateVitalSigns.Enabled = false;
-            this.dateVitalSigns.FillColor = System.Drawing.Color.Blue;
-            this.dateVitalSigns.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateVitalSigns.ForeColor = System.Drawing.Color.White;
-            this.dateVitalSigns.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateVitalSigns.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateVitalSigns.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateVitalSigns.Location = new System.Drawing.Point(411, 245);
-            this.dateVitalSigns.Margin = new System.Windows.Forms.Padding(2);
-            this.dateVitalSigns.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateVitalSigns.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateVitalSigns.Name = "dateVitalSigns";
-            this.dateVitalSigns.Size = new System.Drawing.Size(392, 37);
-            this.dateVitalSigns.TabIndex = 5;
-            this.dateVitalSigns.TabStop = false;
-            this.dateVitalSigns.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1420,12 +1370,12 @@ namespace PatientInformationSystemNew.forms
             // tabDiagnosis
             // 
             this.tabDiagnosis.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabDiagnosis.Controls.Add(this.dateDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnCancelDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnNewDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnRemoveDiagnosis);
             this.tabDiagnosis.Controls.Add(this.btnSaveDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label19);
-            this.tabDiagnosis.Controls.Add(this.dateDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label18);
             this.tabDiagnosis.Controls.Add(this.txtDiagnosis);
             this.tabDiagnosis.Controls.Add(this.label25);
@@ -1559,31 +1509,6 @@ namespace PatientInformationSystemNew.forms
             this.label19.Size = new System.Drawing.Size(186, 37);
             this.label19.TabIndex = 317;
             this.label19.Text = "Edit Diagnosis";
-            // 
-            // dateDiagnosis
-            // 
-            this.dateDiagnosis.Animated = true;
-            this.dateDiagnosis.BorderColor = System.Drawing.Color.Transparent;
-            this.dateDiagnosis.BorderRadius = 3;
-            this.dateDiagnosis.BorderThickness = 1;
-            this.dateDiagnosis.Checked = true;
-            this.dateDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateDiagnosis.Enabled = false;
-            this.dateDiagnosis.FillColor = System.Drawing.Color.Blue;
-            this.dateDiagnosis.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateDiagnosis.ForeColor = System.Drawing.Color.White;
-            this.dateDiagnosis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateDiagnosis.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateDiagnosis.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateDiagnosis.Location = new System.Drawing.Point(20, 171);
-            this.dateDiagnosis.Margin = new System.Windows.Forms.Padding(2);
-            this.dateDiagnosis.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateDiagnosis.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateDiagnosis.Name = "dateDiagnosis";
-            this.dateDiagnosis.Size = new System.Drawing.Size(392, 37);
-            this.dateDiagnosis.TabIndex = 1;
-            this.dateDiagnosis.TabStop = false;
-            this.dateDiagnosis.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label18
             // 
@@ -1790,12 +1715,12 @@ namespace PatientInformationSystemNew.forms
             // tabSymptoms
             // 
             this.tabSymptoms.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabSymptoms.Controls.Add(this.dateSymptoms);
             this.tabSymptoms.Controls.Add(this.btnCancelSymptoms);
             this.tabSymptoms.Controls.Add(this.btnNewSymptoms);
             this.tabSymptoms.Controls.Add(this.btnRemoveSymptoms);
             this.tabSymptoms.Controls.Add(this.btnSaveSymptoms);
             this.tabSymptoms.Controls.Add(this.label2);
-            this.tabSymptoms.Controls.Add(this.dateSymptoms);
             this.tabSymptoms.Controls.Add(this.label4);
             this.tabSymptoms.Controls.Add(this.txtSymptoms);
             this.tabSymptoms.Controls.Add(this.label5);
@@ -1929,31 +1854,6 @@ namespace PatientInformationSystemNew.forms
             this.label2.Size = new System.Drawing.Size(194, 37);
             this.label2.TabIndex = 331;
             this.label2.Text = "Edit Symptoms";
-            // 
-            // dateSymptoms
-            // 
-            this.dateSymptoms.Animated = true;
-            this.dateSymptoms.BorderColor = System.Drawing.Color.Transparent;
-            this.dateSymptoms.BorderRadius = 3;
-            this.dateSymptoms.BorderThickness = 1;
-            this.dateSymptoms.Checked = true;
-            this.dateSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateSymptoms.Enabled = false;
-            this.dateSymptoms.FillColor = System.Drawing.Color.Blue;
-            this.dateSymptoms.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateSymptoms.ForeColor = System.Drawing.Color.White;
-            this.dateSymptoms.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateSymptoms.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateSymptoms.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateSymptoms.Location = new System.Drawing.Point(20, 171);
-            this.dateSymptoms.Margin = new System.Windows.Forms.Padding(2);
-            this.dateSymptoms.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateSymptoms.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateSymptoms.Name = "dateSymptoms";
-            this.dateSymptoms.Size = new System.Drawing.Size(392, 37);
-            this.dateSymptoms.TabIndex = 1;
-            this.dateSymptoms.TabStop = false;
-            this.dateSymptoms.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -2160,6 +2060,7 @@ namespace PatientInformationSystemNew.forms
             // tabPrescription
             // 
             this.tabPrescription.BackColor = System.Drawing.Color.DodgerBlue;
+            this.tabPrescription.Controls.Add(this.datePrescriptions);
             this.tabPrescription.Controls.Add(this.btnPrintPrescriptions);
             this.tabPrescription.Controls.Add(this.rprtPrescription);
             this.tabPrescription.Controls.Add(this.btnCancelPrescriptions);
@@ -2167,7 +2068,6 @@ namespace PatientInformationSystemNew.forms
             this.tabPrescription.Controls.Add(this.btnRemovePrescriptions);
             this.tabPrescription.Controls.Add(this.btnSavePrescriptions);
             this.tabPrescription.Controls.Add(this.label11);
-            this.tabPrescription.Controls.Add(this.datePrescriptions);
             this.tabPrescription.Controls.Add(this.label17);
             this.tabPrescription.Controls.Add(this.txtPrescriptions);
             this.tabPrescription.Controls.Add(this.label22);
@@ -2340,31 +2240,6 @@ namespace PatientInformationSystemNew.forms
             this.label11.Size = new System.Drawing.Size(221, 37);
             this.label11.TabIndex = 361;
             this.label11.Text = "Edit Prescriptions";
-            // 
-            // datePrescriptions
-            // 
-            this.datePrescriptions.Animated = true;
-            this.datePrescriptions.BorderColor = System.Drawing.Color.Transparent;
-            this.datePrescriptions.BorderRadius = 3;
-            this.datePrescriptions.BorderThickness = 1;
-            this.datePrescriptions.Checked = true;
-            this.datePrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.datePrescriptions.Enabled = false;
-            this.datePrescriptions.FillColor = System.Drawing.Color.Blue;
-            this.datePrescriptions.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.datePrescriptions.ForeColor = System.Drawing.Color.White;
-            this.datePrescriptions.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.datePrescriptions.HoverState.BorderColor = System.Drawing.Color.White;
-            this.datePrescriptions.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.datePrescriptions.Location = new System.Drawing.Point(14, 482);
-            this.datePrescriptions.Margin = new System.Windows.Forms.Padding(2);
-            this.datePrescriptions.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.datePrescriptions.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.datePrescriptions.Name = "datePrescriptions";
-            this.datePrescriptions.Size = new System.Drawing.Size(392, 37);
-            this.datePrescriptions.TabIndex = 1;
-            this.datePrescriptions.TabStop = false;
-            this.datePrescriptions.Value = new System.DateTime(2021, 10, 30, 0, 0, 0, 0);
             // 
             // label17
             // 
@@ -3112,6 +2987,87 @@ namespace PatientInformationSystemNew.forms
             this.btnBackInPaymentHistory.Text = "Back";
             this.btnBackInPaymentHistory.Click += new System.EventHandler(this.btnBackInPaymentHistory_Click);
             // 
+            // dateBirthday
+            // 
+            this.dateBirthday.BackColor = System.Drawing.Color.Blue;
+            this.dateBirthday.BorderRadius = 3;
+            this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateBirthday.ForeColor = System.Drawing.Color.White;
+            this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateBirthday.FormatCustom = null;
+            this.dateBirthday.Location = new System.Drawing.Point(411, 567);
+            this.dateBirthday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateBirthday.Name = "dateBirthday";
+            this.dateBirthday.Size = new System.Drawing.Size(392, 37);
+            this.dateBirthday.TabIndex = 7;
+            this.dateBirthday.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            this.dateBirthday.Visible = false;
+            // 
+            // dateVitalSigns
+            // 
+            this.dateVitalSigns.BackColor = System.Drawing.Color.Blue;
+            this.dateVitalSigns.BorderRadius = 3;
+            this.dateVitalSigns.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateVitalSigns.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateVitalSigns.ForeColor = System.Drawing.Color.White;
+            this.dateVitalSigns.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateVitalSigns.FormatCustom = null;
+            this.dateVitalSigns.Location = new System.Drawing.Point(411, 245);
+            this.dateVitalSigns.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateVitalSigns.Name = "dateVitalSigns";
+            this.dateVitalSigns.Size = new System.Drawing.Size(392, 37);
+            this.dateVitalSigns.TabIndex = 5;
+            this.dateVitalSigns.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
+            // dateDiagnosis
+            // 
+            this.dateDiagnosis.BackColor = System.Drawing.Color.Blue;
+            this.dateDiagnosis.BorderRadius = 3;
+            this.dateDiagnosis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateDiagnosis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateDiagnosis.ForeColor = System.Drawing.Color.White;
+            this.dateDiagnosis.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateDiagnosis.FormatCustom = null;
+            this.dateDiagnosis.Location = new System.Drawing.Point(20, 171);
+            this.dateDiagnosis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateDiagnosis.Name = "dateDiagnosis";
+            this.dateDiagnosis.Size = new System.Drawing.Size(392, 37);
+            this.dateDiagnosis.TabIndex = 1;
+            this.dateDiagnosis.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
+            // dateSymptoms
+            // 
+            this.dateSymptoms.BackColor = System.Drawing.Color.Blue;
+            this.dateSymptoms.BorderRadius = 3;
+            this.dateSymptoms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateSymptoms.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateSymptoms.ForeColor = System.Drawing.Color.White;
+            this.dateSymptoms.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateSymptoms.FormatCustom = null;
+            this.dateSymptoms.Location = new System.Drawing.Point(20, 171);
+            this.dateSymptoms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateSymptoms.Name = "dateSymptoms";
+            this.dateSymptoms.Size = new System.Drawing.Size(392, 37);
+            this.dateSymptoms.TabIndex = 1;
+            this.dateSymptoms.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
+            // datePrescriptions
+            // 
+            this.datePrescriptions.BackColor = System.Drawing.Color.Blue;
+            this.datePrescriptions.BorderRadius = 3;
+            this.datePrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.datePrescriptions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePrescriptions.ForeColor = System.Drawing.Color.White;
+            this.datePrescriptions.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.datePrescriptions.FormatCustom = null;
+            this.datePrescriptions.Location = new System.Drawing.Point(13, 482);
+            this.datePrescriptions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.datePrescriptions.Name = "datePrescriptions";
+            this.datePrescriptions.Size = new System.Drawing.Size(392, 37);
+            this.datePrescriptions.TabIndex = 1;
+            this.datePrescriptions.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            // 
             // frmPatientProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3155,7 +3111,6 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.Label label23;
         private Guna.UI2.WinForms.Guna2TextBox txtPatientID;
         private System.Windows.Forms.Label label21;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateBirthday;
         private Guna.UI2.WinForms.Guna2TextBox txtLastName;
         private System.Windows.Forms.Label label20;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
@@ -3180,7 +3135,6 @@ namespace PatientInformationSystemNew.forms
         private System.Windows.Forms.TabPage tabPaymentHistory;
         private Guna.UI2.WinForms.Guna2Button btnAddDiagnosis;
         private Guna.UI2.WinForms.Guna2DataGridView gridDiagnosis;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateDiagnosis;
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2TextBox txtDiagnosis;
         private System.Windows.Forms.Label label25;
@@ -3227,7 +3181,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnRemoveSymptoms;
         private Guna.UI2.WinForms.Guna2Button btnSaveSymptoms;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateSymptoms;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtSymptoms;
         private System.Windows.Forms.Label label5;
@@ -3238,7 +3191,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnRemovePrescriptions;
         private Guna.UI2.WinForms.Guna2Button btnSavePrescriptions;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2DateTimePicker datePrescriptions;
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2TextBox txtPrescriptions;
         private System.Windows.Forms.Label label22;
@@ -3249,7 +3201,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnEditVitalSigns;
         private Guna.UI2.WinForms.Guna2Button btnBackVitalSigns;
         private System.Windows.Forms.Label label24;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateVitalSigns;
         private System.Windows.Forms.Label label34;
         private Guna.UI2.WinForms.Guna2TextBox txtHeight;
         private System.Windows.Forms.Label label35;
@@ -3274,5 +3225,10 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnPrintPrescriptions;
         private Guna.UI2.WinForms.Guna2TextBox txtDoctor;
         private System.Windows.Forms.Label lblDoctor;
+        private Bunifu.Framework.UI.BunifuDatepicker dateBirthday;
+        private Bunifu.Framework.UI.BunifuDatepicker dateVitalSigns;
+        private Bunifu.Framework.UI.BunifuDatepicker dateDiagnosis;
+        private Bunifu.Framework.UI.BunifuDatepicker dateSymptoms;
+        private Bunifu.Framework.UI.BunifuDatepicker datePrescriptions;
     }
 }

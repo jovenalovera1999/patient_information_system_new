@@ -159,7 +159,7 @@ namespace PatientInformationSystemNew.forms
             LoadCharts();
         }
 
-        private void dateReport_ValueChanged(object sender, EventArgs e)
+        private void dateReport_onValueChanged(object sender, EventArgs e)
         {
             CountPatients();
             CountSales();

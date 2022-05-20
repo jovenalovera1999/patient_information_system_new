@@ -39,7 +39,6 @@ namespace PatientInformationSystemNew.forms
             this.txtAge = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGender = new Guna.UI2.WinForms.Guna2TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.dateBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtRole = new Guna.UI2.WinForms.Guna2TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@ namespace PatientInformationSystemNew.forms
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.txtBirthday = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dateBirthday = new Bunifu.Framework.UI.BunifuDatepicker();
             ((System.ComponentModel.ISupportInitialize)(this.picProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -276,30 +276,6 @@ namespace PatientInformationSystemNew.forms
             this.label21.Size = new System.Drawing.Size(81, 25);
             this.label21.TabIndex = 609;
             this.label21.Text = "Birthday:";
-            // 
-            // dateBirthday
-            // 
-            this.dateBirthday.Animated = true;
-            this.dateBirthday.BorderColor = System.Drawing.Color.Transparent;
-            this.dateBirthday.BorderRadius = 3;
-            this.dateBirthday.BorderThickness = 1;
-            this.dateBirthday.Checked = true;
-            this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateBirthday.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateBirthday.ForeColor = System.Drawing.Color.White;
-            this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateBirthday.HoverState.BorderColor = System.Drawing.Color.White;
-            this.dateBirthday.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.dateBirthday.Location = new System.Drawing.Point(597, 571);
-            this.dateBirthday.Margin = new System.Windows.Forms.Padding(2);
-            this.dateBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateBirthday.Name = "dateBirthday";
-            this.dateBirthday.Size = new System.Drawing.Size(392, 37);
-            this.dateBirthday.TabIndex = 9;
-            this.dateBirthday.TabStop = false;
-            this.dateBirthday.Value = new System.DateTime(2021, 10, 23, 0, 45, 31, 4);
             // 
             // txtRole
             // 
@@ -845,12 +821,30 @@ namespace PatientInformationSystemNew.forms
             this.txtBirthday.TabIndex = 613;
             this.txtBirthday.TabStop = false;
             // 
+            // dateBirthday
+            // 
+            this.dateBirthday.BackColor = System.Drawing.Color.Blue;
+            this.dateBirthday.BorderRadius = 3;
+            this.dateBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateBirthday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateBirthday.ForeColor = System.Drawing.Color.White;
+            this.dateBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateBirthday.FormatCustom = null;
+            this.dateBirthday.Location = new System.Drawing.Point(597, 571);
+            this.dateBirthday.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dateBirthday.Name = "dateBirthday";
+            this.dateBirthday.Size = new System.Drawing.Size(392, 37);
+            this.dateBirthday.TabIndex = 9;
+            this.dateBirthday.Value = new System.DateTime(2022, 5, 20, 10, 16, 17, 647);
+            this.dateBirthday.Visible = false;
+            // 
             // frmMyProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1754, 981);
+            this.Controls.Add(this.dateBirthday);
             this.Controls.Add(this.txtBirthday);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPassword);
@@ -862,7 +856,6 @@ namespace PatientInformationSystemNew.forms
             this.Controls.Add(this.txtAge);
             this.Controls.Add(this.txtGender);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.dateBirthday);
             this.Controls.Add(this.txtRole);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label20);
@@ -917,7 +910,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2TextBox txtAge;
         private Guna.UI2.WinForms.Guna2TextBox txtGender;
         private System.Windows.Forms.Label label21;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dateBirthday;
         private Guna.UI2.WinForms.Guna2TextBox txtRole;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
@@ -948,5 +940,6 @@ namespace PatientInformationSystemNew.forms
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2TextBox txtBirthday;
+        private Bunifu.Framework.UI.BunifuDatepicker dateBirthday;
     }
 }
