@@ -20,9 +20,9 @@ namespace PatientInformationSystemNew.forms
 
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
-
         functions.Doctor doctor = new functions.Doctor();
         functions.Patient patient = new functions.Patient();
+        functions.Search search = new functions.Search();
 
         void LoadProfilePicture()
         {
@@ -82,8 +82,16 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        void LoadDoctorPatientsByDate()
+        {
+            patient.LoadDoctorPatientsByDate(val.DoctorPrimaryID, dateFrom.Value.Date, dateTo.Value.Date, gridPatients);
+        }
+
         private void frmDoctorProfileNew_Load(object sender, EventArgs e)
         {
+            dateFrom.Value = DateTime.Now;
+            dateTo.Value = DateTime.Now;
+
             for (int i = 0; i < 100; i++)
             {
                 this.cmbAge.Items.Add(i);
@@ -92,6 +100,27 @@ namespace PatientInformationSystemNew.forms
             LoadProfilePicture();
             LoadDoctorDetails();
             LoadDoctorsPatients();
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(this.txtSearch.Text))
+            {
+                LoadDoctorPatientsByDate();
+            }
+            else
+            {
+                search.SearchPatientByDoctor(val.DoctorPrimaryID, this.txtSearch.Text, dateFrom.Value.Date, dateTo.Value, this.gridPatients);
+            }
+        }
+
+        private void dateFrom_onValueChanged(object sender, EventArgs e)
+        {
+            LoadDoctorPatientsByDate();
+        }
+
+        private void dateTo_onValueChanged(object sender, EventArgs e)
+        {
+            LoadDoctorPatientsByDate();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

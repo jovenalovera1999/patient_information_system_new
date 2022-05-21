@@ -37,27 +37,48 @@ namespace PatientInformationSystemNew.forms
             }
         }
 
+        void LoadPatientByDate()
+        {
+            if (val.UserRole == "Doctor")
+            {
+                patient.LoadDoctorPatientsByDate(val.UserPrimaryID, dateFrom.Value.Date, dateTo.Value.Date, gridPatients);
+            }
+            else
+            {
+                patient.LoadPatientsByDate(dateFrom.Value.Date, dateTo.Value.Date, gridPatients);
+            }
+        }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (val.UserRole == "Doctor")
             {
                 if(String.IsNullOrWhiteSpace(this.txtSearch.Text))
                 {
-                    patient.LoadDoctorPatients(val.UserPrimaryID, this.gridPatients);
+                    patient.LoadDoctorPatientsByDate(val.UserPrimaryID, dateFrom.Value.Date, dateTo.Value.Date, this.gridPatients);
                 }
                 else
                 {
-                    search.SearchPatientByDoctor(val.UserPrimaryID, this.txtSearch.Text, this.gridPatients);
+                    search.SearchPatientByDoctor(val.UserPrimaryID, this.txtSearch.Text, dateFrom.Value.Date, dateTo.Value, this.gridPatients);
                 }
             }
             else
             {
-                search.SearchPatient(this.txtSearch.Text, this.gridPatients);
+                if(String.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    patient.LoadPatientsByDate(dateFrom.Value.Date, dateTo.Value.Date, gridPatients);
+                }
+                else
+                {
+                    search.SearchPatient(this.txtSearch.Text, dateFrom.Value.Date, dateTo.Value.Date, this.gridPatients);
+                }
             }
         }
 
         private void frmPatient_Load(object sender, EventArgs e)
         {
+            dateFrom.Value = DateTime.Now;
+            dateTo.Value = DateTime.Now;
             if (val.UserRole == "Doctor")
             {
                 this.btnPaymentTransaction.Visible = false;
@@ -69,6 +90,16 @@ namespace PatientInformationSystemNew.forms
                 patient.LoadPatients(this.gridPatients);
             }
             this.txtSearch.Focus();
+        }
+
+        private void dateFrom_onValueChanged(object sender, EventArgs e)
+        {
+            LoadPatientByDate();
+        }
+
+        private void dateTo_onValueChanged(object sender, EventArgs e)
+        {
+            LoadPatientByDate();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

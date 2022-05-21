@@ -378,7 +378,8 @@ BEGIN
     WHERE
     doctor_fid = pDoctorFID AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
-    ORDER BY first_name ASC;
+    ORDER BY CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC
+    LIMIT 100;
 END$$
 
 DELIMITER ;
@@ -454,7 +455,8 @@ BEGIN
     FROM pis_db.patients
     INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
     WHERE CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
-    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
+    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC
+    LIMIT 100;
 END$$
 
 DELIMITER ;
@@ -847,7 +849,8 @@ BEGIN
     cellphone_number = AES_ENCRYPT(pCellphoneNumber, 'j0v3ncut3gw4p0per0jok3l4ang'), 
     telephone_number = AES_ENCRYPT(pTelephoneNumber, 'j0v3ncut3gw4p0per0jok3l4ang'), 
     email = AES_ENCRYPT(pEmail, 'j0v3ncut3gw4p0per0jok3l4ang'),
-    payment_status = AES_ENCRYPT('Unpaid', 'j0v3ncut3gw4p0per0jok3l4ang')
+    payment_status = AES_ENCRYPT('Unpaid', 'j0v3ncut3gw4p0per0jok3l4ang'),
+    date = CURRENT_TIMESTAMP
     WHERE
 	CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = pPatientID AND
 	CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete';
@@ -1005,9 +1008,9 @@ BEGIN
     CAST(AES_DECRYPT(`change`, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
     CAST(AES_DECRYPT(cashier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
 	DATE_FORMAT(pis_db.payment_transactions.date, '%Y/%m/%d')
-    FROM pis_db.payment_transactions
-    INNER JOIN pis_db.cashier ON pis_db.payment_transactions.id = pis_db.cashier.id
-    WHERE patient_fid = pPatientFID;
+    FROM pis_db.payment_transactions, pis_db.cashier
+    WHERE pis_db.payment_transactions.id = pis_db.cashier.transaction_fid
+    AND pis_db.payment_transactions.patient_fid = pPatientFID;
 END$$
 
 DELIMITER ;
@@ -2104,7 +2107,7 @@ DROP procedure IF EXISTS `search_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `search_patient` (pKeyword VARCHAR(800))
+CREATE PROCEDURE `search_patient` (pKeyword VARCHAR(800), pFrom DATE, pTo DATE)
 BEGIN
 	SELECT
     pis_db.patients.id,
@@ -2118,6 +2121,7 @@ BEGIN
     FROM pis_db.patients
     INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
     WHERE
+    pis_db.patients.date BETWEEN pFrom AND pTo AND
     CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
     CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
     CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
@@ -2126,7 +2130,7 @@ BEGIN
     CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
     CONCAT('Dr.', ' ', CAST(AES_DECRYPT(pis_db.users.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(pis_db.users.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(', CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') LIKE pKeyword AND
     CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
-    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
+    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC LIMIT 100;
 END$$
 
 DELIMITER ;
@@ -2136,7 +2140,7 @@ DROP procedure IF EXISTS `search_patient_by_doctor`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT, pKeyword VARBINARY(855))
+CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT, pKeyword VARBINARY(855), pFrom DATE, pTo DATE)
 BEGIN
 	SELECT
     id,
@@ -2148,6 +2152,7 @@ BEGIN
     DATE_FORMAT(date, '%Y/%m/%d')
 	FROM pis_db.patients
     WHERE
+    pis_db.patients.date BETWEEN pFrom AND pTo AND
     doctor_fid = pDoctorFID AND
     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
@@ -2157,7 +2162,7 @@ BEGIN
     doctor_fid = pDoctorFID AND
     CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete'
-    ORDER BY CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
+    ORDER BY CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC LIMIT 100;
 END$$
 
 DELIMITER ;
@@ -2549,6 +2554,56 @@ USE `pis_db`$$
 CREATE PROCEDURE `load_inventory_report` ()
 BEGIN
 	SELECT supply_id, supply_name, quantity, expiration_date FROM pis_db.inventory;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_patients_by_date`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_patients_by_date` (pFrom DATE, pTo DATE)
+BEGIN
+	SELECT
+    pis_db.patients.id,
+    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+    CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pis_db.patients.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(pis_db.patients.gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CONCAT('Dr.', ' ', CAST(AES_DECRYPT(pis_db.users.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', CAST(AES_DECRYPT(pis_db.users.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), ' ', '(', CAST(AES_DECRYPT(specialization, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),')') AS 'Doctor',
+    DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')
+    FROM pis_db.patients
+    INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
+    WHERE CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' AND pis_db.patients.date BETWEEN pFrom AND pTo
+    ORDER BY CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC
+    LIMIT 100;
+END$$
+
+DELIMITER ;
+
+USE `pis_db`;
+DROP procedure IF EXISTS `load_doctor_patients_by_date`;
+
+DELIMITER $$
+USE `pis_db`$$
+CREATE PROCEDURE `load_doctor_patients_by_date`(pDoctorFID INT, pFrom DATE, pTo DATE)
+BEGIN
+	SELECT
+    id,
+    CAST(AES_DECRYPT(patient_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR), 
+    CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR),
+    DATE_FORMAT(date, '%Y/%m/%d')
+    FROM pis_db.patients
+    WHERE
+    doctor_fid = pDoctorFID AND
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' AND pis_db.patients.date BETWEEN pFrom AND pTo
+    ORDER BY CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC
+    LIMIT 100;
 END$$
 
 DELIMITER ;

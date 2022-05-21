@@ -14,17 +14,19 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void SearchPatient(string keyword, DataGridView grid)
+        public void SearchPatient(string keyword, DateTime from, DateTime to, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL search_patient(@keyword);";
+                    string sql = @"CALL search_patient(@keyword, @from, @to);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@keyword", string.Format("%{0}%", keyword));
+                        cmd.Parameters.AddWithValue("@from", from);
+                        cmd.Parameters.AddWithValue("@to", to);
 
                         connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -41,7 +43,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
                         grid.Columns["CAST(AES_DECRYPT(pis_db.patients.last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
                         grid.Columns["CAST(AES_DECRYPT(pis_db.patients.gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Gender";
-                        grid.Columns["DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')"].HeaderText = "Date Created";
+                        grid.Columns["DATE_FORMAT(pis_db.patients.date, '%Y/%m/%d')"].HeaderText = "Date Updated";
 
                         connection.Close();
                     }
@@ -53,18 +55,20 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void SearchPatientByDoctor(int doctor_fid, string keyword, DataGridView grid)
+        public void SearchPatientByDoctor(int doctor_fid, string keyword, DateTime from, DateTime to, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL search_patient_by_doctor(@doctor_fid, @keyword);";
+                    string sql = @"CALL search_patient_by_doctor(@doctor_fid, @keyword, @from, @to);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@keyword", string.Format("%{0}%", keyword));
+                        cmd.Parameters.AddWithValue("@from", from);
+                        cmd.Parameters.AddWithValue("@to", to);
 
                         connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -81,7 +85,7 @@ namespace PatientInformationSystemNew.functions
                         grid.Columns["CAST(AES_DECRYPT(middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Middle Name";
                         grid.Columns["CAST(AES_DECRYPT(last_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Last Name";
                         grid.Columns["CAST(AES_DECRYPT(gender, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR)"].HeaderText = "Gender";
-                        grid.Columns["DATE_FORMAT(date, '%Y/%m/%d')"].HeaderText = "Date Created";
+                        grid.Columns["DATE_FORMAT(date, '%Y/%m/%d')"].HeaderText = "Date Updated";
 
                         connection.Close();
                     }
