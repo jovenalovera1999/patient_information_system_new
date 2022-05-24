@@ -109,7 +109,7 @@ namespace PatientInformationSystemNew.forms
             }
             else
             {
-                search.SearchPatientByDoctor(val.DoctorPrimaryID, this.txtSearch.Text, dateFrom.Value.Date, dateTo.Value, this.gridPatients);
+                search.SearchPatientByDoctor(val.DoctorPrimaryID, this.txtSearch.Text, this.gridPatients);
             }
         }
 

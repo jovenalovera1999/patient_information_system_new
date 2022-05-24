@@ -2107,7 +2107,7 @@ DROP procedure IF EXISTS `search_patient`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `search_patient` (pKeyword VARCHAR(800), pFrom DATE, pTo DATE)
+CREATE PROCEDURE `search_patient` (pKeyword VARCHAR(800))
 BEGIN
 	SELECT
     pis_db.patients.id,
@@ -2121,7 +2121,6 @@ BEGIN
     FROM pis_db.patients
     INNER JOIN pis_db.users ON pis_db.patients.doctor_fid = pis_db.users.id
     WHERE
-    pis_db.patients.date BETWEEN pFrom AND pTo AND
     CAST(AES_DECRYPT(pis_db.patients.first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
     CAST(AES_DECRYPT(pis_db.patients.status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
     CAST(AES_DECRYPT(pis_db.patients.middle_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
@@ -2140,7 +2139,7 @@ DROP procedure IF EXISTS `search_patient_by_doctor`;
 
 DELIMITER $$
 USE `pis_db`$$
-CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT, pKeyword VARBINARY(855), pFrom DATE, pTo DATE)
+CREATE PROCEDURE `search_patient_by_doctor` (pDoctorFID INT, pKeyword VARBINARY(855))
 BEGIN
 	SELECT
     id,
@@ -2152,7 +2151,6 @@ BEGIN
     DATE_FORMAT(date, '%Y/%m/%d')
 	FROM pis_db.patients
     WHERE
-    pis_db.patients.date BETWEEN pFrom AND pTo AND
     doctor_fid = pDoctorFID AND
     CAST(AES_DECRYPT(first_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) LIKE pKeyword AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Complete' OR
@@ -2553,7 +2551,8 @@ DELIMITER $$
 USE `pis_db`$$
 CREATE PROCEDURE `load_inventory_report` ()
 BEGIN
-	SELECT supply_id, supply_name, quantity, expiration_date FROM pis_db.inventory;
+	SELECT CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supplier', CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_id',
+    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_name', CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) 'quantity', expiration_date FROM pis_db.inventory;
 END$$
 
 DELIMITER ;

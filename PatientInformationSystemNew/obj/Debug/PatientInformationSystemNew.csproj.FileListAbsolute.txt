@@ -20,6 +20,7 @@ D:\my_projects\PatientInformationSystemNew\PatientInformationSystemNew\obj\Debug
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\PatientInformationSystemNew.exe.config
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\PatientInformationSystemNew.exe
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\PatientInformationSystemNew.pdb
+D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\Bunifu_UI_v1.52.dll
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\Guna.UI2.dll
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\Microsoft.ReportViewer.Common.dll
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
@@ -55,4 +56,3 @@ D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\De
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.csproj.CopyComplete
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.exe
 D:\my_projects\patient_information_system_new\PatientInformationSystemNew\obj\Debug\PatientInformationSystemNew.pdb
-D:\my_projects\patient_information_system_new\PatientInformationSystemNew\bin\Debug\Bunifu_UI_v1.52.dll

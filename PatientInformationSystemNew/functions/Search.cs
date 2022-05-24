@@ -14,19 +14,17 @@ namespace PatientInformationSystemNew.functions
         components.Connections con = new components.Connections();
         components.Values val = new components.Values();
 
-        public void SearchPatient(string keyword, DateTime from, DateTime to, DataGridView grid)
+        public void SearchPatient(string keyword, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL search_patient(@keyword, @from, @to);";
+                    string sql = @"CALL search_patient(@keyword);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@keyword", string.Format("%{0}%", keyword));
-                        cmd.Parameters.AddWithValue("@from", from);
-                        cmd.Parameters.AddWithValue("@to", to);
 
                         connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -55,20 +53,18 @@ namespace PatientInformationSystemNew.functions
             }
         }
 
-        public void SearchPatientByDoctor(int doctor_fid, string keyword, DateTime from, DateTime to, DataGridView grid)
+        public void SearchPatientByDoctor(int doctor_fid, string keyword, DataGridView grid)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(con.conString()))
                 {
-                    string sql = @"CALL search_patient_by_doctor(@doctor_fid, @keyword, @from, @to);";
+                    string sql = @"CALL search_patient_by_doctor(@doctor_fid, @keyword);";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@doctor_fid", doctor_fid);
                         cmd.Parameters.AddWithValue("@keyword", string.Format("%{0}%", keyword));
-                        cmd.Parameters.AddWithValue("@from", from);
-                        cmd.Parameters.AddWithValue("@to", to);
 
                         connection.Open();
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);

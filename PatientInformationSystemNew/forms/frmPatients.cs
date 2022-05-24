@@ -59,7 +59,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 else
                 {
-                    search.SearchPatientByDoctor(val.UserPrimaryID, this.txtSearch.Text, dateFrom.Value.Date, dateTo.Value, this.gridPatients);
+                    search.SearchPatientByDoctor(val.UserPrimaryID, this.txtSearch.Text, this.gridPatients);
                 }
             }
             else
@@ -70,7 +70,7 @@ namespace PatientInformationSystemNew.forms
                 }
                 else
                 {
-                    search.SearchPatient(this.txtSearch.Text, dateFrom.Value.Date, dateTo.Value.Date, this.gridPatients);
+                    search.SearchPatient(this.txtSearch.Text, this.gridPatients);
                 }
             }
         }
