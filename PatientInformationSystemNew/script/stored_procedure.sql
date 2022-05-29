@@ -474,7 +474,8 @@ BEGIN
     FROM pis_db.symptoms
     WHERE
     patient_fid = pPatientFID AND
-    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation';
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'In Consultation'
+    ORDER BY CAST(AES_DECRYPT(symptoms, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) ASC;
 END$$
 
 DELIMITER ;
@@ -1010,7 +1011,8 @@ BEGIN
 	DATE_FORMAT(pis_db.payment_transactions.date, '%Y/%m/%d')
     FROM pis_db.payment_transactions, pis_db.cashier
     WHERE pis_db.payment_transactions.id = pis_db.cashier.transaction_fid
-    AND pis_db.payment_transactions.patient_fid = pPatientFID;
+    AND pis_db.payment_transactions.patient_fid = pPatientFID
+    ORDER BY DATE_FORMAT(date, '%Y/%m/%d') DESC;
 END$$
 
 DELIMITER ;
@@ -1115,7 +1117,8 @@ BEGIN
     FROM pis_db.diagnosis 
     WHERE 
     patient_fid = pPatientFID AND
-    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible';
+    CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
+    ORDER BY DATE_FORMAT(date, '%Y/%m/%d') DESC;
 END$$
 
 DELIMITER ;
@@ -1208,7 +1211,7 @@ BEGIN
     WHERE 
     patient_fid = pPatientFID AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
-    ORDER BY date ASC;
+    ORDER BY DATE_FORMAT(date, '%Y/%m/%d') DESC;
 END$$
 
 DELIMITER ;
@@ -1318,7 +1321,7 @@ BEGIN
     WHERE
     patient_fid = pPatientFID AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
-    ORDER BY date ASC;
+    ORDER BY DATE_FORMAT(date, '%Y/%m/%d') DESC;
 END$$
 
 DELIMITER ;
@@ -1409,7 +1412,7 @@ BEGIN
 	FROM pis_db.vital_signs
 	WHERE patient_fid = pPatientFID AND
     CAST(AES_DECRYPT(status, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) = 'Visible'
-    ORDER BY date ASC;
+    ORDER BY DATE_FORMAT(date, '%Y/%m/%d') DESC;
 END$$
 
 DELIMITER ;
@@ -2552,7 +2555,8 @@ USE `pis_db`$$
 CREATE PROCEDURE `load_inventory_report` ()
 BEGIN
 	SELECT CAST(AES_DECRYPT(supplier, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supplier', CAST(AES_DECRYPT(supply_id, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_id',
-    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_name', CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) 'quantity', expiration_date FROM pis_db.inventory;
+    CAST(AES_DECRYPT(supply_name, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) AS 'supply_name', CAST(AES_DECRYPT(quantity, 'j0v3ncut3gw4p0per0jok3l4ang') AS CHAR) 'quantity',
+    DATE_FORMAT(expiration_date, '%m/%d/%y') AS 'expiration_date' FROM pis_db.inventory;
 END$$
 
 DELIMITER ;

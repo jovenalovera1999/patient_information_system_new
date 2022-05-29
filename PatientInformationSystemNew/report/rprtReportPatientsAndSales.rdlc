@@ -365,7 +365,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>PROFESSIONAL FEE</Value>
+                    <Value>PROFESSIONAL FEES</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>15pt</FontSize>
@@ -401,7 +401,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total Sales in Month:</Value>
+                    <Value>Total Fees in Month:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -436,7 +436,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total Sales in Day:</Value>
+                    <Value>Total Fees in Day:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -471,7 +471,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total Sales in Year:</Value>
+                    <Value>Total Fees in Year:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>11pt</FontSize>
@@ -506,7 +506,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Overall Total Sales:</Value>
+                    <Value>Overall Total Fees:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>11pt</FontSize>
